@@ -206,7 +206,7 @@
       "workstream": "ws-ux",
       "tier": "T1",
       "cost_tier": "openrouter_cap",
-      "cloud_action": "E2E or glance check: founder can see `Buyer-visible UX` outcome without Terminal; receipt timestamp logged"
+      "cloud_action": "E2E or glance check: founder can see `Buyer-visible UX` outcome without Terminal; receipt timestamp on disk"
     },
     {
       "n": 15,
@@ -956,7 +956,7 @@
       "workstream": "ws-ux",
       "tier": "T1",
       "cost_tier": "openrouter_cap",
-      "cloud_action": "E2E or glance check: founder can see `Buyer-visible UX` outcome without Terminal; receipt timestamp logged"
+      "cloud_action": "E2E or glance check: founder can see `Buyer-visible UX` outcome without Terminal; receipt timestamp on disk"
     },
     {
       "n": 65,
@@ -1136,7 +1136,7 @@
       "workstream": "ws-pricing",
       "tier": "T2",
       "cost_tier": "openrouter_cap",
-      "cloud_action": "Document why buyers pay per Gumloop: Non-dev teams need controlled AI automation \u2014 tie to our offer in plain English"
+      "cloud_action": "Document why buyers pay per Gumloop: Non-dev teams need governed AI automation \u2014 tie to our offer in plain English"
     },
     {
       "n": 77,

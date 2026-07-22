@@ -40,7 +40,7 @@ SourceA is an AI execution platform — real builds, automations, and agent work
 - primary_cta: /start (Request a 48-hour build)
 - agentic_first_law: If the site can show it, strangers never need a founder call. Calls are optional escalation only.
 - hero_h1: Proof-backed MVPs and acquisition systems, shipped fast.
-- hero_lead: Evaluate in five minutes with sourcea-boot — PASS or BLOCK logged. Forge Terminal, live receipt, or Brain — no sales call required.
+- hero_lead: Evaluate in five minutes with sourcea-boot — PASS or BLOCK on disk. Forge Terminal, live receipt, or Brain — no sales call required.
 - hero_denylist: Book a scope call; book a call; We show real work on a call; verify on a call; Watch before you book; Book proof demo
 
 # SourceA Positioning — One Line (LOCKED v1)

@@ -14,7 +14,7 @@ Dual desktop deploy — agentrun-app :5180 + SA4 AgentGo :8080 · landing parity
 
 ## Task
 
-**Seed CRM placeholder for** case study prose (challenge · shipped · verification).
+**Seed CRM placeholder for** case study prose (challenge · shipped · proof chain).
 
 sourcea_revenue_engine_crm_v1.py add.
 

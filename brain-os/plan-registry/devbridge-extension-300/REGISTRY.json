@@ -59,7 +59,7 @@
   "commercial_skus": {
     "extension_team": "$49/seat/mo",
     "trial_days": 14,
-    "hero_bundles": ["Connection Check", "Controlled Demo"]
+    "hero_bundles": ["Connection Check", "Governed Demo"]
   },
   "blitz_calendar": [
     {"day": 1, "steps": ["adb-ext-001", "adb-ext-043"], "phases": [1, 2], "gate": "G2 attempted MCP boot 4 packs extension folder internal catalog", "focus": "B+C internal"},
@@ -84,7 +84,7 @@
   ],
   "bundles_v1": {
     "connection_check": ["ADB-PAIR-001", "WIRE-SMOKE-001", "WIRE-RUNSYSTEM-001", "WIRE-G2-001"],
-    "controlled_demo": ["ENF-DEMO-001", "ENF-RECEIPT-001", "ENF-DEMO-FULL"],
+    "governed_demo": ["ENF-DEMO-001", "ENF-RECEIPT-001", "ENF-DEMO-FULL"],
     "internal_week1": ["ADB-PAIR-001", "WIRE-SMOKE-001", "ENF-RUN-GREEN-001", "ADB-SITE-CHECK-001", "ADB-REPO-CHECK-001"]
   },
   "mcp_tools_v1": [

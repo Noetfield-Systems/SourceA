@@ -35,7 +35,7 @@ STACK_SURFACES = {
         "pricing": "SourceA agency + Buyer-1 pricing narrative",
         "onboard": "Hub Actions + RUN INBOX first-run path",
         "integrate": "scripts/ queue + cloud dispatch APIs",
-        "scope_note": "Controlled agent orchestration motor — not MSB product",
+        "scope_note": "Governed agent orchestration motor — not MSB product",
     },
     "witnessbc": {
         "primary": "witnessbc.com pricing + toolkits hub",
@@ -77,7 +77,7 @@ WORKSTREAM_TASKS: dict[str, list[str]] = {
         "Open {link} — screenshot or quote the exact buyer-facing {ws_label} sentence {comp} uses; paste into plan evidence (vendor says: {what_they_sell})",
         "Write one-line UX spec: `{comp} {ws_label}` → buyer sees X → we show on `{surface_primary}` (lesson: {lesson})",
         "Add `{surface_primary}` UI field or copy block implementing smallest slice of `{lesson}`; preserve honest tier label",
-        "E2E or glance check: founder can see `{ws_label}` outcome without Terminal; receipt timestamp logged",
+        "E2E or glance check: founder can see `{ws_label}` outcome without Terminal; receipt timestamp on disk",
         "Diff our public copy vs {comp} pricing/product page — list 3 concrete gaps; fix highest P0 gap only",
         "Add `{surface_run}` mock row labeled mock_only until live — match {comp} run/history metaphor not invented name",
         "Document who buys ({who_buys}) vs our ICP one sentence on `{priority_md}` row for {comp}",
@@ -336,7 +336,7 @@ def prompt_body(
 
 ## Implementation extraction
 
-`{comp["name"]} · {ws_label}` → what buyer sees at vendor → what we ship logged with receipt.
+`{comp["name"]} · {ws_label}` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

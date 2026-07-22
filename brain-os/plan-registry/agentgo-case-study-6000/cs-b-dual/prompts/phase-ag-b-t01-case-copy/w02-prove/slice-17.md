@@ -14,7 +14,7 @@ Dual desktop deploy — agentrun-app :5180 + SA4 AgentGo :8080 · landing parity
 
 ## Task
 
-**Cite Wil TERMINOLOGY lines for** case study prose (challenge · shipped · verification).
+**Cite Wil TERMINOLOGY lines for** case study prose (challenge · shipped · proof chain).
 
 Read-only — no duplicate 11k counts.
 

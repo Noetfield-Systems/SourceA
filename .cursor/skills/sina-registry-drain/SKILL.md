@@ -9,7 +9,7 @@ disable-model-invocation: true
 
 # Registry drain (honest closeout)
 
-**Law:** `REGISTRY_DRAIN_PROCESS_LOCKED_v1.md` · progress = receipt files logged.
+**Law:** `REGISTRY_DRAIN_PROCESS_LOCKED_v1.md` · progress = receipt files on disk.
 
 ## Valid cycle
 

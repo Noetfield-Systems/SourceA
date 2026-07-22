@@ -87,7 +87,7 @@ Before major action, present choices so the right path is explicit:
 | TrustField / demo / ship | **PRODUCT** | Demo booked / shipped | Worker queue |
 | Fix / stuck / E2E / hub broken | **AGENT** | Targeted fix + validator PASS | 40 min blind retries |
 | Mac slow / cache | **OPS** | Cleanup receipt + what's freed | Delete `~/.sina/events` |
-| Save / lock / playbook | **DOC** | File logged + validator PASS | Chat-only summary |
+| Save / lock / playbook | **DOC** | File on disk + validator PASS | Chat-only summary |
 
 ---
 

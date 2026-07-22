@@ -110,8 +110,8 @@
 | P | Plan | Status | Phase | Next |
 |---|------|--------|-------|------|
 | 1 | **P0-RUNRECEIPT** RunReceipt — agent run PASS/FAIL receipt | active | Day 0 | Lane G3 attest + TrustField pilot (founder Track) |
-| 2 | **COMM-PARTNER-BOOT** AI infra partnerships — controlled receipt wedge (LOCKED v3) | active_parallel | Phase A — bootstrap credits (P05 done → P03→P06→P04→P02) | P03 NVIDIA Inception apply · P05 Voyage live (vault set · 629 chunks semantic:true) |
-| 2 | **M8-WIRE** DevBridge wire + full_m8 (automation M8) | mostly_green | P2 closeout | Close g3_tailscale if still pending logged |
+| 2 | **COMM-PARTNER-BOOT** AI infra partnerships — governed receipt wedge (LOCKED v3) | active_parallel | Phase A — bootstrap credits (P05 done → P03→P06→P04→P02) | P03 NVIDIA Inception apply · P05 Voyage live (vault set · 629 chunks semantic:true) |
+| 2 | **M8-WIRE** DevBridge wire + full_m8 (automation M8) | mostly_green | P2 closeout | Close g3_tailscale if still pending on disk |
 | 2 | **MERGEPACK-L1** MergePack L1 Evidence Factory (parallel) | active_parallel | v1.3 + growth when ASF chooses | MP-SHIP + MP-PAY + KPI trio; then SEO/paid per 10K plan if ASF activates |
 | 3 | **PROMPTOS-DAILY** SinaPromptOS five-repo Lane 0 | background | Daily dispatch + ingest | dispatch-day.sh → paste → ingest per repo |
 | 4 | **SUPERBRAIN-P0** SoT Layer A + chat consolidation | background | Phase 0 | First raw chat drop → L2 |

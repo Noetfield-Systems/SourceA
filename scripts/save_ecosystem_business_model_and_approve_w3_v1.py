@@ -38,7 +38,7 @@ def business_model_body(saved: str) -> str:
 
 **Category:** Agentic trust infrastructure — prove every agent action before the model runs, after it ships.
 
-**Stage:** Post-architecture · pre-revenue. Moat is real (pre-LLM policy + controlled execution + factory compiler). Gap is **one human deposit** and **routing discipline** — not more blueprints.
+**Stage:** Post-architecture · pre-revenue. Moat is real (pre-LLM policy + governed execution + factory compiler). Gap is **one human deposit** and **routing discipline** — not more blueprints.
 
 **June 2026 W3 approvals (founder):**
 | Account | Lane | SKU | Status |
@@ -64,7 +64,7 @@ L0  LLM (Claude/GPT/Gemini)         ← commodity inside nodes — never the her
 
 | Layer | Built? | Revenue? |
 |-------|--------|----------|
-| Governance spine (session gate, receipts, verification) | **Yes** — Valid YES | No external buyer yet |
+| Governance spine (session gate, receipts, proof chain) | **Yes** — Valid YES | No external buyer yet |
 | FBE W0–W2 + Phase A/B/C | **Yes** — validators PASS | Catalog live · zero paid installs |
 | Noetfield NF-RD | Shipped surface | No founding deposit closed |
 | TrustField TF-001 / TF-P1-DP | Program + Canada emails LOCKED | Ocree **approved** · send pending champion |
@@ -100,7 +100,7 @@ L0  LLM (Claude/GPT/Gemini)         ← commodity inside nodes — never the her
 |------|-------|-------|--------|
 | **TrustField** | MSB/RWA evidence shadow | $3K CAD · 30d | **Ocree approved** · Canada Priority A |
 | **Noetfield** | Copilot Governance Pack | $2K deposit refundable | **Fundmore approved** |
-| **SourceA agency** | Scoped loop build | $3–10K fixed | Film → forensic page |
+| **SourceA agency** | Governed loop build | $3–10K fixed | Film → forensic page |
 
 ### Phase 2 — Factory catalog (days 31–90) · target $2.5K–7.5K/mo maintenance
 
@@ -128,7 +128,7 @@ Factory compiler works · cloud skeleton works · catalog on website · **no pay
 ### COULD BE (12 months)
 Noetfield = default pre-LLM layer for Canadian FIs · TrustField = evidence partner for tokenization/MSB · SourceA = factory builder OS for agencies · Revenue mix: 40% pilots · 35% maintenance · 25% agency.
 
-### COULD DO (already in the repository)
+### COULD DO (on disk already)
 Non-custodial factory hosting · policy marketplace (30 packs) · MSP white-label · CREED campus import · WitnessBC correction discipline · 777 mirror receipts · NVIDIA/Microsoft badges.
 
 ---

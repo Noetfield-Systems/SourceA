@@ -37,7 +37,7 @@ This sentence is the only category line for 6 months. Nothing ships unless it se
 | Win | Score Today | Critical Gap |
 |-----|-------------|--------------|
 | W2 — Kernel | ~55% | Copilot path PASS · full-repo commit gate + bypass inventory open (S9) |
-| W1 — Demo | ~25% | Full speaker notes + auto script logged · not filmed · Hub button open (S8) |
+| W1 — Demo | ~25% | Full speaker notes + auto script on disk · not filmed · Hub button open (S8) |
 | W3 — Money | 0% | No deposit · no LOI · no signed pilot — **largest gap** |
 
 **What already exists (do not rebuild):**
@@ -98,7 +98,7 @@ Budget Tier B. Pitch Tier C as upside. Never pitch Tier D as plan.
 - Identify 10 TF/NF target contacts (compliance officers, procurement leads, MSB operators)
 - Draft outreach opener: *"We make AI execution impossible to bypass governance — building a 90-day pilot for regulated Copilot deployments. 15 minutes?"*
 
-**Gate test:** D1 + D2 logged. Bypass inventory exists. 10 targets identified.
+**Gate test:** D1 + D2 on disk. Bypass inventory exists. 10 targets identified.
 
 ---
 
@@ -120,7 +120,7 @@ Budget Tier B. Pitch Tier C as upside. Never pitch Tier D as plan.
 **Engineering:**
 - D3 part B: valid intent + `approval_ref` → stub execute → `~/.sina/demo-enforcement-receipts-v1.jsonl` appended → spine event row
 - Receipt schema locked: `{intent, gate_result, law_id, spine_event_id, receipt_checksum, timestamp, version}`
-- Test: `python3 scripts/demo_commit_v1.py --intent allow` → receipt row + spine row, both logged
+- Test: `python3 scripts/demo_commit_v1.py --intent allow` → receipt row + spine row, both on disk
 
 **Maintainer 2:**
 - FR-003 complete (target)
@@ -225,7 +225,7 @@ Budget Tier B. Pitch Tier C as upside. Never pitch Tier D as plan.
 - Total runtime: <6 minutes
 - Video stored: `investor/ENFORCEMENT_DEMO_v1.mp4` (or link)
 
-**Gate test:** Video logged. Tamper beat clearly shows FAIL on screen. Can be sent to investor immediately.
+**Gate test:** Video on disk. Tamper beat clearly shows FAIL on screen. Can be sent to investor immediately.
 
 ---
 
@@ -285,8 +285,8 @@ Budget Tier B. Pitch Tier C as upside. Never pitch Tier D as plan.
 - Pricing: CAD $5K–10K paid design partner OR CAD $2K+ deposit + 90-day pilot
 
 **Engineering (support only):**
-- Receipt JSONL export: `python3 scripts/export-demo-receipts-v1.py` — outputs controlled actions as CSV/JSONL
-- Makes "every controlled transaction" tangible for compliance buyer
+- Receipt JSONL export: `python3 scripts/export-demo-receipts-v1.py` — outputs governed actions as CSV/JSONL
+- Makes "every governed transaction" tangible for compliance buyer
 
 **Gate test:** Pilot proposal + demo in 3+ hands. At least 1 reply received.
 
@@ -320,12 +320,12 @@ Budget Tier B. Pitch Tier C as upside. Never pitch Tier D as plan.
 
 #### WEEK 19–20 — Pilot Execution
 **Commercial + Engineering:**
-- Run 30-day controlled pilot (read-only enforcement layer on client stack OR sandboxed demo environment)
-- Document every controlled action with receipt
+- Run 30-day governed pilot (read-only enforcement layer on client stack OR sandboxed demo environment)
+- Document every governed action with receipt
 - Collect: blocked actions count, receipt export, compliance officer quote (anonymized OK)
 - Prepare case study: *"Company X ran 47 Copilot governance transactions — zero bypasses, 3 invalid actions blocked, all receipts exportable."*
 
-**Gate test:** ≥10 controlled transactions with exportable receipts. Client can describe the value in one sentence.
+**Gate test:** ≥10 governed transactions with exportable receipts. Client can describe the value in one sentence.
 
 ---
 
@@ -341,7 +341,7 @@ Budget Tier B. Pitch Tier C as upside. Never pitch Tier D as plan.
 > AI agents execute actions in enterprise environments. There is no enforceable layer that blocks invalid execution, proves what ran, or detects tampering. Compliance teams have receipts for human approvals — they have nothing for AI actions.
 
 **Slide 2 — Proof (demo screenshot + metrics):**
-> BLOCK (invalid Copilot action stopped before execution) · ALLOW (valid action → receipt logged) · TAMPER (receipt edited → HARD FAIL). [Client name] controlled [N] AI transactions in 30 days. Zero bypasses. Every receipt exportable.
+> BLOCK (invalid Copilot action stopped before execution) · ALLOW (valid action → receipt on disk) · TAMPER (receipt edited → HARD FAIL). [Client name] governed [N] AI transactions in 30 days. Zero bypasses. Every receipt exportable.
 
 **Slide 3 — Wedge + Ask:**
 > Regulated AI execution is mandatory for MSBs, healthcare, and government Copilot deployments. We are the commit gate. Seed round: [amount]. Use: 3 design partners, enforcement kernel hardening, export API.
@@ -374,7 +374,7 @@ Priority investor profiles:
 - "How big is the market?" → Every enterprise AI deployment requires governance (Gartner: $X by 2028)
 - "Why can't they build this themselves?" → Enforcement without bypass is a systems problem, not a features problem
 - "What's your moat?" → Receipt chain + enforcement proof + regulated client receipts (network effects on compliance evidence)
-- "Why now?" → AI agent deployments in regulated environments are mandated but uncontrolled — FINTRAC, HIPAA, FedRAMP all have gaps
+- "Why now?" → AI agent deployments in regulated environments are mandated but ungoverned — FINTRAC, HIPAA, FedRAMP all have gaps
 
 **Gate test:** At least 1 investor meeting with follow-up request.
 
@@ -385,7 +385,7 @@ Priority investor profiles:
 
 | Tier | Condition | Result |
 |------|-----------|--------|
-| A | W1 filmed + W2 kernel clean | Demo asset logged |
+| A | W1 filmed + W2 kernel clean | Demo asset on disk |
 | B | A + W3 deposit/LOI | Seed $3–10M raise initiated |
 | C | B + tier-1 investor lead | $100M narrative credible |
 | D | — | $100M round closed (<10%) |
@@ -457,7 +457,7 @@ Before any new task, answer:
 | August | "Pilot in negotiation" | LOI draft or active proposal |
 | September | "Pilot complete — receipts exportable" | Case study with transaction count |
 | October | "Paid design partner, building second" | Invoice or deposit |
-| November | "Category leader in controlled AI execution" | 2 logos + demo + receipt export |
+| November | "Category leader in governed AI execution" | 2 logos + demo + receipt export |
 | December | "Seed term sheet or $100M signal pipeline" | Tier B/C outcome |
 
 ---
@@ -466,22 +466,22 @@ Before any new task, answer:
 
 | Week | Engineering | Commercial | Maintainer | Gate Test |
 |------|-------------|------------|------------|-----------|
-| 1 | D1+D2 fixtures · bypass inventory | 10 targets · outreach drafted | FR-003 | D1+D2 logged · targets listed |
+| 1 | D1+D2 fixtures · bypass inventory | 10 targets · outreach drafted | FR-003 | D1+D2 on disk · targets listed |
 | 2 | D3-A: BLOCK path | Batch 1 sent · 1 call booked | FR-003 | BLOCK exits ≠ 0 |
-| 3 | D3-B: ALLOW + receipt | Batch 2 · 1 call done | FR-003 complete | Receipt logged w/ spine_event_id |
+| 3 | D3-B: ALLOW + receipt | Batch 2 · 1 call done | FR-003 complete | Receipt on disk w/ spine_event_id |
 | 4 | D4: append-only log | Proposal stub drafted | 1.10 target | Tamper breaks checksum |
 | 5 | D5: tamper validator | 1 NF/TF concept call | 1.10 | validator exits 1 on tamper |
 | 6 | D6: runbook · dry run | — | 1.10 seal | Demo <6 min solo |
 | 7 | Hub button wired | Proposal sent | — | Demo from browser |
 | 8 | Script frozen · adversarial v1 | Proposal follow-up | — | Survives 3 hostile Qs |
-| 9 | Film demo (2 takes) | Video sent to prospects | — | Video logged · FAIL visible |
+| 9 | Film demo (2 takes) | Video sent to prospects | — | Video on disk · FAIL visible |
 | 10 | Adversarial hardening | 2+ active conversations | — | Zero bypass survives Q&A |
 | 11 | One-command validator | — | — | Validator <30s |
 | 12 | Phase checkpoint | Pipeline review | All complete | All W2 gates green |
 | 13–14 | Receipt JSONL export | Demo to 5+ leads · proposal | — | Proposal in 3+ hands |
 | 15–16 | RPAA stub (TF fallback) | LOI negotiation | — | LOI draft active |
 | 17–18 | Scope freeze | Close W3 | — | W3 PASS (written doc) |
-| 19–20 | Pilot support only | Pilot execution · case study | — | ≥10 controlled transactions |
+| 19–20 | Pilot support only | Pilot execution · case study | — | ≥10 governed transactions |
 | 21 | — | 3-slide deck complete | — | Deck sendable in 24h |
 | 22–23 | — | 10 investor meetings | — | 5+ meetings booked |
 | 24–25 | — | Pipeline heat | — | 1 strong IOI |

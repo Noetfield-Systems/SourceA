@@ -29,7 +29,7 @@
 | 6 | `BRAIN_FULL_SYSTEM_MAP_LOCKED_v1.md` | Architecture + automation + hub |
 | 7 | **This file** | Full map — nothing missed |
 | 7b | `~/.sina/brain/research-library/INDEX.yaml` | **Research library** — links + insights by subject; on doubt read first |
-| 8 | `CONTROLLED_EXECUTION_OS_MASTER_LOCKED_v1.md` | **Goal architecture + operating loop (LOCKED)** |
+| 8 | `GOVERNED_EXECUTION_OS_MASTER_LOCKED_v1.md` | **Goal architecture + operating loop (LOCKED)** |
 | 9 | `~/Desktop/SourceA/SINA_OS_SSOT_LOCKED.md` | Ecosystem law |
 | 10 | `~/Desktop/SourceA/os/plan-library/SOURCEA-PRIORITY.md` | Machine truth + evidence |
 | 11 | `MANDATORY_CHAT_HANDOFF_INDEX_LOCKED_v1.md` | All lane handoffs |
@@ -50,7 +50,7 @@
 | `BRAIN_FULL_SYSTEM_MAP_LOCKED_v1.md` | Systems, loops, gates, UI map |
 | `BRAIN_FULL_TRANSFER_PROMPT_LOCKED_v1.md` | Paste block for new brain chat |
 | `MANDATORY_BRAIN_CHAT_LOCKED_v1.md` | Brain contract |
-| `CONTROLLED_EXECUTION_OS_MASTER_LOCKED_v1.md` | **Unified goal architecture + golden law** |
+| `GOVERNED_EXECUTION_OS_MASTER_LOCKED_v1.md` | **Unified goal architecture + golden law** |
 | `GOAL_SPECIALIST_CHAT_PACK_LOCKED_v1.md` | Paste blocks — Commercial · Governance · SYNC · Research |
 | `BRAIN_COMPLETE_TRANSFER_LOCKED_v1.md` | **Single paste for new brain chat — supersedes fragments** |
 | `WORKER_ASSIGNMENT_AND_CHAT_ROUTING_LOCKED_v1.md` | Who gets work — one worker · RA L1/L2 |
@@ -253,9 +253,9 @@
 
 ---
 
-## P. Controlled Execution OS — Goal Specialists + operating loop (LOCKED)
+## P. Governed Execution OS — Goal Specialists + operating loop (LOCKED)
 
-**Master:** `CONTROLLED_EXECUTION_OS_MASTER_LOCKED_v1.md`  
+**Master:** `GOVERNED_EXECUTION_OS_MASTER_LOCKED_v1.md`  
 **Paste pack:** `GOAL_SPECIALIST_CHAT_PACK_LOCKED_v1.md`
 
 | Lane | Workspace | Vault |
@@ -312,7 +312,7 @@
 
 | Tier | Scope |
 |------|-------|
-| T0 | North star — controlled automation + FORGE sellable app |
+| T0 | North star — governed automation + FORGE sellable app |
 | T1 | Reference targets — RAIS, Lovable, Devin, Cursor (**research only**) |
 | T2 | Products — FORGE, Cursor OS Pro, MergePack |
 | T3 | WTM + Pre-LLM — `WORLD_TARGET_MODEL_MAP_LOCKED_v5.md` · `scripts/pre_llm/` · `~/.sina/llm_context_packet_v1.json` |

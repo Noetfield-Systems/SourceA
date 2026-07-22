@@ -16,7 +16,7 @@
 | **Brain sync** | Valid YES + `brain-goal1-validation-v1.json` matches live count | Global system sign-off — PEND on all green rows = snapshot lag, not redo |
 | **Maintainer** | Valid YES + hygiene + maintainer gates PASS | Dual proof sign-off |
 | **Map DONE** | Same as Valid YES | Yes |
-| **receipt_done** | `receipts/sa-XXXX-receipt.json` logged | Shown separately — may exceed Valid YES if broker gap |
+| **receipt_done** | `receipts/sa-XXXX-receipt.json` on disk | Shown separately — may exceed Valid YES if broker gap |
 | **STRUCT_OK** | Prompt `.md` exists, registry backlog | **No** |
 | **Broker STALE** | Old `WORKER_SUBMIT` on backlog, no receipt | **No** |
 
@@ -28,7 +28,7 @@
 
 Broker **PASS** requires **all** of:
 
-1. Registry `done` + honest receipt logged  
+1. Registry `done` + honest receipt on disk  
 2. Broker events include **check + act + verify** for that `sa_id`  
 3. Last **verify** event: `orch_ok=true` (full CHECK→ACT→VERIFY in events)  
 4. If `deliver_ok=false` but honest **receipt** exists → **PASS** (delivery gap only; receipt wins)

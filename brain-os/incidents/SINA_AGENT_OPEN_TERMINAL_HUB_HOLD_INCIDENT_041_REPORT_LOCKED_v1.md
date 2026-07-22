@@ -15,7 +15,7 @@ Agent **left Cursor terminal open** running `sina-command-server.py` so Hub woul
 
 `data/incident-041-agent-open-terminal-hub-hold-v1.json`
 
-## RED FLAG logged
+## RED FLAG on disk
 
 - `~/.sina/incident-041-open-terminal-red-flag-v1.flag`
 - `~/.sina/incident-041-open-terminal-receipt-v1.json`

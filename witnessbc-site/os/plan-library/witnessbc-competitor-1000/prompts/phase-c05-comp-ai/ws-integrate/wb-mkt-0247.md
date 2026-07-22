@@ -23,7 +23,7 @@ Rate-limit + retry policy copied from Comp AI operating model (Guided setup; aut
 
 ## Implementation extraction
 
-`Comp AI · Integrations & API` → what buyer sees at vendor → what we ship logged with receipt.
+`Comp AI · Integrations & API` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

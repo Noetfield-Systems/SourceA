@@ -12,7 +12,7 @@ Mono portfolio spine — cross-lane receipts only
 
 ## Task
 
-SinaaiMonoRepo · Factory runtime · Prove · slice 9/10 — P3 — research · defer · compare-only. Bounded path only. Receipt logged before done. Parent: Mono portfolio spine — cross-lane receipts only. Priority doc: `os/plan-library/mono-1000/REGISTRY.json`.
+SinaaiMonoRepo · Factory runtime · Prove · slice 9/10 — P3 — research · defer · compare-only. Bounded path only. Receipt on disk before done. Parent: Mono portfolio spine — cross-lane receipts only. Priority doc: `os/plan-library/mono-1000/REGISTRY.json`.
 
 ## Verify
 

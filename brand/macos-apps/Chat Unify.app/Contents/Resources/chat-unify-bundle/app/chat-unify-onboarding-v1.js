@@ -9,7 +9,7 @@
     '<div class="cu-onboarding-card" role="dialog" aria-labelledby="cu-onb-title">' +
     '<p class="cu-onboarding-kicker">Welcome · Chat Unify 4.9.9</p>' +
     '<h2 id="cu-onb-title">Where do you want to start?</h2>' +
-    '<p class="cu-onboarding-lead">Paste any AI reply, verify with PASS or BLOCK, and keep receipts in the repository — no Cursor required to begin.</p>' +
+    '<p class="cu-onboarding-lead">Paste any AI reply, verify with PASS or BLOCK, and keep receipts on disk — no Cursor required to begin.</p>' +
     '<div class="cu-onboarding-paths">' +
     '<button type="button" data-path="new"><strong>New to agents</strong><span>Paste in Chat · verify your first reply</span></button>' +
     '<button type="button" data-path="cursor"><strong>Cursor power user</strong><span>Forge a bounded mission · Connect your stack</span></button>' +

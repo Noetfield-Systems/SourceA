@@ -86,7 +86,7 @@
 | SRED-04 | Experiment log (dated) | SourceA | `receipts/sred-experiment-log-2026/` — **555-02 DONE** | [x] |
 | SRED-05 | Hypothesis register | SourceA | `receipts/sred-experiment-log-2026/HYPOTHESIS_REGISTER.md` | [x] |
 | SRED-06 | Git commit history mapped to project IDs | SourceA | `git log --oneline scripts/commit_intent_v1.py scripts/validate-demo-enforcement-v1.sh` | [~] |
-| SRED-07 | Eval-1b reports | SourceA | `eval_packet_v1b_report.json` — **absent logged 2026-07-01**; use structural mode + honest counter | [!] |
+| SRED-07 | Eval-1b reports | SourceA | `eval_packet_v1b_report.json` — **absent on disk 2026-07-01**; use structural mode + honest counter | [!] |
 | SRED-08 | Timesheets (% R&D allocation) | All R&D entities | Payroll / timesheet export — _____% SourceA R&D | [ ] |
 | SRED-09 | Meeting minutes (R&D decisions) | SourceA | Dated LOCKED docs in `brain-os/law/` | [~] |
 | SRED-10 | Form T661 technical narrative draft | SourceA | Derive from `docs/IRAP_TECHNICAL_NARRATIVE_ENFORCEMENT_KERNEL_UNCERTAINTY_DRAFT_LOCKED_v1.md` | [~] |
@@ -281,7 +281,7 @@ python3 scripts/commit_intent_v1.py --demo-enforcement --case allow --json
 | ID | Item | Entity | Status | Notes |
 |----|------|--------|--------|-------|
 | TRD-01 | TrustField = evidence layer positioning frozen | TrustField | [x] | Not trading bot |
-| TRD-02 | Noetfield split from crypto outbound | Noetfield | [x] | Routing law in repository |
+| TRD-02 | Noetfield split from crypto outbound | Noetfield | [x] | Routing law on disk |
 | TRD-03 | Priority A Ocree send | TrustField | [~] | Approved · champion pending |
 | TRD-04 | FINTRAC demo script filmed | TrustField | [ ] | 15-min live demo |
 | TRD-05 | Prop trader lane explicitly declined | All | [x] | AKIVA owns open-source |

@@ -7,7 +7,7 @@
   "window_hours": 24.0,
   "head_sha": "0460b5f93152d5b1dd154a65dfa98c344cf4a6b5",
   "post_merge_sweep_receipt": "receipts/proof/trigger-sweep-post-merge-0460b5f9.json",
-  "law": "controlled-autorun \u2014 DECLARED until 24h green on external receipts",
+  "law": "governed-autorun \u2014 DECLARED until 24h green on external receipts",
   "criteria": {
     "zero_manual": "no manual trigger_source in cycle receipts",
     "cycle_receipt_v2": "every cycle autonomous-forge-run-cycle-receipt-v2",

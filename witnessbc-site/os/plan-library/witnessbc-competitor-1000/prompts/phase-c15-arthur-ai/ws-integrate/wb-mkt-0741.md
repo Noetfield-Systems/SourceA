@@ -23,7 +23,7 @@ List Arthur AI integrations/APIs from https://www.arthur.ai or docs — pick one
 
 ## Implementation extraction
 
-`Arthur AI · Integrations & API` → what buyer sees at vendor → what we ship logged with receipt.
+`Arthur AI · Integrations & API` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

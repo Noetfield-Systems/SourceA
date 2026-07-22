@@ -1,4 +1,4 @@
-# sa-score-0497 — Receipt logged for guided tour dismiss persists per session
+# sa-score-0497 — Receipt on disk for guided tour dismiss persists per session
 
 **Saved at:** 2026-06-25T09:23:55Z
 **Version:** 1 · **Tier:** T2 · **Phase:** LATER
@@ -16,7 +16,7 @@ Raise SourceA site score toward **95+/100** — proof before call · stranger se
 
 P2 — harden · document · validate
 
-**Deliverable:** Receipt logged for guided tour dismiss persists per session
+**Deliverable:** Receipt on disk for guided tour dismiss persists per session
 
 Bounded paths: `SourceA-landing/green-unified/` · `cloud/workers/sourcea-site-pulse-v1/` · `scripts/validate-sourcea-modern-stack-e2e-v1.sh`
 

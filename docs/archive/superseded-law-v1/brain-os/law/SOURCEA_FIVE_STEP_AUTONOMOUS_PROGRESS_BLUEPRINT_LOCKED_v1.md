@@ -12,7 +12,7 @@
 **Version:** 1.0 — LOCKED  
 **sequence_id:** SA-2026-06-11-FIVE-STEP-APEX  
 **Authority:** ASF · apex simplification over all session machines  
-**For:** 2026–2027 path to controlled autonomous agentic system (not Cursor AUTO-RUN P0)  
+**For:** 2026–2027 path to governed autonomous agentic system (not Cursor AUTO-RUN P0)  
 **Parent stack:** This doc **wraps** (does not replace) topic laws below
 
 **Pack pointer-only (do not restate here):** closeout table → `SOURCEA_RESULT_DRIVEN_DISCUSSION_POLICY_LOCKED_v1.md` §4 · 100-step cells → `SOURCEA_SYSTEM_INTEGRITY_100_STEP_PLAYBOOK_LOCKED_v1.md` · fork 7-step → `SOURCEA_COMPLEX_SITUATION_FORK_MACHINE_LOCKED_v1.md` · precedence when confused → Batch 2 §17
@@ -44,7 +44,7 @@
 
 | Year | Target | Success signal |
 |------|--------|----------------|
-| **2026 H2** | Controlled agentic ops on Mac + hub | Valid YES sustained · 0 CRITICAL · founder never Terminal |
+| **2026 H2** | Governed agentic ops on Mac + hub | Valid YES sustained · 0 CRITICAL · founder never Terminal |
 | **2027** | Copy agents train from Layer A + receipts | 4+ agents onboard from Personal DB L0–L4 without chat drift |
 | **Never** | Cursor AUTO-RUN as P0 | `FOUNDER_AGENTIC` law |
 
@@ -122,7 +122,7 @@ python3 five_step_progress_machine_v1.py scan --json
 |-------|------|
 | **Subject** | 3–8 words |
 | **Question** | One sentence |
-| **In the repository** | Evidence path |
+| **On disk** | Evidence path |
 | **Effect** | If we do X → what changes (mandatory) |
 
 **Formats (pick one per fork):**

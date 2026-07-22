@@ -123,9 +123,9 @@ def _read_eval_1b() -> dict:
     elif mode == "scaffold" and ok:
         closure = "Eval-1b scaffold PASS — proxy only; run live probe before dispatch."
     elif mode == "scaffold":
-        closure = "Eval-1b scaffold FAIL — harness/packet weaker than raw logged tasks."
+        closure = "Eval-1b scaffold FAIL — harness/packet weaker than raw on disk tasks."
     else:
-        closure = f"Eval-1b locally ({mode}) — verify live_ok before dispatch."
+        closure = f"Eval-1b on disk ({mode}) — verify live_ok before dispatch."
     return {
         "present": True,
         "path": str(EVAL_1B_REPORT),
@@ -172,11 +172,11 @@ def _stage_proof(*, draft: str, founder_message: str) -> dict:
     if "archive" in low:
         claims.append("Agent mentions archive.")
     if re.search(r"\b(pass|wired|zero drift)\b", low):
-        claims.append("Agent uses success/wired language — verify logged.")
+        claims.append("Agent uses success/wired language — verify on disk.")
 
     disk_lines: list[str] = []
     if snap.get("batch_4") == "frozen":
-        disk_lines.append("Cleanup manifest logged: Batch 4 is still FROZEN (needs your APPROVED).")
+        disk_lines.append("Cleanup manifest on disk: Batch 4 is still FROZEN (needs your APPROVED).")
     if snap.get("batch_3_5") == "done":
         disk_lines.append("Batch 3.5 pointer sync is marked done on manifest.")
     if snap.get("factory_now"):
@@ -186,27 +186,27 @@ def _stage_proof(*, draft: str, founder_message: str) -> dict:
     else:
         disk_lines.append("No live surfaces receipt read — disk not fully checked.")
     if snap.get("drift_score") is not None:
-        disk_lines.append(f"Governance drift score logged: {snap['drift_score']} · items {snap.get('drift_items', '?')}")
+        disk_lines.append(f"Governance drift score on disk: {snap['drift_score']} · items {snap.get('drift_items', '?')}")
 
     eval_row = snap.get("eval_1b") or {}
     if eval_row.get("present"):
-        disk_lines.append(f"Eval-1b ({eval_row.get('mode')}): {eval_row.get('summary') or 'in the repository'}")
+        disk_lines.append(f"Eval-1b ({eval_row.get('mode')}): {eval_row.get('summary') or 'on disk'}")
         disk_lines.append(eval_row.get("execution_closure_line") or "Eval-1b present.")
     else:
-        disk_lines.append("Eval-1b report missing — execution truth gap (no behavioral verification built in).")
+        disk_lines.append("Eval-1b report missing — execution truth gap (no behavioral proof on disk).")
 
     mismatch: list[str] = []
     if "batch 4" in low and snap.get("batch_4") == "frozen" and re.search(r"\b(execute|run|move|approved)\b", low):
         mismatch.append("Agent may imply Batch 4 can run — manifest still says FROZEN.")
     if re.search(r"\bpass\b.*\bzero drift\b", low) and snap.get("drift_items") not in (0, "0", None):
-        mismatch.append("Agent claims zero drift — check drift_items logged.")
+        mismatch.append("Agent claims zero drift — check drift_items on disk.")
     if re.search(r"\b(dispatch|factory|execute|ship)\b", low) and eval_row.get("present"):
         if eval_row.get("mode") == "live" and eval_row.get("live_ok") is False:
-            mismatch.append("Agent implies execution/dispatch — Eval-1b live FAIL logged.")
+            mismatch.append("Agent implies execution/dispatch — Eval-1b live FAIL on disk.")
         elif eval_row.get("mode") == "scaffold" and not eval_row.get("ok"):
-            mismatch.append("Agent implies execution — Eval-1b scaffold FAIL logged.")
+            mismatch.append("Agent implies execution — Eval-1b scaffold FAIL on disk.")
     elif re.search(r"\b(dispatch|factory ready|execution runtime)\b", low) and not eval_row.get("present"):
-        mismatch.append("Agent implies execution proof — Eval-1b report not present locally.")
+        mismatch.append("Agent implies execution proof — Eval-1b report not on disk.")
     if not mismatch:
         mismatch.append("No obvious agent-vs-manifest mismatch from local checks.")
 

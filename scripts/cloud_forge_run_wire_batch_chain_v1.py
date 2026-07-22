@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Wire cloud-forge-run-queue-active-v1 next_batch chain through all locked batch files logged."""
+"""Wire cloud-forge-run-queue-active-v1 next_batch chain through all locked batch files on disk."""
 from __future__ import annotations
 
 import json

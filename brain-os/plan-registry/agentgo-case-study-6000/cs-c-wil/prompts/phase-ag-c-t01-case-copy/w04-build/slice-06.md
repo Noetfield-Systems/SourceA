@@ -14,7 +14,7 @@ Wil L3 portfolio demo — YA5 mirror · AgentGo ≠ SourceA separation · ship g
 
 ## Task
 
-**Extract one compare page for** case study prose (challenge · shipped · verification).
+**Extract one compare page for** case study prose (challenge · shipped · proof chain).
 
 Competitor fair-use.
 

@@ -9,10 +9,10 @@
       "lane": "revenue",
       "tier": "starter",
       "badge": "pass",
-      "badge_label": "PASS · logged",
+      "badge_label": "PASS · on disk",
       "icon": "↗",
       "tagline": "Attract · pipeline",
-      "summary": "Controlled commercial sends — context first, policy at dispatch, receipt your client replays Monday morning.",
+      "summary": "Governed commercial sends — context first, policy at dispatch, receipt your client replays Monday morning.",
       "steps": ["Context gather", "Policy at dispatch", "ALLOW receipt"],
       "buyer": "Agencies · AB1 eval lane"
     },

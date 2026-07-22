@@ -121,7 +121,7 @@ def fork_inventory_template() -> str:
 | F-01 | … | … | choice4 / yesno / text | F | open |
 
 ## Options — F-01
-| Key | Label | If you pick → Effect logged |
+| Key | Label | If you pick → Effect on disk |
 |-----|-------|------------------------------|
 | A | … | … |
 | B | … | … |

@@ -4,7 +4,7 @@ ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 
 python3 "$ROOT/scripts/build.py" --json >/dev/null
 
-FORBIDDEN='sourcea|sourcea-layout-light|sourcea-layout-dark|notenic|witness bc'
+FORBIDDEN='sourcea|zenity|nomotic|notenic|witness bc'
 BRAND_ALLOW='witnessbc\.com|brand-disambiguation|operations@noetfield\.com|class="brand-other"|lane-router|noetfield\.com/copilot'
 for f in "$ROOT/index.html" "$ROOT/platform.html" "$ROOT/lifecycle.html" "$ROOT/proof.html" "$ROOT/compare.html" "$ROOT/policy.html" "$ROOT/pricing.html" "$ROOT/faq.html" "$ROOT/sources.html" "$ROOT/assets/styles.css" "$ROOT/assets/motion.css" "$ROOT/assets/tokens.css" "$ROOT/assets/site.js" "$ROOT/assets/proof-demo.js" "$ROOT/assets/control-plane.js" "$ROOT/data/references.json"; do
   if [[ -f "$f" ]] && grep -iE "$FORBIDDEN" "$f" 2>/dev/null | grep -viE "$BRAND_ALLOW"; then

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """RUN THE LOOP + trace: narrate gates → spawn if READY → return in <30s (no poll).
 
-Default "run the loop": trace gates then spawn. Loop runs logged in background.
+Default "run the loop": trace gates then spawn. Loop runs on disk in background.
 Law: BRAIN_UNIFIED_RULES_LOCKED_v1.md §1
 """
 from __future__ import annotations
@@ -119,7 +119,7 @@ def main() -> int:
         "which_chat": "Headless: no Cursor chat. Manual lane: SourceA Worker chat + run inbox.",
         "spawn": spawn_row,
         "chain": watch.get("chain"),
-        "enforcement_note": "Steps 1-9 trace; step 10 spawn if READY; Brain reply ends; loop continues logged",
+        "enforcement_note": "Steps 1-9 trace; step 10 spawn if READY; Brain reply ends; loop continues on disk",
     }
     SINA.mkdir(parents=True, exist_ok=True)
     RECEIPT.write_text(json.dumps(out, indent=2) + "\n", encoding="utf-8")

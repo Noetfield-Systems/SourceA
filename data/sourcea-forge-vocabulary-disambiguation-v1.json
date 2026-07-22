@@ -34,7 +34,7 @@
     "phase_1": "Cursor IDE integration",
     "positioning": "Full-codebase context · surgical diffs · orchestrator · deploy — not a remote IDE wrapper",
     "competitors_beaten": ["Lovable", "Replit", "remote IDE bridges", "dumb no-code glue"],
-    "not": ["DevBridge", "icp compile", "machine prove", "Controlled App Factory line id"]
+    "not": ["DevBridge", "icp compile", "machine prove", "Governed App Factory line id"]
   },
   "disambiguation_table": [
     {
@@ -53,10 +53,10 @@
       "deprecated_paths": ["data/icp-forge/", "data/icp-output-forge-v1.json"]
     },
     {
-      "id": "controlled_app_factory",
-      "say": "Controlled App Factory",
+      "id": "governed_app_factory",
+      "say": "Governed App Factory",
       "never_say": ["Forge app", "the Forge product"],
-      "means": "FBE factory line 3 — ships controlled app deploy packs for Forge SKU tenant",
+      "means": "FBE factory line 3 — ships governed app deploy packs for Forge SKU tenant",
       "technical_ids": ["forge-app-factory-v1", "forge-bay", "factory_3"],
       "note": "Technical ids retain forge- prefix for receipt stability — human label never substitutes for Forge product"
     },
@@ -88,7 +88,7 @@
   "agent_rules": [
     "Forge (capital F) = product only — ~/Desktop/forge",
     "ICP compile = email/output factory — never forge verb",
-    "Controlled App Factory = FBE line name — not Forge product",
+    "Governed App Factory = FBE line name — not Forge product",
     "machine prove = upgrade gauntlet — founder trigger word forge only",
     "DevBridge ⊂ Forge integration story — not equal to Forge"
   ],

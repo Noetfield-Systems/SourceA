@@ -23,7 +23,7 @@ Document who buys (Early-stage SaaS) vs our ICP one sentence on `witnessbc-site/
 
 ## Implementation extraction
 
-`Comp AI · Buyer-visible UX` → what buyer sees at vendor → what we ship logged with receipt.
+`Comp AI · Buyer-visible UX` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

@@ -16,7 +16,7 @@ Revenue Engine · Proof Pack · landing · factory-runtime-spike
 **Agent verbs enforce** — Governance & SSOT (GOV).
 
 Noetfield Intelligence 613 · Prove · slice 5/10.
-Bounded path only. Receipt logged before done.
+Bounded path only. Receipt on disk before done.
 Parent: Revenue Engine · Proof Pack · landing · factory-runtime-spike.
 Priority doc: `brain-os/plan-registry/SOURCEA-PRIORITY.md`.
 

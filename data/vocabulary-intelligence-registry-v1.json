@@ -82,11 +82,11 @@
       "label": "Commercial product loop (SKU)",
       "policy": "keep",
       "keep_patterns": [
-        "scoped loop",
+        "governed loop",
         "loop build",
         "Agent Loop Build",
         "/sourcea/loops/",
-        "live scoped loop",
+        "live governed loop",
         "outreach loop"
       ]
     },

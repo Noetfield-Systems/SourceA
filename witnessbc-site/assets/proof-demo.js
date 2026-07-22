@@ -6,7 +6,7 @@
     { label: "Policy evaluation at dispatch", film: 1 },
     { label: "Decision: ALLOW / BLOCK / ESCALATE", film: 2 },
     { label: "Human gate when required", film: 3 },
-    { label: "Signed receipt logged", film: 4 },
+    { label: "Signed receipt on disk", film: 4 },
     { label: "Replay from ledger", film: 5 },
     { label: "Tamper-FAIL on hand edit", film: 6 },
   ];

@@ -23,7 +23,7 @@ Add retention note: how long run history kept vs Vanta (Custom; often $10k–50k
 
 ## Implementation extraction
 
-`Vanta · Run history & proof` → what buyer sees at vendor → what we ship logged with receipt.
+`Vanta · Run history & proof` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

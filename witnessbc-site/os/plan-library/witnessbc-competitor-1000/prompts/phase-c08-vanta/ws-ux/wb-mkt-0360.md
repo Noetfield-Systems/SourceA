@@ -23,7 +23,7 @@ Mark wb-mkt-0360 done in REGISTRY with evidence path + https://www.vanta.com aft
 
 ## Implementation extraction
 
-`Vanta · Buyer-visible UX` → what buyer sees at vendor → what we ship logged with receipt.
+`Vanta · Buyer-visible UX` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

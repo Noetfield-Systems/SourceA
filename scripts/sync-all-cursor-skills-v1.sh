@@ -12,8 +12,8 @@ fail() { echo "FAIL: sync-all-cursor-skills-v1 — $*" >&2; exit 1; }
 echo "== 1/4 agent-skills registry → user + project mirror =="
 bash "$ROOT/scripts/sync-cursor-agent-skills.sh"
 
-echo "== 2/4 controlled-autorun v3 =="
-bash "$ROOT/scripts/sync-controlled-autorun-skill-v1.sh"
+echo "== 2/4 governed-autorun v3 =="
+bash "$ROOT/scripts/sync-governed-autorun-skill-v1.sh"
 
 echo "== 3/4 signal-factory v1 =="
 bash "$ROOT/scripts/sync-signal-factory-skill-v1.sh"

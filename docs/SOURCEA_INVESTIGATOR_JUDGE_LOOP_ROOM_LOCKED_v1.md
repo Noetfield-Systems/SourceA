@@ -17,7 +17,7 @@
 
 ## 0. One sentence (law)
 
-> **Investigator Circle always tracks loop health logged; Judge Room verdicts conflicts; Advisory Circle ranks next prompts; Auto Runtime specialist composes and dispatches — Brain alone holds execution authority; rooms REPORT or bounded ACT, never a second Brain.**
+> **Investigator Circle always tracks loop health on disk; Judge Room verdicts conflicts; Advisory Circle ranks next prompts; Auto Runtime specialist composes and dispatches — Brain alone holds execution authority; rooms REPORT or bounded ACT, never a second Brain.**
 
 ---
 

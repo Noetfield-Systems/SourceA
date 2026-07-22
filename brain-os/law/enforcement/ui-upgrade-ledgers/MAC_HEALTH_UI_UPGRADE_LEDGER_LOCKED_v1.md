@@ -30,7 +30,7 @@
 - [x] **MH-2** :13024 health + page HTTP 200 · `ui_contract` wired  
 - [x] **MH-3** `validate-mac-health-founder-glance-v1.sh` PASS  
 - [x] **MH-4** Included in Mac Law surfaces probe  
-- [x] **MH-5** Bundle sync + wire receipt logged  
+- [x] **MH-5** Bundle sync + wire receipt on disk  
 
 ---
 
@@ -42,7 +42,7 @@
 |-------|-------|
 | Preserved | Health guard UI + mandates wiring |
 | Changed | Per-app Mac Health upgrade ledger created |
-| Achieved | MH inventory + checklist in repository |
+| Achieved | MH inventory + checklist on disk |
 | Quality vs last | baseline |
 | Founder approval | **approved** |
 

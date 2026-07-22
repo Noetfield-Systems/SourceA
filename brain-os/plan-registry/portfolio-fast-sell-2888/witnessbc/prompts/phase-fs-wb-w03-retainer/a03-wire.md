@@ -10,7 +10,7 @@
 
 ## Task
 
-Fast-sell: WitnessBC · Monthly ops retainer · Wire SKU on landing. Ship smallest slice that moves a buyer toward **Public proof page pilot** with a path to **Civic annual + audit export**. Receipt logged before done.
+Fast-sell: WitnessBC · Monthly ops retainer · Wire SKU on landing. Ship smallest slice that moves a buyer toward **Public proof page pilot** with a path to **Civic annual + audit export**. Receipt on disk before done.
 
 ## Verify
 

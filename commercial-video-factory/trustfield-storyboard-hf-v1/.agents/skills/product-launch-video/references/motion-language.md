@@ -6,7 +6,7 @@
 
 The single failure that makes a promo read as PowerPoint: a frame whose content **animates in over the first ~0.8s, then freezes** for the rest of its duration while a slow drift plays underneath. The entrance is not the shot — it's the **first beat** of it. You direct the **whole duration**.
 
-Three layers fill a shot, each controlled by a different rule:
+Three layers fill a shot, each governed by a different rule:
 
 | Layer                     | What                                                                                             | Rule                                                                        |
 | ------------------------- | ------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------- |

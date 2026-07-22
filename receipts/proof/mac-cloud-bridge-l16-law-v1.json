@@ -3,7 +3,7 @@
   "wire": "L16",
   "title": "Mac agents are registered spine workflows",
   "at": "2026-07-02T22:22:28Z",
-  "law_doc": "docs/CONTROLLED_AUTORUN_LAWS_v3.md",
+  "law_doc": "docs/GOVERNED_AUTORUN_LAWS_v3.md",
   "section": "L16 — Mac agents are spine citizens (MAC-CLOUD BRIDGE)",
   "requirements": [
     "heartbeat",

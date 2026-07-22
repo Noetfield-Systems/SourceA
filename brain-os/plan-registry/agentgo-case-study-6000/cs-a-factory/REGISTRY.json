@@ -459,7 +459,7 @@
       "lane": "sourcea",
       "agent_prompt": "PLAN WITH NO ASF \u2014 ag-a-0017: Factory \u00b7 Narrative \u00b7 Ship \u00b7 Subdomain plan",
       "smart_version": 3,
-      "polish_wisdom": "Proof pack row optional \u2014 only if phase1 ticket still sealed logged.",
+      "polish_wisdom": "Proof pack row optional \u2014 only if phase1 ticket still sealed on disk.",
       "unique_key": "cs-a-factory:t01-case-copy:w01-ship:17"
     },
     {

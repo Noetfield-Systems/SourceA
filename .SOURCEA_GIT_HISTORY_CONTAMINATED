@@ -1,0 +1,6 @@
+CONTAMINATED=1
+REASON=pre-rewrite Git history
+PRE_REWRITE_MAIN=f3b1fd4e3928535941b81e6cb67032542bdbc281
+POST_REWRITE_MAIN=49bf6d3f8449cb5ca1868ef26764d3bbcc132e8c
+ACTION=Do not pull/rebase this clone. Delete and fresh-clone from github.com/Noetfield-Systems/SourceA.
+UTC=2026-07-14T09:29:23Z

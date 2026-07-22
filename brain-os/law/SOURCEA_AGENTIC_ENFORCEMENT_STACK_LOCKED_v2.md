@@ -12,7 +12,7 @@
 
 ## 0. One sentence
 
-> **Agents fail-closed logged law, emit spine events on every session gate, and carry conduct limits (no validator chains, scan-before-heal, commercial read order) into every chat — chat is never SSOT.**
+> **Agents fail-closed on disk law, emit spine events on every session gate, and carry conduct limits (no validator chains, scan-before-heal, commercial read order) into every chat — chat is never SSOT.**
 
 ---
 

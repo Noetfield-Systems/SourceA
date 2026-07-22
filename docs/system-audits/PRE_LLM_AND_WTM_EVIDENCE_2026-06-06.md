@@ -7,7 +7,7 @@
 
 ## Pre-LLM role
 
-Compiles controlled context **before** any LLM call: retrieval, packing, policy attachment, hub-visible synthesis inputs. This is the core “compiler” identity of SourceA — not the chat UI.
+Compiles governed context **before** any LLM call: retrieval, packing, policy attachment, hub-visible synthesis inputs. This is the core “compiler” identity of SourceA — not the chat UI.
 
 ---
 

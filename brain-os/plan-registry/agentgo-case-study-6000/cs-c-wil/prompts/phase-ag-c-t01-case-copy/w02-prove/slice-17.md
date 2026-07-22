@@ -14,7 +14,7 @@ Wil L3 portfolio demo — YA5 mirror · AgentGo ≠ SourceA separation · ship g
 
 ## Task
 
-**Cite Wil TERMINOLOGY lines for** case study prose (challenge · shipped · verification).
+**Cite Wil TERMINOLOGY lines for** case study prose (challenge · shipped · proof chain).
 
 Read-only — no duplicate 11k counts.
 

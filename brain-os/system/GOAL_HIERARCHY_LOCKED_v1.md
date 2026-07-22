@@ -3,7 +3,7 @@
 **Saved:** 2026-06-16T05:49:57Z · **Retrofit:** doc-datetime-law batch retrofit
 **Version:** 1.1 · **Locked:** 2026-06-06  
 **Authority:** ASF correction — MSB/TrustField is **never** north star · **RunReceipt has no standalone numbered goal**  
-**Parent:** `CONTROLLED_EXECUTION_OS_MASTER_LOCKED_v1.md` · `BRAIN_FOUNDER_INTENT_REGISTRY_LOCKED_v1.md`  
+**Parent:** `GOVERNED_EXECUTION_OS_MASTER_LOCKED_v1.md` · `BRAIN_FOUNDER_INTENT_REGISTRY_LOCKED_v1.md`  
 **Purpose:** Default brain/SYNC context order — Execution Core reads this before reconciling picks, research, or founder answers.
 
 ---
@@ -25,9 +25,9 @@ Receipt: `SOURCEA_PHASE2_INTEGRITY_PICK_RECEIPT_2026-06-11_LOCKED_v1.md`
 
 ## T0 — North star
 
-**Controlled automation factory** — minimal founder design, machine validators as truth, Hub-only control.
+**Governed automation factory** — minimal founder design, machine validators as truth, Hub-only control.
 
-- Sellable outcome: **FORGE** (controlled app factory ASF can ship)
+- Sellable outcome: **FORGE** (governed app factory ASF can ship)
 - Path: `sourcea-1000` REGISTRY → 10k ecosystem prompts
 - Honesty: **Level 1 semi-auto NOW** · Level 3 zero-human **NOT claimed**
 - Gates: `dispatch_ready` = `orchestrator_dispatch_ready()` when eval live + enforce · `eval_1b_gate_ok` required
@@ -40,7 +40,7 @@ External analogs for Goal A positioning. **Research Acquisitor compares; Executi
 
 | Target | Use |
 |--------|-----|
-| **RAIS-class** | Autonomous agent / controlled automation analog |
+| **RAIS-class** | Autonomous agent / governed automation analog |
 | **Lovable** | Rapid app generation / hybrid UX analog |
 | **Devin** | Long-horizon coding agent analog |
 | **Cursor** | IDE-native agent analog |
@@ -81,7 +81,7 @@ Brain **must** use this table for step-count queries. **Do not invent Goal 2 = R
 
 | Goal # | Tier | Name | Step model |
 |--------|------|------|------------|
-| **1** | T0 + T4 | Controlled automation factory + remote M8 | **1000-pack** (10×100) · live `sa-XXXX` · **NOT RunReceipt** |
+| **1** | T0 + T4 | Governed automation factory + remote M8 | **1000-pack** (10×100) · live `sa-XXXX` · **NOT RunReceipt** |
 | **2** | T3 | World Target Model + Pre-LLM | **33 steps** (WTM A→D) + strategic phases 0–5 |
 | **3** | T2 primary | **FORGE** | PRD 8-week MVP + **10-item** launch checklist |
 | **4** | T1 | Research sensor (RAIS-class, Lovable, Devin, voice…) | Sector briefs · no 100-pack · no pick reorder |

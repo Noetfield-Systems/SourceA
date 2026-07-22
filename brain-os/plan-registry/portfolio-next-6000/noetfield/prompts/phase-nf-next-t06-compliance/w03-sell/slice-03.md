@@ -12,7 +12,7 @@ Intelligence 613 · Copilot governance upsell · Trust Brief
 
 ## Task
 
-Noetfield · MSB & compliance · Sell · slice 3/10 — P1 — next sprint outcome. Bounded path only. Receipt logged before done. Parent: Intelligence 613 · Copilot governance upsell · Trust Brief. Priority doc: `docs/NOETFIELD_INTELLIGENCE_613_PLAN_LOCKED_v1.md`.
+Noetfield · MSB & compliance · Sell · slice 3/10 — P1 — next sprint outcome. Bounded path only. Receipt on disk before done. Parent: Intelligence 613 · Copilot governance upsell · Trust Brief. Priority doc: `docs/NOETFIELD_INTELLIGENCE_613_PLAN_LOCKED_v1.md`.
 
 ## Verify
 

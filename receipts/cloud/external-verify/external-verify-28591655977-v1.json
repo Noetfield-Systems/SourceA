@@ -2,7 +2,7 @@
   "schema": "external-verify-receipt-v1",
   "version": "1.1.0",
   "at": "2026-07-02T12:55:45Z",
-  "law": "CONTROLLED_AUTORUN_LAWS_v3 L4+L13 \u2014 external verify + determinism gate",
+  "law": "GOVERNED_AUTORUN_LAWS_v3 L4+L13 \u2014 external verify + determinism gate",
   "github_run_id": "28591655977",
   "github_sha": "94e447ca2d61e7e1c106b04df9cecbb53667a7a0",
   "run_url": "https://github.com/kazemnezhadsina144-dot/SourceA/actions/runs/28591655977",
@@ -950,7 +950,7 @@
     "schema": "autorun-determinism-verify-v1",
     "version": "1.0.0",
     "at": "2026-07-02T12:55:44Z",
-    "law": "controlled-autorun L13 \u00b7 deterministic-loops D1-D5",
+    "law": "governed-autorun L13 \u00b7 deterministic-loops D1-D5",
     "ok": true,
     "tests": [
       {

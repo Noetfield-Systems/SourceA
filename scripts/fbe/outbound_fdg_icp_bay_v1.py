@@ -26,8 +26,8 @@ def _now() -> str:
 def _sample_bodies() -> list[tuple[str, str]]:
     """Compile-time samples — single-product bodies must PASS; two-para must FAIL."""
     return [
-        ("single_product", "Hi — quick note on Noetfield.\n\nNoetfield helps teams ship controlled outbound."),
-        ("two_product", "Noetfield helps teams ship controlled outbound.\n\nTrustField adds verification layer."),
+        ("single_product", "Hi — quick note on Noetfield.\n\nNoetfield helps teams ship governed outbound."),
+        ("two_product", "Noetfield helps teams ship governed outbound.\n\nTrustField adds verification layer."),
     ]
 
 

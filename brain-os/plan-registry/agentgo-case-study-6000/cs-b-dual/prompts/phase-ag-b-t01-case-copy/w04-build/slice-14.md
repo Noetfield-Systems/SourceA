@@ -14,7 +14,7 @@ Dual desktop deploy — agentrun-app :5180 + SA4 AgentGo :8080 · landing parity
 
 ## Task
 
-**Light perf pass for** case study prose (challenge · shipped · verification).
+**Light perf pass for** case study prose (challenge · shipped · proof chain).
 
 No hero video bloat.
 

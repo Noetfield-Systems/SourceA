@@ -23,7 +23,7 @@ Document why buyers pay per Delve: 200–400 hours manual compliance → promise
 
 ## Implementation extraction
 
-`Delve · Pricing & packaging` → what buyer sees at vendor → what we ship logged with receipt.
+`Delve · Pricing & packaging` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

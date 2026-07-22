@@ -2,7 +2,7 @@
 
 **Status:** IN PROGRESS (one item per cycle)  
 **Saved at (UTC):** 2026-07-02T22:00:00Z  
-**Law base:** controlled-autorun v3 · NOETFIELD coherent system spec §4
+**Law base:** governed-autorun v3 · NOETFIELD coherent system spec §4
 
 ## Order
 

@@ -324,12 +324,12 @@
       "priority": "P0",
       "lane": "sourcea",
       "slot": 11,
-      "title": "Verify _phase_d_complete() matches D1\u2013D16 in-repo artifacts",
+      "title": "Verify _phase_d_complete() matches D1\u2013D16 on-disk artifacts",
       "path": "prompts/phase-s0-ssot-alignment/T0/sa-0012.md",
       "status": "done",
       "verify": "cd scripts && bash worker_verify_ultra_v1.sh",
       "agent_tag": "AGENT-AUTO-SOURCEA",
-      "agent_prompt": "PLAN WITH NO ASF \u2014 sa-0012: Verify _phase_d_complete() matches D1\u2013D16 in-repo artifacts"
+      "agent_prompt": "PLAN WITH NO ASF \u2014 sa-0012: Verify _phase_d_complete() matches D1\u2013D16 on-disk artifacts"
     },
     {
       "id": "sa-0013",
@@ -674,12 +674,12 @@
       "priority": "P1",
       "lane": "sourcea",
       "slot": 11,
-      "title": "Verify _phase_d_complete() matches D1\u2013D16 in-repo artifacts",
+      "title": "Verify _phase_d_complete() matches D1\u2013D16 on-disk artifacts",
       "path": "prompts/phase-s0-ssot-alignment/T1/sa-0037.md",
       "status": "done",
       "verify": "cd scripts && bash validate-eval-packet-v1b-live.sh && bash validate-governance-fleet-v1.sh && python3 audit_hub_source_alignment.py",
       "agent_tag": "AGENT-AUTO-SOURCEA",
-      "agent_prompt": "PLAN WITH NO ASF \u2014 sa-0037: Verify _phase_d_complete() matches D1\u2013D16 in-repo artifacts"
+      "agent_prompt": "PLAN WITH NO ASF \u2014 sa-0037: Verify _phase_d_complete() matches D1\u2013D16 on-disk artifacts"
     },
     {
       "id": "sa-0038",
@@ -1024,12 +1024,12 @@
       "priority": "P2",
       "lane": "sourcea",
       "slot": 11,
-      "title": "Verify _phase_d_complete() matches D1\u2013D16 in-repo artifacts",
+      "title": "Verify _phase_d_complete() matches D1\u2013D16 on-disk artifacts",
       "path": "prompts/phase-s0-ssot-alignment/T2/sa-0062.md",
       "status": "done",
       "verify": "cd scripts && python3 audit_backend_e2e.py && bash validate-spine-bridge-founder-v1.sh",
       "agent_tag": "AGENT-AUTO-SOURCEA",
-      "agent_prompt": "PLAN WITH NO ASF \u2014 sa-0062: Verify _phase_d_complete() matches D1\u2013D16 in-repo artifacts"
+      "agent_prompt": "PLAN WITH NO ASF \u2014 sa-0062: Verify _phase_d_complete() matches D1\u2013D16 on-disk artifacts"
     },
     {
       "id": "sa-0063",
@@ -1374,12 +1374,12 @@
       "priority": "P3",
       "lane": "sourcea",
       "slot": 11,
-      "title": "Verify _phase_d_complete() matches D1\u2013D16 in-repo artifacts",
+      "title": "Verify _phase_d_complete() matches D1\u2013D16 on-disk artifacts",
       "path": "prompts/phase-s0-ssot-alignment/T3/sa-0087.md",
       "status": "done",
       "verify": "cd scripts && bash worker_verify_ultra_v1.sh",
       "agent_tag": "AGENT-AUTO-SOURCEA",
-      "agent_prompt": "PLAN WITH NO ASF \u2014 sa-0087: Verify _phase_d_complete() matches D1\u2013D16 in-repo artifacts"
+      "agent_prompt": "PLAN WITH NO ASF \u2014 sa-0087: Verify _phase_d_complete() matches D1\u2013D16 on-disk artifacts"
     },
     {
       "id": "sa-0088",
@@ -7324,12 +7324,12 @@
       "priority": "P0",
       "lane": "sourcea",
       "slot": 11,
-      "title": "Validate wire lane progress md exists in the repository for Wire agent",
+      "title": "Validate wire lane progress md exists on disk for Wire agent",
       "path": "prompts/phase-s5-commercial-lanes/T0/sa-0512.md",
       "status": "done",
       "verify": "cd scripts && SINA_AUDIT_STRICT=1 python3 build-sina-command-panel.py && python3 find_critical_bugs.py",
       "agent_tag": "AGENT-AUTO-SOURCEA",
-      "agent_prompt": "PLAN WITH NO ASF \u2014 sa-0512: Validate wire lane progress md exists in the repository for Wire agent"
+      "agent_prompt": "PLAN WITH NO ASF \u2014 sa-0512: Validate wire lane progress md exists on disk for Wire agent"
     },
     {
       "id": "sa-0513",
@@ -7674,12 +7674,12 @@
       "priority": "P1",
       "lane": "sourcea",
       "slot": 11,
-      "title": "Validate wire lane progress md exists in the repository for Wire agent",
+      "title": "Validate wire lane progress md exists on disk for Wire agent",
       "path": "prompts/phase-s5-commercial-lanes/T1/sa-0537.md",
       "status": "done",
       "verify": "cd scripts && bash validate-eval-packet-v1b-live.sh && bash validate-governance-fleet-v1.sh && python3 audit_hub_source_alignment.py",
       "agent_tag": "AGENT-AUTO-SOURCEA",
-      "agent_prompt": "PLAN WITH NO ASF \u2014 sa-0537: Validate wire lane progress md exists in the repository for Wire agent"
+      "agent_prompt": "PLAN WITH NO ASF \u2014 sa-0537: Validate wire lane progress md exists on disk for Wire agent"
     },
     {
       "id": "sa-0538",
@@ -8024,12 +8024,12 @@
       "priority": "P2",
       "lane": "sourcea",
       "slot": 11,
-      "title": "Validate wire lane progress md exists in the repository for Wire agent",
+      "title": "Validate wire lane progress md exists on disk for Wire agent",
       "path": "prompts/phase-s5-commercial-lanes/T2/sa-0562.md",
       "status": "done",
       "verify": "cd scripts && python3 audit_backend_e2e.py && bash validate-spine-bridge-founder-v1.sh",
       "agent_tag": "AGENT-AUTO-SOURCEA",
-      "agent_prompt": "PLAN WITH NO ASF \u2014 sa-0562: Validate wire lane progress md exists in the repository for Wire agent"
+      "agent_prompt": "PLAN WITH NO ASF \u2014 sa-0562: Validate wire lane progress md exists on disk for Wire agent"
     },
     {
       "id": "sa-0563",
@@ -8374,12 +8374,12 @@
       "priority": "P3",
       "lane": "sourcea",
       "slot": 11,
-      "title": "Validate wire lane progress md exists in the repository for Wire agent",
+      "title": "Validate wire lane progress md exists on disk for Wire agent",
       "path": "prompts/phase-s5-commercial-lanes/T3/sa-0587.md",
       "status": "done",
       "verify": "cd scripts && python3 find_critical_bugs.py",
       "agent_tag": "AGENT-AUTO-SOURCEA",
-      "agent_prompt": "PLAN WITH NO ASF \u2014 sa-0587: Validate wire lane progress md exists in the repository for Wire agent"
+      "agent_prompt": "PLAN WITH NO ASF \u2014 sa-0587: Validate wire lane progress md exists on disk for Wire agent"
     },
     {
       "id": "sa-0588",

@@ -1,8 +1,8 @@
-# C12 — SourceA.io layout clone (design reference)
+# C12 — Zenity.io layout clone (design reference)
 
-**Source:** [https://sourcea-layout-light.io/](https://sourcea-layout-light.io/)  
+**Source:** [https://zenity.io/](https://zenity.io/)  
 **Date:** 2026-06-15  
-**Purpose:** UI structure reference for Noetfield / SourceA commercial refresh — **not for production deploy as SourceA branding**
+**Purpose:** UI structure reference for Noetfield / SourceA commercial refresh — **not for production deploy as Zenity branding**
 
 ## Open
 
@@ -24,5 +24,5 @@ python3 -m http.server 8120 --directory C12
 
 Swap copy to Noetfield MERGED EXTERNAL · wire `operations@noetfield.com` · proof-chain beats from `~/.sina/noetfield-pilot-onepager-external-v1.html`
 
-**Benchmark:** `archive/attachments/commercial/internal capability research archive`  
-**Sibling:** `C13/` — [SourceA](https://sourcea-layout-dark.ai/) clone
+**Benchmark:** `archive/attachments/commercial/COMPETITOR_SITES_UI_BENCHMARK_2026-06-15_v1.md`  
+**Sibling:** `C13/` — [Nomotic](https://nomotic.ai/) clone

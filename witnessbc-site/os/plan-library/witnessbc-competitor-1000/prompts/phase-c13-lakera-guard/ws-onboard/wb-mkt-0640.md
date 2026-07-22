@@ -23,7 +23,7 @@ Close wb-mkt-0640 with onboarding evidence + verify PASS
 
 ## Implementation extraction
 
-`Lakera Guard · Onboarding & PLG` → what buyer sees at vendor → what we ship logged with receipt.
+`Lakera Guard · Onboarding & PLG` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

@@ -14,7 +14,7 @@ Dual desktop deploy — agentrun-app :5180 + SA4 AgentGo :8080 · landing parity
 
 ## Task
 
-**Add JSON-LD schema for** case study prose (challenge · shipped · verification).
+**Add JSON-LD schema for** case study prose (challenge · shipped · proof chain).
 
 CaseStudy type.
 

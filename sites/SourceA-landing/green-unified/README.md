@@ -11,7 +11,7 @@ SourceA-landing/green-unified/
 ├── team.html               Agentic business team + command center
 ├── growth.html             Growth flywheel + pipeline console
 ├── scenario.html           Council sandbox theater
-├── proof.html              Verification + demo script
+├── proof.html              Proof chain + demo script
 ├── compare.html            Category matrix
 ├── pricing.html            SKUs
 ├── loops/

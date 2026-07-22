@@ -55,7 +55,7 @@ def _check_catalog(cat: dict) -> dict:
 def _check_trustfield_lane(pn: dict) -> dict:
     routes = pn.get("product_routes") or []
     ok = any(r.get("lane") == "trustfield" for r in routes)
-    return {"label": "trustfield_lane", "ok": ok, "note": "TrustField product route logged" if ok else "missing trustfield lane"}
+    return {"label": "trustfield_lane", "ok": ok, "note": "TrustField product route on disk" if ok else "missing trustfield lane"}
 
 
 def _check_compile_order() -> dict:

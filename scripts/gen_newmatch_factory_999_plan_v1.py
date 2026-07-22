@@ -128,7 +128,7 @@ def _title(seq: int, phase_label: str, goal: str) -> str:
 def _acceptance(seq: int, goal: str) -> str:
     free = "free-tier check PASS · $0 path exhausted before paid"
     base = {
-        "graph": f"Schema logged · local JSON or Supabase free · {free}",
+        "graph": f"Schema on disk · local JSON or Supabase free · {free}",
         "router": f"T0 rules first · :free LLM only if rules ambiguous · {free}",
         "follow": f"Planner→executor · default marginal_cost_usd=0 · {free}",
         "ingest": f"Manual/CSV/SEMEJ only · $0 ingest · {free}",

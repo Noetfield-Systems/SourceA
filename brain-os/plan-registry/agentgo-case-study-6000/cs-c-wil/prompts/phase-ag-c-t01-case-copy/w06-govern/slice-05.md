@@ -14,7 +14,7 @@ Wil L3 portfolio demo — YA5 mirror · AgentGo ≠ SourceA separation · ship g
 
 ## Task
 
-**Cross-check portfolio SSOT for** case study prose (challenge · shipped · verification).
+**Cross-check portfolio SSOT for** case study prose (challenge · shipped · proof chain).
 
 lane sections.
 

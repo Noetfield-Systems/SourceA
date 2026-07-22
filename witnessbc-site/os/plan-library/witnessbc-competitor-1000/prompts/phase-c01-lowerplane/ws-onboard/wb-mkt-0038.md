@@ -23,7 +23,7 @@ Integrate `Policy packs mapped to agent receipt gates` hook needed for onboardin
 
 ## Implementation extraction
 
-`LowerPlane · Onboarding & PLG` → what buyer sees at vendor → what we ship logged with receipt.
+`LowerPlane · Onboarding & PLG` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

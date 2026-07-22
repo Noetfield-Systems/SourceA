@@ -43,7 +43,7 @@ Never ship engineering nouns. Use human primitives:
 | runtime | while the AI is working |
 | attestation | proof |
 | governance | control / defensibility |
-| controlled issuance | proof each step was permitted |
+| governed issuance | proof each step was permitted |
 | auditable execution trail | proof of what actually happened after the fact |
 
 **SSOT:** `data/factory-email-translation-v1.json` → `translate` + `forbidden_in_email_one`

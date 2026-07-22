@@ -17,7 +17,7 @@
         "C — Form for P0 only — chat for rest",
         "D — Pause form — chat only until RT LIVE"
       ],
-      "effect": "Locks controlled agentic automation — SourceA reference standard for disk policy dispatch",
+      "effect": "Locks governed agentic automation — SourceA reference standard for disk policy dispatch",
       "asked_by": "ASF gather no-lost order 2026-06-19",
       "reply_template": "ASF: FIVE-STEP — PICK: Q-SESSION-GATHER-NO-LOST A",
       "gather_tier": "P0_meta",
@@ -27,7 +27,7 @@
     {
       "id": "Q-SESSION-ARCH-PILLAR",
       "title": "Strategic slice — next bounded WORK pillar?",
-      "question": "Three pillars logged: (1) billing fbe_billing_* + StoreKit ledger (2) creative factory ElevenLabs+render bridge+OEGCC HITL (3) analytics Phase3 telemetry after W6. Which gets next WORK order?",
+      "question": "Three pillars on disk: (1) billing fbe_billing_* + StoreKit ledger (2) creative factory ElevenLabs+render bridge+OEGCC HITL (3) analytics Phase3 telemetry after W6. Which gets next WORK order?",
       "blocks": "strategic slice thread · multi-factory blueprint · architecture-ledger-v1",
       "diskToday": "billing stub PASS · video-ad partial · factory_cost_intelligence 100 examples PASS",
       "recommended": "A",
@@ -85,13 +85,13 @@
     },
     {
       "id": "Q-SESSION-ARCH-REFSTD",
-      "title": "SourceA — reference standard for agentic prof logged?",
-      "question": "Lock positioning: SourceA = controlled pre-LLM agentic runtime · policy dispatch · receipt standard — not generic video SaaS?",
+      "title": "SourceA — reference standard for agentic prof on disk?",
+      "question": "Lock positioning: SourceA = governed pre-LLM agentic runtime · policy dispatch · receipt standard — not generic video SaaS?",
       "blocks": "SOURCEA_REFERENCE_ARCHITECTURE_CONSTELLATION · Proof Layer · WTM",
       "diskToday": "Card1 Proof Layer disk-ready · governance spine on Mac · cloud execution plane",
       "recommended": "A",
       "options": [
-        "A — YES — reference standard for controlled agentic automation (recommended)",
+        "A — YES — reference standard for governed agentic automation (recommended)",
         "B — Video factory product only",
         "C — MCP marketplace plugin only",
         "D — Internal tooling — no public standard claim"

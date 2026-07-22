@@ -23,7 +23,7 @@ Docs: onboarding section cites Scrut Automation as market analog with https://sc
 
 ## Implementation extraction
 
-`Scrut Automation · Onboarding & PLG` → what buyer sees at vendor → what we ship logged with receipt.
+`Scrut Automation · Onboarding & PLG` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

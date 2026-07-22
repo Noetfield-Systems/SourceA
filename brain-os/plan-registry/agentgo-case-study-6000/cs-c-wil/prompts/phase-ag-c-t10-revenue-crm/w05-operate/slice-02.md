@@ -22,7 +22,7 @@ Wil L3 portfolio demo — YA5 mirror · AgentGo ≠ SourceA separation · ship g
 **Pure law:** Pure story: Wil AI ecosystem intelligence hosts SourceA lane — products stay separate.
 **Anti-drift:** Never sell AgentGo sign-in localhost:3001 as production.
 **Target path:** `scripts/sourcea_revenue_engine_crm_v1.py`
-**Success metric:** outreach_sent logged
+**Success metric:** outreach_sent on disk
 **Receipt:** curl 5180 before `status: done`.
 **Phase:** MOONSHOT · **Tier:** T0 · **Workstream:** Operate
 

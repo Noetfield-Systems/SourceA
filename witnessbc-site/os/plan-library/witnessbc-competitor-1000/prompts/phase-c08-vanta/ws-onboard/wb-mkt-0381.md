@@ -23,7 +23,7 @@ Document Vanta onboarding path (Category leader PLG → enterprise): who runs (V
 
 ## Implementation extraction
 
-`Vanta · Onboarding & PLG` → what buyer sees at vendor → what we ship logged with receipt.
+`Vanta · Onboarding & PLG` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

@@ -228,7 +228,7 @@ def analyze_for_products(snapshot: dict) -> dict:
                         "id": f"wf_{chk.get('id')}",
                         "theme": "n8n_workflow",
                         "title": f"Activate workflow: {chk.get('name', chk.get('id'))}",
-                        "why": "Validated in the repository — import in n8n UI for scheduled runs",
+                        "why": "Validated on disk — import in n8n UI for scheduled runs",
                     }
                 )
 

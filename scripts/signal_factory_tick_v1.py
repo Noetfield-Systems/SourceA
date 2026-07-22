@@ -3,7 +3,7 @@
 
 Receipt: ~/.sina/signal-factory-tick-receipt-v1.json
 Per-signal reports: receipts/signal-factory/<id>.json
-Law: data/signal-factory-v1.json · controlled-autorun L2 IDLE_NO_WORK is healthy.
+Law: data/signal-factory-v1.json · governed-autorun L2 IDLE_NO_WORK is healthy.
 """
 from __future__ import annotations
 

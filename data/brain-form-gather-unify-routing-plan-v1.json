@@ -5,7 +5,7 @@
   "phase": "unify_plan_route",
   "source_a_identity_ssot": "SOURCEA_UNIFIED_PORTFOLIO_COMMERCIAL_SSOT_LOCKED_v3.1.md",
   "source_a_identity_bundle": "/Users/sinakazemnezhad/Desktop/SourceA/data/sourcea_agentic_unified_bundle_v1.json",
-  "source_a_identity_note": "Runs and sells controlled agentic automation \u2014 pointer only; full prose lives in portfolio SSOT \u00a70\u2013\u00a72b",
+  "source_a_identity_note": "Runs and sells governed agentic automation \u2014 pointer only; full prose lives in portfolio SSOT \u00a70\u2013\u00a72b",
   "fail_policy": "FAIL_IMMEDIATE_NO_TEMPER",
   "fail_policy_note": "No tempering \u00b7 validator FAIL = immediate STOP \u00b7 chat cannot override disk",
   "extraction": {
@@ -719,7 +719,7 @@
         },
         {
           "id": "Q-WIRE-G3",
-          "title": "Tailscale G3 wire \u2014 reconcile pass vs pending logged",
+          "title": "Tailscale G3 wire \u2014 reconcile pass vs pending on disk",
           "recommended": "RECONCILE",
           "prior_pick": "RECONCILE",
           "reply_template": "ASF: FIVE-STEP \u2014 PICK: Q-WIRE-G3 RECONCILE",
@@ -1142,7 +1142,7 @@
         },
         {
           "id": "Q-WIRE-G3",
-          "title": "Tailscale G3 wire \u2014 reconcile pass vs pending logged",
+          "title": "Tailscale G3 wire \u2014 reconcile pass vs pending on disk",
           "recommended": "RECONCILE",
           "prior_pick": "RECONCILE",
           "reply_template": "ASF: FIVE-STEP \u2014 PICK: Q-WIRE-G3 RECONCILE",
@@ -1388,7 +1388,7 @@
         },
         {
           "id": "Q-SESSION-ARCH-REFSTD",
-          "title": "SourceA \u2014 reference standard for agentic prof logged?",
+          "title": "SourceA \u2014 reference standard for agentic prof on disk?",
           "recommended": "A",
           "prior_pick": null,
           "reply_template": "ASF: FIVE-STEP \u2014 PICK: Q-SESSION-ARCH-REFSTD A",
@@ -1634,7 +1634,7 @@
         },
         {
           "id": "Q-SESSION-PHASE0-SPOT",
-          "title": "Phase0 13/13 logged \u2014 spot-check or trust?",
+          "title": "Phase0 13/13 on disk \u2014 spot-check or trust?",
           "recommended": "B",
           "prior_pick": null,
           "reply_template": "ASF: FIVE-STEP \u2014 PICK: Q-SESSION-PHASE0-SPOT B",

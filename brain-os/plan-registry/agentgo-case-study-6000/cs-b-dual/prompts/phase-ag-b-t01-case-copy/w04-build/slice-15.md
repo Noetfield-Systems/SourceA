@@ -14,7 +14,7 @@ Dual desktop deploy — agentrun-app :5180 + SA4 AgentGo :8080 · landing parity
 
 ## Task
 
-**Patch deploy script for** case study prose (challenge · shipped · verification).
+**Patch deploy script for** case study prose (challenge · shipped · proof chain).
 
 If dual-deploy needs.
 

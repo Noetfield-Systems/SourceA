@@ -13,7 +13,7 @@ if ! curl -sf "${BASE}/" >/dev/null 2>&1; then
 fi
 echo "OK: base ${BASE}"
 
-# Config + assets present (repo)
+# Config + assets on disk (repo)
 for f in \
   SourceA-landing/green-unified/sourcea-site-pulse-v1.js \
   SourceA-landing/green-unified/sourcea-site-interact-v1.js \
@@ -21,7 +21,7 @@ for f in \
   SourceA-landing/green-unified/data/sourcea-site-pulse-config-v1.json; do
   test -f "$ROOT/$f" || { echo "FAIL: missing $f"; exit 1; }
 done
-echo "OK: modern stack files logged"
+echo "OK: modern stack files on disk"
 
 mkdir -p "$E2E_DIR"
 trap 'rm -rf "$E2E_DIR"' EXIT

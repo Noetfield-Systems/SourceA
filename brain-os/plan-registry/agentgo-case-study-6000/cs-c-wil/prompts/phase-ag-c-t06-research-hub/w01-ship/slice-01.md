@@ -23,7 +23,7 @@ One shippable artifact only — no drive-by refactors.
 **Anti-drift:** Never sell AgentGo sign-in localhost:3001 as production.
 **Target path:** `~/Desktop/SA4/research`
 **Success metric:** research article count
-**Receipt:** file in the repository before `status: done`.
+**Receipt:** file on disk before `status: done`.
 **Phase:** MOONSHOT · **Tier:** T0 · **Workstream:** Ship
 
 ## Verify

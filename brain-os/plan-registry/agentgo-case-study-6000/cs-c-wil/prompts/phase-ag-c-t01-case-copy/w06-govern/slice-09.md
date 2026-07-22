@@ -14,7 +14,7 @@ Wil L3 portfolio demo — YA5 mirror · AgentGo ≠ SourceA separation · ship g
 
 ## Task
 
-**Require EDIT ALLOWED for** case study prose (challenge · shipped · verification).
+**Require EDIT ALLOWED for** case study prose (challenge · shipped · proof chain).
 
 Cross-desk paths.
 

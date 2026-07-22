@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""UI upgrade baseline guard — block downgrades on controlled landing surfaces.
+"""UI upgrade baseline guard — block downgrades on governed landing surfaces.
 
 Law: brain-os/law/enforcement/SOURCEA_UI_UPGRADE_NO_DOWNGRADE_LOCKED_v1.md
 SSOT: SourceA-landing/green-unified/data/ui-upgrade-baseline-v1.json
@@ -38,7 +38,7 @@ def _rel_green(path: Path) -> str | None:
         return None
 
 
-def is_controlled_ui_path(path: str | Path) -> bool:
+def is_governed_ui_path(path: str | Path) -> bool:
     rel = _rel_green(Path(path))
     if rel is None:
         return False
@@ -67,11 +67,11 @@ def check_file(rel: str, rules: dict, *, green: Path = GREEN) -> list[str]:
 def check_path(path: str, baseline: dict | None = None) -> dict:
     baseline = baseline or load_baseline()
     rel = _rel_green(Path(path))
-    if rel is None or not is_controlled_ui_path(path):
+    if rel is None or not is_governed_ui_path(path):
         return {
             "ok": True,
             "skipped": True,
-            "reason": "not_controlled_ui",
+            "reason": "not_governed_ui",
             "path": str(Path(path).resolve()),
         }
     files = baseline.get("files") or {}
@@ -124,15 +124,15 @@ def print_baseline(baseline: dict | None = None) -> dict:
 
 def main() -> int:
     ap = argparse.ArgumentParser(description="UI upgrade baseline guard")
-    ap.add_argument("cmd", choices=("baseline", "check", "verify-all", "is-controlled"))
+    ap.add_argument("cmd", choices=("baseline", "check", "verify-all", "is-governed"))
     ap.add_argument("--path", default="")
     ap.add_argument("--json", action="store_true")
     args = ap.parse_args()
 
     if args.cmd == "baseline":
         row = print_baseline()
-    elif args.cmd == "is-controlled":
-        row = {"ok": True, "controlled": is_controlled_ui_path(args.path), "path": args.path}
+    elif args.cmd == "is-governed":
+        row = {"ok": True, "governed": is_governed_ui_path(args.path), "path": args.path}
     elif args.cmd == "check":
         if not args.path:
             print("FAIL: --path required", file=sys.stderr)

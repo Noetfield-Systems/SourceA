@@ -19,7 +19,7 @@
       "public_address": "contract@sourcea.app",
       "canonical_host": "sourcea.app",
       "title": "Operating Brain Install",
-      "cta": "Book an Operating Brain Audit",
+      "cta": "Start operating-brain diagnostic",
       "mailto_subject": "Operating%20Brain%20Audit",
       "delivers_to": "operations@noetfield.com"
     },
@@ -29,7 +29,7 @@
       "public_address": "contract@sourcea.ca",
       "canonical_host": "sourcea.ca",
       "title": "AI Value Governance",
-      "cta": "Book an AI Value Governance Sprint",
+      "cta": "Start CA value-governance sprint",
       "mailto_subject": "AI%20Value%20Governance%20Sprint",
       "delivers_to": "operations@noetfield.com"
     },
@@ -39,7 +39,7 @@
       "public_address": "contract@sourcea.uk",
       "canonical_host": "sourcea.uk",
       "title": "Enterprise AI Control Plane",
-      "cta": "Book an Enterprise AI Control Plane Briefing",
+      "cta": "Request control-plane briefing intake",
       "mailto_subject": "Enterprise%20AI%20Control%20Plane%20Briefing",
       "delivers_to": "operations@noetfield.com"
     }

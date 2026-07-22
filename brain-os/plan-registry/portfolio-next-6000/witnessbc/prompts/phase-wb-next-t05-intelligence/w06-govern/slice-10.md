@@ -12,7 +12,7 @@ witnessbc.com civic agentic install — not witness.ai
 
 ## Task
 
-WitnessBC · Noetfield Intelligence 613 · Govern · slice 10/10 — P3 — research · defer · compare-only. Bounded path only. Receipt logged before done. Parent: witnessbc.com civic agentic install — not witness.ai. Priority doc: `witnessbc-site/content/pricing.html`.
+WitnessBC · Noetfield Intelligence 613 · Govern · slice 10/10 — P3 — research · defer · compare-only. Bounded path only. Receipt on disk before done. Parent: witnessbc.com civic agentic install — not witness.ai. Priority doc: `witnessbc-site/content/pricing.html`.
 
 ## Verify
 

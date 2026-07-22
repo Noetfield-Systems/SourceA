@@ -14,7 +14,7 @@ Wil L3 portfolio demo — YA5 mirror · AgentGo ≠ SourceA separation · ship g
 
 ## Task
 
-**Validate unique titles for** case study prose (challenge · shipped · verification).
+**Validate unique titles for** case study prose (challenge · shipped · proof chain).
 
 2000 per angle.
 

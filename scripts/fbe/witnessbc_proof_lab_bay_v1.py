@@ -74,7 +74,7 @@ def _check_proof_scenarios() -> dict:
 def _check_film_routing(routing: dict) -> dict:
     beats = (routing.get("beats_index") or {}).get("witnessbc_tier_A_hero")
     ok = bool(beats) and (ROOT / str(beats)).is_file()
-    return {"label": "style_b1_beats", "ok": ok, "beats": beats, "note": "STYLE-B1 beats logged" if ok else "beats missing"}
+    return {"label": "style_b1_beats", "ok": ok, "beats": beats, "note": "STYLE-B1 beats on disk" if ok else "beats missing"}
 
 
 def _check_w1_asset() -> dict:

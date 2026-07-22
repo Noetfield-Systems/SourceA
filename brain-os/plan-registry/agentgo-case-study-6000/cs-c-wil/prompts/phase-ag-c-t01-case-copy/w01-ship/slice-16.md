@@ -14,7 +14,7 @@ Wil L3 portfolio demo — YA5 mirror · AgentGo ≠ SourceA separation · ship g
 
 ## Task
 
-**Optional Hub official link for** case study prose (challenge · shipped · verification).
+**Optional Hub official link for** case study prose (challenge · shipped · proof chain).
 
 Founder session light only.
 

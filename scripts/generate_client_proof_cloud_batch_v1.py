@@ -107,7 +107,7 @@ def _cloud_row(*, n: int, cloud_num: int, batch_id: int, recipe: dict[str, Any])
         "batch_id": batch_id,
         "mac_executes_plan_body": False,
         "library": "client-proof-recipe",
-        "competitor": "SourceA client verification",
+        "competitor": "SourceA client proof chain",
         "workstream": "ws-client-proof",
         "tier": str(recipe.get("tier") or "T0"),
         "cost_tier": "openrouter_cap",

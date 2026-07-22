@@ -23,7 +23,7 @@ Implement stub or live adapter with honest mock_only label if not production
 
 ## Implementation extraction
 
-`Secureframe · Integrations & API` → what buyer sees at vendor → what we ship logged with receipt.
+`Secureframe · Integrations & API` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

@@ -14,7 +14,7 @@ Wil L3 portfolio demo — YA5 mirror · AgentGo ≠ SourceA separation · ship g
 
 ## Task
 
-**Wire sourcea-boot eval path for** case study prose (challenge · shipped · verification).
+**Wire sourcea-boot eval path for** case study prose (challenge · shipped · proof chain).
 
 Buyer 1 self-serve.
 

@@ -287,7 +287,7 @@ def boot_heal_queue(*, force: bool = False) -> dict[str, Any]:
 
 
 def swap_to_next_batch(*, reason: str = "batch_complete_handoff") -> dict[str, Any]:
-    """Pointer swap — arm pre-locked next batch (batch N+1 logged)."""
+    """Pointer swap — arm pre-locked next batch (batch N+1 on disk)."""
     ptr = _read_pointer()
     nxt = ptr.get("next_batch") or {}
     rel = str(nxt.get("queue_path") or "").strip()

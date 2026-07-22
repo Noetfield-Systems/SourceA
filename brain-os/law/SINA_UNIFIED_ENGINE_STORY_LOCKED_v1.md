@@ -11,7 +11,7 @@
 
 ## 0. One sentence
 
-> **SourceA is the autonomous controlled engine; every company — Noetfield, TrustField, AgentField, Forge, 777, VIRLUX — runs on it; we prove the engine once, pilot one product, then transfer the proven template to ten parallel businesses.**
+> **SourceA is the autonomous governed engine; every company — Noetfield, TrustField, AgentField, Forge, 777, VIRLUX — runs on it; we prove the engine once, pilot one product, then transfer the proven template to ten parallel businesses.**
 
 ---
 

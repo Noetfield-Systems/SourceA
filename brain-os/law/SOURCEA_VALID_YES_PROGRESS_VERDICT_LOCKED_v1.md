@@ -11,7 +11,7 @@
 
 ## Law (one sentence)
 
-**Progress = Valid YES only: REGISTRY `done` + honest receipt logged + hygiene gate PASS; tier shape documents proof quality, not whether a row counts.**
+**Progress = Valid YES only: REGISTRY `done` + honest receipt on disk + hygiene gate PASS; tier shape documents proof quality, not whether a row counts.**
 
 ---
 
@@ -19,7 +19,7 @@
 
 | Rank | Source | Role |
 |------|--------|------|
-| 1 | `receipts/sa-XXXX-receipt.json` logged | Closeout proof |
+| 1 | `receipts/sa-XXXX-receipt.json` on disk | Closeout proof |
 | 2 | `REGISTRY.json` status `done` | Map truth |
 | 3 | `scripts/enforce-registry-hygiene-v1.sh` | Honest gate (0 unproven_done) |
 | 4 | `scripts/validate-monitor-honesty-v1.sh` | Valid YES math |

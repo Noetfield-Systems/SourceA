@@ -186,7 +186,7 @@ def _scan_chatbot(cfg: dict[str, Any], landing: Path) -> list[dict[str, Any]]:
                 "page": "sourcea-chatbot.js",
                 "line": 1,
                 "excerpt": "file missing",
-                "suggestion": "sourcea-chatbot.js must exist logged.",
+                "suggestion": "sourcea-chatbot.js must exist on disk.",
             }
         ]
     text = path.read_text(encoding="utf-8", errors="replace")
@@ -228,7 +228,7 @@ def _scan_css_invariants(cfg: dict[str, Any], landing: Path) -> list[dict[str, A
                 "page": "sourcea.css",
                 "line": 1,
                 "excerpt": "file missing",
-                "suggestion": "sourcea.css must exist logged.",
+                "suggestion": "sourcea.css must exist on disk.",
             }
         ]
     text = path.read_text(encoding="utf-8", errors="replace")
@@ -340,7 +340,7 @@ def scan_landing(*, landing_root: Path | None = None, cfg: dict[str, Any] | None
         "next_action": (
             "Ship allowed — UI mechanical gate PASS"
             if ok
-            else "Fix mechanical UI findings in the repository — do not publish"
+            else "Fix mechanical UI findings on disk — do not publish"
         ),
     }
     return _write_receipt(row)

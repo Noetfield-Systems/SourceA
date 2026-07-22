@@ -30,7 +30,7 @@
 
 | Nation | Constitution | Jurisdiction |
 |--------|--------------|--------------|
-| nation-sourcea | controlled_automation | Mac control plane |
+| nation-sourcea | governed_automation | Mac control plane |
 | nation-cloudforge | execution_body | Cloud execution |
 | nation-labs | experimentation | Labs sandbox |
 

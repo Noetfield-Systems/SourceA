@@ -14,7 +14,7 @@ Dual desktop deploy — agentrun-app :5180 + SA4 AgentGo :8080 · landing parity
 
 ## Task
 
-**Capture proof screenshot for** case study prose (challenge · shipped · verification).
+**Capture proof screenshot for** case study prose (challenge · shipped · proof chain).
 
 Store under ~/.sina/ — not chat memory.
 

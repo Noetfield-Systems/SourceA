@@ -19,7 +19,7 @@
 **Live pick at save time:** `bash scripts/plan-no-asf-run.sh pick 1` → **sa-0202**  
 **REGISTRY:** 101 done / 899 backlog (validate-sourcea-1000-pack.sh)
 
-**Unified charter (LOCKED):** `os/chat-handoffs/CONTROLLED_EXECUTION_OS_MASTER_LOCKED_v1.md` — merges this audit pack + goal architecture + operating loop.
+**Unified charter (LOCKED):** `os/chat-handoffs/GOVERNED_EXECUTION_OS_MASTER_LOCKED_v1.md` — merges this audit pack + goal architecture + operating loop.
 
 **Chat paste pack:** `os/chat-handoffs/GOAL_SPECIALIST_CHAT_PACK_LOCKED_v1.md`
 

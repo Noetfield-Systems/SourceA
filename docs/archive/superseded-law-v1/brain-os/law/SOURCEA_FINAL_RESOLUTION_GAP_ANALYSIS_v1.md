@@ -24,7 +24,7 @@ Human has **one daily path** (paste → SCAN → PICK when needed → read close
 | **Temporal** | Durable workflow · wait states | PICK wait · factory-now | **Framework** — not full durable engine |
 | **Stripe ops** | Immutable audit log | Track · `~/.sina/events` · receipts | **Partial** — not every action jsonl |
 | **OPA / policy-as-code** | Machine checks policy table | Authority index + root coverage audit | **Strong** — `validate-authority-root-coverage-v1.sh` |
-| **ITIL CAB** | Human approves change | Founder PICK + Effect | **Phase 2 shipped** — receipt logged · 1.10 + Phases 3–10 open |
+| **ITIL CAB** | Human approves change | Founder PICK + Effect | **Phase 2 shipped** — receipt on disk · 1.10 + Phases 3–10 open |
 | **RACI** | Role clarity | Five-step §6 · 100-step F/M/B | **Done** |
 | **Netflix Hollow** | Snapshot serving | Hub command-data | **Partial** — anti-staleness AS latches |
 
@@ -40,8 +40,8 @@ Human has **one daily path** (paste → SCAN → PICK when needed → read close
 | Deep audit | 100-step + Canvas | yes |
 | Pack unification | Batch 2 §14–§18 | yes |
 | Cross-era linkage | Cross-doc §11–§12 | yes |
-| Human–machine gates | Comprehension · Commitment · Accountability | logged |
-| 13-layer judge | Batch 2 §15 | logged |
+| Human–machine gates | Comprehension · Commitment · Accountability | on disk |
+| 13-layer judge | Batch 2 §15 | on disk |
 | Maintainer proof | Appendix B · 0 critical | session log |
 | Registry (pack) | All 6 integrity docs **T1** | coverage audit |
 
@@ -62,7 +62,7 @@ Human has **one daily path** (paste → SCAN → PICK when needed → read close
 ### Shipped 2026-06-11 (no longer gaps)
 
 - Authority registry GOV_UNIFY batch · T3_ORPHAN 0  
-- Phase 2 founder picks · receipt logged  
+- Phase 2 founder picks · receipt on disk  
 - `validate-authority-root-coverage-v1.sh`  
 - `INCIDENT_CORPUS` + 31 reports indexed  
 - LAW PURITY SSOT policy  

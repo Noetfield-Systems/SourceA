@@ -69,7 +69,7 @@ That value is **snapshotted at inject time** and **lags** broker closeouts. The 
 
 | Signal | What it measures | Founder saw |
 |--------|------------------|-------------|
-| **Honest bar** (`goal-progress-v1.py`) | REGISTRY `done` ∩ receipt logged | Stuck-sounding **157** in chat |
+| **Honest bar** (`goal-progress-v1.py`) | REGISTRY `done` ∩ receipt on disk | Stuck-sounding **157** in chat |
 | **Queue cursor** (`healthy-queue-state-v1.json`) | Turn **19/30** in current 30-pack | Real mechanical advance |
 | **TRACK BACKLOG** (`track_validate_backlog_v1.py`) | Matrix gaps / `VALIDATE_FIRST` | “30 pending” every turn |
 
@@ -79,7 +79,7 @@ Agents conflated these. Founder saw **pending everywhere** and **157 forever**.
 
 Pack law: **each SA = CHECK + ACT + VERIFY** (30 turns for 10 SAs).
 
-For **sa-0084–0089**, implementation was **already present** from earlier sessions. Turns were **ceremony**:
+For **sa-0084–0089**, implementation was **already on disk** from earlier sessions. Turns were **ceremony**:
 
 - CHECK: validators PASS, gap none  
 - ACT: idempotent, **no diff**  
@@ -276,7 +276,7 @@ print(i['queue_pos'], i['sa_id'], i['queue_role'])
 
 ## 11. Founder-facing summary (plain language)
 
-You were not wrong. The Worker kept saying **157/1000** because the agent **copied a stale number from the inbox prompt** instead of checking the real counter locally (**158/1000** now). The queue **was** advancing (turn 19 of 30), but each goal only moves **+1** when a full **VERIFY** closes — so three “run inbox” clicks often change the bar by one, not three. Many turns were **closing out work that was already built**, which feels like repetition even when validators are correct.
+You were not wrong. The Worker kept saying **157/1000** because the agent **copied a stale number from the inbox prompt** instead of checking the real counter on disk (**158/1000** now). The queue **was** advancing (turn 19 of 30), but each goal only moves **+1** when a full **VERIFY** closes — so three “run inbox” clicks often change the bar by one, not three. Many turns were **closing out work that was already built**, which feels like repetition even when validators are correct.
 
 **Trust disk:** `goal-progress-v1.py` + receipt files + queue position — not the paragraph at the bottom of the inbox template.
 

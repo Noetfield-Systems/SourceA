@@ -58,7 +58,7 @@ python3 scripts/brain_run_loop_trace_v1.py
 | Reply | `who_runs_loop` · `injection` · `which_chat` · `final_answer` |
 | Brain chat time | **<30s** then STOP |
 
-**Loop in the repository after spawn is OK only when Brain proves cleanup.** Law: `BRAIN_NO_LEFTOVER_PROCESS_LOCKED_v1.md`
+**Loop on disk after spawn is OK only when Brain proves cleanup.** Law: `BRAIN_NO_LEFTOVER_PROCESS_LOCKED_v1.md`
 
 **End every turn (mandatory):**
 ```bash

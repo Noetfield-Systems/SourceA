@@ -76,7 +76,7 @@ flowchart TD
 | **G0** | `validate-critic-boot-v1.sh` PASS | All agent sessions · PLAN-026 credibility |
 | **G1** | PLAN-002 sent ≥1 NW1 email w/ battle card | PLAN-005 pipeline |
 | **G2** | ≥2 qualified discovery calls (budget + timeline) | PLAN-006 close |
-| **G3** | PLAN-006 SOW PDF + refund clause logged | Deposit conversation |
+| **G3** | PLAN-006 SOW PDF + refund clause on disk | Deposit conversation |
 | **G4** | ≥1 CAD $2K deposit received | PLAN-008 upsell · social proof |
 | **G5** | ≥3 deposits cumulative | PLAN-121–140 enterprise · PLAN-196 US entity |
 | **K1** | Forged receipt → FAIL on read | W1 film · PLAN-141 API |
@@ -119,12 +119,12 @@ flowchart TD
 
 Beat on: **tamper FAIL · SSOT re-brief · self-hosted law · critic_boot**  
 Lose on: **cloud scale · SIEM packs · enterprise sales army**  
-Watch: Notenic · FuseGov · SourceA · AgentPEP · Microsoft Auth Fabric
+Watch: Notenic · FuseGov · Nomotic · AgentPEP · Microsoft Auth Fabric
 
 ### Noetfield lane (NW1 primary)
 
 Beat on: **governance latency · board TLE · procurement ZIP · 4–6 week NF-RD**  
-Lose on: **data estate breadth (Securiti) · agent inventory UI (SourceA) · Azure-only**  
+Lose on: **data estate breadth (Securiti) · agent inventory UI (Zenity) · Azure-only**  
 Partner-not-fight: Purview (complement) · Temporal/LangGraph (layer above)
 
 ### Wrong comparisons (void in outbound)

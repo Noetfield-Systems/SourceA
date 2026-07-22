@@ -86,7 +86,7 @@
       "title": "Trust Center T0 public surface",
       "wired_to": "data/trust-center-v1.json",
       "acceptance": "trust.sourcea.dev or gate_k URL \u00b7 T0 disclosure \u00b7 no forbidden internals",
-      "attract": "Controlled execution advisory \u00b7 proof links \u00b7 eval booking path",
+      "attract": "Governed execution advisory \u00b7 proof links \u00b7 eval booking path",
       "status": "done",
       "completed_at": "2026-06-19T06:34:24Z",
       "execution_proof": "receipts/P0-02-sa-1200-receipt.json \u00b7 validate-trust-center-v1 PASS \u00b7 gate_k URL live"
@@ -157,7 +157,7 @@
       "lane": "witnessbc",
       "title": "WitnessBC evidence / proof pack sample",
       "wired_to": "data/commercial-film-routing-v1.json",
-      "acceptance": "proof pack or cinematic reference path logged",
+      "acceptance": "proof pack or cinematic reference path on disk",
       "attract": "Evidence factory \u00b7 trust 7d \u00b7 ship-ready badge language",
       "status": "done",
       "completed_at": "2026-06-19T06:45:00Z",

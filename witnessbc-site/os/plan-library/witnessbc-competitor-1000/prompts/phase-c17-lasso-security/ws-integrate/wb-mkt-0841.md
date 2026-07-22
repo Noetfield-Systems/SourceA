@@ -23,7 +23,7 @@ List Lasso Security integrations/APIs from https://www.lasso.security or docs �
 
 ## Implementation extraction
 
-`Lasso Security · Integrations & API` → what buyer sees at vendor → what we ship logged with receipt.
+`Lasso Security · Integrations & API` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

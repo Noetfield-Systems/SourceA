@@ -1,4 +1,4 @@
-# sa-score-0196 — Receipt logged for unified button radius + shadow tokens in app.css
+# sa-score-0196 — Receipt on disk for unified button radius + shadow tokens in app.css
 
 **Saved at:** 2026-06-25T09:23:55Z
 **Version:** 1 · **Tier:** T2 · **Phase:** NEXT
@@ -16,7 +16,7 @@ Raise SourceA site score toward **95+/100** — proof before call · stranger se
 
 P2 — harden · document · validate
 
-**Deliverable:** Receipt logged for unified button radius + shadow tokens in app.css
+**Deliverable:** Receipt on disk for unified button radius + shadow tokens in app.css
 
 Bounded paths: `SourceA-landing/green-unified/` · `cloud/workers/sourcea-site-pulse-v1/` · `scripts/validate-sourcea-modern-stack-e2e-v1.sh`
 

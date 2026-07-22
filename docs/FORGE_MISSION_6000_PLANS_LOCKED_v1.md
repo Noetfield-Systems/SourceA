@@ -49,7 +49,7 @@ Shared spine = proof-native GTM + receipts + pulse. App packs = **visual parity 
 
 | Role | Actor | May do |
 |------|-------|--------|
-| **Worker** | Pre-LLM Mac RAW AI | `POST /api/forge-terminal/v1` · `POST /api/chat-unify` · cloud `:13027` dispatch · file edits via controlled run |
+| **Worker** | Pre-LLM Mac RAW AI | `POST /api/forge-terminal/v1` · `POST /api/chat-unify` · cloud `:13027` dispatch · file edits via governed run |
 | **Observer** | Cursor agent | Read disk · pick plan · paste WORK order · verify receipt · unblock founder · **no implement body** |
 | **Facilitator** | Cursor agent | Route plan → RAW AI · sync REGISTRY status · run light E2E ≤90s · update mission manifest |
 | **Founder** | Human | Approve scope · one-tap dispatch · taste judgment |

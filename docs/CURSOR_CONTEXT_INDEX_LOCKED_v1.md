@@ -10,7 +10,7 @@
 
 ## One sentence
 
-> Agents **read these paths logged** — never ask founder to paste them. `docs/COMPLETE_CONTEXT.md` is a thin router to this index only.
+> Agents **read these paths on disk** — never ask founder to paste them. `docs/COMPLETE_CONTEXT.md` is a thin router to this index only.
 
 ---
 

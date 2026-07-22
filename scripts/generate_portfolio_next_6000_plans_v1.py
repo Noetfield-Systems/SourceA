@@ -114,7 +114,7 @@ REPOS = [
 
 TASK_TEMPLATE = (
     "{repo_label} · {theme_label} · {ws_label} · slice {slice_n}/10 — "
-    "{tier_depth}. Bounded path only. Receipt logged before done. "
+    "{tier_depth}. Bounded path only. Receipt on disk before done. "
     "Parent: {scope}. Priority doc: `{priority_md}`."
 )
 

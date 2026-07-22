@@ -23,7 +23,7 @@ Capture Lakera Guard public pricing evidence: Enterprise custom — save link or
 
 ## Implementation extraction
 
-`Lakera Guard · Pricing & packaging` → what buyer sees at vendor → what we ship logged with receipt.
+`Lakera Guard · Pricing & packaging` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

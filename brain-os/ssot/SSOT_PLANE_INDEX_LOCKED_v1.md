@@ -34,14 +34,14 @@
 **Registry (machine):** `data/sourcea-governance-ssot-registry-v1.json`  
 **Check:** `python3 scripts/sourcea_governance_ssot_registry_v1.py --json --write-receipt`
 
-| Version | Status | Path logged |
+| Version | Status | Path on disk |
 |---------|--------|--------------|
 | **v3** | **ACTIVE** | `brain-os/ssot/SOURCEA_LLM_AGENT_OPERATING_LAW_SSOT_v3.md` |
 | v2 | SUPERSEDED | `brain-os/ssot/superseded/Source-A-SSOT-v1.2.pdf` |
 | v1 | SUPERSEDED | `brain-os/ssot/superseded/SOURCEA_LLM_AGENT_OPERATING_LAW_SSOT_v1.md` |
 
 **Stale definition:** `brain-os/law/enforcement/SOURCEA_GOVERNANCE_SSOT_AUTHORITY_AND_STALE_LOCKED_v1.md` — rule-like doc with **no registry row on its plane** = ambiguous authority — flag only, never delete. Law plane rows live in `brain-os/system/SINA_AUTHORITY_INDEX_MAP_LOCKED_v1.md`.  
-**Superseded definition:** explicit `superseded` status + quarantine under `superseded/` — controlled history, not stale.
+**Superseded definition:** explicit `superseded` status + quarantine under `superseded/` — governed history, not stale.
 
 ---
 

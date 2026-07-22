@@ -23,7 +23,7 @@ Document who buys (Startups) vs our ICP one sentence on `witnessbc-site/content/
 
 ## Implementation extraction
 
-`Oneleet · Buyer-visible UX` → what buyer sees at vendor → what we ship logged with receipt.
+`Oneleet · Buyer-visible UX` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

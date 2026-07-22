@@ -14,7 +14,7 @@ Wil L3 portfolio demo — YA5 mirror · AgentGo ≠ SourceA separation · ship g
 
 ## Task
 
-**Add monitor row for** case study prose (challenge · shipped · verification).
+**Add monitor row for** case study prose (challenge · shipped · proof chain).
 
 live surfaces json.
 

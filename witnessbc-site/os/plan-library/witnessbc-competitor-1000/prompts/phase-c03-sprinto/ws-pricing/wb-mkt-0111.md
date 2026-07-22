@@ -23,7 +23,7 @@ Capture Sprinto public pricing evidence: From ~$6,000/yr (market); custom enterp
 
 ## Implementation extraction
 
-`Sprinto · Pricing & packaging` → what buyer sees at vendor → what we ship logged with receipt.
+`Sprinto · Pricing & packaging` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

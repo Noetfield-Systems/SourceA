@@ -3,7 +3,7 @@
 **Saved:** 2026-06-16T05:49:57Z · **Retrofit:** doc-datetime-law batch retrofit
 **Version:** 1.1 · **Locked:** 2026-06-07  
 **Authority:** ASF · Brain-routed worker order  
-**Parent:** `CONTROLLED_EXECUTION_OS_MASTER_LOCKED_v1.md` · `GOAL_HIERARCHY_LOCKED_v1.md` · `MANDATORY_BRAIN_CHAT_LOCKED_v1.md`  
+**Parent:** `GOVERNED_EXECUTION_OS_MASTER_LOCKED_v1.md` · `GOAL_HIERARCHY_LOCKED_v1.md` · `MANDATORY_BRAIN_CHAT_LOCKED_v1.md`  
 **Purpose:** Single rollout law — how SourceA Brain routes the ecosystem; what every agent reads instead of old chat memory.
 
 ---
@@ -50,7 +50,7 @@ SOURCEA BRAIN — sole execution router
 Machine validators — truth (strict build · find_critical_bugs · audits)
 ```
 
-**Law:** Brain **routes**; workers **code**; specialists **advocate** (Commercial / Governance / Research Acquisitor) — only Execution Core changes execution path (`CONTROLLED_EXECUTION_OS_MASTER_LOCKED_v1.md` §1).
+**Law:** Brain **routes**; workers **code**; specialists **advocate** (Commercial / Governance / Research Acquisitor) — only Execution Core changes execution path (`GOVERNED_EXECUTION_OS_MASTER_LOCKED_v1.md` §1).
 
 ---
 
@@ -89,7 +89,7 @@ Machine validators — truth (strict build · find_critical_bugs · audits)
 
 | Tier | Focus | Path |
 |------|-------|------|
-| T0 | Controlled automation factory | `sourcea-1000` REGISTRY |
+| T0 | Governed automation factory | `sourcea-1000` REGISTRY |
 | T2 | **FORGE** sellable app | `~/Desktop/forge/` |
 | T3 | **WTM** + Pre-LLM | `WORLD_TARGET_MODEL_MAP_LOCKED_v5.md` · `scripts/pre_llm/` |
 | T4 | Spine | `sa-XXXX` · Hub Actions |
@@ -112,7 +112,7 @@ Machine validators — truth (strict build · find_critical_bugs · audits)
 
 Every repo Cursor chat receives:
 
-1. `SINA_COMMAND_SYSTEM_UPDATE_NOTICE_LOCKED_v1.md` — general + **§Controlled OS**  
+1. `SINA_COMMAND_SYSTEM_UPDATE_NOTICE_LOCKED_v1.md` — general + **§Governed OS**  
 2. Per-repo notice — `founder/repo-agent-notices/REPO_NOTICE_<id>_v1.md`  
 3. Lane brief — Hub **Repos → Copy lane brief**
 
@@ -149,7 +149,7 @@ Includes: `GOAL_HIERARCHY_LOCKED_v1.md` · `FOUNDER_ADVISOR_PROFILE_LOCKED_v1.md
 | File | Role |
 |------|------|
 | `BRAIN_KNOWLEDGE_INDEX_LOCKED_v1.md` | §R Goal Hierarchy · §S Products · §Ecosystem rollout |
-| `SINA_COMMAND_SYSTEM_UPDATE_NOTICE_LOCKED_v1.md` | §Controlled OS paragraph for all agents |
+| `SINA_COMMAND_SYSTEM_UPDATE_NOTICE_LOCKED_v1.md` | §Governed OS paragraph for all agents |
 | `scripts/sync-brain-pack.sh` | Mirror trio to `~/.sina/brain/` |
 | `scripts/build_repo_agent_notices.py` | Per-repo notice timestamps |
 

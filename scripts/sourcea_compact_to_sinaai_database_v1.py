@@ -119,7 +119,7 @@ def _write_living_center() -> None:
         "forbidden_in_sourcea": [
             "archive attachments as daily law",
             "superseded cursor rules",
-            "1000-prompt trees locally (broker only)",
+            "1000-prompt trees on disk (broker only)",
             "duplicate os/plan-library",
         ],
         "proposal": "docs/SOURCEA_FOUNDER_AI_AGENTIC_PLATFORM_PROPOSAL_v1.md",

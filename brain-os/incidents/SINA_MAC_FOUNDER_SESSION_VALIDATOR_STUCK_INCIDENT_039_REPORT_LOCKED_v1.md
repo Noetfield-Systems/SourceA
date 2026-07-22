@@ -24,7 +24,7 @@ During a **founder session on Mac**, an agent **stuck the Mac body in validator 
 | 2026-06-20T17:44:28Z | `mac_law_agent_execution_plane_lock --enforce` + nerve pulse + `validate-mac-law-agent-execution-plane-lock-v1.sh` | ~58s | exit 1 · lock assess PASS · validator step failed |
 | 2026-06-20T17:49:18Z | Chained: lock `--enforce` + lock validator + machine enforceable + nerve validator | **~27.6 min** | **User aborted** · no output · Mac fork pressure |
 | 2026-06-20T17:49–18:16 | Agent `Await` polling hung shell multiple times | multi-turn | Founder blocked · no <30s reply |
-| 2026-06-20T18:16+ | Agent continued validator attempts · manual receipt edits · told ASF to run validator bash | ongoing | **Law ignored after RED FLAG exists in the repository** |
+| 2026-06-20T18:16+ | Agent continued validator attempts · manual receipt edits · told ASF to run validator bash | ongoing | **Law ignored after RED FLAG exists on disk** |
 
 **Terminal evidence:** `.cursor/projects/.../terminals/863581.txt` · `804216.txt`
 

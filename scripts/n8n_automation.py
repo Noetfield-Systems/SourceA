@@ -206,7 +206,7 @@ def test_starter_flow(*, auto_start_n8n: bool = True) -> dict:
     steps.append(
         {
             "id": "workflow_file",
-            "title": "Starter workflow JSON logged",
+            "title": "Starter workflow JSON on disk",
             "ok": wf_ok,
             "detail": str(WORKFLOW_PATH),
         }
@@ -291,7 +291,7 @@ def sync_governance_stubs() -> dict:
 
 
 def validate_workflow_files() -> dict:
-    """Validate in-repo workflow JSON against fixture manifest."""
+    """Validate on-disk workflow JSON against fixture manifest."""
     if not MANIFEST_PATH.is_file():
         return {"ok": False, "error": f"manifest missing: {MANIFEST_PATH}"}
     manifest = _load_json(MANIFEST_PATH)
@@ -406,7 +406,7 @@ def test_extended_flow(*, auto_start_n8n: bool = True) -> dict:
     extra_steps = [
         {
             "id": "workflow_manifest",
-            "title": "Workflow manifest logged",
+            "title": "Workflow manifest on disk",
             "ok": wf.get("ok"),
             "detail": wf.get("message", ""),
         },

@@ -10,7 +10,7 @@
 
 ## Task
 
-Fast-sell: TrustField · Vertical wedge (diaspora · RCIC · broker · trades) · Wire SKU on landing. Ship smallest slice that moves a buyer toward **FINTRAC readiness scan** with a path to **MSB program + settlement**. Receipt logged before done.
+Fast-sell: TrustField · Vertical wedge (diaspora · RCIC · broker · trades) · Wire SKU on landing. Ship smallest slice that moves a buyer toward **FINTRAC readiness scan** with a path to **MSB program + settlement**. Receipt on disk before done.
 
 ## Verify
 

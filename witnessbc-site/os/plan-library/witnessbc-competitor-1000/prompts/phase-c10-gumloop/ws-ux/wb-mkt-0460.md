@@ -23,7 +23,7 @@ Mark wb-mkt-0460 done in REGISTRY with evidence path + https://www.gumloop.com/p
 
 ## Implementation extraction
 
-`Gumloop · Buyer-visible UX` → what buyer sees at vendor → what we ship logged with receipt.
+`Gumloop · Buyer-visible UX` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

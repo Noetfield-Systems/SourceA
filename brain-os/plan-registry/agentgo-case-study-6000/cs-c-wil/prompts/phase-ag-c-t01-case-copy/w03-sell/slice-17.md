@@ -14,7 +14,7 @@ Wil L3 portfolio demo — YA5 mirror · AgentGo ≠ SourceA separation · ship g
 
 ## Task
 
-**Draft 1-page proposal for** case study prose (challenge · shipped · verification).
+**Draft 1-page proposal for** case study prose (challenge · shipped · proof chain).
 
 Fixed scope · receipts.
 

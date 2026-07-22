@@ -131,7 +131,7 @@ Full A/B/C/D scoring → `CANADA_RWA_STRATEGY_DEEP_RESEARCH_UPGRADE_v2.md` §3.
 
 - Agent mandate proof for `[Company]` tokenized `[asset]` flow?  
 - FINTRAC-grade execution proof for `[Company]` digital asset ops?  
-- Shadow pilot — controlled agents beside `[Company]` stack?  
+- Shadow pilot — governed agents beside `[Company]` stack?  
 - CSA Project Tokenization — quick proof demo for `[Company]`?  
 - Trust Brief + attestation for `[Company]` partner/receipt chain?
 

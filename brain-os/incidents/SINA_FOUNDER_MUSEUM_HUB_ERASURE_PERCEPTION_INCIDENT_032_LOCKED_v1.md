@@ -138,7 +138,7 @@ Agents described the old hub as **"archived"** without a prominent **read-only m
 ## 9. Verification
 
 ```bash
-# Museum still logged
+# Museum still on disk
 wc -c ~/Desktop/SourceA/agent-control-panel/command-data.json
 curl -sf -o /dev/null -w "%{http_code}\n" http://127.0.0.1:13020/legacy/
 

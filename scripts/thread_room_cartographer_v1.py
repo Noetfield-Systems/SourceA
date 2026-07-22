@@ -76,7 +76,7 @@ def cartograph(scout: dict) -> dict:
                 "chats": chats,
                 "founder_line": (
                     f"{arc}: {len(chats)} chat(s) mapped — "
-                    f"{len(megachats)} megachat(s) · nothing lost if transcript logged"
+                    f"{len(megachats)} megachat(s) · nothing lost if transcript on disk"
                 ),
             }
         )

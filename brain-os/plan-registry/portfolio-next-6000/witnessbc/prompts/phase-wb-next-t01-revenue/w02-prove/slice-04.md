@@ -12,7 +12,7 @@ witnessbc.com civic agentic install — not witness.ai
 
 ## Task
 
-WitnessBC · Revenue & outreach · Prove · slice 4/10 — P1 — next sprint outcome. Bounded path only. Receipt logged before done. Parent: witnessbc.com civic agentic install — not witness.ai. Priority doc: `witnessbc-site/content/pricing.html`.
+WitnessBC · Revenue & outreach · Prove · slice 4/10 — P1 — next sprint outcome. Bounded path only. Receipt on disk before done. Parent: witnessbc.com civic agentic install — not witness.ai. Priority doc: `witnessbc-site/content/pricing.html`.
 
 ## Verify
 

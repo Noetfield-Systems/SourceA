@@ -104,7 +104,7 @@ ASF asked brain/worker to ensure **app reflects all progress**:
 
 **Stale UI brain flags for worker:**
 - Strategic one-liner says "eval live + dispatch eligible" while gates false/false
-- Phase D `not_built` vs D1–D16 all done logged
+- Phase D `not_built` vs D1–D16 all done on disk
 
 ---
 

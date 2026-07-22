@@ -329,14 +329,14 @@ def checkcart_template() -> dict:
                 "id": "CIL2",
                 "step": "Email translation SSOT",
                 "command": "test -f data/factory-email-translation-v1.json",
-                "pass": "hard fails + translation map logged",
+                "pass": "hard fails + translation map on disk",
                 "owner": "executor",
             },
             {
                 "id": "CIL3",
                 "step": "Factory v2 spec + vocabulary",
                 "command": "test -f data/founder-email-factory-v2-machine-v1.json && test -f data/sourcea-forge-vocabulary-disambiguation-v1.json",
-                "pass": "machine SSOT mirrors LOCKED docs · Forge disambiguation logged",
+                "pass": "machine SSOT mirrors LOCKED docs · Forge disambiguation on disk",
                 "owner": "executor",
             },
             {
@@ -350,7 +350,7 @@ def checkcart_template() -> dict:
                 "id": "RRL2",
                 "step": "RRL SSOT",
                 "command": "test -f data/response-reality-layer-v1.json",
-                "pass": "RRL law in repository",
+                "pass": "RRL law on disk",
                 "owner": "executor",
             },
             {

@@ -10,7 +10,7 @@
 
 ## Task
 
-Fast-sell: TrustField · Monthly ops retainer · Add CRM / pipeline row. Ship smallest slice that moves a buyer toward **FINTRAC readiness scan** with a path to **MSB program + settlement**. Receipt logged before done.
+Fast-sell: TrustField · Monthly ops retainer · Add CRM / pipeline row. Ship smallest slice that moves a buyer toward **FINTRAC readiness scan** with a path to **MSB program + settlement**. Receipt on disk before done.
 
 ## Verify
 

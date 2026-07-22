@@ -2,7 +2,7 @@
 
 **Saved:** 2026-06-16T05:49:57Z · **Retrofit:** doc-datetime-law batch retrofit
 **Version:** 1.0 · **Locked:** 2026-06-15  
-**Product:** **SourceA** — controlled agent execution infrastructure (Buyer 1 · agency lane)  
+**Product:** **SourceA** — governed agent execution infrastructure (Buyer 1 · agency lane)  
 **Commercial package:** **Mac Guard** — invoice SKU for AAA automation shops (`N8N_COMMERCIAL_GRADE_LOCKED_v1.md`)  
 **Authority:** `SOURCEA_UNIFIED_PORTFOLIO_COMMERCIAL_SSOT_LOCKED_v3.1.md` §6 Buyer 1 · §14.2  
 **Runner:** `bash scripts/run_sourcea_agency_product_demo_v1.sh`
@@ -25,8 +25,8 @@
 
 ## Pitch (say this once)
 
-> **SourceA** is controlled agent execution for teams shipping Cursor agents in production.  
-> Agents don't run until the machine says **PASS** — every merge gets audited before it becomes law, and every run leaves a receipt logged.  
+> **SourceA** is governed agent execution for teams shipping Cursor agents in production.  
+> Agents don't run until the machine says **PASS** — every merge gets audited before it becomes law, and every run leaves a receipt on disk.  
 > For agencies we package it as **Mac Guard**: $750 ops audit, then $299/mo white-label weekly proof your clients can forward.
 
 **Do not pitch:** Sina Command hub · raw n8n · “Mac cooling app” · TrustField MSB · Noetfield Copilot (parallel lanes).
@@ -38,7 +38,7 @@
 | SKU | Price | SourceA value |
 |-----|-------|----------------|
 | **SKU-OPS-002** Ops Health Audit | **$750** | SourceA spine audit + Mac receipts + export PDF |
-| **SKU-OPS-001** Mac Guard Agency | **$500** + **$299/mo** | Weekly controlled-ops report · white-label |
+| **SKU-OPS-001** Mac Guard Agency | **$500** + **$299/mo** | Weekly governed-ops report · white-label |
 | **SKU-SOLO-001** Mac Guard Solo | **$99/mo** | Solo Buyer 1 · same engine, smaller seat |
 
 ---

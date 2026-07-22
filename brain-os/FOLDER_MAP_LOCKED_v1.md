@@ -13,7 +13,7 @@ Everything Brain · disk · memory · enforcement · REGISTRY · WTM · lanes ·
 | `contract/` | Mandatory Brain chat · transfer · heal · Claude advisor instructions |
 | `enforcement/` | Disk-before-chat · Goal1 chain · drain rail · worker law |
 | `incidents/` | Brain/worker cross · unvalidated proof · memory · auto-paste |
-| `system/` | Controlled OS charter · goal hierarchy · daily ops · routing |
+| `system/` | Governed OS charter · goal hierarchy · daily ops · routing |
 | `wtm/` | World Target Model locked laws |
 | `plan-registry/` | SOURCEA-PRIORITY · REGISTRY.json · sa prompts · healthy packs |
 | `lanes/` | Parallel product lane handoffs (TrustField, Noetfield, DevBridge, …) |

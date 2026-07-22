@@ -92,7 +92,7 @@ detect → classify → remediate → harden → verify → record → skills_pa
 
 ## 5. Founder respect
 
-- S10 runs **headless logged** — no scroll steal · no Prompt feed batch execution.
+- S10 runs **headless on disk** — no scroll steal · no Prompt feed batch execution.
 - Founder may read receipt in Hub **Track** or monitor footer when wired.
 - **Execution** remains **`run inbox`** only.
 

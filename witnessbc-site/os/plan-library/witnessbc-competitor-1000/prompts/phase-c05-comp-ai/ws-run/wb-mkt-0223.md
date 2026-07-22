@@ -23,7 +23,7 @@ Implement smallest `Witness AI Flow install replay demo + 6 receipt types` slice
 
 ## Implementation extraction
 
-`Comp AI · Run history & proof` → what buyer sees at vendor → what we ship logged with receipt.
+`Comp AI · Run history & proof` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

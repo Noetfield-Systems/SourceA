@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""SSOT: honest REGISTRY done = receipt logged with DONE-class status only."""
+"""SSOT: honest REGISTRY done = receipt on disk with DONE-class status only."""
 from __future__ import annotations
 
 import json
@@ -38,7 +38,7 @@ def honest_receipt_ids() -> set[str]:
 
 
 def audit_registry_done() -> dict:
-    """Compare REGISTRY done rows vs receipt files locally (SSOT).
+    """Compare REGISTRY done rows vs receipt files on disk (SSOT).
 
     Honest done = registry status done AND ``receipts/sa-XXXX-receipt.json`` with
     DONE-class status. YAML closeouts alone never count toward monitor progress.

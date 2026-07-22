@@ -219,7 +219,7 @@ def step4_video_ad_run() -> dict[str, Any]:
                     "schema": "campaign-automation-v1",
                     "id": "t1-client-002-campaign-v1",
                     "creator_id": CLIENT2_ID,
-                    "raw_brief": "15s vertical ad for Meridian AI Studio — controlled AI output with proof receipt.",
+                    "raw_brief": "15s vertical ad for Meridian AI Studio — governed AI output with proof receipt.",
                     "current_step": "BRIEF_ANALYSIS",
                     "created_at": _now(),
                     "updated_at": _now(),

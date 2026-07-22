@@ -23,7 +23,7 @@ Add retention note: how long run history kept vs Maven AGI (Enterprise custom ti
 
 ## Implementation extraction
 
-`Maven AGI · Run history & proof` → what buyer sees at vendor → what we ship logged with receipt.
+`Maven AGI · Run history & proof` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

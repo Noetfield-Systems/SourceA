@@ -47,7 +47,7 @@ SIGNAL_PATTERNS: list[tuple[str, str]] = [
     ("PICK", r"ASF:\s*FIVE-STEP|FIVE-STEP\s*—\s*PICK|Q-RT-LIVE|Q-1\.10"),
     ("ANALYSIS", r"analysis|insight|verdict|threat|danger|risk|impact|affect"),
     ("ORDER", r"must|have to|bring the|fix now|check this|do whatever|ship|wire"),
-    ("STATUS", r"said:|report holds|PASS|GREEN|verified|in the repository"),
+    ("STATUS", r"said:|report holds|PASS|GREEN|verified|on disk"),
 ]
 
 PHRASE_TO_LAW: list[tuple[str, str, str]] = [

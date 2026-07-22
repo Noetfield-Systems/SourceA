@@ -7630,8 +7630,8 @@
       "log_path": "~/.sina/e2e-logs/validate-governance-zero-drift-live-wire-v1.log"
     },
     {
-      "id": "validate-controlled-agentic-automation-offer-v1",
-      "script": "scripts/validate-controlled-agentic-automation-offer-v1.sh",
+      "id": "validate-governed-agentic-automation-offer-v1",
+      "script": "scripts/validate-governed-agentic-automation-offer-v1.sh",
       "kind": "shell",
       "scope": "mac_local",
       "unified_tier": "T1_fast",
@@ -7651,11 +7651,11 @@
         "cloud_ci"
       ],
       "gated": false,
-      "log_path": "~/.sina/e2e-logs/validate-controlled-agentic-automation-offer-v1.log"
+      "log_path": "~/.sina/e2e-logs/validate-governed-agentic-automation-offer-v1.log"
     },
     {
-      "id": "validate-controlled-autorun-skill-v1",
-      "script": "scripts/validate-controlled-autorun-skill-v1.sh",
+      "id": "validate-governed-autorun-skill-v1",
+      "script": "scripts/validate-governed-autorun-skill-v1.sh",
       "kind": "shell",
       "scope": "mac_local",
       "unified_tier": "T1_fast",
@@ -7675,7 +7675,7 @@
         "cloud_ci"
       ],
       "gated": false,
-      "log_path": "~/.sina/e2e-logs/validate-controlled-autorun-skill-v1.log"
+      "log_path": "~/.sina/e2e-logs/validate-governed-autorun-skill-v1.log"
     },
     {
       "id": "validate-graph-executor-gate-honesty-v1",

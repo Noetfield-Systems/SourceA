@@ -69,7 +69,7 @@
       "id": "RECEIPT",
       "label": "Receipt",
       "title": "Audit preserved",
-      "narration": "Receipt generated. Audit preserved. Every decision locally for your GRC team.",
+      "narration": "Receipt generated. Audit preserved. Every decision on disk for your GRC team.",
       "broll_urls": ["TBD://noetfield-demo-surface#receipt"],
       "card_seconds": 0.8,
       "broll_seconds": 20,
@@ -87,7 +87,7 @@
     }
   ],
   "cta": {
-    "narration": "Noetfield. Copilot governance with verification built in. Book a design partner call.",
+    "narration": "Noetfield. Copilot governance with proof on disk. Book a design partner call.",
     "seconds": 10,
     "broll_urls": ["TBD://noetfield-demo-surface"]
   },

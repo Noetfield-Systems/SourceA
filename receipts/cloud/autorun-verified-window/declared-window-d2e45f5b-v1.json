@@ -6,7 +6,7 @@
   "closes_at": "2026-07-03T21:06:47Z",
   "window_hours": 24.0,
   "head_sha": "d2e45f5bd2190e0422794eae23e2386642df72d2",
-  "law": "controlled-autorun \u2014 DECLARED until 24h green on external receipts",
+  "law": "governed-autorun \u2014 DECLARED until 24h green on external receipts",
   "criteria": {
     "zero_manual": "no manual trigger_source in cycle receipts",
     "cycle_receipt_v2": "every cycle autonomous-forge-run-cycle-receipt-v2",

@@ -27,7 +27,7 @@ def deploy_pack(*, bay_slug: str, tenant: str) -> dict:
         preview_url = f"https://mock-forge-preview.local/{tenant}/{wo.get('plan_id') or 'demo'}"
     manifest = {
         "schema": "fbe-forge-deploy-manifest-v1",
-        "artifact": "controlled_app_receipt_pack",
+        "artifact": "governed_app_receipt_pack",
         "ship_gate": "G0-G3",
         "deliveryMode": "prove_only",
         "preview_url": preview_url,

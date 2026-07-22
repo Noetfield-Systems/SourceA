@@ -1,7 +1,7 @@
 # fs-nf-0274 — Fast-sell plan
 
 **Version:** 1 · **Tier:** T2 · **Phase:** MOONSHOT
-**Lane:** Noetfield · **Wedge:** w15-archived-research · Ship differentiated feature slice
+**Lane:** Noetfield · **Wedge:** w15-competitor-clone · Clone one competitor feature slice
 **Action:** a08-contract · SOW / order form
 **Comp anchor:** Pickaxe agency · Vanta scan
 **Tier 1:** Intelligence diagnostic $2.5–5K
@@ -10,7 +10,7 @@
 
 ## Task
 
-Fast-sell: Noetfield · Ship differentiated feature slice · SOW / order form. Ship smallest slice that moves a buyer toward **Intelligence diagnostic $2.5–5K** with a path to **Build $8–25K + retainer**. Receipt logged before done.
+Fast-sell: Noetfield · Clone one competitor feature slice · SOW / order form. Ship smallest slice that moves a buyer toward **Intelligence diagnostic $2.5–5K** with a path to **Build $8–25K + retainer**. Receipt on disk before done.
 
 ## Verify
 

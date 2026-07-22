@@ -14,7 +14,7 @@ Dual desktop deploy — agentrun-app :5180 + SA4 AgentGo :8080 · landing parity
 
 ## Task
 
-**Validate no false production claims for** case study prose (challenge · shipped · verification).
+**Validate no false production claims for** case study prose (challenge · shipped · proof chain).
 
 sign-in urls.
 

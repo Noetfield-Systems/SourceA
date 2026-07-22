@@ -2,7 +2,7 @@
 
 **Version:** 1.0.0 LOCKED · **Saved:** 2026-06-16T11:15:00Z  
 **Path:** `~/Desktop/SourceA/docs/SOURCEA_NODE_MESH_SYNESTM_BUILD_PLAN_LOCKED_v1.md`  
-**Synestm:** Unified multi-parallel node mesh — **every capability wired like n8n**, controlled logged  
+**Synestm:** Unified multi-parallel node mesh — **every capability wired like n8n**, governed on disk  
 **Epic:** E11 · **Charter:** `SOURCEA_NODE_ARCHITECT_AGENTIC_AUTONOMOUS_SYSTEM_LOCKED_v1.md`  
 **Graph:** `data/sourcea_pipeline_node_graph_v1.json` v1.3 · **Catalog:** `data/sourcea_node_mesh_catalog_v1.json` v1.1  
 **Unified:** `data/sourcea_agentic_unified_bundle_v1.json`
@@ -62,7 +62,7 @@ mac_health_probe          mac_health_guard_v1                                   
 | ID | Deliverable | Proof |
 |----|-------------|-------|
 | N01 | Graph v1.3 + runner + validator | `validate-pipeline-node-graph-v1.sh` PASS |
-| N02 | Charter + skills HIGH PRO v2 + references | Files logged |
+| N02 | Charter + skills HIGH PRO v2 + references | Files on disk |
 | — | Directory node map v1 | 16 planes · 22 runtime receipts |
 | — | Mesh catalog v1 | `sourcea_node_mesh_catalog_v1.json` |
 | — | Terminology 2026 | Commercial tune LOCKED |
@@ -109,7 +109,7 @@ mac_health_probe          mac_health_guard_v1                                   
 
 ---
 
-## 4. Skill + reference stack (saved logged)
+## 4. Skill + reference stack (saved on disk)
 
 | File | Role |
 |------|------|
@@ -168,7 +168,7 @@ CART TASK node-mesh   # in Worker chat
 
 ## 8. Founder one-liner
 
-> **Synestm:** one mesh logged, parallel tiers everywhere, every folder mapped to a node, every ship proven by cart + validator — not another orphan script.
+> **Synestm:** one mesh on disk, parallel tiers everywhere, every folder mapped to a node, every ship proven by cart + validator — not another orphan script.
 
 ---
 

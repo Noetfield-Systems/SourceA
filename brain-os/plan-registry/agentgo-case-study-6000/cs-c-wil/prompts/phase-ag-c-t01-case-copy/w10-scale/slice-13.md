@@ -14,7 +14,7 @@ Wil L3 portfolio demo — YA5 mirror · AgentGo ≠ SourceA separation · ship g
 
 ## Task
 
-**Define scale metrics for** case study prose (challenge · shipped · verification).
+**Define scale metrics for** case study prose (challenge · shipped · proof chain).
 
 pages · deals.
 

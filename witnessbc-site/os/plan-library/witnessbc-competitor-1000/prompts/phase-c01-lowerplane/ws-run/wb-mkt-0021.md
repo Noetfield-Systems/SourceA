@@ -23,7 +23,7 @@ From https://lowerplane.com · https://lowerplane.com/pricing document LowerPlan
 
 ## Implementation extraction
 
-`LowerPlane · Run history & proof` → what buyer sees at vendor → what we ship logged with receipt.
+`LowerPlane · Run history & proof` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

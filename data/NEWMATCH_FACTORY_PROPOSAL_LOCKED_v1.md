@@ -127,7 +127,7 @@ Host: FBE Railway public HTTPS · Mac Hub = control panel only.
 
 | Wave | IDs | Ship |
 |------|-----|------|
-| W1 | NM-001–150 | Graph schema logged · seed JSON |
+| W1 | NM-001–150 | Graph schema on disk · seed JSON |
 | W2 | NM-151–300 | T0 router · FBE endpoint stub |
 | W3 | NM-501–650 | Ingest paths |
 | W4 | NM-301–500 | Follow-up loops |

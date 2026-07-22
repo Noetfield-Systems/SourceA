@@ -23,7 +23,7 @@
     },
     {
       "id": "C300-MCP-004",
-      "title": "Supabase mcp-receipts bucket spec logged",
+      "title": "Supabase mcp-receipts bucket spec on disk",
       "tier": "P2",
       "status": "done"
     },
@@ -59,7 +59,7 @@
     },
     {
       "id": "C300-MCP-010",
-      "title": "P2_sse_live receipt logged",
+      "title": "P2_sse_live receipt on disk",
       "tier": "P2",
       "status": "done"
     }

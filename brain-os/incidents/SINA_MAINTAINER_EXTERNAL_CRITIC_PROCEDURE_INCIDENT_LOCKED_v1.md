@@ -105,7 +105,7 @@
 1. **Law looked decorative** — `alwaysApply` rule present; maintainer ignored first-line ceremony for days.  
 2. **GPT/Claude felt like co-ASF** — shipped Gatekeeper + laws from blueprint without adopt table.  
 3. **Repeat of INCIDENT-004 via chat** — early plans promoted commercial parallel before eval-dispatch.  
-4. **Invisible drift left logged** — `EXECUTION_SESSION_LOCK_2026-06-08_v1.md` still ROA commercial-first while code fixed.  
+4. **Invisible drift left on disk** — `EXECUTION_SESSION_LOCK_2026-06-08_v1.md` still ROA commercial-first while code fixed.  
 5. **Two queue packs** — `~/.sina` sa-0153–0166 vs repo sa-0154–0169; invariant story incomplete.  
 6. **Founder had to remind** — “you never mentioned critic law” = enforcement gap on **maintainer**, not missing law text.
 

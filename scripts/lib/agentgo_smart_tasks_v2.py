@@ -4,7 +4,7 @@ from __future__ import annotations
 THEME_CTX: dict[str, dict] = {
     "t01-case-copy": {
         "short": "Narrative",
-        "object": "case study prose (challenge · shipped · verification)",
+        "object": "case study prose (challenge · shipped · proof chain)",
         "path": "SourceA-landing/green-unified/case-studies/agentgo.html",
         "metric": "buyer comprehension in one screen",
     },
@@ -60,7 +60,7 @@ THEME_CTX: dict[str, dict] = {
         "short": "Revenue",
         "object": "SaaS/marketing ICP CRM + outreach",
         "path": "scripts/sourcea_revenue_engine_crm_v1.py",
-        "metric": "outreach_sent logged",
+        "metric": "outreach_sent on disk",
     },
 }
 
@@ -68,7 +68,7 @@ ANGLE_CTX: dict[str, dict] = {
     "cs-a-factory": {
         "short": "Factory",
         "buyer": "marketing leader who needs category surface at factory speed",
-        "pure_law": "Pure story: controlled pipeline → 1259-page GEO surface. Not a PureFlow trades clone.",
+        "pure_law": "Pure story: governed pipeline → 1259-page GEO surface. Not a PureFlow trades clone.",
         "verify": "test -d ~/Desktop/SA4 && find ~/Desktop/SA4 -name '*.html' 2>/dev/null | wc -l",
         "anti": "Never claim live SaaS billing — SA4 is marketing surface proof.",
     },
@@ -90,7 +90,7 @@ ANGLE_CTX: dict[str, dict] = {
 
 WS_PROGRESS: dict[str, list[dict]] = {
     "w01-ship": [
-        {"title": "Micro-ship", "verb": "Ship smallest buyer-visible slice of", "detail": "One shippable artifact only — no drive-by refactors.", "receipt": "file present"},
+        {"title": "Micro-ship", "verb": "Ship smallest buyer-visible slice of", "detail": "One shippable artifact only — no drive-by refactors.", "receipt": "file on disk"},
         {"title": "Route wire", "verb": "Wire nav + breadcrumb for", "detail": "Link from offer + footer; PureFlow stays case #1.", "receipt": "grep link in offer.html"},
         {"title": "Gate add", "verb": "Add page to commercial + depth gates for", "detail": "Update landing-commercial-copy-audience + copy-depth JSON.", "receipt": "validate-landing-commercial-copy PASS"},
         {"title": "OG polish", "verb": "Polish OG title + meta for", "detail": "One sharp sentence — no ALLOW/BLOCK repetition.", "receipt": "depth gate PASS"},

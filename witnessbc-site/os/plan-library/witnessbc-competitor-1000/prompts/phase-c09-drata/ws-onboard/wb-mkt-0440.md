@@ -23,7 +23,7 @@ Close wb-mkt-0440 with onboarding evidence + verify PASS
 
 ## Implementation extraction
 
-`Drata · Onboarding & PLG` → what buyer sees at vendor → what we ship logged with receipt.
+`Drata · Onboarding & PLG` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

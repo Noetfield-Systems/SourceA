@@ -23,7 +23,7 @@ Document why buyers pay per Sprinto: Manual spreadsheet evidence doesn't scale �
 
 ## Implementation extraction
 
-`Sprinto · Pricing & packaging` → what buyer sees at vendor → what we ship logged with receipt.
+`Sprinto · Pricing & packaging` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

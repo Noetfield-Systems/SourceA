@@ -23,7 +23,7 @@ Mark wb-mkt-0860 done in REGISTRY with evidence path + https://dust.tt after ver
 
 ## Implementation extraction
 
-`Dust.tt · Buyer-visible UX` → what buyer sees at vendor → what we ship logged with receipt.
+`Dust.tt · Buyer-visible UX` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

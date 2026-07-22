@@ -14,7 +14,7 @@ Wil L3 portfolio demo — YA5 mirror · AgentGo ≠ SourceA separation · ship g
 
 ## Task
 
-**Validate Wil terminology exists for** case study prose (challenge · shipped · verification).
+**Validate Wil terminology exists for** case study prose (challenge · shipped · proof chain).
 
 angle C.
 

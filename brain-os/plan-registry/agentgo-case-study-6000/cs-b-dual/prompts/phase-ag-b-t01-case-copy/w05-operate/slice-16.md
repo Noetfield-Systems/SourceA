@@ -14,7 +14,7 @@ Dual desktop deploy — agentrun-app :5180 + SA4 AgentGo :8080 · landing parity
 
 ## Task
 
-**Add monitor row for** case study prose (challenge · shipped · verification).
+**Add monitor row for** case study prose (challenge · shipped · proof chain).
 
 live surfaces json.
 

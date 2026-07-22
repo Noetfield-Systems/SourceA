@@ -12,7 +12,7 @@ witnessbc.com civic agentic install — not witness.ai
 
 ## Task
 
-WitnessBC · Revenue & outreach · Scale · slice 1/10 — P0 — smallest shippable slice with receipt. Bounded path only. Receipt logged before done. Parent: witnessbc.com civic agentic install — not witness.ai. Priority doc: `witnessbc-site/content/pricing.html`.
+WitnessBC · Revenue & outreach · Scale · slice 1/10 — P0 — smallest shippable slice with receipt. Bounded path only. Receipt on disk before done. Parent: witnessbc.com civic agentic install — not witness.ai. Priority doc: `witnessbc-site/content/pricing.html`.
 
 ## Verify
 

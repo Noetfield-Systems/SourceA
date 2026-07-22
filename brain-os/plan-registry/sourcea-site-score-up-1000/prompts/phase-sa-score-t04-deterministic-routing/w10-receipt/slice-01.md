@@ -1,4 +1,4 @@
-# sa-score-0591 — Receipt logged for routing decision receipt in pulse events
+# sa-score-0591 — Receipt on disk for routing decision receipt in pulse events
 
 **Saved at:** 2026-06-25T09:23:55Z
 **Version:** 1 · **Tier:** T0 · **Phase:** MOONSHOT
@@ -16,7 +16,7 @@ Raise SourceA site score toward **95+/100** — proof before call · stranger se
 
 P0 — smallest shippable slice; live on sourcea.app
 
-**Deliverable:** Receipt logged for routing decision receipt in pulse events
+**Deliverable:** Receipt on disk for routing decision receipt in pulse events
 
 Bounded paths: `SourceA-landing/green-unified/` · `cloud/workers/sourcea-site-pulse-v1/` · `scripts/validate-sourcea-modern-stack-e2e-v1.sh`
 

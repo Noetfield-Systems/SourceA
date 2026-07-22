@@ -128,17 +128,17 @@ def scan_page(rel_path: str, html: str, *, cfg: dict[str, Any]) -> list[dict[str
                 "id": "hollow_proof",
                 "page": rel_path,
                 "line": 1,
-                "excerpt": f"{proof_count} proof/controlled tokens · 0 artifact anchors",
+                "excerpt": f"{proof_count} proof/governed tokens · 0 artifact anchors",
                 "suggestion": "CUT hollow proof lines — add one real anchor (sourcea-boot, boot-proof.json, /sourcea/proof) or delete claims.",
             }
         )
-    elif plain.lower().count("receipt logged") >= 3 and artifact_hits < 1:
+    elif plain.lower().count("receipt on disk") >= 3 and artifact_hits < 1:
         findings.append(
             {
                 "id": "hollow_proof",
                 "page": rel_path,
                 "line": 1,
-                "excerpt": "receipt logged repeated without artifact link",
+                "excerpt": "receipt on disk repeated without artifact link",
                 "suggestion": "CUT repeats — one receipt claim + link to sourcea-boot or live proof page.",
             }
         )
@@ -283,7 +283,7 @@ def run_gate(
         "next_action": (
             "Ship allowed — copy depth gate PASS"
             if ok
-            else "CUT or tighten flagged lines locally (founder approves) — do not publish"
+            else "CUT or tighten flagged lines on disk (founder approves) — do not publish"
         ),
     }
     return _write_receipt(row)
@@ -322,7 +322,7 @@ def main() -> int:
     if args.fixture == "bad-padded-growth":
         bad = """
         <main>
-          <section><p class="ar-section-copy">Every stage runs on the same spine — policy before action, receipt logged. That is what prospects remember — not another orchestration slide.</p></section>
+          <section><p class="ar-section-copy">Every stage runs on the same spine — policy before action, receipt on disk. That is what prospects remember — not another orchestration slide.</p></section>
           <section><p>15-minute screen-share — ALLOW, BLOCK, replay.</p><p>Book 15 minutes. Screen-share ALLOW, BLOCK, and replay.</p><p>Proof deck on every invite. Live ALLOW and BLOCK.</p></section>
           <section><p>Weekly proof export. Trust compounds into MRR.</p><p>SourceA flips the script — prospects watch governance.</p></section>
           <section class="sa-explore"><div class="sa-explore-grid"><a class="sa-explore-card">01</a></div></section>

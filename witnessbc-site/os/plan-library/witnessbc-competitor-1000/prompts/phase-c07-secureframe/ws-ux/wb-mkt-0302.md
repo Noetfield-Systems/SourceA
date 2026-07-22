@@ -23,7 +23,7 @@ Write one-line UX spec: `Secureframe Buyer-visible UX` → buyer sees X → we s
 
 ## Implementation extraction
 
-`Secureframe · Buyer-visible UX` → what buyer sees at vendor → what we ship logged with receipt.
+`Secureframe · Buyer-visible UX` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

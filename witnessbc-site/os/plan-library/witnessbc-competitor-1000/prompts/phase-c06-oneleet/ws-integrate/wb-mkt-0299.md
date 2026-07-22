@@ -23,7 +23,7 @@ Update catalog/registry row for integration — Oneleet row 26
 
 ## Implementation extraction
 
-`Oneleet · Integrations & API` → what buyer sees at vendor → what we ship logged with receipt.
+`Oneleet · Integrations & API` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

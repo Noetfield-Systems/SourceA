@@ -1,6 +1,6 @@
-/* SourceA brand overrides — SourceA (light) + SourceA (dark) layouts */
+/* SourceA brand overrides — Zenity (light) + Nomotic (dark) layouts */
 
-/* SourceA / light layout */
+/* Zenity / light layout */
 body.sa-light {
   --primary: #2563eb;
   --primary-dark: #1d4ed8;
@@ -8,7 +8,7 @@ body.sa-light {
   --gradient: linear-gradient(135deg, #2563eb 0%, #4d9fff 55%, #3ecf8e 100%);
 }
 
-/* SourceA / dark layout */
+/* Nomotic / dark layout */
 body.sa-dark {
   --accent: #4d9fff;
   --accent-dim: rgba(77, 159, 255, 0.12);

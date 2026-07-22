@@ -10,7 +10,7 @@
 
 ## Task
 
-Fast-sell: SourceA · Tier-1 → Tier-2 upsell motion · Retainer renewal touch. Ship smallest slice that moves a buyer toward **Asset B diagnostic $3K slice** with a path to **DFY $3–10K + retainer**. Receipt logged before done.
+Fast-sell: SourceA · Tier-1 → Tier-2 upsell motion · Retainer renewal touch. Ship smallest slice that moves a buyer toward **Asset B diagnostic $3K slice** with a path to **DFY $3–10K + retainer**. Receipt on disk before done.
 
 ## Verify
 

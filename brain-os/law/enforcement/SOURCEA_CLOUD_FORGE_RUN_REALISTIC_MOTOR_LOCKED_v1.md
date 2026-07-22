@@ -46,7 +46,7 @@ Only the **100-row mandatory quota** is retired.
 
 ## Proof gate (mandatory before advance)
 
-1. `plan_id` resolves to a recipe logged  
+1. `plan_id` resolves to a recipe on disk  
 2. Cloud worker runs the recipe (not Mac)  
 3. `validator_result === PASS`  
 4. Supabase `cloud_forge_run_rows` row written with `artifact_path`  

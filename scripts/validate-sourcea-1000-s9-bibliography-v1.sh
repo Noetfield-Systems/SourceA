@@ -35,7 +35,7 @@ for line in text.splitlines():
         print(f"FAIL: bibliography path missing {rel}")
         missing += 1
 
-assert missing == 0, f"{missing} attachment paths missing locally"
+assert missing == 0, f"{missing} attachment paths missing on disk"
 
 print(
     f"OK: validate-sourcea-1000-s9-bibliography-v1 · "

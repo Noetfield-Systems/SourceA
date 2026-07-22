@@ -14,7 +14,7 @@ Wil L3 portfolio demo — YA5 mirror · AgentGo ≠ SourceA separation · ship g
 
 ## Task
 
-**Validate tier assignment for** case study prose (challenge · shipped · verification).
+**Validate tier assignment for** case study prose (challenge · shipped · proof chain).
 
 T0 first slices.
 

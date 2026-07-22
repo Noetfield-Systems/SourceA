@@ -50,7 +50,7 @@ if not row.get('signal_factory_line'):
 
 receipt = Path.home() / '.sina/signal-factory-tick-receipt-v1.json'
 if not receipt.is_file():
-    errors.append('missing tick receipt logged')
+    errors.append('missing tick receipt on disk')
 
 if errors:
     print('FAIL: validate-signal-factory-tick-v1')

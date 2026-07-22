@@ -2,7 +2,7 @@
   "schema": "trust-signals-public-v1",
   "saved_at": "2026-07-02T03:10:00Z",
   "disclosure_line": "Prove every agent action \u2014 before the model runs, after it ships.",
-  "perimeter": "Powered by SourceA \u2014 advisory only \u00b7 no custody \u00b7 no payment initiation.",
+  "perimeter": "Powered by SourceA governed execution \u2014 advisory only \u00b7 no custody \u00b7 no payment initiation.",
   "mcp_free_tier_summary": "MCP free-tier",
   "pypi": {
     "ok": true,

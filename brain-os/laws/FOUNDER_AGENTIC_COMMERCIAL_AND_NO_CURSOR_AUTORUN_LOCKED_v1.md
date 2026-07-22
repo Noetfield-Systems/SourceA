@@ -20,7 +20,7 @@
 | Claim | Law |
 |-------|-----|
 | Cursor AUTO-RUN as P0 / north star | **FORBIDDEN** — not a goal, not default advice |
-| `▶ START AUTO RUN` / batch / headless Cursor loop | **Legacy logged** — do not promote, do not re-litigate |
+| `▶ START AUTO RUN` / batch / headless Cursor loop | **Legacy on disk** — do not promote, do not re-litigate |
 | `~/.sina/auto-run-disabled-v1.flag` | **MUST stay ON** until ASF explicitly removes in a bounded order |
 | Worker execution | **RUN INBOX** when Brain routes — founder tap optional, not Cursor factory P0 |
 

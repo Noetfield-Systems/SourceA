@@ -12,7 +12,7 @@ Agentic factory SaaS — no payment/FINTRAC copy
 
 ## Task
 
-VIRLUX · Landing & web · Integrate · slice 1/10 — P0 — smallest shippable slice with receipt. Bounded path only. Receipt logged before done. Parent: Agentic factory SaaS — no payment/FINTRAC copy. Priority doc: `os/plan-library/VIRLUX-PRIORITY.md`.
+VIRLUX · Landing & web · Integrate · slice 1/10 — P0 — smallest shippable slice with receipt. Bounded path only. Receipt on disk before done. Parent: Agentic factory SaaS — no payment/FINTRAC copy. Priority doc: `os/plan-library/VIRLUX-PRIORITY.md`.
 
 ## Verify
 

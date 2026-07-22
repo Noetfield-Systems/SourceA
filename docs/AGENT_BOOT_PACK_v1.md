@@ -16,7 +16,7 @@
 
 | Order | Artifact | Path | Why |
 |------:|----------|------|-----|
-| 1 | **Laws v3** | `docs/CONTROLLED_AUTORUN_LAWS_v3.md` | L1–L17 operating system |
+| 1 | **Laws v3** | `docs/GOVERNED_AUTORUN_LAWS_v3.md` | L1–L17 operating system |
 | 2 | **Role routing** | `.cursor/rules/000-entry-gate.mdc` + role from session gate `--role` | Brain vs Worker vs governance |
 | 3 | **Orient SSOT** | `data/sourcea_orient_routing_v1.json` · human: `docs/SOURCEA_ORIENTATION_AND_ROUTING_LOCKED_v1.md` | Pipeline nodes · graph tiers |
 | 4 | **Registries** | See §Registries below | Triggers, missions, cost-tier queue |
@@ -91,12 +91,12 @@ Escalation requires `TIER_ESCALATION` receipt: `{from_tier, to_tier, reason, evi
 
 This pack lists **paths and contracts only** — no Cursor-specific hooks required. Any agent (Cursor, Copilot, cloud worker) that loads the manifest + runs session gate is boot-compliant.
 
-**Validator (ship window):** confirm manifest paths exist in the repository before merge.
+**Validator (ship window):** confirm manifest paths exist on disk before merge.
 
 ---
 
 ## Related
 
 - Corporate bootstrap: `docs/CURSOR_CORPORATE_BOOTSTRAP_PACK_LOCKED_v1.md`
-- Controlled autorun skill: `.cursor/skills/controlled-autorun/SKILL.md`
+- Governed autorun skill: `.cursor/skills/governed-autorun/SKILL.md`
 - Agent boot pack contract: this file is the canonical manifest (`docs/AGENT_BOOT_PACK_v1.md`)

@@ -256,7 +256,7 @@ PHASE_TASKS: list[list[str]] = [
         "Vercel deployment protection disable",
         "Supabase RLS stub validated",
         "Stripe webhook idempotent proof",
-        "Beta cohort registry logged",
+        "Beta cohort registry on disk",
         "Commercial Brain parallel not blocking Loop A",
         "SOURCEA-PRIORITY FORGE ship row",
         "TrustField demo booked optional gate",

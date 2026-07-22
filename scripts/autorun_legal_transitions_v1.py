@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Legal autorun state transitions (controlled-autorun D4 · L13)."""
+"""Legal autorun state transitions (governed-autorun D4 · L13)."""
 from __future__ import annotations
 
 from typing import FrozenSet

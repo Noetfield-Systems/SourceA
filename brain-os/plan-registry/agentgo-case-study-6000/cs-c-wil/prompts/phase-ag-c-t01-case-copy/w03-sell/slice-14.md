@@ -14,7 +14,7 @@ Wil L3 portfolio demo — YA5 mirror · AgentGo ≠ SourceA separation · ship g
 
 ## Task
 
-**Log W3 economic signal for** case study prose (challenge · shipped · verification).
+**Log W3 economic signal for** case study prose (challenge · shipped · proof chain).
 
 CAD ≥2K path.
 

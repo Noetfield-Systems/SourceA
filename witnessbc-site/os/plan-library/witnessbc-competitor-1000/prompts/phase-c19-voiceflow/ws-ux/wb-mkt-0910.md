@@ -23,7 +23,7 @@ Mark wb-mkt-0910 done in REGISTRY with evidence path + https://www.voiceflow.com
 
 ## Implementation extraction
 
-`Voiceflow · Buyer-visible UX` → what buyer sees at vendor → what we ship logged with receipt.
+`Voiceflow · Buyer-visible UX` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

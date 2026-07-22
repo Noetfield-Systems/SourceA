@@ -6,7 +6,7 @@ fail() { echo "FAIL: validate-living-brain-master-plan-v1 — $*" >&2; exit 1; }
 
 [[ -f "$ROOT/data/sourcea-living-brain-autorun-master-plan-v1.json" ]] || fail "missing master plan JSON"
 [[ -f "$ROOT/docs/SOURCEA_LIVING_BRAIN_AUTORUN_MASTER_PLAN_LOCKED_v1.md" ]] || fail "missing master plan doc"
-[[ -f "$ROOT/docs/CONTROLLED_AUTORUN_LAWS_v3.md" ]] || fail "missing laws v3"
+[[ -f "$ROOT/docs/GOVERNED_AUTORUN_LAWS_v3.md" ]] || fail "missing laws v3"
 
 grep -q 'living_brain_master_plan' "$ROOT/data/sourcea_orient_routing_v1.json" \
   || fail "orient step 15 not wired"

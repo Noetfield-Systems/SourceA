@@ -10,7 +10,7 @@
   "directory_map_doc": "docs/SOURCEA_DIRECTORY_NODE_MAP_LOCKED_v1.md",
   "build_plan_epic": "E11",
   "build_plan_range": "N01-N20",
-  "synestm": "Unified multi-parallel node mesh — every capability wired like n8n, controlled logged",
+  "synestm": "Unified multi-parallel node mesh — every capability wired like n8n, governed on disk",
   "law": "SINA_AUTOMATION_SPINE_AND_N8N_LOCKED_v1.md",
   "policy": "Internal Python node graph = SSOT orchestration. n8n = external glue only (cron/webhook executeCommand).",
   "receipt": "~/.sina/pipeline-node-graph-receipt-v1.json",

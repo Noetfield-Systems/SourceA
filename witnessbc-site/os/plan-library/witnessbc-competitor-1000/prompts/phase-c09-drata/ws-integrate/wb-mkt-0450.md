@@ -23,7 +23,7 @@ Close wb-mkt-0450: integration receipt + verify PASS + https://drata.com
 
 ## Implementation extraction
 
-`Drata · Integrations & API` → what buyer sees at vendor → what we ship logged with receipt.
+`Drata · Integrations & API` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

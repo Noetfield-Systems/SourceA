@@ -23,7 +23,7 @@ Add retention note: how long run history kept vs Voiceflow (Free + paid team tie
 
 ## Implementation extraction
 
-`Voiceflow · Run history & proof` → what buyer sees at vendor → what we ship logged with receipt.
+`Voiceflow · Run history & proof` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

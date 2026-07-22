@@ -23,7 +23,7 @@ Close wb-mkt-0690 with onboarding evidence + verify PASS
 
 ## Implementation extraction
 
-`Holistic AI · Onboarding & PLG` → what buyer sees at vendor → what we ship logged with receipt.
+`Holistic AI · Onboarding & PLG` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

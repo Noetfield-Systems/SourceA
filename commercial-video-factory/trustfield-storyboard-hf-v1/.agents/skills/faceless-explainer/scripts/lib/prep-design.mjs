@@ -51,13 +51,13 @@ export function resolveDesignChunks({ designSystemDir, scenes, anomalies }) {
     const easingsAbs = join(designSystemDir, chunksIndex.easings_file || "chunks/easings.js");
     const voiceAbs = join(designSystemDir, chunksIndex.voice_file || "chunks/voice.md");
     if (!existsSync(tokensAbs))
-      die(`design_chunks: tokens_file "${tokensAbs}" referenced by index.json but missing locally`);
+      die(`design_chunks: tokens_file "${tokensAbs}" referenced by index.json but missing on disk`);
     if (!existsSync(easingsAbs))
       die(
-        `design_chunks: easings_file "${easingsAbs}" referenced by index.json but missing locally`,
+        `design_chunks: easings_file "${easingsAbs}" referenced by index.json but missing on disk`,
       );
     if (!existsSync(voiceAbs))
-      die(`design_chunks: voice_file "${voiceAbs}" referenced by index.json but missing locally`);
+      die(`design_chunks: voice_file "${voiceAbs}" referenced by index.json but missing on disk`);
 
     // Optional chunks (null when preset declared no §H / §T). Worker reads
     // these on demand — paths are passed through dispatch verbatim. We only check
@@ -65,13 +65,13 @@ export function resolveDesignChunks({ designSystemDir, scenes, anomalies }) {
     // worker then opens it lazily without re-checking.
     const hintsAbs = chunksIndex.hints_file ? join(designSystemDir, chunksIndex.hints_file) : null;
     if (hintsAbs && !existsSync(hintsAbs))
-      die(`design_chunks: hints_file "${hintsAbs}" referenced by index.json but missing locally`);
+      die(`design_chunks: hints_file "${hintsAbs}" referenced by index.json but missing on disk`);
     const typeRolesAbs = chunksIndex.type_roles_file
       ? join(designSystemDir, chunksIndex.type_roles_file)
       : null;
     if (typeRolesAbs && !existsSync(typeRolesAbs))
       die(
-        `design_chunks: type_roles_file "${typeRolesAbs}" referenced by index.json but missing locally`,
+        `design_chunks: type_roles_file "${typeRolesAbs}" referenced by index.json but missing on disk`,
       );
 
     // Components are a style REFERENCE library, not a plan-time citation. Forward

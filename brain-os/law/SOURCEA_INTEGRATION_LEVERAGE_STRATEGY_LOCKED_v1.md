@@ -22,7 +22,7 @@
 3. **API-first ecosystems scale** — developer portal + sandbox + webhooks beat bilateral deals ([API-first partnership guide](https://myb2bnetwork.com/blog/api-first-partnership-ecosystems-complete-b2b-guide/)).
 4. **Early stage = 1–2 strategic integrations**, not a marketplace ([Phi — post-PMF, 1–2 proofs first).
 
-**SourceA wedge unchanged:** controlled receipt layer — integrations **prove** we sit in the buyer's stack, not replace it.
+**SourceA wedge unchanged:** governed receipt layer — integrations **prove** we sit in the buyer's stack, not replace it.
 
 ---
 
@@ -113,7 +113,7 @@ Linear backlog · Notion wiki · Asana · raw Zapier without receipts · HeyGen 
 
 **Seed issues:** GOV-5 · GOV-6 (AB1) · GOV-7–10 (integration P0/P1)
 
-**Sync law:** Commercial pipeline row `cp-*` logged → mirror to Linear issue on founder tap or weekly — not every `sa-*` turn.
+**Sync law:** Commercial pipeline row `cp-*` on disk → mirror to Linear issue on founder tap or weekly — not every `sa-*` turn.
 
 ---
 
@@ -184,7 +184,7 @@ Track in Linear + CRM mirror (not chat):
 
 ## What we tell the market (one paragraph)
 
-SourceA is the **governance receipt layer** for agentic execution — it runs above Temporal, LangGraph, and your IDE (Cursor), signing PASS/BLOCK/tamper-FAIL in the repository before irreversible actions execute. We integrate with the tools your team already uses (Linear for delivery visibility, Vercel for proof hosting, GitHub for ship traceability) — we do not replace your factory or your backlog.
+SourceA is the **governance receipt layer** for agentic execution — it runs above Temporal, LangGraph, and your IDE (Cursor), signing PASS/BLOCK/tamper-FAIL on disk before irreversible actions execute. We integrate with the tools your team already uses (Linear for delivery visibility, Vercel for proof hosting, GitHub for ship traceability) — we do not replace your factory or your backlog.
 
 ---
 

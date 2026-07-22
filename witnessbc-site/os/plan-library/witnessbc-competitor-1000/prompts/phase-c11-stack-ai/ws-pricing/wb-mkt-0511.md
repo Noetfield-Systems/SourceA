@@ -23,7 +23,7 @@ Capture Stack AI public pricing evidence: Free 500 runs/mo; enterprise custom �
 
 ## Implementation extraction
 
-`Stack AI · Pricing & packaging` → what buyer sees at vendor → what we ship logged with receipt.
+`Stack AI · Pricing & packaging` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

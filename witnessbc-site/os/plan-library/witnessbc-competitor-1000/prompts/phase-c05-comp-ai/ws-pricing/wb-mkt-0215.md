@@ -23,7 +23,7 @@ Compare Comp AI PLG motion (Startup compliance PLG) vs our onboarding — one ad
 
 ## Implementation extraction
 
-`Comp AI · Pricing & packaging` → what buyer sees at vendor → what we ship logged with receipt.
+`Comp AI · Pricing & packaging` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

@@ -167,7 +167,7 @@ Outbound attach: WBC-FLOW → proof bundle · pricing page → pricing bundle ·
 ## v5 UI upgrade (2026-06-15)
 
 - **Trust layer** — shadow / metadata-only / fail-closed pills · framework alignment strip · cohort label
-- **Hero polish** — category line · buyer chips · SourceA-style CTA order · stat count-up
+- **Hero polish** — category line · buyer chips · Zenity-style CTA order · stat count-up
 - **Proof page** — film-strip autoplay · segmented scenario pills · aria-live verdict
 - **Responsive** — compare matrix cards · lifecycle scroll-snap · mobile hero stack · mobile CTA bar
 - **Pricing** — Flow tier elevation · deposit micro-copy

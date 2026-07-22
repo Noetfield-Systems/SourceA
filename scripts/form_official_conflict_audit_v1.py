@@ -2,7 +2,7 @@
 """FORM_OFFICIAL conflict audit — evidenced mistakes/contradictions from disk only.
 
 Receipt: ~/.sina/form-official-conflict-audit-v1.json
-Law: no invented rows — each must cite evidence_path logged
+Law: no invented rows — each must cite evidence_path on disk
 """
 from __future__ import annotations
 
@@ -84,7 +84,7 @@ def audit_conflicts(*, existing_ids: set[str] | None = None) -> dict:
     applied = dict((_read_json(APPLIED_PATH).get("picks") or {}))
     rows: list[dict] = []
 
-    # 1) Prior pick contradicts row recommended (real conflict logged)
+    # 1) Prior pick contradicts row recommended (real conflict on disk)
     for q in OPEN_QUESTIONS_CORE + PENDING_OUTSIDE_AS_OPEN:
         qid = str(q.get("id") or "")
         if not qid or qid in existing:
@@ -106,7 +106,7 @@ def audit_conflicts(*, existing_ids: set[str] | None = None) -> dict:
                     options=[
                         "A — Keep prior pick as law (do not reopen)",
                         "B — Reopen row — founder re-picks now (recommended)",
-                        "C — Amend recommended to match prior pick logged",
+                        "C — Amend recommended to match prior pick on disk",
                         "D — Escalate to Judge Center counsel row",
                     ],
                     effect=f"Resolves pick vs recommendation drift for {qid}",
@@ -493,7 +493,7 @@ def audit_conflicts(*, existing_ids: set[str] | None = None) -> dict:
                     "Rebrand public HTML to WitnessBC on next publish?"
                 ),
                 "blocks": "witnessbc-portfolio-routing title_fix_note · identity law",
-                "disk_today": "implementation.title_fix_note logged",
+                "disk_today": "implementation.title_fix_note on disk",
                 "recommended": "B",
                 "options": [
                     "A — Rebrand all public pages to WitnessBC now",

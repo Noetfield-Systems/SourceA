@@ -14,7 +14,7 @@ Wil L3 portfolio demo — YA5 mirror · AgentGo ≠ SourceA separation · ship g
 
 ## Task
 
-**Add index row for** case study prose (challenge · shipped · verification).
+**Add index row for** case study prose (challenge · shipped · proof chain).
 
 AGENTGO-CASE-STUDY-6000 machine index.
 

@@ -53,7 +53,7 @@ RUNTIME        ~/.sina/ receipts, queue, orchestrator, research-root
 | `contract/` | `…/brain-os/contract/` | Brain chat, advisor v3, **this file** |
 | `enforcement/` | `…/brain-os/law/enforcement/` | Disk-before-chat, Goal1 chain, drain rail |
 | `incidents/` | `…/brain-os/incidents/` | Brain/worker cross, unvalidated proof |
-| `system/` | `…/brain-os/system/` | Controlled OS, goal hierarchy, daily ops |
+| `system/` | `…/brain-os/system/` | Governed OS, goal hierarchy, daily ops |
 | `wtm/` | `…/brain-os/wtm/` | World Target Model locked laws (12 files) |
 | `plan-registry/` | `…/brain-os/plan-registry/` | SOURCEA-PRIORITY, REGISTRY.json, sa prompts, **worker-dual-40** (10+10 compressed v1.1) |
 | Worker pack law | `…/brain-os/contract/WORKER_PROMPT_PACK_FORMAT_LOCKED_v1.md` | **LOCKED v1.1** — one paste/turn; E2E-3 every 3; DEBUG-5 every 5; no CHECK/ACT/VERIFY splits |
@@ -198,7 +198,7 @@ RUNTIME        ~/.sina/ receipts, queue, orchestrator, research-root
 
 **Desktop root:** `/Users/sinakazemnezhad/Desktop/`
 
-### 4a. T0 — Controlled automation factory (north star)
+### 4a. T0 — Governed automation factory (north star)
 
 | Role | Full path |
 |------|-----------|
@@ -321,7 +321,7 @@ RUNTIME        ~/.sina/ receipts, queue, orchestrator, research-root
 
 | Tier | Name | Primary paths |
 |------|------|---------------|
-| **T0** | Controlled automation factory | `SourceA/brain-os/`, REGISTRY, Hub |
+| **T0** | Governed automation factory | `SourceA/brain-os/`, REGISTRY, Hub |
 | **T2** | FORGE | `/Users/sinakazemnezhad/Desktop/forge/` |
 | **T2b** | Side SKUs | `mergepack/`, `SourceA/product/`, `AI Dev Bridge OS/mobile/` |
 | **T3** | WTM + Pre-LLM | `brain-os/wtm/`, `SourceA/scripts/pre_llm/` |

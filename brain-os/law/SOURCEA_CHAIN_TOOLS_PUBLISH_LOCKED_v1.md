@@ -24,7 +24,7 @@
 
 | Tool | What it does | Publish as | Status |
 |------|-------------|------------|--------|
-| **`sourcea-boot`** | 4 checks · PASS/BLOCK before any agent works | `pip install sourcea-boot` | **v0.1.0 logged** · `packages/sourcea-boot/` |
+| **`sourcea-boot`** | 4 checks · PASS/BLOCK before any agent works | `pip install sourcea-boot` | **v0.1.0 on disk** · `packages/sourcea-boot/` |
 | **Governance receipt + spine** | Signs and logs every agent action · replay-able | `pip install sourcea-sdk` | P1 — extract from spine after boot ships |
 | **`POST /v1/decision`** (Noetfield OS) | Policy gate before execution | Public API + npm SDK | P1 — Noetfield lane |
 

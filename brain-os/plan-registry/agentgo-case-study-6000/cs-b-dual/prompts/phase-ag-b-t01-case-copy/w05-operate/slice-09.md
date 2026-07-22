@@ -14,7 +14,7 @@ Dual desktop deploy — agentrun-app :5180 + SA4 AgentGo :8080 · landing parity
 
 ## Task
 
-**Light hub command-data sync for** case study prose (challenge · shipped · verification).
+**Light hub command-data sync for** case study prose (challenge · shipped · proof chain).
 
 No marathon.
 

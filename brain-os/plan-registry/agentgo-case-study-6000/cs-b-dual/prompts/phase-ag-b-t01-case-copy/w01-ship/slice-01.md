@@ -14,7 +14,7 @@ Dual desktop deploy — agentrun-app :5180 + SA4 AgentGo :8080 · landing parity
 
 ## Task
 
-**Ship smallest buyer-visible slice of** case study prose (challenge · shipped · verification).
+**Ship smallest buyer-visible slice of** case study prose (challenge · shipped · proof chain).
 
 One shippable artifact only — no drive-by refactors.
 
@@ -23,7 +23,7 @@ One shippable artifact only — no drive-by refactors.
 **Anti-drift:** Never conflate localhost demo with production sourcea.app ship.
 **Target path:** `SourceA-landing/green-unified/case-studies/agentgo.html`
 **Success metric:** buyer comprehension in one screen
-**Receipt:** file in the repository before `status: done`.
+**Receipt:** file on disk before `status: done`.
 **Phase:** NOW · **Tier:** T0 · **Workstream:** Ship
 
 ## Polish wisdom (v3)

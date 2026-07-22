@@ -23,7 +23,7 @@ Update catalog/registry row for integration — Lakera Guard row 33
 
 ## Implementation extraction
 
-`Lakera Guard · Integrations & API` → what buyer sees at vendor → what we ship logged with receipt.
+`Lakera Guard · Integrations & API` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

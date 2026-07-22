@@ -23,7 +23,7 @@ Write competitor row evidence: Relevance AI pricing → our SKU → defer/shippe
 
 ## Implementation extraction
 
-`Relevance AI · Pricing & packaging` → what buyer sees at vendor → what we ship logged with receipt.
+`Relevance AI · Pricing & packaging` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

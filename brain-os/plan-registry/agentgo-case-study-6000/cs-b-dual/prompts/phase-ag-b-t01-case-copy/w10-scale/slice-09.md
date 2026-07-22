@@ -14,7 +14,7 @@ Dual desktop deploy — agentrun-app :5180 + SA4 AgentGo :8080 · landing parity
 
 ## Task
 
-**Partner channel for** case study prose (challenge · shipped · verification).
+**Partner channel for** case study prose (challenge · shipped · proof chain).
 
 agency white-label.
 

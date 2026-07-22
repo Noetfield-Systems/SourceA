@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Mac Health Agent Mandates v1 — enforce Mac Law obedience logged.
+"""Mac Health Agent Mandates v1 — enforce Mac Law obedience on disk.
 
 Law SSOT: ~/Desktop/MacLaw/MAC_HEALTH_AGENT_MANDATES_LOCKED.md
 """

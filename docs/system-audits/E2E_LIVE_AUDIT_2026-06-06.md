@@ -114,7 +114,7 @@ Scaffold Eval-1b: **7/7 100%** — live blocked on credits.
 
 ## E2E verdict
 
-**PASS** for controlled control-plane E2E when hub is fresh: 0 critical, strict build, pack valid, honest gates.  
+**PASS** for governed control-plane E2E when hub is fresh: 0 critical, strict build, pack valid, honest gates.  
 **FAIL/PARTIAL** for live autonomy dispatch and Eval-1b live — expected under honest gates.
 
 **Immediate fixes:** execution-kernel `--json`; hub sa-queue tab; M4 block hook.

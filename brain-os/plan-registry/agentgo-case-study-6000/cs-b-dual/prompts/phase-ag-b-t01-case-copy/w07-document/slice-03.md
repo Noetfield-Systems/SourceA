@@ -14,7 +14,7 @@ Dual desktop deploy — agentrun-app :5180 + SA4 AgentGo :8080 · landing parity
 
 ## Task
 
-**Update law doc section for** case study prose (challenge · shipped · verification).
+**Update law doc section for** case study prose (challenge · shipped · proof chain).
 
 v2 smart upgrade.
 

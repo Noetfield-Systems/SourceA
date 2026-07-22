@@ -23,7 +23,7 @@ Map Vanta revenue model (Annual SaaS + add-ons) to our `Free toolkits → Pro pa
 
 ## Implementation extraction
 
-`Vanta · Pricing & packaging` → what buyer sees at vendor → what we ship logged with receipt.
+`Vanta · Pricing & packaging` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

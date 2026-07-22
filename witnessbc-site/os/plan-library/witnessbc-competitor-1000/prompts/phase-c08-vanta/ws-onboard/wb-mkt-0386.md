@@ -23,7 +23,7 @@ Write founder-facing SOW snippet if Vanta uses services-led motion — Witness/T
 
 ## Implementation extraction
 
-`Vanta · Onboarding & PLG` → what buyer sees at vendor → what we ship logged with receipt.
+`Vanta · Onboarding & PLG` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

@@ -43,7 +43,7 @@ VOYAGE_MODEL=voyage-4-lite
 
 **Hub:** Sina Command → **Safety** · **Actions → Open secret vault** (edit only if rotating key — never paste in chat).
 
-## Still manual (not present locally anywhere)
+## Still manual (not on disk anywhere)
 
 - **TrustField (free):** `CF_API_TOKEN`, `CF_ZONE_ID` only — **no** `RENDER_API_KEY` if card required. Then `vault-sync-all.sh` + `founder_free_auto.sh`. Rule: `FOUNDER_NO_CREDIT_CARD_INFRA_LOCKED_v1.md`
 

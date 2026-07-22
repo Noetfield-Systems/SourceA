@@ -13,10 +13,10 @@ Revenue Engine · Proof Pack · landing · factory-runtime-spike
 
 ## Task
 
-**Verification beat 6** — Proof & Proof Pack (PRF).
+**Proof chain beat 6** — Proof & Proof Pack (PRF).
 
 Landing & web · Prove · slice 2/10.
-Bounded path only. Receipt logged before done.
+Bounded path only. Receipt on disk before done.
 Parent: Revenue Engine · Proof Pack · landing · factory-runtime-spike.
 Priority doc: `brain-os/plan-registry/SOURCEA-PRIORITY.md`.
 

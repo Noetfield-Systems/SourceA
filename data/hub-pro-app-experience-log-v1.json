@@ -13,7 +13,7 @@
       "summary": "FORM_OFFICIAL: stable 5-slot schema (A\u2013D + option 5 free-text); top+bottom Submit; disk-first submit ~31ms; background wire after HTTP response.",
       "obstacles": [
         "Hub POST dropped connection \u2014 background subprocess before HTTP response (macOS threading)",
-        "applied_now=0 when pick already present (already_applied skip)",
+        "applied_now=0 when pick already on disk (already_applied skip)",
         "open_questions lacked option_slots until normalize_question_row wired"
       ],
       "fixes": [

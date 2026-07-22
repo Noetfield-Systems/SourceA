@@ -23,7 +23,7 @@ Docs: onboarding section cites Gumloop as market analog with https://www.gumloop
 
 ## Implementation extraction
 
-`Gumloop · Onboarding & PLG` → what buyer sees at vendor → what we ship logged with receipt.
+`Gumloop · Onboarding & PLG` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

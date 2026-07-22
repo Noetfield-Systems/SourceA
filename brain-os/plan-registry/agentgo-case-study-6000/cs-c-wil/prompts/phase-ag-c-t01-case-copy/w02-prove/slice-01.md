@@ -14,7 +14,7 @@ Wil L3 portfolio demo — YA5 mirror · AgentGo ≠ SourceA separation · ship g
 
 ## Task
 
-**Inventory disk truth for** case study prose (challenge · shipped · verification).
+**Inventory disk truth for** case study prose (challenge · shipped · proof chain).
 
 Count files — quote paths not chat.
 

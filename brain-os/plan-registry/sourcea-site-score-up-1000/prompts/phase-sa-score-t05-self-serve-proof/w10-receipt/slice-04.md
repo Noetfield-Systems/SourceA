@@ -1,4 +1,4 @@
-# sa-score-0094 — Receipt logged for email receipt link after async proof completes
+# sa-score-0094 — Receipt on disk for email receipt link after async proof completes
 
 **Saved at:** 2026-06-25T09:23:55Z
 **Version:** 1 · **Tier:** T1 · **Phase:** NEXT
@@ -16,7 +16,7 @@ Raise SourceA site score toward **95+/100** — proof before call · stranger se
 
 P1 — next sprint; measurable score delta
 
-**Deliverable:** Receipt logged for email receipt link after async proof completes
+**Deliverable:** Receipt on disk for email receipt link after async proof completes
 
 Bounded paths: `SourceA-landing/green-unified/` · `cloud/workers/sourcea-site-pulse-v1/` · `scripts/validate-sourcea-modern-stack-e2e-v1.sh`
 

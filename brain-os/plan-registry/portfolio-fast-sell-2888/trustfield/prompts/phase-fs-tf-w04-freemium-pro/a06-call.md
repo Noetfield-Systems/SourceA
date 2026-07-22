@@ -10,7 +10,7 @@
 
 ## Task
 
-Fast-sell: TrustField · Freemium → Pro SaaS packaging · Discovery call script. Ship smallest slice that moves a buyer toward **FINTRAC readiness scan** with a path to **MSB program + settlement**. Receipt logged before done.
+Fast-sell: TrustField · Freemium → Pro SaaS packaging · Discovery call script. Ship smallest slice that moves a buyer toward **FINTRAC readiness scan** with a path to **MSB program + settlement**. Receipt on disk before done.
 
 ## Verify
 

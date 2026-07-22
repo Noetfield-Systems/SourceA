@@ -20,7 +20,7 @@ POLISH_WISDOM: dict[tuple[str, int], str] = {
     ("cs-a-factory", 14): "Tracker audit: ChatGPT · Perplexity · Gemini · Claude · Grok · Qwen minimum set.",
     ("cs-a-factory", 15): "Compare audit: fair-use framing — no 'we destroy Peec' language.",
     ("cs-a-factory", 16): "Research sample: 5 articles — reject thin SEO; keep 2 sentence quality note each.",
-    ("cs-a-factory", 17): "Proof pack row optional — only if phase1 ticket still sealed logged.",
+    ("cs-a-factory", 17): "Proof pack row optional — only if phase1 ticket still sealed on disk.",
     ("cs-a-factory", 18): "Tamper demo script: 90-second procurement version — request → receipt → tamper-FAIL.",
     ("cs-a-factory", 19): "sourcea-boot CTA on case study footer — eval path for technical buyers.",
     ("cs-a-factory", 20): "PureFlow diff table on case study or linked doc — trades vs GEO column headers.",

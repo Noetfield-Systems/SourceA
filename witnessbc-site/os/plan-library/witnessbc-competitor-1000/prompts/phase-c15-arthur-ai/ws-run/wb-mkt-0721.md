@@ -23,7 +23,7 @@ From https://www.arthur.ai document Arthur AI run/history UX: Ingest predictions
 
 ## Implementation extraction
 
-`Arthur AI · Run history & proof` → what buyer sees at vendor → what we ship logged with receipt.
+`Arthur AI · Run history & proof` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

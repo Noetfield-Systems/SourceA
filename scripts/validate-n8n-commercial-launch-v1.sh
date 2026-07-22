@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# validate-n8n-commercial-launch-v1.sh — full revenue kit logged
+# validate-n8n-commercial-launch-v1.sh — full revenue kit on disk
 set -euo pipefail
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 SINA="${HOME}/.sina"

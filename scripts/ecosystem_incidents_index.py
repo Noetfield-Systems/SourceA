@@ -234,7 +234,7 @@ def ecosystem_incidents_payload() -> dict:
         },
         {
             "id": "storage",
-            "title": "In-repo storage",
+            "title": "On-disk storage",
             "items": [
                 {"path": str(ROOM_ROOT), "title": "Incident Room data", "why": "~/.sina/incident-room/", "tab": "incident-room"},
                 {"path": str(SINA_HOME / "agent-workspaces"), "title": "Per-agent incident reports", "why": "INCIDENT_REPORT_ALWAYS.md per workspace", "tab": "agents"},

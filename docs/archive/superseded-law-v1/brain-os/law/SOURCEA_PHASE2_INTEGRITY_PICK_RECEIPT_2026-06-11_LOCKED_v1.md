@@ -19,7 +19,7 @@ Effect: Phase 2 integrity 11 forks locked to disk per RECOMMENDED column; GOV_UN
 
 ## Pick table (disk execution)
 
-| Step | Pick | Effect logged |
+| Step | Pick | Effect on disk |
 |------|------|----------------|
 | **1.02** | **A** | `GOAL_HIERARCHY_LOCKED_v1.md` — Hub P0 = **STRATEGIC-SLICE**; RunReceipt parallel only |
 | **1.05** | **B** | `ACTIVE_NOW.md` — **one sa/turn** Brain route resume when kill flag ON |

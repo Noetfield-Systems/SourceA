@@ -3,7 +3,7 @@
   "at": "2026-07-02T22:30:00Z",
   "law": "L17 COST-TIERED WORKER ROUTING",
   "l17_diff": {
-    "law_doc": "docs/CONTROLLED_AUTORUN_LAWS_v3.md",
+    "law_doc": "docs/GOVERNED_AUTORUN_LAWS_v3.md",
     "section_added": "L17 — Cost-tiered worker routing (COST-TIER)",
     "spec_section": "docs/NOETFIELD_COHERENT_SYSTEM_SPEC_v1.md §6",
     "artifacts": [

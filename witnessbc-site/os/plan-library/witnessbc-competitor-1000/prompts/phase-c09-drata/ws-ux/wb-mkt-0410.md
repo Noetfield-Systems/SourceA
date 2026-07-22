@@ -23,7 +23,7 @@ Mark wb-mkt-0410 done in REGISTRY with evidence path + https://drata.com after v
 
 ## Implementation extraction
 
-`Drata · Buyer-visible UX` → what buyer sees at vendor → what we ship logged with receipt.
+`Drata · Buyer-visible UX` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

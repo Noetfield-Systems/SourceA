@@ -14,7 +14,7 @@ Wil L3 portfolio demo — YA5 mirror · AgentGo ≠ SourceA separation · ship g
 
 ## Task
 
-**Automate pick drain for** case study prose (challenge · shipped · verification).
+**Automate pick drain for** case study prose (challenge · shipped · proof chain).
 
 cloud worker.
 

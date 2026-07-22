@@ -16,9 +16,9 @@
 
 ## Part 2 — System identity
 
-**Verdict:** Controlled multi-repo **execution OS** + **pre-LLM context compiler**.  
+**Verdict:** Governed multi-repo **execution OS** + **pre-LLM context compiler**.  
 **Not:** Autonomous product (Lovable/Devin class).  
-**Control plane** for founder-controlled worker execution with machine verify pack.
+**Control plane** for founder-governed worker execution with machine verify pack.
 
 ---
 
@@ -131,13 +131,13 @@ Founder
 ## Part 12 — Rule-breaking diagnosis
 
 **Root causes:**
-1. Law in repository without pre-reply enforcement  
+1. Law on disk without pre-reply enforcement  
 2. Contradictory founder docs (T0+T1 fixed)  
 3. Chat ≠ persistent memory  
 4. 141+ LOCKED files — easy to miss one  
 5. Cursor default “run bash” reflex  
 
-**T0+T1 status:** DONE logged. **Remaining:** M4 block (not warn), hub queue UX.
+**T0+T1 status:** DONE on disk. **Remaining:** M4 block (not warn), hub queue UX.
 
 ---
 

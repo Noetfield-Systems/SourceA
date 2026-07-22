@@ -120,7 +120,7 @@
         tiles.push({ el: cell, diag: row + col });
       }
 
-      // Diagonal sweep: reveal order controlled by (row + col), explicit per-tile timing.
+      // Diagonal sweep: reveal order governed by (row + col), explicit per-tile timing.
       for (const t of tiles) {
         tl.fromTo(
           t.el,

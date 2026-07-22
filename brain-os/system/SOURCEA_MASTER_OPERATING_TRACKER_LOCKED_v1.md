@@ -113,7 +113,7 @@ The system is self-enforcing. Compliance is not honor-based.
 | Brain phase-first pick | enf-* / CLOCK C — **not** Cloud Forge Run hero |
 | Current system health | → validators + RT LIVE receipt (refresh disk) |
 | Current strategic blocker | **W3 = $0** · agentic outreach not wired |
-| Current next milestone | W1 recording logged OR W3 LOI conversation |
+| Current next milestone | W1 recording on disk OR W3 LOI conversation |
 | Tracker last verified | 2026-07-08T01:58:47Z |
 
 > Runtime state is referenced from canonical runtime files (Section 8). It is never duplicated here.
@@ -151,7 +151,7 @@ The system is self-enforcing. Compliance is not honor-based.
 | GOAL-AUTH-P2 | Strict gates (reconciled · NL pick · manual_fallback audit) | PENDING | P1 | 0% | — | After live chain PASS | ASF names P2 | 2026-06-08 |
 | GOAL-MP-SHIP | MergePack public ship | ACTIVE | P0 | — | — | Disable Vercel deployment protection | Founder Hub card | 2026-06-08 |
 | GOAL-W1-PACK | Worker 1 unified pack w1-01..w1-40 | COMPLETE | P0 | 100% | sa-0150 | — | E2E PASS · worker_2 purged | 2026-06-08 |
-| GOAL-COMM-PARTNER-V3 | AI infra partnerships — controlled receipt wedge (LOCKED v3) | ACTIVE | P1 | 20% | P05 shipped | P03 NVIDIA Inception apply · P05 Voyage live (629 chunks · semantic:true) | Parallel with dual P0 · does not reorder factory | 2026-06-15 |
+| GOAL-COMM-PARTNER-V3 | AI infra partnerships — governed receipt wedge (LOCKED v3) | ACTIVE | P1 | 20% | P05 shipped | P03 NVIDIA Inception apply · P05 Voyage live (629 chunks · semantic:true) | Parallel with dual P0 · does not reorder factory | 2026-06-15 |
 | GOAL-COMM-TF-NF-001 | First commercial invoice — TF-001 or NF-001 | ACTIVE | P0 | — | — | Outreach + SOW · 90-day falsifier | Independent of partner credits | 2026-06-10 |
 | GOAL-HUB-P0-1 | Honest counter Hub §1 (596/1000 · unproven · kill chip) | ACTIVE | P0 | — | — | SinaaiDataBase · `HUB_PROOF_UX_P0_LOCKED_v1.md` §1 · AR-7073a0ed55 | — | 2026-06-10 |
 | GOAL-HUB-P0-2 | Event chain JSONL export (one sa_id · contract fields) | ACTIVE | P0 | — | — | After P0-1 · AR-7b461bcca6 | P0-1 shipped | 2026-06-10 |

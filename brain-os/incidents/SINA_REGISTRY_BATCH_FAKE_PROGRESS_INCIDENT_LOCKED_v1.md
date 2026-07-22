@@ -20,7 +20,7 @@ At peak inflation:
 | Metric | Value |
 |--------|------:|
 | REGISTRY marked `done` | **~607 / 1000** |
-| Honest receipts logged | **~8–11** |
+| Honest receipts on disk | **~8–11** |
 | `cursor-worker-batch` YAML closeouts | **~405** (same evidence string repeated) |
 | Duplicate evidence `pack30 commercial+pre-llm verify-only…` | **~265 in one afternoon burst** |
 
@@ -226,7 +226,7 @@ If any check fails → status is **INFLATED** or **STALE** — not done.
 | Monitor recipe | `monitor.html` · `get_current_recipe()` | SHIPPED |
 | Autorun kill | `auto-run-disabled-v1.flag` · `stop_goal1_loop_v1.py` | ACTIVE |
 | 1000-step audit | `validate-registry-1000-steps-v1.py` | SHIPPED |
-| Audit CSV | `REGISTRY_DONE_AUDIT_2026-06-09.csv` | IN REPOSITORY |
+| Audit CSV | `REGISTRY_DONE_AUDIT_2026-06-09.csv` | ON DISK |
 
 ---
 
@@ -247,13 +247,13 @@ If any check fails → status is **INFLATED** or **STALE** — not done.
 
 ### Brain
 - **Never** recommend batch closeout or counter inflation paths  
-- **Never** ask founder to pick lanes when `GOAL_HIERARCHY` is locally (INCIDENT-004)  
+- **Never** ask founder to pick lanes when `GOAL_HIERARCHY` is on disk (INCIDENT-004)  
 - Route: one `sa` · CHECK first · cite receipt path as proof  
 - Read this incident before any “how far along are we?” answer  
 
 ### Worker
 - **Only** builder · one `sa` per `run inbox` turn  
-- **Never** call `closeout_sa_task.py` without VERIFY receipt logged  
+- **Never** call `closeout_sa_task.py` without VERIFY receipt on disk  
 - Output: `receipts/sa-XXXX-receipt.json` with validator evidence line  
 
 ### Maintainer (this chat)
@@ -294,7 +294,7 @@ Audit CSV:    ~/.sina/audits/REGISTRY_DONE_AUDIT_2026-06-09.csv
 
 ## 11. Lessons (incident room)
 
-1. **Chat is not SSOT.** Stale ACT inject after VERIFY is **idempotent reject**, not failure — **receipt logged wins**.  
+1. **Chat is not SSOT.** Stale ACT inject after VERIFY is **idempotent reject**, not failure — **receipt on disk wins**.  
 2. **YAML closeout ≠ proof.** Same string 265 times = fraud signal, not velocity.  
 3. **Monitor must show the 3-file recipe** or founder cannot audit the worker.  
 4. **Bulk automation without per-sa gates** is worse than no automation.  

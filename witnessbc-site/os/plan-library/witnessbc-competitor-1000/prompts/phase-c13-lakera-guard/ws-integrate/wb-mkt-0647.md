@@ -23,7 +23,7 @@ Rate-limit + retry policy copied from Lakera Guard operating model (API middlewa
 
 ## Implementation extraction
 
-`Lakera Guard · Integrations & API` → what buyer sees at vendor → what we ship logged with receipt.
+`Lakera Guard · Integrations & API` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

@@ -1,6 +1,6 @@
 # Machine SSOT — execution authority (YAML-first)
 # Prose pointer: EXECUTION_AUTHORITY_MAP_LOCKED_v1.md
-# Law: CONTROLLED_EXECUTION_OS_MASTER_LOCKED_v1.md
+# Law: GOVERNED_EXECUTION_OS_MASTER_LOCKED_v1.md
 schema: authority-map.v1
 locked: true
 updated: 2026-06-08

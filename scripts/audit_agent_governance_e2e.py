@@ -25,7 +25,7 @@ STALE_EXCLUDE_GLOBS = ("command-data.json", "index.html", "agent-transcripts")
 
 # Agents whose repo_root is SourceA — no repo-root sina-command-readonly (private rules only)
 REPO_ROOT_READONLY_SKIP = frozenset({"semej"})
-# Portfolio repos optional in the repository — skip repo/pack hard-fail when absent (Wave 0)
+# Portfolio repos optional on disk — skip repo/pack hard-fail when absent (Wave 0)
 OPTIONAL_REPO_AGENTS = frozenset({"semej", "noetfield_local"})
 
 

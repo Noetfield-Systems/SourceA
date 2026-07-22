@@ -105,7 +105,7 @@
       "id": "STAB-011",
       "tier": "P0",
       "status": "done",
-      "title": "Anti-poison hello@sourcea.com → hello@sourcea.app logged"
+      "title": "Anti-poison hello@sourcea.com → hello@sourcea.app on disk"
     },
     {
       "id": "STAB-012",
@@ -441,7 +441,7 @@
       "id": "STAB-067",
       "tier": "P4",
       "status": "done",
-      "title": "Commercial sender law v1.3 logged"
+      "title": "Commercial sender law v1.3 on disk"
     },
     {
       "id": "STAB-068",
@@ -453,7 +453,7 @@
       "id": "STAB-069",
       "tier": "P4",
       "status": "done",
-      "title": "Forge catalog 7 landing pages logged"
+      "title": "Forge catalog 7 landing pages on disk"
     },
     {
       "id": "STAB-070",
@@ -906,7 +906,7 @@
       "id": "STAB-138",
       "tier": "P11",
       "status": "open",
-      "title": "Session library merge + unify-all produces brief logged receipt",
+      "title": "Session library merge + unify-all produces brief on disk receipt",
       "maps_ask": "48 MVP session library"
     },
     {

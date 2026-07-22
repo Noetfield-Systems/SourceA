@@ -7,7 +7,7 @@
 **Parent database:** `docs/CANADA_ICP_GRANT_VC_EVIDENCE_Q3_2026_INVESTOR_PLANNING_DATABASE_LOCKED_v1.md` (v1.1)  
 **Machine inbox:** `data/investor-planning-555-inbox-v1.json`  
 **555 immediate queue:** `docs/555_PLANS_NEXT_UPGRADES_INVESTOR_PLANNING_INBOX_LOCKED_v1.md`  
-**Law:** One plan per turn · verification built in · bump matrix after each DONE
+**Law:** One plan per turn · proof on disk · bump matrix after each DONE
 
 ---
 
@@ -26,7 +26,7 @@
 
 | ID | Title | Unblocks | Owner | Status |
 |----|-------|----------|-------|--------|
-| **555-01** | IRAP/SR&ED investor proof bundle logged | ANG-07 · SRED-04/05 · IRAP §15 | Worker | **DONE** — see receipt |
+| **555-01** | IRAP/SR&ED investor proof bundle on disk | ANG-07 · SRED-04/05 · IRAP §15 | Worker | **DONE** — see receipt |
 | **555-02** | SR&ED experiment log + hypothesis register (dated) | SRED-04 · SRED-05 · grant narrative | Worker | **DONE** — see receipt |
 | **555-03** | Redacted receipt JSON + data-room `02 Technical/` folder | ANG-09 · angel DD | Worker | **queue head** |
 | **555-04** | W1 demo transcript + filmed-run checklist | ANG-05 · ANG-10 · W1 | Founder+Worker | pending |
@@ -116,7 +116,7 @@ grep -q 'EXP-003' receipts/sred-experiment-log-2026/EXPERIMENT_LOG.md
 3. List equipment/framing — 90s cut markers for ANG-10
 4. Matrix ANG-05 → `[~]` until video file exists
 
-**Acceptance:** Transcript logged + checklist locked — video optional same turn.
+**Acceptance:** Transcript on disk + checklist locked — video optional same turn.
 
 ---
 

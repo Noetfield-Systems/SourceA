@@ -10,7 +10,7 @@
 
 ## Task
 
-Fast-sell: TrustField · Base fee + usage overage · Research comp pricing page. Ship smallest slice that moves a buyer toward **FINTRAC readiness scan** with a path to **MSB program + settlement**. Receipt logged before done.
+Fast-sell: TrustField · Base fee + usage overage · Research comp pricing page. Ship smallest slice that moves a buyer toward **FINTRAC readiness scan** with a path to **MSB program + settlement**. Receipt on disk before done.
 
 ## Verify
 

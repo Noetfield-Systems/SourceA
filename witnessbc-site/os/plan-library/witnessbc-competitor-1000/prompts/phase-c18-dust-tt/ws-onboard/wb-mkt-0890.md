@@ -23,7 +23,7 @@ Close wb-mkt-0890 with onboarding evidence + verify PASS
 
 ## Implementation extraction
 
-`Dust.tt · Onboarding & PLG` → what buyer sees at vendor → what we ship logged with receipt.
+`Dust.tt · Onboarding & PLG` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

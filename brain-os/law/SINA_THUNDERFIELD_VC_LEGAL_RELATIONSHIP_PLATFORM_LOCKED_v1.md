@@ -19,13 +19,13 @@
 **OP-02 open:** Trademark Thunderfield vs FounderField — legal counsel before public launch.  
 **Until filed:** Use “Thunderfield (FounderField)” in internal docs; external = counsel-approved string only.
 
-**Intent protection (lawyer rule):** Every Thunderfield feature maps to **precedent row + receipt** — inventions stay traceable logged, not chat-only.
+**Intent protection (lawyer rule):** Every Thunderfield feature maps to **precedent row + receipt** — inventions stay traceable on disk, not chat-only.
 
 ---
 
 ## 1. What Thunderfield is (one sentence for VCs)
 
-> **Thunderfield is the relationship and intelligence surface where VCs, founders, and customers meet controlled signal — licensed market data, warm-intro memory, and execution receipts — so every claim is comfortable to diligence.**
+> **Thunderfield is the relationship and intelligence surface where VCs, founders, and customers meet governed signal — licensed market data, warm-intro memory, and execution receipts — so every claim is comfortable to diligence.**
 
 **Not:** Another PitchBook clone · social network · hype dashboard without ingest validators.
 
@@ -138,7 +138,7 @@ LAYER REL-5  Proof hatch — SourceA receipt on every material action
 | **2** | Motor proof | write-path · film · demo PASS | MOTOR_TEST |
 | **3** | NF W3 pilot | $1+ · LOI · SOW | LANE_TEST |
 | **4** | Agentic outreach | Apollo · hub approve batch | Week 1 |
-| **5** | Thunderfield spec | SR-01..05 · REL stack · UI wire | Spec logged |
+| **5** | Thunderfield spec | SR-01..05 · REL stack · UI wire | Spec on disk |
 | **6** | Data counsel | License path pick (Crunchbase OR Dealroom first) | Contract |
 | **7** | Relationship integrate | Affinity/Zapier pattern — not rebuild | Smoke |
 | **8** | Signal ingest v1 | One engine monitor (Presenc-class) | Validator PASS |

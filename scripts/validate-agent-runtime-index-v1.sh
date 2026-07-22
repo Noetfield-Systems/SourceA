@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# validate-agent-runtime-index-v1.sh — assert validator index scripts exist logged
+# validate-agent-runtime-index-v1.sh — assert validator index scripts exist on disk
 set -euo pipefail
 cd "$(dirname "$0")/.."
 
@@ -24,7 +24,7 @@ for tier in (index.get("tiers") or {}).values():
             missing.append(str(p))
 if missing:
     raise SystemExit("FAIL missing validator paths:\n  " + "\n  ".join(missing))
-print("OK: validator index", len(index.get("validators") or {}), "entries logged")
+print("OK: validator index", len(index.get("validators") or {}), "entries on disk")
 PY
 
 echo "PASS: validate-agent-runtime-index-v1"

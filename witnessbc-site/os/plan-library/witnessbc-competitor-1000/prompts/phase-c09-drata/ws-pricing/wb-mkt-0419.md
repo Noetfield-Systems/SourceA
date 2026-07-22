@@ -23,7 +23,7 @@ Write competitor row evidence: Drata pricing → our SKU → defer/shipped with 
 
 ## Implementation extraction
 
-`Drata · Pricing & packaging` → what buyer sees at vendor → what we ship logged with receipt.
+`Drata · Pricing & packaging` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

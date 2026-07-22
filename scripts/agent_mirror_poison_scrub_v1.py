@@ -80,7 +80,7 @@ REPLACEMENTS: list[tuple[str, str]] = [
         "Read ~/.sina/agent-law-wire-checkcart-v1.json — ship window / cloud CI only (INCIDENT-039: not Mac pre-reply validator marathon)",
     ),
     (
-        "This card + W1–W10 + build logged",
+        "This card + W1–W10 + build on disk",
         "This card + Read receipts + disk proof — W1–W10 ship window only",
     ),
     (

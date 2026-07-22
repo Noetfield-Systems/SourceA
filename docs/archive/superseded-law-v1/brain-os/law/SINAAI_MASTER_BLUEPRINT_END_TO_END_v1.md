@@ -74,7 +74,7 @@
 
 ### 2.1 One sentence
 
-> **A controlled personal OS that ingests your life and work, runs a company of specialized agents with failover intelligence, and ships commercial products without chaos — ASF approves what matters.**
+> **A governed personal OS that ingests your life and work, runs a company of specialized agents with failover intelligence, and ships commercial products without chaos — ASF approves what matters.**
 
 ### 2.2 What success looks like (end state)
 
@@ -147,7 +147,7 @@ External (not mono spine):
 
 | Asset | State |
 |-------|--------|
-| **SinaaiMonoRepo** | ~3928 files logged; ~60 tracked at root git |
+| **SinaaiMonoRepo** | ~3928 files on disk; ~60 tracked at root git |
 | **SinaaiRuntime** | Active `:8000`, ~736 `.py`, agent spine, 5 Telegram trees, fleet, event bus |
 | **SinaaiDataBase** | Rich markdown + governance JSON; nested `.git` **0 commits** |
 | **Noetfield** | 269 `.md`, 5 `.json`, **0 `.py`** |
@@ -249,7 +249,7 @@ External (not mono spine):
 
 ## 7. Track A — Personal PAIOS
 
-**Purpose:** ASF’s life and work — organized, controlled, agent-assisted.
+**Purpose:** ASF’s life and work — organized, governed, agent-assisted.
 
 ### 7.1 Components
 

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Bootstrap Tier 0 n8n glue substrate logged."""
+"""Bootstrap Tier 0 n8n glue substrate on disk."""
 from __future__ import annotations
 
 import json

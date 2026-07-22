@@ -1,7 +1,7 @@
 # fs-sa-0278 — Fast-sell plan
 
 **Version:** 1 · **Tier:** T1 · **Phase:** MOONSHOT
-**Lane:** SourceA · **Wedge:** w15-archived-research · Ship differentiated feature slice
+**Lane:** SourceA · **Wedge:** w15-competitor-clone · Clone one competitor feature slice
 **Action:** a12-post · LinkedIn proof post
 **Comp anchor:** Trigger.dev · Langfuse
 **Tier 1:** Asset B diagnostic $3K slice
@@ -10,7 +10,7 @@
 
 ## Task
 
-Fast-sell: SourceA · Ship differentiated feature slice · LinkedIn proof post. Ship smallest slice that moves a buyer toward **Asset B diagnostic $3K slice** with a path to **DFY $3–10K + retainer**. Receipt logged before done.
+Fast-sell: SourceA · Clone one competitor feature slice · LinkedIn proof post. Ship smallest slice that moves a buyer toward **Asset B diagnostic $3K slice** with a path to **DFY $3–10K + retainer**. Receipt on disk before done.
 
 ## Verify
 

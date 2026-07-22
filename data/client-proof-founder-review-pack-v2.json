@@ -35,7 +35,7 @@
     {
       "recipe_id": "cpr-public-proof-hub",
       "live_url": "https://sourcea.app/proof",
-      "proof_marker": "Verification",
+      "proof_marker": "Proof chain",
       "buyer_use_risk": "Low \u2014 public page HTTP 200 + marker",
       "recommendation": "APPROVE \u2014 machine verify PASS target",
       "human_review_before_buyer_call": false

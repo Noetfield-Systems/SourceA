@@ -16,7 +16,7 @@ Revenue Engine · Proof Pack · landing · factory-runtime-spike
 **6-month retention** — Proof & Proof Pack (PRF).
 
 Proof & receipts · Document · slice 4/10.
-Bounded path only. Receipt logged before done.
+Bounded path only. Receipt on disk before done.
 Parent: Revenue Engine · Proof Pack · landing · factory-runtime-spike.
 Priority doc: `brain-os/plan-registry/SOURCEA-PRIORITY.md`.
 

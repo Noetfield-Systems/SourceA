@@ -68,7 +68,7 @@
   </div>
   <div class="wrap" data-sina-app-root>
     <div class="banner">
-      <strong>FOUNDER PICK ONLY</strong> — Every row has <strong>5 options</strong>: A–D plus <strong>option 5</strong> (write your own). Tap Submit top or bottom — picks land logged immediately.
+      <strong>FOUNDER PICK ONLY</strong> — Every row has <strong>5 options</strong>: A–D plus <strong>option 5</strong> (write your own). Tap Submit top or bottom — picks land on disk immediately.
     </div>
     <header>
       <h1>Official founder form</h1>
@@ -305,7 +305,7 @@
           const open = d.open_questions_count != null ? d.open_questions_count : "?";
           const line = shipped > 0
             ? "SUBMIT OK — shipped " + shipped + " · " + open + " open remaining"
-            : "SUBMIT OK — saved " + n + " pick(s) logged · " + open + " open · receipt hub-form-submit-receipt-v1.json";
+            : "SUBMIT OK — saved " + n + " pick(s) on disk · " + open + " open · receipt hub-form-submit-receipt-v1.json";
           setMsg(line, false);
           document.querySelectorAll(".msg").forEach(function (el) { el.classList.add("ok-flash"); });
           document.querySelectorAll(".submit-btn").forEach(function (b) { b.textContent = "SUBMITTED ✓"; });
@@ -317,7 +317,7 @@
       } catch (e) {
         clearTimeout(timer);
         if (e.name === "AbortError") {
-          setMsg("Timed out — check ~/.sina/hub-form-submit-receipt-v1.json logged", true);
+          setMsg("Timed out — check ~/.sina/hub-form-submit-receipt-v1.json on disk", true);
         } else if (e.message === "Failed to fetch") {
           setMsg("Form API not reachable — is Chat Unify running on :13023?", true);
         } else {

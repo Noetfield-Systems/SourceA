@@ -57,7 +57,7 @@ MOVES: dict[str, list[str]] = {
         "SINAAI_AUTO_PASTE_INCIDENT_REPORT_LOCKED_v1.md",
     ],
     "system": [
-        "os/chat-handoffs/CONTROLLED_EXECUTION_OS_MASTER_LOCKED_v1.md",
+        "os/chat-handoffs/GOVERNED_EXECUTION_OS_MASTER_LOCKED_v1.md",
         "os/chat-handoffs/GOAL_EXECUTION_ACTIVE_LOCKED_v1.md",
         "os/chat-handoffs/GOAL_HIERARCHY_LOCKED_v1.md",
         "os/chat-handoffs/FOUNDER_DAILY_OPERATING_MODEL_LOCKED_v1.md",

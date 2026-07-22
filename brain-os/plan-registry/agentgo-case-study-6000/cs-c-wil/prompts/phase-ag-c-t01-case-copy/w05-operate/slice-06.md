@@ -14,7 +14,7 @@ Wil L3 portfolio demo — YA5 mirror · AgentGo ≠ SourceA separation · ship g
 
 ## Task
 
-**Refresh localhost caveat copy for** case study prose (challenge · shipped · verification).
+**Refresh localhost caveat copy for** case study prose (challenge · shipped · proof chain).
 
 Buyer honesty.
 

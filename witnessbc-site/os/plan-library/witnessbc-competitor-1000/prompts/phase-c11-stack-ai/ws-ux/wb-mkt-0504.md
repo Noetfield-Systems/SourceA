@@ -19,11 +19,11 @@
 
 ## Task (High — next sprint parity with competitor)
 
-E2E or glance check: founder can see `Buyer-visible UX` outcome without Terminal; receipt timestamp logged
+E2E or glance check: founder can see `Buyer-visible UX` outcome without Terminal; receipt timestamp on disk
 
 ## Implementation extraction
 
-`Stack AI · Buyer-visible UX` → what buyer sees at vendor → what we ship logged with receipt.
+`Stack AI · Buyer-visible UX` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

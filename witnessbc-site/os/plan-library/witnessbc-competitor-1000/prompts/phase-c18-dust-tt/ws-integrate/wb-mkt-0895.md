@@ -23,7 +23,7 @@ Log every external call on run timeline (`Witness AI Flow install replay demo + 
 
 ## Implementation extraction
 
-`Dust.tt · Integrations & API` → what buyer sees at vendor → what we ship logged with receipt.
+`Dust.tt · Integrations & API` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

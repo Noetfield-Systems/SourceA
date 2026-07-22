@@ -23,7 +23,7 @@ Add or update one public price card on `witnessbc.com pricing + toolkits hub` in
 
 ## Implementation extraction
 
-`Lakera Guard · Pricing & packaging` → what buyer sees at vendor → what we ship logged with receipt.
+`Lakera Guard · Pricing & packaging` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

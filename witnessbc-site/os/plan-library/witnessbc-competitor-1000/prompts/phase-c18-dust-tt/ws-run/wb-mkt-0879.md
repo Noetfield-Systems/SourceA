@@ -23,7 +23,7 @@ Regression: rerun verify after run UI change
 
 ## Implementation extraction
 
-`Dust.tt · Run history & proof` → what buyer sees at vendor → what we ship logged with receipt.
+`Dust.tt · Run history & proof` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

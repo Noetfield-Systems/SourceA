@@ -14,7 +14,7 @@ Wil L3 portfolio demo — YA5 mirror · AgentGo ≠ SourceA separation · ship g
 
 ## Task
 
-**Attach proof pack row for** case study prose (challenge · shipped · verification).
+**Attach proof pack row for** case study prose (challenge · shipped · proof chain).
 
 chat-unify-proof-pack if applicable.
 

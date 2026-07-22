@@ -23,7 +23,7 @@ Mark wb-mkt-0080 done with run page screenshot or receipt path
 
 ## Implementation extraction
 
-`Delve · Run history & proof` → what buyer sees at vendor → what we ship logged with receipt.
+`Delve · Run history & proof` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

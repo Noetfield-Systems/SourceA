@@ -314,7 +314,7 @@
       const out = $("n8-output");
       const hint = $("output-hint");
       if (out && !busy) out.textContent = data.brief_preview;
-      if (hint) hint.textContent = data.brief_exists ? "Latest brief logged" : "";
+      if (hint) hint.textContent = data.brief_exists ? "Latest brief on disk" : "";
     } else if (intel.ok && !busy) {
       const out = $("n8-output");
       if (out) out.textContent = formatIntel(intel);
@@ -498,7 +498,7 @@
           const cl = $("n8-commercial-line");
           if (cl) {
             cl.textContent = result.ok
-              ? "🚀 Launch kit in the repository — Print SOW · send T01–T03 · wire Stripe"
+              ? "🚀 Launch kit on disk — Print SOW · send T01–T03 · wire Stripe"
               : "Launch incomplete — see output";
             cl.className = "n8-quality-line n8-commercial-line " + (result.ok ? "n8-commercial-ready" : "n8-commercial-warn");
           }
@@ -572,7 +572,7 @@
                 " · cloud " +
                 ((full && full.cloud_workers_live && full.cloud_workers_live.queue_head) || "—")
             );
-            term.finish(!!ok, ok ? "Capture intelligence complete — brief logged" : "Capture finished with errors — check lines above");
+            term.finish(!!ok, ok ? "Capture intelligence complete — brief on disk" : "Capture finished with errors — check lines above");
           }
           toast(ok ? "Capture intelligence complete" : "Capture finished — see terminal");
         }

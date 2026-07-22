@@ -5,7 +5,7 @@
   "lane": "NW1",
   "hook": "Can Copilot act before your policy runs?",
   "pain": "Microsoft logs what happened \u2014 not whether it was allowed before it ran.",
-  "proof_line": "BLOCK \u00b7 ESCALATE \u00b7 ALLOW \u2014 receipt chain logged",
+  "proof_line": "BLOCK \u00b7 ESCALATE \u00b7 ALLOW \u2014 receipt chain on disk",
   "scenario": "copilot-governance",
   "verdict": "BLOCK",
   "receipt_hash": "sha256:aeg-20260620T044750Z-ac101c6b",

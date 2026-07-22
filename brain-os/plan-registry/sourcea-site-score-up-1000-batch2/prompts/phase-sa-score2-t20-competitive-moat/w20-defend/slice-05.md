@@ -1,4 +1,4 @@
-# sa-score2-0995 — Defend moat narrative: controlled agentic + receipt on every page
+# sa-score2-0995 — Defend moat narrative: governed agentic + receipt on every page
 
 **Saved at:** 2026-06-25T09:28:52Z
 **Batch:** 2 · **Grade:** A+ · **Tier:** T1 · **Phase:** MOONSHOT
@@ -17,7 +17,7 @@ Batch-2 raises site score **78 → 93+** — enterprise-credible · cryptographi
 
 Grade-A P1 — measurable +2 score delta with receipt
 
-**Deliverable:** Defend moat narrative: controlled agentic + receipt on every page
+**Deliverable:** Defend moat narrative: governed agentic + receipt on every page
 
 ## Anti-duplication
 

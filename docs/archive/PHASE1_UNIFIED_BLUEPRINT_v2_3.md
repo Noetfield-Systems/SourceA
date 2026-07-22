@@ -11,13 +11,13 @@
 **Last updated:** 2026-05-31  
 **Supersedes:** PHASE1_UNIFIED_BLUEPRINT.md (v1 — conceptual, pre-audit)
 
-> **Why this version exists.** The v1 blueprint was written from concept briefs. A forensic audit of the actual repository revealed significant gaps between intended architecture and what is physically present logged. This document replaces v1 entirely. It is grounded in observed reality and uses that as the baseline for Phase 1 work. Anything described here that does not yet exist is explicitly labeled as such.
+> **Why this version exists.** The v1 blueprint was written from concept briefs. A forensic audit of the actual repository revealed significant gaps between intended architecture and what is physically present on disk. This document replaces v1 entirely. It is grounded in observed reality and uses that as the baseline for Phase 1 work. Anything described here that does not yet exist is explicitly labeled as such.
 
 ---
 
 ## Table of Contents
 
-1. [Actual State — What Exists in the Repository](#1-actual-state--what-exists-in-repo)
+1. [Actual State — What Exists on Disk](#1-actual-state--what-exists-on-disk)
 2. [Concept vs Reality Gap Map](#2-concept-vs-reality-gap-map)
 3. [Revised North Star & Principles](#3-revised-north-star--principles)
 4. [Noetfield Runtime — Actual State + Phase 1 Build Plan](#4-noetfield-runtime--actual-state--phase-1-build-plan)
@@ -30,14 +30,14 @@
 
 ---
 
-## 1. Actual State — What Exists in the Repository
+## 1. Actual State — What Exists on Disk
 
 This section is observation-only. No design intent. No fixes assumed.
 
 ### Repository structure (SinaaiMonoRepo)
 
 ```
-SinaaiMonoRepo/                      ← root git: 60 tracked files / ~3928 logged
+SinaaiMonoRepo/                      ← root git: 60 tracked files / ~3928 on disk
 ├── SinaaiRuntime/                   ← ~736 .py files — PRIMARY EXECUTION SYSTEM
 │   ├── api/                         ← FastAPI :8000 — primary API
 │   ├── agents/                      ← 40 subdirectories (loop_engine, brain, spine, etc.)
@@ -67,7 +67,7 @@ SinaaiMonoRepo/                      ← root git: 60 tracked files / ~3928 logg
 | `:8010` | Manual `./start.sh` | `backend/` FastAPI — documented as deprecated | Frozen / legacy |
 | `:8020` | `run_cacos.py` | CACOS-N independent FastAPI | Legacy / optional |
 
-### What "SinaaiOS" actually is logged
+### What "SinaaiOS" actually is on disk
 
 SinaaiOS does not exist as a Python module or unified control plane. What exists:
 
@@ -79,7 +79,7 @@ SinaaiOS does not exist as a Python module or unified control plane. What exists
 
 Actual decision-making is distributed across: `loop_engine`, `agent_orchestrator`, `agent_spine`, `golden_edge`, `panel.py` (standalone), and shell scripts.
 
-### What "Noetfield" actually is logged
+### What "Noetfield" actually is on disk
 
 Noetfield does not exist as executable code. What exists:
 
@@ -154,7 +154,7 @@ The distinction between the two systems remains valid. What changes is the ackno
 
 ### Governing Principles (v2)
 
-**P1 — Acknowledge the actual baseline.** Every decision starts from what is in the repository today, not from the intended architecture. Building on false assumptions compounds debt.
+**P1 — Acknowledge the actual baseline.** Every decision starts from what is on disk today, not from the intended architecture. Building on false assumptions compounds debt.
 
 **P2 — Noetfield code is greenfield.** No Noetfield execution code exists. When building it, do not inherit `SinaaiRuntime`'s patterns by default — evaluate each choice against Noetfield's specific compliance requirements.
 
@@ -447,7 +447,7 @@ No SinaaiRuntime agent, loop, or automation pipeline may write to, modify, or de
 Once a customer is live, Noetfield API contracts are frozen for the v1 lifetime. Changes require a versioned deprecation cycle with customer communication.
 
 **AN6 — SSOT must be in git.**  
-Any governance document, system registry, or architectural boundary definition that is not committed to a git repository is not the SSOT. Files logged that are not in git can be lost, diverged, or silently modified.
+Any governance document, system registry, or architectural boundary definition that is not committed to a git repository is not the SSOT. Files on disk that are not in git can be lost, diverged, or silently modified.
 
 ### Development constraints
 
@@ -537,7 +537,7 @@ For any Type A, Type D, or Type E decision: update the relevant SinaaiDataBase d
 
 | Term | Definition |
 |---|---|
-| **Actual state** | What is physically present and operational logged, as verified by the forensic audit. Not what is intended. |
+| **Actual state** | What is physically present and operational on disk, as verified by the forensic audit. Not what is intended. |
 | **Intended state** | The target architecture described in this document and in SinaaiDataBase specifications. |
 | **Gap** | The difference between actual state and intended state. Gaps are managed explicitly; they are not ignored. |
 | **Determinism** | The property that the same `input_payload` evaluated against the same `rule_set_version` always produces the same `result`. Non-negotiable in Noetfield. |

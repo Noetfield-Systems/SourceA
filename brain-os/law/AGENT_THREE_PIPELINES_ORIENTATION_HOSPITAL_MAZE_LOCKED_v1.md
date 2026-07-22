@@ -66,7 +66,7 @@
 | Hospital green · `escalate_maze: false` | Stop · RUN INBOX | Self-trigger full Maze |
 | Founder says **maze** · disk green | **Speed mode** (~15–90 s) · passport refresh | Block founder on 30–90 min wall |
 | `critical>0` · repeat incident | Full gauntlet · `SINA_MAZE_FORCE_FULL=1` | Trust speed skips |
-| Stale red maze receipt logged | Ignore for daily ops · quote `maze_line` | Treat passport as daily blocker |
+| Stale red maze receipt on disk | Ignore for daily ops · quote `maze_line` | Treat passport as daily blocker |
 
 **Helpers (lib):** `find_critical_fresh()` · `hospital_green_fresh()` · `anti_staleness_bundle_fresh()` · `maze_speed_mode()` · `maze_status_line()`
 

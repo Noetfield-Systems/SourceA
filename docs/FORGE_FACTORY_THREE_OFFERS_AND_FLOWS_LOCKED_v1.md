@@ -17,7 +17,7 @@ Intake (web/email/scope call)
   → Client delivery (output + replayable proof)
 ```
 
-| Layer | In the repository today |
+| Layer | On disk today |
 |-------|----------------|
 | Motor | `scripts/hub_cloud_forge_run_proceed_v1.py` · `scripts/cloud_auto_runtime_v1.py` · Railway `sourcea-fbe-runner-production.up.railway.app` |
 | Governance | `scripts/forge_governance_kernel_v1.py` (v4) · PROVE: `scripts/living_system_chain_validate_v1.py` |
@@ -33,7 +33,7 @@ Intake (web/email/scope call)
 
 ## One-page offer (buyer-facing)
 
-**Headline:** We ship your 48-hour MVP — scoped, controlled, with proof you can show stakeholders.
+**Headline:** We ship your 48-hour MVP — scoped, governed, with proof you can show stakeholders.
 
 **You get**
 - One bounded outcome (landing + form, intake funnel, or single workflow — agreed in writing)
@@ -75,7 +75,7 @@ Intake (web/email/scope call)
 
 ---
 
-# 2. Agent-for-hire — Controlled bounded run + receipt
+# 2. Agent-for-hire — Governed bounded run + receipt
 
 ## One-page offer (buyer-facing)
 
@@ -83,7 +83,7 @@ Intake (web/email/scope call)
 
 **You get**
 - One mission (prompt-forged to GOAL / CONTEXT / DONE / VERIFY)
-- Controlled execution on our Forge Runtime (ALLOW/BLOCK before heavy work)
+- Governed execution on our Forge Runtime (ALLOW/BLOCK before heavy work)
 - Output artifact (code patch, doc, audit, research pack — as scoped)
 - **Receipt:** verdict · layers checked · run id · what executed (sanitized for your stakeholders)
 
@@ -105,7 +105,7 @@ Intake (web/email/scope call)
 
 | Step | Who | Action | System |
 |------|-----|--------|--------|
-| 1 | Client | Emails mission or uses sandbox | forge@sourcea.app · or sandbox intake with “controlled run” tag |
+| 1 | Client | Emails mission or uses sandbox | forge@sourcea.app · or sandbox intake with “governed run” tag |
 | 2 | Founder | Prompt forge + scope lock | `scripts/chat_unify_prompt_forge_v1.py` → bounded mission doc |
 | 3 | Founder | Dry-run gate | `forge_governance_kernel_v1.govern()` · quality gate shape |
 | 4 | Cloud | Run job | Railway `proceed_on_cloud` / `portfolio_competitor_forge_dispatch_v1` · `full_motor` as scoped |
@@ -128,7 +128,7 @@ Intake (web/email/scope call)
 **Headline:** Keep Cursor, Claude Code, and your LLMs. We add governance, routing, and receipts.
 
 **You get**
-- **Integration map:** your tools (Cursor · Claude Code · Codex · n8n · webhooks) wired to one controlled spine
+- **Integration map:** your tools (Cursor · Claude Code · Codex · n8n · webhooks) wired to one governed spine
 - Policy before execution (what agents may/may not do in your repo)
 - Orchestrated handoffs: mission → agent → validate → receipt
 - Optional: Cloud Workers proceed + scheduled auto-runtime for batch ops (not Mac cron)
@@ -154,7 +154,7 @@ Intake (web/email/scope call)
 | 2 | Founder | Manifest + hooks | `data/chat-unify-cursor-plugin-v1.json` · Connect tab · `scripts/forge_terminal_desktop_mesh_v1.py` |
 | 3 | Setup | Cursor bridge | Forge mission → Worker INBOX · `send_founder_to_cursor` path in Connect |
 | 4 | Setup | Webhooks / n8n | `sourcea-hook-relay-v1` worker · `:13026` n8n glance · inbound hook URL |
-| 5 | Runtime | Controlled dispatch | Mac `:13029` control · execution `POST :13027` or Railway proceed · **dry_run=false on cloud only** |
+| 5 | Runtime | Governed dispatch | Mac `:13029` control · execution `POST :13027` or Railway proceed · **dry_run=false on cloud only** |
 | 6 | Per job | Gate → execute → receipt | Same as Agent-for-hire steps 3–7 |
 | 7 | Client | Ops view | Observer URL + periodic proof pack · optional Slack/email on PASS/BLOCK |
 

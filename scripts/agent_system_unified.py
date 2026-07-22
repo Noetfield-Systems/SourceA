@@ -236,7 +236,7 @@ def _build_copy_brief(
         "SESSION START (every agent, every chat):",
         "1. `agent_session_gate_run_v1.py --role <role>` — session gate only (no incident compendium).",
         "2. Daily: RUN INBOX in Cursor Worker chat — Worker Hub glance optional.",
-        "3. Deposit deliverables to workspace vault logged when shipping.",
+        "3. Deposit deliverables to workspace vault on disk when shipping.",
         "4. Work in YOUR repo only — never edit ~/Desktop/SourceA (SourceA Worker chat for hub code only).",
         "5. Hub bugs → POST /api/agent-review — Command brand DELETED.",
         "",

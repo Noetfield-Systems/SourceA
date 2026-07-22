@@ -23,7 +23,7 @@ Capture Scrut Automation public pricing evidence: Custom mid-market pricing — 
 
 ## Implementation extraction
 
-`Scrut Automation · Pricing & packaging` → what buyer sees at vendor → what we ship logged with receipt.
+`Scrut Automation · Pricing & packaging` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

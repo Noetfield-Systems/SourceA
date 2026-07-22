@@ -25,7 +25,7 @@ closeout:
   registry_updated: []
   priority_row: true|false
   execution_log: none
-summary: One line — what was proven logged
+summary: One line — what was proven on disk
 next_action: act | verify | NONE
 ```
 

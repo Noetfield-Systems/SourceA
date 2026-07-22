@@ -20,7 +20,7 @@ ROLE_OBLIGATIONS = {
     "brain": "Route INBOX — no substitute Worker execution",
     "machine": "Fail-closed gates; auto-revert unproven done",
     "stairlift": "Propagate law to all agents via governance_stairlift_sync_v1.py",
-    "executor": "Build logged; POST loop response; obey stairlift payload",
+    "executor": "Build on disk; POST loop response; obey stairlift payload",
     "advisor": "Coach only — never reorder roadmap or close sa",
     "vinny": "Named operator surface — load stairlift SSOT; zero chat-only law sync",
 }

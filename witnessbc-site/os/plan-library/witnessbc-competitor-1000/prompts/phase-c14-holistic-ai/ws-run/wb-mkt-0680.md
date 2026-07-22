@@ -23,7 +23,7 @@ Mark wb-mkt-0680 done with run page screenshot or receipt path
 
 ## Implementation extraction
 
-`Holistic AI · Run history & proof` → what buyer sees at vendor → what we ship logged with receipt.
+`Holistic AI · Run history & proof` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

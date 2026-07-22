@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-"""SourceA Runtime Wrapper v1 — controlled layer between raw AI and buyer.
+"""SourceA Runtime Wrapper v1 — governed layer between raw AI and buyer.
 
-Flow: profile policy → PASS/BLOCK → optional LLM/action → signed receipt logged.
-Law: Stripe-class trust rails on top of model APIs — you sell controlled output, not tokens.
+Flow: profile policy → PASS/BLOCK → optional LLM/action → signed receipt on disk.
+Law: Stripe-class trust rails on top of model APIs — you sell governed output, not tokens.
 """
 from __future__ import annotations
 
@@ -176,7 +176,7 @@ def _execute_llm_chat(*, context: dict[str, Any], profile: dict[str, Any]) -> di
 
     chat_fn: Callable[[str, str], tuple[bool, str]]
     if context.get("stub_llm"):
-        chat_fn = lambda _s, _u: (True, "[stub] controlled response — configure API for live call")
+        chat_fn = lambda _s, _u: (True, "[stub] governed response — configure API for live call")
     else:
         def chat_fn(system: str, user: str) -> tuple[bool, str]:
             try:
@@ -207,7 +207,7 @@ def _execute_action(action: str, *, context: dict[str, Any], profile: dict[str, 
                 "cadence": profile.get("export_cadence"),
                 "schema": profile.get("receipt_schema"),
             },
-            "message": "Proof export queued — weekly bundle path logged",
+            "message": "Proof export queued — weekly bundle path on disk",
         }
     if action == "outreach.send":
         return {
@@ -217,7 +217,7 @@ def _execute_action(action: str, *, context: dict[str, Any], profile: dict[str, 
                 "template_id": context.get("template_id"),
                 "status": "queued",
             },
-            "message": "Tracked outreach dispatch recorded",
+            "message": "Governed outreach dispatch recorded",
         }
     if action == "validate.run":
         return {"ok": True, "validate": context.get("validator") or "runtime-wrapper-smoke", "message": "Validate PASS"}
@@ -226,7 +226,7 @@ def _execute_action(action: str, *, context: dict[str, Any], profile: dict[str, 
     return {"ok": False, "error": f"no executor for {action}"}
 
 
-def controlled_dispatch(
+def governed_dispatch(
     *,
     action: str,
     context: dict[str, Any] | None = None,
@@ -269,7 +269,7 @@ def controlled_dispatch(
         receipt["verdict"] = "BLOCK"
         receipt["founder_line"] = f"BLOCK — model gate ({result.get('message') or 'gate'})"
     elif receipt["ok"]:
-        receipt["founder_line"] = f"PASS — {action} · {profile.get('label')} · receipt logged"
+        receipt["founder_line"] = f"PASS — {action} · {profile.get('label')} · receipt on disk"
         if result.get("response"):
             receipt["response_preview"] = str(result["response"])[:400]
     else:
@@ -327,7 +327,7 @@ def main() -> int:
     p_set.add_argument("op", choices=("get", "set", "list"))
     p_set.add_argument("name", nargs="?", default="")
 
-    p_disp = sub.add_parser("dispatch", help="Controlled dispatch", parents=[parent])
+    p_disp = sub.add_parser("dispatch", help="Governed dispatch", parents=[parent])
     p_disp.add_argument("--action", required=True, help="e.g. llm.chat, outreach.send")
     p_disp.add_argument("--profile", default="")
     p_disp.add_argument("--context", default="{}", help="JSON context")
@@ -359,7 +359,7 @@ def main() -> int:
             return 1
         if args.stub_llm:
             ctx["stub_llm"] = True
-        row = controlled_dispatch(
+        row = governed_dispatch(
             action=args.action,
             context=ctx,
             profile_name=args.profile or None,

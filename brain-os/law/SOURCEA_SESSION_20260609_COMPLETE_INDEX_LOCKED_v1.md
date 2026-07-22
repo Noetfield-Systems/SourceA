@@ -23,7 +23,7 @@ doc_date: 2026-06-09
 | 5 | Safety button invisible | Blue panel + steps + Emergency rename | 3 visible locations | Home tab :13020 | **LOCK** UX |
 | 6 | Clear cache + E2E auto | ~4GB safe cache + `fix-ecosystem-all` + gatekeeper sync | dual_proof=True | No E2E unless proof | **NEVER** E2E debug |
 | 7 | Worker E2E post-mortem | sa-0042 root cause + shared assert + Rules 0–7 | Contract PASS | Read post-mortem doc | **SAVE + LOCK** |
-| 8 | Save playbook | `SOURCEA_E2E_DEBUGGER_PLAYBOOK_LOCKED_v1.md` + validator | Receipt logged | Run playbook validator | **LOCK** |
+| 8 | Save playbook | `SOURCEA_E2E_DEBUGGER_PLAYBOOK_LOCKED_v1.md` + validator | Receipt on disk | Run playbook validator | **LOCK** |
 | 9 | Result-driven policy | `SOURCEA_RESULT_DRIVEN_DISCUSSION_POLICY_LOCKED_v1.md` | Every chat → result table | Use closeout format | **LOCK** |
 | 10 | This index + full post-mortem narrative | This file + `SOURCEA_WORKER_E2E_POSTMORTEM_LOCKED_v1.md` | Complete disk SSOT | Bookmark both | **SAVE + LOCK** |
 | 11 | Golden insight + safety lock-in | `SOURCEA_GOLDEN_INSIGHT_AND_SAFETY_LOCKED_v1.md` | Two-company model + operating system box | Pin golden doc | **SAVE + LOCK** |

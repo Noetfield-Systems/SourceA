@@ -113,7 +113,7 @@ async function runGroup(argv) {
       const abs = join(hyperframesDir, wordsPath);
       if (!existsSync(abs)) {
         anomalies.push(
-          `${sid}: wordsPath "${wordsPath}" not present locally — scene contributes no captions`,
+          `${sid}: wordsPath "${wordsPath}" not on disk — scene contributes no captions`,
         );
         continue;
       }

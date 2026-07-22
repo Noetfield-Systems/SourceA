@@ -64,12 +64,12 @@ function cleanPublicCopy(text) {
     .replace(/\bOpenRouter routing\b/gi, "AI model routing")
     .replace(/\bOpenRouter\b/gi, "AI model layer")
     .replace(/\bFactory proceed\b/gi, "Cloud execution")
-    .replace(/\bG0[–-]G3\b/gi, "controlled")
+    .replace(/\bG0[–-]G3\b/gi, "governed")
     .replace(/\bprove pack\b/gi, "proof pack")
     .replace(/\bFINTRAC-shaped\b/gi, "compliance-shaped")
     .replace(/\bCorporate registry docs in\b/gi, "Company documents in")
     .replace(/\bRunReceipt\b/gi, "run receipt")
-    .replace(/\bcontrolled controlled\b/gi, "controlled")
+    .replace(/\bgoverned governed\b/gi, "governed")
     .replace(/\s{2,}/g, " ")
     .trim();
 }

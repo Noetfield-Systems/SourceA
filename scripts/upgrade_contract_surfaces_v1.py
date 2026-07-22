@@ -11,7 +11,7 @@ GREEN = ROOT / "sites" / "SourceA-landing" / "green-unified"
 PROOF_STRIP = (
     '<div class="proof-strip wrap" role="region" aria-label="Technical proof">'
     "<p><strong>Verify in 5 minutes:</strong> "
-    '<a href="/eval">Run sourcea-boot eval</a> → <code>BOOT_REPORT.json</code> logged · '
+    '<a href="/eval">Run sourcea-boot eval</a> → <code>BOOT_REPORT.json</code> on disk · '
     '<a href="https://github.com/Noetfield-Systems/sourcea-boot" target="_blank" rel="noopener">Public GitHub repo</a>'
     "</p></div>"
 )
@@ -43,7 +43,7 @@ PAGES = {
             "<b>4 checks</b><span>sourcea-boot PASS/BLOCK — policy, provider, receipt freshness, queue truth. "
             '<a href="/eval">Run eval</a> · <a href="https://github.com/Noetfield-Systems/sourcea-boot" target="_blank" rel="noopener">GitHub</a></span></div>'
             '<div class="proofmetric"><span class="proof-label">Case proof</span>'
-            "<b>PureFlow</b><span>Live trades operator verification — 48-hour MVP path. "
+            "<b>PureFlow</b><span>Live trades operator proof chain — 48-hour MVP path. "
             '<a href="/sourcea/case-studies/pureflow">Case study</a> · receipt-backed delivery.</span></div></div>'
         ),
         "svg": SVG_BRAIN,

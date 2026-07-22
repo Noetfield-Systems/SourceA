@@ -14,7 +14,7 @@ Wil L3 portfolio demo — YA5 mirror · AgentGo ≠ SourceA separation · ship g
 
 ## Task
 
-**Add governance registry row for** case study prose (challenge · shipped · verification).
+**Add governance registry row for** case study prose (challenge · shipped · proof chain).
 
 If needed — no duplicate SSOT.
 

@@ -10,7 +10,7 @@
 
 ## Task
 
-Fast-sell: SourceA · Cold outreach + book meeting · Research comp pricing page. Ship smallest slice that moves a buyer toward **Asset B diagnostic $3K slice** with a path to **DFY $3–10K + retainer**. Receipt logged before done.
+Fast-sell: SourceA · Cold outreach + book meeting · Research comp pricing page. Ship smallest slice that moves a buyer toward **Asset B diagnostic $3K slice** with a path to **DFY $3–10K + retainer**. Receipt on disk before done.
 
 ## Verify
 

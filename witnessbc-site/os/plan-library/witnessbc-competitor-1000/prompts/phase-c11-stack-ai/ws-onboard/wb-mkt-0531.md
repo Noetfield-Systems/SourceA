@@ -23,7 +23,7 @@ Document Stack AI onboarding path (Enterprise compliance positioning): who runs 
 
 ## Implementation extraction
 
-`Stack AI · Onboarding & PLG` → what buyer sees at vendor → what we ship logged with receipt.
+`Stack AI · Onboarding & PLG` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

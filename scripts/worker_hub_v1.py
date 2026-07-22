@@ -587,7 +587,7 @@ def _build_extended_slices() -> dict:
             "graph_nodes": fp.get("graph_nodes", 76),
             "spawn_ready": fp.get("spawn_ready", False),
             "fleet_ready": fp.get("fleet_ready", False),
-            "factory_3_label": fp.get("factory_3_label", "Controlled App Factory"),
+            "factory_3_label": fp.get("factory_3_label", "Governed App Factory"),
             "factory_3_product": fp.get("factory_3_product", "Forge"),
             "tier_achieved": fp.get("tier_achieved"),
             "w6_note": fp.get("w6_note"),

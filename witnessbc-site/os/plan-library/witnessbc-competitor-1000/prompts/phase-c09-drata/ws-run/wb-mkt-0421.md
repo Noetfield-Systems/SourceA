@@ -23,7 +23,7 @@ From https://drata.com document Drata run/history UX: Automated evidence; policy
 
 ## Implementation extraction
 
-`Drata · Run history & proof` → what buyer sees at vendor → what we ship logged with receipt.
+`Drata · Run history & proof` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

@@ -14,7 +14,7 @@ Wil L3 portfolio demo — YA5 mirror · AgentGo ≠ SourceA separation · ship g
 
 ## Task
 
-**ASF checkpoint for** case study prose (challenge · shipped · verification).
+**ASF checkpoint for** case study prose (challenge · shipped · proof chain).
 
 Ship window only.
 

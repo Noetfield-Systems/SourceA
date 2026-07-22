@@ -215,7 +215,7 @@ Subordinate to SSOT: everything below.
 |------|---------------|-----|
 | Meta-reasoning stack | `META_REASONING_POLICY_STACK_LOCKED_v1.md` | **Decision governance** tab · `GET /api/meta-reasoning-policy` |
 
-**Rule:** Full L0–L12 stack visible in hub after every rebuild — not law-only logged.
+**Rule:** Full L0–L12 stack visible in hub after every rebuild — not law-only on disk.
 
 **Application:** `META_REASONING_POLICY_STACK_LOCKED_v1.md` §9 — foundation → discover → lock SSOT; **never** map governance `Ln` to WTM `Ln`.
 

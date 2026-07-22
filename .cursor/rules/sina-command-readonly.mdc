@@ -5,7 +5,7 @@ alwaysApply: true
 
 # SEMEJ — no SourceA code edits
 
-**Never** modify `~/Desktop/Noetfield-Systems/SourceA/**` (hub, panel, scripts). Use **Backlog → Agent reports** if Command is broken.
+**Never** modify `~/Desktop/SourceA/**` (hub, panel, scripts). Use **Backlog → Agent reports** if Command is broken.
 
 **Allowed:** `~/.sina/semej-*`, `/Users/sinakazemnezhad/.sina/agent-workspaces/semej/`, Chrome/Playwright automation via SEMEJ tab.
 

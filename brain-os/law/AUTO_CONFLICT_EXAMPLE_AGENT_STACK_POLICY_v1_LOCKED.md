@@ -49,7 +49,7 @@ It shows a real situation where:
 |-------|----------|-------------------|
 | **DESIGN** | `SINAAI_AGENT_STACK_POLICY_v1.md` | Declares **target** LLM/agent architecture: roles, vendor diversity, never-silent north star |
 | **EXECUTION** | `SinaaiRuntime/.env`, `brain_providers.py`, `ai_gateway.py` | **Proves** what works today: Gemini → OpenRouter failover, live model IDs |
-| **DELIVERY** | Noetfield GitHub (when shipping) | Separate product plane — **not** controlled by mono agent-stack policy scope |
+| **DELIVERY** | Noetfield GitHub (when shipping) | Separate product plane — **not** governed by mono agent-stack policy scope |
 
 **Key line (locked):** Policy describes · Runtime proves · Repo ships.
 

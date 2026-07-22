@@ -23,7 +23,7 @@ Write founder-facing SOW snippet if Relevance AI uses services-led motion — Wi
 
 ## Implementation extraction
 
-`Relevance AI · Onboarding & PLG` → what buyer sees at vendor → what we ship logged with receipt.
+`Relevance AI · Onboarding & PLG` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

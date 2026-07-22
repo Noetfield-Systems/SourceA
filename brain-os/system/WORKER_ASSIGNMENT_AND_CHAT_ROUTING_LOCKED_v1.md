@@ -3,14 +3,14 @@
 **Saved:** 2026-06-16T05:49:57Z · **Retrofit:** doc-datetime-law batch retrofit
 **Version:** 1.0 · **Locked:** 2026-06-07  
 **Authority:** ASF — fixes agent routing drift (SinaaiDataBase maintainer · separate FORGE chat · Research L1/L2 confusion)  
-**Parent:** `ECOSYSTEM_BRAIN_ROLLOUT_LOCKED_v1.md` · `CONTROLLED_EXECUTION_OS_MASTER_LOCKED_v1.md` · `SINAAIDB_ARCHIVE_RETIREMENT_HANDOFF_LOCKED_v1.md`  
+**Parent:** `ECOSYSTEM_BRAIN_ROLLOUT_LOCKED_v1.md` · `GOVERNED_EXECUTION_OS_MASTER_LOCKED_v1.md` · `SINAAIDB_ARCHIVE_RETIREMENT_HANDOFF_LOCKED_v1.md`  
 **Supersedes for routing:** any chat/table that assigns **build work** to SinaaiDataBase or a separate FORGE builder chat
 
 ---
 
-## 0. Why agents mis-routed (root causes in the repository — fixed here)
+## 0. Why agents mis-routed (root causes on disk — fixed here)
 
-| Confusion | Old signal logged | Correct law (this file) |
+| Confusion | Old signal on disk | Correct law (this file) |
 |-----------|-------------------|-------------------------|
 | Hub/sa-queue → SinaaiDataBase | `ECOSYSTEM_BRAIN_ROLLOUT` §4 “HQ maintainer · SinaaiDataBase” · `SINA_COMMAND_EDIT_LOCK` maintainer chat | **SinaaiDataBase = archive/broker only — no jobs.** Hub + panel builds → **SourceA Worker** |
 | Separate FORGE builder chat | `GOAL_HIERARCHY` T2 path `~/Desktop/forge/` without worker scope | **No FORGE-only chat.** FORGE checklist + code → **same SourceA Worker** when Brain orders |

@@ -1106,7 +1106,7 @@
       "category": "WEB",
       "category_name": "Storefront & site",
       "phase": "NEXT",
-      "title": "Verification interactive \u00b7 slice 1",
+      "title": "Proof chain interactive \u00b7 slice 1",
       "status": "backlog",
       "receipt_gate": "design_partner",
       "priority_rank": 108
@@ -1116,7 +1116,7 @@
       "category": "WEB",
       "category_name": "Storefront & site",
       "phase": "NEXT",
-      "title": "Verification interactive \u00b7 slice 2",
+      "title": "Proof chain interactive \u00b7 slice 2",
       "status": "backlog",
       "receipt_gate": "design_partner",
       "priority_rank": 109
@@ -1126,7 +1126,7 @@
       "category": "WEB",
       "category_name": "Storefront & site",
       "phase": "NEXT",
-      "title": "Verification interactive \u00b7 slice 3",
+      "title": "Proof chain interactive \u00b7 slice 3",
       "status": "backlog",
       "receipt_gate": "design_partner",
       "priority_rank": 110
@@ -2136,7 +2136,7 @@
       "category": "PRF",
       "category_name": "Proof & Proof Pack",
       "phase": "LATER",
-      "title": "Verification beat 6 \u00b7 slice 1",
+      "title": "Proof chain beat 6 \u00b7 slice 1",
       "status": "backlog",
       "receipt_gate": "enterprise_signal",
       "priority_rank": 211
@@ -2146,7 +2146,7 @@
       "category": "PRF",
       "category_name": "Proof & Proof Pack",
       "phase": "LATER",
-      "title": "Verification beat 6 \u00b7 slice 2",
+      "title": "Proof chain beat 6 \u00b7 slice 2",
       "status": "backlog",
       "receipt_gate": "enterprise_signal",
       "priority_rank": 212
@@ -2156,7 +2156,7 @@
       "category": "PRF",
       "category_name": "Proof & Proof Pack",
       "phase": "LATER",
-      "title": "Verification beat 6 \u00b7 slice 3",
+      "title": "Proof chain beat 6 \u00b7 slice 3",
       "status": "backlog",
       "receipt_gate": "enterprise_signal",
       "priority_rank": 213

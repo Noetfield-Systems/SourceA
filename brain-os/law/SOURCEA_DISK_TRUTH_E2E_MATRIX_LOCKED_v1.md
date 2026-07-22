@@ -49,7 +49,7 @@
 | 16 | Broker cycle | `goal1-lane-broker-events.jsonl` | batch log · brain validate | Per submit | **RT** at closeout | P3·P5 | hygiene |
 | 17 | Pack receipts | `pack-drain-receipts/pack-*.json` | Worker audit | Per pack turn | **RT** when drain runs | P8 | N/A |
 | 18 | Phase-strict queue | `phase-strict-drain-v1.json` + manifests | run-inbox-truth | Builder script | **RT** | P8 | build-phase-strict |
-| 19 | S10 receipt | `s10-eternal-receipt-v1.json` | Hub Advisor track · monitor | Daily 06:00 + monitor | **RT** logged | P10 | launchd |
+| 19 | S10 receipt | `s10-eternal-receipt-v1.json` | Hub Advisor track · monitor | Daily 06:00 + monitor | **RT** on disk | P10 | launchd |
 | 20 | Prompt feed batch | OpenRouter propose | Prompt feed UI | Advisory curl | **Not execution** | — | — |
 | 21 | TrustField tracker | `TrustField…/plan.json` | Portfolio thread | Separate repo | **Separate lane** | P7 | agent lane |
 | 22 | Cursor plan todos | IDE state | Cursor runtime | None | **GAP** — survives STOP | P7·P9 | manual cancel |

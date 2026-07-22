@@ -23,7 +23,7 @@ Document Monitaur onboarding path (Regulated industry ML governance): who runs (
 
 ## Implementation extraction
 
-`Monitaur · Onboarding & PLG` → what buyer sees at vendor → what we ship logged with receipt.
+`Monitaur · Onboarding & PLG` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

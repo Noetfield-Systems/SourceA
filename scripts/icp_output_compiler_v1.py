@@ -402,7 +402,7 @@ def validate_icp5_trace_rules_acceptance() -> dict:
 
 
 def check_approved_body_path(forge: dict, *, require_field: bool = True) -> dict:
-    """U026 — approved_body_path must exist in the repository before compile PASS."""
+    """U026 — approved_body_path must exist on disk before compile PASS."""
     ap = forge.get("approved_body_path")
     if not ap:
         if require_field:

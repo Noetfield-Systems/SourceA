@@ -163,7 +163,7 @@
     "pricing": "SourceA agency + Buyer-1 pricing narrative",
     "onboard": "Hub Actions + RUN INBOX first-run path",
     "integrate": "scripts/ queue + cloud dispatch APIs",
-    "scope_note": "Controlled agent orchestration motor \u2014 not MSB product"
+    "scope_note": "Governed agent orchestration motor \u2014 not MSB product"
   },
   "tiers": [
     {
@@ -261,7 +261,7 @@
       "competitor": "Trigger.dev",
       "competitor_row": 1,
       "competitor_slug": "trigger-dev",
-      "title": "E2E or glance check: founder can see `Buyer-visible UX` outcome without Terminal; receipt timestamp logged",
+      "title": "E2E or glance check: founder can see `Buyer-visible UX` outcome without Terminal; receipt timestamp on disk",
       "path": "prompts/phase-c01-trigger-dev/ws-ux/sa-mkt-0004.md",
       "status": "backlog",
       "verify": "cd ~/Desktop/SourceA/scripts && bash worker_verify_fast_v1.sh",
@@ -270,7 +270,7 @@
       "source_links": "https://trigger.dev \u00b7 https://trigger.dev/pricing",
       "implementation": "Trigger.dev Buyer-visible UX -> buyer-visible proof -> Worker Hub Next steps + factory-now line",
       "agent_tag": "AGENT-AUTO-SOURCEA",
-      "agent_prompt": "PLAN WITH NO ASF \u2014 sa-mkt-0004: E2E or glance check: founder can see `Buyer-visible UX` outcome without Terminal; receipt timestamp logged"
+      "agent_prompt": "PLAN WITH NO ASF \u2014 sa-mkt-0004: E2E or glance check: founder can see `Buyer-visible UX` outcome without Terminal; receipt timestamp on disk"
     },
     {
       "id": "sa-mkt-0005",
@@ -481,7 +481,7 @@
       "competitor": "Trigger.dev",
       "competitor_row": 1,
       "competitor_slug": "trigger-dev",
-      "title": "Label free vs paid honestly (Controlled agent orchestration motor \u2014 not MSB product); never claim production without receipt",
+      "title": "Label free vs paid honestly (Governed agent orchestration motor \u2014 not MSB product); never claim production without receipt",
       "path": "prompts/phase-c01-trigger-dev/ws-pricing/sa-mkt-0014.md",
       "status": "backlog",
       "verify": "cd ~/Desktop/SourceA/scripts && bash worker_verify_fast_v1.sh",
@@ -490,7 +490,7 @@
       "source_links": "https://trigger.dev \u00b7 https://trigger.dev/pricing",
       "implementation": "Trigger.dev Pricing & packaging -> buyer-visible proof -> Worker Hub Next steps + factory-now line",
       "agent_tag": "AGENT-AUTO-SOURCEA",
-      "agent_prompt": "PLAN WITH NO ASF \u2014 sa-mkt-0014: Label free vs paid honestly (Controlled agent orchestration motor \u2014 not MSB product); never claim production without recei"
+      "agent_prompt": "PLAN WITH NO ASF \u2014 sa-mkt-0014: Label free vs paid honestly (Governed agent orchestration motor \u2014 not MSB product); never claim production without recei"
     },
     {
       "id": "sa-mkt-0015",
@@ -921,7 +921,7 @@
       "competitor": "Trigger.dev",
       "competitor_row": 1,
       "competitor_slug": "trigger-dev",
-      "title": "Freemium cap or trial label visible before first run (Controlled agent orchestration motor \u2014 not MSB product)",
+      "title": "Freemium cap or trial label visible before first run (Governed agent orchestration motor \u2014 not MSB product)",
       "path": "prompts/phase-c01-trigger-dev/ws-onboard/sa-mkt-0034.md",
       "status": "backlog",
       "verify": "cd ~/Desktop/SourceA/scripts && bash worker_verify_fast_v1.sh",
@@ -930,7 +930,7 @@
       "source_links": "https://trigger.dev \u00b7 https://trigger.dev/pricing",
       "implementation": "Trigger.dev Onboarding & PLG -> buyer-visible proof -> Worker Hub Next steps + factory-now line",
       "agent_tag": "AGENT-AUTO-SOURCEA",
-      "agent_prompt": "PLAN WITH NO ASF \u2014 sa-mkt-0034: Freemium cap or trial label visible before first run (Controlled agent orchestration motor \u2014 not MSB product)"
+      "agent_prompt": "PLAN WITH NO ASF \u2014 sa-mkt-0034: Freemium cap or trial label visible before first run (Governed agent orchestration motor \u2014 not MSB product)"
     },
     {
       "id": "sa-mkt-0035",
@@ -1361,7 +1361,7 @@
       "competitor": "Inngest",
       "competitor_row": 2,
       "competitor_slug": "inngest",
-      "title": "E2E or glance check: founder can see `Buyer-visible UX` outcome without Terminal; receipt timestamp logged",
+      "title": "E2E or glance check: founder can see `Buyer-visible UX` outcome without Terminal; receipt timestamp on disk",
       "path": "prompts/phase-c02-inngest/ws-ux/sa-mkt-0054.md",
       "status": "backlog",
       "verify": "cd ~/Desktop/SourceA/scripts && bash worker_verify_fast_v1.sh",
@@ -1370,7 +1370,7 @@
       "source_links": "https://www.inngest.com \u00b7 https://www.inngest.com/pricing",
       "implementation": "Inngest Buyer-visible UX -> buyer-visible proof -> Worker Hub Next steps + factory-now line",
       "agent_tag": "AGENT-AUTO-SOURCEA",
-      "agent_prompt": "PLAN WITH NO ASF \u2014 sa-mkt-0054: E2E or glance check: founder can see `Buyer-visible UX` outcome without Terminal; receipt timestamp logged"
+      "agent_prompt": "PLAN WITH NO ASF \u2014 sa-mkt-0054: E2E or glance check: founder can see `Buyer-visible UX` outcome without Terminal; receipt timestamp on disk"
     },
     {
       "id": "sa-mkt-0055",
@@ -1581,7 +1581,7 @@
       "competitor": "Inngest",
       "competitor_row": 2,
       "competitor_slug": "inngest",
-      "title": "Label free vs paid honestly (Controlled agent orchestration motor \u2014 not MSB product); never claim production without receipt",
+      "title": "Label free vs paid honestly (Governed agent orchestration motor \u2014 not MSB product); never claim production without receipt",
       "path": "prompts/phase-c02-inngest/ws-pricing/sa-mkt-0064.md",
       "status": "backlog",
       "verify": "cd ~/Desktop/SourceA/scripts && bash worker_verify_fast_v1.sh",
@@ -1590,7 +1590,7 @@
       "source_links": "https://www.inngest.com \u00b7 https://www.inngest.com/pricing",
       "implementation": "Inngest Pricing & packaging -> buyer-visible proof -> Worker Hub Next steps + factory-now line",
       "agent_tag": "AGENT-AUTO-SOURCEA",
-      "agent_prompt": "PLAN WITH NO ASF \u2014 sa-mkt-0064: Label free vs paid honestly (Controlled agent orchestration motor \u2014 not MSB product); never claim production without recei"
+      "agent_prompt": "PLAN WITH NO ASF \u2014 sa-mkt-0064: Label free vs paid honestly (Governed agent orchestration motor \u2014 not MSB product); never claim production without recei"
     },
     {
       "id": "sa-mkt-0065",
@@ -2021,7 +2021,7 @@
       "competitor": "Inngest",
       "competitor_row": 2,
       "competitor_slug": "inngest",
-      "title": "Freemium cap or trial label visible before first run (Controlled agent orchestration motor \u2014 not MSB product)",
+      "title": "Freemium cap or trial label visible before first run (Governed agent orchestration motor \u2014 not MSB product)",
       "path": "prompts/phase-c02-inngest/ws-onboard/sa-mkt-0084.md",
       "status": "backlog",
       "verify": "cd ~/Desktop/SourceA/scripts && bash worker_verify_fast_v1.sh",
@@ -2030,7 +2030,7 @@
       "source_links": "https://www.inngest.com \u00b7 https://www.inngest.com/pricing",
       "implementation": "Inngest Onboarding & PLG -> buyer-visible proof -> Worker Hub Next steps + factory-now line",
       "agent_tag": "AGENT-AUTO-SOURCEA",
-      "agent_prompt": "PLAN WITH NO ASF \u2014 sa-mkt-0084: Freemium cap or trial label visible before first run (Controlled agent orchestration motor \u2014 not MSB product)"
+      "agent_prompt": "PLAN WITH NO ASF \u2014 sa-mkt-0084: Freemium cap or trial label visible before first run (Governed agent orchestration motor \u2014 not MSB product)"
     },
     {
       "id": "sa-mkt-0085",
@@ -2461,7 +2461,7 @@
       "competitor": "Hatchet",
       "competitor_row": 3,
       "competitor_slug": "hatchet",
-      "title": "E2E or glance check: founder can see `Buyer-visible UX` outcome without Terminal; receipt timestamp logged",
+      "title": "E2E or glance check: founder can see `Buyer-visible UX` outcome without Terminal; receipt timestamp on disk",
       "path": "prompts/phase-c03-hatchet/ws-ux/sa-mkt-0104.md",
       "status": "backlog",
       "verify": "cd ~/Desktop/SourceA/scripts && bash worker_verify_fast_v1.sh",
@@ -2470,7 +2470,7 @@
       "source_links": "https://hatchet.run",
       "implementation": "Hatchet Buyer-visible UX -> buyer-visible proof -> Worker Hub Next steps + factory-now line",
       "agent_tag": "AGENT-AUTO-SOURCEA",
-      "agent_prompt": "PLAN WITH NO ASF \u2014 sa-mkt-0104: E2E or glance check: founder can see `Buyer-visible UX` outcome without Terminal; receipt timestamp logged"
+      "agent_prompt": "PLAN WITH NO ASF \u2014 sa-mkt-0104: E2E or glance check: founder can see `Buyer-visible UX` outcome without Terminal; receipt timestamp on disk"
     },
     {
       "id": "sa-mkt-0105",
@@ -2681,7 +2681,7 @@
       "competitor": "Hatchet",
       "competitor_row": 3,
       "competitor_slug": "hatchet",
-      "title": "Label free vs paid honestly (Controlled agent orchestration motor \u2014 not MSB product); never claim production without receipt",
+      "title": "Label free vs paid honestly (Governed agent orchestration motor \u2014 not MSB product); never claim production without receipt",
       "path": "prompts/phase-c03-hatchet/ws-pricing/sa-mkt-0114.md",
       "status": "backlog",
       "verify": "cd ~/Desktop/SourceA/scripts && bash worker_verify_fast_v1.sh",
@@ -2690,7 +2690,7 @@
       "source_links": "https://hatchet.run",
       "implementation": "Hatchet Pricing & packaging -> buyer-visible proof -> Worker Hub Next steps + factory-now line",
       "agent_tag": "AGENT-AUTO-SOURCEA",
-      "agent_prompt": "PLAN WITH NO ASF \u2014 sa-mkt-0114: Label free vs paid honestly (Controlled agent orchestration motor \u2014 not MSB product); never claim production without recei"
+      "agent_prompt": "PLAN WITH NO ASF \u2014 sa-mkt-0114: Label free vs paid honestly (Governed agent orchestration motor \u2014 not MSB product); never claim production without recei"
     },
     {
       "id": "sa-mkt-0115",
@@ -3121,7 +3121,7 @@
       "competitor": "Hatchet",
       "competitor_row": 3,
       "competitor_slug": "hatchet",
-      "title": "Freemium cap or trial label visible before first run (Controlled agent orchestration motor \u2014 not MSB product)",
+      "title": "Freemium cap or trial label visible before first run (Governed agent orchestration motor \u2014 not MSB product)",
       "path": "prompts/phase-c03-hatchet/ws-onboard/sa-mkt-0134.md",
       "status": "backlog",
       "verify": "cd ~/Desktop/SourceA/scripts && bash worker_verify_fast_v1.sh",
@@ -3130,7 +3130,7 @@
       "source_links": "https://hatchet.run",
       "implementation": "Hatchet Onboarding & PLG -> buyer-visible proof -> Worker Hub Next steps + factory-now line",
       "agent_tag": "AGENT-AUTO-SOURCEA",
-      "agent_prompt": "PLAN WITH NO ASF \u2014 sa-mkt-0134: Freemium cap or trial label visible before first run (Controlled agent orchestration motor \u2014 not MSB product)"
+      "agent_prompt": "PLAN WITH NO ASF \u2014 sa-mkt-0134: Freemium cap or trial label visible before first run (Governed agent orchestration motor \u2014 not MSB product)"
     },
     {
       "id": "sa-mkt-0135",
@@ -3561,7 +3561,7 @@
       "competitor": "Upstash QStash",
       "competitor_row": 4,
       "competitor_slug": "upstash-qstash",
-      "title": "E2E or glance check: founder can see `Buyer-visible UX` outcome without Terminal; receipt timestamp logged",
+      "title": "E2E or glance check: founder can see `Buyer-visible UX` outcome without Terminal; receipt timestamp on disk",
       "path": "prompts/phase-c04-upstash-qstash/ws-ux/sa-mkt-0154.md",
       "status": "backlog",
       "verify": "cd ~/Desktop/SourceA/scripts && bash worker_verify_fast_v1.sh",
@@ -3570,7 +3570,7 @@
       "source_links": "https://upstash.com/qstash \u00b7 https://upstash.com/pricing",
       "implementation": "Upstash QStash Buyer-visible UX -> buyer-visible proof -> Worker Hub Next steps + factory-now line",
       "agent_tag": "AGENT-AUTO-SOURCEA",
-      "agent_prompt": "PLAN WITH NO ASF \u2014 sa-mkt-0154: E2E or glance check: founder can see `Buyer-visible UX` outcome without Terminal; receipt timestamp logged"
+      "agent_prompt": "PLAN WITH NO ASF \u2014 sa-mkt-0154: E2E or glance check: founder can see `Buyer-visible UX` outcome without Terminal; receipt timestamp on disk"
     },
     {
       "id": "sa-mkt-0155",
@@ -3781,7 +3781,7 @@
       "competitor": "Upstash QStash",
       "competitor_row": 4,
       "competitor_slug": "upstash-qstash",
-      "title": "Label free vs paid honestly (Controlled agent orchestration motor \u2014 not MSB product); never claim production without receipt",
+      "title": "Label free vs paid honestly (Governed agent orchestration motor \u2014 not MSB product); never claim production without receipt",
       "path": "prompts/phase-c04-upstash-qstash/ws-pricing/sa-mkt-0164.md",
       "status": "backlog",
       "verify": "cd ~/Desktop/SourceA/scripts && bash worker_verify_fast_v1.sh",
@@ -3790,7 +3790,7 @@
       "source_links": "https://upstash.com/qstash \u00b7 https://upstash.com/pricing",
       "implementation": "Upstash QStash Pricing & packaging -> buyer-visible proof -> Worker Hub Next steps + factory-now line",
       "agent_tag": "AGENT-AUTO-SOURCEA",
-      "agent_prompt": "PLAN WITH NO ASF \u2014 sa-mkt-0164: Label free vs paid honestly (Controlled agent orchestration motor \u2014 not MSB product); never claim production without recei"
+      "agent_prompt": "PLAN WITH NO ASF \u2014 sa-mkt-0164: Label free vs paid honestly (Governed agent orchestration motor \u2014 not MSB product); never claim production without recei"
     },
     {
       "id": "sa-mkt-0165",
@@ -4221,7 +4221,7 @@
       "competitor": "Upstash QStash",
       "competitor_row": 4,
       "competitor_slug": "upstash-qstash",
-      "title": "Freemium cap or trial label visible before first run (Controlled agent orchestration motor \u2014 not MSB product)",
+      "title": "Freemium cap or trial label visible before first run (Governed agent orchestration motor \u2014 not MSB product)",
       "path": "prompts/phase-c04-upstash-qstash/ws-onboard/sa-mkt-0184.md",
       "status": "backlog",
       "verify": "cd ~/Desktop/SourceA/scripts && bash worker_verify_fast_v1.sh",
@@ -4230,7 +4230,7 @@
       "source_links": "https://upstash.com/qstash \u00b7 https://upstash.com/pricing",
       "implementation": "Upstash QStash Onboarding & PLG -> buyer-visible proof -> Worker Hub Next steps + factory-now line",
       "agent_tag": "AGENT-AUTO-SOURCEA",
-      "agent_prompt": "PLAN WITH NO ASF \u2014 sa-mkt-0184: Freemium cap or trial label visible before first run (Controlled agent orchestration motor \u2014 not MSB product)"
+      "agent_prompt": "PLAN WITH NO ASF \u2014 sa-mkt-0184: Freemium cap or trial label visible before first run (Governed agent orchestration motor \u2014 not MSB product)"
     },
     {
       "id": "sa-mkt-0185",
@@ -4661,7 +4661,7 @@
       "competitor": "Langfuse",
       "competitor_row": 5,
       "competitor_slug": "langfuse",
-      "title": "E2E or glance check: founder can see `Buyer-visible UX` outcome without Terminal; receipt timestamp logged",
+      "title": "E2E or glance check: founder can see `Buyer-visible UX` outcome without Terminal; receipt timestamp on disk",
       "path": "prompts/phase-c05-langfuse/ws-ux/sa-mkt-0204.md",
       "status": "backlog",
       "verify": "cd ~/Desktop/SourceA/scripts && bash worker_verify_fast_v1.sh",
@@ -4670,7 +4670,7 @@
       "source_links": "https://langfuse.com \u00b7 https://langfuse.com/docs",
       "implementation": "Langfuse Buyer-visible UX -> buyer-visible proof -> Worker Hub Next steps + factory-now line",
       "agent_tag": "AGENT-AUTO-SOURCEA",
-      "agent_prompt": "PLAN WITH NO ASF \u2014 sa-mkt-0204: E2E or glance check: founder can see `Buyer-visible UX` outcome without Terminal; receipt timestamp logged"
+      "agent_prompt": "PLAN WITH NO ASF \u2014 sa-mkt-0204: E2E or glance check: founder can see `Buyer-visible UX` outcome without Terminal; receipt timestamp on disk"
     },
     {
       "id": "sa-mkt-0205",
@@ -4881,7 +4881,7 @@
       "competitor": "Langfuse",
       "competitor_row": 5,
       "competitor_slug": "langfuse",
-      "title": "Label free vs paid honestly (Controlled agent orchestration motor \u2014 not MSB product); never claim production without receipt",
+      "title": "Label free vs paid honestly (Governed agent orchestration motor \u2014 not MSB product); never claim production without receipt",
       "path": "prompts/phase-c05-langfuse/ws-pricing/sa-mkt-0214.md",
       "status": "backlog",
       "verify": "cd ~/Desktop/SourceA/scripts && bash worker_verify_fast_v1.sh",
@@ -4890,7 +4890,7 @@
       "source_links": "https://langfuse.com \u00b7 https://langfuse.com/docs",
       "implementation": "Langfuse Pricing & packaging -> buyer-visible proof -> Worker Hub Next steps + factory-now line",
       "agent_tag": "AGENT-AUTO-SOURCEA",
-      "agent_prompt": "PLAN WITH NO ASF \u2014 sa-mkt-0214: Label free vs paid honestly (Controlled agent orchestration motor \u2014 not MSB product); never claim production without recei"
+      "agent_prompt": "PLAN WITH NO ASF \u2014 sa-mkt-0214: Label free vs paid honestly (Governed agent orchestration motor \u2014 not MSB product); never claim production without recei"
     },
     {
       "id": "sa-mkt-0215",
@@ -5321,7 +5321,7 @@
       "competitor": "Langfuse",
       "competitor_row": 5,
       "competitor_slug": "langfuse",
-      "title": "Freemium cap or trial label visible before first run (Controlled agent orchestration motor \u2014 not MSB product)",
+      "title": "Freemium cap or trial label visible before first run (Governed agent orchestration motor \u2014 not MSB product)",
       "path": "prompts/phase-c05-langfuse/ws-onboard/sa-mkt-0234.md",
       "status": "backlog",
       "verify": "cd ~/Desktop/SourceA/scripts && bash worker_verify_fast_v1.sh",
@@ -5330,7 +5330,7 @@
       "source_links": "https://langfuse.com \u00b7 https://langfuse.com/docs",
       "implementation": "Langfuse Onboarding & PLG -> buyer-visible proof -> Worker Hub Next steps + factory-now line",
       "agent_tag": "AGENT-AUTO-SOURCEA",
-      "agent_prompt": "PLAN WITH NO ASF \u2014 sa-mkt-0234: Freemium cap or trial label visible before first run (Controlled agent orchestration motor \u2014 not MSB product)"
+      "agent_prompt": "PLAN WITH NO ASF \u2014 sa-mkt-0234: Freemium cap or trial label visible before first run (Governed agent orchestration motor \u2014 not MSB product)"
     },
     {
       "id": "sa-mkt-0235",
@@ -5761,7 +5761,7 @@
       "competitor": "Helicone",
       "competitor_row": 6,
       "competitor_slug": "helicone",
-      "title": "E2E or glance check: founder can see `Buyer-visible UX` outcome without Terminal; receipt timestamp logged",
+      "title": "E2E or glance check: founder can see `Buyer-visible UX` outcome without Terminal; receipt timestamp on disk",
       "path": "prompts/phase-c06-helicone/ws-ux/sa-mkt-0254.md",
       "status": "backlog",
       "verify": "cd ~/Desktop/SourceA/scripts && bash worker_verify_fast_v1.sh",
@@ -5770,7 +5770,7 @@
       "source_links": "https://helicone.ai",
       "implementation": "Helicone Buyer-visible UX -> buyer-visible proof -> Worker Hub Next steps + factory-now line",
       "agent_tag": "AGENT-AUTO-SOURCEA",
-      "agent_prompt": "PLAN WITH NO ASF \u2014 sa-mkt-0254: E2E or glance check: founder can see `Buyer-visible UX` outcome without Terminal; receipt timestamp logged"
+      "agent_prompt": "PLAN WITH NO ASF \u2014 sa-mkt-0254: E2E or glance check: founder can see `Buyer-visible UX` outcome without Terminal; receipt timestamp on disk"
     },
     {
       "id": "sa-mkt-0255",
@@ -5981,7 +5981,7 @@
       "competitor": "Helicone",
       "competitor_row": 6,
       "competitor_slug": "helicone",
-      "title": "Label free vs paid honestly (Controlled agent orchestration motor \u2014 not MSB product); never claim production without receipt",
+      "title": "Label free vs paid honestly (Governed agent orchestration motor \u2014 not MSB product); never claim production without receipt",
       "path": "prompts/phase-c06-helicone/ws-pricing/sa-mkt-0264.md",
       "status": "backlog",
       "verify": "cd ~/Desktop/SourceA/scripts && bash worker_verify_fast_v1.sh",
@@ -5990,7 +5990,7 @@
       "source_links": "https://helicone.ai",
       "implementation": "Helicone Pricing & packaging -> buyer-visible proof -> Worker Hub Next steps + factory-now line",
       "agent_tag": "AGENT-AUTO-SOURCEA",
-      "agent_prompt": "PLAN WITH NO ASF \u2014 sa-mkt-0264: Label free vs paid honestly (Controlled agent orchestration motor \u2014 not MSB product); never claim production without recei"
+      "agent_prompt": "PLAN WITH NO ASF \u2014 sa-mkt-0264: Label free vs paid honestly (Governed agent orchestration motor \u2014 not MSB product); never claim production without recei"
     },
     {
       "id": "sa-mkt-0265",
@@ -6421,7 +6421,7 @@
       "competitor": "Helicone",
       "competitor_row": 6,
       "competitor_slug": "helicone",
-      "title": "Freemium cap or trial label visible before first run (Controlled agent orchestration motor \u2014 not MSB product)",
+      "title": "Freemium cap or trial label visible before first run (Governed agent orchestration motor \u2014 not MSB product)",
       "path": "prompts/phase-c06-helicone/ws-onboard/sa-mkt-0284.md",
       "status": "backlog",
       "verify": "cd ~/Desktop/SourceA/scripts && bash worker_verify_fast_v1.sh",
@@ -6430,7 +6430,7 @@
       "source_links": "https://helicone.ai",
       "implementation": "Helicone Onboarding & PLG -> buyer-visible proof -> Worker Hub Next steps + factory-now line",
       "agent_tag": "AGENT-AUTO-SOURCEA",
-      "agent_prompt": "PLAN WITH NO ASF \u2014 sa-mkt-0284: Freemium cap or trial label visible before first run (Controlled agent orchestration motor \u2014 not MSB product)"
+      "agent_prompt": "PLAN WITH NO ASF \u2014 sa-mkt-0284: Freemium cap or trial label visible before first run (Governed agent orchestration motor \u2014 not MSB product)"
     },
     {
       "id": "sa-mkt-0285",
@@ -6861,7 +6861,7 @@
       "competitor": "AgentOps",
       "competitor_row": 7,
       "competitor_slug": "agentops",
-      "title": "E2E or glance check: founder can see `Buyer-visible UX` outcome without Terminal; receipt timestamp logged",
+      "title": "E2E or glance check: founder can see `Buyer-visible UX` outcome without Terminal; receipt timestamp on disk",
       "path": "prompts/phase-c07-agentops/ws-ux/sa-mkt-0304.md",
       "status": "backlog",
       "verify": "cd ~/Desktop/SourceA/scripts && bash worker_verify_fast_v1.sh",
@@ -6870,7 +6870,7 @@
       "source_links": "https://www.agentops.ai",
       "implementation": "AgentOps Buyer-visible UX -> buyer-visible proof -> Worker Hub Next steps + factory-now line",
       "agent_tag": "AGENT-AUTO-SOURCEA",
-      "agent_prompt": "PLAN WITH NO ASF \u2014 sa-mkt-0304: E2E or glance check: founder can see `Buyer-visible UX` outcome without Terminal; receipt timestamp logged"
+      "agent_prompt": "PLAN WITH NO ASF \u2014 sa-mkt-0304: E2E or glance check: founder can see `Buyer-visible UX` outcome without Terminal; receipt timestamp on disk"
     },
     {
       "id": "sa-mkt-0305",
@@ -7081,7 +7081,7 @@
       "competitor": "AgentOps",
       "competitor_row": 7,
       "competitor_slug": "agentops",
-      "title": "Label free vs paid honestly (Controlled agent orchestration motor \u2014 not MSB product); never claim production without receipt",
+      "title": "Label free vs paid honestly (Governed agent orchestration motor \u2014 not MSB product); never claim production without receipt",
       "path": "prompts/phase-c07-agentops/ws-pricing/sa-mkt-0314.md",
       "status": "backlog",
       "verify": "cd ~/Desktop/SourceA/scripts && bash worker_verify_fast_v1.sh",
@@ -7090,7 +7090,7 @@
       "source_links": "https://www.agentops.ai",
       "implementation": "AgentOps Pricing & packaging -> buyer-visible proof -> Worker Hub Next steps + factory-now line",
       "agent_tag": "AGENT-AUTO-SOURCEA",
-      "agent_prompt": "PLAN WITH NO ASF \u2014 sa-mkt-0314: Label free vs paid honestly (Controlled agent orchestration motor \u2014 not MSB product); never claim production without recei"
+      "agent_prompt": "PLAN WITH NO ASF \u2014 sa-mkt-0314: Label free vs paid honestly (Governed agent orchestration motor \u2014 not MSB product); never claim production without recei"
     },
     {
       "id": "sa-mkt-0315",
@@ -7521,7 +7521,7 @@
       "competitor": "AgentOps",
       "competitor_row": 7,
       "competitor_slug": "agentops",
-      "title": "Freemium cap or trial label visible before first run (Controlled agent orchestration motor \u2014 not MSB product)",
+      "title": "Freemium cap or trial label visible before first run (Governed agent orchestration motor \u2014 not MSB product)",
       "path": "prompts/phase-c07-agentops/ws-onboard/sa-mkt-0334.md",
       "status": "backlog",
       "verify": "cd ~/Desktop/SourceA/scripts && bash worker_verify_fast_v1.sh",
@@ -7530,7 +7530,7 @@
       "source_links": "https://www.agentops.ai",
       "implementation": "AgentOps Onboarding & PLG -> buyer-visible proof -> Worker Hub Next steps + factory-now line",
       "agent_tag": "AGENT-AUTO-SOURCEA",
-      "agent_prompt": "PLAN WITH NO ASF \u2014 sa-mkt-0334: Freemium cap or trial label visible before first run (Controlled agent orchestration motor \u2014 not MSB product)"
+      "agent_prompt": "PLAN WITH NO ASF \u2014 sa-mkt-0334: Freemium cap or trial label visible before first run (Governed agent orchestration motor \u2014 not MSB product)"
     },
     {
       "id": "sa-mkt-0335",
@@ -7961,7 +7961,7 @@
       "competitor": "Braintrust",
       "competitor_row": 8,
       "competitor_slug": "braintrust",
-      "title": "E2E or glance check: founder can see `Buyer-visible UX` outcome without Terminal; receipt timestamp logged",
+      "title": "E2E or glance check: founder can see `Buyer-visible UX` outcome without Terminal; receipt timestamp on disk",
       "path": "prompts/phase-c08-braintrust/ws-ux/sa-mkt-0354.md",
       "status": "backlog",
       "verify": "cd ~/Desktop/SourceA/scripts && bash worker_verify_fast_v1.sh",
@@ -7970,7 +7970,7 @@
       "source_links": "https://www.braintrust.dev",
       "implementation": "Braintrust Buyer-visible UX -> buyer-visible proof -> Worker Hub Next steps + factory-now line",
       "agent_tag": "AGENT-AUTO-SOURCEA",
-      "agent_prompt": "PLAN WITH NO ASF \u2014 sa-mkt-0354: E2E or glance check: founder can see `Buyer-visible UX` outcome without Terminal; receipt timestamp logged"
+      "agent_prompt": "PLAN WITH NO ASF \u2014 sa-mkt-0354: E2E or glance check: founder can see `Buyer-visible UX` outcome without Terminal; receipt timestamp on disk"
     },
     {
       "id": "sa-mkt-0355",
@@ -8181,7 +8181,7 @@
       "competitor": "Braintrust",
       "competitor_row": 8,
       "competitor_slug": "braintrust",
-      "title": "Label free vs paid honestly (Controlled agent orchestration motor \u2014 not MSB product); never claim production without receipt",
+      "title": "Label free vs paid honestly (Governed agent orchestration motor \u2014 not MSB product); never claim production without receipt",
       "path": "prompts/phase-c08-braintrust/ws-pricing/sa-mkt-0364.md",
       "status": "backlog",
       "verify": "cd ~/Desktop/SourceA/scripts && bash worker_verify_fast_v1.sh",
@@ -8190,7 +8190,7 @@
       "source_links": "https://www.braintrust.dev",
       "implementation": "Braintrust Pricing & packaging -> buyer-visible proof -> Worker Hub Next steps + factory-now line",
       "agent_tag": "AGENT-AUTO-SOURCEA",
-      "agent_prompt": "PLAN WITH NO ASF \u2014 sa-mkt-0364: Label free vs paid honestly (Controlled agent orchestration motor \u2014 not MSB product); never claim production without recei"
+      "agent_prompt": "PLAN WITH NO ASF \u2014 sa-mkt-0364: Label free vs paid honestly (Governed agent orchestration motor \u2014 not MSB product); never claim production without recei"
     },
     {
       "id": "sa-mkt-0365",
@@ -8621,7 +8621,7 @@
       "competitor": "Braintrust",
       "competitor_row": 8,
       "competitor_slug": "braintrust",
-      "title": "Freemium cap or trial label visible before first run (Controlled agent orchestration motor \u2014 not MSB product)",
+      "title": "Freemium cap or trial label visible before first run (Governed agent orchestration motor \u2014 not MSB product)",
       "path": "prompts/phase-c08-braintrust/ws-onboard/sa-mkt-0384.md",
       "status": "backlog",
       "verify": "cd ~/Desktop/SourceA/scripts && bash worker_verify_fast_v1.sh",
@@ -8630,7 +8630,7 @@
       "source_links": "https://www.braintrust.dev",
       "implementation": "Braintrust Onboarding & PLG -> buyer-visible proof -> Worker Hub Next steps + factory-now line",
       "agent_tag": "AGENT-AUTO-SOURCEA",
-      "agent_prompt": "PLAN WITH NO ASF \u2014 sa-mkt-0384: Freemium cap or trial label visible before first run (Controlled agent orchestration motor \u2014 not MSB product)"
+      "agent_prompt": "PLAN WITH NO ASF \u2014 sa-mkt-0384: Freemium cap or trial label visible before first run (Governed agent orchestration motor \u2014 not MSB product)"
     },
     {
       "id": "sa-mkt-0385",
@@ -9061,7 +9061,7 @@
       "competitor": "Promptfoo",
       "competitor_row": 9,
       "competitor_slug": "promptfoo",
-      "title": "E2E or glance check: founder can see `Buyer-visible UX` outcome without Terminal; receipt timestamp logged",
+      "title": "E2E or glance check: founder can see `Buyer-visible UX` outcome without Terminal; receipt timestamp on disk",
       "path": "prompts/phase-c09-promptfoo/ws-ux/sa-mkt-0404.md",
       "status": "backlog",
       "verify": "cd ~/Desktop/SourceA/scripts && bash worker_verify_fast_v1.sh",
@@ -9070,7 +9070,7 @@
       "source_links": "https://www.promptfoo.dev",
       "implementation": "Promptfoo Buyer-visible UX -> buyer-visible proof -> Worker Hub Next steps + factory-now line",
       "agent_tag": "AGENT-AUTO-SOURCEA",
-      "agent_prompt": "PLAN WITH NO ASF \u2014 sa-mkt-0404: E2E or glance check: founder can see `Buyer-visible UX` outcome without Terminal; receipt timestamp logged"
+      "agent_prompt": "PLAN WITH NO ASF \u2014 sa-mkt-0404: E2E or glance check: founder can see `Buyer-visible UX` outcome without Terminal; receipt timestamp on disk"
     },
     {
       "id": "sa-mkt-0405",
@@ -9281,7 +9281,7 @@
       "competitor": "Promptfoo",
       "competitor_row": 9,
       "competitor_slug": "promptfoo",
-      "title": "Label free vs paid honestly (Controlled agent orchestration motor \u2014 not MSB product); never claim production without receipt",
+      "title": "Label free vs paid honestly (Governed agent orchestration motor \u2014 not MSB product); never claim production without receipt",
       "path": "prompts/phase-c09-promptfoo/ws-pricing/sa-mkt-0414.md",
       "status": "backlog",
       "verify": "cd ~/Desktop/SourceA/scripts && bash worker_verify_fast_v1.sh",
@@ -9290,7 +9290,7 @@
       "source_links": "https://www.promptfoo.dev",
       "implementation": "Promptfoo Pricing & packaging -> buyer-visible proof -> Worker Hub Next steps + factory-now line",
       "agent_tag": "AGENT-AUTO-SOURCEA",
-      "agent_prompt": "PLAN WITH NO ASF \u2014 sa-mkt-0414: Label free vs paid honestly (Controlled agent orchestration motor \u2014 not MSB product); never claim production without recei"
+      "agent_prompt": "PLAN WITH NO ASF \u2014 sa-mkt-0414: Label free vs paid honestly (Governed agent orchestration motor \u2014 not MSB product); never claim production without recei"
     },
     {
       "id": "sa-mkt-0415",
@@ -9721,7 +9721,7 @@
       "competitor": "Promptfoo",
       "competitor_row": 9,
       "competitor_slug": "promptfoo",
-      "title": "Freemium cap or trial label visible before first run (Controlled agent orchestration motor \u2014 not MSB product)",
+      "title": "Freemium cap or trial label visible before first run (Governed agent orchestration motor \u2014 not MSB product)",
       "path": "prompts/phase-c09-promptfoo/ws-onboard/sa-mkt-0434.md",
       "status": "backlog",
       "verify": "cd ~/Desktop/SourceA/scripts && bash worker_verify_fast_v1.sh",
@@ -9730,7 +9730,7 @@
       "source_links": "https://www.promptfoo.dev",
       "implementation": "Promptfoo Onboarding & PLG -> buyer-visible proof -> Worker Hub Next steps + factory-now line",
       "agent_tag": "AGENT-AUTO-SOURCEA",
-      "agent_prompt": "PLAN WITH NO ASF \u2014 sa-mkt-0434: Freemium cap or trial label visible before first run (Controlled agent orchestration motor \u2014 not MSB product)"
+      "agent_prompt": "PLAN WITH NO ASF \u2014 sa-mkt-0434: Freemium cap or trial label visible before first run (Governed agent orchestration motor \u2014 not MSB product)"
     },
     {
       "id": "sa-mkt-0435",
@@ -10161,7 +10161,7 @@
       "competitor": "Giskard",
       "competitor_row": 10,
       "competitor_slug": "giskard",
-      "title": "E2E or glance check: founder can see `Buyer-visible UX` outcome without Terminal; receipt timestamp logged",
+      "title": "E2E or glance check: founder can see `Buyer-visible UX` outcome without Terminal; receipt timestamp on disk",
       "path": "prompts/phase-c10-giskard/ws-ux/sa-mkt-0454.md",
       "status": "backlog",
       "verify": "cd ~/Desktop/SourceA/scripts && bash worker_verify_fast_v1.sh",
@@ -10170,7 +10170,7 @@
       "source_links": "https://www.giskard.ai",
       "implementation": "Giskard Buyer-visible UX -> buyer-visible proof -> Worker Hub Next steps + factory-now line",
       "agent_tag": "AGENT-AUTO-SOURCEA",
-      "agent_prompt": "PLAN WITH NO ASF \u2014 sa-mkt-0454: E2E or glance check: founder can see `Buyer-visible UX` outcome without Terminal; receipt timestamp logged"
+      "agent_prompt": "PLAN WITH NO ASF \u2014 sa-mkt-0454: E2E or glance check: founder can see `Buyer-visible UX` outcome without Terminal; receipt timestamp on disk"
     },
     {
       "id": "sa-mkt-0455",
@@ -10381,7 +10381,7 @@
       "competitor": "Giskard",
       "competitor_row": 10,
       "competitor_slug": "giskard",
-      "title": "Label free vs paid honestly (Controlled agent orchestration motor \u2014 not MSB product); never claim production without receipt",
+      "title": "Label free vs paid honestly (Governed agent orchestration motor \u2014 not MSB product); never claim production without receipt",
       "path": "prompts/phase-c10-giskard/ws-pricing/sa-mkt-0464.md",
       "status": "backlog",
       "verify": "cd ~/Desktop/SourceA/scripts && bash worker_verify_fast_v1.sh",
@@ -10390,7 +10390,7 @@
       "source_links": "https://www.giskard.ai",
       "implementation": "Giskard Pricing & packaging -> buyer-visible proof -> Worker Hub Next steps + factory-now line",
       "agent_tag": "AGENT-AUTO-SOURCEA",
-      "agent_prompt": "PLAN WITH NO ASF \u2014 sa-mkt-0464: Label free vs paid honestly (Controlled agent orchestration motor \u2014 not MSB product); never claim production without recei"
+      "agent_prompt": "PLAN WITH NO ASF \u2014 sa-mkt-0464: Label free vs paid honestly (Governed agent orchestration motor \u2014 not MSB product); never claim production without recei"
     },
     {
       "id": "sa-mkt-0465",
@@ -10821,7 +10821,7 @@
       "competitor": "Giskard",
       "competitor_row": 10,
       "competitor_slug": "giskard",
-      "title": "Freemium cap or trial label visible before first run (Controlled agent orchestration motor \u2014 not MSB product)",
+      "title": "Freemium cap or trial label visible before first run (Governed agent orchestration motor \u2014 not MSB product)",
       "path": "prompts/phase-c10-giskard/ws-onboard/sa-mkt-0484.md",
       "status": "backlog",
       "verify": "cd ~/Desktop/SourceA/scripts && bash worker_verify_fast_v1.sh",
@@ -10830,7 +10830,7 @@
       "source_links": "https://www.giskard.ai",
       "implementation": "Giskard Onboarding & PLG -> buyer-visible proof -> Worker Hub Next steps + factory-now line",
       "agent_tag": "AGENT-AUTO-SOURCEA",
-      "agent_prompt": "PLAN WITH NO ASF \u2014 sa-mkt-0484: Freemium cap or trial label visible before first run (Controlled agent orchestration motor \u2014 not MSB product)"
+      "agent_prompt": "PLAN WITH NO ASF \u2014 sa-mkt-0484: Freemium cap or trial label visible before first run (Governed agent orchestration motor \u2014 not MSB product)"
     },
     {
       "id": "sa-mkt-0485",
@@ -11261,7 +11261,7 @@
       "competitor": "Mastra",
       "competitor_row": 11,
       "competitor_slug": "mastra",
-      "title": "E2E or glance check: founder can see `Buyer-visible UX` outcome without Terminal; receipt timestamp logged",
+      "title": "E2E or glance check: founder can see `Buyer-visible UX` outcome without Terminal; receipt timestamp on disk",
       "path": "prompts/phase-c11-mastra/ws-ux/sa-mkt-0504.md",
       "status": "backlog",
       "verify": "cd ~/Desktop/SourceA/scripts && bash worker_verify_fast_v1.sh",
@@ -11270,7 +11270,7 @@
       "source_links": "https://mastra.ai",
       "implementation": "Mastra Buyer-visible UX -> buyer-visible proof -> Worker Hub Next steps + factory-now line",
       "agent_tag": "AGENT-AUTO-SOURCEA",
-      "agent_prompt": "PLAN WITH NO ASF \u2014 sa-mkt-0504: E2E or glance check: founder can see `Buyer-visible UX` outcome without Terminal; receipt timestamp logged"
+      "agent_prompt": "PLAN WITH NO ASF \u2014 sa-mkt-0504: E2E or glance check: founder can see `Buyer-visible UX` outcome without Terminal; receipt timestamp on disk"
     },
     {
       "id": "sa-mkt-0505",
@@ -11481,7 +11481,7 @@
       "competitor": "Mastra",
       "competitor_row": 11,
       "competitor_slug": "mastra",
-      "title": "Label free vs paid honestly (Controlled agent orchestration motor \u2014 not MSB product); never claim production without receipt",
+      "title": "Label free vs paid honestly (Governed agent orchestration motor \u2014 not MSB product); never claim production without receipt",
       "path": "prompts/phase-c11-mastra/ws-pricing/sa-mkt-0514.md",
       "status": "backlog",
       "verify": "cd ~/Desktop/SourceA/scripts && bash worker_verify_fast_v1.sh",
@@ -11490,7 +11490,7 @@
       "source_links": "https://mastra.ai",
       "implementation": "Mastra Pricing & packaging -> buyer-visible proof -> Worker Hub Next steps + factory-now line",
       "agent_tag": "AGENT-AUTO-SOURCEA",
-      "agent_prompt": "PLAN WITH NO ASF \u2014 sa-mkt-0514: Label free vs paid honestly (Controlled agent orchestration motor \u2014 not MSB product); never claim production without recei"
+      "agent_prompt": "PLAN WITH NO ASF \u2014 sa-mkt-0514: Label free vs paid honestly (Governed agent orchestration motor \u2014 not MSB product); never claim production without recei"
     },
     {
       "id": "sa-mkt-0515",
@@ -11921,7 +11921,7 @@
       "competitor": "Mastra",
       "competitor_row": 11,
       "competitor_slug": "mastra",
-      "title": "Freemium cap or trial label visible before first run (Controlled agent orchestration motor \u2014 not MSB product)",
+      "title": "Freemium cap or trial label visible before first run (Governed agent orchestration motor \u2014 not MSB product)",
       "path": "prompts/phase-c11-mastra/ws-onboard/sa-mkt-0534.md",
       "status": "backlog",
       "verify": "cd ~/Desktop/SourceA/scripts && bash worker_verify_fast_v1.sh",
@@ -11930,7 +11930,7 @@
       "source_links": "https://mastra.ai",
       "implementation": "Mastra Onboarding & PLG -> buyer-visible proof -> Worker Hub Next steps + factory-now line",
       "agent_tag": "AGENT-AUTO-SOURCEA",
-      "agent_prompt": "PLAN WITH NO ASF \u2014 sa-mkt-0534: Freemium cap or trial label visible before first run (Controlled agent orchestration motor \u2014 not MSB product)"
+      "agent_prompt": "PLAN WITH NO ASF \u2014 sa-mkt-0534: Freemium cap or trial label visible before first run (Governed agent orchestration motor \u2014 not MSB product)"
     },
     {
       "id": "sa-mkt-0535",
@@ -12361,7 +12361,7 @@
       "competitor": "Restate",
       "competitor_row": 12,
       "competitor_slug": "restate",
-      "title": "E2E or glance check: founder can see `Buyer-visible UX` outcome without Terminal; receipt timestamp logged",
+      "title": "E2E or glance check: founder can see `Buyer-visible UX` outcome without Terminal; receipt timestamp on disk",
       "path": "prompts/phase-c12-restate/ws-ux/sa-mkt-0554.md",
       "status": "backlog",
       "verify": "cd ~/Desktop/SourceA/scripts && bash worker_verify_fast_v1.sh",
@@ -12370,7 +12370,7 @@
       "source_links": "https://restate.dev",
       "implementation": "Restate Buyer-visible UX -> buyer-visible proof -> Worker Hub Next steps + factory-now line",
       "agent_tag": "AGENT-AUTO-SOURCEA",
-      "agent_prompt": "PLAN WITH NO ASF \u2014 sa-mkt-0554: E2E or glance check: founder can see `Buyer-visible UX` outcome without Terminal; receipt timestamp logged"
+      "agent_prompt": "PLAN WITH NO ASF \u2014 sa-mkt-0554: E2E or glance check: founder can see `Buyer-visible UX` outcome without Terminal; receipt timestamp on disk"
     },
     {
       "id": "sa-mkt-0555",
@@ -12581,7 +12581,7 @@
       "competitor": "Restate",
       "competitor_row": 12,
       "competitor_slug": "restate",
-      "title": "Label free vs paid honestly (Controlled agent orchestration motor \u2014 not MSB product); never claim production without receipt",
+      "title": "Label free vs paid honestly (Governed agent orchestration motor \u2014 not MSB product); never claim production without receipt",
       "path": "prompts/phase-c12-restate/ws-pricing/sa-mkt-0564.md",
       "status": "backlog",
       "verify": "cd ~/Desktop/SourceA/scripts && bash worker_verify_fast_v1.sh",
@@ -12590,7 +12590,7 @@
       "source_links": "https://restate.dev",
       "implementation": "Restate Pricing & packaging -> buyer-visible proof -> Worker Hub Next steps + factory-now line",
       "agent_tag": "AGENT-AUTO-SOURCEA",
-      "agent_prompt": "PLAN WITH NO ASF \u2014 sa-mkt-0564: Label free vs paid honestly (Controlled agent orchestration motor \u2014 not MSB product); never claim production without recei"
+      "agent_prompt": "PLAN WITH NO ASF \u2014 sa-mkt-0564: Label free vs paid honestly (Governed agent orchestration motor \u2014 not MSB product); never claim production without recei"
     },
     {
       "id": "sa-mkt-0565",
@@ -13021,7 +13021,7 @@
       "competitor": "Restate",
       "competitor_row": 12,
       "competitor_slug": "restate",
-      "title": "Freemium cap or trial label visible before first run (Controlled agent orchestration motor \u2014 not MSB product)",
+      "title": "Freemium cap or trial label visible before first run (Governed agent orchestration motor \u2014 not MSB product)",
       "path": "prompts/phase-c12-restate/ws-onboard/sa-mkt-0584.md",
       "status": "backlog",
       "verify": "cd ~/Desktop/SourceA/scripts && bash worker_verify_fast_v1.sh",
@@ -13030,7 +13030,7 @@
       "source_links": "https://restate.dev",
       "implementation": "Restate Onboarding & PLG -> buyer-visible proof -> Worker Hub Next steps + factory-now line",
       "agent_tag": "AGENT-AUTO-SOURCEA",
-      "agent_prompt": "PLAN WITH NO ASF \u2014 sa-mkt-0584: Freemium cap or trial label visible before first run (Controlled agent orchestration motor \u2014 not MSB product)"
+      "agent_prompt": "PLAN WITH NO ASF \u2014 sa-mkt-0584: Freemium cap or trial label visible before first run (Governed agent orchestration motor \u2014 not MSB product)"
     },
     {
       "id": "sa-mkt-0585",
@@ -13461,7 +13461,7 @@
       "competitor": "Windmill",
       "competitor_row": 13,
       "competitor_slug": "windmill",
-      "title": "E2E or glance check: founder can see `Buyer-visible UX` outcome without Terminal; receipt timestamp logged",
+      "title": "E2E or glance check: founder can see `Buyer-visible UX` outcome without Terminal; receipt timestamp on disk",
       "path": "prompts/phase-c13-windmill/ws-ux/sa-mkt-0604.md",
       "status": "backlog",
       "verify": "cd ~/Desktop/SourceA/scripts && bash worker_verify_fast_v1.sh",
@@ -13470,7 +13470,7 @@
       "source_links": "https://windmill.dev",
       "implementation": "Windmill Buyer-visible UX -> buyer-visible proof -> Worker Hub Next steps + factory-now line",
       "agent_tag": "AGENT-AUTO-SOURCEA",
-      "agent_prompt": "PLAN WITH NO ASF \u2014 sa-mkt-0604: E2E or glance check: founder can see `Buyer-visible UX` outcome without Terminal; receipt timestamp logged"
+      "agent_prompt": "PLAN WITH NO ASF \u2014 sa-mkt-0604: E2E or glance check: founder can see `Buyer-visible UX` outcome without Terminal; receipt timestamp on disk"
     },
     {
       "id": "sa-mkt-0605",
@@ -13681,7 +13681,7 @@
       "competitor": "Windmill",
       "competitor_row": 13,
       "competitor_slug": "windmill",
-      "title": "Label free vs paid honestly (Controlled agent orchestration motor \u2014 not MSB product); never claim production without receipt",
+      "title": "Label free vs paid honestly (Governed agent orchestration motor \u2014 not MSB product); never claim production without receipt",
       "path": "prompts/phase-c13-windmill/ws-pricing/sa-mkt-0614.md",
       "status": "backlog",
       "verify": "cd ~/Desktop/SourceA/scripts && bash worker_verify_fast_v1.sh",
@@ -13690,7 +13690,7 @@
       "source_links": "https://windmill.dev",
       "implementation": "Windmill Pricing & packaging -> buyer-visible proof -> Worker Hub Next steps + factory-now line",
       "agent_tag": "AGENT-AUTO-SOURCEA",
-      "agent_prompt": "PLAN WITH NO ASF \u2014 sa-mkt-0614: Label free vs paid honestly (Controlled agent orchestration motor \u2014 not MSB product); never claim production without recei"
+      "agent_prompt": "PLAN WITH NO ASF \u2014 sa-mkt-0614: Label free vs paid honestly (Governed agent orchestration motor \u2014 not MSB product); never claim production without recei"
     },
     {
       "id": "sa-mkt-0615",
@@ -14121,7 +14121,7 @@
       "competitor": "Windmill",
       "competitor_row": 13,
       "competitor_slug": "windmill",
-      "title": "Freemium cap or trial label visible before first run (Controlled agent orchestration motor \u2014 not MSB product)",
+      "title": "Freemium cap or trial label visible before first run (Governed agent orchestration motor \u2014 not MSB product)",
       "path": "prompts/phase-c13-windmill/ws-onboard/sa-mkt-0634.md",
       "status": "backlog",
       "verify": "cd ~/Desktop/SourceA/scripts && bash worker_verify_fast_v1.sh",
@@ -14130,7 +14130,7 @@
       "source_links": "https://windmill.dev",
       "implementation": "Windmill Onboarding & PLG -> buyer-visible proof -> Worker Hub Next steps + factory-now line",
       "agent_tag": "AGENT-AUTO-SOURCEA",
-      "agent_prompt": "PLAN WITH NO ASF \u2014 sa-mkt-0634: Freemium cap or trial label visible before first run (Controlled agent orchestration motor \u2014 not MSB product)"
+      "agent_prompt": "PLAN WITH NO ASF \u2014 sa-mkt-0634: Freemium cap or trial label visible before first run (Governed agent orchestration motor \u2014 not MSB product)"
     },
     {
       "id": "sa-mkt-0635",
@@ -14561,7 +14561,7 @@
       "competitor": "Pipedream",
       "competitor_row": 14,
       "competitor_slug": "pipedream",
-      "title": "E2E or glance check: founder can see `Buyer-visible UX` outcome without Terminal; receipt timestamp logged",
+      "title": "E2E or glance check: founder can see `Buyer-visible UX` outcome without Terminal; receipt timestamp on disk",
       "path": "prompts/phase-c14-pipedream/ws-ux/sa-mkt-0654.md",
       "status": "backlog",
       "verify": "cd ~/Desktop/SourceA/scripts && bash worker_verify_fast_v1.sh",
@@ -14570,7 +14570,7 @@
       "source_links": "https://pipedream.com",
       "implementation": "Pipedream Buyer-visible UX -> buyer-visible proof -> Worker Hub Next steps + factory-now line",
       "agent_tag": "AGENT-AUTO-SOURCEA",
-      "agent_prompt": "PLAN WITH NO ASF \u2014 sa-mkt-0654: E2E or glance check: founder can see `Buyer-visible UX` outcome without Terminal; receipt timestamp logged"
+      "agent_prompt": "PLAN WITH NO ASF \u2014 sa-mkt-0654: E2E or glance check: founder can see `Buyer-visible UX` outcome without Terminal; receipt timestamp on disk"
     },
     {
       "id": "sa-mkt-0655",
@@ -14781,7 +14781,7 @@
       "competitor": "Pipedream",
       "competitor_row": 14,
       "competitor_slug": "pipedream",
-      "title": "Label free vs paid honestly (Controlled agent orchestration motor \u2014 not MSB product); never claim production without receipt",
+      "title": "Label free vs paid honestly (Governed agent orchestration motor \u2014 not MSB product); never claim production without receipt",
       "path": "prompts/phase-c14-pipedream/ws-pricing/sa-mkt-0664.md",
       "status": "backlog",
       "verify": "cd ~/Desktop/SourceA/scripts && bash worker_verify_fast_v1.sh",
@@ -14790,7 +14790,7 @@
       "source_links": "https://pipedream.com",
       "implementation": "Pipedream Pricing & packaging -> buyer-visible proof -> Worker Hub Next steps + factory-now line",
       "agent_tag": "AGENT-AUTO-SOURCEA",
-      "agent_prompt": "PLAN WITH NO ASF \u2014 sa-mkt-0664: Label free vs paid honestly (Controlled agent orchestration motor \u2014 not MSB product); never claim production without recei"
+      "agent_prompt": "PLAN WITH NO ASF \u2014 sa-mkt-0664: Label free vs paid honestly (Governed agent orchestration motor \u2014 not MSB product); never claim production without recei"
     },
     {
       "id": "sa-mkt-0665",
@@ -15221,7 +15221,7 @@
       "competitor": "Pipedream",
       "competitor_row": 14,
       "competitor_slug": "pipedream",
-      "title": "Freemium cap or trial label visible before first run (Controlled agent orchestration motor \u2014 not MSB product)",
+      "title": "Freemium cap or trial label visible before first run (Governed agent orchestration motor \u2014 not MSB product)",
       "path": "prompts/phase-c14-pipedream/ws-onboard/sa-mkt-0684.md",
       "status": "backlog",
       "verify": "cd ~/Desktop/SourceA/scripts && bash worker_verify_fast_v1.sh",
@@ -15230,7 +15230,7 @@
       "source_links": "https://pipedream.com",
       "implementation": "Pipedream Onboarding & PLG -> buyer-visible proof -> Worker Hub Next steps + factory-now line",
       "agent_tag": "AGENT-AUTO-SOURCEA",
-      "agent_prompt": "PLAN WITH NO ASF \u2014 sa-mkt-0684: Freemium cap or trial label visible before first run (Controlled agent orchestration motor \u2014 not MSB product)"
+      "agent_prompt": "PLAN WITH NO ASF \u2014 sa-mkt-0684: Freemium cap or trial label visible before first run (Governed agent orchestration motor \u2014 not MSB product)"
     },
     {
       "id": "sa-mkt-0685",
@@ -15661,7 +15661,7 @@
       "competitor": "Activepieces",
       "competitor_row": 15,
       "competitor_slug": "activepieces",
-      "title": "E2E or glance check: founder can see `Buyer-visible UX` outcome without Terminal; receipt timestamp logged",
+      "title": "E2E or glance check: founder can see `Buyer-visible UX` outcome without Terminal; receipt timestamp on disk",
       "path": "prompts/phase-c15-activepieces/ws-ux/sa-mkt-0704.md",
       "status": "backlog",
       "verify": "cd ~/Desktop/SourceA/scripts && bash worker_verify_fast_v1.sh",
@@ -15670,7 +15670,7 @@
       "source_links": "https://www.activepieces.com",
       "implementation": "Activepieces Buyer-visible UX -> buyer-visible proof -> Worker Hub Next steps + factory-now line",
       "agent_tag": "AGENT-AUTO-SOURCEA",
-      "agent_prompt": "PLAN WITH NO ASF \u2014 sa-mkt-0704: E2E or glance check: founder can see `Buyer-visible UX` outcome without Terminal; receipt timestamp logged"
+      "agent_prompt": "PLAN WITH NO ASF \u2014 sa-mkt-0704: E2E or glance check: founder can see `Buyer-visible UX` outcome without Terminal; receipt timestamp on disk"
     },
     {
       "id": "sa-mkt-0705",
@@ -15881,7 +15881,7 @@
       "competitor": "Activepieces",
       "competitor_row": 15,
       "competitor_slug": "activepieces",
-      "title": "Label free vs paid honestly (Controlled agent orchestration motor \u2014 not MSB product); never claim production without receipt",
+      "title": "Label free vs paid honestly (Governed agent orchestration motor \u2014 not MSB product); never claim production without receipt",
       "path": "prompts/phase-c15-activepieces/ws-pricing/sa-mkt-0714.md",
       "status": "backlog",
       "verify": "cd ~/Desktop/SourceA/scripts && bash worker_verify_fast_v1.sh",
@@ -15890,7 +15890,7 @@
       "source_links": "https://www.activepieces.com",
       "implementation": "Activepieces Pricing & packaging -> buyer-visible proof -> Worker Hub Next steps + factory-now line",
       "agent_tag": "AGENT-AUTO-SOURCEA",
-      "agent_prompt": "PLAN WITH NO ASF \u2014 sa-mkt-0714: Label free vs paid honestly (Controlled agent orchestration motor \u2014 not MSB product); never claim production without recei"
+      "agent_prompt": "PLAN WITH NO ASF \u2014 sa-mkt-0714: Label free vs paid honestly (Governed agent orchestration motor \u2014 not MSB product); never claim production without recei"
     },
     {
       "id": "sa-mkt-0715",
@@ -16321,7 +16321,7 @@
       "competitor": "Activepieces",
       "competitor_row": 15,
       "competitor_slug": "activepieces",
-      "title": "Freemium cap or trial label visible before first run (Controlled agent orchestration motor \u2014 not MSB product)",
+      "title": "Freemium cap or trial label visible before first run (Governed agent orchestration motor \u2014 not MSB product)",
       "path": "prompts/phase-c15-activepieces/ws-onboard/sa-mkt-0734.md",
       "status": "backlog",
       "verify": "cd ~/Desktop/SourceA/scripts && bash worker_verify_fast_v1.sh",
@@ -16330,7 +16330,7 @@
       "source_links": "https://www.activepieces.com",
       "implementation": "Activepieces Onboarding & PLG -> buyer-visible proof -> Worker Hub Next steps + factory-now line",
       "agent_tag": "AGENT-AUTO-SOURCEA",
-      "agent_prompt": "PLAN WITH NO ASF \u2014 sa-mkt-0734: Freemium cap or trial label visible before first run (Controlled agent orchestration motor \u2014 not MSB product)"
+      "agent_prompt": "PLAN WITH NO ASF \u2014 sa-mkt-0734: Freemium cap or trial label visible before first run (Governed agent orchestration motor \u2014 not MSB product)"
     },
     {
       "id": "sa-mkt-0735",
@@ -16761,7 +16761,7 @@
       "competitor": "Relay.app",
       "competitor_row": 16,
       "competitor_slug": "relay-app",
-      "title": "E2E or glance check: founder can see `Buyer-visible UX` outcome without Terminal; receipt timestamp logged",
+      "title": "E2E or glance check: founder can see `Buyer-visible UX` outcome without Terminal; receipt timestamp on disk",
       "path": "prompts/phase-c16-relay-app/ws-ux/sa-mkt-0754.md",
       "status": "backlog",
       "verify": "cd ~/Desktop/SourceA/scripts && bash worker_verify_fast_v1.sh",
@@ -16770,7 +16770,7 @@
       "source_links": "https://www.relay.app",
       "implementation": "Relay.app Buyer-visible UX -> buyer-visible proof -> Worker Hub Next steps + factory-now line",
       "agent_tag": "AGENT-AUTO-SOURCEA",
-      "agent_prompt": "PLAN WITH NO ASF \u2014 sa-mkt-0754: E2E or glance check: founder can see `Buyer-visible UX` outcome without Terminal; receipt timestamp logged"
+      "agent_prompt": "PLAN WITH NO ASF \u2014 sa-mkt-0754: E2E or glance check: founder can see `Buyer-visible UX` outcome without Terminal; receipt timestamp on disk"
     },
     {
       "id": "sa-mkt-0755",
@@ -16981,7 +16981,7 @@
       "competitor": "Relay.app",
       "competitor_row": 16,
       "competitor_slug": "relay-app",
-      "title": "Label free vs paid honestly (Controlled agent orchestration motor \u2014 not MSB product); never claim production without receipt",
+      "title": "Label free vs paid honestly (Governed agent orchestration motor \u2014 not MSB product); never claim production without receipt",
       "path": "prompts/phase-c16-relay-app/ws-pricing/sa-mkt-0764.md",
       "status": "backlog",
       "verify": "cd ~/Desktop/SourceA/scripts && bash worker_verify_fast_v1.sh",
@@ -16990,7 +16990,7 @@
       "source_links": "https://www.relay.app",
       "implementation": "Relay.app Pricing & packaging -> buyer-visible proof -> Worker Hub Next steps + factory-now line",
       "agent_tag": "AGENT-AUTO-SOURCEA",
-      "agent_prompt": "PLAN WITH NO ASF \u2014 sa-mkt-0764: Label free vs paid honestly (Controlled agent orchestration motor \u2014 not MSB product); never claim production without recei"
+      "agent_prompt": "PLAN WITH NO ASF \u2014 sa-mkt-0764: Label free vs paid honestly (Governed agent orchestration motor \u2014 not MSB product); never claim production without recei"
     },
     {
       "id": "sa-mkt-0765",
@@ -17421,7 +17421,7 @@
       "competitor": "Relay.app",
       "competitor_row": 16,
       "competitor_slug": "relay-app",
-      "title": "Freemium cap or trial label visible before first run (Controlled agent orchestration motor \u2014 not MSB product)",
+      "title": "Freemium cap or trial label visible before first run (Governed agent orchestration motor \u2014 not MSB product)",
       "path": "prompts/phase-c16-relay-app/ws-onboard/sa-mkt-0784.md",
       "status": "backlog",
       "verify": "cd ~/Desktop/SourceA/scripts && bash worker_verify_fast_v1.sh",
@@ -17430,7 +17430,7 @@
       "source_links": "https://www.relay.app",
       "implementation": "Relay.app Onboarding & PLG -> buyer-visible proof -> Worker Hub Next steps + factory-now line",
       "agent_tag": "AGENT-AUTO-SOURCEA",
-      "agent_prompt": "PLAN WITH NO ASF \u2014 sa-mkt-0784: Freemium cap or trial label visible before first run (Controlled agent orchestration motor \u2014 not MSB product)"
+      "agent_prompt": "PLAN WITH NO ASF \u2014 sa-mkt-0784: Freemium cap or trial label visible before first run (Governed agent orchestration motor \u2014 not MSB product)"
     },
     {
       "id": "sa-mkt-0785",
@@ -17861,7 +17861,7 @@
       "competitor": "Vellum",
       "competitor_row": 17,
       "competitor_slug": "vellum",
-      "title": "E2E or glance check: founder can see `Buyer-visible UX` outcome without Terminal; receipt timestamp logged",
+      "title": "E2E or glance check: founder can see `Buyer-visible UX` outcome without Terminal; receipt timestamp on disk",
       "path": "prompts/phase-c17-vellum/ws-ux/sa-mkt-0804.md",
       "status": "backlog",
       "verify": "cd ~/Desktop/SourceA/scripts && bash worker_verify_fast_v1.sh",
@@ -17870,7 +17870,7 @@
       "source_links": "https://www.vellum.ai",
       "implementation": "Vellum Buyer-visible UX -> buyer-visible proof -> Worker Hub Next steps + factory-now line",
       "agent_tag": "AGENT-AUTO-SOURCEA",
-      "agent_prompt": "PLAN WITH NO ASF \u2014 sa-mkt-0804: E2E or glance check: founder can see `Buyer-visible UX` outcome without Terminal; receipt timestamp logged"
+      "agent_prompt": "PLAN WITH NO ASF \u2014 sa-mkt-0804: E2E or glance check: founder can see `Buyer-visible UX` outcome without Terminal; receipt timestamp on disk"
     },
     {
       "id": "sa-mkt-0805",
@@ -18081,7 +18081,7 @@
       "competitor": "Vellum",
       "competitor_row": 17,
       "competitor_slug": "vellum",
-      "title": "Label free vs paid honestly (Controlled agent orchestration motor \u2014 not MSB product); never claim production without receipt",
+      "title": "Label free vs paid honestly (Governed agent orchestration motor \u2014 not MSB product); never claim production without receipt",
       "path": "prompts/phase-c17-vellum/ws-pricing/sa-mkt-0814.md",
       "status": "backlog",
       "verify": "cd ~/Desktop/SourceA/scripts && bash worker_verify_fast_v1.sh",
@@ -18090,7 +18090,7 @@
       "source_links": "https://www.vellum.ai",
       "implementation": "Vellum Pricing & packaging -> buyer-visible proof -> Worker Hub Next steps + factory-now line",
       "agent_tag": "AGENT-AUTO-SOURCEA",
-      "agent_prompt": "PLAN WITH NO ASF \u2014 sa-mkt-0814: Label free vs paid honestly (Controlled agent orchestration motor \u2014 not MSB product); never claim production without recei"
+      "agent_prompt": "PLAN WITH NO ASF \u2014 sa-mkt-0814: Label free vs paid honestly (Governed agent orchestration motor \u2014 not MSB product); never claim production without recei"
     },
     {
       "id": "sa-mkt-0815",
@@ -18521,7 +18521,7 @@
       "competitor": "Vellum",
       "competitor_row": 17,
       "competitor_slug": "vellum",
-      "title": "Freemium cap or trial label visible before first run (Controlled agent orchestration motor \u2014 not MSB product)",
+      "title": "Freemium cap or trial label visible before first run (Governed agent orchestration motor \u2014 not MSB product)",
       "path": "prompts/phase-c17-vellum/ws-onboard/sa-mkt-0834.md",
       "status": "backlog",
       "verify": "cd ~/Desktop/SourceA/scripts && bash worker_verify_fast_v1.sh",
@@ -18530,7 +18530,7 @@
       "source_links": "https://www.vellum.ai",
       "implementation": "Vellum Onboarding & PLG -> buyer-visible proof -> Worker Hub Next steps + factory-now line",
       "agent_tag": "AGENT-AUTO-SOURCEA",
-      "agent_prompt": "PLAN WITH NO ASF \u2014 sa-mkt-0834: Freemium cap or trial label visible before first run (Controlled agent orchestration motor \u2014 not MSB product)"
+      "agent_prompt": "PLAN WITH NO ASF \u2014 sa-mkt-0834: Freemium cap or trial label visible before first run (Governed agent orchestration motor \u2014 not MSB product)"
     },
     {
       "id": "sa-mkt-0835",
@@ -18961,7 +18961,7 @@
       "competitor": "Portkey",
       "competitor_row": 18,
       "competitor_slug": "portkey",
-      "title": "E2E or glance check: founder can see `Buyer-visible UX` outcome without Terminal; receipt timestamp logged",
+      "title": "E2E or glance check: founder can see `Buyer-visible UX` outcome without Terminal; receipt timestamp on disk",
       "path": "prompts/phase-c18-portkey/ws-ux/sa-mkt-0854.md",
       "status": "backlog",
       "verify": "cd ~/Desktop/SourceA/scripts && bash worker_verify_fast_v1.sh",
@@ -18970,7 +18970,7 @@
       "source_links": "https://portkey.ai",
       "implementation": "Portkey Buyer-visible UX -> buyer-visible proof -> Worker Hub Next steps + factory-now line",
       "agent_tag": "AGENT-AUTO-SOURCEA",
-      "agent_prompt": "PLAN WITH NO ASF \u2014 sa-mkt-0854: E2E or glance check: founder can see `Buyer-visible UX` outcome without Terminal; receipt timestamp logged"
+      "agent_prompt": "PLAN WITH NO ASF \u2014 sa-mkt-0854: E2E or glance check: founder can see `Buyer-visible UX` outcome without Terminal; receipt timestamp on disk"
     },
     {
       "id": "sa-mkt-0855",
@@ -19181,7 +19181,7 @@
       "competitor": "Portkey",
       "competitor_row": 18,
       "competitor_slug": "portkey",
-      "title": "Label free vs paid honestly (Controlled agent orchestration motor \u2014 not MSB product); never claim production without receipt",
+      "title": "Label free vs paid honestly (Governed agent orchestration motor \u2014 not MSB product); never claim production without receipt",
       "path": "prompts/phase-c18-portkey/ws-pricing/sa-mkt-0864.md",
       "status": "backlog",
       "verify": "cd ~/Desktop/SourceA/scripts && bash worker_verify_fast_v1.sh",
@@ -19190,7 +19190,7 @@
       "source_links": "https://portkey.ai",
       "implementation": "Portkey Pricing & packaging -> buyer-visible proof -> Worker Hub Next steps + factory-now line",
       "agent_tag": "AGENT-AUTO-SOURCEA",
-      "agent_prompt": "PLAN WITH NO ASF \u2014 sa-mkt-0864: Label free vs paid honestly (Controlled agent orchestration motor \u2014 not MSB product); never claim production without recei"
+      "agent_prompt": "PLAN WITH NO ASF \u2014 sa-mkt-0864: Label free vs paid honestly (Governed agent orchestration motor \u2014 not MSB product); never claim production without recei"
     },
     {
       "id": "sa-mkt-0865",
@@ -19621,7 +19621,7 @@
       "competitor": "Portkey",
       "competitor_row": 18,
       "competitor_slug": "portkey",
-      "title": "Freemium cap or trial label visible before first run (Controlled agent orchestration motor \u2014 not MSB product)",
+      "title": "Freemium cap or trial label visible before first run (Governed agent orchestration motor \u2014 not MSB product)",
       "path": "prompts/phase-c18-portkey/ws-onboard/sa-mkt-0884.md",
       "status": "backlog",
       "verify": "cd ~/Desktop/SourceA/scripts && bash worker_verify_fast_v1.sh",
@@ -19630,7 +19630,7 @@
       "source_links": "https://portkey.ai",
       "implementation": "Portkey Onboarding & PLG -> buyer-visible proof -> Worker Hub Next steps + factory-now line",
       "agent_tag": "AGENT-AUTO-SOURCEA",
-      "agent_prompt": "PLAN WITH NO ASF \u2014 sa-mkt-0884: Freemium cap or trial label visible before first run (Controlled agent orchestration motor \u2014 not MSB product)"
+      "agent_prompt": "PLAN WITH NO ASF \u2014 sa-mkt-0884: Freemium cap or trial label visible before first run (Governed agent orchestration motor \u2014 not MSB product)"
     },
     {
       "id": "sa-mkt-0885",
@@ -20061,7 +20061,7 @@
       "competitor": "Literal AI",
       "competitor_row": 19,
       "competitor_slug": "literal-ai",
-      "title": "E2E or glance check: founder can see `Buyer-visible UX` outcome without Terminal; receipt timestamp logged",
+      "title": "E2E or glance check: founder can see `Buyer-visible UX` outcome without Terminal; receipt timestamp on disk",
       "path": "prompts/phase-c19-literal-ai/ws-ux/sa-mkt-0904.md",
       "status": "backlog",
       "verify": "cd ~/Desktop/SourceA/scripts && bash worker_verify_fast_v1.sh",
@@ -20070,7 +20070,7 @@
       "source_links": "https://www.literalai.com",
       "implementation": "Literal AI Buyer-visible UX -> buyer-visible proof -> Worker Hub Next steps + factory-now line",
       "agent_tag": "AGENT-AUTO-SOURCEA",
-      "agent_prompt": "PLAN WITH NO ASF \u2014 sa-mkt-0904: E2E or glance check: founder can see `Buyer-visible UX` outcome without Terminal; receipt timestamp logged"
+      "agent_prompt": "PLAN WITH NO ASF \u2014 sa-mkt-0904: E2E or glance check: founder can see `Buyer-visible UX` outcome without Terminal; receipt timestamp on disk"
     },
     {
       "id": "sa-mkt-0905",
@@ -20281,7 +20281,7 @@
       "competitor": "Literal AI",
       "competitor_row": 19,
       "competitor_slug": "literal-ai",
-      "title": "Label free vs paid honestly (Controlled agent orchestration motor \u2014 not MSB product); never claim production without receipt",
+      "title": "Label free vs paid honestly (Governed agent orchestration motor \u2014 not MSB product); never claim production without receipt",
       "path": "prompts/phase-c19-literal-ai/ws-pricing/sa-mkt-0914.md",
       "status": "backlog",
       "verify": "cd ~/Desktop/SourceA/scripts && bash worker_verify_fast_v1.sh",
@@ -20290,7 +20290,7 @@
       "source_links": "https://www.literalai.com",
       "implementation": "Literal AI Pricing & packaging -> buyer-visible proof -> Worker Hub Next steps + factory-now line",
       "agent_tag": "AGENT-AUTO-SOURCEA",
-      "agent_prompt": "PLAN WITH NO ASF \u2014 sa-mkt-0914: Label free vs paid honestly (Controlled agent orchestration motor \u2014 not MSB product); never claim production without recei"
+      "agent_prompt": "PLAN WITH NO ASF \u2014 sa-mkt-0914: Label free vs paid honestly (Governed agent orchestration motor \u2014 not MSB product); never claim production without recei"
     },
     {
       "id": "sa-mkt-0915",
@@ -20721,7 +20721,7 @@
       "competitor": "Literal AI",
       "competitor_row": 19,
       "competitor_slug": "literal-ai",
-      "title": "Freemium cap or trial label visible before first run (Controlled agent orchestration motor \u2014 not MSB product)",
+      "title": "Freemium cap or trial label visible before first run (Governed agent orchestration motor \u2014 not MSB product)",
       "path": "prompts/phase-c19-literal-ai/ws-onboard/sa-mkt-0934.md",
       "status": "backlog",
       "verify": "cd ~/Desktop/SourceA/scripts && bash worker_verify_fast_v1.sh",
@@ -20730,7 +20730,7 @@
       "source_links": "https://www.literalai.com",
       "implementation": "Literal AI Onboarding & PLG -> buyer-visible proof -> Worker Hub Next steps + factory-now line",
       "agent_tag": "AGENT-AUTO-SOURCEA",
-      "agent_prompt": "PLAN WITH NO ASF \u2014 sa-mkt-0934: Freemium cap or trial label visible before first run (Controlled agent orchestration motor \u2014 not MSB product)"
+      "agent_prompt": "PLAN WITH NO ASF \u2014 sa-mkt-0934: Freemium cap or trial label visible before first run (Governed agent orchestration motor \u2014 not MSB product)"
     },
     {
       "id": "sa-mkt-0935",
@@ -21161,7 +21161,7 @@
       "competitor": "Hamming AI",
       "competitor_row": 20,
       "competitor_slug": "hamming-ai",
-      "title": "E2E or glance check: founder can see `Buyer-visible UX` outcome without Terminal; receipt timestamp logged",
+      "title": "E2E or glance check: founder can see `Buyer-visible UX` outcome without Terminal; receipt timestamp on disk",
       "path": "prompts/phase-c20-hamming-ai/ws-ux/sa-mkt-0954.md",
       "status": "backlog",
       "verify": "cd ~/Desktop/SourceA/scripts && bash worker_verify_fast_v1.sh",
@@ -21170,7 +21170,7 @@
       "source_links": "https://www.hamming.ai",
       "implementation": "Hamming AI Buyer-visible UX -> buyer-visible proof -> Worker Hub Next steps + factory-now line",
       "agent_tag": "AGENT-AUTO-SOURCEA",
-      "agent_prompt": "PLAN WITH NO ASF \u2014 sa-mkt-0954: E2E or glance check: founder can see `Buyer-visible UX` outcome without Terminal; receipt timestamp logged"
+      "agent_prompt": "PLAN WITH NO ASF \u2014 sa-mkt-0954: E2E or glance check: founder can see `Buyer-visible UX` outcome without Terminal; receipt timestamp on disk"
     },
     {
       "id": "sa-mkt-0955",
@@ -21381,7 +21381,7 @@
       "competitor": "Hamming AI",
       "competitor_row": 20,
       "competitor_slug": "hamming-ai",
-      "title": "Label free vs paid honestly (Controlled agent orchestration motor \u2014 not MSB product); never claim production without receipt",
+      "title": "Label free vs paid honestly (Governed agent orchestration motor \u2014 not MSB product); never claim production without receipt",
       "path": "prompts/phase-c20-hamming-ai/ws-pricing/sa-mkt-0964.md",
       "status": "backlog",
       "verify": "cd ~/Desktop/SourceA/scripts && bash worker_verify_fast_v1.sh",
@@ -21390,7 +21390,7 @@
       "source_links": "https://www.hamming.ai",
       "implementation": "Hamming AI Pricing & packaging -> buyer-visible proof -> Worker Hub Next steps + factory-now line",
       "agent_tag": "AGENT-AUTO-SOURCEA",
-      "agent_prompt": "PLAN WITH NO ASF \u2014 sa-mkt-0964: Label free vs paid honestly (Controlled agent orchestration motor \u2014 not MSB product); never claim production without recei"
+      "agent_prompt": "PLAN WITH NO ASF \u2014 sa-mkt-0964: Label free vs paid honestly (Governed agent orchestration motor \u2014 not MSB product); never claim production without recei"
     },
     {
       "id": "sa-mkt-0965",
@@ -21821,7 +21821,7 @@
       "competitor": "Hamming AI",
       "competitor_row": 20,
       "competitor_slug": "hamming-ai",
-      "title": "Freemium cap or trial label visible before first run (Controlled agent orchestration motor \u2014 not MSB product)",
+      "title": "Freemium cap or trial label visible before first run (Governed agent orchestration motor \u2014 not MSB product)",
       "path": "prompts/phase-c20-hamming-ai/ws-onboard/sa-mkt-0984.md",
       "status": "backlog",
       "verify": "cd ~/Desktop/SourceA/scripts && bash worker_verify_fast_v1.sh",
@@ -21830,7 +21830,7 @@
       "source_links": "https://www.hamming.ai",
       "implementation": "Hamming AI Onboarding & PLG -> buyer-visible proof -> Worker Hub Next steps + factory-now line",
       "agent_tag": "AGENT-AUTO-SOURCEA",
-      "agent_prompt": "PLAN WITH NO ASF \u2014 sa-mkt-0984: Freemium cap or trial label visible before first run (Controlled agent orchestration motor \u2014 not MSB product)"
+      "agent_prompt": "PLAN WITH NO ASF \u2014 sa-mkt-0984: Freemium cap or trial label visible before first run (Governed agent orchestration motor \u2014 not MSB product)"
     },
     {
       "id": "sa-mkt-0985",

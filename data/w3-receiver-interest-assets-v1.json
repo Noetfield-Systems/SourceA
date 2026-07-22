@@ -25,18 +25,18 @@
       "company": "SourceA",
       "brand": "SourceA",
       "sku": "FBE-engine",
-      "receiver_world": ["outreach", "agent workflow", "shipped artifact", "verification built in", "drift", "incident review"],
+      "receiver_world": ["outreach", "agent workflow", "shipped artifact", "proof on disk", "drift", "incident review"],
       "interest_urls": ["https://sourcea.com"],
-      "preview_promise": "controlled factory replay walkthrough",
+      "preview_promise": "governed factory replay walkthrough",
       "must_signal": ["outreach", "agent", "shipped", "drift", "trace"]
     },
     "ocree": {
       "company": "Ocree Capital",
       "brand": "TrustField",
       "sku": "T-P6",
-      "receiver_world": ["Polymesh", "CRE", "EMD", "controlled issuance", "Collaboratory", "tokenization"],
+      "receiver_world": ["Polymesh", "CRE", "EMD", "governed issuance", "Collaboratory", "tokenization"],
       "interest_urls": ["https://www.trustfield.ca/demo"],
-      "preview_promise": "five-minute controlled-issuance replay",
+      "preview_promise": "five-minute governed-issuance replay",
       "catalog_label": "Trust Brief · T-P6 partner attestation",
       "must_signal": ["ocree", "cre", "polymesh", "issuance"]
     },

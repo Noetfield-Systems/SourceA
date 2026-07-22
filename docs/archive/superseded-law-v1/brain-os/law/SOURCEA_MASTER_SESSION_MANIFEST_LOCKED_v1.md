@@ -20,7 +20,7 @@ session_chat: a53f3fa1-081c-4373-bc55-76feb501a61d
 
 ---
 
-## A. SourceA factory session (2026-06-09) — FULLY IN REPOSITORY
+## A. SourceA factory session (2026-06-09) — FULLY ON DISK
 
 | # | Thread / subject | Saved doc or artifact | Status |
 |---|------------------|----------------------|--------|
@@ -125,7 +125,7 @@ session_chat: a53f3fa1-081c-4373-bc55-76feb501a61d
 
 | Thread | Repo / path | Saved? |
 |--------|-------------|--------|
-| Personal DB L0–L4 (SoT) | `~/Desktop/SinaaiDataBase/data/` | **YES** logged |
+| Personal DB L0–L4 (SoT) | `~/Desktop/SinaaiDataBase/data/` | **YES** on disk |
 | PAIOS blueprint · 4 agents | `SinaaiDataBase/docs/` | **YES** |
 | Super Brain Phase 0 pivot | `SinaaiMonoRepo/` · `SinaaiDataBase/` | **YES** |
 | SoT hierarchy registry (LAW tier) | `SinaaiDataBase/data/L0-meta/` | **YES** |

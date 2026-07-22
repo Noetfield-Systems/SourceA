@@ -14,7 +14,7 @@ Dual desktop deploy — agentrun-app :5180 + SA4 AgentGo :8080 · landing parity
 
 ## Task
 
-**Sync sites/ mirror if required for** case study prose (challenge · shipped · verification).
+**Sync sites/ mirror if required for** case study prose (challenge · shipped · proof chain).
 
 SourceA-landing canonical first.
 

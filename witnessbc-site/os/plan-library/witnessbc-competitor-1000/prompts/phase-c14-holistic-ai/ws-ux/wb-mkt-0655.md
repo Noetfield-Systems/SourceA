@@ -23,7 +23,7 @@ Diff our public copy vs Holistic AI pricing/product page — list 3 concrete gap
 
 ## Implementation extraction
 
-`Holistic AI · Buyer-visible UX` → what buyer sees at vendor → what we ship logged with receipt.
+`Holistic AI · Buyer-visible UX` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

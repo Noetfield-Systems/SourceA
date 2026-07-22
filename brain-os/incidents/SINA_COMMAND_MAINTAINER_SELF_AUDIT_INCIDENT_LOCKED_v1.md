@@ -19,7 +19,7 @@ The maintainer agent **repeated the same class of mistakes** because **chat memo
 | 1 | "You have no memory" — perf fixes shipped without closeout | Same bugs re-investigated; trust lost |
 | 2 | Investigation started, conversation summarized, fixes **not finished** | Mac still lagging; user thinks nothing changed |
 | 3 | Hub server restart tasks **aborted** — no follow-up reported | Stale server (~800MB RAM) kept running |
-| 4 | WTM layout fixed twice (B\|D\|D → 3-col → 4-col) without incident lesson logged | Regression risk on next UI pass |
+| 4 | WTM layout fixed twice (B\|D\|D → 3-col → 4-col) without incident lesson on disk | Regression risk on next UI pass |
 | 5 | `index.html` re-bloated to ~3MB when old server ran old code | Hub slow; audits failed silently until manual check |
 
 **Severity:** **High** — wastes founder Mac resources, repeats expensive `build_payload()` work, and breaks the "pro app" promise.

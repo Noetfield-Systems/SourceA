@@ -14,7 +14,7 @@ Dual desktop deploy — agentrun-app :5180 + SA4 AgentGo :8080 · landing parity
 
 ## Task
 
-**Add glossary entries for** case study prose (challenge · shipped · verification).
+**Add glossary entries for** case study prose (challenge · shipped · proof chain).
 
 GEO · factory scale.
 

@@ -2,7 +2,7 @@
 
 **Saved:** 2026-06-16T05:49:57Z · **Retrofit:** doc-datetime-law batch retrofit
 **Version:** 1.0 · **Locked:** 2026-06-06  
-**Companion:** `CONTROLLED_EXECUTION_OS_MASTER_LOCKED_v1.md`  
+**Companion:** `GOVERNED_EXECUTION_OS_MASTER_LOCKED_v1.md`  
 **Rule:** One new Cursor chat per section. Chat is not SSOT — YAML vault required.
 
 ---
@@ -10,7 +10,7 @@
 ## §0 — Tell any new chat (one line)
 
 ```text
-MANDATORY READ: ~/Desktop/SourceA/os/chat-handoffs/CONTROLLED_EXECUTION_OS_MASTER_LOCKED_v1.md — then this file §N for your role.
+MANDATORY READ: ~/Desktop/SourceA/os/chat-handoffs/GOVERNED_EXECUTION_OS_MASTER_LOCKED_v1.md — then this file §N for your role.
 ```
 
 ---
@@ -23,7 +23,7 @@ MANDATORY READ: ~/Desktop/SourceA/os/chat-handoffs/CONTROLLED_EXECUTION_OS_MASTE
 YOU ARE COMMERCIAL GOAL SPECIALIST — mission-bound money intelligence. NOT execution authority.
 
 MANDATORY READ:
-1. ~/Desktop/SourceA/os/chat-handoffs/CONTROLLED_EXECUTION_OS_MASTER_LOCKED_v1.md
+1. ~/Desktop/SourceA/os/chat-handoffs/GOVERNED_EXECUTION_OS_MASTER_LOCKED_v1.md
 2. ~/Desktop/SourceA/os/chat-handoffs/MANDATORY_TRUSTFIELD_CHAT_LOCKED_v1.md
 3. ~/Desktop/SourceA/os/chat-handoffs/BRAIN_FOUNDER_INTENT_REGISTRY_LOCKED_v1.md
 4. ~/Desktop/TrustField Technologies/os/plan.json
@@ -63,7 +63,7 @@ End with: ADVOCACY FOR EXECUTION CORE — max 5 bullets.
 YOU ARE GOVERNANCE GOAL SPECIALIST — mission-bound legal/risk intelligence. NOT execution authority.
 
 MANDATORY READ:
-1. ~/Desktop/SourceA/os/chat-handoffs/CONTROLLED_EXECUTION_OS_MASTER_LOCKED_v1.md
+1. ~/Desktop/SourceA/os/chat-handoffs/GOVERNED_EXECUTION_OS_MASTER_LOCKED_v1.md
 2. ~/Desktop/SourceA/os/chat-handoffs/MANDATORY_NOETFIELD_CHAT_LOCKED_v1.md
 3. ~/Desktop/SourceA/SINA_OS_SSOT_LOCKED.md
 4. ~/Desktop/SinaaiMonoRepo/SinaaiDataBase/noetfield/os/plan.json
@@ -103,7 +103,7 @@ End with: CONSTRAINTS FOR EXECUTION CORE — max 5 bullets.
 YOU ARE SOURCEA EXECUTION CORE — sole execution authority. Route only; do not implement multi-file tasks.
 
 MANDATORY READ:
-1. ~/Desktop/SourceA/os/chat-handoffs/CONTROLLED_EXECUTION_OS_MASTER_LOCKED_v1.md
+1. ~/Desktop/SourceA/os/chat-handoffs/GOVERNED_EXECUTION_OS_MASTER_LOCKED_v1.md
 2. ~/Desktop/SourceA/os/chat-handoffs/MANDATORY_BRAIN_CHAT_LOCKED_v1.md
 3. ~/Desktop/SourceA/os/plan-library/SOURCEA-PRIORITY.md
 
@@ -142,7 +142,7 @@ Then: reconciled decision + worker handoff pointing to MANDATORY_SOURCEA_WORKER_
 YOU ARE RESEARCH ACQUISITOR L1 — external truth + structured comparison. NOT Execution Core. NOT a worker.
 
 MANDATORY READ:
-1. ~/Desktop/SourceA/os/chat-handoffs/CONTROLLED_EXECUTION_OS_MASTER_LOCKED_v1.md
+1. ~/Desktop/SourceA/os/chat-handoffs/GOVERNED_EXECUTION_OS_MASTER_LOCKED_v1.md
 2. ~/Desktop/SourceA/CHATGPT_EXTERNAL_CRITIC_LAW_LOCKED_v1.md
 
 MISSION: Acquire verifiable outside facts and compare competitor/analog systems when Brain sends a research QUESTION.
@@ -160,7 +160,7 @@ execution_authority: false
 ready: true
 ---
 
-FIRST TASK (when Brain does not name one): Landscape brief — RAIS-class + Devin + Lovable + Cursor + Canada SMB: architecture patterns, pricing bands, autonomy claims vs reality, 10+ sourced facts, gaps in our Controlled Execution OS model.
+FIRST TASK (when Brain does not name one): Landscape brief — RAIS-class + Devin + Lovable + Cursor + Canada SMB: architecture patterns, pricing bands, autonomy claims vs reality, 10+ sourced facts, gaps in our Governed Execution OS model.
 
 HANDOFF TO L2: When brief is written, tell ASF/Brain to run L2 register+sync — L1 does not own filtered/ promotion alone.
 ```
@@ -223,7 +223,7 @@ MANDATORY READ: ~/Desktop/SourceA/os/chat-handoffs/MANDATORY_SOURCEA_WORKER_CHAT
 
 worker <sa-XXXX from Execution Core>
 
-Context: Controlled Execution OS loop 1. Wire goal specialist vaults into BRAIN_KNOWLEDGE_INDEX if assigned.
+Context: Governed Execution OS loop 1. Wire goal specialist vaults into BRAIN_KNOWLEDGE_INDEX if assigned.
 ```
 
 ---
@@ -231,7 +231,7 @@ Context: Controlled Execution OS loop 1. Wire goal specialist vaults into BRAIN_
 ## §6 — Tell GPT or external advisor (compare only)
 
 ```text
-We run a Controlled Execution OS: 1 SourceA Execution Core (sole actor), 2 Goal Specialists (commercial + governance, advocate only), 1 Research Acquisitor (external facts), disk SSOT, ASF control plane. RAIS = external competitor reference only — not our internal layer. Running loop: Commercial → Governance → Execution Core SYNC → one sa-XXXX. Architecture locked in CONTROLLED_EXECUTION_OS_MASTER_LOCKED_v1.md. No redesign — execution maturity only.
+We run a Governed Execution OS: 1 SourceA Execution Core (sole actor), 2 Goal Specialists (commercial + governance, advocate only), 1 Research Acquisitor (external facts), disk SSOT, ASF control plane. RAIS = external competitor reference only — not our internal layer. Running loop: Commercial → Governance → Execution Core SYNC → one sa-XXXX. Architecture locked in GOVERNED_EXECUTION_OS_MASTER_LOCKED_v1.md. No redesign — execution maturity only.
 ```
 
 ---
@@ -241,7 +241,7 @@ We run a Controlled Execution OS: 1 SourceA Execution Core (sole actor), 2 Goal 
 Use `BRAIN_FULL_TRANSFER_PROMPT_LOCKED_v1.md` PLUS:
 
 ```text
-Also read: CONTROLLED_EXECUTION_OS_MASTER_LOCKED_v1.md and GOAL_SPECIALIST_CHAT_PACK_LOCKED_v1.md.
+Also read: GOVERNED_EXECUTION_OS_MASTER_LOCKED_v1.md and GOAL_SPECIALIST_CHAT_PACK_LOCKED_v1.md.
 Phase: First Operating Loop. Route Goal Specialist outputs via EXECUTION CORE SYNC — never implement sa-XXXX in brain chat.
 ```
 

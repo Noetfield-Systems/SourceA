@@ -14,7 +14,7 @@ Dual desktop deploy — agentrun-app :5180 + SA4 AgentGo :8080 · landing parity
 
 ## Task
 
-**Map commercial film beat for** case study prose (challenge · shipped · verification).
+**Map commercial film beat for** case study prose (challenge · shipped · proof chain).
 
 Separation disclaimer on screen if filmed.
 

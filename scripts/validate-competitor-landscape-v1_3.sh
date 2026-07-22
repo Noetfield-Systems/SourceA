@@ -25,7 +25,7 @@ required = (
     "AgentOps",
     "Arize",
     "consolidating by acquisition",
-    "SOURCEA_ASSET_B_CONTROLLED_AGENTIC_AUTOMATION_LOCKED_v1.md",
+    "SOURCEA_ASSET_B_GOVERNED_AGENTIC_AUTOMATION_LOCKED_v1.md",
     "SOURCEA_AGENCY_PRODUCT_DEMO_SCRIPT_LOCKED_v1.md",
     "30 (grouped by category)",
 )

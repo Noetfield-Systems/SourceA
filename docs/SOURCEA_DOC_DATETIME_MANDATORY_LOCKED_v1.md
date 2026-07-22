@@ -9,7 +9,7 @@
 
 ## 0. One sentence
 
-> **Every doc logged must declare when it was written or last saved — date and exact UTC time — in the header; date-only headers are invalid.**
+> **Every doc on disk must declare when it was written or last saved — date and exact UTC time — in the header; date-only headers are invalid.**
 
 ---
 

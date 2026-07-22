@@ -91,7 +91,7 @@ def halt_response(
         "for_founder": {
             "show_this": (
                 f"HALT — more than 1 cloud-forge-run request in {CYCLE_SECONDS // 60}m · "
-                f"external scheduler only · reset gate logged to recover"
+                f"external scheduler only · reset gate on disk to recover"
             ),
         },
         "gate_path": str(_gate_path()),

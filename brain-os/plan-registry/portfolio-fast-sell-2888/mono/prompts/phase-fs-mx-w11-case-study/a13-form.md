@@ -1,7 +1,7 @@
 # fs-mx-0203 — Fast-sell plan
 
 **Version:** 1 · **Tier:** T2 · **Phase:** LATER
-**Lane:** SinaaiMonoRepo · **Wedge:** w11-case-study · Client case study logged
+**Lane:** SinaaiMonoRepo · **Wedge:** w11-case-study · Client case study on disk
 **Action:** a13-form · Founder decision form row
 **Comp anchor:** PLG demo products
 **Tier 1:** Live :8000 demo URL
@@ -10,7 +10,7 @@
 
 ## Task
 
-Fast-sell: SinaaiMonoRepo · Client case study logged · Founder decision form row. Ship smallest slice that moves a buyer toward **Live :8000 demo URL** with a path to **White-label spine**. Receipt logged before done.
+Fast-sell: SinaaiMonoRepo · Client case study on disk · Founder decision form row. Ship smallest slice that moves a buyer toward **Live :8000 demo URL** with a path to **White-label spine**. Receipt on disk before done.
 
 ## Verify
 

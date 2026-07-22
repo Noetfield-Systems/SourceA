@@ -14,7 +14,7 @@ Wil L3 portfolio demo — YA5 mirror · AgentGo ≠ SourceA separation · ship g
 
 ## Task
 
-**Build three-angle tab UI for** case study prose (challenge · shipped · verification).
+**Build three-angle tab UI for** case study prose (challenge · shipped · proof chain).
 
 A factory · B dual · C Wil.
 

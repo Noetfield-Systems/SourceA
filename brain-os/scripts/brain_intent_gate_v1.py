@@ -63,7 +63,7 @@ def gate(*, message: str) -> dict:
     elif intent == "RUN_TRACE":
         allowed = ["python3 scripts/brain_run_loop_trace_v1.py"]
         mandatory = "python3 scripts/brain_run_loop_trace_v1.py"
-        note = "Run loop: trace gates (1-9) + spawn step 10 if READY; Brain reply <30s; loop continues logged"
+        note = "Run loop: trace gates (1-9) + spawn step 10 if READY; Brain reply <30s; loop continues on disk"
     elif intent == "ACTIVATE":
         allowed = ["python3 scripts/brain_run_loop_v1.py", "python3 scripts/brain_execute_turn_v1.py --yaml"]
         mandatory = "python3 scripts/brain_run_loop_v1.py"

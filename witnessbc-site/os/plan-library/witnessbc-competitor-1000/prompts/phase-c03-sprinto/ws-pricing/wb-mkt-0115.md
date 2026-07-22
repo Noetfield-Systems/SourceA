@@ -23,7 +23,7 @@ Compare Sprinto PLG motion (Compliance wedge for SaaS PLG) vs our onboarding —
 
 ## Implementation extraction
 
-`Sprinto · Pricing & packaging` → what buyer sees at vendor → what we ship logged with receipt.
+`Sprinto · Pricing & packaging` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

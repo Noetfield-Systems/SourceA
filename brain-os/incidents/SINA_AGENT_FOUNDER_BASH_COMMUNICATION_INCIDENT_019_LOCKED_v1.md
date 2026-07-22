@@ -9,7 +9,7 @@
 **Opened:** 2026-06-10  
 **Canonical law:** `AGENT_FOUNDER_BASH_COMMUNICATION_LOCKED_v1.md`  
 **Related:** INCIDENT-020 (topic conflation)  
-**Status:** REMEDIATED (law + wrapper pattern logged)
+**Status:** REMEDIATED (law + wrapper pattern on disk)
 
 ---
 

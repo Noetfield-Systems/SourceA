@@ -23,7 +23,7 @@ Ship summary in PRIORITY: preserved · changed · achieved vs Drata Buyer-visibl
 
 ## Implementation extraction
 
-`Drata · Buyer-visible UX` → what buyer sees at vendor → what we ship logged with receipt.
+`Drata · Buyer-visible UX` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

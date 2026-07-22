@@ -1,4 +1,4 @@
-# sa-score-0292 — Receipt logged for pricing CTA → /start not mailto
+# sa-score-0292 — Receipt on disk for pricing CTA → /start not mailto
 
 **Saved at:** 2026-06-25T09:23:55Z
 **Version:** 1 · **Tier:** T0 · **Phase:** LATER
@@ -16,7 +16,7 @@ Raise SourceA site score toward **95+/100** — proof before call · stranger se
 
 P0 — smallest shippable slice; live on sourcea.app
 
-**Deliverable:** Receipt logged for pricing CTA → /start not mailto
+**Deliverable:** Receipt on disk for pricing CTA → /start not mailto
 
 Bounded paths: `SourceA-landing/green-unified/` · `cloud/workers/sourcea-site-pulse-v1/` · `scripts/validate-sourcea-modern-stack-e2e-v1.sh`
 

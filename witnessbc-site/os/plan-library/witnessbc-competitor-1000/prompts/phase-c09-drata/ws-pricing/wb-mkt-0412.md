@@ -23,7 +23,7 @@ Map Drata revenue model (Annual SaaS) to our `Free toolkits → Pro packs → Fl
 
 ## Implementation extraction
 
-`Drata · Pricing & packaging` → what buyer sees at vendor → what we ship logged with receipt.
+`Drata · Pricing & packaging` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

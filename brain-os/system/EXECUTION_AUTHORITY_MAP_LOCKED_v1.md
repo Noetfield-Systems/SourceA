@@ -3,7 +3,7 @@
 **Saved:** 2026-06-16T05:49:57Z · **Retrofit:** doc-datetime-law batch retrofit
 **Locked:** 2026-06-08 · **Authority:** ASF  
 **Machine SSOT:** `brain-os/system/authority.yaml` — **read this file as data; this doc is the pointer**  
-**Parent:** `CONTROLLED_EXECUTION_OS_MASTER_LOCKED_v1.md`
+**Parent:** `GOVERNED_EXECUTION_OS_MASTER_LOCKED_v1.md`
 
 ---
 
@@ -70,7 +70,7 @@ bash scripts/validate-authority-convergence-v1.sh
 | **Runtime verification (unified lock)** | `AUTHORITY_RUNTIME_VERIFICATION_LOCKED_v1.md` |
 | P1 enforcement hooks | `GOVERNANCE_P1_LOOPS_LOCKED_v1.md` |
 | Event contract | `EVENT_CONTRACT.yaml` |
-| Controlled OS master | `CONTROLLED_EXECUTION_OS_MASTER_LOCKED_v1.md` |
+| Governed OS master | `GOVERNED_EXECUTION_OS_MASTER_LOCKED_v1.md` |
 | Workers registry | `RESEARCH/_GOVERNANCE/WORKERS_REGISTRY.yaml` |
 | Governance synthesis | `governance_goal_specialist-20260608-017` in RESEARCH |
 

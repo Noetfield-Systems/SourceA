@@ -173,7 +173,7 @@ def _application_guide() -> dict[str, Any]:
         "zero_overlap_rule": "Governance Ln and WTM Ln share labels only — zero mapping, zero mirror.",
         "learning_chain": "Foundation L0–L12 → discover → lock *_LOCKED_vN.md (SSOT) → enforce in hub",
         "do_not_confuse": {
-            "governance_l0_l12": "FOUNDATION — how agents & automation are controlled (this tab only)",
+            "governance_l0_l12": "FOUNDATION — how agents & automation are governed (this tab only)",
             "product_l0_l16": "PRODUCT — what to build (World Target Model tab — unrelated namespace)",
         },
         "layer_lessons": _layer_lessons(),

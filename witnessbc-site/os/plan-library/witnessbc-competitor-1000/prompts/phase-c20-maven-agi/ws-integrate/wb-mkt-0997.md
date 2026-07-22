@@ -23,7 +23,7 @@ Rate-limit + retry policy copied from Maven AGI operating model (Agent resolves 
 
 ## Implementation extraction
 
-`Maven AGI · Integrations & API` → what buyer sees at vendor → what we ship logged with receipt.
+`Maven AGI · Integrations & API` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

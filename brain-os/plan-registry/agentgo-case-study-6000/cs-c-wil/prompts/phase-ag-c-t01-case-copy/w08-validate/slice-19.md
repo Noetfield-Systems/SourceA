@@ -14,7 +14,7 @@ Wil L3 portfolio demo — YA5 mirror · AgentGo ≠ SourceA separation · ship g
 
 ## Task
 
-**Seal validate slice for** case study prose (challenge · shipped · verification).
+**Seal validate slice for** case study prose (challenge · shipped · proof chain).
 
 all PASS.
 

@@ -23,7 +23,7 @@ List Vanta integrations/APIs from https://www.vanta.com or docs — pick one we 
 
 ## Implementation extraction
 
-`Vanta · Integrations & API` → what buyer sees at vendor → what we ship logged with receipt.
+`Vanta · Integrations & API` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

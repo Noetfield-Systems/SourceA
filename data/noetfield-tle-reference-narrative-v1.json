@@ -9,7 +9,7 @@
   "script": "scripts/noetfield_tle_reference_v1.py",
   "validator": "scripts/validate-noetfield-tle-reference-v1.sh",
   "receipt": "~/.sina/noetfield-tle-reference-receipt-v1.json",
-  "one_sentence": "Noetfield delivers controlled TLE evaluation with board-defensible governance receipts — web, mobile, and API surfaces for teams on any stack.",
+  "one_sentence": "Noetfield delivers governed TLE evaluation with board-defensible governance receipts — web, mobile, and API surfaces for teams on any stack.",
   "lane_keywords": ["tle", "board pack", "governance receipt", "copilot", "diligence", "noetfield"],
   "board_pack": {
     "headline": "Board go/no-go with procurement-grade evidence",
@@ -24,7 +24,7 @@
   "copilot_readiness": {
     "headline": "Operational TLE after Copilot is live — not another readiness checkbox",
     "sections": [
-      "evaluate_pick bridges form picks to controlled verdict",
+      "evaluate_pick bridges form picks to governed verdict",
       "SSOT_CHANGED triggers agent re-brief same day",
       "Complements Purview audit — proves what was permitted",
       "30s freemium demo path via noetfield freemium factory bay"

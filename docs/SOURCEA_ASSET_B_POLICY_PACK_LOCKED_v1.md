@@ -3,10 +3,10 @@
 **Saved:** 2026-06-23T12:15:00Z  
 **Version:** 1.0 — LOCKED  
 **Authority:** ASF 2026-06-23 — first-invoice lever for Asset B DFY  
-**Commercial law:** `brain-os/law/SOURCEA_ASSET_B_CONTROLLED_AGENTIC_AUTOMATION_LOCKED_v1.md`  
+**Commercial law:** `brain-os/law/SOURCEA_ASSET_B_GOVERNED_AGENTIC_AUTOMATION_LOCKED_v1.md`  
 **SOW leave-behind:** `docs/asset-b-policy-pack/SOW_MAPPING_LOCKED_v1.md`  
 **Machine registry:** `data/asset-b-policy-pack-v1.json`  
-**Offer script:** `scripts/controlled_agentic_automation_offer_v1.py`
+**Offer script:** `scripts/governed_agentic_automation_offer_v1.py`
 
 ---
 
@@ -51,7 +51,7 @@ python3 scripts/asset_b_policy_gate_v1.py --policy outreach --intent demo/asset-
 | Day | Action |
 |-----|--------|
 | 1–2 | Film `demo-asset-b-policy-v1.sh --policy outreach` (30 sec) |
-| 2–3 | Attach policy JSON + SOW mapping to Asset B outreach (`controlled_agentic_automation_offer_v1.py --pack`) |
+| 2–3 | Attach policy JSON + SOW mapping to Asset B outreach (`governed_agentic_automation_offer_v1.py --pack`) |
 | 3–7 | 5–10 warm Vancouver touches · close SKU-DFY-001 |
 
 ---

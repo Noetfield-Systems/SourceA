@@ -10,7 +10,7 @@
 
 ## Task
 
-Fast-sell: SinaaiMonoRepo · Vertical wedge (diaspora · RCIC · broker · trades) · SOW / order form. Ship smallest slice that moves a buyer toward **Live :8000 demo URL** with a path to **White-label spine**. Receipt logged before done.
+Fast-sell: SinaaiMonoRepo · Vertical wedge (diaspora · RCIC · broker · trades) · SOW / order form. Ship smallest slice that moves a buyer toward **Live :8000 demo URL** with a path to **White-label spine**. Receipt on disk before done.
 
 ## Verify
 

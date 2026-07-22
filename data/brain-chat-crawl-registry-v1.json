@@ -132,28 +132,28 @@
     },
     {
       "kind": "html",
-      "path": "sites/SourceA-landing/green-unified/factories/controlled-app-factory.html",
-      "output": "data/chatbot-knowledge/crawled/www/factories__controlled-app-factory.md",
+      "path": "sites/SourceA-landing/green-unified/factories/governed-app-factory.html",
+      "output": "data/chatbot-knowledge/crawled/www/factories__governed-app-factory.md",
       "lane": "core",
-      "www_url": "https://sourcea.app/sourcea/factories/controlled-app-factory",
+      "www_url": "https://sourcea.app/sourcea/factories/governed-app-factory",
       "chars": 624,
       "content_hash": "710be7b62194dfe2"
     },
     {
       "kind": "html",
-      "path": "sites/SourceA-landing/green-unified/factories/controlled-exchange-factory.html",
-      "output": "data/chatbot-knowledge/crawled/www/factories__controlled-exchange-factory.md",
+      "path": "sites/SourceA-landing/green-unified/factories/governed-exchange-factory.html",
+      "output": "data/chatbot-knowledge/crawled/www/factories__governed-exchange-factory.md",
       "lane": "core",
-      "www_url": "https://sourcea.app/sourcea/factories/controlled-exchange-factory",
+      "www_url": "https://sourcea.app/sourcea/factories/governed-exchange-factory",
       "chars": 663,
       "content_hash": "091ff0063084d688"
     },
     {
       "kind": "html",
-      "path": "sites/SourceA-landing/green-unified/factories/controlled-web-product-factory.html",
-      "output": "data/chatbot-knowledge/crawled/www/factories__controlled-web-product-factory.md",
+      "path": "sites/SourceA-landing/green-unified/factories/governed-web-product-factory.html",
+      "output": "data/chatbot-knowledge/crawled/www/factories__governed-web-product-factory.md",
       "lane": "core",
-      "www_url": "https://sourcea.app/sourcea/factories/controlled-web-product-factory",
+      "www_url": "https://sourcea.app/sourcea/factories/governed-web-product-factory",
       "chars": 653,
       "content_hash": "0fc1e713d2a40c44"
     },

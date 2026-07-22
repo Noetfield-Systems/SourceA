@@ -1,4 +1,4 @@
-# sa-score-0700 — Receipt logged for CORS allow sourcea.app on all site APIs
+# sa-score-0700 — Receipt on disk for CORS allow sourcea.app on all site APIs
 
 **Saved at:** 2026-06-25T09:23:55Z
 **Version:** 1 · **Tier:** T3 · **Phase:** MOONSHOT
@@ -16,7 +16,7 @@ Raise SourceA site score toward **95+/100** — proof before call · stranger se
 
 P3 — bench · defer · compare-only
 
-**Deliverable:** Receipt logged for CORS allow sourcea.app on all site APIs
+**Deliverable:** Receipt on disk for CORS allow sourcea.app on all site APIs
 
 Bounded paths: `SourceA-landing/green-unified/` · `cloud/workers/sourcea-site-pulse-v1/` · `scripts/validate-sourcea-modern-stack-e2e-v1.sh`
 

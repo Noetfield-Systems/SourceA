@@ -52,7 +52,7 @@ p=Path('${HOME}/.sina/config/mac-health-panic-v1.json')
 d=json.loads(p.read_text())
 cw=d.get('cpu_warn') or {}
 assert 'system_cpu_pct' in cw or cw.get('enabled') is not False, 'cpu_warn block missing'
-print('PASS: cpu_warn block logged in panic JSON')
+print('PASS: cpu_warn block on disk in panic JSON')
 " || fail=1
 else
   echo "WARN: mac-health-panic-v1.json absent — cpu_warn disk check skipped"

@@ -23,7 +23,7 @@ Capture Maven AGI public pricing evidence: Enterprise custom — save link or qu
 
 ## Implementation extraction
 
-`Maven AGI · Pricing & packaging` → what buyer sees at vendor → what we ship logged with receipt.
+`Maven AGI · Pricing & packaging` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

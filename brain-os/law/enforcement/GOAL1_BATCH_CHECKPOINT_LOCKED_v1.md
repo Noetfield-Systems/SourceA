@@ -10,7 +10,7 @@ Brain-per-prompt loop is **slow and fragile** — Brain chat hangs, broker waits
 | Layer | Who | When |
 |-------|-----|------|
 | **Planner** | Disk | `healthy-queue-30-active.json`, feasibility gate |
-| **Executor** | **Worker** (clipboard inject + agent CLI) | Turns 1–4 in batch — paste into focused Worker chat; INBOX backup logged |
+| **Executor** | **Worker** (clipboard inject + agent CLI) | Turns 1–4 in batch — paste into focused Worker chat; INBOX backup on disk |
 | **Checkpoint** | Machine + optional Brain | Every **5** or **10** prompts — not every prompt |
 | **Verifier** | Validators in Worker turn | `WORKER_ROUND_REPORT` each turn |
 | **Brain** | Advisory | Reads `goal1-batch-checkpoint-v1.json` — **does not block** if machine PASS |

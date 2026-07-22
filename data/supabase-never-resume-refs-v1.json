@@ -11,7 +11,7 @@
       "name": "virlux-staging",
       "status": "paused",
       "repo": "~/Desktop/VIRLUX",
-      "reason": "VIRLUX decoupled — receipts logged + Vercel",
+      "reason": "VIRLUX decoupled — receipts on disk + Vercel",
       "founder_law": "NEVER click Restore / Resume"
     },
     {

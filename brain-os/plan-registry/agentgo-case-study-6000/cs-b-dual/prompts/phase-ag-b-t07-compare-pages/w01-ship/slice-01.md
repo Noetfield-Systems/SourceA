@@ -23,7 +23,7 @@ One shippable artifact only — no drive-by refactors.
 **Anti-drift:** Never conflate localhost demo with production sourcea.app ship.
 **Target path:** `~/Desktop/SA4/compare`
 **Success metric:** compare URL completeness
-**Receipt:** file in the repository before `status: done`.
+**Receipt:** file on disk before `status: done`.
 **Phase:** MOONSHOT · **Tier:** T0 · **Workstream:** Ship
 
 ## Verify

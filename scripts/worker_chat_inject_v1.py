@@ -140,7 +140,7 @@ def inject_into_worker_chat(
             **focus,
             "injected": True,
             "execute": False,
-            "message": "Worker chat focused — prompt logged; run_turn executes via agent --resume",
+            "message": "Worker chat focused — prompt on disk; run_turn executes via agent --resume",
             "chars": len(body),
         }
 

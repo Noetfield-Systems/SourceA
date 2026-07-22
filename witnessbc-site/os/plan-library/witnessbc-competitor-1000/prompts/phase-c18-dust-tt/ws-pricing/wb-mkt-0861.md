@@ -23,7 +23,7 @@ Capture Dust.tt public pricing evidence: Team tiers custom — save link or quot
 
 ## Implementation extraction
 
-`Dust.tt · Pricing & packaging` → what buyer sees at vendor → what we ship logged with receipt.
+`Dust.tt · Pricing & packaging` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

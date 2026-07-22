@@ -64,7 +64,7 @@ Every fork **must** include:
 | **question** | One clear sentence |
 | **diskToday** | Evidence cite |
 | **type** | `choice4` · `yesno` · `text` |
-| **options** | A/B/C/D each with **ifYouPick** = Effect logged |
+| **options** | A/B/C/D each with **ifYouPick** = Effect on disk |
 | **maintainerAction** | What executor writes |
 | **founderAction** | What ASF does after (usually hub spot-check) |
 

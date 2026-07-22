@@ -23,7 +23,7 @@ Next step
 
 Rules:
 - 2–4 short sentences under Bottom line — the real answer first
-- Translate jargon once (SSOT → official record logged; validator → automatic test)
+- Translate jargon once (SSOT → official record on disk; validator → automatic test)
 - No bash commands, no "run in Terminal", no tool names
 - No bullet chains of PASS/FAIL/wired without saying what they mean
 - Blockers: say "None right now" if nothing blocks

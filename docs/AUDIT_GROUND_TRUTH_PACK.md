@@ -31,9 +31,9 @@
 
 | File | Change |
 |------|--------|
-| `sites/SourceA-landing/sourcea-layout-dark.html` | Removed “operates a self-healing factory daily”; added **pre-revenue**; Self-heal → Monitor/target language; Live → Demo |
-| `sites/SourceA-landing/sourcea-layout-light.html` | Removed daily factory / self-healing claims; LIVE → TARGET; added **pre-revenue** |
-| `sites/SourceA-landing/green-unified/attach/agency-onepager.html` | Self-healing monitor → ops monitor (retainer target) |
+| `sites/SourceA-landing/nomotic.html` | Removed “operates a self-healing factory daily”; added **pre-revenue**; Self-heal → Monitor/target language; Live → Demo |
+| `sites/SourceA-landing/zenity.html` | Removed daily factory / self-healing claims; LIVE → TARGET; added **pre-revenue** |
+| `sites/SourceA-landing/green-unified/attach/agency-onepager.html` | Self-healing monitor → governed ops monitor (retainer target) |
 | `sites/SourceA-landing/green-unified/kernel/legacy-full-home-v1.html` | Same retainer wording fix |
 
 **Left as product UI (not live-autonomy claims):** Forge Terminal `Self-heal` button = L2 patch mode name.
@@ -49,7 +49,7 @@
 | **Autorun motor** | **BLOCKED + EXHAUSTED** | P0 L4 stale · queue `registry_exhausted` |
 | **Mac autorun launchd** | **DISABLED** | Not loaded; documented in `docs/brain-runbook/brain-operational-runbook.md` |
 | **Cloud auto-tick receipt** | **STALE** | Last ok:false 2026-06-23 |
-| **ROI intelligence** | **PRE-REVENUE** | Policy logged · zero customer return signal |
+| **ROI intelligence** | **PRE-REVENUE** | Policy on disk · zero customer return signal |
 | **Commercial productization** | **PARTIAL** | Sites live · packaged paid delivery not complete |
 
 ---
@@ -66,7 +66,7 @@ PRE-REVENUE: ROI/revenue CRM — templates only, no won deals, no customer ROI
 HONEST:     Public pages no longer claim live self-healing factory or daily autonomous motor
 ```
 
-**ROI one-liner for auditor:** Policy and routing SSOT exist logged; **pre-revenue — no customer ROI signal yet.**
+**ROI one-liner for auditor:** Policy and routing SSOT exist on disk; **pre-revenue — no customer ROI signal yet.**
 
 ---
 
@@ -79,7 +79,7 @@ HONEST:     Public pages no longer claim live self-healing factory or daily auto
 5. **Mac launchd** — only re-enable with ASF + correct `Noetfield-Systems/SourceA` path
 6. **brain-core-v1** — deploy gate when ready; until then keep “public chat live / deterministic gate offline”
 7. **Revenue** — first paid engagement + log `won` in CRM
-8. **Deploy** — push sourcea-layout-dark/sourcea-layout-light HTML hygiene to production if not auto-deployed
+8. **Deploy** — push nomotic/zenity HTML hygiene to production if not auto-deployed
 
 ---
 

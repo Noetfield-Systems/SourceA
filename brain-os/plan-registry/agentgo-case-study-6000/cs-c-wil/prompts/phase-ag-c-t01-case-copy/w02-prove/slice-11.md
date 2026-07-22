@@ -14,7 +14,7 @@ Wil L3 portfolio demo — YA5 mirror · AgentGo ≠ SourceA separation · ship g
 
 ## Task
 
-**Document diff vs PureFlow for** case study prose (challenge · shipped · verification).
+**Document diff vs PureFlow for** case study prose (challenge · shipped · proof chain).
 
 Local trades vs category GEO — table.
 

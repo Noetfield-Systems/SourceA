@@ -34,7 +34,7 @@ SinaaiMonoRepo — Layer A Personal Database (P0)
 
 ---
 
-## Live plan.json next tasks (verify logged)
+## Live plan.json next tasks (verify on disk)
 
   • (refresh hub Repos tab or run plan sync)
 

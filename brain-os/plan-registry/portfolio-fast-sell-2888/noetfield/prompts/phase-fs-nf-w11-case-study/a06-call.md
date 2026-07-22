@@ -1,7 +1,7 @@
 # fs-nf-0196 — Fast-sell plan
 
 **Version:** 1 · **Tier:** T2 · **Phase:** LATER
-**Lane:** Noetfield · **Wedge:** w11-case-study · Client case study logged
+**Lane:** Noetfield · **Wedge:** w11-case-study · Client case study on disk
 **Action:** a06-call · Discovery call script
 **Comp anchor:** Pickaxe agency · Vanta scan
 **Tier 1:** Intelligence diagnostic $2.5–5K
@@ -10,7 +10,7 @@
 
 ## Task
 
-Fast-sell: Noetfield · Client case study logged · Discovery call script. Ship smallest slice that moves a buyer toward **Intelligence diagnostic $2.5–5K** with a path to **Build $8–25K + retainer**. Receipt logged before done.
+Fast-sell: Noetfield · Client case study on disk · Discovery call script. Ship smallest slice that moves a buyer toward **Intelligence diagnostic $2.5–5K** with a path to **Build $8–25K + retainer**. Receipt on disk before done.
 
 ## Verify
 

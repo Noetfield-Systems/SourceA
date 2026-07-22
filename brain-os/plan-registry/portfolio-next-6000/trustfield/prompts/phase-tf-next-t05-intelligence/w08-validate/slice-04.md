@@ -12,7 +12,7 @@ FINTRAC MSB programs — payment execution only
 
 ## Task
 
-TrustField · Noetfield Intelligence 613 · Validate · slice 4/10 — P1 — next sprint outcome. Bounded path only. Receipt logged before done. Parent: FINTRAC MSB programs — payment execution only. Priority doc: `prompts/future-plans-1000.json`.
+TrustField · Noetfield Intelligence 613 · Validate · slice 4/10 — P1 — next sprint outcome. Bounded path only. Receipt on disk before done. Parent: FINTRAC MSB programs — payment execution only. Priority doc: `prompts/future-plans-1000.json`.
 
 ## Verify
 

@@ -9,9 +9,9 @@ merged_by: SinaaiDataBase archive audit session
 source_transcript: ~/.cursor/projects/Users-sinakazemnezhad-Desktop-SinaaiDataBase/agent-transcripts/a53f3fa1-081c-4373-bc55-76feb501a61d.jsonl
 
 system_classification: |
-  Controlled multi-repo execution OS + pre-LLM context compiler.
+  Governed multi-repo execution OS + pre-LLM context compiler.
   NOT a Lovable/Devin-style autonomous product.
-  Control plane for controlled execution — not end-user product.
+  Control plane for governed execution — not end-user product.
 
 live_truth_at_save:
   hub_port: 13020
@@ -228,7 +228,7 @@ brain_brief: |
   101/1000 verify tasks done. prompt_router shipped. Honest gates. 0 critical when hub up.
 
 rule_breaking_root_cause: |
-  Law in repository; no pre-reply enforcement; contradictory founder docs (fixed T0+T1);
+  Law on disk; no pre-reply enforcement; contradictory founder docs (fixed T0+T1);
   chat ≠ memory; 141+ LOCKED files; Cursor default run-bash reflex.
   M4 hook warns only — does not block.
 

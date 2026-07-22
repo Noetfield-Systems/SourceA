@@ -23,7 +23,7 @@ Mark wb-mkt-0280 done with run page screenshot or receipt path
 
 ## Implementation extraction
 
-`Oneleet · Run history & proof` → what buyer sees at vendor → what we ship logged with receipt.
+`Oneleet · Run history & proof` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

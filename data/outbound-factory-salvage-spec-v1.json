@@ -69,7 +69,7 @@
   ],
   "compile_sequence": "Noetfield parallel TrustField · then SourceA deferred · then Forge product",
   "send_policy": {
-    "agents": ["ICP compile", "machine lint", "RRL", "ready-to-send pack logged"],
+    "agents": ["ICP compile", "machine lint", "RRL", "ready-to-send pack on disk"],
     "founder": ["Sina read ≥90", "manual Mail send", "confirm-sent"],
     "agents_never": ["send email", "claim ship authority"]
   },

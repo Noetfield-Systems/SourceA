@@ -68,7 +68,7 @@
     "examples": {
       "ocree_trustfield": "CSA Collaboratory review — each issuance step permitted after the fact",
       "fundmore_noetfield": "Board asks what AI copilot did on a mortgage decision six months later",
-      "sourcea_fbe": "Team ships agent output without reproducible verification built in — drift breaks trust"
+      "sourcea_fbe": "Team ships agent output without reproducible proof on disk — drift breaks trust"
     }
   },
   "angle_by_role": {

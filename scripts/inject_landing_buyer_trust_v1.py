@@ -132,7 +132,7 @@ def count_governance_events_today(*, sina: Path = SINA) -> dict:
 
 
 def count_governance_events_lifetime(*, sina: Path = SINA) -> dict:
-    """All material governance rows logged — honest lifetime receipt ticker."""
+    """All material governance rows on disk — honest lifetime receipt ticker."""
     count = 0
     path = sina / "agent-governance-events.jsonl"
     if not path.is_file():
@@ -154,7 +154,7 @@ def count_governance_events_lifetime(*, sina: Path = SINA) -> dict:
 
 
 def count_receipts_today(*, sina: Path = SINA) -> dict:
-    """Count receipt-like JSON files touched today logged."""
+    """Count receipt-like JSON files touched today on disk."""
     today = _today_utc()
     count = 0
     samples: list[str] = []
@@ -281,7 +281,7 @@ def build_trust_signals() -> dict:
         "at": _now(),
         "receipts_signed_today": receipts["count"],
         "receipts_signed_lifetime": lifetime["count"],
-        "receipts_lifetime_label": "Logged and reviewable logged",
+        "receipts_lifetime_label": "Governance receipts signed on disk",
         "receipts_date": receipts["date"],
         "receipt_samples": receipts["samples"],
         "receipt_metric_label": "Material governance events today",

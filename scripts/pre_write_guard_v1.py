@@ -63,7 +63,7 @@ def check_pre_write(*, agent: str, path: str, explicit_order: str = "") -> dict:
         blockers.append("HOSTILE_TIER")
 
     if bool(guard.get("allowed")) and not blockers:
-        from ui_upgrade_baseline_guard_v1 import check_path, is_controlled_ui_path  # noqa: WPS433
+        from ui_upgrade_baseline_guard_v1 import check_path, is_governed_ui_path  # noqa: WPS433
         from ui_upgrade_first_check_v1 import check_write as ui_first_check  # noqa: WPS433
         from pr_conflict_resolver_first_check_v1 import check_write as pr_conflict_check  # noqa: WPS433
 
@@ -71,7 +71,7 @@ def check_pre_write(*, agent: str, path: str, explicit_order: str = "") -> dict:
         if not ui_first.get("ok") and not ui_first.get("skipped"):
             blockers.append("UI_UPGRADE_FIRST_CHECK_REQUIRED")
             ui_baseline = ui_first
-        elif is_controlled_ui_path(path):
+        elif is_governed_ui_path(path):
             ui_baseline = check_path(path)
             if not ui_baseline.get("ok"):
                 blockers.append("UI_BASELINE_FAIL")

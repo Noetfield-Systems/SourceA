@@ -10,7 +10,7 @@
 
 ## Task
 
-Fast-sell: Noetfield · Partner / accountant channel · Save reusable template. Ship smallest slice that moves a buyer toward **Intelligence diagnostic $2.5–5K** with a path to **Build $8–25K + retainer**. Receipt logged before done.
+Fast-sell: Noetfield · Partner / accountant channel · Save reusable template. Ship smallest slice that moves a buyer toward **Intelligence diagnostic $2.5–5K** with a path to **Build $8–25K + retainer**. Receipt on disk before done.
 
 ## Verify
 

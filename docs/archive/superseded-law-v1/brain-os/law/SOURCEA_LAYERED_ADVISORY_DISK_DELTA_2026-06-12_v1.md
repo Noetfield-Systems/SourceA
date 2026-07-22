@@ -10,7 +10,7 @@
 
 ## Status
 
-| Item | In the repository? |
+| Item | On disk? |
 |------|----------|
 | `SOURCEA_LAYERED_ADVISORY_DRAFT_v1.md` (root) | **YES** — LOCKED since 2026-06-10 |
 | Full chat export | `archive/attachments/2026-06-10/SOURCEA_LAYERED_ADVISORY_FULL_CHAT_EXPORT_v1.md` |

@@ -23,7 +23,7 @@ Diff our public copy vs Lasso Security pricing/product page — list 3 concrete 
 
 ## Implementation extraction
 
-`Lasso Security · Buyer-visible UX` → what buyer sees at vendor → what we ship logged with receipt.
+`Lasso Security · Buyer-visible UX` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

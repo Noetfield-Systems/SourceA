@@ -14,7 +14,7 @@ Dual desktop deploy — agentrun-app :5180 + SA4 AgentGo :8080 · landing parity
 
 ## Task
 
-**Vocabulary unified check for** case study prose (challenge · shipped · verification).
+**Vocabulary unified check for** case study prose (challenge · shipped · proof chain).
 
 No second prohibition law.
 

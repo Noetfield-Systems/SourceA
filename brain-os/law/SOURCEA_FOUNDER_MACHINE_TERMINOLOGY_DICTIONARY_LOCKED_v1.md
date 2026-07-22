@@ -94,7 +94,7 @@ From Cross-doc §12.4 — **G0→G8**:
 | “Pick A / confirm” | `ASF: FIVE-STEP — PICK:` + Effect | Batch 2 §10 |
 | “ALL CAPS order” / “same word caps or not” | **NORM-CAPS** — 100% equivalent | `FOUNDER_MSG_NORM` |
 | “Live form / what’s pending” | `LIVE_DECISION_FORM` §ANSWERED · §OPEN | `live_founder_decision_form_v1.py` |
-| “What’s logged?” | SCAN / disk truth | Five-step §3.1 |
+| “What’s on disk?” | SCAN / disk truth | Five-step §3.1 |
 | “Plain cards” | SAY | Five-step §3.2 · §7 |
 | “I accept this consequence” | PICK gate | Batch 2 §14 |
 | “Prove it” | PROVE · validators | Appendix B · §6 enforcers |
@@ -230,7 +230,7 @@ From Cross-doc §12.4 — **G0→G8**:
 |-------|-----|
 | Plan status words | `PLAN_STATUS_VOCAB_LOCKED_v1.md` |
 | M8 / milestone labels | `ASF_MILESTONE_GLOSSARY_LOCKED_v1.md` |
-| Execution OS stop/start | `CONTROLLED_EXECUTION_OS_MASTER_LOCKED_v1.md` §4 |
+| Execution OS stop/start | `GOVERNED_EXECUTION_OS_MASTER_LOCKED_v1.md` §4 |
 | Integrity pack terms | `SOURCEA_INTEGRITY_STACK_UNIFIED_BLUEPRINT_BATCH_2_LOCKED_v1.md` §7 |
 | Plain topic/row/path | `SOURCEA_CROSS_DOC_LINKAGE_AND_AUDIT_LOCKED_v1.md` §12 |
 | Three rooms | `SINA_ROOMS_UNIFIED_BLUEPRINT_DRAFT_v1.md` |

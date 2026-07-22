@@ -33,7 +33,7 @@
     "delivery_mode": "prove_only"
   },
   "commercial": {
-    "name": "Controlled Exchange Factory",
+    "name": "Governed Exchange Factory",
     "tagline": "Counterparty and capital structure in — governance-grade exchange receipt out.",
     "tier_label": "engine",
     "buyer": "TrustField · exchanges · capital desks",

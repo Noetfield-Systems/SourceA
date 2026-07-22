@@ -23,7 +23,7 @@ Document Sprinto onboarding path (Compliance wedge for SaaS PLG): who runs (Vend
 
 ## Implementation extraction
 
-`Sprinto · Onboarding & PLG` → what buyer sees at vendor → what we ship logged with receipt.
+`Sprinto · Onboarding & PLG` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

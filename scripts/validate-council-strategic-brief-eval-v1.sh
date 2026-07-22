@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# council_strategic_brief workstream + eval_comparison validator strings must exist logged.
+# council_strategic_brief workstream + eval_comparison validator strings must exist on disk.
 set -euo pipefail
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 export ROOT
@@ -54,7 +54,7 @@ for wid in ("eval-1", "eval-1b"):
     if not primary:
         errors.append(f"workstream {wid} missing validator")
     elif not (scripts / primary).is_file():
-        errors.append(f"workstream {wid} validator not present locally: {primary}")
+        errors.append(f"workstream {wid} validator not on disk: {primary}")
 
 if errors:
     for e in errors:

@@ -169,7 +169,7 @@ def _execution_honesty() -> dict:
 
 
 def _verified_done_count(upgrades: list[dict]) -> int:
-    """Count done rows with in-repo canonical receipt (v3 execution_proof law)."""
+    """Count done rows with on-disk canonical receipt (v3 execution_proof law)."""
     sys.path.insert(0, str(ROOT / "scripts"))
     from outbound_receipt_path_v1 import receipt_exists  # noqa: WPS433
 

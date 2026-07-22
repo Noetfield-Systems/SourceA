@@ -20,13 +20,13 @@ status: LOCKED
 
 ## Verdict on Brain’s message
 
-**Brain was right to push back.** The screenshot showed **real bugs**, not “refresh and it’s fine.” Fixes Brain described **did land logged**. Some numbers in Brain’s message are **already stale** because the queue moved again (including standard E2E runs).
+**Brain was right to push back.** The screenshot showed **real bugs**, not “refresh and it’s fine.” Fixes Brain described **did land on disk**. Some numbers in Brain’s message are **already stale** because the queue moved again (including standard E2E runs).
 
 ### Brain claim vs honest check
 
 | Brain claim | Honest check |
 |-------------|--------------|
-| STALE broker 67 → 0 | **TRUE** — `broker_stale: 0` logged |
+| STALE broker 67 → 0 | **TRUE** — `broker_stale: 0` on disk |
 | Pack 6 rolled sa-0045..sa-0054 | **TRUE** — `~/.sina/healthy-queue-30-active.json` |
 | `dual_proof=True`, Brain PASS | **TRUE** — `brain_ok: true`, `dual_proof_ok: true` |
 | HERE #45 sa-0045 CHECK | **Was true** when Brain wrote — queue advanced since |
@@ -65,11 +65,11 @@ If pointer sits on completed pack position, or `next_pos` points outside active 
 
 ---
 
-## What Brain fixed (verified logged)
+## What Brain fixed (verified on disk)
 
 - Pack 5 replay sa-0035..sa-0044 — broker turns completed
 - Pack 6 roll sa-0045..sa-0054 — new `healthy-queue-30-active.json`
-- STALE broker cleared — **0** logged
+- STALE broker cleared — **0** on disk
 - INBOX delivered — worker path unblocked
 - Brain/orchestrator aligned — `dual_proof=True`
 
@@ -84,7 +84,7 @@ Standard E2E recipe step (`validate-goal1-e2e-v1.sh`) reset orchestrator and del
 | HERE | #45 sa-0045 CHECK | #46 sa-0046 CHECK | **sa-0079 ACT** (queue advanced) |
 | INBOX | sa-0045 pending | sa-0046 pending | **cleared** — next deliver on motion |
 | Valid YES | 113 | 114 | **144** |
-| sa-0045 | waiting | **DONE** — receipt logged | closed |
+| sa-0045 | waiting | **DONE** — receipt on disk | closed |
 | Queue tab rows | 10 | 9 | varies with DONE filter |
 
 **That is expected:** goal1 E2E resets + delivers; it advances the line after items close.
@@ -97,7 +97,7 @@ Standard E2E recipe step (`validate-goal1-e2e-v1.sh`) reset orchestrator and del
 MONITOR TRUTH BUGS          vs          REAL BACKLOG
 (pointer, STALE, filter)                (REGISTRY tasks)
         ↓                                        ↓
-   Brain fixed logged                    Still the actual work
+   Brain fixed on disk                    Still the actual work
    STALE=0, pack rolled                   toward 1000 Valid YES
 ```
 
@@ -162,7 +162,7 @@ Don’t start second full E2E on top.
 |---|--------|-----|
 | 1 | Refresh **:13020** | Disk ahead of old screenshots |
 | 2 | **START AUTO RUN** on current head (**sa-0079** as of 2026-06-10) | Real factory motion |
-| 3 | Ignore sa-0035 / STALE 67 on **old** screenshots | Fixed logged |
+| 3 | Ignore sa-0035 / STALE 67 on **old** screenshots | Fixed on disk |
 | 4 | Don’t use :13021 without starting that server | Use :13020 |
 
 ---
@@ -189,7 +189,7 @@ Don’t start second full E2E on top.
 
 ## One-line truth
 
-> Brain was right: monitor showed **stale pointer/filter** and **real STALE broker garbage** — fixed logged. Queue has **advanced since** (114 → **144** Valid YES). Job now: refresh **:13020** and **factory motion** — not chase sa-0035 or STALE 67 again.
+> Brain was right: monitor showed **stale pointer/filter** and **real STALE broker garbage** — fixed on disk. Queue has **advanced since** (114 → **144** Valid YES). Job now: refresh **:13020** and **factory motion** — not chase sa-0035 or STALE 67 again.
 
 If after hard refresh on :13020 you still see sa-0035 or STALE 67 → trace **live hub payload**, not rerun E2E.
 

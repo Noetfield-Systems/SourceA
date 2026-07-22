@@ -38,7 +38,7 @@ REPORT=BOOT_REPORT.json
 
 ## CI validation
 
-Factory CI runs `scripts/validate-sourcea-boot-v1.sh` — four checks, PASS/BLOCK contract, `BOOT_REPORT.json` logged.
+Factory CI runs `scripts/validate-sourcea-boot-v1.sh` — four checks, PASS/BLOCK contract, `BOOT_REPORT.json` on disk.
 
 ## What it checks
 

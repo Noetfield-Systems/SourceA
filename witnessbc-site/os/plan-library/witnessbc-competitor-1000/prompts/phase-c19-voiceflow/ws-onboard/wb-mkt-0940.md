@@ -23,7 +23,7 @@ Close wb-mkt-0940 with onboarding evidence + verify PASS
 
 ## Implementation extraction
 
-`Voiceflow · Onboarding & PLG` → what buyer sees at vendor → what we ship logged with receipt.
+`Voiceflow · Onboarding & PLG` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

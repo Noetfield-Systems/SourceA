@@ -23,7 +23,7 @@ Map Oneleet revenue model (Annual SaaS + services) to our `Free toolkits → Pro
 
 ## Implementation extraction
 
-`Oneleet · Pricing & packaging` → what buyer sees at vendor → what we ship logged with receipt.
+`Oneleet · Pricing & packaging` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

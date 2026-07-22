@@ -23,7 +23,7 @@ Write competitor row evidence: Lakera Guard pricing → our SKU → defer/shippe
 
 ## Implementation extraction
 
-`Lakera Guard · Pricing & packaging` → what buyer sees at vendor → what we ship logged with receipt.
+`Lakera Guard · Pricing & packaging` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

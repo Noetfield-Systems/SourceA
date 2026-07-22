@@ -23,7 +23,7 @@ Label free vs paid honestly (AI policy + first agentic install — site independ
 
 ## Implementation extraction
 
-`Comp AI · Pricing & packaging` → what buyer sees at vendor → what we ship logged with receipt.
+`Comp AI · Pricing & packaging` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

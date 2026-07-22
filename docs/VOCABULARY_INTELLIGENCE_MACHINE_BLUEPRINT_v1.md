@@ -36,7 +36,7 @@ Vocabulary **was** in six fragmented places. **Now:** `data/sourcea-vocabulary-u
 | Subject | Example words | Policy |
 |---------|---------------|--------|
 | `motor_cloud` | drain, Cloud Forge Run, Auto Runtime, Cloud Forge Run | → **Cloud Forge Run** / **Auto Runtime** |
-| `product_loop` | scoped loop, loop build, `/sourcea/loops/` | **Keep** — commercial SKU |
+| `product_loop` | governed loop, loop build, `/sourcea/loops/` | **Keep** — commercial SKU |
 | `chat_unify_loop` | founder loop, ORD loop, verify pipeline | **Keep** — Chat Unify machines |
 | `governance_poison` | poison, anti-poison, mirror scrub | **Governance only** — not motor display |
 | `forge_product` | Forge, ICP compile, machine prove | `data/sourcea-forge-vocabulary-disambiguation-v1.json` |

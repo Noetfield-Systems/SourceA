@@ -14,7 +14,7 @@ Wil L3 portfolio demo — YA5 mirror · AgentGo ≠ SourceA separation · ship g
 
 ## Task
 
-**Archive govern pack for** case study prose (challenge · shipped · verification).
+**Archive govern pack for** case study prose (challenge · shipped · proof chain).
 
 brain-os.
 

@@ -9,7 +9,7 @@
 
 ## One law
 
-> **v4 civilization accumulates persistent memory, agent identity, and task economy lite — all auditable logged; cloud executes live swarm body; Mac remains control plane.**
+> **v4 civilization accumulates persistent memory, agent identity, and task economy lite — all auditable on disk; cloud executes live swarm body; Mac remains control plane.**
 
 ---
 

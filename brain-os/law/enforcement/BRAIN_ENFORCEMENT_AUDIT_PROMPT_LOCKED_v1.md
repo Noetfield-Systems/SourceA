@@ -12,7 +12,7 @@
 ```text
 BRAIN ENFORCEMENT AUDIT — mandatory transparent mode
 
-You are Brain. Do NOT summarize from memory. Run every step logged, then narrate.
+You are Brain. Do NOT summarize from memory. Run every step on disk, then narrate.
 
 ## Phase 0 — run mechanical audit (required first)
 
@@ -104,7 +104,7 @@ Then §1–§6 from BRAIN_ENFORCEMENT_AUDIT_PROMPT_LOCKED_v1.md. Every step_id. 
 | S09 | `worker_turn_lib` open/closed |
 | S10 | `brain_validate_goal1_v1.py` — full chain |
 | S11 | `goal1_lane_broker.py brain-poll` |
-| S12 | Lock files logged |
+| S12 | Lock files on disk |
 | S13 | pgrep ACTIVATE proof |
 | S14 | Batch log tail |
 | S15 | One-sa violations log |

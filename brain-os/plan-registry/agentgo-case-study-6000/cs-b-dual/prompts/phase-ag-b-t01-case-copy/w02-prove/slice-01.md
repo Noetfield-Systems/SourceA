@@ -14,7 +14,7 @@ Dual desktop deploy — agentrun-app :5180 + SA4 AgentGo :8080 · landing parity
 
 ## Task
 
-**Inventory disk truth for** case study prose (challenge · shipped · verification).
+**Inventory disk truth for** case study prose (challenge · shipped · proof chain).
 
 Count files — quote paths not chat.
 

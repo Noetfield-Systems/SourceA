@@ -18,7 +18,7 @@
 //   11  BGM <audio> (full duration)
 //
 // Reads:  --storyboard STORYBOARD.md, --hyperframes <root>, [--audiomap audiomap.json],
-//         [--bgm assets/bgm.mp3], [--audio-meta audio_meta.json]. Locally: each frame's src html.
+//         [--bgm assets/bgm.mp3], [--audio-meta audio_meta.json]. On disk: each frame's src html.
 // Writes: <project>/index.html
 //
 // Exit 0 = index.html written + summary. Exit 1 = fatal contract break (no
@@ -84,7 +84,7 @@ for (const f of manifest.frames) {
   if (!f.src) die(`${label} has no \`src\` — the planner must write it in STORYBOARD.md`);
   const compAbs = join(hyperframesDir, f.src);
   if (!existsSync(compAbs))
-    die(`${label}: src ${f.src} is not locally — re-dispatch its frame-worker before assembling`);
+    die(`${label}: src ${f.src} is not on disk — re-dispatch its frame-worker before assembling`);
   if (!Number.isFinite(f.durationSeconds) || f.durationSeconds <= 0)
     die(`${label}: no positive \`duration\` (got ${JSON.stringify(f.duration)})`);
   const compId = basename(f.src).replace(/\.html?$/i, "");
@@ -100,7 +100,7 @@ for (const f of manifest.frames) {
     die(`${label}: ${f.src} has no data-composition-id="${compId}" (host/inner id must match)`);
   mounted.push({ frame: f, compId, durationSeconds: r3(f.durationSeconds) });
 }
-if (mounted.length === 0) die("no mountable frames (none with an in-repo src)");
+if (mounted.length === 0) die("no mountable frames (none with an on-disk src)");
 
 // cumulative starts — start[i] + duration[i] == start[i+1] exactly (gap-free hard cuts)
 let acc = 0;

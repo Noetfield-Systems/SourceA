@@ -2,7 +2,7 @@
   "schema": "kaizen-improvement-receipt-v1",
   "version": "1.0.0",
   "at": "2026-07-02T12:30:00Z",
-  "law": "controlled-autorun L13 · D1",
+  "law": "governed-autorun L13 · D1",
   "classification": "machine_safe",
   "id": "kaizen-d1-cycle-idempotency-key",
   "diff_summary": "Add deterministic idempotency_key to autonomous-forge-run-cycle-receipt-v2 via _cycle_op_key(workflow_id, plan_id, attempt_no)",

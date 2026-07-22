@@ -27,7 +27,7 @@
     {
       "id": "Q-MF-02",
       "title": "Cursor Card 1 — publish npm now?",
-      "question": "SourceA Forge Proof Layer bundle ready logged. npm @sourcea/mcp-verify still 404. Publish now?",
+      "question": "SourceA Forge Proof Layer bundle ready on disk. npm @sourcea/mcp-verify still 404. Publish now?",
       "blocks": "cursor-plugin/sourcea-forge-governance · Card 1 marketplace",
       "diskToday": "receipt PASS · npm pack ready · npm login required",
       "recommended": "A",
@@ -49,7 +49,7 @@
       "title": "One marketplace card at launch?",
       "question": "Ship ONE card (SourceA Forge Governance) — keep VIRLUX/Noetfield/TrustField internal?",
       "blocks": "GPT + thread strategy · multi-factory advisory",
-      "diskToday": "Only Card 1 scaffold logged · VIRLUX plugin folder absent",
+      "diskToday": "Only Card 1 scaffold on disk · VIRLUX plugin folder absent",
       "recommended": "A",
       "options": [
         "A — YES — one Proof Layer card only (recommended)",
@@ -107,7 +107,7 @@
       "title": "Supabase edge loop — name project and deploy?",
       "question": "First cloud auto-loop ready as scaffold. Name Supabase project ref and authorize WORK: supabase-edge-loop deploy?",
       "blocks": "data/supabase-edge-loop-v1.json · migration SSOT",
-      "diskToday": "migration SQL logged · project ref null · Edge function not deployed",
+      "diskToday": "migration SQL on disk · project ref null · Edge function not deployed",
       "recommended": "B",
       "options": [
         "A — Deploy now — I will paste project ref in chat",
@@ -144,7 +144,7 @@
       "id": "Q-MF-08",
       "title": "HUMAN_APPROVAL_REQUIRED — mandatory before Fal spend?",
       "question": "Lock law: never call paid Fal.ai while campaign state is HUMAN_APPROVAL_REQUIRED?",
-      "blocks": "shared/types/campaign-v1.ts · demo campaign logged",
+      "blocks": "shared/types/campaign-v1.ts · demo campaign on disk",
       "diskToday": "demo-campaign-v1.json at HUMAN_APPROVAL_REQUIRED · bridge MOCK_ONLY without FAL_KEY",
       "recommended": "A",
       "options": [
@@ -259,7 +259,7 @@
     {
       "id": "Q-THREAD-10STEP-01",
       "title": "10-step program — full WORK vs SAVE spec first?",
-      "question": "Brain offered 10-step program scope. After you approve: implement full WORK logged, SAVE locked spec first, or plan-only until WORK verb?",
+      "question": "Brain offered 10-step program scope. After you approve: implement full WORK on disk, SAVE locked spec first, or plan-only until WORK verb?",
       "blocks": "Brain 10-step AskQuestion · unpicked scope fork",
       "diskToday": "partial disk from marketplace/factory thread · blueprint SAVE done",
       "recommended": "B",

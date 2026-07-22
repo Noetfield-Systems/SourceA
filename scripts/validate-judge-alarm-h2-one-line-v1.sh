@@ -49,7 +49,7 @@ case_id = strip.get("case_id") or ""
 if receipt.get("case_id") and receipt.get("case_id") != case_id:
     raise SystemExit(f"receipt case_id {receipt.get('case_id')!r} != strip {case_id!r}")
 
-# H2 weekly-only: machines surface law — full batch lives logged; H1 alarm strip is one line
+# H2 weekly-only: machines surface law — full batch lives on disk; H1 alarm strip is one line
 machines = Path("agent-control-panel/machines/index.html")
 if not machines.is_file():
     raise SystemExit("missing machines/index.html")

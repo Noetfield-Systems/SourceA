@@ -1,7 +1,7 @@
 # fs-gt-0191 — Fast-sell plan
 
 **Version:** 1 · **Tier:** T0 · **Phase:** LATER
-**Lane:** Vertical GTM SKUs · **Wedge:** w11-case-study · Client case study logged
+**Lane:** Vertical GTM SKUs · **Wedge:** w11-case-study · Client case study on disk
 **Action:** a01-research · Research comp pricing page
 **Comp anchor:** 11x · vertical SaaS
 **Tier 1:** $99–199/mo self-serve
@@ -10,7 +10,7 @@
 
 ## Task
 
-Fast-sell: Vertical GTM SKUs · Client case study logged · Research comp pricing page. Ship smallest slice that moves a buyer toward **$99–199/mo self-serve** with a path to **$499/mo + onboarding**. Receipt logged before done.
+Fast-sell: Vertical GTM SKUs · Client case study on disk · Research comp pricing page. Ship smallest slice that moves a buyer toward **$99–199/mo self-serve** with a path to **$499/mo + onboarding**. Receipt on disk before done.
 
 ## Verify
 

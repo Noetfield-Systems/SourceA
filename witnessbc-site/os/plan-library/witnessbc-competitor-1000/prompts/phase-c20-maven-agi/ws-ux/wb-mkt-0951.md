@@ -23,7 +23,7 @@ Open https://www.mavenagi.com — screenshot or quote the exact buyer-facing Buy
 
 ## Implementation extraction
 
-`Maven AGI · Buyer-visible UX` → what buyer sees at vendor → what we ship logged with receipt.
+`Maven AGI · Buyer-visible UX` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

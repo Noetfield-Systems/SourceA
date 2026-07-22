@@ -23,7 +23,7 @@ Reject abstract rename — keep market words buyers know from Arthur AI (Model m
 
 ## Implementation extraction
 
-`Arthur AI · Buyer-visible UX` → what buyer sees at vendor → what we ship logged with receipt.
+`Arthur AI · Buyer-visible UX` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

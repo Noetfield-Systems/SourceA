@@ -23,7 +23,7 @@ Add retention note: how long run history kept vs Gumloop (Free 5k credits/mo; Pr
 
 ## Implementation extraction
 
-`Gumloop · Run history & proof` → what buyer sees at vendor → what we ship logged with receipt.
+`Gumloop · Run history & proof` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

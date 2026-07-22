@@ -52,7 +52,7 @@ PROVEN_LIVE_RECIPES: list[dict[str, Any]] = [
             "bash scripts/validate-sourcea-boot-v1.sh && python3 scripts/probe_sourcea_boot_pypi_v1.py --json"
         ),
         "proof_artifact": "https://sourcea.app/eval",
-        "client_demo": "Screen-share /eval → pip install → PASS line logged",
+        "client_demo": "Screen-share /eval → pip install → PASS line on disk",
         "client_problem": "P2-onboard-friction",
         "tier": "T0",
         "lane": "client-proof",
@@ -114,7 +114,7 @@ PROVEN_LIVE_RECIPES: list[dict[str, Any]] = [
     },
     {
         "plan_id": "cpr-forge-terminal",
-        "title": "Forge Terminal public surface loads with controlled send path",
+        "title": "Forge Terminal public surface loads with governed send path",
         "goal": "Buyer sees terminal UI and understands policy-before-send",
         "done_when": "Forge terminal page has terminal UI markers (not SPA shell only)",
         "verify": _url_verify("https://sourcea.app/sourcea/forge/terminal", "Forge Terminal", "data-sa-proof-cta"),
@@ -136,7 +136,7 @@ PROVEN_LIVE_RECIPES: list[dict[str, Any]] = [
             f"{_intake_api_verify()}"
         ),
         "proof_artifact": "https://sourcea.app/sourcea/sandbox",
-        "client_demo": "Walk CTA → fill 5-field form → show intake API config logged",
+        "client_demo": "Walk CTA → fill 5-field form → show intake API config on disk",
         "client_problem": "P2-onboard-friction",
         "tier": "T0",
         "lane": "client-proof",
@@ -210,7 +210,7 @@ PROVEN_LIVE_RECIPES: list[dict[str, Any]] = [
     },
     {
         "plan_id": "cpr-pureflow-case",
-        "title": "PureFlow case study shows full Prompt→Verification",
+        "title": "PureFlow case study shows full Prompt→Proof chain",
         "goal": "Service operator prospect sees relatable vertical proof",
         "done_when": "case-studies/pureflow returns 200",
         "verify": _url_verify("https://sourcea.app/case-studies/pureflow", "PureFlow", "48-hour"),
@@ -311,10 +311,10 @@ def _backlog_to_recipe(item: dict[str, Any]) -> dict[str, Any]:
         "plan_id": str(item.get("plan_id") or ""),
         "title": title[:200],
         "goal": f"Ship {title[:120]} with validator PASS — show buyer on call",
-        "done_when": f"verify command exits 0 · receipt path logged",
+        "done_when": f"verify command exits 0 · receipt path on disk",
         "verify": verify,
         "proof_artifact": str(item.get("prompt_path") or item.get("source_registry") or "disk-receipt"),
-        "client_demo": f"Run verify live → show PASS → tie to SourceA verification",
+        "client_demo": f"Run verify live → show PASS → tie to SourceA proof chain",
         "client_problem": "P0-trust-receipt-gap",
         "tier": str(item.get("tier") or "T1"),
         "lane": "client-proof-filtered",

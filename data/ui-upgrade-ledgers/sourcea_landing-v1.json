@@ -134,7 +134,7 @@
   "app_checklist": [
     {
       "id": "LAND-1",
-      "step": "Baseline check each controlled file before edit"
+      "step": "Baseline check each governed file before edit"
     },
     {
       "id": "LAND-2",

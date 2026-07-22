@@ -109,7 +109,7 @@ def main() -> int:
         return 1
 
     saved = save_sourcea_vercel_token(tok, project=args.project, name=args.name)
-    # Force main scope logged
+    # Force main scope on disk
     tf = SINA / "sourcea-vercel-token-v1.json"
     if tf.is_file():
         row = json.loads(tf.read_text(encoding="utf-8"))

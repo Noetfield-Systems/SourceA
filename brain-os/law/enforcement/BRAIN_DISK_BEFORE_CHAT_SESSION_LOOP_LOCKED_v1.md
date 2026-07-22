@@ -20,7 +20,7 @@ FORGE-builder drift was one **symptom**. Root cause: **mandatory read chain with
 
 | Layer | Worker | Brain (before this file) |
 |-------|--------|---------------------------|
-| Read list logged | ✅ `MANDATORY_SOURCEA_WORKER_CHAT` | ✅ `MANDATORY_BRAIN_CHAT` + `BRAIN_KNOWLEDGE_INDEX` |
+| Read list on disk | ✅ `MANDATORY_SOURCEA_WORKER_CHAT` | ✅ `MANDATORY_BRAIN_CHAT` + `BRAIN_KNOWLEDGE_INDEX` |
 | Mechanical session gate | ✅ `cursor_agent_self_audit.py session-start` | ❌ honor system only |
 | First reply proof | ✅ read chain path printed | ❌ `BRAIN_ACK` from chat memory |
 | Validator | ✅ session-close checks `session_start` | ❌ none |

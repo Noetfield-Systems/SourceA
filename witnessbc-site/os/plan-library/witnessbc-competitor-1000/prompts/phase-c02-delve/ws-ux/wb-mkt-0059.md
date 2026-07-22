@@ -23,7 +23,7 @@ Ship summary in PRIORITY: preserved · changed · achieved vs Delve Buyer-visibl
 
 ## Implementation extraction
 
-`Delve · Buyer-visible UX` → what buyer sees at vendor → what we ship logged with receipt.
+`Delve · Buyer-visible UX` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

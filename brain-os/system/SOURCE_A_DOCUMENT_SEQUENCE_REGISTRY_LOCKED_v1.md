@@ -74,7 +74,7 @@ When two files lock same day, **lower NNN = earlier in time / foundation first**
 | **B — Authority (read precedence)** | What wins on conflict? | SSOT v3 §13 + addendum + role of each doc |
 | **C — Supersession (doctrine merge)** | Which file replaces which topic? | Unified blueprint §0 + registry `Status` column |
 
-**Agent rule:** Never use “newest file present” as law. Use **authority order (B)**. Use **chronological (A)** only for history and “what changed when.”
+**Agent rule:** Never use “newest file on disk” as law. Use **authority order (B)**. Use **chronological (A)** only for history and “what changed when.”
 
 ---
 

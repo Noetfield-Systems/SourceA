@@ -59,7 +59,7 @@ Cloudflare sourcea-cloud-auto-runtime-tick-v1 (cron */10)
 ## Batch handoff (after 100/100 only)
 
 1. `queue_batch_complete: true` at last CLOUD-SEC of batch (e.g. CLOUD-SEC-200, CLOUD-SEC-300).
-2. Generate + lock next batch JSON locally (`scripts/generate_secondary_cloud_forge_run_batch_v1.py`).
+2. Generate + lock next batch JSON on disk (`scripts/generate_secondary_cloud_forge_run_batch_v1.py`).
 3. Update `data/cloud-forge-run-queue-active-v1.json` pointer + Dockerfile COPY + redeploy Railway.
 4. `activate_batch` or boot heal arms head to first CLOUD-SEC of new batch.
 5. **Optional:** pre-lock batch N+1 as `next_batch.ready_locked` for `swap_to_next_batch` on `advance_on_pass` at_end.

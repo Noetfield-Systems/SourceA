@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# INCIDENT-038 v1.1 — Mac control vs cloud factory vocabulary logged
+# INCIDENT-038 v1.1 — Mac control vs cloud factory vocabulary on disk
 set -euo pipefail
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 cd "$ROOT"

@@ -1,4 +1,4 @@
-# sa-score-0099 — Receipt logged for sandbox bounded job → worker queue not mailto
+# sa-score-0099 — Receipt on disk for sandbox bounded job → worker queue not mailto
 
 **Saved at:** 2026-06-25T09:23:55Z
 **Version:** 1 · **Tier:** T3 · **Phase:** NEXT
@@ -16,7 +16,7 @@ Raise SourceA site score toward **95+/100** — proof before call · stranger se
 
 P3 — bench · defer · compare-only
 
-**Deliverable:** Receipt logged for sandbox bounded job → worker queue not mailto
+**Deliverable:** Receipt on disk for sandbox bounded job → worker queue not mailto
 
 Bounded paths: `SourceA-landing/green-unified/` · `cloud/workers/sourcea-site-pulse-v1/` · `scripts/validate-sourcea-modern-stack-e2e-v1.sh`
 

@@ -88,7 +88,7 @@ SHELL_VALIDATORS = [
     },
     {
         "id": "validate-mandatory-read-paths-v1.sh",
-        "label": "Mandatory read paths exist logged",
+        "label": "Mandatory read paths exist on disk",
         "severity": "critical",
         "timeout": 30,
     },
@@ -214,7 +214,7 @@ SHELL_VALIDATORS = [
     },
     {
         "id": "validate-agent-skills-v1.sh",
-        "label": "Agent skills registry + Worker/Brain skills logged",
+        "label": "Agent skills registry + Worker/Brain skills on disk",
         "severity": "critical",
         "timeout": 60,
     },
@@ -342,7 +342,7 @@ def _scan_log() -> tuple[list[dict], list[dict]]:
         size_findings.append(
             {
                 "severity": "critical",
-                "title": "Runaway hub log logged",
+                "title": "Runaway hub log on disk",
                 "trigger": str(LOG),
                 "impact": f"command-server.log is {_human_log_size(size)} — I/O and RAM cache pressure",
                 "fix_hint": ["Truncate ~/.sina/command-server.log", "Mac Health Log Shield → Relieve disk"],

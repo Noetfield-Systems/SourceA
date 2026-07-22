@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# validate-cloud-forge-run-realistic-motor-law-v1.sh — INCIDENT-045 law in repository
+# validate-cloud-forge-run-realistic-motor-law-v1.sh — INCIDENT-045 law on disk
 set -euo pipefail
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 fail() { echo "FAIL: $*" >&2; exit 1; }

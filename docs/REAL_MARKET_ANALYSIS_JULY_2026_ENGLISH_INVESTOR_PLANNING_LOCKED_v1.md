@@ -176,10 +176,10 @@ Most enterprises have stages 1–2. Stages 3–5 remain fragmented — where inf
 
 | You have (mechanical) | Market buys in 2026 |
 |-----------------------|---------------------|
-| Receipt logged, not chat | Audit trail — Credo/Difinity territory |
+| Receipt on disk, not chat | Audit trail — Credo/Difinity territory |
 | Validator = truth | Pre-run gate — enterprise blocker #1 |
 | eval-1b + honest false | Under-claim like Anthropic — trust via honesty |
-| Controlled worker loop | Agent OS for technical founders |
+| Governed worker loop | Agent OS for technical founders |
 
 **Positioning that matches July 2026:**
 
@@ -263,7 +263,7 @@ The portfolio already has the receipt layer mechanically. The gap is **packaging
 | Receipt JSON artifact | ✅ `~/.sina/demo-enforcement/receipts/` | Redact for data room |
 | Paid pilot | ❌ $0 revenue | Close TrustField TF-P1-DP · Ocree approved |
 | Entity clean for DD | ❌ COUNSEL items open | CCPC · IP assignment · bank |
-| Founder institutional layer | ❌ No LinkedIn anchor logged | `data/avatar-scripts-v1.json` → record |
+| Founder institutional layer | ❌ No LinkedIn anchor on disk | `data/avatar-scripts-v1.json` → record |
 | Eval-1b live scoreboard | ⚠️ `eval_packet_v1b_report.json` absent | Structural mode honest — document in ANG-20 |
 | Grant narrative | ✅ IRAP doc + matrix | ITA intake call |
 | SR&ED contemporaneous log | ✅ `receipts/sred-experiment-log-2026/` | Timesheets SRED-08 |

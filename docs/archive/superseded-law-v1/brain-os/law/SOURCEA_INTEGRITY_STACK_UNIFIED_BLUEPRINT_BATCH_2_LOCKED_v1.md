@@ -434,8 +434,8 @@ This is the **general behavior** the pack enforces. Current Canvas questions (24
 
 ```text
 GATE 1 — COMPREHENSION (SAY)
-  Machine translates disk → plain Subject · Question · In the repository · Effect per path.
-  Human reads until they can paraphrase “if I pick X, Y changes logged.”
+  Machine translates disk → plain Subject · Question · On disk · Effect per path.
+  Human reads until they can paraphrase “if I pick X, Y changes on disk.”
 
 GATE 2 — COMMITMENT (PICK)
   Human issues ASF order with explicit Effect line per fork.
@@ -497,7 +497,7 @@ Use **all 13 layers** before declaring paradox, conflict, or “which doc wins.�
 | **L9 — Accountability** | SHIP closeout per F §4? | F §4 · A §3.5 |
 | **L10 — Depth zoom** | 5-step only · +fork · +100-step? | A §4 · E §4 |
 | **L11 — Interface** | Law · prompt · UI · working mirror? | Pack manifest |
-| **L12 — Persistence** | What becomes SSOT in the repository after? | Track · LOCKED · Layer A |
+| **L12 — Persistence** | What becomes SSOT on disk after? | Track · LOCKED · Layer A |
 
 **Judgment rule:** If layers **L1·L6·L7** conflict → **human–machine boundary** issue → apply §14. If **L10** conflict → zoom issue, not paradox. If **L11** conflict → **law beats UI beats working mirror**.
 
@@ -511,7 +511,7 @@ These are **behavioral** tensions across the pack — not about which Canvas que
 |----|------------------------------|--------------|----------------------------|
 | **H1** | **Hyper-active agent vs wait-at-PICK** | Machine acts before founder understands | **A process order wins:** SCAN→SAY→**wait**→PICK. Result-driven “act” applies to **M** rows and gates 1·3·4 — not F forks |
 | **H2** | **RECOMMENDED vs PICK** | Founder thinks recommendation = decision | **F §2** formats options · **A §3.3** binds only on PICK+Effect. RECOMMENDED is machine judgment · PICK is human commitment |
-| **H3** | **Tick/UI vs law** | Canvas confirm feels like “done logged” | **D never wins.** Execute only after ASF in chat → Maintainer PROVE → SHIP |
+| **H3** | **Tick/UI vs law** | Canvas confirm feels like “done on disk” | **D never wins.** Execute only after ASF in chat → Maintainer PROVE → SHIP |
 | **H4** | **5 vs 7 vs 8 vs 100 “steps”** | Feels like competing systems | **L10 zoom:** one machine — parent A · expanded SAY/PICK · closeout F · deep C |
 | **H5** | **Understanding vs shipping** | Founder satisfied by clear SAY; machine never PROVEs | SAY does not close session — **gate 3 mandatory** |
 | **H6** | **Chat memory vs disk truth** | Agent “remembers” stale state | **L2:** MACHINE/LAW only for SCAN · chat never SSOT |

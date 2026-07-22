@@ -23,7 +23,7 @@ Diff our public copy vs Vanta pricing/product page — list 3 concrete gaps; fix
 
 ## Implementation extraction
 
-`Vanta · Buyer-visible UX` → what buyer sees at vendor → what we ship logged with receipt.
+`Vanta · Buyer-visible UX` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

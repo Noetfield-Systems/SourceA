@@ -224,7 +224,7 @@ Thanks for thinking of us,
 
 ## CRM logging
 
-After each send, log logged:
+After each send, log on disk:
 
 ```bash
 python3 scripts/sourcea_revenue_engine_crm_v1.py init

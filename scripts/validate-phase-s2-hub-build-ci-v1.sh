@@ -47,7 +47,7 @@ checks = {
 failed = [k for k, v in checks.items() if not v]
 assert not failed, "phase-s2 proof gaps: " + ", ".join(failed)
 
-# T2/T3 ids are same task indices — prove tier slots exist logged
+# T2/T3 ids are same task indices — prove tier slots exist on disk
 reg = json.loads((ROOT / "os/plan-library/sourcea-1000/REGISTRY.json").read_text(encoding="utf-8"))
 for tier, base in (("T1", 226), ("T2", 251), ("T3", 276)):
     for offset in range(25):

@@ -14,7 +14,7 @@ Dual desktop deploy — agentrun-app :5180 + SA4 AgentGo :8080 · landing parity
 
 ## Task
 
-**Extract reusable template from** case study prose (challenge · shipped · verification).
+**Extract reusable template from** case study prose (challenge · shipped · proof chain).
 
 case study pattern.
 

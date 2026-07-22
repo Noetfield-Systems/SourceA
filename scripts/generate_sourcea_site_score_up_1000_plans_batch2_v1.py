@@ -166,7 +166,7 @@ DELIVERABLES: dict[str, list[str]] = {
         "comparison table SourceA vs Cal-first agency",
         "comparison vs Trigger.dev (receipt + GTM not just runs)",
         "comparison vs Vercel (proof-native not deploy-only)",
-        "moat narrative: controlled agentic + receipt on every page",
+        "moat narrative: governed agentic + receipt on every page",
         "forbidden pattern doc: no fake login no mailto intake",
         "category name lock: 'Proof-native agentic execution'",
         "pricing anchored to outcome not hours",

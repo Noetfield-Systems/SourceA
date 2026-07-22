@@ -14,7 +14,7 @@ Wil L3 portfolio demo — YA5 mirror · AgentGo ≠ SourceA separation · ship g
 
 ## Task
 
-**Log founder-approved send for** case study prose (challenge · shipped · verification).
+**Log founder-approved send for** case study prose (challenge · shipped · proof chain).
 
 t1-pipeline-send-log.
 

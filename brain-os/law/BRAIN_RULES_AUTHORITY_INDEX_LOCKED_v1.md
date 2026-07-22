@@ -131,7 +131,7 @@ Chat / GPT / Claude (compare only — never steer build)
 |------|-------|
 | `.cursor/rules/000-brain-unified.mdc` | **Brain SSOT** — narrate / spawn / refuse / session |
 | `os/chat-handoffs/BRAIN_UNIFIED_RULES_LOCKED_v1.md` | **Brain full unified law** |
-| `scripts/brain_gather_rules_v1.py` | Inventory all Brain rule paths logged |
+| `scripts/brain_gather_rules_v1.py` | Inventory all Brain rule paths on disk |
 | `.cursor/rules/agent-loop.mdc` | **No Terminal for founder** · rules loop · three roles |
 | `.cursor/rules/sina-governance-entry.mdc` | Router |
 | `.cursor/rules/agent-smart-judgment.mdc` | Decision stack |
@@ -232,7 +232,7 @@ From `SINA_GOVERNANCE_ENTRY_LOCKED_v1.md`:
 1. MANDATORY_BRAIN_CHAT_LOCKED_v1.md
 2. BRAIN_RULES_AUTHORITY_INDEX_LOCKED_v1.md          ← THIS FILE
 3. BRAIN_KNOWLEDGE_INDEX_LOCKED_v1.md
-4. CONTROLLED_EXECUTION_OS_MASTER_LOCKED_v1.md   ← goal architecture + operating loop
+4. GOVERNED_EXECUTION_OS_MASTER_LOCKED_v1.md   ← goal architecture + operating loop
 5. BRAIN_FOUNDER_INTENT_REGISTRY_LOCKED_v1.md
 6. BRAIN_FULL_SYSTEM_MAP_LOCKED_v1.md
 7. ~/.sina/brain/BRAIN_MASTER_MEMORY_LOCKED_v1.md

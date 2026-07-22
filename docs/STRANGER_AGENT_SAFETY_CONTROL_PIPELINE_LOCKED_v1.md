@@ -31,7 +31,7 @@
 | Portfolio agent opens wrong repo | Workspace + fleet chat hash match |
 | Mac emergency + unknown python agents | T6 hostile + Mac Health `stranger_agent` block |
 | External orchestrator (Temporal/LangGraph) | `--external-orchestrator` + token file admission |
-| Chat memory ≠ disk SSOT | Admission + monitor + watch receipts logged |
+| Chat memory ≠ disk SSOT | Admission + monitor + watch receipts on disk |
 
 ---
 

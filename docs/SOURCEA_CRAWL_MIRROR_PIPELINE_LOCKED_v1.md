@@ -27,7 +27,7 @@
 
 ## 1. Why SourceA needs a unified crawl–mirror pipeline
 
-| Problem in the repository today | What crawl–mirror fixes |
+| Problem on disk today | What crawl–mirror fixes |
 |-----------------------|-------------------------|
 | Chat ≠ SSOT but chats hold intent | Crawl transcripts → extract decisions → mirror to disk rows |
 | 102+ LOCKED laws + hub + `.mdc` + validators | Crawl law graph → mirror seven surfaces together |
@@ -247,7 +247,7 @@ From `PHASE1_MARKET_RESEARCH_2026.md` and `PRODUCT_FACTORY_RESCORE_NO_ADS_LOCKED
 
 | Deliverable | Owner | Proof |
 |-------------|-------|-------|
-| This doc promoted to build charter | ASF | File logged ✓ |
+| This doc promoted to build charter | ASF | File on disk ✓ |
 | Brand SSOT for commercial skin | Commercial | `config.mjs` pattern per product |
 | SKU pick: Wil AI hub vs RunReceipt vs both | Brain pick on Form | `PROGRAM_PROGRESS` row |
 | Legal: mirror fidelity disclaimer | Governance | Pointer in `/terms` |

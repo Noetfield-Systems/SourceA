@@ -14,7 +14,7 @@ Dual desktop deploy — agentrun-app :5180 + SA4 AgentGo :8080 · landing parity
 
 ## Task
 
-**Prove AgentGo ≠ SourceA copy for** case study prose (challenge · shipped · verification).
+**Prove AgentGo ≠ SourceA copy for** case study prose (challenge · shipped · proof chain).
 
 Footer disclaimer grep.
 

@@ -14,7 +14,7 @@ Dual desktop deploy — agentrun-app :5180 + SA4 AgentGo :8080 · landing parity
 
 ## Task
 
-**Grep separation disclaimer for** case study prose (challenge · shipped · verification).
+**Grep separation disclaimer for** case study prose (challenge · shipped · proof chain).
 
 angle C.
 

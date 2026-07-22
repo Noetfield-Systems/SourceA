@@ -33,7 +33,7 @@ Before ANY “what next” / routing / architecture / earning advice:
 
 | Goal | Tier | Role in “what next” |
 |------|------|---------------------|
-| **1** | T0 + T4 | Controlled factory · 1000-pack · **default execution clock** |
+| **1** | T0 + T4 | Governed factory · 1000-pack · **default execution clock** |
 | **2** | T3 | WTM + Pre-LLM · intelligence before LLM |
 | **3** | T2 primary | **FORGE** — primary sellable app |
 | **4** | T1 | Research sensor — compare only, no pick reorder |
@@ -57,7 +57,7 @@ Before ANY “what next” / routing / architecture / earning advice:
 | 6 | “1000 registry count = product” | **FAIL** | Goal 1 proves spine · SKU = receipts |
 | 7 | “What should I do next?” | **PASS** | T0 · live pick · phase-first s0→s2 |
 | 8 | GPT: “ship MergePack SEO before factory” | **FAIL** | Hierarchy compare · parallel only |
-| 9 | “START AUTO RUN” (hub only) | **WARN** | Goal 1 — controlled head only |
+| 9 | “START AUTO RUN” (hub only) | **WARN** | Goal 1 — governed head only |
 | 10 | `ASF: activate THREAD-MERGEPACK this week` | **PASS** | Parallel — factory still default |
 | 11 | “FORGE vs factory — which first?” | **PASS** | T0 clock · FORGE when ASF names product week |
 | 12 | “Pre-LLM can wait — fix hub UI” | **FAIL** | s2 = 0% credibility gap |

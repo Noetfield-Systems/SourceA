@@ -14,7 +14,7 @@ Wil L3 portfolio demo — YA5 mirror · AgentGo ≠ SourceA separation · ship g
 
 ## Task
 
-**Align Planning Authority Card for** case study prose (challenge · shipped · verification).
+**Align Planning Authority Card for** case study prose (challenge · shipped · proof chain).
 
 A T1 after B proof.
 

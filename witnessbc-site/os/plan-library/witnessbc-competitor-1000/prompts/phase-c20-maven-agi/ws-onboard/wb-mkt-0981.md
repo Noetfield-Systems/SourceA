@@ -23,7 +23,7 @@ Document Maven AGI onboarding path (Support AI enterprise sales): who runs (Vend
 
 ## Implementation extraction
 
-`Maven AGI · Onboarding & PLG` → what buyer sees at vendor → what we ship logged with receipt.
+`Maven AGI · Onboarding & PLG` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

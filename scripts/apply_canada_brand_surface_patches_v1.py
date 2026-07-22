@@ -11,7 +11,7 @@ NF_COPILOT = Path.home() / "Desktop/Noetfield/Noetfield-All-Documents/Noetfield/
 TF_BLOCK = """
     <div class="rounded-xl border border-trust-500/40 bg-trust-950/30 p-5">
       <h2 class="font-semibold text-white">Canada tokenization &amp; RWA — June 2026</h2>
-      <p class="mt-2 text-slate-400">CSA Project Tokenization, Bill C-15 stablecoin readiness, and FINTRAC/CIRO examination pressure mean issuers, EMDs, and MSBs need <strong class="text-slate-300">evidence of controlled operations</strong> — not another tokenization pitch.</p>
+      <p class="mt-2 text-slate-400">CSA Project Tokenization, Bill C-15 stablecoin readiness, and FINTRAC/CIRO examination pressure mean issuers, EMDs, and MSBs need <strong class="text-slate-300">evidence of governed operations</strong> — not another tokenization pitch.</p>
       <ul class="mt-3 space-y-2 text-slate-400 text-sm">
         <li><strong class="text-slate-300">EMD / fractional CRE / digital securities</strong> — Trust Brief + partner receipt pack (T-P6)</li>
         <li><strong class="text-slate-300">MSB &amp; CIRO dealers</strong> — FINTRAC evidence chain pilot (TF-P1-DP)</li>

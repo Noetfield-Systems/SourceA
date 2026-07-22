@@ -23,7 +23,7 @@ Open https://dust.tt — screenshot or quote the exact buyer-facing Buyer-visibl
 
 ## Implementation extraction
 
-`Dust.tt · Buyer-visible UX` → what buyer sees at vendor → what we ship logged with receipt.
+`Dust.tt · Buyer-visible UX` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

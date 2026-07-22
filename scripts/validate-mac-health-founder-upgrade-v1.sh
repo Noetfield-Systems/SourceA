@@ -76,7 +76,7 @@ else
   echo "WARN: SourceA-Landing-URL.txt absent — run publish_sourcea_landing_v1.py"
 fi
 if [[ -f "${SINA}/sourcea-landing-run-receipt-v1.json" ]]; then
-  echo "PASS: landing run-receipt logged"
+  echo "PASS: landing run-receipt on disk"
 else
   echo "WARN: sourcea-landing-run-receipt-v1.json absent — run run-recipe.sh"
 fi

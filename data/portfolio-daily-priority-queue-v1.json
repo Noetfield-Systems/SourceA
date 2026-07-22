@@ -46,7 +46,7 @@
       "priority": "P0",
       "id": "wbc-prod",
       "repo": "WitnessBC",
-      "blocker": "Prod still old journalism site — correct artifact logged / needs DNS cutover",
+      "blocker": "Prod still old journalism site — correct artifact on disk / needs DNS cutover",
       "owner": "sourcea_worker + founder DNS/Stripe",
       "acceptance": "www.witnessbc.com has AI policy at dispatch + brand-disambiguation · no journalism title",
       "founder_action": "DNS CNAME www → witnessbc-commercial.pages.dev · paste Stripe URLs",

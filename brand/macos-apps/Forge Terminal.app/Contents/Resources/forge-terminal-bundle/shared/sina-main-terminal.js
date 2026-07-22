@@ -10,7 +10,7 @@
     "mac-law": "Opens Mac Law routing panel — Mac control plane rules on :8781.",
     "ag-routing": "Opens AG Routing Panel — agent cost intelligence and brand routes on :8782.",
     capture_intelligence:
-      "Scans n8n + Hub + cloud queue logged, writes intelligence brief to ~/.sina/n8n-intelligence/ — takes 1–3 min; terminal shows each step.",
+      "Scans n8n + Hub + cloud queue on disk, writes intelligence brief to ~/.sina/n8n-intelligence/ — takes 1–3 min; terminal shows each step.",
     start: "Starts local n8n process on :5678 if stopped.",
     validate_chain: "Runs fast parallel living-chain probes — all links in terminal.",
     validator_run: "Probe N8N Integration health + disk receipts.",

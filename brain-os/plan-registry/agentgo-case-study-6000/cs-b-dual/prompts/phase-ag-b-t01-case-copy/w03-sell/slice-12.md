@@ -14,7 +14,7 @@ Dual desktop deploy — agentrun-app :5180 + SA4 AgentGo :8080 · landing parity
 
 ## Task
 
-**Log founder-approved send for** case study prose (challenge · shipped · verification).
+**Log founder-approved send for** case study prose (challenge · shipped · proof chain).
 
 t1-pipeline-send-log.
 

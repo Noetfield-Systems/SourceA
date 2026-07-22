@@ -9,7 +9,7 @@
 
 ## One law
 
-> **Filenames and docs use `cloud-forge-run` and `cloud-auto-runtime`. The words drain and loop are retired from paths. 50 batch files + 314 references renamed logged.**
+> **Filenames and docs use `cloud-forge-run` and `cloud-auto-runtime`. The words drain and loop are retired from paths. 50 batch files + 314 references renamed on disk.**
 
 ---
 

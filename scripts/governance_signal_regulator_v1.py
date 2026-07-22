@@ -209,7 +209,7 @@ def discuss_gate(*, impact_row: dict, composite: dict, effect: dict) -> dict:
             "blocked_if": "HIGH/CRITICAL signal without written receipt" if block_foreign else None,
         },
         "outcomes_required": [
-            "What changed logged",
+            "What changed on disk",
             "Which LOCKED laws touched",
             "Which validators prove it",
             "What founder taps next (hub only)",

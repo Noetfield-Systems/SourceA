@@ -23,7 +23,7 @@ Mark wb-mkt-0610 done in REGISTRY with evidence path + https://www.lakera.ai aft
 
 ## Implementation extraction
 
-`Lakera Guard · Buyer-visible UX` → what buyer sees at vendor → what we ship logged with receipt.
+`Lakera Guard · Buyer-visible UX` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

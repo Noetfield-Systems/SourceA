@@ -14,7 +14,7 @@ Wil L3 portfolio demo — YA5 mirror · AgentGo ≠ SourceA separation · ship g
 
 ## Task
 
-**Cross-link portfolio-next-6000 for** case study prose (challenge · shipped · verification).
+**Cross-link portfolio-next-6000 for** case study prose (challenge · shipped · proof chain).
 
 sibling pack.
 

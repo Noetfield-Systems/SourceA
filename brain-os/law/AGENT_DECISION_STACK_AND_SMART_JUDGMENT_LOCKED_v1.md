@@ -184,7 +184,7 @@ detect → classify → remediate → harden → verify → record
 
 When ASF corrects you, or you notice routing/assignment/authority drift in your own reply:
 
-1. **Edit the root-cause doc logged** (handoff, index, notice) — not a chat-only correction.  
+1. **Edit the root-cause doc on disk** (handoff, index, notice) — not a chat-only correction.  
 2. **Wire** index · brain-pack · PRIORITY evidence.  
 3. **Then** tell ASF what was wrong + what disk now says (≤1 screen).
 

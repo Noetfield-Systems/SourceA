@@ -14,7 +14,7 @@ Wil L3 portfolio demo — YA5 mirror · AgentGo ≠ SourceA separation · ship g
 
 ## Task
 
-**Map receipt_gate column for** case study prose (challenge · shipped · verification).
+**Map receipt_gate column for** case study prose (challenge · shipped · proof chain).
 
 REGISTRY.json alignment.
 

@@ -1,7 +1,7 @@
 {
   "schema": "structural-fix-receipt-v1",
   "at": "2026-06-09T01:30:00Z",
-  "law": "REGISTRY done = receipt logged + orchestrator verify role only",
+  "law": "REGISTRY done = receipt on disk + orchestrator verify role only",
   "tasks_reverted": 0,
   "tasks_reverted_ids": [],
   "tasks_kept_done": 9,

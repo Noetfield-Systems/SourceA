@@ -122,7 +122,7 @@ Worker’s fix was right but duplicated (sa-0017 inline + sa-0042 script). **Con
 | `validate-ecosystem-safety-v1.sh` | Includes hub sync contract check |
 | `validate-gatekeeper-v1.sh` | ACTIVE_NOW sync before gatekeeper (QUEUE_POS_DRIFT class) |
 
-**Contract validator:** PASS logged.
+**Contract validator:** PASS on disk.
 
 ---
 

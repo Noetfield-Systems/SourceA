@@ -23,7 +23,7 @@ List Secureframe integrations/APIs from https://secureframe.com or docs — pick
 
 ## Implementation extraction
 
-`Secureframe · Integrations & API` → what buyer sees at vendor → what we ship logged with receipt.
+`Secureframe · Integrations & API` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

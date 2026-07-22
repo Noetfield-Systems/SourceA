@@ -35,7 +35,7 @@ Worker Hub `:13020` = queue · form · factory-now — separate surface (not fou
 
 ## Wiring chain
 
-1. Version + contract logged  
+1. Version + contract on disk  
 2. Standalone server `/health` → `ui_contract`  
 3. `sina_command_lib` · `sina_link_graph` → standalone URLs  
 4. `sync-standalone-apps-to-bundles-v1.sh`  

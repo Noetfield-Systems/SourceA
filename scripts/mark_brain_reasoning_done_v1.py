@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Mark brain cloud reasoning upgrade done with brain_proof receipt logged."""
+"""Mark brain cloud reasoning upgrade done with brain_proof receipt on disk."""
 from __future__ import annotations
 
 import argparse

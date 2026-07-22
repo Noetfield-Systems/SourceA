@@ -14,7 +14,7 @@ Dual desktop deploy — agentrun-app :5180 + SA4 AgentGo :8080 · landing parity
 
 ## Task
 
-**Sample 5 research articles for** case study prose (challenge · shipped · verification).
+**Sample 5 research articles for** case study prose (challenge · shipped · proof chain).
 
 Quality bar — not thin SEO spam.
 

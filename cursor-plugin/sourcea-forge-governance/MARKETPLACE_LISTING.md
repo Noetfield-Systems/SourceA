@@ -84,7 +84,7 @@ Do not claim SOC2 / board export until TrustField Phase 2.
 3. **Cursor marketplace** — upload bundle `data/publish-artifacts/sourcea-forge-governance-card1-*.tar.gz` or point at `cursor-plugin/sourcea-forge-governance/`
 4. **Cloud SSE (optional P2)** — deploy `packages/mcp-sourcea-verify` to Vercel · set `SOURCEA_MCP_TOKEN` in Cursor Team Integrations
 
-## Artifacts logged
+## Artifacts on disk
 
 | Artifact | Path |
 |----------|------|

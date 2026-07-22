@@ -10776,12 +10776,12 @@
       "priority": "P0",
       "lane": "sourcea",
       "slot": 18,
-      "title": "Beta cohort registry logged",
+      "title": "Beta cohort registry on disk",
       "path": "prompts/phase-ac8-ship-revenue/T0/ac-0718.md",
       "status": "backlog",
       "verify": "cd scripts && python3 brain_validate_goal1_v1.py --json && python3 find_critical_bugs.py",
       "agent_tag": "AGENT-AUTO-SOURCEA",
-      "agent_prompt": "PLAN WITH NO ASF \u2014 ac-0718: Beta cohort registry logged",
+      "agent_prompt": "PLAN WITH NO ASF \u2014 ac-0718: Beta cohort registry on disk",
       "program": "AUTOMATION_CONVERGE_PROGRAM_LOCKED_v1.md"
     },
     {
@@ -11151,12 +11151,12 @@
       "priority": "P1",
       "lane": "sourcea",
       "slot": 18,
-      "title": "Beta cohort registry logged",
+      "title": "Beta cohort registry on disk",
       "path": "prompts/phase-ac8-ship-revenue/T1/ac-0743.md",
       "status": "backlog",
       "verify": "cd scripts && bash validate-eval-packet-v1b-live.sh && bash validate-dispatch-policy-v1.sh && python3 find_critical_bugs.py",
       "agent_tag": "AGENT-AUTO-SOURCEA",
-      "agent_prompt": "PLAN WITH NO ASF \u2014 ac-0743: Beta cohort registry logged",
+      "agent_prompt": "PLAN WITH NO ASF \u2014 ac-0743: Beta cohort registry on disk",
       "program": "AUTOMATION_CONVERGE_PROGRAM_LOCKED_v1.md"
     },
     {
@@ -11526,12 +11526,12 @@
       "priority": "P2",
       "lane": "sourcea",
       "slot": 18,
-      "title": "Beta cohort registry logged",
+      "title": "Beta cohort registry on disk",
       "path": "prompts/phase-ac8-ship-revenue/T2/ac-0768.md",
       "status": "backlog",
       "verify": "cd scripts && bash validate-goal1-auto-loop-v1.sh && bash validate-goal1-loop-activation-chain-v1.sh",
       "agent_tag": "AGENT-AUTO-SOURCEA",
-      "agent_prompt": "PLAN WITH NO ASF \u2014 ac-0768: Beta cohort registry logged",
+      "agent_prompt": "PLAN WITH NO ASF \u2014 ac-0768: Beta cohort registry on disk",
       "program": "AUTOMATION_CONVERGE_PROGRAM_LOCKED_v1.md"
     },
     {
@@ -11901,12 +11901,12 @@
       "priority": "P3",
       "lane": "sourcea",
       "slot": 18,
-      "title": "Beta cohort registry logged",
+      "title": "Beta cohort registry on disk",
       "path": "prompts/phase-ac8-ship-revenue/T3/ac-0793.md",
       "status": "backlog",
       "verify": "cd scripts && python3 goal-progress-v1.py && python3 find_critical_bugs.py",
       "agent_tag": "AGENT-AUTO-SOURCEA",
-      "agent_prompt": "PLAN WITH NO ASF \u2014 ac-0793: Beta cohort registry logged",
+      "agent_prompt": "PLAN WITH NO ASF \u2014 ac-0793: Beta cohort registry on disk",
       "program": "AUTOMATION_CONVERGE_PROGRAM_LOCKED_v1.md"
     },
     {

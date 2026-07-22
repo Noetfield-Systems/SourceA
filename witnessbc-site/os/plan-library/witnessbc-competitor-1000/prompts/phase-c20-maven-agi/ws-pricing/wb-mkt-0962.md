@@ -23,7 +23,7 @@ Map Maven AGI revenue model (Annual enterprise + usage) to our `Free toolkits �
 
 ## Implementation extraction
 
-`Maven AGI · Pricing & packaging` → what buyer sees at vendor → what we ship logged with receipt.
+`Maven AGI · Pricing & packaging` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

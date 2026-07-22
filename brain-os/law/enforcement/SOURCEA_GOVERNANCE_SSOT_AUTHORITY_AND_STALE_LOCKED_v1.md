@@ -11,7 +11,7 @@
 
 ## One law
 
-> **Authority comes from registry status — not from a file simply existing.** Exactly one **operating law** (`llm_agent_operating_law` family) may be **ACTIVE**. Superseded docs are controlled history. **Stale** is the only cleanup target: ambiguous authority with no declared registry row.
+> **Authority comes from registry status — not from a file simply existing.** Exactly one **operating law** (`llm_agent_operating_law` family) may be **ACTIVE**. Superseded docs are governed history. **Stale** is the only cleanup target: ambiguous authority with no declared registry row.
 
 ---
 
@@ -21,9 +21,9 @@
 |-------|---------|-------------------|
 | **ACTIVE** | Registered row with `status: active` · exactly one operating-law row | **Yes** — dispatch + ORD truth gate |
 | **SUPERSEDED** | Registered row with `status: superseded` · quarantine under `brain-os/ssot/superseded/` or registered `pdf_path` | **No** — lineage only · do-not-operate |
-| **STALE** | Rule-like doc logged with **no registry row** on its plane | **No** — flag for founder review · never auto-delete |
+| **STALE** | Rule-like doc on disk with **no registry row** on its plane | **No** — flag for founder review · never auto-delete |
 
-**Stale ≠ old.** A clearly-marked superseded doc is controlled history, not stale.  
+**Stale ≠ old.** A clearly-marked superseded doc is governed history, not stale.  
 **Stale ≠ draft.** Draft rows exist in the registry with `status: draft` — not ambiguous.
 
 ---
@@ -50,7 +50,7 @@ A document is **STALE** when **all** of the following hold:
    - `brain-os/law/**` → authority index · law root index · gov-unify manifest · `data/authority-root-allowlist-v1.json`
 3. It is **not** excluded: `*INDEX_LOCKED*.md` · `README_LOCKED*.md` · paths under `superseded/` or `archive/`.
 
-**Stale means ambiguous authority** — an agent could treat the file as operative law because nothing logged declares otherwise.
+**Stale means ambiguous authority** — an agent could treat the file as operative law because nothing on disk declares otherwise.
 
 **Forbidden on stale:** auto-delete · auto-archive · silent supersede. **Required:** flag in check output · founder adds authority row or SSOT registry entry · or relocates to superseded quarantine.
 

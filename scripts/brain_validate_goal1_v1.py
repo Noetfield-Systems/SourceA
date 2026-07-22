@@ -233,7 +233,7 @@ def validate_goal1(*, strict: bool = False) -> dict:
         activate_state = "RUNNING"
         activate_pass = True
     elif inbox.get("pending") and not executor_busy:
-        # INBOX in the repository — Worker handoff ready; READY not "stuck" (ignore stale AGENT DONE broker=no)
+        # INBOX on disk — Worker handoff ready; READY not "stuck" (ignore stale AGENT DONE broker=no)
         activate_state = "READY"
         activate_pass = True
     elif not inbox.get("pending") and o.get("status") in ("idle", "done") and not executor_busy:

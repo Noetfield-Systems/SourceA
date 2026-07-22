@@ -1,7 +1,7 @@
 # fs-tf-0209 — Fast-sell plan
 
 **Version:** 1 · **Tier:** T3 · **Phase:** LATER
-**Lane:** TrustField · **Wedge:** w11-case-study · Client case study logged
+**Lane:** TrustField · **Wedge:** w11-case-study · Client case study on disk
 **Action:** a19-archive · Archive lesson to knowledge-library
 **Comp anchor:** Wise Business · FINTRAC vendors
 **Tier 1:** FINTRAC readiness scan
@@ -10,7 +10,7 @@
 
 ## Task
 
-Fast-sell: TrustField · Client case study logged · Archive lesson to knowledge-library. Ship smallest slice that moves a buyer toward **FINTRAC readiness scan** with a path to **MSB program + settlement**. Receipt logged before done.
+Fast-sell: TrustField · Client case study on disk · Archive lesson to knowledge-library. Ship smallest slice that moves a buyer toward **FINTRAC readiness scan** with a path to **MSB program + settlement**. Receipt on disk before done.
 
 ## Verify
 

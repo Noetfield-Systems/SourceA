@@ -14,7 +14,7 @@ Dual desktop deploy — agentrun-app :5180 + SA4 AgentGo :8080 · landing parity
 
 ## Task
 
-**Note ASF requirement for** case study prose (challenge · shipped · verification).
+**Note ASF requirement for** case study prose (challenge · shipped · proof chain).
 
 Public subdomain ship.
 

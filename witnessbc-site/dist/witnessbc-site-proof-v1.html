@@ -3261,18 +3261,18 @@ html[data-theme="light"] .proof-terminal-glass {
 }
 .proof-artifact-link span { opacity: 0.7; }
 
-.proof-evidence-in-repo .proof-evidence-card {
+.proof-evidence-on-disk .proof-evidence-card {
   border-left: 3px solid var(--border);
   transition: transform 0.2s var(--ease-out), box-shadow 0.2s;
 }
-.proof-evidence-in-repo .proof-evidence-card:hover {
+.proof-evidence-on-disk .proof-evidence-card:hover {
   transform: translateY(-3px);
   box-shadow: var(--shadow);
 }
-.proof-evidence-in-repo .verdict-border-allow { border-left-color: var(--green-bright); }
-.proof-evidence-in-repo .verdict-border-block { border-left-color: var(--red-bright); }
-.proof-evidence-in-repo .verdict-border-escalate { border-left-color: var(--amber-bright); }
-.proof-evidence-in-repo .verdict-border-fail { border-left-color: var(--red-bright); }
+.proof-evidence-on-disk .verdict-border-allow { border-left-color: var(--green-bright); }
+.proof-evidence-on-disk .verdict-border-block { border-left-color: var(--red-bright); }
+.proof-evidence-on-disk .verdict-border-escalate { border-left-color: var(--amber-bright); }
+.proof-evidence-on-disk .verdict-border-fail { border-left-color: var(--red-bright); }
 .proof-evidence-card-dl {
   display: inline-block;
   margin-top: 0.35rem;
@@ -4122,7 +4122,7 @@ html[data-theme="dark"] .highlight-row {
               <li>Request → policy eval at dispatch</li>
               <li>BLOCK on red-line violation</li>
               <li>ESCALATE → human gate → ALLOW</li>
-              <li>Signed receipt logged</li>
+              <li>Signed receipt on disk</li>
               <li>Tamper-FAIL on hand edit · replay</li>
             </ol>
             <a class="btn btn-primary btn-sm" href="mailto:proof@witnessbc.com?subject=Witness%20AI%20%E2%80%94%2015-min%20live%20proof">Book 15-min walkthrough</a>
@@ -4151,7 +4151,7 @@ html[data-theme="dark"] .highlight-row {
         <header class="proof-lab-header">
           <div>
             <p class="section-eyebrow">Proof Lab</p>
-            <h2>Run real scenarios · inspect evidence logged</h2>
+            <h2>Run real scenarios · inspect evidence on disk</h2>
           </div>
           <div class="proof-progress-tracker" id="proofProgressTracker">
             <span class="proof-progress-label">Scenarios explored</span>
@@ -4213,9 +4213,9 @@ html[data-theme="dark"] .highlight-row {
           </aside>
         </div>
 
-        <div class="proof-evidence-cards-section" id="evidence-in-repo">
+        <div class="proof-evidence-cards-section" id="evidence-on-disk">
           <div class="proof-evidence-cards-head">
-            <h3>Evidence logged</h3>
+            <h3>Evidence on disk</h3>
             <a class="btn btn-ghost btn-sm" id="proofBundleDownload" href="data/proof-scenarios-v1.json" download="witnessbc-proof-scenarios-v1.json">Download proof bundle ↓</a>
           </div>
           <div class="proof-evidence-cards-grid" id="proofEvidenceCards"></div>
@@ -4557,7 +4557,7 @@ html[data-theme="dark"] .highlight-row {
         <a href="platform.html">Observe · Govern · Prove</a>
         <a href="lifecycle.html">Governance loop</a>
         <a href="policy.html">AI policy</a>
-        <a href="proof.html">>Verification</a>
+        <a href="proof.html">Proof chain</a>
       </div>
       <div>
         <h5>Observe</h5>
@@ -4595,7 +4595,7 @@ html[data-theme="dark"] .highlight-row {
     { label: "Policy evaluation at dispatch", film: 1 },
     { label: "Decision: ALLOW / BLOCK / ESCALATE", film: 2 },
     { label: "Human gate when required", film: 3 },
-    { label: "Signed receipt logged", film: 4 },
+    { label: "Signed receipt on disk", film: 4 },
     { label: "Replay from ledger", film: 5 },
     { label: "Tamper-FAIL on hand edit", film: 6 },
   ];
@@ -5352,7 +5352,7 @@ html[data-theme="dark"] .highlight-row {
     { title: "Intake", desc: "Agent action arrives · classify scope · initial policy scan.", code: "wbc.intake.received" },
     { title: "Policy eval", desc: "AI policy pack runs at dispatch — BLOCK · ESCALATE · ALLOW.", code: "wbc.triage.complete → verdict" },
     { title: "Human gate", desc: "Approve irreversible agent actions before execution.", code: "wbc.review.approved" },
-    { title: "Execute", desc: "Agent runs under policy · signed receipt logged.", code: "wbc.publish.sent" },
+    { title: "Execute", desc: "Agent runs under policy · signed receipt on disk.", code: "wbc.publish.sent" },
     { title: "Audit", desc: "Log overrides · replay proof · policy version pinned.", code: "wbc.correction.logged" },
     { title: "Prove", desc: "Signed ledger + replay. Hand-edited receipts FAIL validation.", code: "export → replay → tamper-FAIL" },
   ];

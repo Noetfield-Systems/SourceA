@@ -7,10 +7,10 @@
   const CONFIG_URL = "/sourcea/data/sourcea-site-interact-v1.json";
   const GUIDED_KEY = "sourcea-guided-v1";
   const DEFAULTS = {
-    booking_url: "https://cal.com/sourcea/proof-demo",
-    booking_overlay_url: "https://cal.com/sourcea/proof-demo?overlayCalendar=true&embed=true",
-    booking_label: "Talk to a human",
-    use_cal_overlay: true,
+    booking_url: "/start?source=interact-proof-intake",
+    booking_overlay_url: "/start?source=interact-proof-intake",
+    booking_label: "Need proof-led escalation?",
+    use_cal_overlay: false,
     skills: [],
     guided_prompts: [],
   };
@@ -35,6 +35,13 @@
   }
 
   function openCalOverlay() {
+    if (!config.use_cal_overlay) {
+      if (config.booking_url) {
+        window.location.href = config.booking_url;
+      }
+      return;
+    }
+
     let root = document.getElementById("sa-cal-overlay");
     if (!root) {
       root = document.createElement("div");
@@ -43,9 +50,9 @@
       root.hidden = true;
       root.innerHTML = `
         <div class="sa-cal-overlay-backdrop" data-sa-cal-close></div>
-        <div class="sa-cal-overlay-panel" role="dialog" aria-label="Talk to a human">
+        <div class="sa-cal-overlay-panel" role="dialog" aria-label="Proof-led escalation">
           <header class="sa-cal-overlay-head">
-            <strong>${config.booking_label || "Talk to a human"}</strong>
+            <strong>${config.booking_label || "Need proof-led escalation?"}</strong>
             <button type="button" class="sa-cal-overlay-close" data-sa-cal-close aria-label="Close">×</button>
           </header>
           <iframe class="sa-cal-overlay-frame" title="Cal.com booking" loading="lazy"></iframe>
@@ -81,7 +88,8 @@
         el.textContent = config.booking_label;
         if (arrow) el.appendChild(arrow);
       }
-      el.setAttribute("data-sa-cal-overlay", "1");
+      if (config.use_cal_overlay) el.setAttribute("data-sa-cal-overlay", "1");
+      else el.removeAttribute("data-sa-cal-overlay");
     });
 
     document.addEventListener(

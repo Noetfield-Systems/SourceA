@@ -23,7 +23,7 @@ Mark wb-mkt-0660 done in REGISTRY with evidence path + https://www.holisticai.co
 
 ## Implementation extraction
 
-`Holistic AI · Buyer-visible UX` → what buyer sees at vendor → what we ship logged with receipt.
+`Holistic AI · Buyer-visible UX` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

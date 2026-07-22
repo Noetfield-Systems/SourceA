@@ -119,7 +119,7 @@ Competitor-1000 workstream hints (from pick scripts):
 
 ---
 
-## Sandbox execution API (cloud — already present)
+## Sandbox execution API (cloud — already on disk)
 
 | Surface | Path |
 |---------|------|

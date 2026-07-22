@@ -6,7 +6,7 @@
   "approval_ref": "MGR-2026-001",
   "to": "prospect@example.com",
   "channel": "email",
-  "subject": "Quick intro — controlled agent loops",
+  "subject": "Quick intro — governed agent loops",
   "actor": "asset_b_demo",
   "agent_id": "asset_b_demo",
   "object_id": "ASSET-B-OUTREACH-DEMO"

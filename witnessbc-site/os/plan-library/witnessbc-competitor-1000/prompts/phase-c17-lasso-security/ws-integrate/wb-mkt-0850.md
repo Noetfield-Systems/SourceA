@@ -23,7 +23,7 @@ Close wb-mkt-0850: integration receipt + verify PASS + https://www.lasso.securit
 
 ## Implementation extraction
 
-`Lasso Security · Integrations & API` → what buyer sees at vendor → what we ship logged with receipt.
+`Lasso Security · Integrations & API` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

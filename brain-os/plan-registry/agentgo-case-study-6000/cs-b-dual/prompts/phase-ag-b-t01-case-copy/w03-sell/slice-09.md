@@ -14,7 +14,7 @@ Dual desktop deploy — agentrun-app :5180 + SA4 AgentGo :8080 · landing parity
 
 ## Task
 
-**Write 15-min Cal script for** case study prose (challenge · shipped · verification).
+**Write 15-min Cal script for** case study prose (challenge · shipped · proof chain).
 
 Screen-share order.
 

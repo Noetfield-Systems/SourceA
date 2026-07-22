@@ -14,7 +14,7 @@ Dual desktop deploy — agentrun-app :5180 + SA4 AgentGo :8080 · landing parity
 
 ## Task
 
-**Patch smart generator for** case study prose (challenge · shipped · verification).
+**Patch smart generator for** case study prose (challenge · shipped · proof chain).
 
 v2 lexicon.
 

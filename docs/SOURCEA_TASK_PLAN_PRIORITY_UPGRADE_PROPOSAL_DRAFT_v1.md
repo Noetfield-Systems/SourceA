@@ -48,7 +48,7 @@ Agents answer every task/plan with five sections (034 rule). Machines write `tas
 
 | Unified | Label | When it wins | Real-world output |
 |---------|-------|--------------|-------------------|
-| **P0** | Founder form + nerve cascade | Official form batch submit · desired state | Nerve cascade · §ANSWERED logged |
+| **P0** | Founder form + nerve cascade | Official form batch submit · desired state | Nerve cascade · §ANSWERED on disk |
 | **P1** | Cloud FORGE revenue lane | `phase_market` · `CLOUD-SEC` · `sa-mkt` | Preview URL · labs row · Hub UX · E2E receipt |
 | **P2** | Noetfield freemium bay | Phase 0 north star | Freemium surface · cloud bay PASS |
 | **P3** | TrustField · outbound · GTM | Steps 6–7 · demos/outreach | Landing · pricing · outreach asset |

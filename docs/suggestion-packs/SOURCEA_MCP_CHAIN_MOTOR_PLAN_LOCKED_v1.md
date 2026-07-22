@@ -104,7 +104,7 @@ Campus MCPs (virlux · noetfield · trustfield) emit campus receipts → federat
 | 002 | Linear MCP authenticated · Integration Leverage project | Mac | Issue sync test |
 | 003 | Browser MCP for pilot demo only (T2 disclosure) | Mac | One verify screenshot |
 | 004 | Document post-PR hook: GitHub action → `verify_run` | Cloud | Workflow YAML in repo |
-| 005 | Linear issue template `MCP-RECEIPT-{id}` | Mac | Template logged |
+| 005 | Linear issue template `MCP-RECEIPT-{id}` | Mac | Template on disk |
 | 006 | Never wire MCP to write `~/.sina/*` — lint rule | Mac | CI grep PASS |
 | 007 | Session gate remains pre-ship authority | Mac | Gate receipt ok=true |
 | 008 | RUN INBOX unchanged — MCP assists only | Mac | Worker audit PASS |
@@ -182,7 +182,7 @@ Campus MCPs (virlux · noetfield · trustfield) emit campus receipts → federat
 | 055 | Demo skill: verify after GitHub PR | Skill | Recording |
 | 056 | Category tags: Agent Orchestration, Infrastructure | Marketplace | Approved |
 | 057 | Private team marketplace doc for enterprise | Docs | T3 only |
-| 058 | Cloud Agent preset "Controlled Worker" | Cursor | MCP scoped |
+| 058 | Cloud Agent preset "Governed Worker" | Cursor | MCP scoped |
 | 059 | permissions.json allowlist verify_run read | Cursor | Auto-review safe |
 | 060 | Founder disclosure ladder T1 badge copy | Docs | No T0 MCP lead |
 

@@ -23,7 +23,7 @@ Close wb-mkt-0200: integration receipt + verify PASS + https://scrut.io
 
 ## Implementation extraction
 
-`Scrut Automation · Integrations & API` → what buyer sees at vendor → what we ship logged with receipt.
+`Scrut Automation · Integrations & API` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

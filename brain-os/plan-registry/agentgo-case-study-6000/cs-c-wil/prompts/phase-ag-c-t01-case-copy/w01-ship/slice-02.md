@@ -14,7 +14,7 @@ Wil L3 portfolio demo — YA5 mirror · AgentGo ≠ SourceA separation · ship g
 
 ## Task
 
-**Wire nav + breadcrumb for** case study prose (challenge · shipped · verification).
+**Wire nav + breadcrumb for** case study prose (challenge · shipped · proof chain).
 
 Link from offer + footer; PureFlow stays case #1.
 

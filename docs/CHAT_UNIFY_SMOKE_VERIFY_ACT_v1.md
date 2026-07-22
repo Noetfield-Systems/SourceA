@@ -16,4 +16,4 @@
 ## Pass
 
 - All 7 steps green or honest BLOCK with reason
-- Receipt JSON logged
+- Receipt JSON on disk

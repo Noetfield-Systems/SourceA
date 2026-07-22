@@ -70,12 +70,12 @@ EXTRA_FIXTURES = {
         "artifact_type": "commercial_film",
         "artifact_content": """VO: Your agents execute right now. Who stops the one that goes too far?
 VO: SourceA puts policy, BLOCK, and receipt on every loop — before spend, send, or deploy.
-VO: Book a fifteen-minute proof. See the gate logged, not in a slide deck.""",
+VO: Book a fifteen-minute proof. See the gate on disk, not in a slide deck.""",
         "domain_profile": "general_SMB",
     },
     "email": {
         "artifact_type": "email",
-        "artifact_content": """Subject: Ocree — one question on controlled agent loops
+        "artifact_content": """Subject: Ocree — one question on governed agent loops
 
 Hi Sarah,
 
@@ -91,11 +91,11 @@ Reply stop to opt out.""",
     },
     "landing_page": {
         "artifact_type": "landing_page",
-        "artifact_content": """Controlled agentic automation for teams that cannot afford a bad send.
+        "artifact_content": """Governed agentic automation for teams that cannot afford a bad send.
 
 Policy runs before spend. Every loop leaves a receipt you can audit.
 
-Book a 15-minute proof — see BLOCK logged, not in a deck.""",
+Book a 15-minute proof — see BLOCK on disk, not in a deck.""",
         "domain_profile": "general_SMB",
     },
 }

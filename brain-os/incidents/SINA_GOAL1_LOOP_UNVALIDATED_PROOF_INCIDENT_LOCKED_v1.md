@@ -20,7 +20,7 @@ A Cursor **Brain/maintainer agent** told the founder the **Goal 1 worker batch l
 
 ## 2. UNVALIDATED PROOF — what the assistant claimed vs what was true
 
-| # | Assistant claim (UNVALIDATED) | Verified truth locally (2026-06-07 ~05:53Z) |
+| # | Assistant claim (UNVALIDATED) | Verified truth on disk (2026-06-07 ~05:53Z) |
 |---|------------------------------|---------------------------------------------|
 | 1 | “Worker batch STARTED pid 53404” = loop running | PID existed briefly; **no `goal1_worker_batch` or `agent -p` processes** at founder check time |
 | 2 | Batch log shows `AGENT START sa-0139` = turn in progress | Latest `~/.sina/goal1-worker-batch-latest.log` ends in **`WORKER_BATCH_TURN_FAIL`** JSON; turn **`exit_code: 143`** (SIGTERM); **`output_chars: 1`** in `goal1-worker-turn-runs.jsonl` |
@@ -29,7 +29,7 @@ A Cursor **Brain/maintainer agent** told the founder the **Goal 1 worker batch l
 | 5 | “Watch batch log every 25s” sufficient | Log polluted by **osascript stderr** (`0:20: syntax error…`) mixed with batch stdout — **not a reliable live signal** |
 | 6 | Stop/Start wired — founder can run loop from Hub | **Hub offline** + last batch **halted on turn 1** — founder sees **not running** |
 
-**Law label:** Any row in §2 is **UNVALIDATED PROOF** until all §5 acceptance checks pass logged in one continuous run.
+**Law label:** Any row in §2 is **UNVALIDATED PROOF** until all §5 acceptance checks pass on disk in one continuous run.
 
 ---
 
@@ -78,7 +78,7 @@ If any check fails → status is **NOT RUNNING** or **FAILED** — never “prob
 
 Full PEV / Conductor analysis locked at `os/chat-handoffs/GOAL1_EXECUTION_SOLUTION_LOCKED_v1.md`.
 
-**Core lesson:** Headless `agent -p -f` executed logged while founder watched Worker chat. Visibility = **Batch log + queue pos**, not composer typing.
+**Core lesson:** Headless `agent -p -f` executed on disk while founder watched Worker chat. Visibility = **Batch log + queue pos**, not composer typing.
 
 ---
 
@@ -97,7 +97,7 @@ Full PEV / Conductor analysis locked at `os/chat-handoffs/GOAL1_EXECUTION_SOLUTI
 
 ## 8. Founder expectation violated
 
-- **“Running”** means Worker is **executing or completing** a turn the founder can see advance in the repository — not a PID that died in 2 minutes.
+- **“Running”** means Worker is **executing or completing** a turn the founder can see advance on disk — not a PID that died in 2 minutes.
 - **“CHECK AND FIX EVERYTHING”** requires **end-to-end proof**, not validator green pills.
 - Assistant must **not** close the task while queue is still on **sa-0139 act** with **FAILED** progress.
 

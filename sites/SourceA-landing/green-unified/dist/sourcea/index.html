@@ -11,8 +11,8 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" />
   <link rel="stylesheet" href="/assets/agentrun.css" />
   <link rel="stylesheet" href="/sourcea/sourcea.css" />
+  <link rel="stylesheet" href="/sourcea/sourcea-cookie-consent-v1.css" />
   <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
-<link rel="stylesheet" href="/sourcea/sourcea-cookie-consent-v1.css" />
 </head>
 <body class="ar-body sa-v2 sa-agentic" data-sa-page="home-commercial">
 
@@ -29,10 +29,11 @@
       <nav class="ar-nav" id="ar-nav" aria-label="Primary">
         <a href="/" data-sa-nav data-sa-nav-home>Home</a>
         <a href="/eval" data-sa-nav>Eval</a>
-        <a href="/sourcea/platform" data-sa-nav>Platform</a>
+        <a href="/sourcea/platform.html" data-sa-nav>Platform</a>
         <a href="/sourcea/proof" data-sa-nav>Proof</a>
-        <a href="/sourcea/offer" data-sa-nav>Offer</a>
-        <a href="/sourcea/pricing" data-sa-nav>Pricing</a>
+        <a href="/sourcea/offer.html" data-sa-nav>Offer</a>
+        <a href="/sourcea/pricing.html" data-sa-nav>Pricing</a>
+        <a href="/sourcea/growth.html" data-sa-nav>Growth</a>
         <a href="/sourcea/kernel/" data-sa-nav>Kernel</a>
         <a class="ar-btn ar-btn-ghost ar-btn-sm ar-nav-signin-mobile" href="/platform">Sign in</a>
         <a class="ar-btn ar-btn-primary ar-btn-sm ar-nav-cta-mobile sa-btn-glow" data-sa-proof-cta href="/sourcea/forge/terminal">Try Forge Terminal</a>
@@ -51,20 +52,41 @@
 </header>
 
 <main id="main-content">
+  <div id="team" aria-hidden="true"></div>
+  <div id="reference" aria-hidden="true"></div>
+  <div id="growth" aria-hidden="true"></div>
+  <div id="sandbox" aria-hidden="true"></div>
+  <div id="proof" aria-hidden="true"></div>
+  <div id="platform" aria-hidden="true"></div>
   <section class="ar-hero ar-hero-ref sa-sub-hero ar-reveal" id="top">
     <div class="ar-container">
       <p class="ar-kicker" data-sa-positioning="kicker">Proof-backed MVPs · acquisition systems, shipped fast</p>
       <h1><span data-sa-positioning="h1-line1">Proof-backed MVPs and acquisition systems,</span> <span class="ar-hero-accent" data-sa-positioning="h1-accent">shipped fast.</span></h1>
-      <p class="ar-hero-lead" data-sa-positioning="lead">Evaluate in five minutes with <strong>sourcea-boot</strong> — PASS or BLOCK logged. Forge Terminal, live receipt, or Brain — no sales call required.</p>
+      <p class="ar-hero-lead" data-sa-positioning="lead">Evaluate in five minutes with <strong>sourcea-boot</strong> — PASS or BLOCK on disk. Forge Terminal, live receipt, or Brain — no sales call required.</p>
       <div class="ar-hero-actions" style="margin-top:1.5rem">
         <a class="ar-btn ar-btn-primary sa-btn-glow" data-sa-primary-cta href="/start">Request a 48-hour build<span class="ar-btn-arrow">→</span></a>
-        <a class="ar-btn ar-btn-ghost" data-sa-secondary-cta href="/sourcea/proof/live">See proof<span class="ar-btn-arrow ar-btn-arrow-dark">→</span></a>
+        <a class="ar-btn ar-btn-ghost" data-sa-secondary-cta href="/sourcea/proof/live.html">See proof<span class="ar-btn-arrow ar-btn-arrow-dark">→</span></a>
         <a class="ar-btn ar-btn-ghost" data-sa-tertiary-cta href="/sourcea/forge/terminal">Try Forge Terminal<span class="ar-btn-arrow ar-btn-arrow-dark">→</span></a>
         <a class="ar-btn ar-btn-ghost ar-btn-sm" data-sa-intake-cta href="/eval">Run sourcea-boot eval</a>
       </div>
+      <div id="sa-buyer-toggle" class="sa-buyer-chips sa-buyer-toggle sa-fade-up" role="navigation" aria-label="Entry paths">
+        <a class="sa-buyer-chip is-active" href="/sourcea/forge/terminal">Forge Terminal</a>
+        <a class="sa-buyer-chip sa-buyer-chip-secondary" href="/start">48-hour MVP</a>
+        <a class="sa-buyer-chip sa-buyer-chip-secondary" href="/sourcea/offer.html">Offer</a>
+      </div>
+      <div class="sa-mock-panel" aria-live="polite">
+        <p id="sa-agent-pill-text" class="sa-agent-pill">Proof-first execution lane</p>
+        <div class="sa-chain-beats" aria-label="Execution chain beats">
+          <span>Request</span>
+          <span>Policy</span>
+          <span>PASS/BLOCK</span>
+          <span>Receipt</span>
+          <span>Replay</span>
+        </div>
+      </div>
       <aside class="sa-taxonomy-box ar-reveal" data-sa-taxonomy style="margin-top:1.5rem;padding:1rem 1.25rem;border:1px solid rgba(4,68,65,0.2);border-radius:12px;max-width:42rem;font-size:0.9rem;line-height:1.55">
         <p style="margin:0 0 0.5rem"><strong>SourceA</strong> is the product — AI execution platform with proof on every run.</p>
-        <p style="margin:0 0 0.5rem">Forge is the execution engine — prompt forge, agents, and delivery desk.</p>
+        <p style="margin:0 0 0.5rem">Forge is the execution engine — prompt forge, agents, and governed delivery desk.</p>
         <p style="margin:0">Components named once: Brain (public chat) · Loops (ops) · Factories (vertical apps) · Proof (live receipts).</p>
       </aside>
       <div class="ar-hero-trust sa-trust-pop sa-hero-stats-row" style="margin-top:2rem">
@@ -82,7 +104,7 @@
         <p class="ar-kicker">What SourceA runs</p>
         <h2>Execution first — proof built in</h2>
         <ul class="sa-handoff-list">
-          <li><strong>Real AI work</strong> — builds, automations, controlled agent workflows (not chat theater)</li>
+          <li><strong>Real AI work</strong> — builds, automations, governed agent workflows (not chat theater)</li>
           <li><strong>Faster client delivery</strong> — scoped jobs with quality gate before ship</li>
           <li><strong>Shareable receipts</strong> — what ran, what passed, what you can show stakeholders</li>
           <li><strong>Forge Terminal</strong> — browser demo + Mac desk for founders and agencies</li>
@@ -122,7 +144,7 @@
           <span class="ar-price-badge">Step 3</span>
           <h3>Deploy + grow</h3>
           <p>Platform from $2K/mo when you want ongoing execution — every run receipted.</p>
-          <a class="ar-btn ar-btn-ghost ar-btn-sm" href="/sourcea/pricing">See pricing →</a>
+          <a class="ar-btn ar-btn-ghost ar-btn-sm" href="/sourcea/pricing.html">See pricing →</a>
         </article>
       </div>
     </div>
@@ -164,8 +186,8 @@
       <div class="ar-prose">
         <p class="ar-kicker">Who it's for</p>
         <h2>Founders, agencies, and Cursor-native builders</h2>
-        <p><strong>Now:</strong> Solo founders shipping MVPs, agencies delivering client AI work, and teams who need controlled execution — not another chat wrapper.</p>
-        <p><strong>Depth:</strong> Technical architecture on <a href="/sourcea/kernel/">Kernel</a> · capital narrative on <a href="/sourcea/investors">Investors</a>.</p>
+        <p><strong>Now:</strong> Solo founders shipping MVPs, agencies delivering client AI work, and teams who need governed execution — not another chat wrapper.</p>
+        <p><strong>Depth:</strong> Technical architecture on <a href="/sourcea/kernel/">Kernel</a> · capital narrative on <a href="/sourcea/investors.html">Investors</a>.</p>
       </div>
     </div>
   </section>
@@ -174,7 +196,7 @@
     <div class="ar-container sa-cta-inner">
       <p class="ar-kicker">Self-serve first</p>
       <h2>If the site can show it, you don't need a sales call.</h2>
-      <p>Try Forge Terminal, file feedback from any page, or ask Brain — optional human walkthrough only when you want it.</p>
+      <p>Try Forge Terminal, file feedback from any page, or ask Brain — request a proof review path only when you want it.</p>
       <div class="sa-cta-actions">
         <a class="ar-btn ar-btn-primary sa-btn-glow" href="/sourcea/forge/terminal">Try Forge Terminal</a>
         <a class="ar-btn ar-btn-ghost" href="mailto:hello@sourcea.app">hello@sourcea.app</a>
@@ -193,13 +215,13 @@
       <h4>Start</h4>
       <a href="/learn">Learn &amp; build</a>
       <a href="/sourcea/forge/terminal">Forge Terminal</a>
-      <a href="/sourcea/proof/live">Live receipt</a>
+      <a href="/sourcea/proof/live.html">Live receipt</a>
       <a href="/start">48h MVP</a>
-      <a href="/sourcea/pricing">Pricing</a>
+      <a href="/sourcea/pricing.html">Pricing</a>
     </nav>
     <nav class="sa-footer-col" aria-label="Company">
       <h4>Company</h4>
-      <a href="/sourcea/investors">Investors</a>
+      <a href="/sourcea/investors.html">Investors</a>
       <a href="/sourcea/kernel/">Kernel</a>
       <a href="mailto:hello@sourcea.app">hello@sourcea.app</a>
     </nav>
@@ -221,6 +243,7 @@
 <script src="/sourcea/sourcea-site-ux-v1.js" defer></script>
 <script src="/sourcea/sourcea-site-pulse-v1.js" defer></script>
 <script src="/assets/agentrun.js" defer></script>
+<script src="/sourcea/sourcea-motion.js" defer></script>
 <script src="/sourcea/sourcea-cookie-consent-v1.js" defer></script>
 <script src="/sourcea/sourcea-site-ux-v1.js" defer></script>
 <script src="/sourcea/sourcea-site-pulse-v1.js" defer></script>

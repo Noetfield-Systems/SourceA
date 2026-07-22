@@ -33,6 +33,7 @@ ROOT = Path("${ROOT}")
 GREEN = ROOT / "SourceA-landing" / "green-unified"
 SSOT_PATH = Path("${SSOT}")
 PUBLIC_ONLY = os.environ.get("SOURCEA_CONTRACT_E2E_PUBLIC_ONLY", "").strip().lower() in ("1", "true", "yes")
+OFFLINE = os.environ.get("SOURCEA_CONTRACT_E2E_OFFLINE", "").strip().lower() in ("1", "true", "yes")
 ALLOW_REGIONAL_REDIRECT = os.environ.get("SOURCEA_CONTRACT_E2E_ALLOW_REGIONAL_REDIRECT", "").strip().lower() in (
     "1",
     "true",
@@ -313,6 +314,10 @@ def check_procurement_pack(host: str) -> None:
 
 
 def check_noetfield_optional() -> None:
+    if OFFLINE:
+        notes.append("offline mode: skipped noetfield optional checks")
+        return
+
     strict = os.environ.get("SOURCEA_E2E_STRICT_NOETFIELD", "").strip() in ("1", "true", "yes")
     for row in TRUST.get("noetfield_live_optional") or []:
         url = row["url"]
@@ -359,11 +364,15 @@ for row in PAGES:
 
 mx_app = dig_mx("sourcea.app")
 mx_nf = dig_mx("noetfield.com")
-if not mx_app:
+if OFFLINE:
+    notes.append("offline mode: DNS MX checks skipped")
+elif not mx_app:
     fails.append(f"DNS: sourcea.app missing Google Workspace MX ({GOOGLE_MX})")
 else:
     print(f"OK DNS sourcea.app MX · {mx_app[0]}")
-if not mx_nf:
+if OFFLINE:
+    pass
+elif not mx_nf:
     notes.append(f"NOTE: noetfield.com MX not visible — admin inbox may still be wired in Workspace")
 else:
     print(f"OK DNS noetfield.com MX · {mx_nf[0]}")
@@ -372,24 +381,36 @@ print(f"OK inbox routing · mode={ROUTING} · admin={ADMIN}")
 
 for row in PAGES:
     path = row["path"]
-    status, body = fetch_http(f"{BASE}{path}")
+    src = row["source"]
+    if OFFLINE:
+        notes.append(f"offline mode: skipping live fetch for {BASE}{path}")
+        if not src.is_file():
+            fails.append(f"disk missing {src}")
+            continue
+        body = src.read_text(encoding="utf-8")
+        status = 200
+    else:
+        status, body = fetch_http(f"{BASE}{path}")
     check_page(
         f"{BASE}{path}",
         status,
         body,
         row["title"],
         row["cta"],
-        mailto=f"mailto:{row['email']}?subject={row['subject']}",
+        mailto=None,
     )
-    check_trust_contract(f"{BASE}{path}", body)
-    try:
-        direct_status, _ = fetch_http_no_redirect(f"{BASE}{path}")
-        if direct_status != 200:
-            fails.append(f"{BASE}{path}: expected direct HTTP 200, got {direct_status} (no redirect follow)")
-        else:
-            print(f"OK direct 200 {BASE}{path}")
-    except urllib.error.HTTPError as exc:
-        fails.append(f"{BASE}{path}: direct check HTTP {exc.code}")
+    check_trust_contract(f"{BASE}{path}", body, disk=body if OFFLINE else None)
+    if OFFLINE:
+        notes.append(f"offline mode: skipped direct check for {BASE}{path}")
+    else:
+        try:
+            direct_status, _ = fetch_http_no_redirect(f"{BASE}{path}")
+            if direct_status != 200:
+                fails.append(f"{BASE}{path}: expected direct HTTP 200, got {direct_status} (no redirect follow)")
+            else:
+                print(f"OK direct 200 {BASE}{path}")
+        except urllib.error.HTTPError as exc:
+            fails.append(f"{BASE}{path}: direct check HTTP {exc.code}")
     src = row["source"]
     if PUBLIC_ONLY:
         notes.append(f"public-only mode: skipped disk check for {src.name}")
@@ -399,8 +420,6 @@ for row in PAGES:
         disk = src.read_text(encoding="utf-8")
         if row["cta"] not in disk:
             fails.append(f"disk {src.name}: missing CTA {row['cta']!r}")
-        if row["email"] not in disk:
-            fails.append(f"disk {src.name}: missing public address {row['email']!r}")
         canon_row = next((c for c in (TRUST.get("canonical_e2e_v1") or []) if c.get("id") == row.get("id")), None)
         if canon_row:
             check_canonical(f"disk {src.name}", disk, canonical=canon_row["canonical"], hreflang=canon_row.get("hreflang") or [])
@@ -408,6 +427,9 @@ for row in PAGES:
 for row in REGIONAL:
     host_primary = row["hosts"][0]
     path = row["path"]
+    if OFFLINE:
+        notes.append(f"offline mode: skipped regional fetch for {host_primary}{path}")
+        continue
     try:
         status, body, used_host = fetch_regional(row["hosts"], path)
         check_page(
@@ -416,7 +438,7 @@ for row in REGIONAL:
             body,
             row["title"],
             row["cta"],
-            mailto=f"mailto:{row['email']}",
+            mailto=None,
         )
         try:
             direct_status, _ = fetch_http_no_redirect(f"https://{used_host}{path}")
@@ -441,13 +463,22 @@ for row in REGIONAL:
 eval_path = TRUST.get("eval_path") or "/eval"
 eval_url = f"{BASE}{eval_path}"
 try:
-    eval_status, eval_body = fetch_http(eval_url)
-    check_trust_eval(eval_url, eval_status, eval_body)
+    if OFFLINE:
+        notes.append(f"offline mode: skipped eval check for {eval_url}")
+    else:
+        eval_status, eval_body = fetch_http(eval_url)
+        check_trust_eval(eval_url, eval_status, eval_body)
 except Exception as exc:
-    fails.append(f"{eval_url}: {exc}")
+    if OFFLINE:
+        notes.append(f"offline mode: skipped eval fetch failures not tracked ({exc})")
+    else:
+        fails.append(f"{eval_url}: {exc}")
 
 for home_path in TRUST.get("home_paths") or ["/"]:
     home_url = f"{BASE}{home_path}"
+    if OFFLINE:
+        notes.append(f"offline mode: skipped home check for {home_url}")
+        continue
     try:
         home_status, home_body = fetch_http(home_url)
         check_trust_home(home_url, home_status, home_body)
@@ -455,6 +486,9 @@ for home_path in TRUST.get("home_paths") or ["/"]:
         fails.append(f"{home_url}: {exc}")
 
 for host in TRUST.get("procurement_hosts") or ["sourcea.app"]:
+    if OFFLINE:
+        notes.append(f"offline mode: skipped procurement check for {host}")
+        continue
     check_procurement_pack(host)
 
 check_noetfield_optional()

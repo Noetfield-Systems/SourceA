@@ -20,7 +20,7 @@
 |-----|--------|
 | Research fragmentation in UI app | Done in architecture audit + this doc (fresh counts below) |
 | Propose upgrade to reduce duplication | v1 docs exist; **this v2 doc updates them with post-U0 truth** |
-| Simplify and unify E2E | Proposed as **U5 gate ladder** — **not built logged yet** |
+| Simplify and unify E2E | Proposed as **U5 gate ladder** — **not built on disk yet** |
 | Implement everything | **Not requested** — only **U0** was approved (`ASF: UNIFY U0`) and is now **DONE** |
 
 **U0 delivered (2026-06-10):** flat `hub-sync` contract + `home_founder_view` + `shellFieldsFromHubSync` + 45s poll + `validate-hub-sync-ui-contract-v1.sh`. Gates PASS (hub-sync ~5–87ms, `generation_id` 41→42).

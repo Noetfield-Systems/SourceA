@@ -1,7 +1,7 @@
 # SourceA commercial landing (adapted layouts)
 
 **NOT Noetfield** — Buyer 1 · platform eng · Asset B DFY  
-**Law:** `SOURCEA_ASSET_B_CONTROLLED_AGENTIC_AUTOMATION_LOCKED_v1.md` · `SOURCEA_UNIFIED_PORTFOLIO_COMMERCIAL_SSOT_LOCKED_v3.1.md`
+**Law:** `SOURCEA_ASSET_B_GOVERNED_AGENTIC_AUTOMATION_LOCKED_v1.md` · `SOURCEA_UNIFIED_PORTFOLIO_COMMERCIAL_SSOT_LOCKED_v3.1.md`
 
 ## Canonical site (green-unified — 12 pages)
 
@@ -18,16 +18,16 @@ Detail: `SourceA-landing/green-unified/README.md`
 
 | Layout | File | Clone source |
 |--------|------|--------------|
-| **Canonical (Agent Run)** | `green-unified/` | light/dark layout themes polish · 12 pages |
-| SourceA-style (light) | `sourcea-layout-light.html` | `C12/` |
-| SourceA-style (dark) | `sourcea-layout-dark.html` | `C13/` · SourceA Asset B |
+| **Canonical (Agent Run)** | `green-unified/` | Nomotic/Zenity polish · 12 pages |
+| Zenity-style (light) | `zenity.html` | `C12/` |
+| Nomotic-style (dark) | `nomotic.html` | `C13/` · SourceA Asset B |
 
 ## Open (legacy layouts)
 
 ```bash
-bash SourceA-landing/open.sh          # SourceA + SourceA static HTML
-open SourceA-landing/sourcea-layout-light.html
-open SourceA-landing/sourcea-layout-dark.html
+bash SourceA-landing/open.sh          # Zenity + Nomotic static HTML
+open SourceA-landing/zenity.html
+open SourceA-landing/nomotic.html
 ```
 
 Witness BC (separate brand): `bash witnessbc-site/scripts/run-recipe.sh`
@@ -39,7 +39,7 @@ Witness BC (separate brand): `bash witnessbc-site/scripts/run-recipe.sh`
 - **Category:** Execution Proof Infrastructure — policy at dispatch · ledger + replay  
 - **SKUs:** $750 audit · $3–10K DFY · $2–5K/mo retainer  
 
-## Also logged
+## Also on disk
 
-`~/.sina/sourcea-commercial-sourcea-layout-light-layout-v1.html` · `~/.sina/sourcea-commercial-sourcea-layout-dark-layout-v1.html`  
+`~/.sina/sourcea-commercial-zenity-layout-v1.html` · `~/.sina/sourcea-commercial-nomotic-layout-v1.html`  
 **Desktop:** bootstrap once if paths missing, then `cd ~/Desktop/agentrun-app && ./serve.sh` → Agent Run :5180/sourcea/

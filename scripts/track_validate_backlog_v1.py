@@ -112,7 +112,7 @@ def broker_validation_snapshot(*, run_validators: bool = False) -> dict:
             "monitor_gate": monitor_gate.get("tail") or monitor_gate.get("error") or "",
             "broker_gate": broker_gate.get("tail") or broker_gate.get("error") or "",
         },
-        "law": "Worker receipt logged + broker WORKER_SUBMIT + maintainer gates PASS",
+        "law": "Worker receipt on disk + broker WORKER_SUBMIT + maintainer gates PASS",
     }
 
 

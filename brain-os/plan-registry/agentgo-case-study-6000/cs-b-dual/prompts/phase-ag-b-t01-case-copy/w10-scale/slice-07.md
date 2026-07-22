@@ -14,7 +14,7 @@ Dual desktop deploy — agentrun-app :5180 + SA4 AgentGo :8080 · landing parity
 
 ## Task
 
-**Defer i18n for** case study prose (challenge · shipped · verification).
+**Defer i18n for** case study prose (challenge · shipped · proof chain).
 
 EN only now.
 

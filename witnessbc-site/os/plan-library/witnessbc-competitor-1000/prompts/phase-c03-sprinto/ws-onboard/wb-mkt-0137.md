@@ -23,7 +23,7 @@ Measure drop-off: list one friction point vs Sprinto and fix
 
 ## Implementation extraction
 
-`Sprinto · Onboarding & PLG` → what buyer sees at vendor → what we ship logged with receipt.
+`Sprinto · Onboarding & PLG` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

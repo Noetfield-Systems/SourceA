@@ -23,7 +23,7 @@ Document who buys (AI startups needing fast SOC 2) vs our ICP one sentence on `w
 
 ## Implementation extraction
 
-`Delve · Buyer-visible UX` → what buyer sees at vendor → what we ship logged with receipt.
+`Delve · Buyer-visible UX` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

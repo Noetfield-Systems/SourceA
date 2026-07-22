@@ -38,7 +38,7 @@
     "product_loop": {
       "label": "Commercial product loop (SKU)",
       "policy": "keep",
-      "examples": ["scoped loop", "loop build", "/sourcea/loops/", "Agent Loop Build"]
+      "examples": ["governed loop", "loop build", "/sourcea/loops/", "Agent Loop Build"]
     },
     "chat_unify_loop": {
       "label": "Chat Unify verify/ORD machines",
@@ -146,7 +146,7 @@
     {
       "wrong": "Rename product loop build copy to Auto Runtime",
       "why": "Commercial SKU subject product_loop",
-      "right": "Keep scoped loop / loop build"
+      "right": "Keep governed loop / loop build"
     },
     {
       "wrong": "Rename Chat Unify founder loop / ORD loop",

@@ -21,7 +21,7 @@
 
 ## 0. One sentence (law)
 
-> **Disclose outcomes, governance discipline, and brand SKUs in public; reveal architecture, prompts, and control-plane wiring only under staged NDA — founder truth stays absolute logged, never 100% global.**
+> **Disclose outcomes, governance discipline, and brand SKUs in public; reveal architecture, prompts, and control-plane wiring only under staged NDA — founder truth stays absolute on disk, never 100% global.**
 
 ---
 
@@ -29,9 +29,9 @@
 
 This section records verification of the disclosure research synthesis against live SSOT.
 
-### 1.1 VERIFIED — already present
+### 1.1 VERIFIED — already on disk
 
-| Claim | Proof logged | Status |
+| Claim | Proof on disk | Status |
 |-------|---------------|--------|
 | Investor meetings use `investor/` — not smoke tests | `investor/README.md` L29 | **PASS** |
 | SinaPromptOS = internal brain, not headline | `investor/FAQ_INVESTORS.md` L37–39 | **PASS** |
@@ -48,7 +48,7 @@ This section records verification of the disclosure research synthesis against l
 | Human **10–20%** · system **80–90%** on film | `skill-founder-identity-layers` L31 | **PASS** |
 | Public perimeter: no custody · advisory only | `linkedin-voice.yaml` L30–39 | **PASS** |
 | Deterministic pick: free first → ROI | `TIER_PRIORITY_COST…` §2 L33–41 | **PASS** |
-| IJ loop chain shipped (Mac-first) | `SOURCEA_INVESTIGATOR_JUDGE…` v1.1.0 · scripts logged | **PASS** |
+| IJ loop chain shipped (Mac-first) | `SOURCEA_INVESTIGATOR_JUDGE…` v1.1.0 · scripts on disk | **PASS** |
 | Commercial film tiers A/B/C routed | `data/commercial-film-routing-v1.json` | **PASS** |
 | Stack map brand routing machine SSOT | `data/commercial/stack-map-routing-v1.json` | **PASS** |
 
@@ -162,7 +162,7 @@ Intent → Gate → Execute → Receipt → Proof
 | Founder | Mac manages business. Cloud runs factories. One deposit proves the stack. |
 
 **Hide:**
-- SourceA spine as **hero** — footer only: *Powered by SourceA — advisory only · no custody · no payment initiation*
+- SourceA spine as **hero** — footer only: *Powered by SourceA governed execution — advisory only · no custody · no payment initiation*
 - ICP compile machinery · machine loop scores · RRL stage names in buyer-facing body
 
 **Ship gate:** `sina_read_score_pct` ≥ 90 — `FACTORY_VOCABULARY…` §4  
@@ -185,7 +185,7 @@ Intent → Packet → Gate → Dispatch → Execute → Receipt → Eval → (lo
 ```
 
 - What is monitored · what is refused to auto-run (`dispatch_ready=false` = responsible)
-- Staging/sandbox demo — contained verification
+- Staging/sandbox demo — contained proof chain
 
 **Hide:**
 - Prompt templates · full pipeline node graph · cross-lane edit law prose

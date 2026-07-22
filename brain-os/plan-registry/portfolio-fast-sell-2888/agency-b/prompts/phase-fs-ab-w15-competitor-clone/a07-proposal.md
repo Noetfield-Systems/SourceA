@@ -1,7 +1,7 @@
 # fs-ab-0273 — Fast-sell plan
 
 **Version:** 1 · **Tier:** T2 · **Phase:** MOONSHOT
-**Lane:** SourceA Agency Asset B · **Wedge:** w15-archived-research · Ship differentiated feature slice
+**Lane:** SourceA Agency Asset B · **Wedge:** w15-competitor-clone · Clone one competitor feature slice
 **Action:** a07-proposal · 1-page proposal PDF
 **Comp anchor:** Pickaxe 3-tier agency
 **Tier 1:** Workflow audit $1.5–3K
@@ -10,12 +10,12 @@
 
 ## Task
 
-Fast-sell: SourceA Agency Asset B · Ship differentiated feature slice · 1-page proposal PDF. Ship smallest slice that moves a buyer toward **Workflow audit $1.5–3K** with a path to **Build + $1–5K/mo optimize**. Receipt logged before done.
+Fast-sell: SourceA Agency Asset B · Clone one competitor feature slice · 1-page proposal PDF. Ship smallest slice that moves a buyer toward **Workflow audit $1.5–3K** with a path to **Build + $1–5K/mo optimize**. Receipt on disk before done.
 
 ## Verify
 
 ```bash
-test -f ~/Desktop/SourceA/brain-os/law/SOURCEA_ASSET_B_CONTROLLED_AGENTIC_AUTOMATION_LOCKED_v1.md
+test -f ~/Desktop/SourceA/brain-os/law/SOURCEA_ASSET_B_GOVERNED_AGENTIC_AUTOMATION_LOCKED_v1.md
 ```
 
 ## Closeout

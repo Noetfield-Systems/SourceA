@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Baseline snapshot for machine upgrades — before/after photo logged.
+"""Baseline snapshot for machine upgrades — before/after photo on disk.
 
 Law: REFINEMENT_UNIFIED_AGENT_MACHINE_LOCKED_v1.md
 Output: ~/.sina/machine-upgrade-baseline-v1.json

@@ -23,7 +23,7 @@ Mark wb-mkt-0980 done with run page screenshot or receipt path
 
 ## Implementation extraction
 
-`Maven AGI · Run history & proof` → what buyer sees at vendor → what we ship logged with receipt.
+`Maven AGI · Run history & proof` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

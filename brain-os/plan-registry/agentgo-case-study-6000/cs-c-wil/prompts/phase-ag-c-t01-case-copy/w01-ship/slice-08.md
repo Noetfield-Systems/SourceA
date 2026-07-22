@@ -14,7 +14,7 @@ Wil L3 portfolio demo — YA5 mirror · AgentGo ≠ SourceA separation · ship g
 
 ## Task
 
-**Run run-recipe deploy step for** case study prose (challenge · shipped · verification).
+**Run run-recipe deploy step for** case study prose (challenge · shipped · proof chain).
 
 agentrun-app + SA4 when ship window open.
 

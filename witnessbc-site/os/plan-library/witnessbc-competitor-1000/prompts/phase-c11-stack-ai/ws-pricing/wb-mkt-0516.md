@@ -19,11 +19,11 @@
 
 ## Task (Medium — hardening, validator, docs)
 
-Document why buyers pay per Stack AI: Need controlled internal AI without dev team — tie to our offer in plain English
+Document why buyers pay per Stack AI: Need governed internal AI without dev team — tie to our offer in plain English
 
 ## Implementation extraction
 
-`Stack AI · Pricing & packaging` → what buyer sees at vendor → what we ship logged with receipt.
+`Stack AI · Pricing & packaging` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

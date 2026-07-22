@@ -14,7 +14,7 @@ Wil L3 portfolio demo — YA5 mirror · AgentGo ≠ SourceA separation · ship g
 
 ## Task
 
-**Harden mobile layout for** case study prose (challenge · shipped · verification).
+**Harden mobile layout for** case study prose (challenge · shipped · proof chain).
 
 responsive patterns.
 

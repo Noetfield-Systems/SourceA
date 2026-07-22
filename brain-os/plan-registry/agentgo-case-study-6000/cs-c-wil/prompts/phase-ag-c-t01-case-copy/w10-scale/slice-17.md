@@ -14,7 +14,7 @@ Wil L3 portfolio demo — YA5 mirror · AgentGo ≠ SourceA separation · ship g
 
 ## Task
 
-**Investor slide bullet for** case study prose (challenge · shipped · verification).
+**Investor slide bullet for** case study prose (challenge · shipped · proof chain).
 
 factory scale.
 

@@ -15,7 +15,7 @@
 4. `BRAIN_KNOWLEDGE_INDEX_LOCKED_v1.md`
 5. `BRAIN_FOUNDER_INTENT_REGISTRY_LOCKED_v1.md`
 6. `BRAIN_FULL_SYSTEM_MAP_LOCKED_v1.md`
-7. `CONTROLLED_EXECUTION_OS_MASTER_LOCKED_v1.md`
+7. `GOVERNED_EXECUTION_OS_MASTER_LOCKED_v1.md`
 8. This file
 9. `docs/system-audits/README_INDEX.md` (audit evidence pointer — not copied to `~/.sina/brain`)
 10. Live: `plan-no-asf-run.sh pick 3` + `/api/agent-rules-in-charge-v1`

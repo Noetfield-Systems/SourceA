@@ -70,7 +70,7 @@ Work **backward from Phase 100 (exit / Series B credibility)** to **Phase 1 (tod
 
 ### Layer A — Entity & money (Week 1–4)
 
-| Artifact | Protects | Status logged |
+| Artifact | Protects | Status on disk |
 |----------|----------|----------------|
 | TrustField Technologies incorporation (BC CCPC) | Liability · tax · contracting | **Verify live** — governance mission YAML |
 | Minute book + resolutions | Founder actions defensible | COUNSEL |

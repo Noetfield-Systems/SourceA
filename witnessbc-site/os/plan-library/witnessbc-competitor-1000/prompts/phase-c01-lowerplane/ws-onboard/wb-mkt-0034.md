@@ -23,7 +23,7 @@ Freemium cap or trial label visible before first run (AI policy + first agentic 
 
 ## Implementation extraction
 
-`LowerPlane · Onboarding & PLG` → what buyer sees at vendor → what we ship logged with receipt.
+`LowerPlane · Onboarding & PLG` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

@@ -33,7 +33,7 @@ Report **three numbers**, never a blended total:
 
 ## Founder standard (sellable row)
 
-**CLOUD-SEC-1100 / delve.co pattern:** `http_fetch` · HTTP 200 · real snippets · forge-seed artifact logged.
+**CLOUD-SEC-1100 / delve.co pattern:** `http_fetch` · HTTP 200 · real snippets · forge-seed artifact on disk.
 
 ## Entity note
 

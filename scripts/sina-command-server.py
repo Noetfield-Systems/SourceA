@@ -2169,13 +2169,13 @@ class SinaCommandHandler(BaseHTTPRequestHandler):
             self._json(200, dispatch_policy_v1_post(body))
             return
         if path == "/api/runtime-wrapper/v1/dispatch":
-            from sourcea_runtime_wrapper_v1 import controlled_dispatch  # noqa: WPS433
+            from sourcea_runtime_wrapper_v1 import governed_dispatch  # noqa: WPS433
 
             action = str(body.get("action") or "")
             if not action:
                 self._json(400, {"ok": False, "error": "action required"})
                 return
-            row = controlled_dispatch(
+            row = governed_dispatch(
                 action=action,
                 context=body.get("context") if isinstance(body.get("context"), dict) else {},
                 profile_name=str(body.get("profile") or "") or None,

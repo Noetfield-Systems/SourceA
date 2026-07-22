@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Founder pivot router — complex founder asks → route_pack locally (no repeat briefings).
+"""Founder pivot router — complex founder asks → route_pack on disk (no repeat briefings).
 
 Law: data/founder-pivot-pattern-v1.json
 Receipt: ~/.sina/founder-pivot-routing-receipt-v1.json
@@ -174,7 +174,7 @@ def route_founder_pivot(
         "machines_to_run": hit.get("machines_to_run") or [],
         "machine_runs": machine_runs if run_machines else [],
         "founder_one_tap": (hit.get("routing_override") or {}).get("founder_action"),
-        "law": "Complex founder pivot in the repository — agents read receipt; founder does not repeat",
+        "law": "Complex founder pivot on disk — agents read receipt; founder does not repeat",
     }
     if write:
         SINA.mkdir(parents=True, exist_ok=True)

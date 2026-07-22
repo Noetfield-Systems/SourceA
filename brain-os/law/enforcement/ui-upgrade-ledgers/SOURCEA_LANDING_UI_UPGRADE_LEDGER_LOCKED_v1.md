@@ -31,7 +31,7 @@
 
 ## App-specific checklist (beyond general UP)
 
-- [ ] **LAND-1** Baseline `check` each controlled file before edit  
+- [ ] **LAND-1** Baseline `check` each governed file before edit  
 - [ ] **LAND-2** Never use `reference/` or `Downloads/*.html` as canonical  
 - [ ] **LAND-3** `run-recipe.sh --e2e` PASS before baseline bump  
 - [ ] **LAND-4** All 5 HTML + CSS + 3 JS inventoried  

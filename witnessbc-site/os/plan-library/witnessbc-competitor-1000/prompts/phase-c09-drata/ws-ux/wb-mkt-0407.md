@@ -23,7 +23,7 @@ Document who buys (SaaS companies) vs our ICP one sentence on `witnessbc-site/co
 
 ## Implementation extraction
 
-`Drata · Buyer-visible UX` → what buyer sees at vendor → what we ship logged with receipt.
+`Drata · Buyer-visible UX` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

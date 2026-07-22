@@ -33,8 +33,8 @@ for key, *needles in checks:
             sys.exit(1)
     print(f"PASS: {path}")
 
-bench = Path("archive/attachments/commercial/internal capability research archive")
-for n in ("sourcea-layout-light.io", "notenic.ai", "fusegov.com", "witness.ai", "Overall", "Master scorecard"):
+bench = Path("archive/attachments/commercial/COMPETITOR_SITES_UI_BENCHMARK_2026-06-15_v1.md")
+for n in ("zenity.io", "notenic.ai", "fusegov.com", "witness.ai", "Overall", "Master scorecard"):
     if n not in bench.read_text(encoding="utf-8"):
         print(f"FAIL: benchmark missing {n}")
         sys.exit(1)

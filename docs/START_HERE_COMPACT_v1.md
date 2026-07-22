@@ -38,4 +38,4 @@ python3 scripts/rule_fragmentation_audit_v1.py --json
 
 ## Next business phase
 
-`docs/SOURCEA_FOUNDER_AI_AGENTIC_PLATFORM_PROPOSAL_v1.md` — Founder AI platform · MVP→production · controlled agentic systems for customers.
+`docs/SOURCEA_FOUNDER_AI_AGENTIC_PLATFORM_PROPOSAL_v1.md` — Founder AI platform · MVP→production · governed agentic systems for customers.

@@ -23,7 +23,7 @@ Document who buys (Support leaders at mid-market+) vs our ICP one sentence on `w
 
 ## Implementation extraction
 
-`Maven AGI · Buyer-visible UX` → what buyer sees at vendor → what we ship logged with receipt.
+`Maven AGI · Buyer-visible UX` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

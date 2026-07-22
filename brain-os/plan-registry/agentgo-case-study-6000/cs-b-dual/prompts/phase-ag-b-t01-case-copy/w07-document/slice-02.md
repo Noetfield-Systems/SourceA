@@ -14,7 +14,7 @@ Dual desktop deploy — agentrun-app :5180 + SA4 AgentGo :8080 · landing parity
 
 ## Task
 
-**Update machine index for** case study prose (challenge · shipped · verification).
+**Update machine index for** case study prose (challenge · shipped · proof chain).
 
 AGENTGO-CASE-STUDY-6000.md.
 

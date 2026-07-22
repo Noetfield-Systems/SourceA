@@ -112,7 +112,7 @@
       if (catalog.generated_at) {
         note.textContent = `Catalog synced ${catalog.generated_at.slice(0, 10)} · ${products.length} shown`;
       } else if (mode === "case-studies") {
-        note.textContent = "PureFlow (#1 trades) · AgentGo (#2 factory scale) · same controlled spine";
+        note.textContent = "PureFlow (#1 trades) · AgentGo (#2 factory scale) · same governed spine";
       }
     }
   }

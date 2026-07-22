@@ -45,7 +45,7 @@
       "currency": "cad",
       "product_type": "subscription_saas"
     },
-    "stripe_buyer_copy_template": "Controlled AI operations for teams on any stack \u2014 web, mobile, and API surfaces. Subscribe to Noetfield Systems for operational TLE evaluation, policy receipts, and upgrade paths with no desktop-only or OS-specific gates."
+    "stripe_buyer_copy_template": "Governed AI operations for teams on any stack \u2014 web, mobile, and API surfaces. Subscribe to Noetfield Systems for operational TLE evaluation, policy receipts, and upgrade paths with no desktop-only or OS-specific gates."
   },
   "product_routes": [
     {

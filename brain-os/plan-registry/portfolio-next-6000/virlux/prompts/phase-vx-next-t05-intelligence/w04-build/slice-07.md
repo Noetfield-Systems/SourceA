@@ -12,7 +12,7 @@ Agentic factory SaaS — no payment/FINTRAC copy
 
 ## Task
 
-VIRLUX · Noetfield Intelligence 613 · Build · slice 7/10 — P2 — harden · validate · document. Bounded path only. Receipt logged before done. Parent: Agentic factory SaaS — no payment/FINTRAC copy. Priority doc: `os/plan-library/VIRLUX-PRIORITY.md`.
+VIRLUX · Noetfield Intelligence 613 · Build · slice 7/10 — P2 — harden · validate · document. Bounded path only. Receipt on disk before done. Parent: Agentic factory SaaS — no payment/FINTRAC copy. Priority doc: `os/plan-library/VIRLUX-PRIORITY.md`.
 
 ## Verify
 

@@ -143,7 +143,7 @@ def build_aeg_live() -> dict:
         "site_proof_url": site_proof,
         "forensic_archive_url": latest.get("proof_url"),
         "hosted_at": latest.get("hosted_at") or latest.get("at"),
-        "disclaimer": "Live inject from factory repository · same schema as weekly export bundle",
+        "disclaimer": "Live inject from factory disk · same schema as weekly export bundle",
     }
     return _sanitize_obj(_align_aeg_proof(row))
 
@@ -182,7 +182,7 @@ def _render_pipeline_rows(factory: dict) -> str:
     pipe = factory.get("pipeline") or {}
     top = pipe.get("top_next") or []
     if not top:
-        return '<li><code>—</code><span>No pipeline rows logged</span><span class="sa-v">—</span></li>'
+        return '<li><code>—</code><span>No pipeline rows on disk</span><span class="sa-v">—</span></li>'
     rows: list[str] = []
     for r in top:
         founder = r.get("id") == "cp-a0c7c6c607" or r.get("founder_pick")
@@ -237,8 +237,8 @@ def hydrate_live_html(aeg: dict, factory: dict) -> bool:
         meta_parts.append(f"Valid YES {factory['valid_yes']}/{factory.get('valid_yes_total') or 1000}")
     if evidence_id:
         meta_parts.append(evidence_id)
-    meta = " · ".join(meta_parts) or "Live from factory repository"
-    sync_line = factory.get("factory_now_line") or aeg.get("disclaimer") or "Live from factory repository"
+    meta = " · ".join(meta_parts) or "Live from factory disk"
+    sync_line = factory.get("factory_now_line") or aeg.get("disclaimer") or "Live from factory disk"
     if str(aeg.get("verdict") or "").upper() == "PASS":
         terminal = html.escape(BUYER_SAFE_TERMINAL)
         blockers_html = _render_blockers([])

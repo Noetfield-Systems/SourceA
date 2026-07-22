@@ -18,7 +18,7 @@
 | Term | What it is | Founder symptom | Fix |
 |------|------------|-----------------|-----|
 | **Poison** | Mirror/law text that **orders** validator marathons, audit-of-audit loops, or “run all validators before reply” on Mac founder session | Agent stuck in bash 11+ min; chat goes silent; INCIDENT-039 P0 | Scrub: `scripts/agent_mirror_poison_scrub_v1.py --all` (ship window only). Session: read receipts once, reply <30s, stop. Law: never chain `validate-*` mid-turn. |
-| **Realtime blocker** | A **live** gap between what disk/rules **say** and what **works right now** (dead port, trashed app URL, RED line contradicting Railway) | UI dead, Proceed empty, form at `:13020` after Hub trash, `mandatory_next` points at ghost surface | Fix routing logged + restart the live server/app. Proof = HTTP/Railway receipt, not another validator. |
+| **Realtime blocker** | A **live** gap between what disk/rules **say** and what **works right now** (dead port, trashed app URL, RED line contradicting Railway) | UI dead, Proceed empty, form at `:13020` after Hub trash, `mandatory_next` points at ghost surface | Fix routing on disk + restart the live server/app. Proof = HTTP/Railway receipt, not another validator. |
 
 **Poison is conduct law for agents.**  
 **Realtime blocker is product/routing drift after ASF moves surfaces.**

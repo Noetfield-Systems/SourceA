@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""FBE W0 stub node — structural PASS receipt logged."""
+"""FBE W0 stub node — structural PASS receipt on disk."""
 from __future__ import annotations
 
 import argparse

@@ -14,7 +14,7 @@ Dual desktop deploy — agentrun-app :5180 + SA4 AgentGo :8080 · landing parity
 
 ## Task
 
-**Audit NOW rows 1–30 concrete for** case study prose (challenge · shipped · verification).
+**Audit NOW rows 1–30 concrete for** case study prose (challenge · shipped · proof chain).
 
 No generic slice filler.
 

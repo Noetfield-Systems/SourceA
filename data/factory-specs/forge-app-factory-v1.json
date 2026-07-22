@@ -24,7 +24,7 @@
   "io": {
     "input_schema": "data/schemas/forge-input-v1.json",
     "output_schema": "data/schemas/run-receipt-output-v1.json",
-    "output_artifact": "Controlled deploy pack + RunReceipt",
+    "output_artifact": "Governed deploy pack + RunReceipt",
     "certainty_report": true
   },
   "governance": {
@@ -33,11 +33,11 @@
     "delivery_mode": "prove_only"
   },
   "commercial": {
-    "name": "Controlled App Factory",
-    "display_name": "Controlled App Factory",
+    "name": "Governed App Factory",
+    "display_name": "Governed App Factory",
     "product_tenant": "Forge",
     "vocabulary_ssot": "data/sourcea-forge-vocabulary-disambiguation-v1.json",
-    "tagline": "App spec and inbox in — controlled G0–G3 prove pack out for Forge product SKU.",
+    "tagline": "App spec and inbox in — governed G0–G3 prove pack out for Forge product SKU.",
     "tier_label": "engine",
     "buyer": "Forge product · THREAD-FORGE",
     "hero": false,

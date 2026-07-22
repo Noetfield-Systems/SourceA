@@ -247,7 +247,7 @@
 | **LAG-COUNTS** | Static ~1,245 in old receipts | **LAG** = prose snapshot behind live transcript | **Fix:** `mega_chat_anchors` RT in catalog JSON · never merge two chats' counts |
 | **AGENT-MODEL** | Specialist shape | **Skill + Gate + Proof** — not capability inventory | `TERMINOLOGY_DICT` §3.2 · catalog `agent_domain_matrix` |
 | **BALANCE-LAW** | Rule density | Simplify · one row per topic · Pack 5 precedence — P7 rejects noise | Batch 2 §INTEGRITY PACK 5 · LIVE_GOV §3.2 |
-| **G1-G2-SPINE** | Runtime governance kernel | **YES** — spine ledger + reference graph logged | ASF PICK G1+G2 · `GOV_EVENT_SPINE` · receipt 2026-06-11 |
+| **G1-G2-SPINE** | Runtime governance kernel | **YES** — spine ledger + reference graph on disk | ASF PICK G1+G2 · `GOV_EVENT_SPINE` · receipt 2026-06-11 |
 | **HUB-REPAIR** | Hub + auto-prompt for Cursor agents | **OFF until RT LIVE gate PASS** — hub repair-only · no AUTO-RUN · no agent autorun | ASF Q-RT-LIVE YES 2026-06-11 · `SOURCEA_LIVE_FOUNDER_DECISION_FORM_V2_ANSWERS_RECEIPT_2026-06-11_LOCKED_v1.md` |
 | **Q-RT-LIVE** | Hub repair until RT LIVE | **YES** — repair-only until RT LIVE proven | ASF FIVE-STEP 2026-06-11 · v2 answers receipt |
 | **Q-1.10** | Phase 1 closeout seal | **SUPERSEDED** — see **Q-1.10-SEAL YES** 2026-06-12 | Was DEFER 2026-06-11 · sealed PACK5 batch |

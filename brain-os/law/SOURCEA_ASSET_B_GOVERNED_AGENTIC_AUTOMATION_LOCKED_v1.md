@@ -1,23 +1,23 @@
-# Asset B — Controlled Agentic Automation (DFY) — LOCKED v1
+# Asset B — Governed Agentic Automation (DFY) — LOCKED v1
 
 **Saved:** 2026-06-16T05:49:57Z · **Retrofit:** doc-datetime-law batch retrofit
 **Version:** 1.0 · **Locked:** 2026-06-15  
 **Authority:** ASF — **fastest cash lane** for SourceA pre-revenue  
 **Law:** `SOURCEA_UNIFIED_PORTFOLIO_COMMERCIAL_SSOT_LOCKED_v3.1.md` §2b · §10 · §16  
-**Engine:** `scripts/controlled_agentic_automation_offer_v1.py` · receipt `~/.sina/controlled-agentic-automation-offer-v1.json`  
-**Validator:** `scripts/validate-controlled-agentic-automation-offer-v1.sh`  
+**Engine:** `scripts/governed_agentic_automation_offer_v1.py` · receipt `~/.sina/governed-agentic-automation-offer-v1.json`  
+**Validator:** `scripts/validate-governed-agentic-automation-offer-v1.sh`  
 **Demo:** `SOURCEA_AGENCY_PRODUCT_DEMO_SCRIPT_LOCKED_v1.md` (Buyer 1 proof) · `run_sourcea_agency_product_demo_v1.sh`
 
 ---
 
 ## 1. What Asset B is
 
-**Asset B** is the **agentic orchestration capability itself** — the self-healing multi-agent system SourceA runs daily. Buyers pay for **done-for-you controlled agentic automation**, not governance slides without execution.
+**Asset B** is the **agentic orchestration capability itself** — the self-healing multi-agent system SourceA runs daily. Buyers pay for **done-for-you governed agentic automation**, not governance slides without execution.
 
 | Asset | What it is | Speed to cash |
 |-------|------------|---------------|
 | **Asset A** | Noetfield governance pilots (Copilot · board receipts) | Medium — 1–3 months |
-| **Asset B** | DFY controlled agentic automation (outreach · ops · research loops) | **Fastest — weeks** |
+| **Asset B** | DFY governed agentic automation (outreach · ops · research loops) | **Fastest — weeks** |
 
 **Law:** Pre-revenue, **cash now beats scalable-later.** Asset B is the default first-dollar motion unless NW1 closes first (§10 — whichever closes first).
 
@@ -27,7 +27,7 @@
 
 | Rank | Motion | Price band | Timeline | ROI note |
 |------|--------|------------|----------|----------|
-| **1** | **DFY controlled agentic automation** | Project **$3–10K** · retainer **$2–5K/mo** | **Weeks** | Marginal delivery cost near-zero — reuse orchestration patterns; one retainer covers ~$200/mo run cost |
+| **1** | **DFY governed agentic automation** | Project **$3–10K** · retainer **$2–5K/mo** | **Weeks** | Marginal delivery cost near-zero — reuse orchestration patterns; one retainer covers ~$200/mo run cost |
 | **2** | Noetfield governance pilot (NW1) | CAD $2K shadow → annual | 1–3 months | Higher long-term value · **run in parallel** — do not wait for first dollar |
 | **3** | **Combined motion** (recommended max ROI) | DFY project/retainer **+** governance instrumentation | Same engagement | One client: cash + live Noetfield deployment + case study |
 
@@ -43,9 +43,9 @@ Invoice names below — **no internal SKU codes** in outbound email.
 
 | SKU | Client name | Price | Deliverable |
 |-----|-------------|-------|-------------|
-| **SKU-DFY-001** | **Agent Loop Build** | **$3,000–$10,000** project | One controlled agent loop live in client workflow (outreach · ops · or research) · handoff doc · 30-day fix window |
+| **SKU-DFY-001** | **Agent Loop Build** | **$3,000–$10,000** project | One governed agent loop live in client workflow (outreach · ops · or research) · handoff doc · 30-day fix window |
 | **SKU-RET-001** | **Agent Loop Retainer** | **$2,000–$5,000/mo** | Ongoing loop ops · weekly receipt export · approval-gated changes · self-healing monitor |
-| **SKU-COMBO-001** | **Controlled Automation + Receipts** | DFY/retainer **+** governance pack | SKU-DFY or SKU-RET **plus** signed receipt chain · tamper-checked export · replay demo in closeout |
+| **SKU-COMBO-001** | **Governed Automation + Receipts** | DFY/retainer **+** governance pack | SKU-DFY or SKU-RET **plus** signed receipt chain · tamper-checked export · replay demo in closeout |
 | **SKU-OPS-002** | Ops Health Audit (lead-in) | **$750** | Mac Guard / SourceA spine audit — **feeder** to DFY (not hero SKU) |
 | **SKU-OPS-001** | Mac Guard Agency | **$500** + **$299/mo** | White-label weekly proof — parallel Buyer 1 ladder |
 
@@ -55,7 +55,7 @@ Invoice names below — **no internal SKU codes** in outbound email.
 - First **SKU-RET-001** month ≥ **$2,000**, **or**
 - First **SKU-OPS-002** audit **$750** (feeder — counts but DFY is primary AB target)
 
-Log: `controlled_agentic_automation_offer_v1.py --log-w3 --json`
+Log: `governed_agentic_automation_offer_v1.py --log-w3 --json`
 
 ---
 
@@ -107,14 +107,14 @@ One engagement · three outcomes:
 >
 > Teams shipping Cursor agents for clients hit the same wall: the loop runs, but nobody can prove what executed, what was blocked, or whether it is safe to run again tomorrow.
 >
-> SourceA operates a self-healing multi-agent factory every day — outreach, ops, research — with policy before execution and signed receipts logged. We deliver that as done-for-you work: **Agent Loop Build** ($3–10K) or **Retainer** ($2–5K/mo).
+> SourceA operates a self-healing multi-agent factory every day — outreach, ops, research — with policy before execution and signed receipts on disk. We deliver that as done-for-you work: **Agent Loop Build** ($3–10K) or **Retainer** ($2–5K/mo).
 >
 > No pitch deck — 15 minutes to screen-share today's factory receipts.
 >
 > — SourceA · hello@sourcea.app · https://sourcea.app
 
-Templates logged: `~/.sina/controlled-agentic-automation-email-templates-v1.json`  
-Refresh: `python3 scripts/controlled_agentic_automation_offer_v1.py --pack --json`
+Templates on disk: `~/.sina/governed-agentic-automation-email-templates-v1.json`  
+Refresh: `python3 scripts/governed_agentic_automation_offer_v1.py --pack --json`
 
 ---
 
@@ -134,7 +134,7 @@ Refresh: `python3 scripts/controlled_agentic_automation_offer_v1.py --pack --jso
 
 | VOID | REPLACE WITH |
 |------|--------------|
-| "I'll build you some agents" (generic freelancer) | **Controlled** agentic automation with signed receipts |
+| "I'll build you some agents" (generic freelancer) | **Governed** agentic automation with signed receipts |
 | Governance slides without running agents | We **run** this daily — here's today's factory receipt |
 | Zapier/n8n glue as hero | Outcome + receipt bundle — orchestrator is implementation detail |
 | Pitch Noetfield Copilot on first touch | Agent loop scope first · compliance face only if buyer asks |
@@ -145,9 +145,9 @@ Refresh: `python3 scripts/controlled_agentic_automation_offer_v1.py --pack --jso
 
 | Check | Command |
 |-------|---------|
-| Offer receipt | `python3 scripts/controlled_agentic_automation_offer_v1.py --status --json` |
-| Pack templates | `python3 scripts/controlled_agentic_automation_offer_v1.py --pack --json` |
-| Validator | `bash scripts/validate-controlled-agentic-automation-offer-v1.sh` |
+| Offer receipt | `python3 scripts/governed_agentic_automation_offer_v1.py --status --json` |
+| Pack templates | `python3 scripts/governed_agentic_automation_offer_v1.py --pack --json` |
+| Validator | `bash scripts/validate-governed-agentic-automation-offer-v1.sh` |
 | Agency demo | `bash scripts/run_sourcea_agency_product_demo_v1.sh --prep-only` |
 | Portfolio SSOT | `SOURCEA_UNIFIED_PORTFOLIO_COMMERCIAL_SSOT_LOCKED_v3.1.md` §2c |
 

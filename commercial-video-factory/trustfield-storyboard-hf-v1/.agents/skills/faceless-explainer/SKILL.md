@@ -66,7 +66,7 @@ Skip if `$PROJECT_DIR/.env` exists or `context.log` is non-empty (= not the firs
 
 ### Step 1 - Scaffold (Bash, NO agent, NO capture)
 
-There is no website capture. Synthesize the minimal in-repo package the copied backend (`build-design --capture`, `prep --capture`) expects, directly from the user's text. `capture/` holds synthetic tokens + the input text (NOT a scrape); `capture/assets/` stays empty (faceless). With `colors:[]`, build-design uses the pin-and-paper native palette; if the user supplied brand colors, fill `colors[]` (`colors[0]` becomes the brand primary).
+There is no website capture. Synthesize the minimal on-disk package the copied backend (`build-design --capture`, `prep --capture`) expects, directly from the user's text. `capture/` holds synthetic tokens + the input text (NOT a scrape); `capture/assets/` stays empty (faceless). With `colors:[]`, build-design uses the pin-and-paper native palette; if the user supplied brand colors, fill `colors[]` (`colors[0]` becomes the brand primary).
 
 ```bash
 (cd "$PROJECT_DIR" && mkdir -p capture/extracted capture/assets)
@@ -348,7 +348,7 @@ Summarize per phase: input title / topic, preset (auto-picked by scriptwriting f
 
 > Optional: I can open a live preview so you can scrub frame-by-frame, change playback speed, or get a shareable link — say the word and I'll start it.
 
-Only **after** the user asks, start a long-lived dev server (it serves the final in-repo files and stays up until stopped), then report the actual URL with the real port + project name:
+Only **after** the user asks, start a long-lived dev server (it serves the final on-disk files and stays up until stopped), then report the actual URL with the real port + project name:
 
 ```bash
 (cd "$PROJECT_DIR" && npx hyperframes preview)   # Studio UI, e.g. http://localhost:3002/#project/<project-name>

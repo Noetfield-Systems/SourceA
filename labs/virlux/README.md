@@ -3,7 +3,7 @@
 **Saved:** 2026-06-20T21:00:00Z · **Decision:** `ASF-2026-06-20-VIRLUX-AGENTIC-ONLY`  
 **Tier:** `labs-sandbox` Supabase project · schema `virlux_ops`  
 **Status:** **Live online** — Build Factory agentic SaaS · verify factory · MCP · sandbox bays  
-**Product:** Controlled agentic factories — not payments · not FINTRAC
+**Product:** Governed agentic factories — not payments · not FINTRAC
 
 ## ASF policy (2026-06-20)
 

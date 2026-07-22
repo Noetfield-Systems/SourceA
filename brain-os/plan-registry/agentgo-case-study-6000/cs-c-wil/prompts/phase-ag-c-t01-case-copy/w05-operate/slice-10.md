@@ -14,7 +14,7 @@ Wil L3 portfolio demo — YA5 mirror · AgentGo ≠ SourceA separation · ship g
 
 ## Task
 
-**Check pack disk budget for** case study prose (challenge · shipped · verification).
+**Check pack disk budget for** case study prose (challenge · shipped · proof chain).
 
 plan-registry size.
 

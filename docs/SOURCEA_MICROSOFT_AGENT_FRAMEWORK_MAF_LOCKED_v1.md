@@ -47,7 +47,7 @@
 
 > Temporal executes workflows. LangGraph builds agents. SourceA decides admissibility — then signs the receipt.
 
-MAF does **not** replace LangGraph or Temporal logged.
+MAF does **not** replace LangGraph or Temporal on disk.
 
 ---
 
@@ -129,7 +129,7 @@ python3 apps/factory-runtime-spike/factory_runtime_spike/dry_run_v1.py \
 
 | Say to buyers | Say internally |
 |---------------|----------------|
-| Controlled automation with receipts | MAF activity inside Temporal |
+| Governed automation with receipts | MAF activity inside Temporal |
 | Board-grade Copilot evidence | MAF + TLE export path (Noetfield governance) |
 | Proof-backed system | LangGraph validate + MAF draft optional |
 

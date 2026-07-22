@@ -164,7 +164,7 @@ def _check_essentials_nav_regression(errors: list[str]) -> None:
 
 
 def _check_phase_d_complete_artifacts_regression(errors: list[str]) -> None:
-    """sa-0012 — _phase_d_complete() must match D1–D16 in-repo artifacts."""
+    """sa-0012 — _phase_d_complete() must match D1–D16 on-disk artifacts."""
     ship = _pre_llm_shipped_count()
     pdc = _phase_d_complete()
     if pdc != (ship == 16):
@@ -173,7 +173,7 @@ def _check_phase_d_complete_artifacts_regression(errors: list[str]) -> None:
         )
     if pdc and ship != 16:
         errors.append(
-            f"_phase_d_complete true but only {ship}/16 D artifacts locally (sa-0012)"
+            f"_phase_d_complete true but only {ship}/16 D artifacts on disk (sa-0012)"
         )
 
 
@@ -984,7 +984,7 @@ def main() -> int:
             if extra:
                 errors.append(f"unauthorized pre_llm modules: {extra}")
             if missing:
-                errors.append(f"authorized pre_llm module missing locally: {missing}")
+                errors.append(f"authorized pre_llm module missing on disk: {missing}")
             syn_d = SOURCE_A / "brain-os" / "wtm" / "SINA_GPT_CLAUDE_WTM_SYNTHESIS_LOCKED_v1.md"
             if not syn_d.is_file():
                 errors.append("synthesis doc missing — D1-D16 stack cross-ref drift")
@@ -1302,7 +1302,7 @@ def main() -> int:
                 except Exception:
                     if rep.get("mode") == "scaffold" and rep.get("live_ok") is True:
                         errors.append(
-                            "eval-1b regression: mode=scaffold while live_ok=true logged report"
+                            "eval-1b regression: mode=scaffold while live_ok=true on disk report"
                         )
             except json.JSONDecodeError as e:
                 errors.append(f"eval_packet_v1b_report.json invalid: {e}")
@@ -1322,7 +1322,7 @@ def main() -> int:
         )
     bypass_doc = SOURCE_A / "brain-os/law/enforcement/law/enforcement/ENFORCE_BYPASS_MAP_LOCKED_v1.md"
     if not bypass_doc.is_file():
-        errors.append("ENFORCE_BYPASS_MAP_LOCKED_v1.md missing locally")
+        errors.append("ENFORCE_BYPASS_MAP_LOCKED_v1.md missing on disk")
     elif APP_JS.is_file() and not worker_hub_mode():
         js = APP_JS.read_text(encoding="utf-8")
         if "gate-receipts-panel" not in js or "renderGateReceiptsPanel" not in js:

@@ -92,7 +92,7 @@ def packet_readiness_hub_payload(
     repo_root: str = "",
     query_text: str = "",
 ) -> dict[str, Any]:
-    """Hub SSOT for D15.2 — uses canonical packet logged or fresh D15 assembly."""
+    """Hub SSOT for D15.2 — uses canonical packet on disk or fresh D15 assembly."""
     import model_dispatch  # noqa: WPS433
     from pre_llm.context_assembly.store import load_canonical  # noqa: WPS433
     from pre_llm.context_packet.schema import validate_packet  # noqa: WPS433

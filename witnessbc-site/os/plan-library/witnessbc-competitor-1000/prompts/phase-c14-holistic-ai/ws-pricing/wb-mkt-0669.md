@@ -23,7 +23,7 @@ Write competitor row evidence: Holistic AI pricing → our SKU → defer/shipped
 
 ## Implementation extraction
 
-`Holistic AI · Pricing & packaging` → what buyer sees at vendor → what we ship logged with receipt.
+`Holistic AI · Pricing & packaging` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

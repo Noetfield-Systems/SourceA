@@ -1,4 +1,4 @@
-# sa-score-0396 — Receipt logged for intake schema sourcea-site-intake-v1.json
+# sa-score-0396 — Receipt on disk for intake schema sourcea-site-intake-v1.json
 
 **Saved at:** 2026-06-25T09:23:55Z
 **Version:** 1 · **Tier:** T2 · **Phase:** LATER
@@ -16,7 +16,7 @@ Raise SourceA site score toward **95+/100** — proof before call · stranger se
 
 P2 — harden · document · validate
 
-**Deliverable:** Receipt logged for intake schema sourcea-site-intake-v1.json
+**Deliverable:** Receipt on disk for intake schema sourcea-site-intake-v1.json
 
 Bounded paths: `SourceA-landing/green-unified/` · `cloud/workers/sourcea-site-pulse-v1/` · `scripts/validate-sourcea-modern-stack-e2e-v1.sh`
 

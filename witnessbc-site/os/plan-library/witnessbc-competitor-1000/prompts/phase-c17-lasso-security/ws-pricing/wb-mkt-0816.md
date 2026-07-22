@@ -19,11 +19,11 @@
 
 ## Task (Medium — hardening, validator, docs)
 
-Document why buyers pay per Lasso Security: Employees use uncontrolled AI tools — tie to our offer in plain English
+Document why buyers pay per Lasso Security: Employees use ungoverned AI tools — tie to our offer in plain English
 
 ## Implementation extraction
 
-`Lasso Security · Pricing & packaging` → what buyer sees at vendor → what we ship logged with receipt.
+`Lasso Security · Pricing & packaging` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

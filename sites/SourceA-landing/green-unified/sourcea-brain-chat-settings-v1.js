@@ -134,7 +134,7 @@
   function unlock() {
     const key = ($("sa-bcs-pass") && $("sa-bcs-pass").value) || "";
     if (!key.trim()) {
-      alert("Enter founder key or edit config logged.");
+      alert("Enter founder key or edit config on disk.");
       return;
     }
     sessionStorage.setItem(KEY_STORAGE, key.trim());

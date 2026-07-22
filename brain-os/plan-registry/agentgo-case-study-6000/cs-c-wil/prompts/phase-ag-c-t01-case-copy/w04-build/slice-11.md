@@ -14,7 +14,7 @@ Wil L3 portfolio demo — YA5 mirror · AgentGo ≠ SourceA separation · ship g
 
 ## Task
 
-**Add JSON-LD schema for** case study prose (challenge · shipped · verification).
+**Add JSON-LD schema for** case study prose (challenge · shipped · proof chain).
 
 CaseStudy type.
 

@@ -21,12 +21,12 @@
 
 ---
 
-## 1. What this archive session accomplished (in the repository)
+## 1. What this archive session accomplished (on disk)
 
 | Deliverable | Path |
 |-------------|------|
 | System audits vault (11 files) | `docs/system-audits/README_INDEX.md` |
-| Controlled Execution OS charter | `CONTROLLED_EXECUTION_OS_MASTER_LOCKED_v1.md` |
+| Governed Execution OS charter | `GOVERNED_EXECUTION_OS_MASTER_LOCKED_v1.md` |
 | Goal Specialist paste pack | `GOAL_SPECIALIST_CHAT_PACK_LOCKED_v1.md` |
 | **Single new-brain paste** | `BRAIN_COMPLETE_TRANSFER_LOCKED_v1.md` §PASTE BLOCK |
 | Unified research root | `UNIFIED_RESEARCH_ROOT_LOCKED_v1.md` + `scripts/research_root_sync.py` |
@@ -39,7 +39,7 @@
 
 ## 2. Architecture brain must hold (no redesign)
 
-**Name:** Controlled Execution OS for AI business automation.
+**Name:** Governed Execution OS for AI business automation.
 
 ```text
 Commercial Goal Specialist ──┐
@@ -62,7 +62,7 @@ Workers (sa-XXXX) → Disk → ASF + Hub
 
 1. `BRAIN_COMPLETE_TRANSFER_LOCKED_v1.md` §PASTE BLOCK  
 2. Live: `sync-brain-pack.sh` · `plan-no-asf-run.sh pick` · rules-in-charge API  
-3. Drill: `BRAIN_KNOWLEDGE_INDEX` §O §P §Q · `CONTROLLED_EXECUTION_OS_MASTER`  
+3. Drill: `BRAIN_KNOWLEDGE_INDEX` §O §P §Q · `GOVERNED_EXECUTION_OS_MASTER`  
 4. Conditional audits: `docs/system-audits/README_INDEX.md`  
 5. Research: `~/.sina/research-root/filtered/execution_core.digest.yaml` — not raw matrices  
 

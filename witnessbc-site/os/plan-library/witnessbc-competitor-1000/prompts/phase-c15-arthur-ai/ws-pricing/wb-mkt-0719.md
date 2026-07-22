@@ -23,7 +23,7 @@ Write competitor row evidence: Arthur AI pricing → our SKU → defer/shipped w
 
 ## Implementation extraction
 
-`Arthur AI · Pricing & packaging` → what buyer sees at vendor → what we ship logged with receipt.
+`Arthur AI · Pricing & packaging` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

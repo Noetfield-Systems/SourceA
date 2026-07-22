@@ -14,7 +14,7 @@ Wil L3 portfolio demo — YA5 mirror · AgentGo ≠ SourceA separation · ship g
 
 ## Task
 
-**Advance CRM stage for** case study prose (challenge · shipped · verification).
+**Advance CRM stage for** case study prose (challenge · shipped · proof chain).
 
 outreach_sent minimum.
 

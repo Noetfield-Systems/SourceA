@@ -17,7 +17,7 @@
 
 > **We are a factory builder.** Speed without a repeatable ≥90% standard is fake progress.  
 > **Better Loop** asks: *Is the system running?*  
-> **Best Loop** asks: *Does the artifact score ≥90% logged?*  
+> **Best Loop** asks: *Does the artifact score ≥90% on disk?*  
 > **Critic Circle** asks: *What one fix closes the gap — and did we re-run until true?*
 
 No push hard-and-fast on send. **Loops + critic circle** own improvement until output matches real-world standard.

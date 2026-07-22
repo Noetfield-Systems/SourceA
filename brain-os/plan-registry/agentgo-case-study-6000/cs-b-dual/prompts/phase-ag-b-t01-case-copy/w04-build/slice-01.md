@@ -14,7 +14,7 @@ Dual desktop deploy — agentrun-app :5180 + SA4 AgentGo :8080 · landing parity
 
 ## Task
 
-**Scaffold build slice for** case study prose (challenge · shipped · verification).
+**Scaffold build slice for** case study prose (challenge · shipped · proof chain).
 
 Smallest code/html change.
 

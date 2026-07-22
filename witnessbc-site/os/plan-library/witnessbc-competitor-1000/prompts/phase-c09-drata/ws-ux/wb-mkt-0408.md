@@ -23,7 +23,7 @@ Reject abstract rename — keep market words buyers know from Drata (Compliance 
 
 ## Implementation extraction
 
-`Drata · Buyer-visible UX` → what buyer sees at vendor → what we ship logged with receipt.
+`Drata · Buyer-visible UX` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

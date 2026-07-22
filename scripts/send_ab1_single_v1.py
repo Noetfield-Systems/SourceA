@@ -29,9 +29,9 @@ VARIANTS: dict[str, dict[str, str]] = {
 
 Quick question for teams shipping Cursor agents for clients: when something goes wrong, can you prove what ran, what was blocked, and whether it is safe to run again tomorrow?
 
-We run a self-healing multi-agent factory every day — policy before execution, signed receipts in the repository — and build the same for clients:
+We run a self-healing multi-agent factory every day — policy before execution, signed receipts on disk — and build the same for clients:
 
-• Agent Loop Build — one scoped loop live in 2–3 weeks ($3–10K project)
+• Agent Loop Build — one governed loop live in 2–3 weeks ($3–10K project)
 • Agent Loop Retainer — weekly proof export + ongoing ops ($2–5K/month)
 
 No deck. Happy to screen-share today's receipts in 15 minutes: PASS/BLOCK gate, export bundle, replay.
@@ -40,7 +40,7 @@ Worth a look?
 
 —
 {founder_name}
-SourceA · controlled agentic automation
+SourceA · governed agentic automation
 {from_email}
 {company_url}
 
@@ -53,13 +53,13 @@ SourceA · controlled agentic automation
 
 Your Cursor agents run. Can you prove what they executed last night?
 
-We ship controlled agent loops with signed receipts — $3–10K build or $2–5K/mo retainer. Fifteen-minute screen-share, no deck.
+We ship governed agent loops with signed receipts — $3–10K build or $2–5K/mo retainer. Fifteen-minute screen-share, no deck.
 
 Interested?
 
 —
 {founder_name}
-SourceA · controlled agentic automation
+SourceA · governed agentic automation
 {from_email}
 {company_url}
 
@@ -130,7 +130,7 @@ def record_receipt(meta: dict) -> None:
         "ab1_status": "awaiting_founder_send_click",
         "pack_dir": str(OUT),
         "subject": meta["subject"],
-        "law": "SOURCEA_ASSET_B_CONTROLLED_AGENTIC_AUTOMATION_LOCKED_v1.md §6",
+        "law": "SOURCEA_ASSET_B_GOVERNED_AGENTIC_AUTOMATION_LOCKED_v1.md §6",
     }
     RECEIPT.write_text(json.dumps(receipt, indent=2) + "\n", encoding="utf-8")
 

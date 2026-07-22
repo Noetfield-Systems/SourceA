@@ -5,8 +5,8 @@ ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 fail=0
 check() { [[ "$1" == "true" ]] && echo "PASS: $2" || { echo "FAIL: $2"; fail=1; }; }
 
-[[ -f "$ROOT/n8n/workflows/sinaai-stack-health-ping.json" ]] && check true "WF1 v2 logged" || check false "WF1 v2"
-[[ -f "$ROOT/n8n/workflows/wf-mac-health-cooldown-v1.json" ]] && check true "WF8 logged" || check false "WF8"
+[[ -f "$ROOT/n8n/workflows/sinaai-stack-health-ping.json" ]] && check true "WF1 v2 on disk" || check false "WF1 v2"
+[[ -f "$ROOT/n8n/workflows/wf-mac-health-cooldown-v1.json" ]] && check true "WF8 on disk" || check false "WF8"
 
 if ! curl -sf -m 3 http://127.0.0.1:5678/healthz >/dev/null; then
   bash "$ROOT/scripts/founder-start-n8n.sh" >/dev/null 2>&1 || true

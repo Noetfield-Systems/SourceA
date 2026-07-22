@@ -92,7 +92,7 @@ def _suggest(finding_id: str, excerpt: str, audience: str) -> str:
     suggestions = {
         "wrong_you_founder_ops": (
             "Speak to the prospect, not founder ops — e.g. "
-            "'Show prospects a controlled proof demo' or 'Fixed builds with weekly exports for client stakeholders.'"
+            "'Show prospects a governed proof demo' or 'Fixed builds with weekly exports for client stakeholders.'"
         ),
         "wrong_you_meta_buyer": (
             "Address the visitor directly — replace 'your buyer' with 'prospects', 'stakeholders', or 'clients'."
@@ -122,7 +122,7 @@ def _suggest(finding_id: str, excerpt: str, audience: str) -> str:
         ),
         "explain_not_sell": (
             "Lead with buyer outcome + proof + price/CTA — e.g. "
-            "'Book a 15-minute proof call — fixed $3–10K build, replay logged.'"
+            "'Book a 15-minute proof call — fixed $3–10K build, replay on disk.'"
         ),
         "missing_commercial_shape": (
             "Add one clear outcome line, a price or plan anchor, and a single CTA (Book proof demo / hello@sourcea.app)."
@@ -392,7 +392,7 @@ def run_gate(
         "next_action": (
             "Ship allowed — commercial copy gate PASS"
             if ok
-            else "Fix findings locally (gate suggests rewrites — founder approves edits) — do not publish"
+            else "Fix findings on disk (gate suggests rewrites — founder approves edits) — do not publish"
         ),
     }
     return _write_receipt(row)

@@ -14,7 +14,7 @@
 
 **Locked law** (`GOAL_HIERARCHY_LOCKED_v1.md`) already defined default routing: **Goal 1 REGISTRY eval-dispatch → WTM/Pre-LLM**. Commercial `sa-050x` (RunReceipt, wire, TrustField UI) is **T2b parallel only** — not default “what is next.”
 
-**Brain (Cursor)** and **Claude Pro (advisor chat)** both **failed to enforce** that law. Brain asked the founder to **choose between lanes** when the answer was logged. Claude Pro recommended architecture options **without reconciling** to locked hierarchy first. Executor code routed **CLI** to a **commercial queue** (`sa-0501`–`sa-0509`) while scoped loop used **Pre-LLM eval-dispatch** (`sa-0153`–`sa-0166`).
+**Brain (Cursor)** and **Claude Pro (advisor chat)** both **failed to enforce** that law. Brain asked the founder to **choose between lanes** when the answer was on disk. Claude Pro recommended architecture options **without reconciling** to locked hierarchy first. Executor code routed **CLI** to a **commercial queue** (`sa-0501`–`sa-0509`) while governed loop used **Pre-LLM eval-dispatch** (`sa-0153`–`sa-0166`).
 
 **Severity:** **Critical** — destroys founder trust in progress; creates false “two valid strategies”; splits SSOT; makes automation look broken when law was clear.
 
@@ -64,7 +64,7 @@
 | Failure | Evidence |
 |---------|----------|
 | `sourcea_pick_lib.PHASE_ORDER` promotes commercial before Pre-LLM phase | Comment: “ROA PRIORITY — path to revenue” **inverts** T2b law |
-| `claude_code_agent_v1.py` prefers **repo** queue over `~/.sina` | CLI executed `sa-0501` commercial while controlled path was eval-dispatch |
+| `claude_code_agent_v1.py` prefers **repo** queue over `~/.sina` | CLI executed `sa-0501` commercial while governed path was eval-dispatch |
 | Two `healthy-queue-30-active.json` files with no single SSOT enforcement | Split ledger · red activate/sync gates |
 | `cursor_entry_gate.py` missing hierarchy + this incident class | Mechanical read chain incomplete |
 
@@ -96,7 +96,7 @@
 
 1. First line when advising SourceA: **`INPUT CLASS: compare to GOAL_HIERARCHY_LOCKED_v1.md`**  
 2. Verdict: main goal vs parallel lane per locked table — **never** promote T2b to T0.  
-3. End: **“Worker/Brain implements in the repository — I hold until ASF orders.”**  
+3. End: **“Worker/Brain implements on disk — I hold until ASF orders.”**  
 4. **Forbidden:** “Do commercial first for revenue” as default automation routing.
 
 ### 5.3 Worker / CLI / autorun — before ANY queue consume

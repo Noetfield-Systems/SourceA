@@ -175,7 +175,7 @@ One topic → one canonical LOCKED doc. Deliver **unification report** table to 
 | ID | Build | Why |
 |----|-------|-----|
 | **R-P0-01** | Fix doc drift **9→8** (blueprint, authority index FLEET row, ecosystem policy mergepack row) | Machine truth is 8 agents |
-| **R-P0-02** | Archive orphan `~/.sina/agent-workspaces/mergepack/` or document semi-separate-only | Registry v6 mismatch logged |
+| **R-P0-02** | Archive orphan `~/.sina/agent-workspaces/mergepack/` or document semi-separate-only | Registry v6 mismatch on disk |
 | **R-P0-03** | Strip debug instrumentation (after D-DEBUG-01) | Production server cleanliness |
 
 ### P1 — hub features (sprint suggestions not yet in app)

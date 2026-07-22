@@ -23,7 +23,7 @@ python3 scripts/n8n_automation.py validate
 | Hub :13020 | Yes |
 | Runtime :8000 | No (warn if down) |
 | n8n :5678 | Yes for full PASS |
-| Workflow JSON logged | Yes |
+| Workflow JSON on disk | Yes |
 
 ## Extended test (additional)
 
@@ -63,7 +63,7 @@ Doc: `SinaaiDataBase/governance/N8N_INTELLIGENCE.md`
 | 3 | `validate-n8n-tier3-v1.sh` | Governance fast, poison, factory notify |
 | 4 | `validate-n8n-tier4-v1.sh` | Product signals |
 | 5 | `validate-n8n-tier5-v1.sh` | Judge, thread scout, OpenRouter shadow |
-| 6 | `validate-n8n-full-manifest-v1.sh` | All 18 workflows logged |
+| 6 | `validate-n8n-full-manifest-v1.sh` | All 18 workflows on disk |
 
 Full suite: `bash scripts/validate-n8n.sh`
 

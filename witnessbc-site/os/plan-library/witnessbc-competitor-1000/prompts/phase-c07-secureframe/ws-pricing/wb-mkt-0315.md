@@ -23,7 +23,7 @@ Compare Secureframe PLG motion (Enterprise-leaning startup compliance) vs our on
 
 ## Implementation extraction
 
-`Secureframe · Pricing & packaging` → what buyer sees at vendor → what we ship logged with receipt.
+`Secureframe · Pricing & packaging` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

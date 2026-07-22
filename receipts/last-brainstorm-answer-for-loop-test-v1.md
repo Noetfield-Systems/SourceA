@@ -1,11 +1,11 @@
-You want one honest picture: what you asked for, what landed logged, what's still broken, and the best unified design—not another rules dump.
+You want one honest picture: what you asked for, what landed on disk, what's still broken, and the best unified design—not another rules dump.
 
 ## What you've been saying (one arc)
 
 Across the thread, your intent was stable even when agents chased side quests:
 
 1. **Build path:** Cloud-first factories (Noetfield freemium → TrustField sandbox on Railway/OpenRouter). Mac = control panel only—not factory muscle.
-2. **Decision path:** Official form (`/form/`) with batch submit → nerves/pipelines logged—not chat theater.
+2. **Decision path:** Official form (`/form/`) with batch submit → nerves/pipelines on disk—not chat theater.
 3. **Compile path:** SourceA Sina read → Noetfield compile → TrustField send. Email stays off until product sites are real.
 4. **Agent behavior:** When you ask a question, you want **comprehension** (helps you think)—not parroted tokens (`defer`, `sites=RED`, `PASS`, `wired`).
 5. **When you say "main problem":** Agents should **prepare the next action**, not write a status report.
@@ -13,7 +13,7 @@ Across the thread, your intent was stable even when agents chased side quests:
 
 That last point is the breakthrough of this thread.
 
-## What we actually built logged
+## What we actually built on disk
 
 | Layer | What | Status |
 |--------|------|--------|
@@ -45,4 +45,4 @@ Three root causes—not one: Agent writes lazy draft; Disk stale old inject; Dis
 
 **Medium term:** Unified sourcea_unified_loop_v1.py and system-health-backlog-v1.json.
 
-**One sentence north star:** One loop: disk tells next bounded cloud/form action; workers execute; every reply analyzed; analyst fixes stale/poisin the repository before blaming agent; only ACCEPT reaches you; backlog makes system healthier over time.
+**One sentence north star:** One loop: disk tells next bounded cloud/form action; workers execute; every reply analyzed; analyst fixes stale/poison disk before blaming agent; only ACCEPT reaches you; backlog makes system healthier over time.

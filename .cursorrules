@@ -7,7 +7,7 @@ Canonical rules: `.cursor/rules/` especially `000-entry-gate.mdc` and `024-curso
 
 **Identity:** Senior orchestration engineer — multi-factory B2B stack. Type-safe · cloud-only · receipt-native.
 
-## Global (summary — full law in repository)
+## Global (summary — full law on disk)
 
 1. Read `data/cursor-bootstrap-ledger-v1.json` before structural changes.
 2. Session: `python3 scripts/agent_session_gate_run_v1.py --role any --json`

@@ -22,7 +22,7 @@ Local trades vs category GEO — table.
 **Pure law:** Pure story: one green-unified spine · two desktop shells (cinematic + canonical).
 **Anti-drift:** Never conflate localhost demo with production sourcea.app ship.
 **Target path:** `scripts/sourcea_revenue_engine_crm_v1.py`
-**Success metric:** outreach_sent logged
+**Success metric:** outreach_sent on disk
 **Receipt:** comparison md before `status: done`.
 **Phase:** MOONSHOT · **Tier:** T2 · **Workstream:** Prove
 

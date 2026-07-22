@@ -395,9 +395,9 @@ def _verify_manifest_batch(atom: dict, disk: dict) -> tuple[str, str | None, str
     if re.search(r"\bapproved\b", tl, re.I):
         if frozen or not disk.get("batch_4_approved"):
             return "mismatch", ref, "manifest says FROZEN — not APPROVED"
-        return "verified", ref, "manifest batch approved logged"
+        return "verified", ref, "manifest batch approved on disk"
     if frozen and re.search(r"\b(execute|run batch|run)\b", tl, re.I):
-        return "mismatch", ref, "batch 4 FROZEN — execute blocked logged"
+        return "mismatch", ref, "batch 4 FROZEN — execute blocked on disk"
     if re.search(r"\bfrozen\b", tl, re.I) and frozen:
         return "verified", ref, "batch frozen matches disk"
     return "unverified", ref, "manifest/batch mentioned — read cleanup-manifest.md"
@@ -408,7 +408,7 @@ def _verify_eval_receipt(atom: dict, disk: dict) -> tuple[str, str | None, str]:
     ref = str(Path.home() / ".sina" / "eval_packet_v1b_report.json")
     tl = (atom.get("text") or "").lower()
     if not eval_row:
-        return "unverified", ref, "eval-1b receipt missing locally"
+        return "unverified", ref, "eval-1b receipt missing on disk"
     ok = eval_row.get("live_ok") if eval_row.get("mode") == "live" else eval_row.get("ok")
     claims_pass = bool(re.search(r"\b(green|pass|ok|100%)\b", tl))
     claims_fail = bool(re.search(r"\b(fail|red|broken)\b", tl))
@@ -444,7 +444,7 @@ def _verify_execution(atom: dict, _disk: dict) -> tuple[str, str | None, str]:
     rel = refs[0]
     if _path_exists(rel):
         return "unverified", rel, "file exists — git/commit not verified from hub"
-    return "mismatch", rel, "cited file missing locally"
+    return "mismatch", rel, "cited file missing on disk"
 
 
 def _verify_repo_path(atom: dict, _disk: dict) -> tuple[str, str | None, str]:
@@ -458,10 +458,10 @@ def _verify_repo_path(atom: dict, _disk: dict) -> tuple[str, str | None, str]:
         if _path_exists(rel):
             return "unverified", rel, "script exists — outcome/approval not proven"
         return "mismatch", rel, "script path missing"
-    if re.search(r"\b(exists|present|in the repository|matches)\b", tl):
+    if re.search(r"\b(exists|present|on disk|matches)\b", tl):
         if _path_exists(rel):
-            return "verified", rel, "path exists in the repository"
-        return "mismatch", rel, "path not found logged"
+            return "verified", rel, "path exists on disk"
+        return "mismatch", rel, "path not found on disk"
     if _path_exists(rel):
         return "unverified", rel, "path cited — existence not explicitly claimed"
     return "mismatch", rel, "cited path missing"
@@ -640,7 +640,7 @@ def simplify_from_atoms(*, atoms: list[dict], issues: list[str], stats: dict, de
         for a in ver[:3]:
             lines.append(f"· ✓ {a['text'][:100]}")
     else:
-        lines.append("· Nothing verified logged from this Mac.")
+        lines.append("· Nothing verified on disk from this Mac.")
     lines.append("")
     lines.append("What needs your eyes")
     for a in (mism + unver)[:5]:

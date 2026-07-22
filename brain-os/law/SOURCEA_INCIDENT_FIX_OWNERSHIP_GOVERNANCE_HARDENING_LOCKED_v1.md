@@ -102,7 +102,7 @@ Stairlift payload **`~/.sina/governance-stairlift-v1.json`** must list every sur
 
 ### 2.2 Remediate
 
-Each fix row moves: `open` → `shipped` only when **artifact path + validator command PASS** logged.
+Each fix row moves: `open` → `shipped` only when **artifact path + validator command PASS** on disk.
 
 ### 2.3 Close
 
@@ -173,7 +173,7 @@ Incident status **`remediated`** only when:
 
 ## 7. Commercial line
 
-**We sell controlled execution.** Drift and stasis are inventory risk. Stairlift + fix matrix = **hardening in the lightest form**: fail closed on the hot path, propagate law in milliseconds, close incidents only with validator proof.
+**We sell governed execution.** Drift and stasis are inventory risk. Stairlift + fix matrix = **hardening in the lightest form**: fail closed on the hot path, propagate law in milliseconds, close incidents only with validator proof.
 
 ---
 

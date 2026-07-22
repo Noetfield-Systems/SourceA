@@ -23,7 +23,7 @@ Open https://www.stack-ai.com — screenshot or quote the exact buyer-facing Buy
 
 ## Implementation extraction
 
-`Stack AI · Buyer-visible UX` → what buyer sees at vendor → what we ship logged with receipt.
+`Stack AI · Buyer-visible UX` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

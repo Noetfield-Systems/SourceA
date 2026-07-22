@@ -32,7 +32,7 @@ def write_window(*, hours: float = 24.0, sha: str = "") -> dict:
         "closes_at": closes.strftime("%Y-%m-%dT%H:%M:%SZ"),
         "window_hours": hours,
         "head_sha": head,
-        "law": "controlled-autorun — DECLARED until 24h green on external receipts",
+        "law": "governed-autorun — DECLARED until 24h green on external receipts",
         "criteria": {
             "zero_manual": "no manual trigger_source in cycle receipts",
             "cycle_receipt_v2": "every cycle autonomous-forge-run-cycle-receipt-v2",

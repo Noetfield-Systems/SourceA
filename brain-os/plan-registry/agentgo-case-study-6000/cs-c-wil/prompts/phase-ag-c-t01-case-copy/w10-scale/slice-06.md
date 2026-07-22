@@ -14,7 +14,7 @@ Wil L3 portfolio demo — YA5 mirror · AgentGo ≠ SourceA separation · ship g
 
 ## Task
 
-**Plan CDN ship for** case study prose (challenge · shipped · verification).
+**Plan CDN ship for** case study prose (challenge · shipped · proof chain).
 
 static 1259.
 

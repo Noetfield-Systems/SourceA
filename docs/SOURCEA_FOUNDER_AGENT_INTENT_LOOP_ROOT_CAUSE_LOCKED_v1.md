@@ -35,7 +35,7 @@ ASF already stated the law once in-thread: *“it shouldn’t take 20 prompts un
 
 ### 2.1 Intent substitution
 
-Agents default to **WORK logged** instead of **answering in the requested lane**.
+Agents default to **WORK on disk** instead of **answering in the requested lane**.
 
 | Request type | Wrong substitution |
 |--------------|-------------------|
@@ -91,7 +91,7 @@ Agent can report **all PASS** while ASF gets `404 not found`.
 - If `/health` OK → exit unless `SINA_FORCE_RESTART=1`
 - `/health` returns `{ok, service, port}` only — **no build id, no route manifest**
 
-**Pattern:** Agent adds route logged → docs say use Hub → running Python is old → generic 404 → debugging thread.
+**Pattern:** Agent adds route on disk → docs say use Hub → running Python is old → generic 404 → debugging thread.
 
 ---
 
@@ -161,7 +161,7 @@ If lane ≠ ASF words → **stop and ask one short question** — do not code.
 
 **`serve-sina-command.sh` must:**
 
-- Restart when in-repo server mtime / build id ≠ running process
+- Restart when on-disk server mtime / build id ≠ running process
 - Or FAIL loudly: “Hub stale — new routes not loaded”
 
 ---
@@ -258,7 +258,7 @@ When ASF did **not** ask for implementation, the reply must **not** contain:
 
 WORK (writes, scripts, routes, validators) is allowed only when ASF message contains an explicit build unlock, including:
 
-- `implement` · `build` · `wire` · `ship` · `fix logged` · `WORK:` · `EDIT ALLOWED:` + `ACTION:` · `RUN INBOX` (bounded inbox scope) · numbered plan execution with attached plan file
+- `implement` · `build` · `wire` · `ship` · `fix on disk` · `WORK:` · `EDIT ALLOWED:` + `ACTION:` · `RUN INBOX` (bounded inbox scope) · numbered plan execution with attached plan file
 
 Policy save (`SAVE TO:`) → **write named path once → STOP** — not a build unlock for adjacent features.
 

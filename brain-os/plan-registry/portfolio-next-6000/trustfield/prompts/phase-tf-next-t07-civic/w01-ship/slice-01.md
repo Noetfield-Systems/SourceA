@@ -12,7 +12,7 @@ FINTRAC MSB programs — payment execution only
 
 ## Task
 
-TrustField · Civic proof lab · Ship · slice 1/10 — P0 — smallest shippable slice with receipt. Bounded path only. Receipt logged before done. Parent: FINTRAC MSB programs — payment execution only. Priority doc: `prompts/future-plans-1000.json`.
+TrustField · Civic proof lab · Ship · slice 1/10 — P0 — smallest shippable slice with receipt. Bounded path only. Receipt on disk before done. Parent: FINTRAC MSB programs — payment execution only. Priority doc: `prompts/future-plans-1000.json`.
 
 ## Verify
 

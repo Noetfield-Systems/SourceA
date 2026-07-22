@@ -123,7 +123,7 @@ Proof reads `~/.sina/eval_packet_v1b_report.json` when present:
 - `summary` · `packet_win_pct`
 - `execution_closure_line` — plain English: dispatch ready or blocked
 
-Missing report → Proof states **Eval-1b not present locally** (execution truth gap).
+Missing report → Proof states **Eval-1b not on disk** (execution truth gap).
 
 ---
 

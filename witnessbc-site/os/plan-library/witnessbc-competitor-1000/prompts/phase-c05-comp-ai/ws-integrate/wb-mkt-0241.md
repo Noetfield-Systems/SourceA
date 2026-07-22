@@ -23,7 +23,7 @@ List Comp AI integrations/APIs from https://comp.ai or docs — pick one we can 
 
 ## Implementation extraction
 
-`Comp AI · Integrations & API` → what buyer sees at vendor → what we ship logged with receipt.
+`Comp AI · Integrations & API` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

@@ -1,4 +1,4 @@
-# sa-score-0293 — Receipt logged for Stripe payment link for Ops Health Audit $750
+# sa-score-0293 — Receipt on disk for Stripe payment link for Ops Health Audit $750
 
 **Saved at:** 2026-06-25T09:23:55Z
 **Version:** 1 · **Tier:** T1 · **Phase:** LATER
@@ -16,7 +16,7 @@ Raise SourceA site score toward **95+/100** — proof before call · stranger se
 
 P1 — next sprint; measurable score delta
 
-**Deliverable:** Receipt logged for Stripe payment link for Ops Health Audit $750
+**Deliverable:** Receipt on disk for Stripe payment link for Ops Health Audit $750
 
 Bounded paths: `SourceA-landing/green-unified/` · `cloud/workers/sourcea-site-pulse-v1/` · `scripts/validate-sourcea-modern-stack-e2e-v1.sh`
 

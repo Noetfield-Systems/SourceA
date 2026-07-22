@@ -18,7 +18,7 @@ That is not a wish. It is how production agent systems work. They call it contex
 
 ## The mistake we stop making
 
-The gap is not that we did not think enough. The gap is that `agent_loop` still reaches OpenRouter with hub JSON and chat, while `validate_packet()` sits ready and returns `gate_eligible: false` on an honest stub. We built the spine, the schema, and D1–D4 logged. We did not yet **force** the path.
+The gap is not that we did not think enough. The gap is that `agent_loop` still reaches OpenRouter with hub JSON and chat, while `validate_packet()` sits ready and returns `gate_eligible: false` on an honest stub. We built the spine, the schema, and D1–D4 on disk. We did not yet **force** the path.
 
 ---
 

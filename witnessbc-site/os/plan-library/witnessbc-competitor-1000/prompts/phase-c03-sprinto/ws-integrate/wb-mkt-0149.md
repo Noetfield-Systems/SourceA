@@ -23,7 +23,7 @@ Update catalog/registry row for integration — Sprinto row 23
 
 ## Implementation extraction
 
-`Sprinto · Integrations & API` → what buyer sees at vendor → what we ship logged with receipt.
+`Sprinto · Integrations & API` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

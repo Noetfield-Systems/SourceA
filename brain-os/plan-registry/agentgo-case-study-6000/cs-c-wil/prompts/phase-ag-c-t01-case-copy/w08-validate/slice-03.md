@@ -14,7 +14,7 @@ Wil L3 portfolio demo — YA5 mirror · AgentGo ≠ SourceA separation · ship g
 
 ## Task
 
-**Validate sample prompts exist for** case study prose (challenge · shipped · verification).
+**Validate sample prompts exist for** case study prose (challenge · shipped · proof chain).
 
 3 per angle.
 

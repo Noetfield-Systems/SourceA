@@ -96,7 +96,7 @@ def build_yaml(form: dict) -> str:
         f'  date: "{today}"',
         "  status: confirmed_asf",
         "  ship_status: shipped_maintainer_2026-06-12",
-        '  effect: "RT LIVE met · resume Phases 3–10 · parallel W1+W3 · batch logged"',
+        '  effect: "RT LIVE met · resume Phases 3–10 · parallel W1+W3 · batch on disk"',
         "  threads: [THREAD-INTEGRITY-100, THREAD-ECOSYSTEM, THREAD-MAINTAINER, THREAD-ENFORCEMENT, THREAD-NOETFIELD-W3]",
         "  formal_block: |",
     ]

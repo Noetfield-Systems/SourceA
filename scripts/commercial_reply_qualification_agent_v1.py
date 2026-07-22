@@ -181,7 +181,7 @@ Worth **15 minutes** to screen-share what ran, what got blocked, and whether it'
 
 —
 {FOUNDER_NAME}
-SourceA · controlled agentic automation
+SourceA · governed agentic automation
 {FROM_EMAIL}
 https://sourcea.com
 

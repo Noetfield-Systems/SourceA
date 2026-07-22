@@ -14,7 +14,7 @@ Dual desktop deploy — agentrun-app :5180 + SA4 AgentGo :8080 · landing parity
 
 ## Task
 
-**Build research card component for** case study prose (challenge · shipped · verification).
+**Build research card component for** case study prose (challenge · shipped · proof chain).
 
 Case study embed.
 

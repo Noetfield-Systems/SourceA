@@ -1,4 +1,4 @@
-# sa-score-0399 — Receipt logged for 48h MVP scope lock UI on /start
+# sa-score-0399 — Receipt on disk for 48h MVP scope lock UI on /start
 
 **Saved at:** 2026-06-25T09:23:55Z
 **Version:** 1 · **Tier:** T3 · **Phase:** LATER
@@ -16,7 +16,7 @@ Raise SourceA site score toward **95+/100** — proof before call · stranger se
 
 P3 — bench · defer · compare-only
 
-**Deliverable:** Receipt logged for 48h MVP scope lock UI on /start
+**Deliverable:** Receipt on disk for 48h MVP scope lock UI on /start
 
 Bounded paths: `SourceA-landing/green-unified/` · `cloud/workers/sourcea-site-pulse-v1/` · `scripts/validate-sourcea-modern-stack-e2e-v1.sh`
 

@@ -23,7 +23,7 @@ Close wb-mkt-0320: PRIORITY row + verify PASS + link https://secureframe.com
 
 ## Implementation extraction
 
-`Secureframe · Pricing & packaging` → what buyer sees at vendor → what we ship logged with receipt.
+`Secureframe · Pricing & packaging` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

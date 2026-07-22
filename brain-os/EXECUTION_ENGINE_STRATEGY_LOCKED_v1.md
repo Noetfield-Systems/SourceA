@@ -115,11 +115,11 @@ role = act / implement / build / fix ?
 
 ## RECEIPTS = TRUTH
 
-Only the receipt logged is truth. Not chat output, not YAML blocks.
+Only the receipt on disk is truth. Not chat output, not YAML blocks.
 - `receipts/sa-XXXX-receipt.json` with `status: DONE` = done
 - API agent verify results feed back to CLI agent act queue
 - Cursor work must write a receipt too
 
 ---
 
-Worker/Brain implements in the repository — I hold until you ask.
+Worker/Brain implements on disk — I hold until you ask.

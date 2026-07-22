@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Apply named design-partner trust to site when permission exists in the repository."""
+"""Apply named design-partner trust to site when permission exists on disk."""
 from __future__ import annotations
 
 import argparse

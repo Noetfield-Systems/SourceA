@@ -14,7 +14,7 @@
 
 **Result we enforce:** Every Brain · Worker · Governance agent session reads **live disk** and tells the founder only the **canonical close-line** — never “Prompt feed → Confirm auto-send” unless disk explicitly says so (it must not).
 
-**How we enforce:** Machine validators **PASS** · live context JSON files **clean** · inject chain **named owner per surface** · Governance **tracks receipts** · ASF **closes incidents** when proof is in the repository — not when an agent “promises” in chat.
+**How we enforce:** Machine validators **PASS** · live context JSON files **clean** · inject chain **named owner per surface** · Governance **tracks receipts** · ASF **closes incidents** when proof is on disk — not when an agent “promises” in chat.
 
 **What we do not do:** Prohibition tables · blame Brain/Worker for reading inject · “fresh chat” as fix · separate executor team fiction.
 

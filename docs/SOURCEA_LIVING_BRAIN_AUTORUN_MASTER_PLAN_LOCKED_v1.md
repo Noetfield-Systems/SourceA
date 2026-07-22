@@ -3,7 +3,7 @@
 **Schema:** `sourcea-living-brain-autorun-master-plan-v1`  
 **Saved at (UTC):** 2026-07-02T21:30:00Z  
 **Machine SSOT:** `data/sourcea-living-brain-autorun-master-plan-v1.json`  
-**Law:** `docs/CONTROLLED_AUTORUN_LAWS_v3.md` (L1–L13 · D1–D8)
+**Law:** `docs/GOVERNED_AUTORUN_LAWS_v3.md` (L1–L13 · D1–D8)
 
 ---
 
@@ -108,7 +108,7 @@ flowchart TB
 - **Entry:** `agent_session_gate_run_v1.py` every agent turn
 - **Graph:** T0→T1→T2→T3 parallel → T_lat_orient
 - **Nerves:** `agent_nerve_system_v1.py` → live surfaces
-- **Orient step 14:** controlled-autorun L1–L13
+- **Orient step 14:** governed-autorun L1–L13
 - **Harden:** Remove dead launchd refs; Mac nerve mesh Phase 3 when founder triggers
 
 ### P6 — Improvement (Kaizen · pending · drift)
@@ -226,8 +226,8 @@ Brain routes · Worker implements · cloud executes · Mac observes.
 |----------|------|
 | This plan (machine) | `data/sourcea-living-brain-autorun-master-plan-v1.json` |
 | This plan (human) | `docs/SOURCEA_LIVING_BRAIN_AUTORUN_MASTER_PLAN_LOCKED_v1.md` |
-| Autorun laws v3 | `docs/CONTROLLED_AUTORUN_LAWS_v3.md` |
-| Controlled autorun skill | `.cursor/skills/controlled-autorun/SKILL.md` |
+| Autorun laws v3 | `docs/GOVERNED_AUTORUN_LAWS_v3.md` |
+| Governed autorun skill | `.cursor/skills/governed-autorun/SKILL.md` |
 | Worker assignment | `data/sourcea-worker-professional-assignment-v1.json` |
 | Node graph | `data/sourcea_pipeline_node_graph_v1.json` |
 | Living chains | `data/living-system-chain-registry-v1.json` |

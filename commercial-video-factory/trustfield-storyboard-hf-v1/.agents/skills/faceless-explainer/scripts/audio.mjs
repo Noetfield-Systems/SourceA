@@ -843,7 +843,7 @@ if (bgmEnabled) {
   if (audioMeta.bgm_pending) {
     console.log(`       bgm_pending=true; Phase 4c wait-bgm.mjs waits/checks before assemble`);
   } else {
-    console.log(`       bgm.wav already present`);
+    console.log(`       bgm.wav already on disk`);
   }
 } else {
   console.log(`  bgm: disabled (${bgmReason})`);

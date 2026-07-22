@@ -23,7 +23,7 @@ Rate-limit + retry policy copied from Relevance AI operating model (Agent builde
 
 ## Implementation extraction
 
-`Relevance AI · Integrations & API` → what buyer sees at vendor → what we ship logged with receipt.
+`Relevance AI · Integrations & API` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

@@ -71,7 +71,7 @@ if [[ "$content_count" -lt 11 ]]; then
   echo "FAIL: content/ has $content_count files (expected 11)"
   exit 1
 fi
-echo "OK: preflight · ${content_count} content files · references SSOT logged"
+echo "OK: preflight · ${content_count} content files · references SSOT on disk"
 echo ""
 
 echo "=== step 2: inject trust signals ==="

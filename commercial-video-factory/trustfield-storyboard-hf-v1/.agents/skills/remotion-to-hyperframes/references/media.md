@@ -137,7 +137,7 @@ completion natively. There's nothing to do at the application level.
 ## When the asset isn't a file
 
 If Remotion's media source is a Buffer, dataURL, or URL.createObjectURL,
-the asset doesn't exist logged and can't be copied via setup.sh. Two
+the asset doesn't exist on disk and can't be copied via setup.sh. Two
 options:
 
 1. Materialize the asset at translation time — write the buffer to a file

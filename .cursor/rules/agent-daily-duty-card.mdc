@@ -1,5 +1,5 @@
 ---
-description: Executor daily duty card — 22 founder reminders wired locally (D01–D22)
+description: Executor daily duty card — 22 founder reminders wired on disk (D01–D22)
 alwaysApply: false
 ---
 
@@ -13,7 +13,7 @@ Founder must **not** re-remind. Read the JSON + session gate `inject` before sub
 
 **Session start = session gate only** — never orientation / hospital / maze unless founder says that one word (D23).
 
-## Top 10 (full list = D01–D23 logged)
+## Top 10 (full list = D01–D23 on disk)
 
 1. **Wire law everywhere** — W1–W10 on **ship window / cloud CI only** — **not** Mac founder chat pre-reply (INCIDENT-039)
 2. **Never FREEZE** if `factory-now` shows SINGLE_SA / resume  

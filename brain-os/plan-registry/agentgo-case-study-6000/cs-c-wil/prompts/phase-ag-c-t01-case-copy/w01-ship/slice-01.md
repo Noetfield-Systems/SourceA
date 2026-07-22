@@ -14,7 +14,7 @@ Wil L3 portfolio demo — YA5 mirror · AgentGo ≠ SourceA separation · ship g
 
 ## Task
 
-**Ship smallest buyer-visible slice of** case study prose (challenge · shipped · verification).
+**Ship smallest buyer-visible slice of** case study prose (challenge · shipped · proof chain).
 
 One shippable artifact only — no drive-by refactors.
 
@@ -23,7 +23,7 @@ One shippable artifact only — no drive-by refactors.
 **Anti-drift:** Never sell AgentGo sign-in localhost:3001 as production.
 **Target path:** `SourceA-landing/green-unified/case-studies/agentgo.html`
 **Success metric:** buyer comprehension in one screen
-**Receipt:** file in the repository before `status: done`.
+**Receipt:** file on disk before `status: done`.
 **Phase:** NOW · **Tier:** T0 · **Workstream:** Ship
 
 ## Polish wisdom (v3)

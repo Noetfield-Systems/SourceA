@@ -14,7 +14,7 @@ Wil L3 portfolio demo — YA5 mirror · AgentGo ≠ SourceA separation · ship g
 
 ## Task
 
-**Cross-link offer.html to** case study prose (challenge · shipped · verification).
+**Cross-link offer.html to** case study prose (challenge · shipped · proof chain).
 
 Two case studies: PureFlow local · AgentGo scale.
 

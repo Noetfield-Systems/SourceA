@@ -8,7 +8,7 @@
 
 ## 0. One sentence
 
-> **Agents must prove they hold the current controlled UI version in the repository before editing; removing baseline features while “upgrading” is a downgrade and is blocked.**
+> **Agents must prove they hold the current governed UI version on disk before editing; removing baseline features while “upgrading” is a downgrade and is blocked.**
 
 ---
 
@@ -40,7 +40,7 @@
 
 ---
 
-## 3. Controlled surfaces
+## 3. Governed surfaces
 
 ```
 SourceA-landing/green-unified/
@@ -63,7 +63,7 @@ CHECK target file matches baseline (pre-edit)
 
 EDIT (additive — port good patterns, keep baseline markers)
 
-VERIFY all controlled files
+VERIFY all governed files
   → bash scripts/validate-ui-upgrade-no-downgrade-v1.sh
 
 PROVE live
@@ -73,7 +73,7 @@ BUMP baseline (if new markers)
   → edit ui-upgrade-baseline-v1.json + version patch
 ```
 
-**Pre-write guard** runs step 2 automatically on controlled paths.
+**Pre-write guard** runs step 2 automatically on governed paths.
 
 ---
 
@@ -91,7 +91,7 @@ BUMP baseline (if new markers)
 
 ## 6. Downgrade definition (machine)
 
-A change is a **downgrade** when, after edit, any controlled file fails `check` against the current baseline manifest — including:
+A change is a **downgrade** when, after edit, any governed file fails `check` against the current baseline manifest — including:
 
 - Removed CSS classes: `.sa-buyer-toggle`, `.sa-chain-beats`, `.sa-mock-panel`, trust strip markers  
 - Removed live wiring: `sourcea-trust-bar.js`, `paintFactoryChip`, `dataset.saLive`  

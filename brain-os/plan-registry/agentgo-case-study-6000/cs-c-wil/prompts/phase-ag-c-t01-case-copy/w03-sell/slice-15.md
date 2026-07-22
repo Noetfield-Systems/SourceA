@@ -14,7 +14,7 @@ Wil L3 portfolio demo — YA5 mirror · AgentGo ≠ SourceA separation · ship g
 
 ## Task
 
-**Note Noetfield parallel for** case study prose (challenge · shipped · verification).
+**Note Noetfield parallel for** case study prose (challenge · shipped · proof chain).
 
 Do not merge ICPs.
 

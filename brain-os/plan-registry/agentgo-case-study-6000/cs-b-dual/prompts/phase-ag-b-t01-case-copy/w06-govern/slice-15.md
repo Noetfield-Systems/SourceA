@@ -14,7 +14,7 @@ Dual desktop deploy — agentrun-app :5180 + SA4 AgentGo :8080 · landing parity
 
 ## Task
 
-**ASF checkpoint for** case study prose (challenge · shipped · verification).
+**ASF checkpoint for** case study prose (challenge · shipped · proof chain).
 
 Ship window only.
 

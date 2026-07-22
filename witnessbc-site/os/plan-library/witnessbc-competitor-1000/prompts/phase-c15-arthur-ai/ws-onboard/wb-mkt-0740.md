@@ -23,7 +23,7 @@ Close wb-mkt-0740 with onboarding evidence + verify PASS
 
 ## Implementation extraction
 
-`Arthur AI · Onboarding & PLG` → what buyer sees at vendor → what we ship logged with receipt.
+`Arthur AI · Onboarding & PLG` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

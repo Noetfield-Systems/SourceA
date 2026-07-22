@@ -23,7 +23,7 @@ From https://www.vanta.com document Vanta run/history UX: Connect stack; continu
 
 ## Implementation extraction
 
-`Vanta · Run history & proof` → what buyer sees at vendor → what we ship logged with receipt.
+`Vanta · Run history & proof` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

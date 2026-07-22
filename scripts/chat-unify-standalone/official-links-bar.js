@@ -5,7 +5,7 @@
   var PLAIN_CLOUD = "Cloud Workers — CLOUD-SEC queue · Railway full-pack Proceed (:13027).";
   var PLAIN_MAIL = "Switch to Portfolio Mail — inbox hub and mail wiring.";
   var PLAIN_CHAT = "Switch to Chat Unify — merge Cursor chats, n8n webhook.";
-  var PLAIN_FORM = "Official founder form — A–D + write your own · picks land logged · :13023/form/.";
+  var PLAIN_FORM = "Official founder form — A–D + write your own · picks land on disk · :13023/form/.";
   var PLAIN_N8N = "Switch to N8N Integration — automation spine and validators.";
   var PLAIN_AG = "Switch to AG Routing Panel — agent cost · route · ROI · start here on :8782.";
   var PLAIN_MAC = "Switch to Mac Law — routing and control-plane rules.";

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Voyage AI live wire — L8 semantic embeddings + active hybrid search logged.
+"""Voyage AI live wire — L8 semantic embeddings + active hybrid search on disk.
 
 Law: brain-os/wtm/SINA_PRE_LLM_WORLD_MODEL_ROADMAP_LOCKED_v2.md · SECRETS_VAULT.md
 Receipt: ~/.sina/voyage-ai-live-wire-v1.json

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Live precondition probes for phase transitions — probe beats file.
 
-Never trust closeout receipt alone. Validates ff-001..ff-010 receipts logged,
+Never trust closeout receipt alone. Validates ff-001..ff-010 receipts on disk,
 queue counters, Hub :13020, Railway FBE health.
 """
 from __future__ import annotations

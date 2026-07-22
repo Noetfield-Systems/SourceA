@@ -39,7 +39,7 @@ Not a portfolio IMPLEMENT lane — ROLE-WIRE reports to ASF directly.
 
 ---
 
-## Live plan / wire_proof (verify logged)
+## Live plan / wire_proof (verify on disk)
 
   • Close g3: pending
 

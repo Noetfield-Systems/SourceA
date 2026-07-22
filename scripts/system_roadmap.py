@@ -120,7 +120,7 @@ STEP_CATALOG: dict[str, dict[str, Any]] = {
     "A2": {
         "title": "Worker + executor",
         "goal": "Run queued tasks and produce structured run outcomes.",
-        "features": ["Spine worker loop", "Runner integration", "PASS/FAIL capture", "Artifact paths logged"],
+        "features": ["Spine worker loop", "Runner integration", "PASS/FAIL capture", "Artifact paths on disk"],
         "achievements": ["scripts/execution_spine/ shipped", "validate-execution-spine.sh green", "Hub can dispatch without Terminal"],
         "unlocks": "Every action can append to execution memory",
         "artifact": "scripts/execution_spine/",
@@ -1486,7 +1486,7 @@ def _pre_llm_shipped_count() -> int:
 
 
 def _phase_d_complete() -> bool:
-    """True when all D1–D16 pre-LLM SSOT artifacts exist locally (sa-0012)."""
+    """True when all D1–D16 pre-LLM SSOT artifacts exist on disk (sa-0012)."""
     return _pre_llm_shipped_count() == 16
 
 

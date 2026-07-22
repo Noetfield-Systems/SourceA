@@ -22,7 +22,7 @@
     "W-LBA-005": "scripts/autorun_kaizen_queue_v1.py + data/autorun-kaizen-backlog-v1.json"
   },
   "l15_agent_d2": {
-    "law": "docs/CONTROLLED_AUTORUN_LAWS_v3.md L15",
+    "law": "docs/GOVERNED_AUTORUN_LAWS_v3.md L15",
     "spec": "docs/NOETFIELD_COHERENT_SYSTEM_SPEC_v1.md \u00a76",
     "hook": ".githooks/pre-push"
   },

@@ -9,7 +9,7 @@
 
 ## Law (one sentence)
 
-**Worker · Brain · Maintainer · every agent: ship the sa/task in the repository — never default to hub rebuild, full refresh, or `build-sina-command-panel.py`; Super Fast Hub light sync + task validators only.**
+**Worker · Brain · Maintainer · every agent: ship the sa/task on disk — never default to hub rebuild, full refresh, or `build-sina-command-panel.py`; Super Fast Hub light sync + task validators only.**
 
 ---
 
@@ -67,7 +67,7 @@ python3 hub_self_refresh_v1.py --full                      # BANNED unless gate 
 | **Worker** | sa receipt · **`worker_verify_fast_v1.sh`** | Hub rebuild · **full find_critical_bugs** |
 | **Brain** | pick · handoff · Valid YES from hygiene | Implement · rebuild · "refresh hub" to ASF |
 | **Maintainer 2** | hub UI diff only · super-fast validator | Strict build for non-UI sa |
-| **Gov / Commercial** | LOCKED law in repository | Hub tabs as progress |
+| **Gov / Commercial** | LOCKED law on disk | Hub tabs as progress |
 | **All** | Mention **task outcome** first | Lead with "hub…" |
 
 ---

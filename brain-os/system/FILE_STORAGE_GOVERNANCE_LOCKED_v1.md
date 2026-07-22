@@ -22,7 +22,7 @@
 > Every file, document, rule, spec, governance law, decision, receipt, or artifact created in SourceA must be saved to the correct tier immediately upon creation.  
 > A file that exists only in chat history does not exist.  
 > A file saved to the wrong tier is a governance violation.  
-> **If it is not present locally in the correct location, it is not real.**
+> **If it is not on disk in the correct location, it is not real.**
 
 ## Core Principle
 
@@ -44,7 +44,7 @@ SourceA uses a **three-tier storage model** derived from proven real-world agent
 
 ## What it is
 
-The permanent, versioned, human-readable, agent-readable strategic SSOT for SourceA. Everything here is controlled, auditable, and searchable. Git history is the audit trail.
+The permanent, versioned, human-readable, agent-readable strategic SSOT for SourceA. Everything here is governed, auditable, and searchable. Git history is the audit trail.
 
 ## Canonical directory structure
 
@@ -258,7 +258,7 @@ Is this volatile machine state (heartbeat, pointer, queue, INBOX)?
 | 3 | Any `_META.yaml` contains `execution_authority: true` |
 | 4 | A `.json` runtime state file exists inside `brain-os/` or `scripts/` |
 | 5 | `active-execution-rail-v1.json` contains `manual_fallback: true` without an ASF trace ID in the file |
-| 6 | Master Tracker Section 8 lists a Tier 2 path that does not exist logged |
+| 6 | Master Tracker Section 8 lists a Tier 2 path that does not exist on disk |
 | 7 | Any new Tier 2 file exists in `~/.sina/` that is not registered in Master Tracker Section 8 |
 
 ## Enforcement failure clause

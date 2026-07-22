@@ -1,7 +1,7 @@
 # fs-vx-0284 — Fast-sell plan
 
 **Version:** 1 · **Tier:** T1 · **Phase:** MOONSHOT
-**Lane:** VIRLUX · **Wedge:** w15-archived-research · Ship differentiated feature slice
+**Lane:** VIRLUX · **Wedge:** w15-competitor-clone · Clone one competitor feature slice
 **Action:** a18-nps · Ask for referral
 **Comp anchor:** Windmill · Activepieces
 **Tier 1:** One factory recipe demo
@@ -10,7 +10,7 @@
 
 ## Task
 
-Fast-sell: VIRLUX · Ship differentiated feature slice · Ask for referral. Ship smallest slice that moves a buyer toward **One factory recipe demo** with a path to **Team + usage tier**. Receipt logged before done.
+Fast-sell: VIRLUX · Clone one competitor feature slice · Ask for referral. Ship smallest slice that moves a buyer toward **One factory recipe demo** with a path to **Team + usage tier**. Receipt on disk before done.
 
 ## Verify
 

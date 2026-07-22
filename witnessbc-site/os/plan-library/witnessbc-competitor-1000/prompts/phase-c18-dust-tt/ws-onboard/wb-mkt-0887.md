@@ -23,7 +23,7 @@ Measure drop-off: list one friction point vs Dust.tt and fix
 
 ## Implementation extraction
 
-`Dust.tt · Onboarding & PLG` → what buyer sees at vendor → what we ship logged with receipt.
+`Dust.tt · Onboarding & PLG` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

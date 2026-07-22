@@ -24,7 +24,7 @@ NATION_LEGAL_SYSTEMS: dict[str, dict[str, Any]] = {
     "nation-sourcea": {
         "name": "SourceA Mac Control Plane",
         "strictness": 0.85,
-        "constitution": "controlled_automation",
+        "constitution": "governed_automation",
         "allowed_cross_border": ["read_file", "list_files", "search_code"],
         "jurisdiction": "mac_control_plane",
     },

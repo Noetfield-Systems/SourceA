@@ -1,7 +1,7 @@
 # fs-tf-0281 — Fast-sell plan
 
 **Version:** 1 · **Tier:** T2 · **Phase:** MOONSHOT
-**Lane:** TrustField · **Wedge:** w15-archived-research · Ship differentiated feature slice
+**Lane:** TrustField · **Wedge:** w15-competitor-clone · Clone one competitor feature slice
 **Action:** a15-retain · Retainer renewal touch
 **Comp anchor:** Wise Business · FINTRAC vendors
 **Tier 1:** FINTRAC readiness scan
@@ -10,7 +10,7 @@
 
 ## Task
 
-Fast-sell: TrustField · Ship differentiated feature slice · Retainer renewal touch. Ship smallest slice that moves a buyer toward **FINTRAC readiness scan** with a path to **MSB program + settlement**. Receipt logged before done.
+Fast-sell: TrustField · Clone one competitor feature slice · Retainer renewal touch. Ship smallest slice that moves a buyer toward **FINTRAC readiness scan** with a path to **MSB program + settlement**. Receipt on disk before done.
 
 ## Verify
 

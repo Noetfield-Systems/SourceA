@@ -14,7 +14,7 @@ Wil L3 portfolio demo — YA5 mirror · AgentGo ≠ SourceA separation · ship g
 
 ## Task
 
-**Seal proof_pack_sealed row for** case study prose (challenge · shipped · verification).
+**Seal proof_pack_sealed row for** case study prose (challenge · shipped · proof chain).
 
 Phase-1 ticket if applicable.
 

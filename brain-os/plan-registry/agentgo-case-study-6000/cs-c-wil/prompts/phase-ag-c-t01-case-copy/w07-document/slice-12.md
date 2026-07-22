@@ -14,7 +14,7 @@ Wil L3 portfolio demo — YA5 mirror · AgentGo ≠ SourceA separation · ship g
 
 ## Task
 
-**Hub Pro change log row for** case study prose (challenge · shipped · verification).
+**Hub Pro change log row for** case study prose (challenge · shipped · proof chain).
 
 if app touched.
 

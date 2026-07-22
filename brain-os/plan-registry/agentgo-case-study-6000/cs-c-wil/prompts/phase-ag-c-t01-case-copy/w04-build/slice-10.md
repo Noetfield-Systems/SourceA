@@ -14,7 +14,7 @@ Wil L3 portfolio demo — YA5 mirror · AgentGo ≠ SourceA separation · ship g
 
 ## Task
 
-**Build breadcrumb for** case study prose (challenge · shipped · verification).
+**Build breadcrumb for** case study prose (challenge · shipped · proof chain).
 
 Home / Offer / AgentGo.
 

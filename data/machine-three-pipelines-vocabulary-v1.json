@@ -16,5 +16,5 @@
       "receipt": "~/.sina/machine-forge-receipt-v1.json"
     }
   },
-  "never_confuse_with": ["Forge product", "ICP compile", "Controlled App Factory"]
+  "never_confuse_with": ["Forge product", "ICP compile", "Governed App Factory"]
 }

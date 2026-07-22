@@ -83,7 +83,7 @@ When founder says something was **not found**, **not understood**, or **only the
 | 8 | Bare **Phase 1 / Phase 2** | Authority clash SA-019 vs 015/016 | **GOV_PHASE_*** vs **EXEC_PHASE_*** prefixes |
 | 9 | **Wrong workspace** | Read empty `SinaaiDataBase` folder | Real corpus in **`SinaaiMonoRepo/SinaaiDataBase`** |
 | 10 | **Mixed chat** | Brain voice in maintainer | Lane discipline · `FOUNDER_LIVE_AGENT_CONSOLIDATED` |
-| 11 | **“First egg” book** | — | **NOT FOUND logged** — metaphor kept; ask if book title returns |
+| 11 | **“First egg” book** | — | **NOT FOUND on disk** — metaphor kept; ask if book title returns |
 
 ---
 

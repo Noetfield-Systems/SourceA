@@ -23,7 +23,7 @@ Compare Dust.tt PLG motion (Enterprise assistant PLG) vs our onboarding — one 
 
 ## Implementation extraction
 
-`Dust.tt · Pricing & packaging` → what buyer sees at vendor → what we ship logged with receipt.
+`Dust.tt · Pricing & packaging` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

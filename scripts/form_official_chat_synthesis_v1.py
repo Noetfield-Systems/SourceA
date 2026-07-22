@@ -82,7 +82,7 @@ def synthesize_rows() -> list[dict]:
             id="Q-FINAL-02",
             title="U031 RRL bay — implement on FBE cloud runner or Worker WORK?",
             question=(
-                "Queue head U031 needs outbound-rrl-intelligence bay. FBE has cloud runner + bay registry logged. "
+                "Queue head U031 needs outbound-rrl-intelligence bay. FBE has cloud runner + bay registry on disk. "
                 "Build bay on FBE cloud path, bounded Worker WORK, or defer?"
             ),
             blocks="brain-outbound-work-order-active · fbe_node_graph_v1 · U031 planned",
@@ -286,7 +286,7 @@ def synthesize_rows() -> list[dict]:
             id="Q-CHAT-PUBLISH-01",
             title="Cursor marketplace Card1 — npm publish timing",
             question=(
-                "Card1 bundle logged · npm pack ready · founder npm login required. "
+                "Card1 bundle on disk · npm pack ready · founder npm login required. "
                 "Publish now or wait for form/language picks?"
             ),
             blocks="cursor-plugin/sourcea-forge-governance · multi-factory advisory Card1",

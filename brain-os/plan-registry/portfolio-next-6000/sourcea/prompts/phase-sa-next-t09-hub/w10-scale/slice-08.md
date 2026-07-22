@@ -12,7 +12,7 @@ Revenue Engine · Proof Pack · landing · factory-runtime-spike
 
 ## Task
 
-SourceA · Hub & control plane · Scale · slice 8/10 — P3 — research · defer · compare-only. Bounded path only. Receipt logged before done. Parent: Revenue Engine · Proof Pack · landing · factory-runtime-spike. Priority doc: `brain-os/plan-registry/SOURCEA-PRIORITY.md`.
+SourceA · Hub & control plane · Scale · slice 8/10 — P3 — research · defer · compare-only. Bounded path only. Receipt on disk before done. Parent: Revenue Engine · Proof Pack · landing · factory-runtime-spike. Priority doc: `brain-os/plan-registry/SOURCEA-PRIORITY.md`.
 
 ## Verify
 

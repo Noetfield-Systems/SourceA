@@ -23,7 +23,7 @@ Document who buys (SaaS startups) vs our ICP one sentence on `witnessbc-site/con
 
 ## Implementation extraction
 
-`Sprinto · Buyer-visible UX` → what buyer sees at vendor → what we ship logged with receipt.
+`Sprinto · Buyer-visible UX` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

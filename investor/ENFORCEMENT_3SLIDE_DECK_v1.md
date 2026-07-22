@@ -9,7 +9,7 @@
 
 ## Slide 1 — Problem
 
-**Headline:** Uncontrolled AI execution fails audit — not because the model is wrong.
+**Headline:** Ungoverned AI execution fails audit — not because the model is wrong.
 
 **Bullets:**
 
@@ -31,10 +31,10 @@
 
 - **BLOCK** — high-risk Copilot policy change without `approval_ref` → gate DENY, no DONE receipt.
 - **ALLOW** — same wedge with approval → single commit path → receipt + spine row + checksum.
-- **TAMPER** — hand-edit receipt logged → validator **HARD FAIL** on camera.
-- Factory honesty: controlled tasks with receipts; **zero** unproven-done (anti-fake-velocity).
+- **TAMPER** — hand-edit receipt on disk → validator **HARD FAIL** on camera.
+- Factory honesty: governed tasks with receipts; **zero** unproven-done (anti-fake-velocity).
 
-**Proof assets present today:**
+**Proof assets on disk today:**
 
 - RT LIVE receipt ↔ spine bound (`validate-universe-invariants-v1.sh` PASS)
 - Copilot demo path (`validate-demo-enforcement-v1.sh` PASS)

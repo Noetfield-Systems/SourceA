@@ -23,7 +23,7 @@ Close wb-mkt-0140 with onboarding evidence + verify PASS
 
 ## Implementation extraction
 
-`Sprinto · Onboarding & PLG` → what buyer sees at vendor → what we ship logged with receipt.
+`Sprinto · Onboarding & PLG` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

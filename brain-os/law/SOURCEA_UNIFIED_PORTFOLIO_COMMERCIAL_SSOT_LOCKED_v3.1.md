@@ -5,7 +5,7 @@
 **sequence_id:** SA-2026-06-15-SOURCEA-UNIFIED-PORTFOLIO-SSOT-v3.2  
 **Authority:** ASF imperative — **wins on conflict** for SourceA + portfolio identity (SourceA · Noetfield · TrustField · lanes), category, buyer ICP, GTM, commercial execution, demo-for-sales, energy law, UI position, and void phrases (subordinate only to explicit ASF order and `ASF_ORDER` tier-0).  
 **Supersedes:** v3.1 · `SOURCEA_COMPANY_INFRA_BUYER_AND_POSITION_SSOT_LOCKED_v1.md` · demoted blueprint drafts v2/v3  
-**ASF pivot (2026-06-15):** SourceA **runs** controlled agentic automation daily **and sells** it — not governance-only infra in the basement.  
+**ASF pivot (2026-06-15):** SourceA **runs** governed agentic automation daily **and sells** it — not governance-only infra in the basement.  
 **Router:** `SINA_GOVERNANCE_ENTRY_LOCKED_v1.md`  
 **Registry:** `SINA_AUTHORITY_INDEX_MAP_LOCKED_v1.md` → row `SOURCEA_PORTFOLIO_SSOT`  
 **Does not replace (pointer only):** `brain-os/law/enforcement/ENFORCEMENT_6MO_INVESTOR_WIN_LOCKED_v1.md` (W1/W2/W3 binary wins) · `SINA_ENFORCEMENT_PORTFOLIO_DECISION_FORM_LOCKED_v1.md` (ENG-05) · WTM · edit locks · incident corpus
@@ -25,10 +25,10 @@
 ## 1. Founder lines (use everywhere)
 
 **Identity:**  
-> SourceA is a company that **runs and sells controlled agentic automation** — multi-agent orchestration, outreach loops, ops automation, and research agents — with pre-LLM policy at dispatch, signed receipts, ledger + replay. It is the engine that powers Noetfield, TrustField, Forge, AgentField, and every portfolio lane.
+> SourceA is a company that **runs and sells governed agentic automation** — multi-agent orchestration, outreach loops, ops automation, and research agents — with pre-LLM policy at dispatch, signed receipts, ledger + replay. It is the engine that powers Noetfield, TrustField, Forge, AgentField, and every portfolio lane.
 
 **Public positioning:**  
-> Controlled agentic automation — Temporal meets Stripe, with policy as the wedge.
+> Governed agentic automation — Temporal meets Stripe, with policy as the wedge.
 
 **Field ambition:**  
 > The runtime that runs your agents — and proves every action.
@@ -55,24 +55,24 @@ SourceA is **not** invisible plumbing. It is a **product and a company** with it
 
 **Daily (founder stack — dogfood):** Brain · Worker · Gov · Commercial · Maintainer lanes · RUN INBOX · factory queue · self-healing pipelines · approval-gated send/book/spend. **The company operates on the product.**
 
-**Sold (commercial):** The same capability for buyers — **controlled agentic automation** (outreach, ops, research, client agent loops) instrumented with receipts — not dumb Zapier glue, not governance slides without execution.
+**Sold (commercial):** The same capability for buyers — **governed agentic automation** (outreach, ops, research, client agent loops) instrumented with receipts — not dumb Zapier glue, not governance slides without execution.
 
 | Motion | What buyer gets | Proof |
 |--------|-----------------|-------|
 | **Run (internal)** | Founder factory at ~fixed run cost | `factory_now_line` · session gate · dual proof |
 | **Sell — product** | SDK/repo · embed · credit card | SW1 · Buyer 1 demo |
-| **Sell — agency** | Client agent loops + audit PDF | `SOURCEA_ASSET_B_CONTROLLED_AGENTIC_AUTOMATION_LOCKED_v1.md` · `SOURCEA_AGENCY_PRODUCT_DEMO_SCRIPT_LOCKED_v1.md` |
+| **Sell — agency** | Client agent loops + audit PDF | `SOURCEA_ASSET_B_GOVERNED_AGENTIC_AUTOMATION_LOCKED_v1.md` · `SOURCEA_AGENCY_PRODUCT_DEMO_SCRIPT_LOCKED_v1.md` |
 | **Sell — compliance face** | Copilot governance receipts | Noetfield NW1 (parallel · separate vocabulary) |
 
 **Law:** Agentic automation **with** governance receipts — not generic freelancing, not governance without running agents (§22 void).
 
 ## 2c. Asset B — fastest cash (LOCKED)
 
-**Canonical:** `SOURCEA_ASSET_B_CONTROLLED_AGENTIC_AUTOMATION_LOCKED_v1.md` · `scripts/controlled_agentic_automation_offer_v1.py`
+**Canonical:** `SOURCEA_ASSET_B_GOVERNED_AGENTIC_AUTOMATION_LOCKED_v1.md` · `scripts/governed_agentic_automation_offer_v1.py`
 
 | Rank | Motion | Price | Timeline |
 |------|--------|-------|----------|
-| **1** | DFY controlled agentic automation | Project **$3–10K** · retainer **$2–5K/mo** | **Weeks** |
+| **1** | DFY governed agentic automation | Project **$3–10K** · retainer **$2–5K/mo** | **Weeks** |
 | **2** | Noetfield NW1 pilot (parallel) | CAD $2K shadow → annual | 1–3 months |
 | **3** | **Combined** — loop build + receipt instrumentation | Same engagement | Max ROI |
 
@@ -97,13 +97,13 @@ SourceA is **not** invisible plumbing. It is a **product and a company** with it
                              ▼
 ┌──────────────────────────────────────────────────────────────────┐
 │  INFRASTRUCTURE LAYER — SOURCEA                                   │
-│  Controlled agentic automation · execution OS · agentic runtime     │
-│  Runs daily (factory) · sells product + agency · verification built in    │
+│  Governed agentic automation · execution OS · agentic runtime     │
+│  Runs daily (factory) · sells product + agency · proof on disk    │
 │  Spine · gatekeeper · validators · receipts · hub projection    │
 └──────────────────────────────────────────────────────────────────┘
 ```
 
-**Operating focus:** SourceA **runs agentic automation** (daily factory) + **sells controlled agentic automation** (Buyer 1 + agency) + **Noetfield primary W3 wedge** + **TrustField backup** — all parallel (ENG-05 + this doc).
+**Operating focus:** SourceA **runs agentic automation** (daily factory) + **sells governed agentic automation** (Buyer 1 + agency) + **Noetfield primary W3 wedge** + **TrustField backup** — all parallel (ENG-05 + this doc).
 
 ---
 
@@ -111,7 +111,7 @@ SourceA is **not** invisible plumbing. It is a **product and a company** with it
 
 **Not:** chat app · productivity suite · project management · **dumb** no-code glue without receipts · observability-only · model wrapper · **governance-only vendor that does not run agents**.
 
-**Is:** **controlled agentic automation** — runs multi-agent loops daily and sells the same stack:
+**Is:** **governed agentic automation** — runs multi-agent loops daily and sells the same stack:
 
 ```text
 intent in → planned → brokered → executed → validated under policy
@@ -126,7 +126,7 @@ intent in → planned → brokered → executed → validated under policy
 | **Agentic runtime** | Runs · events · replay · SDK · portal |
 | **Proof** | Receipt spine · tamper FAIL · export bundle |
 
-**Category peers:** Temporal · Inngest · Trigger.dev · Hatchet · Stripe (surface) · Cerbos/OPA (wedge) — **plus** controlled automation shops that cannot prove what agents did.
+**Category peers:** Temporal · Inngest · Trigger.dev · Hatchet · Stripe (surface) · Cerbos/OPA (wedge) — **plus** governed automation shops that cannot prove what agents did.
 
 **Reject as primary hero:** Linear · Notion · Asana · ChatGPT SaaS · raw Zapier/n8n **without** receipt chain · LangSmith-alone.
 
@@ -153,7 +153,7 @@ Kubernetes does not compete with app frameworks — it governs **how** they run.
 |-------|--------|
 | **Who** | Staff/Principal eng · VP Eng · agency/ops founder · Series A–C (20–500) · **agents in prod or building client agent loops** |
 | **Pain** | Silent failures · no replay · cannot run agentic automation reliably · enterprise buyer asked for execution log — had nothing |
-| **Buy** | **Controlled agentic automation** — run loops with receipts · credit card / small PO · **$200–$2,000/mo** · project **$750–$10K** (agency) · ~1 week · one engineer |
+| **Buy** | **Governed agentic automation** — run loops with receipts · credit card / small PO · **$200–$2,000/mo** · project **$750–$10K** (agency) · ~1 week · one engineer |
 | **Eval** | Read code · run SDK · watch factory run · test replay — **GitHub + demo · no sales call** |
 
 ### Buyer 2 — Embed runtime (**SECOND**)
@@ -199,7 +199,7 @@ Kubernetes does not compete with app frameworks — it governs **how** they run.
 
 **Who:** Canadian SME owners · RCIC firms · Persian diaspora operators · mortgage brokers · GC/trades · accountant-referred SMBs.
 
-**What they get:** controlled AI automation for operations still on spreadsheets — bilingual where needed · Trust Brief credential · optional TrustField payment rail (separate contract).
+**What they get:** governed AI automation for operations still on spreadsheets — bilingual where needed · Trust Brief credential · optional TrustField payment rail (separate contract).
 
 | Offer | Price | Description |
 |-------|-------|-------------|
@@ -209,7 +209,7 @@ Kubernetes does not compete with app frameworks — it governs **how** they run.
 | Vertical SaaS | $99–$499/mo | ImmigrationOS · DiasporaBiz · BrokerBrain (after 3+ same-vertical clients) |
 
 **Commercial sentence (Intelligence — homepage hero):**  
-> We automate the operations Canadian SMEs still run on spreadsheets — with controlled AI you can show your accountant, your client, and your board.
+> We automate the operations Canadian SMEs still run on spreadsheets — with governed AI you can show your accountant, your client, and your board.
 
 **Sequencing law:** Intelligence Diagnostic **or** §7 Design Partner — whichever closes first. Copilot Pack remains §7 enterprise lane; **not** homepage-only identity when NW1/W3 are ❌.
 
@@ -232,7 +232,7 @@ Kubernetes does not compete with app frameworks — it governs **how** they run.
 
 | Layer | Pitch frame | Vocabulary |
 |-------|-------------|------------|
-| **SourceA** | Durable execution infra · **controlled agentic automation** · Temporal meets Stripe · policy + receipt + replay | runs · agents · loops · events · SDK · policy gate · replay |
+| **SourceA** | Durable execution infra · **governed agentic automation** · Temporal meets Stripe · policy + receipt + replay | runs · agents · loops · events · SDK · policy gate · replay |
 | **Noetfield** | AI Governance & Evidence · Copilot audit · board-defensible | TLE · Trust Ledger · board pack · diligence |
 | **TrustField** | Regulated program infra · MSB intake · FINTRAC-ready | TF reference · checklist · compliance export |
 
@@ -245,7 +245,7 @@ Kubernetes does not compete with app frameworks — it governs **how** they run.
 | Layer | Buyer | ACV | Motion | Timeline |
 |-------|-------|-----|--------|----------|
 | SourceA | Buyer 1 (product) | $200–$2K/mo | Repo + demo → credit card | ~1 week |
-| SourceA | Buyer 1 (agency · **Asset B**) | $750 audit · $299/mo · **$3–10K DFY** · **$2–5K/mo retainer** | Controlled agentic automation for client | **weeks** |
+| SourceA | Buyer 1 (agency · **Asset B**) | $750 audit · $299/mo · **$3–10K DFY** · **$2–5K/mo retainer** | Governed agentic automation for client | **weeks** |
 | SourceA | Buyer 2 | $5–20K/mo | Eng eval → embed agreement | 4–8 wk |
 | SourceA | Buyer 3 | $50–200K/yr | RFP · security | 6–12 mo |
 | Noetfield | Compliance | $2K–$10K pilot · $10K brief | Outreach → demo → DP | 2–6 wk |
@@ -284,7 +284,7 @@ Kubernetes does not compete with app frameworks — it governs **how** they run.
 | **AB2** | Second paying DFY/retainer client | ❌ |
 | **AB3** | Combined-motion case study (with permission) | ❌ |
 
-**Law:** AB1 parallel to NW1/SW2 — log `controlled_agentic_automation_offer_v1.py --log-w3`.
+**Law:** AB1 parallel to NW1/SW2 — log `governed_agentic_automation_offer_v1.py --log-w3`.
 
 ### Noetfield codes
 
@@ -393,7 +393,7 @@ MSB intake → TF reference → checklist → evidence export → FINTRAC narrat
 | Layer | Verdict | Action |
 |-------|---------|--------|
 | White `/docs` | ✅ Stripe-grade | Keep |
-| Copy | ✅ Controlled agentic automation | Lead: **run agents · policy · ledger · replay** |
+| Copy | ✅ Governed agentic automation | Lead: **run agents · policy · ledger · replay** |
 | Dark hero | ⚠️ Linear risk | Prefer **run timeline + pipeline graph** (Temporal/Inngest/Kestra) |
 | Nav | One story | **Product → Docs → API → Portal** |
 
@@ -406,7 +406,7 @@ MSB intake → TF reference → checklist → evidence export → FINTRAC narrat
 **Subject:** Copilot governance receipt — design partner  
 
 > Every Microsoft Copilot action your team executes leaves no verifiable trail. If something goes wrong — wrong output, unauthorized action, policy violation — you have no cryptographic proof of what happened.  
-> We fix that in 30 days. Delivery records for every Copilot action. Invalid actions blocked before execution. Tamper detected immediately.  
+> We fix that in 30 days. Governance receipts for every Copilot action. Invalid actions blocked before execution. Tamper detected immediately.  
 > Pilot: CAD $2K deposit. Refund if we don't deliver. 15 minutes?
 
 Link: https://www.noetfield.com/copilot/pilot/
@@ -423,7 +423,7 @@ Link: https://www.noetfield.com/copilot/pilot/
 ### SourceA Buyer 1 (SW1)
 
 No pitch deck. Message:  
-> We run controlled agentic automation every day — outreach, ops, research loops — with policy at dispatch, signed receipts, and replay. Here's the stack. Would be curious what you think. [repo or demo link]
+> We run governed agentic automation every day — outreach, ops, research loops — with policy at dispatch, signed receipts, and replay. Here's the stack. Would be curious what you think. [repo or demo link]
 
 ### Asset B (AB1 — fastest cash)
 
@@ -432,11 +432,11 @@ No pitch deck. Message:
 **Subject:** Agent loops with receipts — live in 2–3 weeks  
 
 > Teams shipping Cursor agents hit the same wall: the loop runs, but nobody can prove what executed or whether it is safe to run again tomorrow.  
-> SourceA runs a self-healing multi-agent factory daily — policy before execution, signed receipts logged.  
+> SourceA runs a self-healing multi-agent factory daily — policy before execution, signed receipts on disk.  
 > Done-for-you: **Agent Loop Build** ($3–10K) or **Retainer** ($2–5K/mo) · live in 2–3 weeks.  
 > 15 minutes to screen-share factory receipts — no deck.
 
-**Law:** `SOURCEA_ASSET_B_CONTROLLED_AGENTIC_AUTOMATION_LOCKED_v1.md` · templates `~/.sina/controlled-agentic-automation-email-templates-v1.json`
+**Law:** `SOURCEA_ASSET_B_GOVERNED_AGENTIC_AUTOMATION_LOCKED_v1.md` · templates `~/.sina/governed-agentic-automation-email-templates-v1.json`
 
 ---
 
@@ -488,7 +488,7 @@ K1 can wait **4 hours** after outreach sent.
 
 ## 20. Locked decisions (no re-debate)
 
-1. SourceA = **runs + sells** controlled agentic automation + engine for portfolio  
+1. SourceA = **runs + sells** governed agentic automation + engine for portfolio  
 2. Every layer has own customers · own pitch  
 3. Buyer 1 → 2 → 3 sequencing for SourceA direct · **agency parallel**  
 4. Noetfield = **primary** W3 wedge (ENG-05) · TrustField backup  
@@ -519,13 +519,13 @@ K1 can wait **4 hours** after outreach sent.
 
 | VOID | REPLACE WITH |
 |------|--------------|
-| SourceA is not a company you sell to customers | SourceA **runs and sells** controlled agentic automation |
+| SourceA is not a company you sell to customers | SourceA **runs and sells** governed agentic automation |
 | SourceA is not a product | SourceA is an agentic automation + infra product company |
 | Backend only · never sell SourceA | Direct sale + agency + portfolio sale in parallel |
 | Engine in basement only | **Factory runs agents daily** — engine + company — portfolio on top |
-| Customers never buy SourceA | Technical buyers buy controlled agentic automation · compliance buyers buy Noetfield/TrustField |
+| Customers never buy SourceA | Technical buyers buy governed agentic automation · compliance buyers buy Noetfield/TrustField |
 | Governance-only · no agentic execution | SourceA **runs** agentic automation — governance is the proof layer, not a slide |
-| Generic "I'll build your agents" freelancer | **Controlled** agentic automation with signed receipts (agency SKUs logged) |
+| Generic "I'll build your agents" freelancer | **Governed** agentic automation with signed receipts (agency SKUs on disk) |
 
 ---
 
@@ -554,7 +554,7 @@ K1 can wait **4 hours** after outreach sent.
 | ENG-05 | `SINA_ENFORCEMENT_PORTFOLIO_DECISION_FORM_LOCKED_v1.md` |
 | Demo CI | `scripts/validate-enforcement-demo-v1.sh` |
 | Outreach kit | `investor/ENFORCEMENT_OUTREACH_v1.md` |
-| Asset B offer | `SOURCEA_ASSET_B_CONTROLLED_AGENTIC_AUTOMATION_LOCKED_v1.md` · `validate-controlled-agentic-automation-offer-v1.sh` |
+| Asset B offer | `SOURCEA_ASSET_B_GOVERNED_AGENTIC_AUTOMATION_LOCKED_v1.md` · `validate-governed-agentic-automation-offer-v1.sh` |
 | Commercial sender | `SOURCEA_COMMERCIAL_SENDER_LOCKED_v1.md` · `send_ab1_single_v1.py` |
 | Chain tools (SW1) | `SOURCEA_CHAIN_TOOLS_PUBLISH_LOCKED_v1.md` · `packages/sourcea-boot` · `validate-sourcea-boot-v1.sh` |
 | NW1 one-pager merge | `NOETFIELD_FOUNDING_CUSTOMER_PILOT_ONEPAGER_MERGED_EXTERNAL_v1.md` · `validate-noetfield-onepager-merge-v1.sh` |
@@ -562,4 +562,4 @@ K1 can wait **4 hours** after outreach sent.
 
 ---
 
-*Locked ASF 2026-06-15 · Unified winner v3.2 — runs + sells controlled agentic automation (SourceA + Noetfield + TrustField + lanes).*
+*Locked ASF 2026-06-15 · Unified winner v3.2 — runs + sells governed agentic automation (SourceA + Noetfield + TrustField + lanes).*

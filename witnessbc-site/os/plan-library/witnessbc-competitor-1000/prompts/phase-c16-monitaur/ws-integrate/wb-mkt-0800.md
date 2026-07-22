@@ -23,7 +23,7 @@ Close wb-mkt-0800: integration receipt + verify PASS + https://www.monitaur.ai
 
 ## Implementation extraction
 
-`Monitaur · Integrations & API` → what buyer sees at vendor → what we ship logged with receipt.
+`Monitaur · Integrations & API` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

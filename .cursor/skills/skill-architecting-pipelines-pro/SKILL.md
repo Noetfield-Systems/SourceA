@@ -131,7 +131,7 @@ Before claiming DONE on any pipeline or node upgrade:
 
 ## 7. Founder one-liner (comfort layer)
 
-> SourceA does not trust the model. Every session: identify the agent, quarantine strangers on write, keep fleet agents in lane allowlists, require your verb for cross-lane edits, and prove posture logged.
+> SourceA does not trust the model. Every session: identify the agent, quarantine strangers on write, keep fleet agents in lane allowlists, require your verb for cross-lane edits, and prove posture on disk.
 
 **Daily path:** RUN INBOX → optional Worker Hub Next steps → Mac Health ADMIT tile.
 

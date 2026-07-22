@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""SourceA Revenue Engine v1 — lightweight CRM pipeline logged."""
+"""SourceA Revenue Engine v1 — lightweight CRM pipeline on disk."""
 from __future__ import annotations
 
 import argparse

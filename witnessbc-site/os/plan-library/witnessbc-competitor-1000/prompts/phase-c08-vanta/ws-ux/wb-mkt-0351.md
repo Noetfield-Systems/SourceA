@@ -23,7 +23,7 @@ Open https://www.vanta.com — screenshot or quote the exact buyer-facing Buyer-
 
 ## Implementation extraction
 
-`Vanta · Buyer-visible UX` → what buyer sees at vendor → what we ship logged with receipt.
+`Vanta · Buyer-visible UX` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

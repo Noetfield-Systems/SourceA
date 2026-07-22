@@ -10,7 +10,7 @@
 
 ## Task
 
-Fast-sell: Vertical GTM SKUs · Per-outcome pricing (ticket/meeting/resolution) · Ship smallest build slice. Ship smallest slice that moves a buyer toward **$99–199/mo self-serve** with a path to **$499/mo + onboarding**. Receipt logged before done.
+Fast-sell: Vertical GTM SKUs · Per-outcome pricing (ticket/meeting/resolution) · Ship smallest build slice. Ship smallest slice that moves a buyer toward **$99–199/mo self-serve** with a path to **$499/mo + onboarding**. Receipt on disk before done.
 
 ## Verify
 

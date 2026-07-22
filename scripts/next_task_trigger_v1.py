@@ -321,9 +321,9 @@ def build_pipeline(ssot: dict, snap: dict, ctx: dict[str, Any]) -> dict[str, Any
         "question": ssot.get("required_founder_question"),
         "classified_as": output_type,
         "examples_map": {
-            "file_generation": "manifest, schema, doc, receipt pack logged",
+            "file_generation": "manifest, schema, doc, receipt pack on disk",
             "marketing_system": "landing, pricing, GTM, outreach asset",
-            "ai_agent_product": "Hub UX, FORGE preview URL, controlled agent surface",
+            "ai_agent_product": "Hub UX, FORGE preview URL, governed agent surface",
             "data_pipeline": "labs row, competitor fetch, evidence store",
             "internal_meta": "brain/governance receipt only — no buyer artifact",
             "unknown": "founder must classify before proceed",

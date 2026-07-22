@@ -23,7 +23,7 @@ Write competitor row evidence: LowerPlane pricing → our SKU → defer/shipped 
 
 ## Implementation extraction
 
-`LowerPlane · Pricing & packaging` → what buyer sees at vendor → what we ship logged with receipt.
+`LowerPlane · Pricing & packaging` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

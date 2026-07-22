@@ -14,7 +14,7 @@ Wil L3 portfolio demo — YA5 mirror · AgentGo ≠ SourceA separation · ship g
 
 ## Task
 
-**Extract reusable template from** case study prose (challenge · shipped · verification).
+**Extract reusable template from** case study prose (challenge · shipped · proof chain).
 
 case study pattern.
 

@@ -14,7 +14,7 @@ Wil L3 portfolio demo — YA5 mirror · AgentGo ≠ SourceA separation · ship g
 
 ## Task
 
-**Check sitemap freshness for** case study prose (challenge · shipped · verification).
+**Check sitemap freshness for** case study prose (challenge · shipped · proof chain).
 
 SA4 sitemap.xml date.
 

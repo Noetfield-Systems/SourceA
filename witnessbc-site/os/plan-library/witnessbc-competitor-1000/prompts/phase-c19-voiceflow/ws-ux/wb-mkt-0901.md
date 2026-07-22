@@ -23,7 +23,7 @@ Open https://www.voiceflow.com — screenshot or quote the exact buyer-facing Bu
 
 ## Implementation extraction
 
-`Voiceflow · Buyer-visible UX` → what buyer sees at vendor → what we ship logged with receipt.
+`Voiceflow · Buyer-visible UX` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

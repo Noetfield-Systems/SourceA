@@ -869,7 +869,7 @@ def _must_do_today_lines(bowl: dict) -> list[str]:
         oq = int(form.get("open_questions_count") or 0)
         if oq > 0:
             return [
-                f"Official form — {oq} open PICKs logged · M1 Canvas · INCIDENT-037 block ON",
+                f"Official form — {oq} open PICKs on disk · M1 Canvas · INCIDENT-037 block ON",
                 "Form agent-submit forbidden · founder supremacy guard active",
             ]
     except Exception:
@@ -892,7 +892,7 @@ def _must_do_today_lines(bowl: dict) -> list[str]:
                 ]
                 if open_q:
                     lines.append(
-                        f"Official form — {open_q} open PICKs logged · M1 Canvas · INCIDENT-037 block ON"
+                        f"Official form — {open_q} open PICKs on disk · M1 Canvas · INCIDENT-037 block ON"
                     )
                 else:
                     lines.append("Form clear · 0 open PICKs · INCIDENT-037 guard ON")
@@ -900,7 +900,7 @@ def _must_do_today_lines(bowl: dict) -> list[str]:
             return [
                 "RT LIVE gate OPEN · hub repair-only · FR-003 wired",
                 "Safety guard active · factory background only",
-                "Form FILLED logged · RT LIVE receipt pending",
+                "Form FILLED on disk · RT LIVE receipt pending",
             ]
     except Exception:
         pass
@@ -2138,7 +2138,7 @@ def founder_actions_flat() -> list[dict]:
             "icon": "📥",
             "kind": "healthy_drain_paste",
             "group": "drain",
-            "hint": "Writes .sina-loop/INBOX.md — prompt locally (no clipboard hijack)",
+            "hint": "Writes .sina-loop/INBOX.md — prompt on disk (no clipboard hijack)",
         },
         {
             "id": "founder-start-worker-turn",
@@ -2265,7 +2265,7 @@ def founder_actions_grouped() -> list[dict]:
         ("portfolio", "Portfolio", "TrustField pilot and lane attests"),
         ("law", "Law & blockers", "Open the right file"),
         ("apps", "Apps", "Prompt OS and remote status"),
-        ("queue", "Next steps", "Live next 10 in the repository — optional direction commentary (auto-paste OFF)"),
+        ("queue", "Next steps", "Live next 10 on disk — optional direction commentary (auto-paste OFF)"),
         ("automation", "Automation & n8n", "Start n8n · starter test · Runtime glue (optional)"),
     ]
     flat = [a for a in founder_actions_flat() if not a.get("hidden")]

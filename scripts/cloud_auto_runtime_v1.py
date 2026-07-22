@@ -177,7 +177,7 @@ def _resolve_batch_id(
 
 
 def _cycle_op_key(*, workflow_id: str, plan_id: str, attempt_no: int | str | None) -> str:
-    """D1 — idempotency key from content only (controlled-autorun L13)."""
+    """D1 — idempotency key from content only (governed-autorun L13)."""
     raw = f"{workflow_id}|{plan_id}|{attempt_no or 0}"
     return hashlib.sha256(raw.encode("utf-8")).hexdigest()[:40]
 

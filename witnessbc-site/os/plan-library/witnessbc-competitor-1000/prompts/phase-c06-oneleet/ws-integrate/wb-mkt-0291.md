@@ -23,7 +23,7 @@ List Oneleet integrations/APIs from https://oneleet.com or docs — pick one we 
 
 ## Implementation extraction
 
-`Oneleet · Integrations & API` → what buyer sees at vendor → what we ship logged with receipt.
+`Oneleet · Integrations & API` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

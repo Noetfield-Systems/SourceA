@@ -1,4 +1,4 @@
-# sa-score2-0977 — Scale moat narrative: controlled agentic + receipt on every page
+# sa-score2-0977 — Scale moat narrative: governed agentic + receipt on every page
 
 **Saved at:** 2026-06-25T09:28:52Z
 **Batch:** 2 · **Grade:** A · **Tier:** T2 · **Phase:** MOONSHOT
@@ -17,7 +17,7 @@ Batch-2 raises site score **78 → 93+** — enterprise-credible · cryptographi
 
 Grade-A P2 — harden · benchmark · document
 
-**Deliverable:** Scale moat narrative: controlled agentic + receipt on every page
+**Deliverable:** Scale moat narrative: governed agentic + receipt on every page
 
 ## Anti-duplication
 

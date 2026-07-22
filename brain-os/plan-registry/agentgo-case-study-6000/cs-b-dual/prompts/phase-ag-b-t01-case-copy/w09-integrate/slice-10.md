@@ -14,7 +14,7 @@ Dual desktop deploy — agentrun-app :5180 + SA4 AgentGo :8080 · landing parity
 
 ## Task
 
-**Integrate pick-agentgo for** case study prose (challenge · shipped · verification).
+**Integrate pick-agentgo for** case study prose (challenge · shipped · proof chain).
 
 plan-no-asf-run.
 

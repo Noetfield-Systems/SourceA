@@ -57,7 +57,7 @@ grep -q "STRATEGIC — not Worker scope" "$ROOT/brain-os/plan-registry/CANADA_AI
 test -f "$SCRIPTS/validate-sourcea-e2e-standard-v1.sh"
 test -f "$SCRIPTS/validate-e2e-fast-ladder-v1.sh"
 bash "$SCRIPTS/validate-sourcea-session-index-locked-v1.sh" >/dev/null
-_ok "lane separation + E2E recipe + LOCKED session docs logged"
+_ok "lane separation + E2E recipe + LOCKED session docs on disk"
 
 # 5) Hub built_at sync contract (sa-0042 flake class)
 bash "$SCRIPTS/validate-hub-built-at-sync-contract-v1.sh" >/dev/null

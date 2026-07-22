@@ -23,7 +23,7 @@ Diff our public copy vs Comp AI pricing/product page — list 3 concrete gaps; f
 
 ## Implementation extraction
 
-`Comp AI · Buyer-visible UX` → what buyer sees at vendor → what we ship logged with receipt.
+`Comp AI · Buyer-visible UX` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

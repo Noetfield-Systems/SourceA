@@ -23,7 +23,7 @@ One shippable artifact only — no drive-by refactors.
 **Anti-drift:** Never conflate localhost demo with production sourcea.app ship.
 **Target path:** `~/.sina/agentgo-case-study-receipt-v1.json`
 **Success metric:** PASS/FAIL not vibes
-**Receipt:** file in the repository before `status: done`.
+**Receipt:** file on disk before `status: done`.
 **Phase:** MOONSHOT · **Tier:** T0 · **Workstream:** Ship
 
 ## Verify

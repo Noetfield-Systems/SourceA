@@ -33,14 +33,14 @@
     "canvas_action": "founder-open-integrity-form",
     "canvas_surface": "m1",
     "canvas_path": "/Users/sinakazemnezhad/.cursor/projects/Users-sinakazemnezhad-Desktop-SinaaiDataBase/canvases/sourcea-system-integrity-100.canvas.tsx",
-    "form_line": "110 open PICKs logged · M1 Canvas · founder picks only · agent-submit forbidden",
-    "form_headline": "110 OPEN PICKs · FORM THIRD_FORM logged · M1 Canvas · founder picks only · agent-submit forbidden",
+    "form_line": "110 open PICKs on disk · M1 Canvas · founder picks only · agent-submit forbidden",
+    "form_headline": "110 OPEN PICKs · FORM THIRD_FORM on disk · M1 Canvas · founder picks only · agent-submit forbidden",
     "founder_head_card": {
       "id": "Q-1.10-SEAL",
       "number": 1,
       "subject": "Phase 1.10 closeout seal",
       "title": "Phase 1.10 closeout seal",
-      "question": "RT LIVE gate is PASS logged. Seal Phase 1 closeout now?",
+      "question": "RT LIVE gate is PASS on disk. Seal Phase 1 closeout now?",
       "options": [
         "A — seal 1.10 DONE · update SESSION_LOG",
         "B — wait until cascade sustained 7 days",
@@ -613,7 +613,7 @@
         "sku_only": true
       }
     ],
-    "stripe_buyer_copy": "Controlled AI operations for teams on any stack — web, mobile, and API surfaces. Subscribe to Noetfield Systems for operational TLE evaluation, policy receipts, and upgrade paths with no desktop-only or",
+    "stripe_buyer_copy": "Governed AI operations for teams on any stack — web, mobile, and API surfaces. Subscribe to Noetfield Systems for operational TLE evaluation, policy receipts, and upgrade paths with no desktop-only or",
     "stripe_statement_descriptor": "NOETFIELD SYSTEMS",
     "stripe_statement_descriptor_short": "NFS",
     "hub_api": "POST /api/world-model-plan-check/tick/v1"

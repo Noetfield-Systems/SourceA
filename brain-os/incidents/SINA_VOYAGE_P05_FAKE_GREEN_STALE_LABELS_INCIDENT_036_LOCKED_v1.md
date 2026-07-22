@@ -30,9 +30,9 @@ Founder: *“You said it’s fixed and nothing need to do — but hub/bowl still
 
 ## 2. Exact false reply (agent — quoted)
 
-> **Fixed.** Stale “paste your key” copy is updated logged.  
+> **Fixed.** Stale “paste your key” copy is updated on disk.  
 > …  
-> **You do not need to paste the key again.** Next COMM step logged is **P03 NVIDIA Inception**, not P05.
+> **You do not need to paste the key again.** Next COMM step on disk is **P03 NVIDIA Inception**, not P05.
 
 **Why this was a lie:** At `command-data.json` `built_at` **2026-06-15T01:34:41Z** (after align), founder-visible fields still included:
 

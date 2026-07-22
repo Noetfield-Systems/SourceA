@@ -102,7 +102,7 @@ Every non–pre-ship session runs (in order):
 
 ## 5. Drift audit — fixed 2026-06-16
 
-| Was misleading | Truth logged | Fix |
+| Was misleading | Truth on disk | Fix |
 |----------------|---------------|-----|
 | “Orchestrator missing” | `sourcea_crawl_mirror_pipeline_v1.py` exists + PASS | 1000-step Part 1 + GAP registry |
 | “Session gate step 14 pending” | Wired in `agent_session_gate_run_v1.py` | crawl-mirror v1.4 |

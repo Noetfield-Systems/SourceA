@@ -14,7 +14,7 @@ Dual desktop deploy — agentrun-app :5180 + SA4 AgentGo :8080 · landing parity
 
 ## Task
 
-**Draft 1-page proposal for** case study prose (challenge · shipped · verification).
+**Draft 1-page proposal for** case study prose (challenge · shipped · proof chain).
 
 Fixed scope · receipts.
 

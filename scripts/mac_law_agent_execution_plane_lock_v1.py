@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Mac Law agent execution plane lock — FOREVER logged · all nerves · all nodes.
+"""Mac Law agent execution plane lock — FOREVER on disk · all nerves · all nodes.
 
 Law: AGENTS never factory-build on Mac · cloud executes.
 SSOT: data/mac-law-agent-execution-plane-lock-v1.json

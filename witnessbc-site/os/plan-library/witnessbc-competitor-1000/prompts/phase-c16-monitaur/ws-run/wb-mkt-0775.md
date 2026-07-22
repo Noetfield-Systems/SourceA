@@ -23,7 +23,7 @@ Add retention note: how long run history kept vs Monitaur (Enterprise custom tie
 
 ## Implementation extraction
 
-`Monitaur · Run history & proof` → what buyer sees at vendor → what we ship logged with receipt.
+`Monitaur · Run history & proof` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

@@ -17,7 +17,7 @@ Everything responds on the network — Mac cockpit, cloud FBE, and all five port
 
 | Pri | Repo | Blocker | Owner |
 |-----|------|---------|--------|
-| **P0** | WitnessBC | Prod = old journalism · artifact correct logged | SourceA worker + founder DNS/Stripe |
+| **P0** | WitnessBC | Prod = old journalism · artifact correct on disk | SourceA worker + founder DNS/Stripe |
 | **P0** | TrustField | Ladder RED · commercial_blocked | TrustField agent |
 | **P1** | VIRLUX | POSITIONING agentic-only (payments OUT) | VIRLUX agent |
 | **P1** | All | Supabase secrets missing on Mac | Founder — `setup_supabase_secrets_mac_v1.sh` |

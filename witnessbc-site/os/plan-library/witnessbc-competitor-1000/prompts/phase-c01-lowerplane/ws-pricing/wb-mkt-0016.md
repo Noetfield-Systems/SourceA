@@ -23,7 +23,7 @@ Document why buyers pay per LowerPlane: Consultants charge $18k+ with opaque pri
 
 ## Implementation extraction
 
-`LowerPlane · Pricing & packaging` → what buyer sees at vendor → what we ship logged with receipt.
+`LowerPlane · Pricing & packaging` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

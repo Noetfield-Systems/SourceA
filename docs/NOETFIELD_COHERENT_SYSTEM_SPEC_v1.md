@@ -3,7 +3,7 @@
 
 Status: DECLARED (becomes VERIFIED per-section when its enforcement check runs green)
 Owner: founder. Enforced by: machine, via checks named in each section.
-Law base: controlled-autorun v3 (L1–L13, D1–D8). This spec adds no new authority — it wires existing organs together.
+Law base: governed-autorun v3 (L1–L13, D1–D8). This spec adds no new authority — it wires existing organs together.
 
 ---
 
@@ -41,7 +41,7 @@ Current triggers across the estate (audit baseline):
 | T7 | determinism-gate.yml | SourceA | event | live |
 | T8 | Supabase-side (none yet) | — | — | gap: no DB-triggered nerve |
 
-**LAW T-REG (machine-enforceable · L14):** `data/trigger-registry-v1.json` lists every trigger: `{trigger_id, system, kind, schedule, target, valid_in_verified_window, owner_workflow}`. The sandbox_health_sweep diffs *live* trigger config (CF cron list via wrangler logged, GHA workflow files on main) against the registry every heartbeat. Unregistered live trigger, or registered-but-dead trigger → DRIFT receipt (L12). **New trigger without registry entry in the same commit = defect.** Sweep must pass pre-merge (`determinism-gate.yml`).
+**LAW T-REG (machine-enforceable · L14):** `data/trigger-registry-v1.json` lists every trigger: `{trigger_id, system, kind, schedule, target, valid_in_verified_window, owner_workflow}`. The sandbox_health_sweep diffs *live* trigger config (CF cron list via wrangler on disk, GHA workflow files on main) against the registry every heartbeat. Unregistered live trigger, or registered-but-dead trigger → DRIFT receipt (L12). **New trigger without registry entry in the same commit = defect.** Sweep must pass pre-merge (`determinism-gate.yml`).
 
 ---
 
@@ -108,7 +108,7 @@ Missing today: lanes report to the spine but nothing *reads across* lanes and ro
 1. READ spine: latest cycle receipts, heartbeats, D-metrics, window states, founder_blocked, Kaizen backlog — all lanes.
 2. RANK: mission priority → ROI → age. Detect cross-lane conditions no single lane sees (e.g. SourceA queue exhausted + M5 says refill rubric-only + NOOS idle slot free).
 3. EMIT: `data/brain-desired-state-v1.json` rows: `{mission_id, workflow_id, directive: run|hold|throttle|escalate, reason, op_key}` + repository_dispatch to the target repo.
-4. RECEIPT: brain-tick receipt to spine (it is itself a controlled cycle: cost, value_class, evidence).
+4. RECEIPT: brain-tick receipt to spine (it is itself a governed cycle: cost, value_class, evidence).
 5. FOUNDER SURFACE: one daily brain digest — missions RAG-status, founder_blocked aging, founder_gated Kaizen queue by ROI, D-metric trends. One artifact replaces reading N agent reports.
 
 **Bridges that make it one organism:**
@@ -158,7 +158,7 @@ SSOT: `data/worker-cost-tier-queue-v1.json`
 | BRAIN | cross-lane routing, digest | this spec §5 |
 | Founder | decisions, budgets, verifier diffs, missions | daily brain digest |
 
-Dispatch protocol (all workers): controlled-autorun v3 template — laws header, one sandbox, fixed report fields, op_key on every task.
+Dispatch protocol (all workers): governed-autorun v3 template — laws header, one sandbox, fixed report fields, op_key on every task.
 
 **L15 agent-D2 (integrator law):** One integrator per repo — cloud Loop Specialist merges to `main`. Local Worker + Brain write on branches only. Before any task, read `main` + open branches for existing work; duplicate implementation = defect (same as L14 unregistered trigger). Non-fast-forward → rebase; force-push prohibited.
 

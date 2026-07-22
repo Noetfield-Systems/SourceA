@@ -31,7 +31,7 @@ Brain injected **Goal 1 healthy drain step 2 (ACT)** bound to **sa-0129**: “Ve
 
 ## 3. Founder expectation violated
 
-- **Step 2 must be doable logged** with validators the repo already has.
+- **Step 2 must be doable on disk** with validators the repo already has.
 - **Never inject** OpenRouter, live eval, or `eval_1b_gate_ok: true` as an ACT requirement when credits are absent.
 - If a sa is commercial-blocked, **skip or defer** — do not stop the loop on impossible work.
 

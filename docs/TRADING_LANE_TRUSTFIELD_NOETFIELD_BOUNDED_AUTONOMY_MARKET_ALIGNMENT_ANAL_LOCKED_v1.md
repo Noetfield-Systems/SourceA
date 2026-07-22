@@ -18,7 +18,7 @@
 | **SourceA** | **Yes — engine layer** | Enforcement kernel under both wedges | Engine only — never trading hero |
 | **WitnessBC** | **No for trading lane** | GRC tier A — different buyer (CISO) | Tertiary · do not cross-pollinate |
 
-**Bottom line:** The bounded-autonomy trading market in July 2026 buys **risk infrastructure and audit trails**, not trading bots. TrustField is **well aligned** if positioned as *"evidence chain for controlled agent actions"* — not *"we trade for you."* Noetfield is **misaligned as a trading outbound brand** but **aligned as internal FI agent governance** when regulators ask *"explain every automated step."*
+**Bottom line:** The bounded-autonomy trading market in July 2026 buys **risk infrastructure and audit trails**, not trading bots. TrustField is **well aligned** if positioned as *"evidence chain for governed agent actions"* — not *"we trade for you."* Noetfield is **misaligned as a trading outbound brand** but **aligned as internal FI agent governance** when regulators ask *"explain every automated step."*
 
 **Disk verification (2026-07-01):** Enforcement kernel validators PASS — bounded-autonomy **handcuff primitive** is mechanically proven; commercial **W3 pilot** is not closed yet.
 
@@ -138,7 +138,7 @@ From `os/commercial/CANADA_PRIORITY_A_SEND_READY_EMAILS_LOCKED_v1.md` + `os/comm
 | Comparable | What they sell | TrustField difference |
 |------------|----------------|----------------------|
 | AKIVA enterprise-crypto | Full multi-agent trading system (open source) | TrustField = **evidence layer** for ops teams who already have or build agents — not competing OMS |
-| SentinelXQuant (research/governance) | Compliance as architectural primitive | Similar philosophy — TrustField has live demo path logged |
+| SentinelXQuant (research/governance) | Compliance as architectural primitive | Similar philosophy — TrustField has live demo path on disk |
 | Chainalysis / TRM (blockchain analytics) | Transaction monitoring | Different layer — TrustField = **agent action governance**, not chain analytics |
 | Credo AI | Enterprise AI registry | TrustField = **runtime receipt** for regulated crypto/commercial ops |
 
@@ -158,7 +158,7 @@ From `os/commercial/CANADA_PRIORITY_A_SEND_READY_EMAILS_LOCKED_v1.md` + `os/comm
 
 **External sentence (trading context):**
 
-> TrustField proves every controlled agent action in regulated commercial flows — policy at dispatch, signed receipt, replay, tamper-evidence — so dealers and MSB-adjacent operators can adopt bounded-autonomy AI without examination blind spots.
+> TrustField proves every governed agent action in regulated commercial flows — policy at dispatch, signed receipt, replay, tamper-evidence — so dealers and MSB-adjacent operators can adopt bounded-autonomy AI without examination blind spots.
 
 **Do not say:** "AI trading bot" · "autonomous execution" · "alpha generation"
 

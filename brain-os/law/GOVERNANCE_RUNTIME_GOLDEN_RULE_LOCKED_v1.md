@@ -3,7 +3,7 @@
 **Saved:** 2026-06-16T05:49:57Z · **Retrofit:** doc-datetime-law batch retrofit
 **Version:** 1.0 — LOCKED  
 **sequence_id:** SA-2026-06-11-GOV-GOLDEN-RULE  
-**Authority:** ASF · north star for **Controlled Agentic Runtime**  
+**Authority:** ASF · north star for **Governed Agentic Runtime**  
 **Parent:** `SOURCEA_GOVERNANCE_EVENT_SPINE_SCHEMA_LOCKED_v1.md` · `SOURCEA_LIVE_GOVERNANCE_BIG_PICTURE_LOCKED_v1.md`  
 **Row ID:** `GOV_GOLDEN_RULE` (pointer — prose lives here; spine row `GOV_EVENT_SPINE`)
 
@@ -13,7 +13,7 @@
 
 > **State is canonical. Events are history. Graph is intelligence. Projections are disposable. Validators are authority. Router is governor. Workers are replaceable.**
 
-| Phrase | In the repository today |
+| Phrase | On disk today |
 |--------|----------------|
 | **State is canonical** | `brain-os/` law · authority index rows · `PROGRAM_PROGRESS` · inbox truth |
 | **Events are history** | `governance-event-spine-v1.jsonl` · broker events · governance events |

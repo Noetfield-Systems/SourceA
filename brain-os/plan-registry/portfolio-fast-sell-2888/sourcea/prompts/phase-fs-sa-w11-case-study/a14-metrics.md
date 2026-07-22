@@ -1,7 +1,7 @@
 # fs-sa-0204 — Fast-sell plan
 
 **Version:** 1 · **Tier:** T1 · **Phase:** LATER
-**Lane:** SourceA · **Wedge:** w11-case-study · Client case study logged
+**Lane:** SourceA · **Wedge:** w11-case-study · Client case study on disk
 **Action:** a14-metrics · Log W3 / NW economic signal
 **Comp anchor:** Trigger.dev · Langfuse
 **Tier 1:** Asset B diagnostic $3K slice
@@ -10,7 +10,7 @@
 
 ## Task
 
-Fast-sell: SourceA · Client case study logged · Log W3 / NW economic signal. Ship smallest slice that moves a buyer toward **Asset B diagnostic $3K slice** with a path to **DFY $3–10K + retainer**. Receipt logged before done.
+Fast-sell: SourceA · Client case study on disk · Log W3 / NW economic signal. Ship smallest slice that moves a buyer toward **Asset B diagnostic $3K slice** with a path to **DFY $3–10K + retainer**. Receipt on disk before done.
 
 ## Verify
 

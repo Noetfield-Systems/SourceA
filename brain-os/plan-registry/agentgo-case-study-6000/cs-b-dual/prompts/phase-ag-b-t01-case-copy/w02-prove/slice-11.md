@@ -14,7 +14,7 @@ Dual desktop deploy — agentrun-app :5180 + SA4 AgentGo :8080 · landing parity
 
 ## Task
 
-**Document diff vs PureFlow for** case study prose (challenge · shipped · verification).
+**Document diff vs PureFlow for** case study prose (challenge · shipped · proof chain).
 
 Local trades vs category GEO — table.
 

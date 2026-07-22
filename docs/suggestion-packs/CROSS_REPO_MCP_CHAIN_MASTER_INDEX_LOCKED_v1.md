@@ -105,7 +105,7 @@ Each campus cloud worker implements **111 numbered steps** in its repo plan. Tra
 - MCP writes `~/.sina/*` or replaces session gate / RUN INBOX
 - Pitch MCP product names on T0 marketing (disclosure ladder)
 - Second queue in Linear/Notion competing with `sa-*`
-- Claim “we are an MCP platform” — claim **controlled receipt layer for any MCP host**
+- Claim “we are an MCP platform” — claim **governed receipt layer for any MCP host**
 - Production jobs on Mac — control plane only
 
 ---

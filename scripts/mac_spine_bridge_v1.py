@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Mac–Cloud spine bridge (L16 W1–W4) — fresh-main, heartbeat, worker_inbox, truth_log dual-write.
 
-Law: docs/CONTROLLED_AUTORUN_LAWS_v3.md L16
+Law: docs/GOVERNED_AUTORUN_LAWS_v3.md L16
 Contract: data/mac-spine-bridge-contract-v1.json
 """
 from __future__ import annotations
@@ -414,7 +414,7 @@ def mirror_inbox_to_disk(
 <!-- spine_row={spine_row_id or 'local'} source={source} queue={pos}/{total} role={role} sa={sa} -->
 # SourceA Worker — prompt ready (INBOX delivery)
 
-**READ-ONLY.** Spine SSOT: `public.worker_inbox`. Edit logged is ignored on next sync.
+**READ-ONLY.** Spine SSOT: `public.worker_inbox`. Edit on disk is ignored on next sync.
 
 **Lane:** SourceA Worker only — if you are Brain, ignore this file.
 

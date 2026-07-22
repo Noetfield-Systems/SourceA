@@ -52,7 +52,7 @@ def canvas_terminology(*, max_rows: int = 16) -> list[dict[str, str]]:
     for p in perimeter.get("never") or []:
         add(str(p), "RPAA-safe advisory only — see linkedin-voice.yaml perimeter.say")
 
-    add("Trust OS / Decision Cloud", "controlled execution layer · demo scope")
+    add("Trust OS / Decision Cloud", "governed execution layer · demo scope")
     add("hub is not a goal", "Hub projects disk — agentic engine is the goal")
 
     dictionary = _load_yaml(FL / "dictionary.yaml")

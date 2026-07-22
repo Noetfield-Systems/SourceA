@@ -23,7 +23,7 @@ Write one-line UX spec: `Holistic AI Buyer-visible UX` → buyer sees X → we s
 
 ## Implementation extraction
 
-`Holistic AI · Buyer-visible UX` → what buyer sees at vendor → what we ship logged with receipt.
+`Holistic AI · Buyer-visible UX` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

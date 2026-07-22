@@ -19,7 +19,7 @@
 
 > **No factory output and no W3 send reaches a client until the artifact scores ≥ 90% clean on the Output Quality Gate (OQG).** The metric is **output cleanliness** — not founder approval rate.
 
-**Output clean** = complete · spec-faithful · validator-clean · claim-safe · no placeholders · receipt-proven — measured in the repository before ship.
+**Output clean** = complete · spec-faithful · validator-clean · claim-safe · no placeholders · receipt-proven — measured on disk before ship.
 
 | Score | Meaning |
 |-------|---------|
@@ -41,7 +41,7 @@ Founder approval is what happens when output is **under** 90% clean (supervised 
 
 | Lane | Output clean (live) | Why not 90% (if below) | Target |
 |------|---------------------|------------------------|--------|
-| **FBE / SourceA factories** | **~97%** | sample-bay gap −5 when refinery+assembly PASS · RunReceipt ZIP logged | ≥ 90% clean receipt before client demo or deploy claim |
+| **FBE / SourceA factories** | **~97%** | sample-bay gap −5 when refinery+assembly PASS · RunReceipt ZIP on disk | ≥ 90% clean receipt before client demo or deploy claim |
 | **CREED / refinery** | **~100%** | dealer 16-step · DISBRAND/intake · read-only campus law | ≥ 90% = critic ≥ 90 + fidelity PASS on wired subset |
 | **W3 emails (Canada pack)** | **~96%** | Ocree URL edge (92% artifact) · BQ2 gate blocks send without waiver | ≥ 90% = rubric PASS on **email body as artifact** before Mail |
 
@@ -61,7 +61,7 @@ Each output class gets **`output_clean_pct`** (0–100) from **machine rubric + 
 | **Spec fidelity** | Tier receipt matches claim · GOLD assets ≥ 99% · catalog SKU truth |
 | **Validator clean** | COPY_SAFETY PASS · lane validators PASS · conduct 0 violations |
 | **Claim safety** | Registry clean · no FINTRAC/KYB overclaim · brand separation |
-| **Receipt chain** | RunReceipt ZIP · OQG receipt · send pack logged |
+| **Receipt chain** | RunReceipt ZIP · OQG receipt · send pack on disk |
 
 Founder **reviews** when `output_clean_pct` &lt; 90. Founder **does not** substitute a thumbs-up for a failed rubric.
 
@@ -107,7 +107,7 @@ flowchart TB
   Gate -->|yes| Ship
 ```
 
-**Hard block:** No `sent_at` on W3 · no MARKET_READY claim · no public embed unless **`output_clean_pct` ≥ 90** or documented waiver logged.
+**Hard block:** No `sent_at` on W3 · no MARKET_READY claim · no public embed unless **`output_clean_pct` ≥ 90** or documented waiver on disk.
 
 ---
 
@@ -202,7 +202,7 @@ Conflicts with this law: infinite spawn · auto catalog deploy · business execu
 
 ## 11. Success definition
 
-- Every client-facing artifact has **`output_clean_pct`** logged  
+- Every client-facing artifact has **`output_clean_pct`** on disk  
 - Fleet average rises **60% → 90% clean** before automation trust  
 - Hub shows **clean %** per lane — not “approval %”  
 - **We never show weak products**

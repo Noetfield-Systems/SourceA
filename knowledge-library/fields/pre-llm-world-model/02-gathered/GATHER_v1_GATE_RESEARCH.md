@@ -25,7 +25,7 @@ The gap is **one missing choke point in code**, not ideas or founder thinking.
 |---------|---------|
 | Spine A–C, validators | `model_dispatch.py` |
 | Packet schema + `validate_packet()` | Enforcement on OpenRouter |
-| D1–D4 logged | D5–D10, D14–D15 producers |
+| D1–D4 on disk | D5–D10, D14–D15 producers |
 | `gate_eligible: false` by design on stub | Retrieval in `GATE_REQUIRED_SECTIONS` when D5 ships |
 
 ---

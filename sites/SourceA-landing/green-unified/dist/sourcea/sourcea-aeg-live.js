@@ -1,5 +1,5 @@
 /**
- * Live AEG forensic proof — buyer-facing panel on /sourcea/proof/live
+ * Live AEG forensic proof — buyer-facing panel on /sourcea/proof/live.html
  * Data: aeg-live.json + factory-live.json (injected on deploy)
  */
 (function () {
@@ -52,7 +52,7 @@
     if (!rows) return;
     var top = pipe.top_next || [];
     if (!top.length) {
-      rows.innerHTML = '<li><code>—</code><span>No pipeline rows logged</span><span class="sa-v">—</span></li>';
+      rows.innerHTML = '<li><code>—</code><span>No pipeline rows on disk</span><span class="sa-v">—</span></li>';
       return;
     }
     rows.innerHTML = top
@@ -109,7 +109,7 @@
     paintPipeline(factory);
     var sync = $("sa-aeg-sync");
     if (sync) {
-      var line = factory && factory.factory_now_line ? factory.factory_now_line : data.disclaimer || "Live from factory repository";
+      var line = factory && factory.factory_now_line ? factory.factory_now_line : data.disclaimer || "Live from factory disk";
       sync.textContent = line;
     }
   }

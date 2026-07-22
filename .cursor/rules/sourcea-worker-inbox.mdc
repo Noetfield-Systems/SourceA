@@ -31,7 +31,7 @@ python3 scripts/worker_inject_lib.py --status
 
 1. If `WORKER_INBOX_PICKUP` / pending — **execute the prompt** (CHECK / ACT / VERIFY — one turn only).
 2. Run validators per prompt header.
-3. **Do NOT** ask founder to read INBOX.md manually — `pickup` returns the prompt logged.
+3. **Do NOT** ask founder to read INBOX.md manually — `pickup` returns the prompt on disk.
 
 ## End every turn (broker — Brain sees this in real time)
 

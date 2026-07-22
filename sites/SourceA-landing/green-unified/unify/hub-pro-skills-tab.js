@@ -65,7 +65,7 @@
     panel.innerHTML =
       '<div class="hub-pro-hero">' +
       '<h1>Operations</h1>' +
-      '<p id="hub-pro-line">Skills, upgrade checklists, and experience log — for teams running controlled agents</p>' +
+      '<p id="hub-pro-line">Skills, upgrade checklists, and experience log — for teams running governed agents</p>' +
       "</div>" +
       '<div class="hub-pro-law" id="hub-pro-law">Loading…</div>' +
       '<div class="hub-pro-section"><h2>Technical upgrade checklist (UP-0 … UP-7)</h2><ol class="hub-pro-checklist" id="hub-pro-tech-checklist"></ol></div>' +

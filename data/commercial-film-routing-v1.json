@@ -230,7 +230,7 @@
       }
     },
     "sourcea": {
-      "product": "SourceA · controlled agentic automation",
+      "product": "SourceA · governed agentic automation",
       "repo": "SourceA",
       "vo_lane": "sourcea",
       "capture_base": "http://127.0.0.1:5180/sourcea",

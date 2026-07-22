@@ -13,7 +13,7 @@
 
 ## 0. One-line verdict
 
-The **engine, the storefront, and the proof mechanism are all built and live.** Proof Pack machine **#6 is sealed logged** (truth gate **98/100**). The one thing still missing is **revenue proof** — a real closed deal and a real **client** (non-illustrative) receipt anchored as the public headline. The gap between "impressive platform" and "fundable company" is now exactly **one paying customer**.
+The **engine, the storefront, and the proof mechanism are all built and live.** Proof Pack machine **#6 is sealed on disk** (truth gate **98/100**). The one thing still missing is **revenue proof** — a real closed deal and a real **client** (non-illustrative) receipt anchored as the public headline. The gap between "impressive platform" and "fundable company" is now exactly **one paying customer**.
 
 ---
 
@@ -25,11 +25,11 @@ The **engine, the storefront, and the proof mechanism are all built and live.** 
 | Kernel hub `sourcea.app/sourcea/` | ✅ Live | Execution Proof Infrastructure · agency + proof story |
 | Pricing ladder | ✅ Live | Audit $750 · Build $3–10K · Retainer $2–5K/mo · Platform from $2K/mo · Sandbox $0 |
 | Proof sandbox | ✅ Live | `/sourcea/factories/try-factory-demo` · free · no card |
-| Proof surfaces | ✅ Live | Verification (6 beats) · forensic proof · films · `sourcea-boot` eval · status page |
+| Proof surfaces | ✅ Live | Proof chain (6 beats) · forensic proof · films · `sourcea-boot` eval · status page |
 | Product downloads | ✅ Live | Chat Unify `.dmg` · `hooks.sourcea.app` · integrations manifest (linked) |
-| Positioning | ✅ On-message | Receipts logged · PASS/BLOCK gates · built in Canada · self-hosted |
-| Proof Pack machine #6 | ✅ **Sealed logged** | `~/.sina/chat-unify-proof-pack-v1.json` · truth gate 98/100 · pack `pp-20260624T062343Z-0e934a1e` |
-| SSOT registry | ✅ **In the repository** | `data/sourcea-governance-ssot-registry-v1.json` · v3 + blueprint + GTM + kernel active |
+| Positioning | ✅ On-message | Receipts on disk · PASS/BLOCK gates · built in Canada · self-hosted |
+| Proof Pack machine #6 | ✅ **Sealed on disk** | `~/.sina/chat-unify-proof-pack-v1.json` · truth gate 98/100 · pack `pp-20260624T062343Z-0e934a1e` |
+| SSOT registry | ✅ **On disk** | `data/sourcea-governance-ssot-registry-v1.json` · v3 + blueprint + GTM + kernel active |
 | E2E infra | ✅ 4/4 PASS | `~/.sina/sourcea-e2e-last-report-v1.json` · 2026-06-24 |
 
 ---
@@ -40,8 +40,8 @@ From `brain-os/ssot/SOURCEA_PLANNING_AUTHORITY_CARD_LOCKED_v1.md`:
 
 | Priority | Action | Status |
 |----------|--------|--------|
-| **B · FIRST** | Seal 1 real Proof Pack from green run | ✅ **DONE** — 98/100 logged · public export at `sites/SourceA-landing/green-unified/data/phase1-proof-pack-public-v1.json` |
-| **A · SECOND** | **1 paying T1 client** — run factory · deliver output + client Proof Pack | 🔴 **NEXT** — no client SOW / client receipt logged yet |
+| **B · FIRST** | Seal 1 real Proof Pack from green run | ✅ **DONE** — 98/100 on disk · public export at `sites/SourceA-landing/green-unified/data/phase1-proof-pack-public-v1.json` |
+| **A · SECOND** | **1 paying T1 client** — run factory · deliver output + client Proof Pack | 🔴 **NEXT** — no client SOW / client receipt on disk yet |
 | **C · THIRD** | Executor + router hardening (after B + A) | ⏸ Blocked until A |
 
 **Single next move:** Close one paying engagement → deliver **client** Proof Pack → promote it to site headline (replace illustrative metrics + boot-only hero).
@@ -52,7 +52,7 @@ From `brain-os/ssot/SOURCEA_PLANNING_AUTHORITY_CARD_LOCKED_v1.md`:
 
 | Signal | Status |
 |--------|--------|
-| 613 plan LOCKED | ✅ logged |
+| 613 plan LOCKED | ✅ on disk |
 | NW1 / W3 | 🔴 ❌ — no Noetfield invoice yet |
 | Primary GTM shift | 🟢 Intelligence homepage + nav shipped (branch) · Copilot on `/governance/` |
 | H1 target (90 days) | 🔴 2 Diagnostics @ $2.5K · $5K+ cash |
@@ -83,7 +83,7 @@ From `brain-os/ssot/SOURCEA_PLANNING_AUTHORITY_CARD_LOCKED_v1.md`:
 | `/sourcea/team` | 6-agent council |
 | `/sourcea/growth` | Growth flywheel |
 | `/sourcea/scenario` | Screen-share script |
-| `/sourcea/proof` · `/sourcea/proof/live` | Verification + forensic proof |
+| `/sourcea/proof` · `/sourcea/proof/live` | Proof chain + forensic proof |
 | `/sourcea/compare` | Capability matrix |
 | `/sourcea/pricing` | Fixed-outcome pricing |
 | `/sourcea/security` | Procurement & trust |
@@ -135,10 +135,10 @@ From `brain-os/ssot/SOURCEA_PLANNING_AUTHORITY_CARD_LOCKED_v1.md`:
 | Offer ladder DFY → seat → SaaS | ✅ Audit → Build → Retainer → Platform |
 | Proof Sandbox hook (GTM) | ✅ Live, free, no card |
 | "Show the receipt, not the recipe" | ⚠️ **Partial** — see flag #1 |
-| Proof Pack #6 (98/100) | 🟡 **Built + sealed logged** · not yet **public headline** |
+| Proof Pack #6 (98/100) | 🟡 **Built + sealed on disk** · not yet **public headline** |
 | Hybrid pricing (base + per-outcome) | 🟡 Fixed-project + retainer live; usage metering not visible |
 | Market fit (vertical + governance/audit) | ✅ Dead-on June-2026 thesis |
-| SSOT registry (active/superseded/stale) | ✅ **Locked logged** · ongoing hygiene required |
+| SSOT registry (active/superseded/stale) | ✅ **Locked on disk** · ongoing hygiene required |
 | Phase 0 revenue proof (Blueprint) | 🔴 **Not met** — no paying client receipt |
 
 ---
@@ -158,9 +158,9 @@ From `brain-os/ssot/SOURCEA_PLANNING_AUTHORITY_CARD_LOCKED_v1.md`:
 
 SourceA has, in hand and live, the three things most startups spend a year building:
 
-- **The engine** — kernel + 6 sandbox workflows + receipts logged.
+- **The engine** — kernel + 6 governed machines + receipts on disk.
 - **The storefront** — full multi-page commercial site with offers, films, sandbox, proof story.
-- **The proof mechanism** — Proof Pack machine seals runs into buyer/investor/audit artifacts (98/100 logged).
+- **The proof mechanism** — Proof Pack machine seals runs into buyer/investor/audit artifacts (98/100 on disk).
 
 This lands on the June-2026 market: vertical AI agents + agent execution infrastructure + governance/audit. "Paper Governance" is the named failure SourceA structurally avoids.
 

@@ -23,7 +23,7 @@ Update catalog/registry row for integration — Maven AGI row 40
 
 ## Implementation extraction
 
-`Maven AGI · Integrations & API` → what buyer sees at vendor → what we ship logged with receipt.
+`Maven AGI · Integrations & API` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

@@ -2248,7 +2248,7 @@ def generate_film(
     )
     hook_png = work / "hook.png"
     _title_card_png(
-        str(brand.get("hook_title") or "Controlled Agentic Automation"),
+        str(brand.get("hook_title") or "Governed Agentic Automation"),
         str(brand.get("hook_subtitle") or "Execution Proof Infrastructure"),
         str(brand.get("hook_label") or "Commercial short"),
         hook_png,

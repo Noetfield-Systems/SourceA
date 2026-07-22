@@ -56,7 +56,7 @@
 | PyPI `pip install sourcea-boot` | **SHIPPED** v0.1.0 — probe PASS 2026-07-02; eval shows live install path |
 | BC registry extract public URL | **NDA path** — appropriate for pre-Series-A diligence |
 | SOC 2 / ISO certification | **Planned** — not claimed |
-| Noetfield live deploy | Source files updated logged; **separate Noetfield deploy** required for live noetfield.com |
+| Noetfield live deploy | Source files updated on disk; **separate Noetfield deploy** required for live noetfield.com |
 
 ---
 

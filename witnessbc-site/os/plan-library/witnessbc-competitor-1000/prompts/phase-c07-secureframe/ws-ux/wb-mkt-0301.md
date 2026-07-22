@@ -23,7 +23,7 @@ Open https://secureframe.com — screenshot or quote the exact buyer-facing Buye
 
 ## Implementation extraction
 
-`Secureframe · Buyer-visible UX` → what buyer sees at vendor → what we ship logged with receipt.
+`Secureframe · Buyer-visible UX` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

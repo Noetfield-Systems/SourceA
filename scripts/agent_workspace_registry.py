@@ -94,7 +94,7 @@ AGENT_WORKSPACES: list[dict] = [
         "cursor_workspace_hint": "Noetfield-All-Documents",
         "command_tabs": "Private agent page (local pack) · Repos — never cloud Noetfield repo",
         "real_needs": [
-            "HIERARCHY_INDEX L0–L3 laws and registry SSOT logged",
+            "HIERARCHY_INDEX L0–L3 laws and registry SSOT on disk",
             "golden_edge_case.schema + source_of_truth_registry.json validation",
             "_under-analysis decisions — promote or archive",
             "NEVER edit ~/Desktop/Noetfield cloud/GitHub ship repo from this workspace",

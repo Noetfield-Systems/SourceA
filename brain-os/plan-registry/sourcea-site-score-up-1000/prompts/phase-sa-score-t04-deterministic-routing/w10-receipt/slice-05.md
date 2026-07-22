@@ -1,4 +1,4 @@
-# sa-score-0595 — Receipt logged for URL utm_segment overrides default lane
+# sa-score-0595 — Receipt on disk for URL utm_segment overrides default lane
 
 **Saved at:** 2026-06-25T09:23:55Z
 **Version:** 1 · **Tier:** T2 · **Phase:** MOONSHOT
@@ -16,7 +16,7 @@ Raise SourceA site score toward **95+/100** — proof before call · stranger se
 
 P2 — harden · document · validate
 
-**Deliverable:** Receipt logged for URL utm_segment overrides default lane
+**Deliverable:** Receipt on disk for URL utm_segment overrides default lane
 
 Bounded paths: `SourceA-landing/green-unified/` · `cloud/workers/sourcea-site-pulse-v1/` · `scripts/validate-sourcea-modern-stack-e2e-v1.sh`
 

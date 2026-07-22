@@ -33,7 +33,7 @@ grep -q "monitor_honesty_lib" "$BM"
 
 MM="$ROOT/SOURCEA_MASTER_SESSION_MANIFEST_LOCKED_v1.md"
 grep -q "MASTER-MANIFEST" "$MM"
-grep -q "FULLY IN REPOSITORY" "$MM"
+grep -q "FULLY ON DISK" "$MM"
 grep -q "Gaps / partial" "$MM"
 grep -q "SOURCEA_WORKER_E2E_POSTMORTEM" "$MM"
 grep -q "SinaaiDataBase" "$MM"

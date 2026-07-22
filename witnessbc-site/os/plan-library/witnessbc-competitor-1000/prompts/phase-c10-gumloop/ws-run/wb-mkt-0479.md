@@ -23,7 +23,7 @@ Regression: rerun verify after run UI change
 
 ## Implementation extraction
 
-`Gumloop · Run history & proof` → what buyer sees at vendor → what we ship logged with receipt.
+`Gumloop · Run history & proof` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

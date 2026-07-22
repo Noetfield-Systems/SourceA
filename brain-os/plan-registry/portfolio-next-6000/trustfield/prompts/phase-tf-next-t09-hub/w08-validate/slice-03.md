@@ -12,7 +12,7 @@ FINTRAC MSB programs — payment execution only
 
 ## Task
 
-TrustField · Hub & control plane · Validate · slice 3/10 — P1 — next sprint outcome. Bounded path only. Receipt logged before done. Parent: FINTRAC MSB programs — payment execution only. Priority doc: `prompts/future-plans-1000.json`.
+TrustField · Hub & control plane · Validate · slice 3/10 — P1 — next sprint outcome. Bounded path only. Receipt on disk before done. Parent: FINTRAC MSB programs — payment execution only. Priority doc: `prompts/future-plans-1000.json`.
 
 ## Verify
 

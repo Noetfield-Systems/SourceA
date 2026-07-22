@@ -344,7 +344,7 @@
       "workstream": "ws-ux",
       "tier": "T1",
       "cost_tier": "openrouter_cap",
-      "cloud_action": "E2E or glance check: founder can see `Buyer-visible UX` outcome without Terminal; receipt timestamp logged"
+      "cloud_action": "E2E or glance check: founder can see `Buyer-visible UX` outcome without Terminal; receipt timestamp on disk"
     },
     {
       "n": 25,
@@ -494,7 +494,7 @@
       "workstream": "ws-pricing",
       "tier": "T1",
       "cost_tier": "openrouter_cap",
-      "cloud_action": "Label free vs paid honestly (Controlled agent orchestration motor \u2014 not MSB product); never claim production without receipt"
+      "cloud_action": "Label free vs paid honestly (Governed agent orchestration motor \u2014 not MSB product); never claim production without receipt"
     },
     {
       "n": 35,
@@ -794,7 +794,7 @@
       "workstream": "ws-onboard",
       "tier": "T1",
       "cost_tier": "openrouter_cap",
-      "cloud_action": "Freemium cap or trial label visible before first run (Controlled agent orchestration motor \u2014 not MSB product)"
+      "cloud_action": "Freemium cap or trial label visible before first run (Governed agent orchestration motor \u2014 not MSB product)"
     },
     {
       "n": 55,
@@ -1094,7 +1094,7 @@
       "workstream": "ws-ux",
       "tier": "T1",
       "cost_tier": "openrouter_cap",
-      "cloud_action": "E2E or glance check: founder can see `Buyer-visible UX` outcome without Terminal; receipt timestamp logged"
+      "cloud_action": "E2E or glance check: founder can see `Buyer-visible UX` outcome without Terminal; receipt timestamp on disk"
     },
     {
       "n": 75,
@@ -1244,7 +1244,7 @@
       "workstream": "ws-pricing",
       "tier": "T1",
       "cost_tier": "openrouter_cap",
-      "cloud_action": "Label free vs paid honestly (Controlled agent orchestration motor \u2014 not MSB product); never claim production without receipt"
+      "cloud_action": "Label free vs paid honestly (Governed agent orchestration motor \u2014 not MSB product); never claim production without receipt"
     },
     {
       "n": 85,
@@ -1544,7 +1544,7 @@
       "workstream": "ws-onboard",
       "tier": "T1",
       "cost_tier": "openrouter_cap",
-      "cloud_action": "Freemium cap or trial label visible before first run (Controlled agent orchestration motor \u2014 not MSB product)"
+      "cloud_action": "Freemium cap or trial label visible before first run (Governed agent orchestration motor \u2014 not MSB product)"
     },
     {
       "n": 105,

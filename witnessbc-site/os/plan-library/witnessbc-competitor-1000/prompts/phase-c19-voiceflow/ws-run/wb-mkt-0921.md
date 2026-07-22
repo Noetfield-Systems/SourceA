@@ -23,7 +23,7 @@ From https://www.voiceflow.com document Voiceflow run/history UX: Visual builder
 
 ## Implementation extraction
 
-`Voiceflow · Run history & proof` → what buyer sees at vendor → what we ship logged with receipt.
+`Voiceflow · Run history & proof` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

@@ -23,7 +23,7 @@ Write founder-facing SOW snippet if Holistic AI uses services-led motion — Wit
 
 ## Implementation extraction
 
-`Holistic AI · Onboarding & PLG` → what buyer sees at vendor → what we ship logged with receipt.
+`Holistic AI · Onboarding & PLG` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

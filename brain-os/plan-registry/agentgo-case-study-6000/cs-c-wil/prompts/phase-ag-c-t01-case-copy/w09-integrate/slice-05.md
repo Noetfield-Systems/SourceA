@@ -14,7 +14,7 @@ Wil L3 portfolio demo — YA5 mirror · AgentGo ≠ SourceA separation · ship g
 
 ## Task
 
-**Integrate Revenue Engine for** case study prose (challenge · shipped · verification).
+**Integrate Revenue Engine for** case study prose (challenge · shipped · proof chain).
 
 templates.
 

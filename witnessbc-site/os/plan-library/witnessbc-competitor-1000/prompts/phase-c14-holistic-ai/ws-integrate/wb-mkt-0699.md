@@ -23,7 +23,7 @@ Update catalog/registry row for integration — Holistic AI row 34
 
 ## Implementation extraction
 
-`Holistic AI · Integrations & API` → what buyer sees at vendor → what we ship logged with receipt.
+`Holistic AI · Integrations & API` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

@@ -23,7 +23,7 @@ Mark wb-mkt-0560 done in REGISTRY with evidence path + https://relevanceai.com/d
 
 ## Implementation extraction
 
-`Relevance AI · Buyer-visible UX` → what buyer sees at vendor → what we ship logged with receipt.
+`Relevance AI · Buyer-visible UX` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

@@ -17,7 +17,7 @@ assert sandbox, "SANDBOX beat missing"
 assert sandbox.get("live_sandbox") is True, "live_sandbox flag missing on SANDBOX beat"
 text = json.dumps(beats).lower()
 assert "rpaa" in text and "pilot" in text and "sandbox" in text
-print("OK: live SANDBOX beat + RPAA pilot narrative logged")
+print("OK: live SANDBOX beat + RPAA pilot narrative on disk")
 PY
 
 python3 scripts/trustfield_msb_sandbox_story_v1.py --json >/dev/null

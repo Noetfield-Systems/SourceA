@@ -15,7 +15,7 @@
 | **Chain provider** | `evaluate_pick` · `export_board_line` | Enterprise board pack |
 | **Gateway partner (P2)** | Policy + immutable audit behind Composio/enterprise gateway | Regulated buyers |
 
-**One sentence:** Controlled TLE eval with board-defensible receipts — not another GRC checkbox.
+**One sentence:** Governed TLE eval with board-defensible receipts — not another GRC checkbox.
 
 **Mac:** Control plane · procurement vault links only. **Cloud:** Azure Functions / Vercel + Supabase for TLE store.
 

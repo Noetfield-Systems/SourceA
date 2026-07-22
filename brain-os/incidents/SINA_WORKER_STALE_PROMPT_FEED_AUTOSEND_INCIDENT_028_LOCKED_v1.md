@@ -18,7 +18,7 @@
 
 ## Executive summary
 
-On 2026-06-12, SourceA Worker told ASF three times to open Prompt feed and **"tap Confirm — auto-send 10 prompts."** That instruction is **obsolete logged** since INCIDENT-024. Auto-send of OpenRouter-generated execution prompts was superseded by machine-owned live queue turns. Worker followed a **stale Cursor injected rule snapshot**, not current disk law.
+On 2026-06-12, SourceA Worker told ASF three times to open Prompt feed and **"tap Confirm — auto-send 10 prompts."** That instruction is **obsolete on disk** since INCIDENT-024. Auto-send of OpenRouter-generated execution prompts was superseded by machine-owned live queue turns. Worker followed a **stale Cursor injected rule snapshot**, not current disk law.
 
 **Verdict:** STALE AGENT — not stale hub engine, not stale queue. Stale agent law source + incomplete 024 UI/doc scrub.
 

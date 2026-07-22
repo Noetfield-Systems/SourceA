@@ -29,7 +29,7 @@ fi
 CLI=$(command -v claude 2>/dev/null || echo "")
 PREP_COUNT=$(ls -1 "$HOME/.sina/sidecar/cli-prep/" 2>/dev/null | wc -l | tr -d ' ')
 if [[ -n "$CLI" ]] && python3 scripts/sidecar_prep_cli_v1.py --json >/dev/null 2>&1; then
-  probe "Claude Code CLI (prep)" 1 "binary=$CLI · prep lane OK · $PREP_COUNT plan(s) logged"
+  probe "Claude Code CLI (prep)" 1 "binary=$CLI · prep lane OK · $PREP_COUNT plan(s) on disk"
 elif [[ -n "$CLI" ]]; then
   probe "Claude Code CLI (prep)" 0 "binary present · prep lane failed"
 else

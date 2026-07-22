@@ -262,8 +262,8 @@ These are the known gaps between declared structure and actual disk state. Liste
 |---|---|---|---|
 | SSOT in git | SSOT must be committed | `SinaaiDataBase/.git` = 0 commits | Phase 0 exit act |
 | Sina OS control plane | Sina OS declares structure | No `sina_os/` module | Accepted — building |
-| Multiple FastAPI stacks | `:8000` canonical | `:8001/:8010/:8020` logged | `:8010/:8020` frozen; `:8001` optional |
-| Telegram fragmentation | One canonical path | Five trees logged | Phase 1 — declare one, freeze others |
+| Multiple FastAPI stacks | `:8000` canonical | `:8001/:8010/:8020` on disk | `:8010/:8020` frozen; `:8001` optional |
+| Telegram fragmentation | One canonical path | Five trees on disk | Phase 1 — declare one, freeze others |
 | Noetfield code | Future standalone product | 0 `.py` files | Accepted — Phase 1+ |
 | Runtime reads Layer A | Runtime informed by identity | Registry read is informational only | Phase 1+ |
 | Undeclared Runtime modules | All modules declared | `loop_engine`, `civilization`, etc. undeclared | Phase 1 registry sweep |

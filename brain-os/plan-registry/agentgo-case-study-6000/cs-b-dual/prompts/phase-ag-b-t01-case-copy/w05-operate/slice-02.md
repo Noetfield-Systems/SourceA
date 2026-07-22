@@ -14,7 +14,7 @@ Dual desktop deploy — agentrun-app :5180 + SA4 AgentGo :8080 · landing parity
 
 ## Task
 
-**Operate agentrun serve for** case study prose (challenge · shipped · verification).
+**Operate agentrun serve for** case study prose (challenge · shipped · proof chain).
 
 :5180 canonical.
 

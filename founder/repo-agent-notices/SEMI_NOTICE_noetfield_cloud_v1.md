@@ -40,7 +40,7 @@ Twin of noetfield **local** (All-Documents). This chat = **implementation SSOT**
 
 ---
 
-## Live plan / wire_proof (verify logged)
+## Live plan / wire_proof (verify on disk)
 
   • (refresh hub Repos or wire:preflight)
 

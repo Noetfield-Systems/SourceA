@@ -14,7 +14,7 @@ Dual desktop deploy — agentrun-app :5180 + SA4 AgentGo :8080 · landing parity
 
 ## Task
 
-**Log pick-agentgo drain for** case study prose (challenge · shipped · verification).
+**Log pick-agentgo drain for** case study prose (challenge · shipped · proof chain).
 
 3 picks/week max Mac.
 

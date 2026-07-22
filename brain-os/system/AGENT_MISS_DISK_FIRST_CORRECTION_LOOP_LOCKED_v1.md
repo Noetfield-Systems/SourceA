@@ -41,7 +41,7 @@ IDENTIFY → EDIT DISK → WIRE → VERIFY → THEN REPLY TO ASF
 | **2 EDIT DISK** | Rewrite / refine / supersede the confusing source — minimal diff, one canonical home | LOCKED or index updated; no parallel prose in chat |
 | **3 WIRE** | Pointer rows in: index · brain read chain · `sync-brain-pack.sh` · `SOURCEA-PRIORITY.md` evidence if material | No orphan doc |
 | **4 VERIFY** | `sync-brain-pack.sh` if brain handoff touched; pack validator if REGISTRY law touched | Mirror matches repo |
-| **5 REPLY ASF** | Short user message per §4 template only **after** steps 1–4 | User sees what changed logged |
+| **5 REPLY ASF** | Short user message per §4 template only **after** steps 1–4 | User sees what changed on disk |
 
 **Forbidden sequence:** `sorry → corrected answer` **without** step 2.
 

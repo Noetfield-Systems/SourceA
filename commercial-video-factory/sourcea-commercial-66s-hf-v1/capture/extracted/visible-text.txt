@@ -137,7 +137,7 @@ blockers:
 [span] PASS
 [time] Now
 [p] All boot checks passed.
-[span] Verification · replay
+[span] Proof chain · replay
 [span] PASS · disk
 [pre] sourcea-boot --json
 [span] SOURCEA_BOOT PASS
@@ -161,10 +161,10 @@ blockers:
 [li] Cursor
 [li] Cloudflare
 [strong] 5,655
-[span] Logged and reviewable logged
+[span] Governance receipts signed on disk
 [span] Receipts
 [strong] 5,655
-[span] In the repository · replayable
+[span] On disk · replayable
 [span] Gate
 [strong] PASS
 [span] PASS or BLOCK
@@ -187,7 +187,7 @@ blockers:
 [p] An LLM only proposes a plan. A contract decides what's allowed. Work executes deterministically. A validator verifies it. Every run commits a receipt — output, evidence, and decision — that you can replay and audit.
 [p] Founder
 [h3] Run an agentic startup
-[p] Platform subscription · Chat Unify · controlled factories · proof on every run.
+[p] Platform subscription · Chat Unify · governed factories · proof on every run.
 [a] Sign in →
 [p] Builder
 [h3] Forge factory missions
@@ -251,7 +251,7 @@ blockers:
 [p] Verify · audit · unify sessions.
 [a] Download →
 [h3] Portfolio Mail
-[p] Controlled inbox · outreach.
+[p] Governed inbox · outreach.
 [a] Platform →
 [h3] Cloud Workers
 [p] Factory proceed · dispatch.
@@ -261,7 +261,7 @@ blockers:
 [a] Run a free proof →
 [a] Sign in to Platform
 [p] Privacy-first · audit-ready by design · global platform
-[p] AI that proves its work — controlled agentic systems for founders worldwide.
+[p] AI that proves its work — governed agentic systems for founders worldwide.
 [a] sourcea-boot eval
 [a] Free proof
 [a] Platform sign-in
@@ -274,4 +274,4 @@ blockers:
 [p] © SourceA ·
 [a] sourcea.app
 [a] sourcea-boot
-[p] Global platform · receipts logged
+[p] Global platform · receipts on disk

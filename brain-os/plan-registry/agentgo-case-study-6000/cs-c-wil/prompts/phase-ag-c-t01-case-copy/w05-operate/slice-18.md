@@ -14,7 +14,7 @@ Wil L3 portfolio demo — YA5 mirror · AgentGo ≠ SourceA separation · ship g
 
 ## Task
 
-**Write runbook for** case study prose (challenge · shipped · verification).
+**Write runbook for** case study prose (challenge · shipped · proof chain).
 
 Founder 5 steps.
 

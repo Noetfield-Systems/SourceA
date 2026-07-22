@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Agent executor daily duty card — founder reminder SSOT logged.
+"""Agent executor daily duty card — founder reminder SSOT on disk.
 
 Law: AGENT_EXECUTOR_DAILY_DUTY_CARD_LOCKED_v1.md
 Writes/reads: ~/.sina/agent-executor-daily-duty-card-v1.json
@@ -39,7 +39,7 @@ def validate_card() -> dict:
     if len(items) < 26:
         missing.append(f"never_make_founder_repeat count={len(items)}")
     if not LOCKED_DOC.is_file():
-        missing.append("locked_doc missing locally")
+        missing.append("locked_doc missing on disk")
     ids = {x.get("id") for x in items if isinstance(x, dict)}
     for i in range(1, 27):
         want = f"D{i:02d}"

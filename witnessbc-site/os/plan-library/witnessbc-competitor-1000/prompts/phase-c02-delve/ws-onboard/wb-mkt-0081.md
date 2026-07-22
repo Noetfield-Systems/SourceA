@@ -23,7 +23,7 @@ Document Delve onboarding path (YC 2023 → $32M Series A 2025): who runs (Vendo
 
 ## Implementation extraction
 
-`Delve · Onboarding & PLG` → what buyer sees at vendor → what we ship logged with receipt.
+`Delve · Onboarding & PLG` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

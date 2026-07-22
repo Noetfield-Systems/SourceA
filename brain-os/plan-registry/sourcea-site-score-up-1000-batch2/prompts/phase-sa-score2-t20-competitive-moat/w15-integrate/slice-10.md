@@ -1,4 +1,4 @@
-# sa-score2-0950 — Integrate moat narrative: controlled agentic + receipt on every page
+# sa-score2-0950 — Integrate moat narrative: governed agentic + receipt on every page
 
 **Saved at:** 2026-06-25T09:28:52Z
 **Batch:** 2 · **Grade:** A · **Tier:** T3 · **Phase:** MOONSHOT
@@ -17,7 +17,7 @@ Batch-2 raises site score **78 → 93+** — enterprise-credible · cryptographi
 
 Grade-A P3 — research · competitive intel · defer
 
-**Deliverable:** Integrate moat narrative: controlled agentic + receipt on every page
+**Deliverable:** Integrate moat narrative: governed agentic + receipt on every page
 
 ## Anti-duplication
 

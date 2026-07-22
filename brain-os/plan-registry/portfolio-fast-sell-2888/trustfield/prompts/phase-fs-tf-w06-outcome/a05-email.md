@@ -10,7 +10,7 @@
 
 ## Task
 
-Fast-sell: TrustField · Per-outcome pricing (ticket/meeting/resolution) · Outreach email draft. Ship smallest slice that moves a buyer toward **FINTRAC readiness scan** with a path to **MSB program + settlement**. Receipt logged before done.
+Fast-sell: TrustField · Per-outcome pricing (ticket/meeting/resolution) · Outreach email draft. Ship smallest slice that moves a buyer toward **FINTRAC readiness scan** with a path to **MSB program + settlement**. Receipt on disk before done.
 
 ## Verify
 

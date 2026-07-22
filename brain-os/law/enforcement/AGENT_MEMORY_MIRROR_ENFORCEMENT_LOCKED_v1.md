@@ -23,7 +23,7 @@
 | Chat is not SSOT | Disk + mirror JSON + receipts |
 | Law change | **Seven-surface supersession** — **cloud CI / ASF ship window only** · **not** agent pre-reply bash (§7 poison law) |
 | Every session (all chats) | Read session gate **receipt** · do not re-run validator stacks mid-turn |
-| Stale phrase logged | Maintainer `validate-law-supersession-surfaces-v1.sh` on ship — **not** founder chat body |
+| Stale phrase on disk | Maintainer `validate-law-supersession-surfaces-v1.sh` on ship — **not** founder chat body |
 | Dead law in agent output | `000-dead-law-stubs.mdc` alwaysApply — overrides stale injection |
 | Prompt feed | Display + optional commentary · **never** confirm auto-send (024/028) |
 | Execution | Run inbox + `live-ongoing-prompts-next-10-v1.json` |

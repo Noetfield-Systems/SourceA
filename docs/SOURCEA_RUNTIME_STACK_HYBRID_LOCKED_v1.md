@@ -27,7 +27,7 @@
 | Proof pack / validators | Public proof story | ✅ **Live** — scripts + gates |
 | CrewAI / AutoGen | Not primary | ❌ Optional future **activity** embeds only |
 
-**Law:** Do not tell prospects “we run on Temporal” until at least one client job completes through the hybrid path with a receipt logged. Until then: “controlled execution with PASS/BLOCK receipts.”
+**Law:** Do not tell prospects “we run on Temporal” until at least one client job completes through the hybrid path with a receipt on disk. Until then: “governed execution with PASS/BLOCK receipts.”
 
 ---
 
@@ -189,7 +189,7 @@ python3 apps/factory-runtime-spike/factory_runtime_spike/worker_v1.py
 
 ## 10. Lock statement
 
-> **As of 2026-06-24T18:00:00Z, SourceA’s target runtime is Temporal (durable orchestration) + LangGraph (controlled agent graph) + code validators (PASS/BLOCK) + receipt output. FBE remains the live motor until a hybrid factory job produces a client-facing receipt. CrewAI and AutoGen are optional activity embeds — not the spine. Sales and distribution remain P0 over platform polish.**
+> **As of 2026-06-24T18:00:00Z, SourceA’s target runtime is Temporal (durable orchestration) + LangGraph (governed agent graph) + code validators (PASS/BLOCK) + receipt output. FBE remains the live motor until a hybrid factory job produces a client-facing receipt. CrewAI and AutoGen are optional activity embeds — not the spine. Sales and distribution remain P0 over platform polish.**
 
 **Paths:**  
 - This lock: `docs/SOURCEA_RUNTIME_STACK_HYBRID_LOCKED_v1.md`  

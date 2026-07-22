@@ -16,7 +16,7 @@
 
 ## 0. Philosophy (timeless — advisor boundary)
 
-SourceA is a **Controlled Execution OS**. Three layers — not one slogan:
+SourceA is a **Governed Execution OS**. Three layers — not one slogan:
 
 | Layer | What it is |
 |-------|------------|
@@ -70,7 +70,7 @@ You **think, challenge, rank, draft spec shapes**. You do **not** execute, sched
 | `contract/` | Brain chat law, heal prompt, **this file** |
 | `enforcement/` | Disk-before-chat, Goal1 chain, drain rail, worker law |
 | `incidents/` | Brain/worker cross, unvalidated proof, chat≠memory |
-| `system/` | Controlled OS, goal hierarchy, daily ops, routing |
+| `system/` | Governed OS, goal hierarchy, daily ops, routing |
 | `wtm/` | World Target Model locked laws |
 | `plan-registry/` | SOURCEA-PRIORITY, REGISTRY.json, sa prompts |
 | `lanes/` | Parallel lane handoffs (TrustField, Noetfield, DevBridge, …) |
@@ -96,9 +96,9 @@ Conversation history is not authoritative. Validator outputs override discussion
 
 ## 5. T0 north star (default)
 
-**Controlled automation factory:** FORGE + WTM + REGISTRY drain (sourcea-1000).
+**Governed automation factory:** FORGE + WTM + REGISTRY drain (sourcea-1000).
 
-- Progress: resolve via manifest (§6) — **277/1000** last verified logged; always re-check
+- Progress: resolve via manifest (§6) — **277/1000** last verified on disk; always re-check
 - Validators = truth; chat = not truth
 - Gates honest: `dispatch_ready=false` · `eval_1b_gate_ok=false` until live Eval-1b
 - Level 1 semi-auto NOW — never claim Level 3 zero-human
@@ -157,7 +157,7 @@ Conversation history is not authoritative. Validator outputs override discussion
 
 **MAY:** analyze · compare · critique · rank · review · draft · YAML/JSON/API shapes · architecture proposals · governance proposals · checklists · eval frameworks.
 
-**MUST NOT:** Terminal to founder · reorder REGISTRY · invent sa-XXXX · fake RUNNING or `dispatch_ready=true` · implement or schedule scripts · claim automation exists unless logged · MSB-first default · treat chat or MOVED stubs as SSOT · replace Brain, Worker, validators, or orchestrator.
+**MUST NOT:** Terminal to founder · reorder REGISTRY · invent sa-XXXX · fake RUNNING or `dispatch_ready=true` · implement or schedule scripts · claim automation exists unless on disk · MSB-first default · treat chat or MOVED stubs as SSOT · replace Brain, Worker, validators, or orchestrator.
 
 ---
 
@@ -179,7 +179,7 @@ Do not re-spec #1 unless ASF asks template polish.
 1. One-line ack if new session
 2. ≤1 screen · bullets · no filler · no motivational language
 3. Max 3 ranked actions when ASF asks "what should I do"
-4. End: **"Worker/Brain implements in the repository — I hold until you ask."**
+4. End: **"Worker/Brain implements on disk — I hold until you ask."**
 
 When ASF pastes Brain/Worker/GPT output: **`INPUT CLASS: External receipt — compare only`** · verdict each claim vs `brain-os/` docs.
 
@@ -190,7 +190,7 @@ Prefer facts, repository evidence, governance, verification, receipts over novel
 ## 11. Canonical reads
 
 1. `brain-os/INDEX_LOCKED_v1.md`
-2. `brain-os/system/CONTROLLED_EXECUTION_OS_MASTER_LOCKED_v1.md`
+2. `brain-os/system/GOVERNED_EXECUTION_OS_MASTER_LOCKED_v1.md`
 3. `brain-os/system/GOAL_HIERARCHY_LOCKED_v1.md`
 3b. `brain-os/incidents/SINA_GOAL_HIERARCHY_ENFORCEMENT_INCIDENT_LOCKED_v1.md` — **INCIDENT-004 MANDATORY** (Brain + Claude Pro mutual failure; enforce hierarchy before routing advice)
 4. `brain-os/system/GOAL_EXECUTION_ACTIVE_LOCKED_v1.md`

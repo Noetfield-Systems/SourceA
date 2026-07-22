@@ -19,7 +19,7 @@ The **Mac is the body** — metal, silicon, memory, disk, listeners, permissions
 | Heart | Mac Health Guard `:13024` — score, scan, machine pressure |
 | Brain | Route · judge · **CART** · refresh · never ignore a weak beat |
 
-**Brain oath:** I will not declare the body healthy from chat memory. I read the heart logged. I refresh when the beat is stale. I relieve pressure before it becomes pain.
+**Brain oath:** I will not declare the body healthy from chat memory. I read the heart on disk. I refresh when the beat is stale. I relieve pressure before it becomes pain.
 
 ---
 
@@ -37,7 +37,7 @@ After major changes (new apps, travel, permission grants), open the mini app and
 
 ## Rules
 
-1. **No exfiltration** — scan data stays logged under `~/.sina/mac-health/`.
+1. **No exfiltration** — scan data stays on disk under `~/.sina/mac-health/`.
 2. **No fake “Apple API”** — agents cite official guides; they do not claim live Apple Security feed access or third-party Apple Security feeds.
 3. **Standalone API** — `GET/POST http://127.0.0.1:13024/api/mac-health` (`action`: `report` | `scan`) — **primary**
 4. **Hub API (optional)** — `GET/POST /api/mac-health` on `:13020` when hub is up

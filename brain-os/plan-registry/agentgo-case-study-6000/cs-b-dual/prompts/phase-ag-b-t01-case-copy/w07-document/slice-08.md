@@ -14,7 +14,7 @@ Dual desktop deploy — agentrun-app :5180 + SA4 AgentGo :8080 · landing parity
 
 ## Task
 
-**Document port map for** case study prose (challenge · shipped · verification).
+**Document port map for** case study prose (challenge · shipped · proof chain).
 
 8080 · 5180 · sourcea.app.
 

@@ -14,7 +14,7 @@ Dual desktop deploy — agentrun-app :5180 + SA4 AgentGo :8080 · landing parity
 
 ## Task
 
-**Prove :5180 and :8080 routes for** case study prose (challenge · shipped · verification).
+**Prove :5180 and :8080 routes for** case study prose (challenge · shipped · proof chain).
 
 curl local when servers up.
 

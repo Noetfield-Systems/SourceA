@@ -19,11 +19,11 @@
 
 ## Task (Medium — hardening, validator, docs)
 
-Document why buyers pay per Gumloop: Non-dev teams need controlled AI automation — tie to our offer in plain English
+Document why buyers pay per Gumloop: Non-dev teams need governed AI automation — tie to our offer in plain English
 
 ## Implementation extraction
 
-`Gumloop · Pricing & packaging` → what buyer sees at vendor → what we ship logged with receipt.
+`Gumloop · Pricing & packaging` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

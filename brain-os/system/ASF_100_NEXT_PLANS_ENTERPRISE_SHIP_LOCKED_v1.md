@@ -8,7 +8,7 @@
 
 **Conduct law:** `SOURCEA_NO_FAKE_PROGRESS_ENTERPRISE_SHIP_LOCKED_v1.md` — no fake progress; proven evidence · meaningful effect · result-driven · enterprise-grade ship only.
 
-**North star:** Controlled receipt layer · W1 filmed · W2 PASS · W3 first invoice · **zero** enterprise risk from fake completion.
+**North star:** Governed receipt layer · W1 filmed · W2 PASS · W3 first invoice · **zero** enterprise risk from fake completion.
 
 ---
 
@@ -34,7 +34,7 @@
 
 ## B. W1 — demo proof (16–30) — enterprise door opens here
 
-16. Film 5-min demo: AI action → BLOCK → valid commit → receipt logged.
+16. Film 5-min demo: AI action → BLOCK → valid commit → receipt on disk.
 17. Film tamper beat: edit receipt → validator **FAIL**.
 18. Save demo video to TrustField vault + RESEARCH trace.
 19. Run `validate-demo-enforcement-v1.sh` on camera — show PASS in frame.
@@ -109,7 +109,7 @@
 
 ## F. Enterprise product · non-risky SKUs (71–85)
 
-71. **TrustField — Controlled Receipt Audit** — fixed scope · fixed price · 2-week delivery.
+71. **TrustField — Governed Receipt Audit** — fixed scope · fixed price · 2-week delivery.
 72. **TrustField — RPAA readiness pack** — document-only · no payment rails in product.
 73. **Noetfield — Authorization pack** — TLE-style evidence · advisory not SaaS claim.
 74. **Noetfield — Board/compliance readout** — one PDF · one call.

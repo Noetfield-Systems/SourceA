@@ -14,7 +14,7 @@ Dual desktop deploy — agentrun-app :5180 + SA4 AgentGo :8080 · landing parity
 
 ## Task
 
-**Run validate-agentgo-case-study-6000 for** case study prose (challenge · shipped · verification).
+**Run validate-agentgo-case-study-6000 for** case study prose (challenge · shipped · proof chain).
 
 Mac-safe counts + unique titles.
 

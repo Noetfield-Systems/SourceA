@@ -36,7 +36,7 @@ Meta lane — generates prompts; does not implement product repos.
 
 ---
 
-## Live plan / wire_proof (verify logged)
+## Live plan / wire_proof (verify on disk)
 
   • Add daily scheduled snapshot (launchd or cron) writing to data/
   • Optional: Telegram bot command /prompt returning best task

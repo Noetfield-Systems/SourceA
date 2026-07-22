@@ -102,7 +102,7 @@ PRO: list[dict] = [
     {
         "id": "007", "cat": "factory", "len": 4,
         "text": (
-            "Execute one full Worker INBOX turn end-to-end. Read ~/.sina/worker-prompt-inbox-v1.json and the bound sa_id logged; run the disk prompt exactly with no scope creep. "
+            "Execute one full Worker INBOX turn end-to-end. Read ~/.sina/worker-prompt-inbox-v1.json and the bound sa_id on disk; run the disk prompt exactly with no scope creep. "
             "Broker-submit when the turn completes and stop — do not batch a second sa. "
             "Done when WORKER_ROUND_REPORT YAML is written, orchestrator advanced, and you paste receipt path plus new queue head."
         ),
@@ -150,7 +150,7 @@ PRO: list[dict] = [
     {
         "id": "013", "cat": "factory", "len": 4,
         "text": (
-            "Fix turn-bind drift: goal1-worker-turn-bind and headsup must match queue head sa logged. "
+            "Fix turn-bind drift: goal1-worker-turn-bind and headsup must match queue head sa on disk. "
             "Show before/after for every field that changed; minimal fix only — no unrelated edits. "
             "Done when bind JSON matches orchestrator expected sa and validate step for turn-bind passes."
         ),
@@ -168,7 +168,7 @@ PRO: list[dict] = [
         "text": (
             "Drain exactly one sa from plan-no-asf-run.sh output — pick the first eligible row, execute fully, then stop. "
             "No batch drain, no parallel sa work. "
-            "Done when that single sa shows completed status logged and you paste which sa_id was drained."
+            "Done when that single sa shows completed status on disk and you paste which sa_id was drained."
         ),
     },
     {
@@ -303,7 +303,7 @@ PRO: list[dict] = [
     {
         "id": "032", "cat": "check", "len": 3,
         "text": (
-            "Two-hub sibling check: H1 worker-hub/v1 payload must stay small (<16KB); H2 machine-hub health must be fresh logged. "
+            "Two-hub sibling check: H1 worker-hub/v1 payload must stay small (<16KB); H2 machine-hub health must be fresh on disk. "
             "Confirm H2 is not nested inside H1 UI response. "
             "Done when sizes, mtimes, and sibling separation are cited."
         ),
@@ -327,7 +327,7 @@ PRO: list[dict] = [
     {
         "id": "035", "cat": "check", "len": 3,
         "text": (
-            "Quarantine flags: read agent-maze-quarantine-v1.json and machine-forge-quarantine logged. "
+            "Quarantine flags: read agent-maze-quarantine-v1.json and machine-forge-quarantine on disk. "
             "Report active true/false for each and what pipeline is blocked. "
             "Done when both flags cited with timestamps."
         ),
@@ -370,7 +370,7 @@ PRO: list[dict] = [
         "text": (
             "Fix the single highest P0 blocker only — minimal diff, one validator proof, then stop. "
             "Do not fix lower priority items in the same turn. "
-            "Done when P0 id is closed logged and validator PASS pasted."
+            "Done when P0 id is closed on disk and validator PASS pasted."
         ),
     },
     {
@@ -481,7 +481,7 @@ PRO: list[dict] = [
     {
         "id": "054", "cat": "hub", "len": 3,
         "text": (
-            "Light refresh hub (mode light) then confirm H1 health pill is fresh logged. "
+            "Light refresh hub (mode light) then confirm H1 health pill is fresh on disk. "
             "Never full rebuild on founder Refresh — cite SUPER_FAST_HUB law if tempted. "
             "Done when refresh receipt or health mtime proves update."
         ),
@@ -651,7 +651,7 @@ PRO: list[dict] = [
     {
         "id": "075", "cat": "form", "len": 4,
         "text": (
-            "Five-step SCAN→SAY→PICK→PROVE→SHIP: run SCAN logged truth, SAY status in five lines, propose one PICK for Form, wait for founder — do not SHIP without PROVE. "
+            "Five-step SCAN→SAY→PICK→PROVE→SHIP: run SCAN on disk truth, SAY status in five lines, propose one PICK for Form, wait for founder — do not SHIP without PROVE. "
             "Founder clicks Form, not Terminal. "
             "Done when SCAN+SAY pasted and PICK row draft ready."
         ),
@@ -1123,7 +1123,7 @@ def write_router_md(v3: dict) -> str:
         "| **v2 smart** | `archive/attachments/2026-06-14/FOUNDER_DAILY_PROMPT_PACK_v2_SMART_LOCKED.md` | ACTION + SCOPE + DONE-WHEN | Short paste · quick orders |",
         "| **v3 pro** | `archive/attachments/2026-06-14/FOUNDER_DAILY_PROMPT_PACK_v3_PRO_LOCKED.md` | ACTION + SCOPE + CONSTRAINTS + DONE-WHEN | **Daily Cursor Agent (default)** |",
         "",
-        "## JSON logged",
+        "## JSON on disk",
         "",
         "| Version | Path |",
         "|---------|------|",

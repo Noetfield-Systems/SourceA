@@ -23,7 +23,7 @@ Surface run id + link in Hub/factory glance for founder audit
 
 ## Implementation extraction
 
-`Holistic AI · Run history & proof` → what buyer sees at vendor → what we ship logged with receipt.
+`Holistic AI · Run history & proof` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

@@ -23,7 +23,7 @@ Mark wb-mkt-0110 done in REGISTRY with evidence path + https://sprinto.com after
 
 ## Implementation extraction
 
-`Sprinto · Buyer-visible UX` → what buyer sees at vendor → what we ship logged with receipt.
+`Sprinto · Buyer-visible UX` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

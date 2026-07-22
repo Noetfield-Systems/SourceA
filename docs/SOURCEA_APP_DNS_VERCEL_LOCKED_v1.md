@@ -5,7 +5,7 @@
 **Production:** https://source-a.vercel.app  
 **Commercial landing:** https://source-a.vercel.app/sourcea/start.html  
 
-## Done logged / Vercel
+## Done on disk / Vercel
 
 - Latest 48h MVP landing deployed (static 5-question form · `hello@sourcea.app`)
 - Domains attached to project `source-a`:

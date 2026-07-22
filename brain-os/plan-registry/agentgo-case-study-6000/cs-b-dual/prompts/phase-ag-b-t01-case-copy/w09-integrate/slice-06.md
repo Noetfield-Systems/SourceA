@@ -14,7 +14,7 @@ Dual desktop deploy — agentrun-app :5180 + SA4 AgentGo :8080 · landing parity
 
 ## Task
 
-**Cross-link portfolio-next-6000 for** case study prose (challenge · shipped · verification).
+**Cross-link portfolio-next-6000 for** case study prose (challenge · shipped · proof chain).
 
 sibling pack.
 

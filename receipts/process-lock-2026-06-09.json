@@ -36,7 +36,7 @@
       "status": "SKIP_ALREADY_PASS",
       "targets": ["sa-0154", "sa-0156", "sa-0501", "sa-0190", "sa-0607"],
       "broker_events_injected_this_run": 0,
-      "note": "All five Valid YES logged with honest receipts; no fabricated jsonl needed."
+      "note": "All five Valid YES on disk with honest receipts; no fabricated jsonl needed."
     },
     "part3_receipt_source_categorization": {
       "status": "DONE",
@@ -51,5 +51,5 @@
     }
   },
   "critical_bugs": 0,
-  "summary": "4-part structural fix complete: Parts 1–2 already satisfied logged; Parts 3–4 shipped."
+  "summary": "4-part structural fix complete: Parts 1–2 already satisfied on disk; Parts 3–4 shipped."
 }

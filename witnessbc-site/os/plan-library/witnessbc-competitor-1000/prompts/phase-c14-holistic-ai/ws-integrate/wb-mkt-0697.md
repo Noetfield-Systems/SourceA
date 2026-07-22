@@ -23,7 +23,7 @@ Rate-limit + retry policy copied from Holistic AI operating model (Inventory AI 
 
 ## Implementation extraction
 
-`Holistic AI · Integrations & API` → what buyer sees at vendor → what we ship logged with receipt.
+`Holistic AI · Integrations & API` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

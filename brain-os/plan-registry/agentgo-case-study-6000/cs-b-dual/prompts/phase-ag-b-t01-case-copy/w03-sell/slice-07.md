@@ -14,7 +14,7 @@ Dual desktop deploy — agentrun-app :5180 + SA4 AgentGo :8080 · landing parity
 
 ## Task
 
-**Write objection handler for** case study prose (challenge · shipped · verification).
+**Write objection handler for** case study prose (challenge · shipped · proof chain).
 
 Is this live SaaS? → honest answer.
 

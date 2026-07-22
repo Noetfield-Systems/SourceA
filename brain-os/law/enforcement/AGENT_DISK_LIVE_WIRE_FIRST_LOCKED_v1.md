@@ -82,7 +82,7 @@ Gate runs disk live wire sync automatically. Read `agent-live-surfaces-v1.json` 
 ## When agent steers wrong
 
 1. Run `disk_live_wire_sync_v1.py`  
-2. Fix **stale source file** logged  
+2. Fix **stale source file** on disk  
 3. Re-run validator — **no new ban rule**
 
 ---

@@ -4,7 +4,7 @@
 // Subcommand-dispatched verification:
 //   render → verify-render.mjs  (deterministic post-render mp4 verification)
 //   sfx    → sfx-verify.mjs      (SFX drift verifier against emitted index.html)
-//   audio  → reconcile in-repo audio assets (voice/bgm/captions) against the
+//   audio  → reconcile on-disk audio assets (voice/bgm/captions) against the
 //            assembled index.html — the single gate for the silent-render class.
 //
 // Usage lines (subcommands):
@@ -25,7 +25,7 @@ import { join, resolve } from "node:path";
 // the file + ffprobe + group_spec.total_duration_s. The finalize/visual-QA
 // agent no longer hand-runs stat/ffprobe or eyeballs the duration delta.
 //
-// Reads:  ./group_spec.json (total_duration_s) + the rendered mp4 present.
+// Reads:  ./group_spec.json (total_duration_s) + the rendered mp4 on disk.
 // Checks: 1. file exists
 //         2. size >= MIN_BYTES (a 0-frame / header-only mp4 is a failed render)
 //         3. ffprobe container duration within DUR_TOLERANCE_S of
@@ -247,11 +247,11 @@ async function runSfx(argv) {
 //           (voice = track 10, bgm = track 11, captions = track 12).
 //
 // This is the single gate for the silent-render class: a voice wav / bgm.wav /
-// captions.html that exists in the repository but was never wired ships a silent or
+// captions.html that exists on disk but was never wired ships a silent or
 // caption-less video while every other gate stays green (the bug that shipped to
 // a user). SFX is covered by the `sfx` subcommand; this covers voice/bgm/captions.
 //
-//   FATAL (exit 1): asset exists in the repository but is NOT wired — a wiring bug.
+//   FATAL (exit 1): asset exists on disk but is NOT wired — a wiring bug.
 //   WARN  (exit 0): intended (audio_meta/group_spec flag) but the asset isn't on
 //                   disk at all — a documented non-blocking generation gap
 //                   (a scene's TTS failed, BGM failed/pending, captions skipped).
@@ -309,7 +309,7 @@ async function runAudio(argv) {
   const voiceTrackCount = (indexHtml.match(/data-track-index=["']10["']/g) || []).length;
 
   // ---- VOICE: every voiced scene's wav must be referenced in index.html ----
-  // Intent = audio_meta voiced scenes whose wav is locally (the manifest of what
+  // Intent = audio_meta voiced scenes whose wav is on disk (the manifest of what
   // THIS run produced); fall back to scanning assets/voice/ when audio_meta is
   // absent. Reality = the wav's basename appearing in a track-10 <audio src=…>.
   const voiceDir = join(hyperframesDir, "assets", "voice");
@@ -348,7 +348,7 @@ async function runAudio(argv) {
   const bgmIntended = Boolean((audioMeta && audioMeta.bgm_enabled) || groupSpec.bgm_path);
   if (bgmOnDisk && !hasBgmTrack) {
     fatals.push(
-      `${bgmRel} exists in the repository but is NOT wired into index.html (no track-11 <audio id="el-bgm">) — ` +
+      `${bgmRel} exists on disk but is NOT wired into index.html (no track-11 <audio id="el-bgm">) — ` +
         `BGM was generated but dropped; reassemble.`,
     );
   } else if (!bgmOnDisk && bgmIntended) {
@@ -384,14 +384,14 @@ async function runAudio(argv) {
   if (fatals.length > 0) {
     console.error(`\n${"!".repeat(80)}`);
     console.error(
-      `✗ verify-audio: ${fatals.length} wiring failure(s) — index.html does not honor in-repo audio assets:`,
+      `✗ verify-audio: ${fatals.length} wiring failure(s) — index.html does not honor on-disk audio assets:`,
     );
     for (const f of fatals) console.error(`  - ${f}`);
     console.error(`${"!".repeat(80)}\n`);
     process.exit(1);
   }
   console.log(
-    `✓ verify-audio: voice ${voiceTrackCount} track(s) wired (${voiceIntent.length} voiced scene(s) logged), ` +
+    `✓ verify-audio: voice ${voiceTrackCount} track(s) wired (${voiceIntent.length} voiced scene(s) on disk), ` +
       `bgm ${hasBgmTrack ? "wired" : bgmIntended ? "absent (warned)" : "n/a"}, ` +
       `captions ${hasCaptionTrack ? "wired" : groupSpec.captions_enabled ? "disabled-but-enabled (warned)" : "n/a"}` +
       `${warns.length ? ` — ${warns.length} warning(s)` : ""}`,

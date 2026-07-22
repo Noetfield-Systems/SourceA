@@ -41,7 +41,7 @@ The founder opened **SourceA Road Map** (`http://127.0.0.1:13021/monitor`) and s
 
 | Check | Result |
 |-------|--------|
-| sa-0001..sa-0040 | **All Valid YES** · Worker PASS · Broker PASS · receipt logged · REGISTRY `done` |
+| sa-0001..sa-0040 | **All Valid YES** · Worker PASS · Broker PASS · receipt on disk · REGISTRY `done` |
 | sa-0001..sa-0110 | **103/110 Valid YES** · 7 honest WAIT (not done) |
 | Global honest | **172/1000** (did not roll backward) |
 | STALE broker | **0** · PARTIAL **0** |

@@ -71,7 +71,7 @@ The 1000-pack is a **phase-first verification ladder** for Goal 1 — **~250 uni
 
 ## One-line gold
 
-> The 1000-pack is a verification ladder for a controlled factory, not a prompt lottery. Keep it, quarantine s5/s9, finish s0→s2, run TF/NF on a separate revenue track — or you get honest receipts with no invoices.
+> The 1000-pack is a verification ladder for a governed factory, not a prompt lottery. Keep it, quarantine s5/s9, finish s0→s2, run TF/NF on a separate revenue track — or you get honest receipts with no invoices.
 
 ---
 

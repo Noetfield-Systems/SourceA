@@ -144,7 +144,7 @@ print('spine gate:', (row or {}).get('gate'))
 
 **Say:**
 
-> Organization-wide freeze is in the repository — not a slide. When we flag auto-run disabled, execution stops.
+> Organization-wide freeze is on disk — not a slide. When we flag auto-run disabled, execution stops.
 
 **Show (if file exists):**
 
@@ -160,7 +160,7 @@ If absent: say *"Kill flag available — optional beat for factory lane."*
 
 **Say:**
 
-> We do not inflate velocity. Factory has hundreds of controlled tasks with receipts; unproven-done is zero. We would rather show RED than lie GREEN.
+> We do not inflate velocity. Factory has hundreds of governed tasks with receipts; unproven-done is zero. We would rather show RED than lie GREEN.
 
 **Do not lead with 616/1000** — mention only if asked. Lead with live tamper FAIL.
 

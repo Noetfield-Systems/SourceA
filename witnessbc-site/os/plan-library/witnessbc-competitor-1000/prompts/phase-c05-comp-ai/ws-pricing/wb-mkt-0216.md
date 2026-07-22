@@ -23,7 +23,7 @@ Document why buyers pay per Comp AI: Need SOC 2 to close enterprise deals fast �
 
 ## Implementation extraction
 
-`Comp AI · Pricing & packaging` → what buyer sees at vendor → what we ship logged with receipt.
+`Comp AI · Pricing & packaging` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

@@ -8,7 +8,7 @@
   "goals": [
     {
       "number": 1,
-      "name": "Controlled automation factory",
+      "name": "Governed automation factory",
       "tier": "T0 + T4",
       "step_model": "1000-pack (10×100) · sa-XXXX",
       "status": "archived_complete",

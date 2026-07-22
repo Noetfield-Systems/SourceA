@@ -14,7 +14,7 @@ Dual desktop deploy — agentrun-app :5180 + SA4 AgentGo :8080 · landing parity
 
 ## Task
 
-**Harden mobile layout for** case study prose (challenge · shipped · verification).
+**Harden mobile layout for** case study prose (challenge · shipped · proof chain).
 
 responsive patterns.
 

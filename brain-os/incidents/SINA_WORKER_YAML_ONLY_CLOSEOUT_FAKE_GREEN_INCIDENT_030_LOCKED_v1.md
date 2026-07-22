@@ -48,7 +48,7 @@ Monitor honesty correctly showed **Receipt NO** / broker not PASS. Founder audit
 
 | Phase | Agent action | Disk truth |
 |-------|--------------|------------|
-| CHECK / ACT | Task validators + scripts shipped | Valid — real work logged |
+| CHECK / ACT | Task validators + scripts shipped | Valid — real work on disk |
 | VERIFY | `REGISTRY.json` + `sa-XXXX.md` → `status: done` | **Bypassed** `closeout_sa_task.py` receipt gate |
 | VERIFY | `SOURCEA-PRIORITY.md` evidence rows | Informative only — not broker SSOT |
 | VERIFY | `archive/attachments/*-verify-receipt_LOCKED_v1.md` | **Not** `receipts/sa-XXXX-receipt.json` |

@@ -61,7 +61,7 @@ def sync_active_now(*, dry_run: bool = False) -> dict:
             f"commercial P0 parallel (WitnessBC · TrustField · form picks)"
         )
     elif goal1_idle:
-        goal_line = "**Current Goal:** Goal 1 — Controlled automation factory → Pre-LLM eval-dispatch spine (archived idle)"
+        goal_line = "**Current Goal:** Goal 1 — Governed automation factory → Pre-LLM eval-dispatch spine (archived idle)"
         queue_line = (
             f"**Current Queue:** `~/.sina/healthy-queue-30-active.json` · "
             f"factory-now queue `{queue_sa}` · **Goal 1 idle (archived)**"
@@ -72,7 +72,7 @@ def sync_active_now(*, dry_run: bool = False) -> dict:
         )
         sprint_line = "**Current Sprint:** Goal 1 honest complete · commercial flywheel · Hub advisory"
     elif active:
-        goal_line = "**Current Goal:** Goal 1 — Controlled automation factory (bounded resume active)"
+        goal_line = "**Current Goal:** Goal 1 — Governed automation factory (bounded resume active)"
         max_t = resume.get("max_turns") if resume else "?"
         blocker_line = (
             f"**Current Blocker:** ACTIVE — resume token live · drain spawn allowed · "
@@ -80,7 +80,7 @@ def sync_active_now(*, dry_run: bool = False) -> dict:
         )
         sprint_line = "**Current Sprint:** s5 commercial drain — cycle-2 P2 · OpenRouter enforce active"
     elif kill or mode == "FREEZE":
-        goal_line = "**Current Goal:** Goal 1 — Controlled automation factory → Pre-LLM eval-dispatch spine"
+        goal_line = "**Current Goal:** Goal 1 — Governed automation factory → Pre-LLM eval-dispatch spine"
         blocker_line = (
             f"**Current Blocker:** FREEZE — kill flag ON · mode {mode} · `{line}` · "
             f"ASF: Cloud Forge Run — max N — receipt required"

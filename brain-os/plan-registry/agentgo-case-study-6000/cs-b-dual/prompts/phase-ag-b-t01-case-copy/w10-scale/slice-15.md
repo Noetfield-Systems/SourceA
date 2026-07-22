@@ -14,7 +14,7 @@ Dual desktop deploy — agentrun-app :5180 + SA4 AgentGo :8080 · landing parity
 
 ## Task
 
-**Document moat for** case study prose (challenge · shipped · verification).
+**Document moat for** case study prose (challenge · shipped · proof chain).
 
 receipts not pages.
 

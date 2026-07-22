@@ -1,7 +1,7 @@
 # fs-sa-0200 — Fast-sell plan
 
 **Version:** 1 · **Tier:** T0 · **Phase:** LATER
-**Lane:** SourceA · **Wedge:** w11-case-study · Client case study logged
+**Lane:** SourceA · **Wedge:** w11-case-study · Client case study on disk
 **Action:** a10-verify · Verify PASS receipt
 **Comp anchor:** Trigger.dev · Langfuse
 **Tier 1:** Asset B diagnostic $3K slice
@@ -10,7 +10,7 @@
 
 ## Task
 
-Fast-sell: SourceA · Client case study logged · Verify PASS receipt. Ship smallest slice that moves a buyer toward **Asset B diagnostic $3K slice** with a path to **DFY $3–10K + retainer**. Receipt logged before done.
+Fast-sell: SourceA · Client case study on disk · Verify PASS receipt. Ship smallest slice that moves a buyer toward **Asset B diagnostic $3K slice** with a path to **DFY $3–10K + retainer**. Receipt on disk before done.
 
 ## Verify
 

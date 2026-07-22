@@ -23,7 +23,7 @@ Close wb-mkt-0990 with onboarding evidence + verify PASS
 
 ## Implementation extraction
 
-`Maven AGI · Onboarding & PLG` → what buyer sees at vendor → what we ship logged with receipt.
+`Maven AGI · Onboarding & PLG` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

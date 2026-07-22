@@ -218,7 +218,7 @@ SourceA root cleanup
 | `./SOURCEA_AGENCY_PRODUCT_DEMO_SCRIPT_LOCKED_v1.md` | 8.0K | # SourceA Agency Product Demo Script — LOCKED v1 | `brain-os/law/` | 5a | move |
 | `./SOURCEA_ANTI_STALENESS_AUTO_WIRE_LAYER_SYNC_LOCKED_v1.md` | 4.0K | # Anti-staleness auto wire — layer sync law (LOCKE | `brain-os/law/` | 5a | move |
 | `./SOURCEA_ANTI_STALENESS_MACHINE_ENFORCEMENT_PLAN_LOCKED_v1.md` |  12K | # SourceA — Anti-staleness machine enforcement pla | `brain-os/law/` | 5a | move |
-| `./SOURCEA_ASSET_B_CONTROLLED_AGENTIC_AUTOMATION_LOCKED_v1.md` | 8.0K | # Asset B — Controlled Agentic Automation (DFY) — LO | `brain-os/law/` | 5a | move |
+| `./SOURCEA_ASSET_B_GOVERNED_AGENTIC_AUTOMATION_LOCKED_v1.md` | 8.0K | # Asset B — Governed Agentic Automation (DFY) — LO | `brain-os/law/` | 5a | move |
 | `./SOURCEA_AUTHORITY_COVERAGE_AUDIT_2026-06-11_v1.md` |  12K | # SourceA Authority Coverage Audit — 2026-06-11 | `brain-os/law/` | 5a | move |
 | `./SOURCEA_AUTHORITY_REGISTRY_GOV_UNIFY_BATCH_2026-06-11_LOCKED_v1.md` |  12K | # Authority Registry — GOV_UNIFY Batch 2026-06-11  | `brain-os/law/` | 5a | move |
 | `./SOURCEA_BLUEPRINT_COMPARISON_POSTMORTEM_v1.md` |  40K | # SOURCEA BLUEPRINT COMPARISON — POST-MORTEM + PRE | `brain-os/law/` | 5a | move |
@@ -499,7 +499,7 @@ Tier-0 files moved in batch 3 broke root-relative script paths. Fixed via:
 - `scripts/governance-paths-v1.sh` — shell source file
 - Python: conduct gate, critic boot, brain wire, authority audit, stairlift, monitor, propagation cascade, founder signal, reference graph, projection g3, ecosystem catalog, hub essentials, orientation pipelines, important docs, agent system unified, system roadmap, audit hub alignment
 - JSON: `data/sourcea_agentic_unified_bundle_v1.json` orientation + apex commercial paths
-- Shell (sample): `validate-law-purity-ssot`, `validate-live-founder-decision-form`, `validate-disclosure-ladder`, `validate-controlled-agentic-automation-offer`
+- Shell (sample): `validate-law-purity-ssot`, `validate-live-founder-decision-form`, `validate-disclosure-ladder`, `validate-governed-agentic-automation-offer`
 - Self-ref: `brain-os/law/SINA_OS_SSOT_LOCKED.md` canonical location line
 
 Remaining shell validators still using `$ROOT/SINA_*` at root should source `governance-paths-v1.sh` on next touch.

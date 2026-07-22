@@ -16,7 +16,7 @@
         "data-trust-valid-yes",
         "data-trust-receipts-lifetime",
         "Close clients with live proof",
-        "/sourcea/proof/live",
+        "/sourcea/proof/live.html",
         "sourcea-trust-bar.js",
         "sourcea-live-console.js",
         "id=\"case-studies\"",

@@ -16,7 +16,7 @@ Revenue Engine · Proof Pack · landing · factory-runtime-spike
 **Proof pack from green run** — Chat Unify machines (CU).
 
 Landing & web · Scale · slice 3/10.
-Bounded path only. Receipt logged before done.
+Bounded path only. Receipt on disk before done.
 Parent: Revenue Engine · Proof Pack · landing · factory-runtime-spike.
 Priority doc: `brain-os/plan-registry/SOURCEA-PRIORITY.md`.
 

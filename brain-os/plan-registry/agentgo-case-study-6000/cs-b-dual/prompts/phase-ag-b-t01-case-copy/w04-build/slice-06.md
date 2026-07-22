@@ -14,7 +14,7 @@ Dual desktop deploy — agentrun-app :5180 + SA4 AgentGo :8080 · landing parity
 
 ## Task
 
-**Extract one compare page for** case study prose (challenge · shipped · verification).
+**Extract one compare page for** case study prose (challenge · shipped · proof chain).
 
 Competitor fair-use.
 

@@ -66,7 +66,7 @@ Worth 15 minutes to walk through BLOCK → heal → replay?
 
 —
 {FOUNDER_NAME}
-SourceA · controlled agentic automation
+SourceA · governed agentic automation
 {FROM_EMAIL}
 {COMPANY_URL}
 

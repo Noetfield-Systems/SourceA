@@ -7,7 +7,7 @@
 
 ## The opportunity
 
-Enterprises and founders need **one controlled stack** — not ten AI tools. They need:
+Enterprises and founders need **one governed stack** — not ten AI tools. They need:
 
 - A credible **website** (MVP → production)
 - **Agentic workflows** (mail, ads, ops, support) with human-in-the-loop
@@ -20,7 +20,7 @@ SourceA already built the hard part internally: layer stack, cloud factory, rece
 
 ## Positioning (one sentence)
 
-> **SourceA is the founder-AI platform that takes a customer from MVP website to production agentic business — controlled, receipted, and operable without Terminal.**
+> **SourceA is the founder-AI platform that takes a customer from MVP website to production agentic business — governed, receipted, and operable without Terminal.**
 
 Compete with: agencies + Zapier stacks + raw ChatGPT — win on **governance + ship speed + one throat to choke**.
 
@@ -44,7 +44,7 @@ Compete with: agencies + Zapier stacks + raw ChatGPT — win on **governance + s
 Keep visual design. Change **hero story**:
 
 1. **Problem:** AI sprawl — no audit, no governance, no production path  
-2. **Proof:** Your own portfolio (TrustField · Noetfield · controlled drains — anonymized receipts)  
+2. **Proof:** Your own portfolio (TrustField · Noetfield · governed drains — anonymized receipts)  
 3. **Process:** Discover → WBS → Cloud factory → Receipted ship → Operate  
 4. **CTA:** Book **Agentic Platform Discovery** (45 min)
 
@@ -64,7 +64,7 @@ Add one page: `/sourcea/platform/` — link from hero (static HTML in green-unif
 
 - [ ] `/sourcea/platform/` page in green-unified (copy only)  
 - [ ] Booking form → `contact@sourcea.app` + Hub form nerve  
-- [ ] One-pager PDF: "Controlled Agentic Platform" (investor package style)
+- [ ] One-pager PDF: "Governed Agentic Platform" (investor package style)
 
 ### Phase 2 — Productized delivery (4 weeks)
 

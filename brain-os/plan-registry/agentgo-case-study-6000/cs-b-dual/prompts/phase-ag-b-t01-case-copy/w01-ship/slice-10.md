@@ -14,7 +14,7 @@ Dual desktop deploy — agentrun-app :5180 + SA4 AgentGo :8080 · landing parity
 
 ## Task
 
-**Add index row for** case study prose (challenge · shipped · verification).
+**Add index row for** case study prose (challenge · shipped · proof chain).
 
 AGENTGO-CASE-STUDY-6000 machine index.
 

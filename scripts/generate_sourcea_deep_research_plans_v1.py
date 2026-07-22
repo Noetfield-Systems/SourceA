@@ -602,7 +602,7 @@ def fill_inbox(*, window: int = 10) -> dict[str, Any]:
 
 ---
 
-**Worker:** one UP-DR plan · verification built in · STOP.
+**Worker:** one UP-DR plan · proof on disk · STOP.
 """
     INBOX_MD.parent.mkdir(parents=True, exist_ok=True)
     INBOX_MD.write_text(md, encoding="utf-8")

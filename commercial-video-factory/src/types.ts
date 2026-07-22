@@ -24,7 +24,7 @@ export const defaultProspectReelProps: ProspectReelProps = {
   lane: "AB1",
   hook: "Your agents act before policy runs?",
   pain: "Irreversible sends without signed receipts — GRC can't prove what happened.",
-  proof_line: "BLOCK · ESCALATE · ALLOW — every gate logged and signed",
+  proof_line: "BLOCK · ESCALATE · ALLOW — every gate signed on disk",
   scenario: "outbound",
   verdict: "ESCALATE",
   receipt_hash: "sha256:8f3a9c2e…c91e",

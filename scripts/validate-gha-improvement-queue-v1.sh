@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# validate-gha-improvement-queue-v1.sh — GHA sweep + validate wiring logged
+# validate-gha-improvement-queue-v1.sh — GHA sweep + validate wiring on disk
 set -euo pipefail
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 fail() { echo "FAIL: $*" >&2; exit 1; }

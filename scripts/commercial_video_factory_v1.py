@@ -35,7 +35,7 @@ LANE_COPY: dict[str, dict[str, str]] = {
     "AB1": {
         "hook": "Can you prove what your agents ran last night?",
         "pain": "Logs aren't receipts — counsel can't file a chat transcript when execution has no signed gate.",
-        "proof_line": "PASS · BLOCK · tamper-FAIL — every gate logged and signed",
+        "proof_line": "PASS · BLOCK · tamper-FAIL — every gate signed on disk",
         "scenario": "sourcea-boot",
         "cta": "Book 15-min live proof",
         "brand": "SourceA",
@@ -44,7 +44,7 @@ LANE_COPY: dict[str, dict[str, str]] = {
     "NW1": {
         "hook": "Can Copilot act before your policy runs?",
         "pain": "Microsoft logs what happened — not whether it was allowed before it ran.",
-        "proof_line": "BLOCK · ESCALATE · ALLOW — receipt chain logged",
+        "proof_line": "BLOCK · ESCALATE · ALLOW — receipt chain on disk",
         "scenario": "copilot-governance",
         "cta": "Book 15-min walkthrough",
         "brand": "Noetfield",
@@ -53,7 +53,7 @@ LANE_COPY: dict[str, dict[str, str]] = {
     "AEG": {
         "hook": "Your agents act before policy runs?",
         "pain": "Irreversible sends without signed receipts — GRC can't prove what happened.",
-        "proof_line": "BLOCK · ESCALATE · ALLOW — forensic bundle logged",
+        "proof_line": "BLOCK · ESCALATE · ALLOW — forensic bundle on disk",
         "scenario": "aeg-proof",
         "cta": "Book 15-min proof",
         "brand": "SourceA",
@@ -103,7 +103,7 @@ def _receipt_hash() -> str:
     eid = str(aeg.get("evidence_id") or "")
     if eid:
         return f"sha256:{eid[-32:]}"
-    return "sha256:sourcea-boot-receipt-in-repo"
+    return "sha256:sourcea-boot-receipt-on-disk"
 
 
 def _verdict(*, lane: str) -> str:

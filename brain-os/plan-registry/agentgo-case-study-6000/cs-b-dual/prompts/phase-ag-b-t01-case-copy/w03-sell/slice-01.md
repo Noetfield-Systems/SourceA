@@ -14,7 +14,7 @@ Dual desktop deploy — agentrun-app :5180 + SA4 AgentGo :8080 · landing parity
 
 ## Task
 
-**Define ICP one-pager for** case study prose (challenge · shipped · verification).
+**Define ICP one-pager for** case study prose (challenge · shipped · proof chain).
 
 SaaS marketing · GEO buyer — not pool owner.
 

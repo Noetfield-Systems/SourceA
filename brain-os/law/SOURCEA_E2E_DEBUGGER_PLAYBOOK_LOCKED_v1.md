@@ -173,7 +173,7 @@ bash scripts/validate-sourcea-e2e-standard-v1.sh
 
 This playbook consolidates **multiple Cursor arcs** from session `a53f3fa1` and prior E2E hardening work:
 
-| Thread / topic | What was done | Where logged |
+| Thread / topic | What was done | Where on disk |
 |----------------|---------------|---------------|
 | Hub Safety button invisible | Blue Factory safety panel + top bar 🛡 Safety + numbered steps | `hub_home_founder_view_v1.py`, `app.js`, `shell.html` |
 | Hub buttons dead | `/api/action` `UnboundLocalError` fix | `sina-command-server.py` |
@@ -195,7 +195,7 @@ This playbook consolidates **multiple Cursor arcs** from session `a53f3fa1` and 
 
 ---
 
-## Fixes shipped (implement — already present)
+## Fixes shipped (implement — already on disk)
 
 | Fix | File / script | Lock recommendation |
 |-----|---------------|----------------------|

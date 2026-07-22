@@ -23,7 +23,7 @@ Add upgrade CTA path: sandbox/free → paid bay matching Comp AI upgrade pattern
 
 ## Implementation extraction
 
-`Comp AI · Pricing & packaging` → what buyer sees at vendor → what we ship logged with receipt.
+`Comp AI · Pricing & packaging` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

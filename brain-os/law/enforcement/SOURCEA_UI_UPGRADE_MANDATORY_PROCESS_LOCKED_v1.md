@@ -146,7 +146,7 @@ python3 scripts/ui_upgrade_mandatory_gate_v1.py --surface <id> --print-checklist
 - [ ] Read **last upgrade entry** in ledger JSON (`ui_upgrade_ledger_v1.py --show`)  
 - [ ] Note **frozen shell** sections (founder must not lose)
 
-**Forbidden:** Start from a mock, ChatGPT HTML, or "cleaner" rewrite without reading in-repo canonical.
+**Forbidden:** Start from a mock, ChatGPT HTML, or "cleaner" rewrite without reading on-disk canonical.
 
 ### UP-2 — Inventory last good version (baseline capture)
 
@@ -170,7 +170,7 @@ python3 scripts/ui_upgrade_mandatory_gate_v1.py --surface <id> --print-checklist
 **Allowed:** spacing, typography, sticky subnav, cards, gold accent, tabular nums  
 **Forbidden:** delete table, hide table behind new tab without parity, swap page for summary-only cockpit
 
-### UP-4 — Edit (controlled paths only)
+### UP-4 — Edit (governed paths only)
 
 - [ ] `pre_write_guard_v1.py` PASS on each target path  
 - [ ] Landing: baseline `check` PASS before each file edit  

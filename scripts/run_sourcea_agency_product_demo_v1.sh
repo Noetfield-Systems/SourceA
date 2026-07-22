@@ -15,7 +15,7 @@ while [[ $# -gt 0 ]]; do
     --open-only) OPEN_ONLY=1; shift ;;
     -h|--help)
       echo "Usage: run_sourcea_agency_product_demo_v1.sh [--prep-only | --open-only]"
-      echo "Product: SourceA controlled agent execution · Package: Mac Guard (agency invoice)"
+      echo "Product: SourceA governed agent execution · Package: Mac Guard (agency invoice)"
       exit 0
       ;;
     *) echo "Unknown: $1"; exit 1 ;;

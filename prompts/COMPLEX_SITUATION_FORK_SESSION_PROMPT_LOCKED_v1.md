@@ -23,7 +23,7 @@ PIPELINE (execute in order):
 2. CLASSIFY — Tag each issue LAW | MACHINE | PROJECTION.
 3. INVENTORY — List every fork F1..Fn with: id · subject · one-sentence question · who decides (F/M/B).
 4. OPTIONS — Per fork present exactly one of:
-   - 4 options (A/B/C/D) each with "If you pick X → Effect logged"
+   - 4 options (A/B/C/D) each with "If you pick X → Effect on disk"
    - Yes/No quad (YES/NO/DEFER/DISCUSS) with Effects
    - Text box (conflicts, sa pick, custom rubric)
    Mark RECOMMENDED with evidence — never ask "confirm recommended" without Effect lines.

@@ -184,7 +184,7 @@ bash scripts/sync-signal-factory-skill-v1.sh
 
 ---
 
-## 24/7 motor (synthetic queue · controlled autorun)
+## 24/7 motor (synthetic queue · governed autorun)
 
 **Chain:** Cloudflare cron `*/15` → Railway `POST /api/fbe/signal-factory/tick/v1` → disk queue batch (max 5) → decision reports → tick receipt.
 
@@ -226,5 +226,5 @@ Ready when:
 1. `bash scripts/validate-signal-factory-e2e-v1.sh` → PASS
 2. `bash scripts/validate-signal-factory-v1.sh` → PASS
 3. `python3 scripts/signal_factory_core_v1.py --run-tests --json` → `ok: true`
-4. SKILL.md + SSOT + core + six tests present logged
+4. SKILL.md + SSOT + core + six tests present on disk
 5. `~/.cursor/skills/signal-factory/SKILL.md` installed via sync script

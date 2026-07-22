@@ -14,7 +14,7 @@ Dual desktop deploy — agentrun-app :5180 + SA4 AgentGo :8080 · landing parity
 
 ## Task
 
-**Draft SOW skeleton for** case study prose (challenge · shipped · verification).
+**Draft SOW skeleton for** case study prose (challenge · shipped · proof chain).
 
 Bounded paths listed.
 

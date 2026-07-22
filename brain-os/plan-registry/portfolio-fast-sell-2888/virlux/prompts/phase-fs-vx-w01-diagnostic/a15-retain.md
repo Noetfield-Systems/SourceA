@@ -10,7 +10,7 @@
 
 ## Task
 
-Fast-sell: VIRLUX · Tier-1 diagnostic / audit wedge · Retainer renewal touch. Ship smallest slice that moves a buyer toward **One factory recipe demo** with a path to **Team + usage tier**. Receipt logged before done.
+Fast-sell: VIRLUX · Tier-1 diagnostic / audit wedge · Retainer renewal touch. Ship smallest slice that moves a buyer toward **One factory recipe demo** with a path to **Team + usage tier**. Receipt on disk before done.
 
 ## Verify
 

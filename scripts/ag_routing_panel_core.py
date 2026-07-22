@@ -41,7 +41,7 @@ def _golden_tips(*, routing: dict, cost: dict, active: dict) -> list[str]:
     if active.get("loop_verdict") not in (None, "PASS", "ok"):
         tips.append("Loop verdict not clean — run API Station routing_panel (light) before new sa builds.")
     tips.append("Full architect WebGL lives on :8780 — this app is fast agent truth on :8782.")
-    tips.append("Founder form P0 only when motor blocked — agents fix wiring in the repository first.")
+    tips.append("Founder form P0 only when motor blocked — agents fix wiring on disk first.")
     return tips[:6]
 
 

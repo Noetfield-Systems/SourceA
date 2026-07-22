@@ -17,7 +17,7 @@ python3 scripts/cleanup-goal1-leftovers-v1.py --json
 Rules:
 - If remaining_count > 0 → STOP. Report remaining_pids. Do NOT say loop is running.
 - If you spawned anything → you MUST run cleanup before final STOP.
-- Do NOT start start-overnight-3engine-v1.sh from Brain unless ASF explicitly orders sleep overnight AND founder_absent is logged.
+- Do NOT start start-overnight-3engine-v1.sh from Brain unless ASF explicitly orders sleep overnight AND founder_absent is on disk.
 - Cursor must NOT autorun overnight. Kill flag ON after cleanup is correct default.
 
 Reply footer (required):

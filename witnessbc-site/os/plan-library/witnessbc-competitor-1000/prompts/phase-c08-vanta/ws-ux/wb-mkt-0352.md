@@ -23,7 +23,7 @@ Write one-line UX spec: `Vanta Buyer-visible UX` → buyer sees X → we show on
 
 ## Implementation extraction
 
-`Vanta · Buyer-visible UX` → what buyer sees at vendor → what we ship logged with receipt.
+`Vanta · Buyer-visible UX` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

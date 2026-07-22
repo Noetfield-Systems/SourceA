@@ -75,27 +75,27 @@
       "brain_registry_asset_id": "signal-factory-v1"
     },
     {
-      "skill_id": "controlled-autorun-v3",
-      "skill_name": "controlled-autorun",
+      "skill_id": "governed-autorun-v3",
+      "skill_name": "governed-autorun",
       "status": "installed_synced",
       "version": "3.0.0",
       "contract": "Loop Specialist standing assignment",
       "owner": "SourceA Loop Specialist",
       "owning_layer": "AUTORUN",
-      "purpose": "Design, run, audit, and repair 24/7 multi-workflow autonomous execution — parallel sandboxes, cron loops, queue motors, receipt-backed cycles, ROI-controlled spend, L13 deterministic loops (D1–D8).",
+      "purpose": "Design, run, audit, and repair 24/7 multi-workflow autonomous execution — parallel sandboxes, cron loops, queue motors, receipt-backed cycles, ROI-governed spend, L13 deterministic loops (D1–D8).",
       "trigger": "Autorun loops, cron workers, batch queues, multi-sandbox orchestration, cycle receipts, sink invariants, verification gates, cost/ROI attribution, loop specialist tick, or 'make it run 24/7'.",
-      "skill_path": ".cursor/skills/controlled-autorun/SKILL.md",
-      "ssot_path": "docs/CONTROLLED_AUTORUN_LAWS_v3.md",
+      "skill_path": ".cursor/skills/governed-autorun/SKILL.md",
+      "ssot_path": "docs/GOVERNED_AUTORUN_LAWS_v3.md",
       "references": [
-        ".cursor/skills/controlled-autorun/references/deterministic-loops.md",
-        ".cursor/skills/controlled-autorun/references/sourcea-wiring.md",
-        ".cursor/skills/controlled-autorun/references/receipt-schemas.md"
+        ".cursor/skills/governed-autorun/references/deterministic-loops.md",
+        ".cursor/skills/governed-autorun/references/sourcea-wiring.md",
+        ".cursor/skills/governed-autorun/references/receipt-schemas.md"
       ],
       "verifier": {
-        "structural": "scripts/validate-controlled-autorun-skill-v1.sh",
+        "structural": "scripts/validate-governed-autorun-skill-v1.sh",
         "determinism_ci": "scripts/verify_autorun_determinism_v1.py"
       },
-      "sync_script": "scripts/sync-controlled-autorun-skill-v1.sh"
+      "sync_script": "scripts/sync-governed-autorun-skill-v1.sh"
     }
   ]
 }

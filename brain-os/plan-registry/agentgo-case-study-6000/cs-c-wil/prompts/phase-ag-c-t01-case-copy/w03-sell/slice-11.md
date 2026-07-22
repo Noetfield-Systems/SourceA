@@ -14,7 +14,7 @@ Wil L3 portfolio demo — YA5 mirror · AgentGo ≠ SourceA separation · ship g
 
 ## Task
 
-**Write agency variant for** case study prose (challenge · shipped · verification).
+**Write agency variant for** case study prose (challenge · shipped · proof chain).
 
 White-label factory narrative.
 

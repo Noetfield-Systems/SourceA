@@ -122,7 +122,7 @@ If it's not a fit, just say stop — I won't follow up.
 
 —
 {FOUNDER_NAME}
-SourceA · controlled agentic automation
+SourceA · governed agentic automation
 {FROM_EMAIL}
 https://sourcea.com
 

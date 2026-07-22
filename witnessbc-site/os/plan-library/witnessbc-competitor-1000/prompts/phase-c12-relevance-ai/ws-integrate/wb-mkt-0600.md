@@ -23,7 +23,7 @@ Close wb-mkt-0600: integration receipt + verify PASS + https://relevanceai.com/d
 
 ## Implementation extraction
 
-`Relevance AI · Integrations & API` → what buyer sees at vendor → what we ship logged with receipt.
+`Relevance AI · Integrations & API` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

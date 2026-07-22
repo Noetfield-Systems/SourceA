@@ -2,7 +2,7 @@
   "schema": "external-verify-receipt-v1",
   "version": "1.0.0",
   "at": "2026-07-02T12:12:01Z",
-  "law": "CONTROLLED_AUTORUN_LAWS_v2 L4 \u2014 external verify only",
+  "law": "GOVERNED_AUTORUN_LAWS_v2 L4 \u2014 external verify only",
   "github_run_id": "28589005370",
   "github_sha": "6ab90e0e846b6b8243f33e601a19af931b0b01b8",
   "workflow": "external-verify.yml",

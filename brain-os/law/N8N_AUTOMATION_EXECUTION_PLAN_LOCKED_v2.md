@@ -25,7 +25,7 @@
 
 ---
 
-## Active artifacts (in the repository)
+## Active artifacts (on disk)
 
 | Artifact | Path |
 |----------|------|

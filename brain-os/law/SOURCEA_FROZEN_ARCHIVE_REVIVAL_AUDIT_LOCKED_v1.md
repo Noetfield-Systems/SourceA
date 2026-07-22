@@ -82,7 +82,7 @@
 
 | Item | Why blocked |
 |------|-------------|
-| **024 AUTO-RUN full loop** | Founder rejected · flag logged |
+| **024 AUTO-RUN full loop** | Founder rejected · flag on disk |
 | **ARCHIVE tier as law** | 002 § enforcement rule 4 |
 | **POSA as ecosystem P0** | `SINA_OS_SSOT` wins |
 | **Paper “live” without receipt** | LIVE_GOV_BP §7 anti-pattern |

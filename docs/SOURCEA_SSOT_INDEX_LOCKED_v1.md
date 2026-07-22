@@ -53,7 +53,7 @@ Cloud kernel loop (**Plan → Control → Execute → Verify → Commit**) runs 
 | **PROVE** | **CONTROL** | Validator · hub gate · execution contract |
 | **SHIP** | **EXECUTE → VERIFY → COMMIT** | Hub proceed / FBE dispatch · receipt write |
 
-Agents **cannot SHIP** on self-report. Advancement requires validator receipt and/or hub proceed receipt logged.
+Agents **cannot SHIP** on self-report. Advancement requires validator receipt and/or hub proceed receipt on disk.
 
 **Phase-1 truth ticket:** `~/.sina/phase1-pevc-truth-ticket-v1.json` — forge drain exemplar (JSON now, SQL later).
 
@@ -75,7 +75,7 @@ Agents **cannot SHIP** on self-report. Advancement requires validator receipt an
 1. **This index** — scope before depth  
 2. **Governance pack (June 2026)** — `brain-os/ssot/SSOT_PLANE_INDEX_LOCKED_v1.md` · operating law v3 · roadmap · GTM  
 3. **L0 Workbench** — daily Mac operations  
-4. **Reconciliation** — what is real vs target logged  
+4. **Reconciliation** — what is real vs target on disk  
 5. **Cloud Kernel target PDF (v1.3)** — north-star factory architecture (target; v1.2 superseded)  
 6. **Portfolio DB tiers** — `data/supabase-portfolio-tiers-v1.json`  
 7. **Execution contract** — `data/fbe_execution_contract_v1.json`  

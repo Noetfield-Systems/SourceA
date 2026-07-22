@@ -14,7 +14,7 @@ Wil L3 portfolio demo — YA5 mirror · AgentGo ≠ SourceA separation · ship g
 
 ## Task
 
-**Scaffold build slice for** case study prose (challenge · shipped · verification).
+**Scaffold build slice for** case study prose (challenge · shipped · proof chain).
 
 Smallest code/html change.
 

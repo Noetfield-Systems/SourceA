@@ -19,7 +19,7 @@
       id: "block",
       label: "BLOCK",
       title: "Receipt not fresh",
-      subtitle: "Session gate BLOCK — no file touched, receipt logged.",
+      subtitle: "Session gate BLOCK — no file touched, receipt on disk.",
       check: "receipt_fresh",
       fallback: { ok: false, reason: "last receipt verdict BLOCK" },
     },

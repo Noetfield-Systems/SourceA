@@ -23,7 +23,7 @@ Label free vs paid honestly (AI policy + first agentic install — site independ
 
 ## Implementation extraction
 
-`Vanta · Pricing & packaging` → what buyer sees at vendor → what we ship logged with receipt.
+`Vanta · Pricing & packaging` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

@@ -14,7 +14,7 @@ REFS_PARTIAL = ROOT / "partials" / "refs-list.html"
 PAGES_DATA = ROOT / "data" / "pages.json"
 
 FORBIDDEN = re.compile(
-    r"sourcea|noetfield|sourcea-layout-light|sourcea-layout-dark|notenic|witnessai|witness\.ai|witness bc",
+    r"sourcea|noetfield|zenity|nomotic|notenic|witnessai|witness\.ai|witness bc",
     re.I,
 )
 

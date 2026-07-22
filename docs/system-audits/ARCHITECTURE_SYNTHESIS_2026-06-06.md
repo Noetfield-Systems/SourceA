@@ -6,7 +6,7 @@
 
 ## GPT meta-critique (validated)
 
-**Claim:** Reframe from “autonomous dev product” to **“control plane for controlled execution.”**
+**Claim:** Reframe from “autonomous dev product” to **“control plane for governed execution.”**
 
 **Auditor verdict: ACCEPT.** Evidence supports:
 - 138 LOCKED law files, 67 validators — governance-first  
@@ -35,7 +35,7 @@
 | Law surface | Unusually complete for solo founder |
 | 1000-pack verify | 101 done, pack validated |
 | Two-layer prompt OS | Router + REGISTRY both real |
-| T0+T1 enforcement | DONE logged |
+| T0+T1 enforcement | DONE on disk |
 
 ---
 
@@ -70,7 +70,7 @@
 | Cursor | Tool inside worker lane — not the OS |
 | LangSmith/LangGraph | Closest analog for pre-LLM + trace — but law-heavy |
 
-**Category:** Controlled execution OS + context compiler.
+**Category:** Governed execution OS + context compiler.
 
 ---
 

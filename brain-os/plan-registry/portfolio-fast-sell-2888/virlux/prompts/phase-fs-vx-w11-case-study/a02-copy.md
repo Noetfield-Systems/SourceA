@@ -1,7 +1,7 @@
 # fs-vx-0192 — Fast-sell plan
 
 **Version:** 1 · **Tier:** T0 · **Phase:** LATER
-**Lane:** VIRLUX · **Wedge:** w11-case-study · Client case study logged
+**Lane:** VIRLUX · **Wedge:** w11-case-study · Client case study on disk
 **Action:** a02-copy · Write buyer-facing copy
 **Comp anchor:** Windmill · Activepieces
 **Tier 1:** One factory recipe demo
@@ -10,7 +10,7 @@
 
 ## Task
 
-Fast-sell: VIRLUX · Client case study logged · Write buyer-facing copy. Ship smallest slice that moves a buyer toward **One factory recipe demo** with a path to **Team + usage tier**. Receipt logged before done.
+Fast-sell: VIRLUX · Client case study on disk · Write buyer-facing copy. Ship smallest slice that moves a buyer toward **One factory recipe demo** with a path to **Team + usage tier**. Receipt on disk before done.
 
 ## Verify
 

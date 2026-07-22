@@ -17,7 +17,7 @@
 
 ## 1. What you meant vs what we found
 
-| You meant | In the repository today |
+| You meant | On disk today |
 |-----------|---------------|
 | **Foundation of SSOT (human)** | **`018-sot-creation-guidelines`** (MonoRepo) + **`SSOT_FOUNDATION_WRITING_GUIDE`** + **`META_REASONING`** |
 | **Registry of Foundations** | **`002-sot-hierarchy-registry`** — LAW / OPERATIONAL / ARCHIVE |
@@ -53,7 +53,7 @@
 
 Threads chain when you zoom out (ecosystem anchor):
 
-| # | Thread | Where it started | Where it landed logged |
+| # | Thread | Where it started | Where it landed on disk |
 |---|--------|------------------|-------------------------|
 | **T0** | **SoT foundation (human)** | You asked for SoT Creation Guidelines · SLF · PAIOS | `018-sot-creation-guidelines` · `002-sot-hierarchy-registry` · MonoRepo L0-meta |
 | **T1** | **Layer A / B** | Personal DB · Supabase · n8n | `SinaaiMonoRepo` — A = truth files · B = runtime |

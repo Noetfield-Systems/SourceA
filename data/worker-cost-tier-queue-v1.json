@@ -57,7 +57,7 @@
       "prior_tier": "T2",
       "cost_tier": "T0",
       "worker": "scripts",
-      "paths": ["docs/CONTROLLED_AUTORUN_LAWS_v3.md", "docs/NOETFIELD_COHERENT_SYSTEM_SPEC_v1.md"],
+      "paths": ["docs/GOVERNED_AUTORUN_LAWS_v3.md", "docs/NOETFIELD_COHERENT_SYSTEM_SPEC_v1.md"],
       "verify": "grep L17 + §6 alignment"
     },
     {

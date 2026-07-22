@@ -342,7 +342,7 @@ def compile_proof_page(
           <pre class="md">{broken_checks}</pre>
         </div>
         <div class="compare-col heal">
-          <h3>Controlled state (after fix)</h3>
+          <h3>Governed state (after fix)</h3>
           <p><strong>{_html_escape(str(heal_boot.get('verdict')))}</strong> — {_html_escape(str(heal_boot.get('founder_line', '')))}</p>
           <pre class="md">{heal_checks}</pre>
         </div>

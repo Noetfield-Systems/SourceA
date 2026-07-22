@@ -14,7 +14,7 @@ Wil L3 portfolio demo — YA5 mirror · AgentGo ≠ SourceA separation · ship g
 
 ## Task
 
-**Parse sitemap.xml scope for** case study prose (challenge · shipped · verification).
+**Parse sitemap.xml scope for** case study prose (challenge · shipped · proof chain).
 
 SA4 sitemap line count vs claim.
 

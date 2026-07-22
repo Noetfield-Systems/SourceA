@@ -52,7 +52,7 @@
 | Agent verbs SAVE/WORK/EDIT | `brain-os/law/enforcement/AGENT_VERBS_SAVE_WORK_EDIT_LOCKED_v1.md` |
 | Brain unified (legacy) | `brain-os/law/BRAIN_UNIFIED_RULES_LOCKED_v1.md` → use `SOURCEA_BRAIN_AUTHORITY_UNIFIED_LOCKED_v1.md` |
 | Worker inbox | `brain-os/law/enforcement/RUN_INBOX_DISK_TRUTH_EXECUTION_LOCKED_v1.md` |
-| Autorun laws | `docs/CONTROLLED_AUTORUN_LAWS_v3.md` |
+| Autorun laws | `docs/GOVERNED_AUTORUN_LAWS_v3.md` |
 | Conflict resolution | `.cursor/rules/ecosystem-rule-conflict-resolution.mdc` |
 | No fake progress | `brain-os/law/SOURCEA_NO_FAKE_PROGRESS_ENTERPRISE_SHIP_LOCKED_v1.md` |
 | Mac workbench | `docs/SOURCEA_HARDENED_MACHINE_WORKBENCH_ARCHITECTURE_LOCKED_v1.md` |

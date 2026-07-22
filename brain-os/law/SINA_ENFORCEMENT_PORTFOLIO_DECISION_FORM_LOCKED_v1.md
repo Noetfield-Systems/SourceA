@@ -40,7 +40,7 @@ OPEN if:          budget · legal entity · naming trademark · truly new fork
 | **ENG-14** | 6mo = two proofs (engine+money) not 10-holding-co | **LOCKED** | BIG-PICTURE-031 · supersession P7 |
 | **ENG-15** | MASTER-PLAN weeks 1–6 rebuild **void** · spirit preserved | **LOCKED** | S1–S6 shipped · lineage doc |
 | **ENG-16** | Weekly plan v1.1 = execution table | **LOCKED** | Supersession |
-| **ENG-17** | P0 portfolio law **LOCKED** | **LOCKED** | File logged |
+| **ENG-17** | P0 portfolio law **LOCKED** | **LOCKED** | File on disk |
 | **ENG-18** | Preserved spirit law **LOCKED** | **LOCKED** | Nothing lost rule |
 | **ENG-19** | Social Week 1: LinkedIn only · second channel Week 4+ | **LOCKED** | P0 §9 Q4 |
 | **ENG-20** | 24/7 min: 3 automated runs/day + overnight queue | **LOCKED** | P0 §9 Q6 |
@@ -80,7 +80,7 @@ OPEN if:          budget · legal entity · naming trademark · truly new fork
 | **WK-02** | Film W1 | ASF + Worker |
 | **WK-03** | n8n W3 outreach workflow live | Worker |
 | **WK-04** | Hub S8 demo button | Maintainer 2 |
-| **WK-05** | W3 LOI/deposit logged | Agentic commercial |
+| **WK-05** | W3 LOI/deposit on disk | Agentic commercial |
 | **WK-06** | Tracker §1 refresh | Maintainer |
 | **WK-07** | `ecosystem_master_catalog` AgentField + FounderField rows | Maintainer |
 

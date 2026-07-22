@@ -14,7 +14,7 @@ Wil L3 portfolio demo — YA5 mirror · AgentGo ≠ SourceA separation · ship g
 
 ## Task
 
-**CRM hygiene pass for** case study prose (challenge · shipped · verification).
+**CRM hygiene pass for** case study prose (challenge · shipped · proof chain).
 
 Remove placeholder stink.
 

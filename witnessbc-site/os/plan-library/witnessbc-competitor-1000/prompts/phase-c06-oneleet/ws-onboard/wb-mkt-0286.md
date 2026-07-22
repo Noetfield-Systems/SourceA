@@ -23,7 +23,7 @@ Write founder-facing SOW snippet if Oneleet uses services-led motion — Witness
 
 ## Implementation extraction
 
-`Oneleet · Onboarding & PLG` → what buyer sees at vendor → what we ship logged with receipt.
+`Oneleet · Onboarding & PLG` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

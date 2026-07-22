@@ -10,7 +10,7 @@
 ## Rule (machine order — SSOT)
 
 **Execution + live next-10 display:** `SOURCEA_LIVE_ONGOING_PROMPTS_LOCKED_v1.md`  
-Super Fast Hub (`http://127.0.0.1:13020/`) shows **queue line + task** — live next 10 logged at `~/.sina/live-ongoing-prompts-next-10-v1.json`.  
+Super Fast Hub (`http://127.0.0.1:13020/`) shows **queue line + task** — live next 10 on disk at `~/.sina/live-ongoing-prompts-next-10-v1.json`.  
 **Legacy monolith** (Hub = Sina Command = `/legacy/`) is **archive only** — never daily founder path.
 
 ## Rule (optional): AI commentary on last reply

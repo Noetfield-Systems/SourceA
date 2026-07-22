@@ -14,7 +14,7 @@ Dual desktop deploy — agentrun-app :5180 + SA4 AgentGo :8080 · landing parity
 
 ## Task
 
-**CRM hygiene pass for** case study prose (challenge · shipped · verification).
+**CRM hygiene pass for** case study prose (challenge · shipped · proof chain).
 
 Remove placeholder stink.
 

@@ -55,7 +55,7 @@
     "paid_blocked_until": "tool_pick phase_2 founder approval + NO-CC gate"
   },
   "mvp_waves": [
-    {"id": "W1", "label": "Graph SSOT", "plan_range": "NM-001–150", "ship": "graph schema logged · local JSON seed"},
+    {"id": "W1", "label": "Graph SSOT", "plan_range": "NM-001–150", "ship": "graph schema on disk · local JSON seed"},
     {"id": "W2", "label": "T0 Router", "plan_range": "NM-151–300", "ship": "FBE /newmatch/route · T0 rules · $0"},
     {"id": "W3", "label": "Ingest", "plan_range": "NM-501–650", "ship": "manual · CSV · SEMEJ founder session"},
     {"id": "W4", "label": "Follow loops", "plan_range": "NM-301–500", "ship": "planner→executor · receipts"},

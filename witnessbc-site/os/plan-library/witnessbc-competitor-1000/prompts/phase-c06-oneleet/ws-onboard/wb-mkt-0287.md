@@ -23,7 +23,7 @@ Measure drop-off: list one friction point vs Oneleet and fix
 
 ## Implementation extraction
 
-`Oneleet · Onboarding & PLG` → what buyer sees at vendor → what we ship logged with receipt.
+`Oneleet · Onboarding & PLG` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

@@ -27,7 +27,7 @@ One music bed per composition, produced by the shared audio engine (`scripts/aud
 }
 ```
 
-`volume` is 0.8 under narration, 0.9 for a silent film (no voice). `bgm_pending` is `false` — the file is logged when the engine returns.
+`volume` is 0.8 under narration, 0.9 for a silent film (no voice). `bgm_pending` is `false` — the file is on disk when the engine returns.
 
 ## Local generation (fallback) — Lyria → MusicGen
 

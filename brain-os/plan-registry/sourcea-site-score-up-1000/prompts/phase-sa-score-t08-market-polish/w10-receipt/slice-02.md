@@ -1,4 +1,4 @@
-# sa-score-0192 — Receipt logged for hero typography pass — match Linear/Vercel rhythm
+# sa-score-0192 — Receipt on disk for hero typography pass — match Linear/Vercel rhythm
 
 **Saved at:** 2026-06-25T09:23:55Z
 **Version:** 1 · **Tier:** T0 · **Phase:** NEXT
@@ -16,7 +16,7 @@ Raise SourceA site score toward **95+/100** — proof before call · stranger se
 
 P0 — smallest shippable slice; live on sourcea.app
 
-**Deliverable:** Receipt logged for hero typography pass — match Linear/Vercel rhythm
+**Deliverable:** Receipt on disk for hero typography pass — match Linear/Vercel rhythm
 
 Bounded paths: `SourceA-landing/green-unified/` · `cloud/workers/sourcea-site-pulse-v1/` · `scripts/validate-sourcea-modern-stack-e2e-v1.sh`
 

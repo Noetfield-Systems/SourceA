@@ -295,7 +295,7 @@ _phase_strict_reentry = False
 
 
 def phase_strict_queue_check() -> dict:
-    """INCIDENT-017 — when phase_strict logged, queue head must match queue_sa truth."""
+    """INCIDENT-017 — when phase_strict on disk, queue head must match queue_sa truth."""
     global _phase_strict_reentry
     if _phase_strict_reentry:
         return {"ok": True, "skipped": True, "reason": "reentry_guard"}

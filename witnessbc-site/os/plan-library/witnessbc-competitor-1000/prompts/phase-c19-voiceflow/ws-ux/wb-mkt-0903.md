@@ -23,7 +23,7 @@ Add `witnessbc.com pricing + toolkits hub` UI field or copy block implementing s
 
 ## Implementation extraction
 
-`Voiceflow · Buyer-visible UX` → what buyer sees at vendor → what we ship logged with receipt.
+`Voiceflow · Buyer-visible UX` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

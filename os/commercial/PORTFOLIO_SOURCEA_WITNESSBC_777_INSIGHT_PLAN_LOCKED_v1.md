@@ -12,7 +12,7 @@
 ## 0. One map (four engines · one founder)
 
 ```text
-SourceA          → builds controlled factories (engine · proof spine)
+SourceA          → builds governed factories (engine · proof spine)
 Noetfield        → trust at dispatch (Copilot / internal AI)
 TrustField       → commercial evidence (MSB · RWA · attestation)
 WitnessBC        → human accountability (editorial · corrections)
@@ -27,14 +27,14 @@ WitnessBC        → human accountability (editorial · corrections)
 
 ### Identity (locked)
 
-SourceA is the **factory builder** — not the hero on every outbound email. It compiles specs (FBE 76-node graph), ships scoped loops, and runs the live demo every vertical sells.
+SourceA is the **factory builder** — not the hero on every outbound email. It compiles specs (FBE 76-node graph), ships governed loops, and runs the proof chain every vertical sells.
 
 ### Strategic insight
 
 | Force | SourceA move |
 |-------|----------------|
 | Canada regulatory convergence | Power TrustField/Noetfield sends — never lead cold email as SourceA |
-| FBE W0–W3 logged | Factory 1 first bay + motor delegate = **prove the builder works** |
+| FBE W0–W3 on disk | Factory 1 first bay + motor delegate = **prove the builder works** |
 | Living system debate | Pitch control layer for continuous agents — factory is the proof |
 | Agency landing | Close on 15-min replay — commercial film + live forensic page |
 
@@ -43,7 +43,7 @@ SourceA is the **factory builder** — not the hero on every outbound email. It 
 | Week | Ship | Metric |
 |------|------|--------|
 | W1 | Regenerate factory catalog · validate Phase C · publish landing tunnel | `validate-fbe-w2-v1` PASS |
-| W2 | One MARKET_READY factory bundle (`fbe_run_job` full) | Receipt logged |
+| W2 | One MARKET_READY factory bundle (`fbe_run_job` full) | Receipt on disk |
 | W3 | Proof demo script tied to Canada hooks (CSA · FINTRAC) | 3 screen-shares logged |
 | W4 | S-P6 white-label receipts for TF/NF deploys | 1 partner pack exported |
 
@@ -147,7 +147,7 @@ Alignment only: SourceA builds **infrastructure patterns** 777 may mirror for re
 
 | Capability | SourceA | WitnessBC | 777 | TrustField | Noetfield |
 |------------|---------|-----------|-----|------------|-----------|
-| Verification demo | **owns** | film | — | attach | attach |
+| Proof chain demo | **owns** | film | — | attach | attach |
 | Signed receipt / TLE | engine | publish | mirror? | attestation | governance |
 | Canada June 2026 | spine only | tertiary | **none** | **lead** | AI-native |
 | Commercial film | SourceA + WBC hero | **hero** | — | TF attach | NF attach |

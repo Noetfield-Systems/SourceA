@@ -486,27 +486,27 @@
     },
     {
       "git_status": "tracked_dirty",
-      "path": "data/chatbot-knowledge/crawled/www/factories__controlled-app-factory.md",
+      "path": "data/chatbot-knowledge/crawled/www/factories__governed-app-factory.md",
       "porcelain": " M",
       "sha256": "873c6eb46f8bd42c691c6c42188014cb8172642f55b81c5d1e811199beb20857",
       "size": 636,
-      "snapshot_path": "archive/sourcea-cleanup-snapshot-20260628/files.tar.gz::files/data/chatbot-knowledge/crawled/www/factories__controlled-app-factory.md"
+      "snapshot_path": "archive/sourcea-cleanup-snapshot-20260628/files.tar.gz::files/data/chatbot-knowledge/crawled/www/factories__governed-app-factory.md"
     },
     {
       "git_status": "tracked_dirty",
-      "path": "data/chatbot-knowledge/crawled/www/factories__controlled-exchange-factory.md",
+      "path": "data/chatbot-knowledge/crawled/www/factories__governed-exchange-factory.md",
       "porcelain": " M",
       "sha256": "f3cf339e6f122752719f39155a63f0a6f6ac3300dbfa14dace5cb8a80aeefcf1",
       "size": 672,
-      "snapshot_path": "archive/sourcea-cleanup-snapshot-20260628/files.tar.gz::files/data/chatbot-knowledge/crawled/www/factories__controlled-exchange-factory.md"
+      "snapshot_path": "archive/sourcea-cleanup-snapshot-20260628/files.tar.gz::files/data/chatbot-knowledge/crawled/www/factories__governed-exchange-factory.md"
     },
     {
       "git_status": "tracked_dirty",
-      "path": "data/chatbot-knowledge/crawled/www/factories__controlled-web-product-factory.md",
+      "path": "data/chatbot-knowledge/crawled/www/factories__governed-web-product-factory.md",
       "porcelain": " M",
       "sha256": "e7851a7bf5c2db334c63710ffa9e1ac00113f4cc9ad6eef50001fd69498c71c3",
       "size": 661,
-      "snapshot_path": "archive/sourcea-cleanup-snapshot-20260628/files.tar.gz::files/data/chatbot-knowledge/crawled/www/factories__controlled-web-product-factory.md"
+      "snapshot_path": "archive/sourcea-cleanup-snapshot-20260628/files.tar.gz::files/data/chatbot-knowledge/crawled/www/factories__governed-web-product-factory.md"
     },
     {
       "git_status": "tracked_dirty",
@@ -1542,27 +1542,27 @@
     },
     {
       "git_status": "tracked_clean",
-      "path": "sites/SourceA-landing/green-unified/dist/sourcea/factories/controlled-app-factory.html",
+      "path": "sites/SourceA-landing/green-unified/dist/sourcea/factories/governed-app-factory.html",
       "porcelain": "",
       "sha256": "a90d810096ea20eda360d6ccc301a6b2a270306eac2c6674f7dec0cc0522d7fb",
       "size": 3958,
-      "snapshot_path": "archive/sourcea-cleanup-snapshot-20260628/files.tar.gz::files/sites/SourceA-landing/green-unified/dist/sourcea/factories/controlled-app-factory.html"
+      "snapshot_path": "archive/sourcea-cleanup-snapshot-20260628/files.tar.gz::files/sites/SourceA-landing/green-unified/dist/sourcea/factories/governed-app-factory.html"
     },
     {
       "git_status": "tracked_clean",
-      "path": "sites/SourceA-landing/green-unified/dist/sourcea/factories/controlled-exchange-factory.html",
+      "path": "sites/SourceA-landing/green-unified/dist/sourcea/factories/governed-exchange-factory.html",
       "porcelain": "",
       "sha256": "82cf14954bc2329c48f94b524f8271896bfc4fa954c1961a82affff230124ffd",
       "size": 4003,
-      "snapshot_path": "archive/sourcea-cleanup-snapshot-20260628/files.tar.gz::files/sites/SourceA-landing/green-unified/dist/sourcea/factories/controlled-exchange-factory.html"
+      "snapshot_path": "archive/sourcea-cleanup-snapshot-20260628/files.tar.gz::files/sites/SourceA-landing/green-unified/dist/sourcea/factories/governed-exchange-factory.html"
     },
     {
       "git_status": "tracked_clean",
-      "path": "sites/SourceA-landing/green-unified/dist/sourcea/factories/controlled-web-product-factory.html",
+      "path": "sites/SourceA-landing/green-unified/dist/sourcea/factories/governed-web-product-factory.html",
       "porcelain": "",
       "sha256": "4aa06df5d5fce34a7b8dae00b36683b89eb614d5c0e5c64505479e777d537ff6",
       "size": 3989,
-      "snapshot_path": "archive/sourcea-cleanup-snapshot-20260628/files.tar.gz::files/sites/SourceA-landing/green-unified/dist/sourcea/factories/controlled-web-product-factory.html"
+      "snapshot_path": "archive/sourcea-cleanup-snapshot-20260628/files.tar.gz::files/sites/SourceA-landing/green-unified/dist/sourcea/factories/governed-web-product-factory.html"
     },
     {
       "git_status": "tracked_clean",

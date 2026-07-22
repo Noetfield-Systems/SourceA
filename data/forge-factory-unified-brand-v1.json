@@ -7,7 +7,7 @@
     "id": "forge_factory",
     "display_name": "FORGE FACTORY",
     "short_name": "Forge Factory",
-    "tagline": "Controlled agentic execution — world model + factory lines + receipt truth before LLM",
+    "tagline": "Governed agentic execution — world model + factory lines + receipt truth before LLM",
     "supabase_project": "portfolio-spine",
     "supabase_schema": "forge_factory",
     "secrets_file": "~/.sourcea-secrets/portfolio-spine.env"
@@ -26,7 +26,7 @@
     "fbe_factory_builder": {
       "canonical": "data/fbe_factory_builder_bundle_v1.json",
       "human": "docs/SOURCEA_FACTORY_BUILDER_ENGINE_LOCKED_v1.md",
-      "role": "Three controlled factory lines · cloud headless · Mac control plane"
+      "role": "Three governed factory lines · cloud headless · Mac control plane"
     }
   },
   "legacy_aliases": {

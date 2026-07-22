@@ -55,7 +55,7 @@
       "id": "C6",
       "name": "output_analyst",
       "order": 6,
-      "question": "Is the bad output the agent's draft — or stale/wrong/poisin the repository and machines?",
+      "question": "Is the bad output the agent's draft — or stale/wrong/poison disk and machines?",
       "agent_must": "Diagnose root cause · route FIX_DISK or FIX_MACHINES before blaming agent",
       "output_key": "root_cause"
     },
@@ -74,7 +74,7 @@
     "root_causes": {
       "AGENT_DRAFT": "Draft quality problem — agent rewrites",
       "DISK_STALE": "Inject/surfaces/receipts stale — sync live wire + mirror",
-      "DISK_WRONG": "Contradictory queue/SSOT in the repository — unify before reply",
+      "DISK_WRONG": "Contradictory queue/SSOT on disk — unify before reply",
       "DISK_POISON": "Meaningless or prohibition inject — scrub vocabulary + mirror",
       "MACHINE_STALE": "Factory/monitor/governance machines drift — heal tier session"
     },

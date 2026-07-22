@@ -6,6 +6,6 @@
 
 ## One-line
 
-Agent merged **founder bash** (communication) with **S10** (systemic subject) in one incident/summary. ASF corrected; topics split logged.
+Agent merged **founder bash** (communication) with **S10** (systemic subject) in one incident/summary. ASF corrected; topics split on disk.
 
 **Status:** REMEDIATED

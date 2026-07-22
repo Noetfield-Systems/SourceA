@@ -14,7 +14,7 @@ Dual desktop deploy — agentrun-app :5180 + SA4 AgentGo :8080 · landing parity
 
 ## Task
 
-**Seal proof_pack_sealed row for** case study prose (challenge · shipped · verification).
+**Seal proof_pack_sealed row for** case study prose (challenge · shipped · proof chain).
 
 Phase-1 ticket if applicable.
 

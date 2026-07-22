@@ -8,6 +8,6 @@ The gate returns BLOCK — pre-LLM, not prompt hope.
 
 Alter a receipt hash. Tamper FAIL is immediate.
 
-Receipt logged. Audit preserved.
+Receipt on disk. Audit preserved.
 
-SourceA — controlled agentic automation.
+SourceA — governed agentic automation.

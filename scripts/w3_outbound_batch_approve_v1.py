@@ -76,7 +76,7 @@ def card_status() -> dict:
     queued = _spine_has_queued() or rec.get("dry_run_queued")
     count = int(rec.get("target_count") or 5)
     if approved:
-        summary = f"Batch {BATCH_ID} approved — dry-run receipt logged"
+        summary = f"Batch {BATCH_ID} approved — dry-run receipt on disk"
         status = "approved"
     elif queued:
         summary = f"{count} NF outreach drafts queued — tap Approve before send"

@@ -23,7 +23,7 @@ Document who buys (Risk officers and compliance) vs our ICP one sentence on `wit
 
 ## Implementation extraction
 
-`Holistic AI · Buyer-visible UX` → what buyer sees at vendor → what we ship logged with receipt.
+`Holistic AI · Buyer-visible UX` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

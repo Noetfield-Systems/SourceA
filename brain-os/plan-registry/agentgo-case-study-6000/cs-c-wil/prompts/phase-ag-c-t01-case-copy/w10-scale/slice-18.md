@@ -14,7 +14,7 @@ Wil L3 portfolio demo — YA5 mirror · AgentGo ≠ SourceA separation · ship g
 
 ## Task
 
-**Seal scale slice for** case study prose (challenge · shipped · verification).
+**Seal scale slice for** case study prose (challenge · shipped · proof chain).
 
 moonshot doc.
 

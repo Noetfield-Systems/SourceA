@@ -125,7 +125,7 @@ def grep_buyer_sources() -> dict[str, Any]:
 LOADING_PLACEHOLDERS = (
     "loading…",
     "Loading…",
-    "Loading pipeline from factory repository",
+    "Loading pipeline from factory disk",
     "Loading checks…",
     "Loading transcript…",
 )

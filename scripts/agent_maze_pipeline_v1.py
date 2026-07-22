@@ -128,7 +128,7 @@ def run_maze(*, role: str = "any", attempt: str = "run") -> dict:
     else:
         stations.extend(_phase_orientation_replay(role))
 
-    # Phase B — clarification reads (every path must exist logged)
+    # Phase B — clarification reads (every path must exist on disk)
     read_ok = all((ROOT / p).is_file() for p in MAZE_MANDATORY_READS)
     stations.append(
         {
@@ -341,7 +341,7 @@ def run_maze(*, role: str = "any", attempt: str = "run") -> dict:
             "ok": comprehension_ok,
             "found_count": len(found_lines),
             "attest_path": str(ATTEST),
-            "instruction": "Write 3 FOUND lines (paths logged) to ~/.sina/agent-maze-comprehension-v1.json — speed mode still requires comprehension",
+            "instruction": "Write 3 FOUND lines (paths on disk) to ~/.sina/agent-maze-comprehension-v1.json — speed mode still requires comprehension",
         }
     )
 

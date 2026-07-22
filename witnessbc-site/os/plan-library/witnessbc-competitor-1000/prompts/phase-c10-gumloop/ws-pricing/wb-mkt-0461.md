@@ -23,7 +23,7 @@ Capture Gumloop public pricing evidence: Free 5k credits/mo; Pro $37/mo — http
 
 ## Implementation extraction
 
-`Gumloop · Pricing & packaging` → what buyer sees at vendor → what we ship logged with receipt.
+`Gumloop · Pricing & packaging` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

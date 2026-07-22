@@ -12,19 +12,19 @@
 ## §1 CANONICAL IDENTITY
 
 ### Engine Definition
-SourceA is a **Deterministic Controlled Execution Engine** that **runs and sells controlled agentic automation** —
+SourceA is a **Deterministic Governed Execution Engine** that **runs and sells governed agentic automation** —
 multi-agent orchestration with policy at dispatch, signed receipts, and replay — making autonomous systems
 impossible to operate without satisfying a governance rule chain.
 
 **SSOT:** `SOURCEA_UNIFIED_PORTFOLIO_COMMERCIAL_SSOT_LOCKED_v3.1.md` v3.2 §2b · §4 (2026-06-15 ASF pivot)
 
 ### Category Sentence (frozen)
-> "We run controlled agentic automation — and make bypass impossible to hide."
+> "We run governed agentic automation — and make bypass impossible to hide."
 
 ### What That Means in Practice
 - SourceA **operates** agentic automation daily (factory · RUN INBOX · multi-agent lanes)
 - Every autonomous decision passes through a BLOCK / ALLOW gate
-- Every gate decision produces a cryptographic receipt logged
+- Every gate decision produces a cryptographic receipt on disk
 - Every receipt is validator-provable (HARD FAIL if tampered)
 - Human approval is required at checkpoints; machine speed everywhere else
 - No agent, algorithm, or automated process can override a governance rule
@@ -84,7 +84,7 @@ Money Laundering Reporting Officers (MLROs) inside financial institutions
 face a specific version of this problem: autonomous trading and payment
 systems must prove they cannot execute a transaction that violates AML/KYC rules.
 The BLOCK / ALLOW / tamper FAIL demo is the exact artifact an MLRO needs
-to satisfy a regulatory examination. Receipt logged. Validator HARD FAIL
+to satisfy a regulatory examination. Receipt on disk. Validator HARD FAIL
 on tamper. Immutable audit chain.
 
 #### Buyer profile
@@ -155,7 +155,7 @@ safe enough to approve.
 
 #### The W2 connection
 W2 (one write path, receipt, validator HARD FAIL) is the proof-of-concept
-for this vertical. The demo is: autonomous change executed, receipt logged,
+for this vertical. The demo is: autonomous change executed, receipt on disk,
 validator confirms no tampering, human approval checkpoint triggered before merge.
 That is the exact artifact an enterprise engineering board needs to approve
 autonomous codebase transformation.
@@ -223,7 +223,7 @@ LAYER 3 — TRUST AUDIT (TrustField)
 ### How the layers feed each other
 TrustField and Noetfield are commercial surface area —
 accessible entry points that land in regulated enterprises and
-build the relationship, evidence base, and verification
+build the relationship, evidence base, and proof chain
 that eventually justifies a Layer 1 engine licensing deal.
 
 TrustField RPAA engagement → produces MLRO-ready receipt chain
@@ -347,7 +347,7 @@ This section shows how ICP maps to win conditions.
 |---|---|---|
 | W1 — 5-min live demo on camera | BLOCK/ALLOW/tamper FAIL | All buyers · risk committee · engineering board |
 | W2 — Write path · receipt · HARD FAIL | Autonomous change + governance receipt chain | Engineering CTO · MLRO · risk audit |
-| W3 — ≥CAD 2K deposit or LOI logged | First design partner paid | TrustField RPAA (Layer 3) or NF wedge (Layer 2) |
+| W3 — ≥CAD 2K deposit or LOI on disk | First design partner paid | TrustField RPAA (Layer 3) or NF wedge (Layer 2) |
 
 W1 is the proof artifact for the engine.
 W3 is the first commercial signal that the proof converts to revenue.
@@ -364,7 +364,7 @@ Everything else is background.
 ### Week 1 (now)
 | Action | Owner | Output |
 |---|---|---|
-| Film W1 demo (enf-0303) | Worker + ASF on camera | 5-min governance demo logged |
+| Film W1 demo (enf-0303) | Worker + ASF on camera | 5-min governance demo on disk |
 | Send NF outreach batch (enf-0403) | Commercial · Hub approve | 5 design-partner emails live |
 | Send TF outreach (enf-0402 + enf-0404) | Commercial · Hub approve | TF Discovery SOW + MLRO outbound |
 | First direct founder contact | ASF | One warm call / message to top prospect |
@@ -374,12 +374,12 @@ Everything else is background.
 |---|---|
 | W3 reply handling | First conversation with a paying prospect |
 | Discovery call (TF or NF) | CAD 4K engagement scoped |
-| Deposit received | W3 PASS — first revenue signal logged |
-| W1 demo refined from prospect feedback | Demo version 2 logged |
+| Deposit received | W3 PASS — first revenue signal on disk |
+| W1 demo refined from prospect feedback | Demo version 2 on disk |
 
 ### 30-day PASS condition
-- W1 recording logged
-- W3: ≥1 LOI or ≥CAD 2K deposit logged
+- W1 recording on disk
+- W3: ≥1 LOI or ≥CAD 2K deposit on disk
 - ≥1 live discovery call completed with a named prospect
 - Named ICP company in CRM (not just category description)
 
@@ -431,7 +431,7 @@ commercial_vehicles:
   - Noetfield (NF): governance wedge · Layer 2
   - TrustField (TF): RPAA audit · Layer 3
   - SourceA direct: engine licensing · Layer 1
-w3_pass_condition: "LOI or deposit >= CAD 2K logged"
+w3_pass_condition: "LOI or deposit >= CAD 2K on disk"
 w1_pass_condition: "5-min live demo filmed · BLOCK/ALLOW/tamper FAIL on camera"
 first_revenue_window: "30 days from W1 film date"
 read_next:

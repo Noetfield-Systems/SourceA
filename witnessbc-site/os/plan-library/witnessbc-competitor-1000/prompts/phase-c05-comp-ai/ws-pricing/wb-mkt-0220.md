@@ -23,7 +23,7 @@ Close wb-mkt-0220: PRIORITY row + verify PASS + link https://comp.ai
 
 ## Implementation extraction
 
-`Comp AI · Pricing & packaging` → what buyer sees at vendor → what we ship logged with receipt.
+`Comp AI · Pricing & packaging` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

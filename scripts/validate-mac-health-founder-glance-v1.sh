@@ -30,7 +30,7 @@ python3 <<PY || fail=1
 from pathlib import Path
 ROOT = Path("$ROOT")
 src = (ROOT / "scripts/mac-health-standalone/index.html").read_text(encoding="utf-8")
-assert "mhg-founder-glance" in src, "source index missing founder-glance — UI was downgraded logged"
+assert "mhg-founder-glance" in src, "source index missing founder-glance — UI was downgraded on disk"
 for bad in ("mhg-seg-nav", "tab-cooldown-btn", "founder-poem", "Brain heal"):
     assert bad not in src, f"source index still has old UI: {bad!r}"
 print("PASS: source index not downgraded (anti-regression)")

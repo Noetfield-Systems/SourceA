@@ -23,7 +23,7 @@ List Stack AI integrations/APIs from https://www.stack-ai.com or docs — pick o
 
 ## Implementation extraction
 
-`Stack AI · Integrations & API` → what buyer sees at vendor → what we ship logged with receipt.
+`Stack AI · Integrations & API` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

@@ -23,7 +23,7 @@ Capture Oneleet public pricing evidence: Custom pricing — save link or quoted 
 
 ## Implementation extraction
 
-`Oneleet · Pricing & packaging` → what buyer sees at vendor → what we ship logged with receipt.
+`Oneleet · Pricing & packaging` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

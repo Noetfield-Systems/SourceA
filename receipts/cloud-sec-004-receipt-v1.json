@@ -155,7 +155,7 @@
           "run_id": "forge-run-20260621T211148-sa-mkt-0004",
           "saved_at": "2026-06-21T21:11:48Z",
           "prompt": {
-            "raw": "E2E or glance check: founder can see `Buyer-visible UX` outcome without Terminal; receipt timestamp logged",
+            "raw": "E2E or glance check: founder can see `Buyer-visible UX` outcome without Terminal; receipt timestamp on disk",
             "intent": "SourceA competitor parity \u00b7 Trigger.dev \u00b7 ws-ux",
             "constraints": [
               "cloud_only",
@@ -311,7 +311,7 @@
         "run_id": "forge-run-20260621T211148-sa-mkt-0004",
         "saved_at": "2026-06-21T21:11:48Z",
         "prompt": {
-          "raw": "E2E or glance check: founder can see `Buyer-visible UX` outcome without Terminal; receipt timestamp logged",
+          "raw": "E2E or glance check: founder can see `Buyer-visible UX` outcome without Terminal; receipt timestamp on disk",
           "intent": "SourceA competitor parity \u00b7 Trigger.dev \u00b7 ws-ux",
           "constraints": [
             "cloud_only",
@@ -412,7 +412,7 @@
         "run_id": "forge-run-20260621T211148-sa-mkt-0004",
         "saved_at": "2026-06-21T21:11:48Z",
         "prompt": {
-          "raw": "E2E or glance check: founder can see `Buyer-visible UX` outcome without Terminal; receipt timestamp logged",
+          "raw": "E2E or glance check: founder can see `Buyer-visible UX` outcome without Terminal; receipt timestamp on disk",
           "intent": "SourceA competitor parity \u00b7 Trigger.dev \u00b7 ws-ux",
           "constraints": [
             "cloud_only",

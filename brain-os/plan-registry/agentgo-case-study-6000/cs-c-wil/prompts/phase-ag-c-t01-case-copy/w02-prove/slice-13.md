@@ -14,7 +14,7 @@ Wil L3 portfolio demo — YA5 mirror · AgentGo ≠ SourceA separation · ship g
 
 ## Task
 
-**Run validate-agentgo-case-study-6000 for** case study prose (challenge · shipped · verification).
+**Run validate-agentgo-case-study-6000 for** case study prose (challenge · shipped · proof chain).
 
 Mac-safe counts + unique titles.
 

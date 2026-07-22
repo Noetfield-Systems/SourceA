@@ -155,9 +155,9 @@ The intake that turns a stranger into a scoped build. Keep it to 5 fields — fo
 
 ## 8. Page guardrails (so it survives your own truth gate)
 
-- **Only disk-bound claims.** Every number/claim on the page must trace to a real receipt logged. No fabricated metrics.
+- **Only disk-bound claims.** Every number/claim on the page must trace to a real receipt on disk. No fabricated metrics.
 - **Redact** client-identifying data in any public receipt.
-- **The Sandbox run is still gated** — free does not mean uncontrolled.
+- **The Sandbox run is still gated** — free does not mean ungoverned.
 - **No how-to leakage** — re-read §4 before publishing any new content.
 
 ---

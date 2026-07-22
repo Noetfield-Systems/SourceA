@@ -23,7 +23,7 @@ HEADER = """<header class="ar-header sa-header">
         <a href="/sourcea/" data-sa-nav>Home</a>
         <a href="/sourcea/platform" data-sa-nav>Platform</a>
         <a href="/sourcea/forge/" data-sa-nav>Prompt Forge</a>
-        <a href="/sourcea/proof" data-sa-nav>>Verification</a>
+        <a href="/sourcea/proof" data-sa-nav>Proof chain</a>
         <a href="/sourcea/pricing" data-sa-nav>Pricing</a>
         <a class="ar-btn ar-btn-primary ar-btn-sm ar-nav-cta-mobile sa-btn-glow" href="mailto:forge@sourcea.app">Forge a mission</a>
       </nav>
@@ -69,7 +69,7 @@ BODY_COPY: dict[str, str] = {
         <pre class="sa-email-snippet">GOAL: Wire sourcea.app DNS to Cloudflare Pages with clean URLs — no .html in the address bar.
 
 CONTEXT (true now — do not re-derive):
-- ALREADY DONE / DEPLOYED (do NOT redo): green-unified dist logged · _redirects written
+- ALREADY DONE / DEPLOYED (do NOT redo): green-unified dist on disk · _redirects written
 - Systems involved: Cloudflare Pages · sourcea.app DNS · publish script
 
 WHAT I WANT: Live site shows extensionless URLs; old .html paths 301 to clean paths.
@@ -95,7 +95,7 @@ IF BLOCKED or ambiguous: STOP and tell me what's missing or which decision is mi
         </ul>
         <h2>Policy detects</h2>
         <p>Destructive shell patterns · multi-job inputs · missing founder decisions (naming, paths, provider choice). Forge surfaces warnings before you waste a Cursor turn.</p>
-        <h2>Law in repository</h2>
+        <h2>Law on disk</h2>
         <p>SSOT v3: <code>brain-os/ssot/SOURCEA_LLM_AGENT_OPERATING_LAW_SSOT_v3.md</code> — Forge is the outbound machine that applies this law to what you send agents.</p>
     """,
     "chat-unify": """
@@ -214,7 +214,7 @@ def hub_page(catalog: dict) -> str:
       </nav>
       <p class="ar-kicker">Outbound machine · SSOT v3</p>
       <h1>Founder language → <span class="ar-hero-accent">bounded Cursor missions.</span></h1>
-      <p class="ar-lead">Prompt Forge is the product lane that converts what you say into one provable agent job — policy before LLM, guardrails re-asserted, receipts logged. Not the FBE factory line · not ICP compile · the Forge product.</p>
+      <p class="ar-lead">Prompt Forge is the product lane that converts what you say into one provable agent job — policy before LLM, guardrails re-asserted, receipts on disk. Not the FBE factory line · not ICP compile · the Forge product.</p>
       <div class="ar-hero-actions" style="margin-top:1.25rem">
         <a class="ar-btn ar-btn-primary sa-btn-glow" href="/sourcea/forge/try">Try Forge<span class="ar-btn-arrow">→</span></a>
         <a class="ar-btn ar-btn-ghost" href="mailto:forge@sourcea.app">Email forge@sourcea.app<span class="ar-btn-arrow ar-btn-arrow-dark">→</span></a>

@@ -36,7 +36,7 @@ Utility lane — not one of five portfolio delivery repos.
 
 ---
 
-## Live plan / wire_proof (verify logged)
+## Live plan / wire_proof (verify on disk)
 
   • Disable Vercel Deployment Protection
   • Stripe MP-PAY

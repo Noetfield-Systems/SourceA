@@ -170,7 +170,7 @@
     {
       "id": "batch_execute_frozen",
       "match_draft_regex": "(?i)\\b(execute|run batch|approved).{0,40}batch\\s*4\\b|\\bbatch\\s*4.{0,40}\\b(execute|approved|run)\\b",
-      "message": "Action language on Batch 4 — verify manifest APPROVED logged.",
+      "message": "Action language on Batch 4 — verify manifest APPROVED on disk.",
       "disk_key": "batch_4_frozen",
       "disk_expect": true,
       "prefix": "DISK:"
@@ -207,7 +207,7 @@
       "requires_checkable_atoms": true,
       "verified_max": 0,
       "checkable_min": 3,
-      "message": "No checkable claims verified in the repository — treat entire reply as draft."
+      "message": "No checkable claims verified on disk — treat entire reply as draft."
     }
   ],
   "disk_binders": {

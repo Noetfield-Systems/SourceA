@@ -14,7 +14,7 @@ Dual desktop deploy — agentrun-app :5180 + SA4 AgentGo :8080 · landing parity
 
 ## Task
 
-**Align CTA to Revenue Engine for** case study prose (challenge · shipped · verification).
+**Align CTA to Revenue Engine for** case study prose (challenge · shipped · proof chain).
 
 cal.com/sourcea/proof-demo + hello@sourcea.app only.
 

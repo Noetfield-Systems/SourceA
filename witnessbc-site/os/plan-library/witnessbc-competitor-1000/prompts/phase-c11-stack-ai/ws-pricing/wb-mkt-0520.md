@@ -23,7 +23,7 @@ Close wb-mkt-0520: PRIORITY row + verify PASS + link https://www.stack-ai.com
 
 ## Implementation extraction
 
-`Stack AI · Pricing & packaging` → what buyer sees at vendor → what we ship logged with receipt.
+`Stack AI · Pricing & packaging` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

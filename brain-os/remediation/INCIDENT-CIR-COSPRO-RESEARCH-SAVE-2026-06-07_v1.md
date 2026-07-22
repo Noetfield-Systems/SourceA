@@ -91,4 +91,4 @@ Research lane B treated competitor/voice findings as **product SSOT updates** in
 | `validate-cross-lane-edit-v1.sh` PASS | DONE |
 | MISS-007 + MISS-008 CLOSED | DONE |
 | Compendium incident **010** | DONE |
-| Closure receipt logged | DONE |
+| Closure receipt on disk | DONE |

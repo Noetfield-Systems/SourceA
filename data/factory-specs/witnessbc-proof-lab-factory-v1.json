@@ -34,7 +34,7 @@
   },
   "commercial": {
     "name": "WitnessBC Proof Lab",
-    "tagline": "Run real scenarios · inspect evidence in the repository — before you book.",
+    "tagline": "Run real scenarios · inspect evidence on disk — before you book.",
     "tier_label": "proof_lab",
     "buyer": "NGO · newsroom · civic · CISO eval",
     "hero": false,

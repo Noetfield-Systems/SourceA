@@ -20,7 +20,7 @@
 
 ## 1. Founder intent captured (verbatim themes)
 
-| # | You said (theme) | Locked answer logged |
+| # | You said (theme) | Locked answer on disk |
 |---|------------------|----------------------|
 | 1 | Big picture starts at quarantine + SoT — not integrity tail only | `MASTER_CATALOG` §2 T0–T12 chain |
 | 2 | Human **Foundation of SSOT** — philosophical, not POSA | `018-sot-creation-guidelines` + `SSOT_FOUNDATION` |
@@ -176,7 +176,7 @@ MASTER_CATALOG JSON + this closeout receipt
 
 ## 11. Result table (result-driven closeout)
 
-| Problem | Fixed logged | Proof |
+| Problem | Fixed on disk | Proof |
 |---------|---------------|-------|
 | Tail-only big picture | T0–T12 thread chain | `MASTER_CATALOG` §2 |
 | Wrong philosophical apex | 018 + 002 wired | `SSOT_FOUNDATION` §8 |

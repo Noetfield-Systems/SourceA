@@ -23,7 +23,7 @@ Diff our public copy vs Sprinto pricing/product page — list 3 concrete gaps; f
 
 ## Implementation extraction
 
-`Sprinto · Buyer-visible UX` → what buyer sees at vendor → what we ship logged with receipt.
+`Sprinto · Buyer-visible UX` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

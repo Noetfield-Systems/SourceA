@@ -14,7 +14,7 @@ Wil L3 portfolio demo — YA5 mirror · AgentGo ≠ SourceA separation · ship g
 
 ## Task
 
-**Operate agentrun serve for** case study prose (challenge · shipped · verification).
+**Operate agentrun serve for** case study prose (challenge · shipped · proof chain).
 
 :5180 canonical.
 

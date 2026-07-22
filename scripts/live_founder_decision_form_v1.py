@@ -197,7 +197,7 @@ FIRST_FORM_QUESTIONS = [
     {"id": "Q-4.08", "question": "Min drift score 85/90/95/100"},
 ]
 
-# v2 answers — ASF 2026-06-11 (receipt logged)
+# v2 answers — ASF 2026-06-11 (receipt on disk)
 ANSWERED_V2 = [
     {
         "id": "Q-RT-LIVE",
@@ -266,7 +266,7 @@ OPEN_QUESTIONS_TEMPLATE = [
             "DEFER — seal 1.10 after hub RT LIVE wired (recommended with repair mode)",
             "YES — seal Phase 1 closeout now (validators already PASS)",
         ],
-        "effect": "DEFER → 1.10 stays deferred logged · YES → Maintainer marks 1.10 DONE + receipt",
+        "effect": "DEFER → 1.10 stays deferred on disk · YES → Maintainer marks 1.10 DONE + receipt",
         "reply_template": (
             "ASF: FIVE-STEP — QUESTION on [Q-1.10]\n"
             "DEFER — seal Phase 1 closeout after hub RT LIVE wired\n"
@@ -324,7 +324,7 @@ OPEN_QUESTIONS_TEMPLATE = [
         "reply_template": (
             "ASF: FIVE-STEP — QUESTION on [Q-GRADE]\n"
             "C — factory spine and validators green · hub not RT LIVE yet · form v2 live\n"
-            "Effect: honest grade locally for Phase 1.10 closeout table"
+            "Effect: honest grade on disk for Phase 1.10 closeout table"
         ),
     },
     {
@@ -348,7 +348,7 @@ OPEN_QUESTIONS_CORE: list[dict] = [
         "id": "Q-1.10-SEAL",
         "number": 1,
         "title": "Phase 1.10 closeout seal",
-        "question": "RT LIVE gate is PASS logged. Seal Phase 1 closeout now?",
+        "question": "RT LIVE gate is PASS on disk. Seal Phase 1 closeout now?",
         "blocks": "SESSION_LOG 1.10 · INTEGRITY playbook Phase 1",
         "recommended": "YES",
         "options": [
@@ -429,7 +429,7 @@ OPEN_QUESTIONS_CORE: list[dict] = [
         "id": "7.06",
         "number": 6,
         "title": "Advisor paste (ChatGPT audit) — report only, never reorder build",
-        "question": "Case 2 — confirm YES: every advisor paste is report-only (matches FR-003 logged)?",
+        "question": "Case 2 — confirm YES: every advisor paste is report-only (matches FR-003 on disk)?",
         "blocks": "Advisor paste law · FR-003",
         "diskToday": "FR-003 shipped · critic template in agent rules",
         "recommended": "YES",
@@ -497,7 +497,7 @@ OPEN_QUESTIONS_CORE: list[dict] = [
         "effect": "C → quarantine stays · confidential research path",
         "option_effects": {
             "C": "Quarantine stays · no DNS/marketing promote",
-            "B": "Promote decision parked until W1 PASS logged",
+            "B": "Promote decision parked until W1 PASS on disk",
             "A": "M1 opens promote checklist · Stripe + Gov gate",
         },
         "asked_by": "Founder Canvas comment 2.02",
@@ -507,7 +507,7 @@ OPEN_QUESTIONS_CORE: list[dict] = [
         "id": "Q-M2-READ",
         "number": 10,
         "title": "Ack cross-chat synthesis read",
-        "question": "Confirm Maintainer 2 read Gov + Commercial + INCIDENT 027/028/029 synthesis logged?",
+        "question": "Confirm Maintainer 2 read Gov + Commercial + INCIDENT 027/028/029 synthesis on disk?",
         "blocks": "All chats · same mistake prevention",
         "recommended": "YES",
         "options": [
@@ -693,11 +693,11 @@ PENDING_OUTSIDE_AS_OPEN: list[dict] = [
     },
     {
         "id": "Q-WIRE-G3",
-        "title": "Tailscale G3 wire — reconcile pass vs pending logged",
+        "title": "Tailscale G3 wire — reconcile pass vs pending on disk",
         "question": "Mono logged pass · SSOT files still pending — RECONCILE one receipt, PASS trust Mono, or PENDING re-run?",
         "blocks": "Wire lane · Tailscale G3 proof",
         "diskToday": (
-            "g3_tailscale=pending on SSOT files · Mono reconcile receipt logged · "
+            "g3_tailscale=pending on SSOT files · Mono reconcile receipt on disk · "
             "validate-verify-wire PASS (general wire — not G3 row)"
         ),
         "recommended": "RECONCILE",
@@ -731,9 +731,9 @@ PENDING_OUTSIDE_AS_OPEN: list[dict] = [
     {
         "id": "Q-FR-1013f0",
         "title": "When to close commercial track FR-1013f0",
-        "question": "Close when Week-3 signal locally (deposit, LOI, honest attempt) — YES, DEFER batch, or CANCEL?",
+        "question": "Close when Week-3 signal on disk (deposit, LOI, honest attempt) — YES, DEFER batch, or CANCEL?",
         "blocks": "Commercial Track · Week-3 closure",
-        "diskToday": "FR-1013f0 open · Week-3 honest $0 · outreach design logged",
+        "diskToday": "FR-1013f0 open · Week-3 honest $0 · outreach design on disk",
         "recommended": "YES",
         "options": [
             "YES — close on W3 receipt only (recommended)",
@@ -1068,7 +1068,7 @@ def form_official_line(*, open_count: int | None = None) -> str:
     edition = _active_form_edition()
     if oq > 0:
         return (
-            f"FORM_OFFICIAL · {edition} · {oq} open PICKs logged · "
+            f"FORM_OFFICIAL · {edition} · {oq} open PICKs on disk · "
             "INCIDENT-037 block ON · agent-submit forbidden"
         )
     return f"FORM_OFFICIAL · {edition} · filled · official form"
@@ -1078,7 +1078,7 @@ def _form_headline(open_count: int) -> str:
     edition = _active_form_edition()
     if open_count > 0:
         return (
-            f"{open_count} OPEN PICKs · FORM {edition.upper()} logged · "
+            f"{open_count} OPEN PICKs · FORM {edition.upper()} on disk · "
             "M1 Canvas · INCIDENT-037 block ON · agent-submit forbidden"
         )
     try:

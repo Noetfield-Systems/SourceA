@@ -2,7 +2,7 @@
   "schema": "autorun-kaizen-backlog-v1",
   "version": "1.0.0",
   "saved_at": "2026-07-02T21:55:00Z",
-  "law": "CONTROLLED_AUTORUN_LAWS_v3 Kaizen \u00b7 one machine_safe item per cycle (W-LBA-005)",
+  "law": "GOVERNED_AUTORUN_LAWS_v3 Kaizen \u00b7 one machine_safe item per cycle (W-LBA-005)",
   "items": [
     {
       "id": "KZ-001",

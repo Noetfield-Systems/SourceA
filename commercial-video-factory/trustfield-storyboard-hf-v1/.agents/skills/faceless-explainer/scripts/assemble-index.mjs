@@ -2,7 +2,7 @@
 // Phase 4c (engine) — deterministic index.html assembly. No subagent.
 //
 // Owns the mechanical, judgment-free half of finalize (the old
-// hyperframes-finalize.md "Step 2"): turning group_spec.json + in-repo state
+// hyperframes-finalize.md "Step 2"): turning group_spec.json + on-disk state
 // into the top-level index.html. The finalize AGENT no longer hand-authors
 // clip/audio elements, hand-computes start_s, picks track indices, or eyeballs
 // data-duration — those are this script's invariants now. Mirrors the
@@ -28,7 +28,7 @@
 //
 // Reads:  ./group_spec.json (Phase 4a) — total_duration_s, font_face_css,
 //           bgm_path, sfx[], visual_clips[], groups[].scenes[<sid>].{start_s,
-//           estimatedDuration_s, voicePath}. In-repo inside --hyperframes:
+//           estimatedDuration_s, voicePath}. On-disk inside --hyperframes:
 //           compositions/<visual>.html (existence + root data-duration cross-check),
 //           assets/voice/*.wav, assets/bgm.wav, compositions/captions.html,
 //           assets/sfx/*.mp3.
@@ -241,7 +241,7 @@ for (let i = 0; i < playOrder.length; i++) {
   // assemble-layer workaround since the skill can't patch core lint.)
   const next = playOrder[i + 1];
   const voiceDur = next ? next.scene.start_s - start : dur;
-  // (track 10) voice — only when the wav is actually present.
+  // (track 10) voice — only when the wav is actually on disk.
   if (scene.voicePath && existsSync(join(hyperframesDir, scene.voicePath))) {
     body.push(`      <!-- voice ${sid} (${start} → ${Number((start + dur).toFixed(3))}) -->`);
     body.push(
@@ -257,7 +257,7 @@ for (let i = 0; i < playOrder.length; i++) {
     );
     voiceCount++;
   } else if (scene.voicePath) {
-    anomalies.push(`${sid}: voicePath "${scene.voicePath}" not present locally — skipped voice <audio>`);
+    anomalies.push(`${sid}: voicePath "${scene.voicePath}" not on disk — skipped voice <audio>`);
   }
 }
 
@@ -282,7 +282,7 @@ if (bgmPath) {
     );
     bgmEmitted = true;
   } else {
-    anomalies.push(`bgm_path "${bgmPath}" not present locally (still rendering?) — skipped BGM <audio>`);
+    anomalies.push(`bgm_path "${bgmPath}" not on disk (still rendering?) — skipped BGM <audio>`);
   }
 }
 
@@ -316,7 +316,7 @@ sfx.forEach((cue, i) => {
   const rel = `assets/sfx/${cue.file}`;
   if (!existsSync(join(hyperframesDir, rel))) {
     anomalies.push(
-      `sfx "${cue.file}" not present locally at ${rel} — skipped (prep should have copied it)`,
+      `sfx "${cue.file}" not on disk at ${rel} — skipped (prep should have copied it)`,
     );
     return;
   }

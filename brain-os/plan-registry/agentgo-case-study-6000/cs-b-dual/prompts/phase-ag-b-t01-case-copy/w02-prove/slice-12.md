@@ -14,7 +14,7 @@ Dual desktop deploy — agentrun-app :5180 + SA4 AgentGo :8080 · landing parity
 
 ## Task
 
-**Map receipt_gate column for** case study prose (challenge · shipped · verification).
+**Map receipt_gate column for** case study prose (challenge · shipped · proof chain).
 
 REGISTRY.json alignment.
 

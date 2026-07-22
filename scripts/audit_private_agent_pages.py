@@ -51,7 +51,7 @@ def main() -> int:
             if n != 10:
                 errors.append(f"{aid}: expected 10 pack_suggestions, got {n}")
         elif pid and pack_optional:
-            pass  # Wave 0 — portfolio repo absent logged
+            pass  # Wave 0 — portfolio repo absent on disk
         elif n != 0:
             errors.append(f"{aid}: no pack_id but has {n} pack_suggestions")
         mirror = row.get("workspace_mirror") or {}

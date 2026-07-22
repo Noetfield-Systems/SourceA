@@ -23,7 +23,7 @@ Close wb-mkt-0650: integration receipt + verify PASS + https://www.lakera.ai
 
 ## Implementation extraction
 
-`Lakera Guard · Integrations & API` → what buyer sees at vendor → what we ship logged with receipt.
+`Lakera Guard · Integrations & API` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

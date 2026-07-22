@@ -23,7 +23,7 @@ Write founder-facing SOW snippet if Secureframe uses services-led motion — Wit
 
 ## Implementation extraction
 
-`Secureframe · Onboarding & PLG` → what buyer sees at vendor → what we ship logged with receipt.
+`Secureframe · Onboarding & PLG` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

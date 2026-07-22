@@ -23,7 +23,7 @@ Measure drop-off: list one friction point vs LowerPlane and fix
 
 ## Implementation extraction
 
-`LowerPlane · Onboarding & PLG` → what buyer sees at vendor → what we ship logged with receipt.
+`LowerPlane · Onboarding & PLG` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

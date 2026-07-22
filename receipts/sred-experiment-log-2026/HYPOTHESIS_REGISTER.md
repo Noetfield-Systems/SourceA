@@ -38,7 +38,7 @@
 
 ## R&D allocation note (for timesheets — SRED-08)
 
-| Project | Estimated % effort (founder fill) | Evidence logged |
+| Project | Estimated % effort (founder fill) | Evidence on disk |
 |---------|-----------------------------------|------------------|
 | R&D-01 | ___% | commit_intent_v1.py · validators |
 | R&D-02 | ___% | tamper suite · receipt schema |

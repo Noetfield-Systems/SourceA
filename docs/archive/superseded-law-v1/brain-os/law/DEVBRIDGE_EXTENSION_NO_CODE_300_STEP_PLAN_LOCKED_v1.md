@@ -76,7 +76,7 @@
 ### 1.1 Category
 
 **Not** a demo tool. **Not** raw MCP plumbing.  
-**Category:** *Controlled dev workflows for Cursor* — the layer between IDE and outcomes.
+**Category:** *Governed dev workflows for Cursor* — the layer between IDE and outcomes.
 
 | Analog | They sell | We sell |
 |--------|-----------|---------|
@@ -92,11 +92,11 @@
 | **DevBridge for Cursor** | Extension + core packs | **$49/seat/mo** Team · 14-day trial | VSIX + waitlist → Open VSX week 2 |
 | **Workflow Store** | Bundle catalog updates | Included Team · vertical packs later | Bundled JSONL + signed updates |
 | **Connection Check** | Wire Smoke bundle | Free (onboarding) | One-click in extension |
-| **Controlled Demo** | Enforcement bundle | Team · hero for sales | One-click + receipt export |
+| **Governed Demo** | Enforcement bundle | Team · hero for sales | One-click + receipt export |
 | **Cursor OS Pro** | Mobile IDE | App Store (parallel lane) | Cross-sell after Day 7 integrate memo |
 
 **Hero sentence (website):**  
-*"Run controlled dev workflows inside Cursor — pair your Mac, tap a bundle, get PASS and proof. No Terminal."*
+*"Run governed dev workflows inside Cursor — pair your Mac, tap a bundle, get PASS and proof. No Terminal."*
 
 ### 1.3 Day 7 deliverables (all 300 steps converge here)
 
@@ -232,10 +232,10 @@ L0 SourceA proof ─────────────────────
 
 - [ ] All **adb-ext-001–300** marked complete in REGISTRY.json
 - [ ] Extension **v1.0.0** VSIX + marketplace/Open VSX submitted
-- [ ] **Connection Check** + **Controlled Demo** bundles PASS (extension + desk)
+- [ ] **Connection Check** + **Governed Demo** bundles PASS (extension + desk)
 - [ ] ≥12 validated packs · catalog CI green
 - [ ] Onboarding <5 min · client profile enforced
-- [ ] ENF receipt hash on Controlled Demo
+- [ ] ENF receipt hash on Governed Demo
 - [ ] G2 physical PASS + G3 documented or waived with evidence
 - [ ] 3 beta users confirmed · 60s commercial film · pricing page draft
 - [ ] Evidence `agent/evidence/ext-300/` complete
@@ -266,7 +266,7 @@ L0 SourceA proof ─────────────────────
 | adb-ext-017 | D1 | [B] | Create `AI Dev Bridge OS/extension/`. |
 | adb-ext-018 | D1 | [C] | Pack `WIRE-SMOKE-001` — **Connection Check** (client one-liner). |
 | adb-ext-019 | D1 | [B] | Pairing flow doc: same 6-digit code · desk · extension. |
-| adb-ext-020 | D1 | [C] | Pack `ENF-DEMO-001` — **Controlled Demo** (5-min). |
+| adb-ext-020 | D1 | [C] | Pack `ENF-DEMO-001` — **Governed Demo** (5-min). |
 | adb-ext-021 | D1 | [B] | Ban orchestrator role names from all client UI strings. |
 | adb-ext-022 | D1 | [WIRE] | Latency baseline: RUN SYSTEM p50/p95 ms. |
 | adb-ext-023 | D1 | [B+C] | Unified result: `{ workflow_id, status, logs_url, receipt_hash?, sku? }`. |
@@ -338,7 +338,7 @@ L0 SourceA proof ─────────────────────
 | adb-ext-075 | D2 | [B+C] | Command `devbridge.runWorkflow(id)`. |
 | adb-ext-076 | D2 | [B] | `runWorkflow` → MCP chain from catalog. |
 | adb-ext-077 | D2 | [B] | FAQ: Cursor remote MCP header workaround. |
-| adb-ext-078 | D2 | [C] | Filter tabs: All · Connection · Controlled · Lane. |
+| adb-ext-078 | D2 | [C] | Filter tabs: All · Connection · Governed · Lane. |
 | adb-ext-079 | D2 | [B] | `npm run package` → VSIX install test. |
 | adb-ext-080 | D2 | [B] | Telemetry opt-in off by default. |
 | adb-ext-081 | D2 | [B+C] | Unified result in notification + output. |
@@ -507,13 +507,13 @@ L0 SourceA proof ─────────────────────
 | ID | Day | Track | Step |
 |----|-----|-------|------|
 | adb-ext-211 | D5 | [C] | **Connection Check Bundle** ship. |
-| adb-ext-212 | D5 | [C] | **Controlled Demo Bundle** ship. |
+| adb-ext-212 | D5 | [C] | **Governed Demo Bundle** ship. |
 | adb-ext-213 | D5 | [B+C] | `pack-bundles-v1.json` manifest. |
 | adb-ext-214 | D5 | [C] | Store accordion UI bundles. |
 | adb-ext-215 | D5 | [C] | Run entire bundle sequential + summary. |
 | adb-ext-216 | D5 | [B+C] | Client markdown/PDF report from bundle. |
 | adb-ext-217 | D5 | [C] | Connection Check commercial copy. |
-| adb-ext-218 | D5 | [C] | Controlled Demo commercial copy. |
+| adb-ext-218 | D5 | [C] | Governed Demo commercial copy. |
 | adb-ext-219 | D5 | [B] | Report generator template code. |
 | adb-ext-220 | D5 | [C] | Report: logo · timestamp · PASS table · receipt. |
 | adb-ext-221 | D5 | [B+C] | W1 film ENF-DEMO-FULL from extension. |
@@ -594,7 +594,7 @@ L0 SourceA proof ─────────────────────
 | adb-ext-282 | D7 | [C] | Vertical pack roadmap NF TF regulated. |
 | adb-ext-283 | D7 | [B+C] | SourceA receipt default ON ENF bundles. |
 | adb-ext-284 | D7 | [B] | Pen test scope quote MCP pairing traversal. |
-| adb-ext-285 | D7 | [GTM] | Case study **4 minutes to controlled proof**. |
+| adb-ext-285 | D7 | [GTM] | Case study **4 minutes to governed proof**. |
 | adb-ext-286 | D7 | [B+C] | KPI dashboard local runs PASS rate duration. |
 | adb-ext-287 | D7 | [B] | Auto-update marketplace channel. |
 | adb-ext-288 | D7 | [C] | Signed catalog URL enterprise option. |

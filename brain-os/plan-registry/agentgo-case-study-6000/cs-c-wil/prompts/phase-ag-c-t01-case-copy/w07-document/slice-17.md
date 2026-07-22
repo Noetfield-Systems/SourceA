@@ -14,7 +14,7 @@ Wil L3 portfolio demo — YA5 mirror · AgentGo ≠ SourceA separation · ship g
 
 ## Task
 
-**Document receipt schema for** case study prose (challenge · shipped · verification).
+**Document receipt schema for** case study prose (challenge · shipped · proof chain).
 
 agentgo-case-study-receipt.
 

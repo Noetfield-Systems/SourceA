@@ -23,7 +23,7 @@ Measure drop-off: list one friction point vs Arthur AI and fix
 
 ## Implementation extraction
 
-`Arthur AI · Onboarding & PLG` → what buyer sees at vendor → what we ship logged with receipt.
+`Arthur AI · Onboarding & PLG` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

@@ -31,7 +31,7 @@
 | Subject | Policy |
 |---------|--------|
 | `motor_cloud` | Patch Tier 1–2 display → Cloud Forge Run / Auto Runtime |
-| `product_loop` | **Keep** — commercial SKU (`scoped loop`, `/sourcea/loops/`) |
+| `product_loop` | **Keep** — commercial SKU (`governed loop`, `/sourcea/loops/`) |
 | `chat_unify_loop` | **Keep** — Verify & Act, Audit Trail machines |
 | `governance_poison` | **Governance only** — not motor rename |
 | `forge_product` | Disambiguate — `data/sourcea-forge-vocabulary-disambiguation-v1.json` |

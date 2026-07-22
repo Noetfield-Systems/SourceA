@@ -1,4 +1,4 @@
-# sa-score-0991 — Receipt logged for score-up registry validate script PASS
+# sa-score-0991 — Receipt on disk for score-up registry validate script PASS
 
 **Saved at:** 2026-06-25T09:23:55Z
 **Version:** 1 · **Tier:** T0 · **Phase:** MOONSHOT
@@ -16,7 +16,7 @@ Raise SourceA site score toward **95+/100** — proof before call · stranger se
 
 P0 — smallest shippable slice; live on sourcea.app
 
-**Deliverable:** Receipt logged for score-up registry validate script PASS
+**Deliverable:** Receipt on disk for score-up registry validate script PASS
 
 Bounded paths: `SourceA-landing/green-unified/` · `cloud/workers/sourcea-site-pulse-v1/` · `scripts/validate-sourcea-modern-stack-e2e-v1.sh`
 

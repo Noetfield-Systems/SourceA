@@ -719,7 +719,7 @@ def build_unified_brief(extracts: list[dict], contradictions: list[dict]) -> str
 
 
 def _fresh_parsed(data: dict) -> dict:
-    """Always re-parse from text — never trust stale parsed blobs logged."""
+    """Always re-parse from text — never trust stale parsed blobs on disk."""
     text = (data.get("text") or "").strip()
     if not text:
         return data.get("parsed") or {}
@@ -817,7 +817,7 @@ def write_unify_receipt(payload: dict, *, founder_tap: bool = True) -> dict:
 
 def export_brief_to_disk() -> dict:
     if not UNIFIED_PATH.is_file():
-        return {"ok": False, "error": "no_unified_brief", "message": "Merge first — no unified brief logged."}
+        return {"ok": False, "error": "no_unified_brief", "message": "Merge first — no unified brief on disk."}
     try:
         last = json.loads(UNIFIED_PATH.read_text(encoding="utf-8"))
     except json.JSONDecodeError:

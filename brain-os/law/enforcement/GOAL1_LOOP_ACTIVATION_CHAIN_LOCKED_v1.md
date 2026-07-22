@@ -11,13 +11,13 @@
 ## 1. Three gates (all mandatory — no skipping)
 
 ```text
-INJECT  → prompt locally (INBOX pending) — feasibility PASS
+INJECT  → prompt on disk (INBOX pending) — feasibility PASS
 VALIDATE → machine validators + WORKER_ROUND_REPORT (Worker chat OR agent CLI output)
 ACTIVATE → agent -p -f actually runs (headless) OR Worker chat executes one full turn
 SYNC    → broker worker-submit + orchestrator poll_once → queue advances
 ```
 
-**Law:** Prepare (deliver / lock / inject file) is **not** ACTIVATE. Loop is live only after **ACTIVATE** verification built in.
+**Law:** Prepare (deliver / lock / inject file) is **not** ACTIVATE. Loop is live only after **ACTIVATE** proof on disk.
 
 ---
 

@@ -147,7 +147,7 @@ def _check_item(item: dict, *, disk: dict) -> dict:
         note = "witnessbc toolkits freemium + sandbox" if ok else "toolkits freemium/sandbox SSOT incomplete"
     elif iid == "P0-11":
         ok = (ROOT / "scripts/validate-phase0-freemium-sandbox-v1.sh").is_file()
-        note = "validator logged" if ok else "validator missing"
+        note = "validator on disk" if ok else "validator missing"
     elif iid == "P0-12":
         plans = [disk["outbound_plan"], disk["full_stack_plan"], disk["brain_plan"]]
         ok = all(

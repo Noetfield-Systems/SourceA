@@ -23,7 +23,7 @@ Close wb-mkt-0620: PRIORITY row + verify PASS + link https://www.lakera.ai
 
 ## Implementation extraction
 
-`Lakera Guard · Pricing & packaging` → what buyer sees at vendor → what we ship logged with receipt.
+`Lakera Guard · Pricing & packaging` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

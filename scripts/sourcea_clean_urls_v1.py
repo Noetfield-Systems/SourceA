@@ -2,11 +2,12 @@
 """SourceA landing — extensionless clean URLs (anti-poison routing).
 
 - Internal links: /sourcea/foo.html → /sourcea/foo
-- _redirects: 200 rewrite to .html logged + 301 strip .html from browser bar
+- _redirects: 200 rewrite to .html on disk + 301 strip .html from browser bar
 """
 from __future__ import annotations
 
 import re
+import shutil
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -156,6 +157,100 @@ def write_redirects(dist: Path, *, html_rewrites: bool = False) -> list[str]:
     text = "\n".join(lines) + "\n"
     (dist / "_redirects").write_text(text, encoding="utf-8")
     return lines
+
+
+def parse_redirect_lines(lines: list[str]) -> list[tuple[str, str]]:
+    """Extract (src, dest) pairs from `_redirects` lines."""
+    pairs: list[tuple[str, str]] = []
+    for line in lines:
+        if not line or line.startswith("#"):
+            continue
+        parts = [part for part in line.split() if part]
+        if len(parts) >= 2:
+            pairs.append((parts[0], parts[1]))
+    return pairs
+
+
+def _clean_route(route: str) -> str:
+    route = route.strip().split("?", 1)[0].split("#", 1)[0]
+    if not route.startswith("/"):
+        route = "/" + route
+    route = re.sub(r"/+", "/", route).rstrip("/")
+    return route
+
+
+def _resolve_redirect_target(base_dir: Path, dest: str) -> Path | None:
+    cleaned = _clean_route(dest)
+    if cleaned == "/":
+        return base_dir / "index.html"
+    rel = cleaned.lstrip("/")
+    if not rel:
+        return base_dir / "index.html"
+
+    file_candidate = base_dir / f"{rel}.html"
+    if file_candidate.is_file():
+        return file_candidate
+
+    index_candidate = base_dir / rel / "index.html"
+    if index_candidate.is_file():
+        return index_candidate
+
+    directory_candidate = base_dir / rel
+    if directory_candidate.is_file():
+        return directory_candidate
+
+    return None
+
+
+def materialize_extensionless_aliases(
+    base_dir: Path,
+    *,
+    redirect_pairs: list[tuple[str, str]] | None = None,
+) -> dict[str, int]:
+    """Create extensionless directory aliases (e.g., /foo/index.html from /foo.html).
+
+    Returns counts for visibility in build/deploy output.
+    """
+    created = 0
+    updated = 0
+    skipped = 0
+
+    for html in sorted(base_dir.rglob("*.html")):
+        if html.name == "index.html":
+            continue
+        alias_dir = html.with_suffix("")
+        alias_file = alias_dir / "index.html"
+        if alias_file == html:
+            continue
+        alias_dir.mkdir(parents=True, exist_ok=True)
+        if alias_file.exists():
+            alias_file.unlink()
+            updated += 1
+        else:
+            created += 1
+        shutil.copy2(html, alias_file)
+
+    for src, dest in redirect_pairs or []:
+        if "*" in src or "*" in dest:
+            continue
+        src_clean = _clean_route(src)
+        if not src_clean or src_clean == "/" or src_clean == "/sourcea":
+            continue
+        target = _resolve_redirect_target(base_dir, dest)
+        if target is None:
+            continue
+        alias_file = (base_dir / src_clean.lstrip("/")) / "index.html"
+        if alias_file == target:
+            continue
+        alias_file.parent.mkdir(parents=True, exist_ok=True)
+        if alias_file.exists():
+            alias_file.unlink()
+            updated += 1
+        else:
+            created += 1
+        shutil.copy2(target, alias_file)
+
+    return {"created": created, "updated": updated, "skipped": skipped}
 
 
 def strip_internal_html_links(root: Path | None = None) -> dict:

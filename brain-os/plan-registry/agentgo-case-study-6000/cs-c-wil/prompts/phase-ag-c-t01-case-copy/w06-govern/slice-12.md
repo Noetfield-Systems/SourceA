@@ -14,7 +14,7 @@ Wil L3 portfolio demo — YA5 mirror · AgentGo ≠ SourceA separation · ship g
 
 ## Task
 
-**Anti-staleness sync for** case study prose (challenge · shipped · verification).
+**Anti-staleness sync for** case study prose (challenge · shipped · proof chain).
 
 disk_live_wire.
 

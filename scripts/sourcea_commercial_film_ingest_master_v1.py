@@ -141,7 +141,7 @@ def ingest(*, source: Path | None = None, deploy: bool = True) -> dict:
         "schema": "commercial-short-film-receipt-v1",
         "at": _now(),
         "status": "embed_live",
-        "title": "SourceA — Controlled Agentic Automation",
+        "title": "SourceA — Governed Agentic Automation",
         "product": "sourcea",
         "grade": grade,
         "source_tier": tier,

@@ -30,7 +30,7 @@
 - Governance chat “check incidents / clean layers” → agent silent 15+ minutes  
 - User: *“why stuck?”* · *“no nobody stuck in maze or pipelines”*  
 - Queue head moved during validator wall — looked like agent frozen  
-- Maze receipt `ok: false` 16/19 left in the repository — **optional passport**, not daily blocker, but agents treated it as mandatory
+- Maze receipt `ok: false` 16/19 left on disk — **optional passport**, not daily blocker, but agents treated it as mandatory
 
 ---
 
@@ -104,7 +104,7 @@
 
 - INCIDENT-032 museum link — Maintainer  
 - INCIDENT-033/034 registry rows — ASF formal close  
-- Stale Maze receipt logged — refresh only if founder says **maze**
+- Stale Maze receipt on disk — refresh only if founder says **maze**
 
 ---
 

@@ -38,7 +38,7 @@
       "tier": "engines",
       "policy_pack_id": "trust_motor",
       "status": "prove_only",
-      "website_slug": "controlled-web-product-factory",
+      "website_slug": "governed-web-product-factory",
       "install_label": "Deploy",
       "demo_seconds": 30
     },
@@ -50,7 +50,7 @@
       "tier": "engines",
       "policy_pack_id": "trust_motor",
       "status": "prove_only",
-      "website_slug": "controlled-exchange-factory",
+      "website_slug": "governed-exchange-factory",
       "install_label": "Deploy",
       "hero": true,
       "demo_seconds": 30
@@ -58,14 +58,14 @@
     {
       "catalog_id": "cat-engine-forge",
       "factory_id": "forge-app-factory-v1",
-      "display_name": "Controlled App Factory",
+      "display_name": "Governed App Factory",
       "product_tenant": "Forge",
       "spec_path": "data/factory-specs/forge-app-factory-v1.json",
       "kind": "engine",
       "tier": "engines",
       "policy_pack_id": "trust_motor",
       "status": "prove_only",
-      "website_slug": "controlled-app-factory",
+      "website_slug": "governed-app-factory",
       "install_label": "Deploy",
       "demo_seconds": 30
     },

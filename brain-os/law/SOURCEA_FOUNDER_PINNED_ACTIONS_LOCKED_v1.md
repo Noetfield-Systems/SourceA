@@ -44,8 +44,8 @@ sequence_id: SA-2026-06-10-FOUNDER-PINNED
 | 5 | Can't see Safety button | Blue panel + top bar 🛡 + Emergency rename | 3 visible locations | Home tab :13020 | **LOCK** UX |
 | 6 | Clear cache + E2E auto | ~4GB cache + `fix-ecosystem-all` + gatekeeper sync | phase-s0 + find_critical_bugs green standalone | E2E once only for proof | **NEVER** E2E debug |
 | 7 | Save playbook | `SOURCEA_E2E_DEBUGGER_PLAYBOOK_LOCKED_v1.md` Rules 0–7 | Indexed + validator PASS | Open when E2E stuck | **SAVE + LOCK** |
-| 8 | Save and lock for checking | Playbook validator + session index validator | Receipts logged | Run validators anytime | **LOCK** |
-| 9 | Result-driven policy | `SOURCEA_RESULT_DRIVEN_DISCUSSION_POLICY_LOCKED_v1.md` | Policy logged | Result table every session | **SAVE + LOCK** |
+| 8 | Save and lock for checking | Playbook validator + session index validator | Receipts on disk | Run validators anytime | **LOCK** |
+| 9 | Result-driven policy | `SOURCEA_RESULT_DRIVEN_DISCUSSION_POLICY_LOCKED_v1.md` | Policy on disk | Result table every session | **SAVE + LOCK** |
 
 ---
 

@@ -23,7 +23,7 @@ Write founder-facing SOW snippet if Stack AI uses services-led motion — Witnes
 
 ## Implementation extraction
 
-`Stack AI · Onboarding & PLG` → what buyer sees at vendor → what we ship logged with receipt.
+`Stack AI · Onboarding & PLG` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

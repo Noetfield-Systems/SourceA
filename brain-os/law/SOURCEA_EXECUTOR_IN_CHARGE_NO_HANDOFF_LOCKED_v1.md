@@ -9,7 +9,7 @@
 
 ## Law (one sentence)
 
-**If the founder ordered a fix, the executor ships it in the repository — never “Maintainer backlog”, never “Brain will”, never report-only.**
+**If the founder ordered a fix, the executor ships it on disk — never “Maintainer backlog”, never “Brain will”, never report-only.**
 
 ---
 

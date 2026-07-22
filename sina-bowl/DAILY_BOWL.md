@@ -32,7 +32,7 @@
 | P | Plan | Status | Next |
 |---|------|--------|------|
 | 1 | P0-RUNRECEIPT | active | Lane G3 attest + TrustField pilot (founder Track) |
-| 2 | M8-WIRE | mostly_green | Close g3_tailscale if still pending logged |
+| 2 | M8-WIRE | mostly_green | Close g3_tailscale if still pending on disk |
 | 2 | MERGEPACK-L1 | active_parallel | MP-SHIP + MP-PAY + KPI trio; then SEO/paid per 10K plan if A |
 | 2 | COMM-PARTNER-BOOT | active_parallel | P03 NVIDIA Inception apply · P05 Voyage live (vault set · 62 |
 | 3 | PROMPTOS-DAILY | background | dispatch-day.sh → paste → ingest per repo |

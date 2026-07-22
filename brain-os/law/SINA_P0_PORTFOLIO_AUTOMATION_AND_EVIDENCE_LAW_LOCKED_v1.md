@@ -13,7 +13,7 @@
 
 ## 0. One sentence (frozen when locked)
 
-> **SourceA is the P0 execution and evidence foundation; portfolio companies run on proven commercial automation (n8n-class glue + controlled agents); every surface and channel is operated by agents 24/7; no idea ships without a named precedent company and receipt.**
+> **SourceA is the P0 execution and evidence foundation; portfolio companies run on proven commercial automation (n8n-class glue + governed agents); every surface and channel is operated by agents 24/7; no idea ships without a named precedent company and receipt.**
 
 ---
 
@@ -41,7 +41,7 @@
 | Agentic commercial | Law says agent-only outreach; practice still manual LinkedIn/calls | **LAG — must wire n8n/outbound** |
 | Social presence | LinkedIn profile only; no multi-channel agent ops | **NOT STARTED** |
 | n8n / Make glue | Law references T4b; not fully wired 24/7 | **PARTIAL** |
-| W3 revenue | $0 · no LOI logged | **OPEN — P0 commercial** |
+| W3 revenue | $0 · no LOI on disk | **OPEN — P0 commercial** |
 | AUTO-RUN | Correctly disabled | **ACCEPTABLE** |
 | Hub hero / projection | Cosmetic lag after RT LIVE | **ACCEPTABLE** |
 
@@ -53,7 +53,7 @@
 | “Full OS / Trust Cloud / Decision platform” | **Forbidden** — not shipped; naming rejected |
 | “Zero bypass whole repo” | **False** — demo scope only |
 | “$100M close in 6 months” | **False** — narrative upside only |
-| “AgentField live product” | **Unverified logged** — name in founder vision; needs registry row |
+| “AgentField live product” | **Unverified on disk** — name in founder vision; needs registry row |
 | “VC signal platform live” | **Not built** — business concept only |
 | “Founder does outreach” as P0 | **Conflicts** with `FOUNDER_AGENTIC_COMMERCIAL` — must reconcile |
 
@@ -119,7 +119,7 @@ L0  MonoRepo L0-meta · personal DB · SSOT human writing
 
 **Purpose:** VC/startup signal layer — founders register 24/7; system advances **up to 10 parallel ideas** per founder via agentic pipeline; single SSOT per founder. **Part 3** scale path after engine test on NF/TF.
 
-**Not built logged.** Precedent class: accelerator + deal-flow platforms (§4).
+**Not built on disk.** Precedent class: accelerator + deal-flow platforms (§4).
 
 **Does not replace:** ENFORCEMENT-6MO W3 (paid pilot still NF/TF first).
 
@@ -129,7 +129,7 @@ L0  MonoRepo L0-meta · personal DB · SSOT human writing
 
 ### PILLAR A — Agentic social & surface operations (24/7)
 
-**Definition:** All public and semi-public surfaces — websites, landing pages, LinkedIn, X, company pages, hub panels, outreach inboxes — are **operated by controlled agents**, not manual founder sessions.
+**Definition:** All public and semi-public surfaces — websites, landing pages, LinkedIn, X, company pages, hub panels, outreach inboxes — are **operated by governed agents**, not manual founder sessions.
 
 | Rule | Requirement |
 |------|-------------|

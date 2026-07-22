@@ -12,7 +12,7 @@ FINTRAC MSB programs — payment execution only
 
 ## Task
 
-TrustField · MSB & compliance · Prove · slice 5/10 — P2 — harden · validate · document. Bounded path only. Receipt logged before done. Parent: FINTRAC MSB programs — payment execution only. Priority doc: `prompts/future-plans-1000.json`.
+TrustField · MSB & compliance · Prove · slice 5/10 — P2 — harden · validate · document. Bounded path only. Receipt on disk before done. Parent: FINTRAC MSB programs — payment execution only. Priority doc: `prompts/future-plans-1000.json`.
 
 ## Verify
 

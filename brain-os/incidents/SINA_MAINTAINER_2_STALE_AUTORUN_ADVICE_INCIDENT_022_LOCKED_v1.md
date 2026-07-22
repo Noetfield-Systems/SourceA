@@ -63,7 +63,7 @@
 
 Maintainer treated **writing LOCKED law** as sufficient closure. Founder law explicitly forbids promoting AUTO-RUN on **Hub surfaces** — Maintainer updated docs and registry rows but **left the builder that feeds every Refresh**.
 
-Same failure class as `SOURCEA_ROOT_CAUSE_FACTORY_CONTROL_PLANE_ESSAY` (attachment 2026-06-10): fixes logged in prose; **projection layer** (Hub) unchanged.
+Same failure class as `SOURCEA_ROOT_CAUSE_FACTORY_CONTROL_PLANE_ESSAY` (attachment 2026-06-10): fixes on disk in prose; **projection layer** (Hub) unchanged.
 
 ### 4.2 Chat memory lag (pre-law advice recycled)
 
@@ -75,7 +75,7 @@ Maintainer continued golden-path messaging from **earlier session summary** (Kil
 
 ### 4.4 Soft language vs founder reject
 
-Plans and summaries used "deprioritize," "not P0," "legacy logged" — founder signal was **reject Cursor AUTO-RUN**, not merely lower priority. Maintainer 2 Plan mode question still framed AUTO-RUN as optional scope — **tone deaf to T0 reject**.
+Plans and summaries used "deprioritize," "not P0," "legacy on disk" — founder signal was **reject Cursor AUTO-RUN**, not merely lower priority. Maintainer 2 Plan mode question still framed AUTO-RUN as optional scope — **tone deaf to T0 reject**.
 
 ### 4.5 Role boundary blur
 
@@ -202,9 +202,9 @@ Audit rule:
 - [x] Archive mirror for hub backlog  
 - [x] Row in `AGENT_INCIDENTS_REGISTRY_LOCKED_v1.md`  
 - [x] Governance event `~/.sina/agent-governance-events.jsonl`  
-- [x] Anti-staleness plan in the repository — `SOURCEA_ANTI_STALENESS_MACHINE_ENFORCEMENT_PLAN_LOCKED_v1.md`  
+- [x] Anti-staleness plan on disk — `SOURCEA_ANTI_STALENESS_MACHINE_ENFORCEMENT_PLAN_LOCKED_v1.md`  
 - [x] Hub P0 fix shipped (Phase 1 AS-01 — `founder_p0_next_action_v1.py` + validators)  
-- [x] Anti-staleness 10-phase bundle in the repository — Maintainer 2 2026-06-10  
+- [x] Anti-staleness 10-phase bundle on disk — Maintainer 2 2026-06-10  
 - [x] v2 verify PASS — `find_critical_bugs` critical=0 · bundle 19 steps · monitor FREEZE demotion (2026-06-10)  
 - [x] Machine closeout receipt — `archive/attachments/2026-06-10/ANTI_STALENESS_V2_MACHINE_CLOSEOUT_2026-06-10.md`  
 - [ ] ASF disposition recorded (human sign-off — 015-CONDUCT disposition may block cadence drill)  

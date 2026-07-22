@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 // validate-plan.mjs — machine-check STORYBOARD.md against the audiomap + template
 // catalog at Step 3, before any frame is built. Runs on the PLAN (frame files do
-// not exist yet), so it checks fields, not in-repo html.
+// not exist yet), so it checks fields, not on-disk html.
 //
 // HARD (exit 1): frontmatter duration_s == audiomap duration; >=1 frame; each frame
 //   has src + positive duration; frames tile the track gap-free (sum == duration_s).

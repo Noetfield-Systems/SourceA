@@ -23,7 +23,7 @@ Add upgrade CTA path: sandbox/free → paid bay matching Oneleet upgrade pattern
 
 ## Implementation extraction
 
-`Oneleet · Pricing & packaging` → what buyer sees at vendor → what we ship logged with receipt.
+`Oneleet · Pricing & packaging` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

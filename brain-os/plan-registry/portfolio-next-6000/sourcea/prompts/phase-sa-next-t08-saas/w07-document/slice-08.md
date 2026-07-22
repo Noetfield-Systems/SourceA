@@ -16,7 +16,7 @@ Revenue Engine · Proof Pack · landing · factory-runtime-spike
 **HeyGen avatar factory** — Media & commercial factory (MED).
 
 Agentic SaaS · Document · slice 8/10.
-Bounded path only. Receipt logged before done.
+Bounded path only. Receipt on disk before done.
 Parent: Revenue Engine · Proof Pack · landing · factory-runtime-spike.
 Priority doc: `brain-os/plan-registry/SOURCEA-PRIORITY.md`.
 

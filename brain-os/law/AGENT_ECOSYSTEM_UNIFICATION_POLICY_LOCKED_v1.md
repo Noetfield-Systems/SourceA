@@ -82,7 +82,7 @@ Portfolio agents implement in **their repo**; all **reporting** flows through th
 
 ## 5. Workspace completeness (Phase 0 gate)
 
-Each of the **9 registered agents** must have logged and in hub payload:
+Each of the **9 registered agents** must have on disk and in hub payload:
 
 | Check | Path / signal |
 |-------|----------------|

@@ -23,7 +23,7 @@ From https://www.monitaur.ai document Monitaur run/history UX: Policy workflows;
 
 ## Implementation extraction
 
-`Monitaur · Run history & proof` → what buyer sees at vendor → what we ship logged with receipt.
+`Monitaur · Run history & proof` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

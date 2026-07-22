@@ -512,7 +512,7 @@ def workspace_mirror_payload(agent_id: str, *, detail: str = "full") -> dict[str
         "sync_note": (
             "Summary mirror in hub — open page or Refresh mirror for full disk scan"
             if slim
-            else "Filesystem scan at hub build — deposits logged appear here even without vault API POST"
+            else "Filesystem scan at hub build — deposits on disk appear here even without vault API POST"
         ),
     }
 

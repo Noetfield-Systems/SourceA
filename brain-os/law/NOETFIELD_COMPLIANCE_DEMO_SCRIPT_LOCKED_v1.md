@@ -21,7 +21,7 @@
 | **SourceA (engine)** | Pre-LLM motor under the hood | **Say once at bridge only** — TLE · spine · gatekeeper |
 | **Mac Guard / TrustField** | Other vertical faces | **Do not pitch** on this call |
 
-**Gemini vertical #2 logged:** when policy/SSOT changes, agents re-brief immediately — stale governance cannot slip into production.
+**Gemini vertical #2 on disk:** when policy/SSOT changes, agents re-brief immediately — stale governance cannot slip into production.
 
 ---
 
@@ -86,7 +86,7 @@ Hub `:13020` **not required** — Chat Unify standalone + disk receipts only.
 
 ## SSOT_CHANGED story (say during step 2)
 
-1. Compliance updates locked policy logged.  
+1. Compliance updates locked policy on disk.  
 2. `critic_boot` detects briefing fingerprint drift → **BLOCK**.  
 3. Agent session gate re-briefs from canonical SSOT.  
 4. Fleet agents inherit new law **same day** — not governance latency quarters.

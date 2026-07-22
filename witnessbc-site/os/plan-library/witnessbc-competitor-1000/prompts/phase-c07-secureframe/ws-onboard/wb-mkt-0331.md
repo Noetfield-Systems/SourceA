@@ -23,7 +23,7 @@ Document Secureframe onboarding path (Enterprise-leaning startup compliance): wh
 
 ## Implementation extraction
 
-`Secureframe · Onboarding & PLG` → what buyer sees at vendor → what we ship logged with receipt.
+`Secureframe · Onboarding & PLG` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

@@ -3158,18 +3158,18 @@ html[data-theme="light"] .proof-terminal-glass {
 }
 .proof-artifact-link span { opacity: 0.7; }
 
-.proof-evidence-in-repo .proof-evidence-card {
+.proof-evidence-on-disk .proof-evidence-card {
   border-left: 3px solid var(--border);
   transition: transform 0.2s var(--ease-out), box-shadow 0.2s;
 }
-.proof-evidence-in-repo .proof-evidence-card:hover {
+.proof-evidence-on-disk .proof-evidence-card:hover {
   transform: translateY(-3px);
   box-shadow: var(--shadow);
 }
-.proof-evidence-in-repo .verdict-border-allow { border-left-color: var(--green-bright); }
-.proof-evidence-in-repo .verdict-border-block { border-left-color: var(--red-bright); }
-.proof-evidence-in-repo .verdict-border-escalate { border-left-color: var(--amber-bright); }
-.proof-evidence-in-repo .verdict-border-fail { border-left-color: var(--red-bright); }
+.proof-evidence-on-disk .verdict-border-allow { border-left-color: var(--green-bright); }
+.proof-evidence-on-disk .verdict-border-block { border-left-color: var(--red-bright); }
+.proof-evidence-on-disk .verdict-border-escalate { border-left-color: var(--amber-bright); }
+.proof-evidence-on-disk .verdict-border-fail { border-left-color: var(--red-bright); }
 .proof-evidence-card-dl {
   display: inline-block;
   margin-top: 0.35rem;

@@ -91,7 +91,7 @@ def healthy_drain_paste(*, clipboard_inject: bool = False, worker_chat_inject: b
         out = inject_worker_prompt(text, source="goal1_healthy_drain", meta=meta, delivery_mode="inbox")
     if out.get("worker_chat_inject") or out.get("conversation_id"):
         out["message"] = (
-            f"Healthy drain → Worker chat {out.get('conversation_id')} via agent --resume + INBOX logged."
+            f"Healthy drain → Worker chat {out.get('conversation_id')} via agent --resume + INBOX on disk."
         )
     else:
         out["message"] = (

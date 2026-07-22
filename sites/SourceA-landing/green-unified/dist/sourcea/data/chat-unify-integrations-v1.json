@@ -17,7 +17,7 @@
       "id": "cursor_local",
       "label": "Cursor IDE (local)",
       "category": "ide",
-      "description": "Send forged missions and close orders into your local Cursor Worker chat — inbox-first, receipt logged.",
+      "description": "Send forged missions and close orders into your local Cursor Worker chat — inbox-first, receipt on disk.",
       "actions": ["send_mission", "send_close_order", "copy_hook"],
       "docs": "Paste from Prompt Forge → Connect → Send to Cursor"
     },
@@ -25,7 +25,7 @@
       "id": "cursor_cloud",
       "label": "Cursor Cloud / API",
       "category": "ide",
-      "description": "Cloud agents and API pool — dispatch through controlled gates, not raw bypass.",
+      "description": "Cloud agents and API pool — dispatch through governed gates, not raw bypass.",
       "actions": ["status", "dispatch_via_hub"],
       "env": ["CURSOR_API_KEY", "OPENROUTER_API_KEY"]
     },

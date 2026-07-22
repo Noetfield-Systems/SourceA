@@ -12,7 +12,7 @@ Mono portfolio spine — cross-lane receipts only
 
 ## Task
 
-SinaaiMonoRepo · Proof & receipts · Operate · slice 2/10 — P0 — smallest shippable slice with receipt. Bounded path only. Receipt logged before done. Parent: Mono portfolio spine — cross-lane receipts only. Priority doc: `os/plan-library/mono-1000/REGISTRY.json`.
+SinaaiMonoRepo · Proof & receipts · Operate · slice 2/10 — P0 — smallest shippable slice with receipt. Bounded path only. Receipt on disk before done. Parent: Mono portfolio spine — cross-lane receipts only. Priority doc: `os/plan-library/mono-1000/REGISTRY.json`.
 
 ## Verify
 

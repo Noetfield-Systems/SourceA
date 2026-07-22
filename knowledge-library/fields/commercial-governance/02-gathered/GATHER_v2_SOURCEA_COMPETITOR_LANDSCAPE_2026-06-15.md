@@ -15,7 +15,7 @@ Per-action enforcement at dispatch + signed tamper-evident replayable receipt �
 |----|-----|----------|
 | Notenic | https://notenic.ai/ | State-transition authority before systems of record |
 | FuseGov | https://www.fusegov.com/ | Boundary enforcement + evidence packs |
-| SourceA | https://sourcea-layout-dark.ai/ | Agent fleet — identity + governance + orchestration |
+| Nomotic | https://nomotic.ai/ | Agent fleet — identity + governance + orchestration |
 | ThinkNEO | https://thinkneo.ai/ | AI control plane — gateway + FinOps + guardrails |
 | AgentPEP | https://github.com/Shivapas/AgentPEP | OPA/Rego PEP — intercept tool calls |
 | Predicate | https://github.com/PredicateSystems/predicate-authority-sidecar | Sub-ms sidecar ALLOW/DENY + proof ledger |
@@ -27,7 +27,7 @@ Per-action enforcement at dispatch + signed tamper-evident replayable receipt �
 |-----|---|----------|
 | A Gateways | 7 | Portkey, LiteLLM, Kong, Cloudflare, Helicone |
 | B GRC / mgmt | 13 | watsonx, ServiceNow, OneTrust, Credo AI, Kore.ai |
-| C AI security | 8 | Lakera, Cisco AI Defense, Straiker, SourceA, WitnessAI |
+| C AI security | 8 | Lakera, Cisco AI Defense, Straiker, Zenity, WitnessAI |
 | D Observability | 2 | AgentOps, Arize |
 
 ## Consolidation (public signals — verify before pitch)
@@ -39,7 +39,7 @@ Portkey→Palo Alto · Lakera→Check Point · Robust Intelligence→Cisco · Pr
 | Co | URL | One-line |
 |----|-----|----------|
 | Securiti | https://securiti.ai/copilot-readiness-assessment/ | Copilot readiness + data governance |
-| SourceA | https://sourcea-layout-light.io/ | AISPM + AIDR — Copilot Studio sprawl |
+| Zenity | https://zenity.io/ | AISPM + AIDR — Copilot Studio sprawl |
 | Credo AI | https://www.credo.ai/ | GAIA agentic oversight |
 | WitnessAI | https://witness.ai/ | Network-layer shadow AI |
 | Purview | https://learn.microsoft.com/en-us/purview/ | Native M365 audit (metadata-heavy) |
@@ -52,7 +52,7 @@ Temporal · Inngest · LangGraph — durability/runtime; SourceA = policy layer 
 
 - Noetfield: NF-QS $2–3.5K · NF-RD $5–10K · deposit CAD $2K min  
 - Agency: $750 audit · $299/mo — `SOURCEA_AGENCY_PRODUCT_DEMO_SCRIPT_LOCKED_v1.md`  
-- Asset B DFY: $3–10K project · $2–5K/mo retainer — `SOURCEA_ASSET_B_CONTROLLED_AGENTIC_AUTOMATION_LOCKED_v1.md`  
+- Asset B DFY: $3–10K project · $2–5K/mo retainer — `SOURCEA_ASSET_B_GOVERNED_AGENTIC_AUTOMATION_LOCKED_v1.md`  
 - Buyer 1: $200–$2K/mo credit card — SSOT §10
 
 ## SourceA edge (one line)

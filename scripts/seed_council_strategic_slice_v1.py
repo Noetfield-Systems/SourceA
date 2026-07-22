@@ -226,7 +226,7 @@ def _seed_track_cards() -> dict:
 
 
 def verify_seed_marker() -> tuple[bool, str]:
-    """Post-run proof — marker logged with expected brief (sa-0218)."""
+    """Post-run proof — marker on disk with expected brief (sa-0218)."""
     if not SEED_MARKER.is_file():
         return False, "seed marker missing"
     try:

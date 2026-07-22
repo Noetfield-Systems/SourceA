@@ -1,4 +1,4 @@
-# sa-score-0894 — Receipt logged for Talk to a human only on data-sa-book-fallback
+# sa-score-0894 — Receipt on disk for Talk to a human only on data-sa-book-fallback
 
 **Saved at:** 2026-06-25T09:23:55Z
 **Version:** 1 · **Tier:** T1 · **Phase:** MOONSHOT
@@ -16,7 +16,7 @@ Raise SourceA site score toward **95+/100** — proof before call · stranger se
 
 P1 — next sprint; measurable score delta
 
-**Deliverable:** Receipt logged for Talk to a human only on data-sa-book-fallback
+**Deliverable:** Receipt on disk for Talk to a human only on data-sa-book-fallback
 
 Bounded paths: `SourceA-landing/green-unified/` · `cloud/workers/sourcea-site-pulse-v1/` · `scripts/validate-sourcea-modern-stack-e2e-v1.sh`
 

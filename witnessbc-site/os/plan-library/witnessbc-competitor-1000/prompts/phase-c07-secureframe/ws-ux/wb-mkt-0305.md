@@ -23,7 +23,7 @@ Diff our public copy vs Secureframe pricing/product page — list 3 concrete gap
 
 ## Implementation extraction
 
-`Secureframe · Buyer-visible UX` → what buyer sees at vendor → what we ship logged with receipt.
+`Secureframe · Buyer-visible UX` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

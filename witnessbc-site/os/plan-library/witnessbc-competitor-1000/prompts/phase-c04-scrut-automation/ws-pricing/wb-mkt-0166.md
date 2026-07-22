@@ -23,7 +23,7 @@ Document why buyers pay per Scrut Automation: GRC spreadsheets fail audits — t
 
 ## Implementation extraction
 
-`Scrut Automation · Pricing & packaging` → what buyer sees at vendor → what we ship logged with receipt.
+`Scrut Automation · Pricing & packaging` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

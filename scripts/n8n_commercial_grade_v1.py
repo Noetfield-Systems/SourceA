@@ -246,7 +246,7 @@ def _commercial_block(sku_id: str) -> dict[str, Any]:
 
 
 def upgrade_workflow_files(*, write: bool = True) -> dict[str, Any]:
-    """Stamp commercial meta on sellable workflow JSON logged."""
+    """Stamp commercial meta on sellable workflow JSON on disk."""
     actions: list[dict[str, str]] = []
     for path in sorted(WF_DIR.glob("*.json")):
         if path.name.endswith(".stub.json"):
@@ -1210,7 +1210,7 @@ def run_finish_all() -> dict[str, Any]:
 
     tiers_ok, tier_gates = _tiers_all_pass()
     if tiers_ok:
-        extra["n8n_full_suite"] = {"ok": True, "exit": 0, "tail": "SKIP: tier0–5 + FINAL_AUTOMATION_PASS already PASS logged"}
+        extra["n8n_full_suite"] = {"ok": True, "exit": 0, "tail": "SKIP: tier0–5 + FINAL_AUTOMATION_PASS already PASS on disk"}
     else:
         proc = subprocess.run(
             ["bash", str(SOURCE_A / "scripts" / "validate-n8n.sh")],

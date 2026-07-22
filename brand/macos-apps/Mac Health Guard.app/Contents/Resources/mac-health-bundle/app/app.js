@@ -1307,7 +1307,7 @@
       });
       if (msg) {
         msg.hidden = false;
-        msg.textContent = "Settings saved — auto guard updated logged.";
+        msg.textContent = "Settings saved — auto guard updated on disk.";
         msg.className = "mhg-settings-msg ok";
       }
     } catch (e) {

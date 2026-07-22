@@ -33,8 +33,8 @@
     "delivery_mode": "prove_only"
   },
   "commercial": {
-    "name": "Controlled Web Product Factory",
-    "tagline": "Structured product brief in — controlled web delivery artifact out.",
+    "name": "Governed Web Product Factory",
+    "tagline": "Structured product brief in — governed web delivery artifact out.",
     "tier_label": "engine",
     "buyer": "Design partners · product teams",
     "hero": false,

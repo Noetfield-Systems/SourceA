@@ -16,7 +16,7 @@
 
 After the monitor Brain PEND trust event, the Cursor **executor agent** logged a governance event and verbally labeled it **“INCIDENT-011”** for the monitor snapshot-drift subject.
 
-**INCIDENT-011 is already assigned** logged to a **different, P0 subject**:
+**INCIDENT-011 is already assigned** on disk to a **different, P0 subject**:
 
 > **REWRITE treated as unauthorized disk edit** — `SINA_AGENT_REWRITE_UNAUTHORIZED_DISK_EDIT_INCIDENT_REPORT_v1.md`
 
@@ -121,7 +121,7 @@ When founder reports monitor vs agent mismatch:
 ```text
 About to say "INCIDENT-NNN"?
   STOP → open AGENT_INCIDENTS_REGISTRY_LOCKED_v1.md
-  STOP → rg INCIDENT-NNN logged
+  STOP → rg INCIDENT-NNN on disk
   If taken → next free id (014, 015, …)
   Write LOCKED + pointer + registry row — same turn
 

@@ -26,7 +26,7 @@ def agentgo_html() -> str:
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>SourceA | Runtime governance infrastructure</title>
-  <meta name="description" content="Controlled agentic automation — policy at dispatch, signed ledger, replay. Asset B DFY $3–10K. Buyer 1 eval via sourcea-boot." />
+  <meta name="description" content="Governed agentic automation — policy at dispatch, signed ledger, replay. Asset B DFY $3–10K. Buyer 1 eval via sourcea-boot." />
   <meta name="theme-color" content="#060a12" />
   <meta property="og:site_name" content="SourceA" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" />
@@ -51,7 +51,7 @@ def agentgo_html() -> str:
     </a>
     <nav class="pe-nav" aria-label="Primary">
       <a href="/">← AgentGo</a>
-      <a href="#proof">>Verification</a>
+      <a href="#proof">Proof chain</a>
       <a href="#pricing">Asset B</a>
       <a href="#eval">Eval</a>
       <a class="pe-btn pe-btn-primary" href="mailto:{SOURCEA_EMAIL}">Book 15 min</a>
@@ -62,9 +62,9 @@ def agentgo_html() -> str:
     <div class="pe-hero-grid">
       <div>
         <p class="pe-tracking-pill pe-agent-pill"><span class="pe-tracking-dot"></span>Runtime governance infrastructure</p>
-        <h1><span class="pe-line-reveal">Agent loops need</span><span class="pe-line-reveal"><em class="pe-gradient-text">receipts logged.</em></span></h1>
+        <h1><span class="pe-line-reveal">Agent loops need</span><span class="pe-line-reveal"><em class="pe-gradient-text">receipts on disk.</em></span></h1>
         <p class="pe-subhead">Pre-LLM policy at dispatch · signed ledger · replay · tamper-evidence.</p>
-        <p class="pe-subhead pe-subhead-muted">We operate a self-healing factory daily and deliver the same controlled spine as done-for-you automation — outreach, ops, research.</p>
+        <p class="pe-subhead pe-subhead-muted">We operate a self-healing factory daily and deliver the same governed spine as done-for-you automation — outreach, ops, research.</p>
         <div class="pe-hero-actions">
           <a class="pe-btn pe-btn-primary" href="mailto:{SOURCEA_EMAIL}">Screen-share today's receipts</a>
           <a class="pe-btn pe-btn-ghost" href="{GITHUB_BOOT}">Try sourcea-boot</a>
@@ -90,14 +90,14 @@ def agentgo_html() -> str:
 
   <section class="pe-section" id="proof">
     <div class="pe-section-inner">
-      <h2 class="pe-section-title">Verification — under five minutes</h2>
+      <h2 class="pe-section-title">Proof chain — under five minutes</h2>
       <p class="pe-section-lead">Not slides. The same spine we run on the factory every day.</p>
       <div class="sa-chain">
         <span>request</span><span>→</span><span>policy</span><span>→</span><span>decision</span><span>→</span>
         <span class="sa-pass">receipt</span><span>→</span><span>replay</span><span>→</span><span class="sa-fail">tamper-FAIL</span>
       </div>
       <div class="sa-pillar-grid">
-        <article><h3>Policy</h3><p>LOCKED SSOT at dispatch — law in repository.</p></article>
+        <article><h3>Policy</h3><p>LOCKED SSOT at dispatch — law on disk.</p></article>
         <article><h3>Dispatch gate</h3><p>Session gate PASS · role-scoped execution.</p></article>
         <article><h3>Receipt ledger</h3><p>Signed record · export bundle on closeout.</p></article>
         <article><h3>Replay</h3><p>Cold-start replay without chat memory.</p></article>
@@ -112,7 +112,7 @@ def agentgo_html() -> str:
       <h2 class="pe-section-title">Asset B — fastest cash</h2>
       <div class="sa-price-grid">
         <article class="sa-price"><h3>Ops Health Audit</h3><p class="sa-amt">$750</p><p>48h spine audit · feeder to DFY</p></article>
-        <article class="sa-price sa-featured"><h3>Agent Loop Build</h3><p class="sa-amt">$3–10K</p><p>One scoped loop live · 30-day fix window</p></article>
+        <article class="sa-price sa-featured"><h3>Agent Loop Build</h3><p class="sa-amt">$3–10K</p><p>One governed loop live · 30-day fix window</p></article>
         <article class="sa-price"><h3>Retainer</h3><p class="sa-amt">$2–5K/mo</p><p>Weekly receipt export · approval-gated ops</p></article>
       </div>
       <p class="sa-quote">We run this stack on our own factory every day. Your loop gets the same receipts — what ran, what was blocked, what policy applied.</p>
@@ -147,8 +147,8 @@ def agentrun_html() -> str:
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <title>SourceA | Controlled agentic automation</title>
-  <meta name="description" content="Done-for-you controlled agent loops with signed receipts. Policy at dispatch for teams shipping Cursor agents." />
+  <title>SourceA | Governed agentic automation</title>
+  <meta name="description" content="Done-for-you governed agent loops with signed receipts. Policy at dispatch for teams shipping Cursor agents." />
   <meta name="theme-color" content="#0a1628" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800&family=Inter:wght@400;500;600&display=swap" />
   <link rel="stylesheet" href="/assets/agentrun.css" />
@@ -178,9 +178,9 @@ def agentrun_html() -> str:
   <section class="ar-hero ar-hero-ref ar-reveal" id="top">
     <div class="ar-container ar-hero-ref-layout">
       <div class="ar-hero-ref-copy">
-        <p class="ar-kicker">Controlled execution</p>
+        <p class="ar-kicker">Governed execution</p>
         <h1>Prove what your agents <span class="ar-hero-accent">executed last night.</span></h1>
-        <p class="ar-hero-lead">Runtime governance infrastructure for platform engineers and agencies — policy before execution, signed receipts logged, replay on closeout.</p>
+        <p class="ar-hero-lead">Runtime governance infrastructure for platform engineers and agencies — policy before execution, signed receipts on disk, replay on closeout.</p>
         <div class="ar-hero-actions">
           <a class="ar-btn ar-btn-primary" href="mailto:{SOURCEA_EMAIL}">Book discovery call<span class="ar-btn-arrow">→</span></a>
           <a class="ar-btn ar-btn-ghost" href="{GITHUB_BOOT}">sourcea-boot<span class="ar-btn-arrow ar-btn-arrow-dark">→</span></a>
@@ -213,8 +213,8 @@ def agentrun_html() -> str:
   <section id="proof" class="ar-section ar-section-muted ar-reveal">
     <div class="ar-container">
       <div class="ar-section-head ar-section-head-center">
-        <p class="ar-kicker">>Verification</p>
-        <h2>Every controlled turn leaves a receipt</h2>
+        <p class="ar-kicker">Proof chain</p>
+        <h2>Every governed turn leaves a receipt</h2>
       </div>
       <div class="sa-chain sa-chain-light">
         <span>request</span><span>→</span><span>policy eval</span><span>→</span><span>ALLOW/BLOCK</span><span>→</span>
@@ -334,9 +334,21 @@ def deploy(*, open_browser: bool = False) -> dict[str, str]:
     if not AGENTRUN.is_dir():
         raise SystemExit(f"FAIL: desktop app missing: {AGENTRUN}")
 
+    sys.path.insert(0, str(ROOT / "scripts"))
+    from sourcea_clean_urls_v1 import (
+        CONTRACT_REWRITE_200,
+        REDIRECT_301,
+        SHORT_ALIASES,
+        materialize_extensionless_aliases,
+    )  # noqa: WPS433
+
     # Agent Run — canonical green-unified landing
     ar_dest = AGENTRUN / "sourcea"
     deploy_green_unified(ar_dest)
+    materialize_extensionless_aliases(
+        ar_dest,
+        redirect_pairs=list(SHORT_ALIASES) + list(CONTRACT_REWRITE_200) + list(REDIRECT_301),
+    )
     paths[AGENTRUN.name] = str(ar_dest / "index.html")
 
     # AgentGo — dark cinematic variant (different asset stack)

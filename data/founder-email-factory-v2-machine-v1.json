@@ -42,7 +42,7 @@
     "rule": "Noetfield ∥ TrustField parallel · then SourceA · then Forge product build"
   },
   "send_policy": {
-    "agent_may": ["ICP compile", "machine loops", "RRL behavior sim", "produce ready-to-send pack logged"],
+    "agent_may": ["ICP compile", "machine loops", "RRL behavior sim", "produce ready-to-send pack on disk"],
     "agent_may_not": ["send email", "configure Mail FROM", "claim ship authority"],
     "founder_must": ["Sina read ≥90", "approve recipient", "send manually from Mail", "confirm-sent"],
     "agentic_full_send_later": "When products validated with real proof — not rule-pass alone"

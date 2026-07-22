@@ -193,7 +193,7 @@ def save_key(*, api_key: str, voice_id: str, model_id: str) -> dict:
     set_vo_lane("sourcea")
     test_mp3 = SINA / "film-elevenlabs-wire-test-v1" / "setup-phrase.mp3"
     tts_ok, align_eng, words = synthesize_narration(
-        "SourceA runs controlled agentic automation — policy at dispatch, verification built in.",
+        "SourceA runs governed agentic automation — policy at dispatch, proof on disk.",
         test_mp3,
         lane="sourcea",
     )

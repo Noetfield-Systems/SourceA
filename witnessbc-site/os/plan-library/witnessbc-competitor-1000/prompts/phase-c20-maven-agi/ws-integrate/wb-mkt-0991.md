@@ -23,7 +23,7 @@ List Maven AGI integrations/APIs from https://www.mavenagi.com or docs — pick 
 
 ## Implementation extraction
 
-`Maven AGI · Integrations & API` → what buyer sees at vendor → what we ship logged with receipt.
+`Maven AGI · Integrations & API` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

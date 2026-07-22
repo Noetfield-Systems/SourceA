@@ -87,7 +87,7 @@
       "path": "/",
       "plane": "ROOT",
       "nodes": ["session_gate_v1", "entry_gate_v1"],
-      "role": "SourceA monorepo root · Controlled Execution OS",
+      "role": "SourceA monorepo root · Governed Execution OS",
       "children": [
         { "path": "START_HERE.md", "nodes": ["entry_gate_v1"], "role": "Human pointer → brain-os/law/entry" },
         { "path": "brain-os/law/entry/START_HERE_LOCKED_v1.md", "nodes": ["session_gate_v1"], "role": "Law front door" }

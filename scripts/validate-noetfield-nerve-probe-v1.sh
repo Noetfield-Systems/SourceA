@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# validate-noetfield-nerve-probe-v1.sh — SourceA nerve probe law in repository
+# validate-noetfield-nerve-probe-v1.sh — SourceA nerve probe law on disk
 set -euo pipefail
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 fail() { echo "FAIL: $*" >&2; exit 1; }

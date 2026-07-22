@@ -131,7 +131,7 @@ Factory `sa-1000` = **background only** until W1 filmed.
 | Week | Dates | Engineering (Worker) | Maintainer 2 | Commercial / ASF | Exit gate |
 |------|-------|----------------------|--------------|------------------|-----------|
 | **W1** | Jun 11–17 | Verify S1–S6 closeout receipts; ship `validate-demo-write-path-v1.sh` (enf-0002); internal dry-run `demo-enforcement-5min-v1.sh` 3× | FR-003 EXTERNAL_CRITIC wiring start | **Pick wedge:** NF primary / TF backup; agentic outreach spec wired; **approve batch 1** (5 targets) — agents queue · founder hub tap only | Dry-run ≤5:00 · validators green |
-| **W2** | Jun 18–24 | S7 **film take 1**; archive logs `archive/attachments/2026-06-*/`; enf-0007/0008 if flaky | FR-003 → 1.10 seal push | Outreach batch 1 (5 targets from `ENFORCEMENT_OUTREACH_v1.md`); send 3-slide deck link | Recording logged OR 3 clean live runs |
+| **W2** | Jun 18–24 | S7 **film take 1**; archive logs `archive/attachments/2026-06-*/`; enf-0007/0008 if flaky | FR-003 → 1.10 seal push | Outreach batch 1 (5 targets from `ENFORCEMENT_OUTREACH_v1.md`); send 3-slide deck link | Recording on disk OR 3 clean live runs |
 | **W3** | Jun 25–Jul 1 | S7 **film take 2** (backup); S9 bypass inventory validator stub; polish runbook | Phase **1.10 seal** target | Follow-up batch 1; log CRM pipeline stages | Best video selected; bypass doc updated |
 | **W4** | Jul 2–8 | S9 CI: spawn-without-gate FAIL; chaos dry-run kill terminal mid-demo | **S8 Hub Action** one-tap `demo-enforcement-5min-v1.sh` | LOI draft v1 sent to warmest lead | Founder one-tap demo works |
 
@@ -201,7 +201,7 @@ Factory `sa-1000` = **background only** until W1 filmed.
 | **W25** | Dec 1–7 | **FREEZE** — no new features | Scope locked |
 | **W26** | Dec 8–31 | Closeout report · thank partners · Jan plan pointer only | ENFORCEMENT-6MO closeout PASS or honest FAIL |
 
-**Month 6 gate (Dec 31):** W1 + W2 + W3 evidence logged · tier logged · 2027 pointer filed.
+**Month 6 gate (Dec 31):** W1 + W2 + W3 evidence on disk · tier logged · 2027 pointer filed.
 
 ---
 
@@ -261,7 +261,7 @@ Trust OS / Decision Cloud naming · whitepaper-first · digital twin · causal g
 | Metric | W1 target | W8 | W14 | W26 |
 |--------|-----------|-----|-----|-----|
 | Demo dry-run clean | 3× | 10× | — | — |
-| Video logged | — | 1 | 2 | best cut |
+| Video on disk | — | 1 | 2 | best cut |
 | Validators PASS | daily | daily | daily | daily |
 | Agent-logged conversations | 3 | 10 | 15 | — |
 | LOI/deposit | 0 | draft | **signed** | closed |

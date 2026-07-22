@@ -20901,14 +20901,14 @@
       "slice": 4,
       "tier": "T1",
       "phase": "MOONSHOT",
-      "title": "Architect moat narrative: controlled agentic + receipt on every page",
+      "title": "Architect moat narrative: governed agentic + receipt on every page",
       "status": "open",
       "score_delta": null,
       "priority_rank": 904,
       "path": "prompts/phase-sa-score2-t20-competitive-moat/w11-architect/slice-04.md",
       "lane": "sourcea-site-batch2",
       "prerequisite_pack": "sourcea-site-score-up-1000",
-      "agent_prompt": "WORK \u2014 sa-score2-0904: Architect moat narrative: controlled agentic + receipt on every page"
+      "agent_prompt": "WORK \u2014 sa-score2-0904: Architect moat narrative: governed agentic + receipt on every page"
     },
     {
       "id": "sa-score2-0905",
@@ -21108,14 +21108,14 @@
       "slice": 3,
       "tier": "T1",
       "phase": "MOONSHOT",
-      "title": "Harden moat narrative: controlled agentic + receipt on every page",
+      "title": "Harden moat narrative: governed agentic + receipt on every page",
       "status": "open",
       "score_delta": null,
       "priority_rank": 913,
       "path": "prompts/phase-sa-score2-t20-competitive-moat/w12-harden/slice-03.md",
       "lane": "sourcea-site-batch2",
       "prerequisite_pack": "sourcea-site-score-up-1000",
-      "agent_prompt": "WORK \u2014 sa-score2-0913: Harden moat narrative: controlled agentic + receipt on every page"
+      "agent_prompt": "WORK \u2014 sa-score2-0913: Harden moat narrative: governed agentic + receipt on every page"
     },
     {
       "id": "sa-score2-0914",
@@ -21315,14 +21315,14 @@
       "slice": 2,
       "tier": "T0",
       "phase": "MOONSHOT",
-      "title": "Measure moat narrative: controlled agentic + receipt on every page",
+      "title": "Measure moat narrative: governed agentic + receipt on every page",
       "status": "open",
       "score_delta": null,
       "priority_rank": 922,
       "path": "prompts/phase-sa-score2-t20-competitive-moat/w13-measure/slice-02.md",
       "lane": "sourcea-site-batch2",
       "prerequisite_pack": "sourcea-site-score-up-1000",
-      "agent_prompt": "WORK \u2014 sa-score2-0922: Measure moat narrative: controlled agentic + receipt on every page"
+      "agent_prompt": "WORK \u2014 sa-score2-0922: Measure moat narrative: governed agentic + receipt on every page"
     },
     {
       "id": "sa-score2-0923",
@@ -21522,14 +21522,14 @@
       "slice": 1,
       "tier": "T0",
       "phase": "MOONSHOT",
-      "title": "Automate moat narrative: controlled agentic + receipt on every page",
+      "title": "Automate moat narrative: governed agentic + receipt on every page",
       "status": "open",
       "score_delta": null,
       "priority_rank": 931,
       "path": "prompts/phase-sa-score2-t20-competitive-moat/w14-automate/slice-01.md",
       "lane": "sourcea-site-batch2",
       "prerequisite_pack": "sourcea-site-score-up-1000",
-      "agent_prompt": "WORK \u2014 sa-score2-0931: Automate moat narrative: controlled agentic + receipt on every page"
+      "agent_prompt": "WORK \u2014 sa-score2-0931: Automate moat narrative: governed agentic + receipt on every page"
     },
     {
       "id": "sa-score2-0932",
@@ -21959,14 +21959,14 @@
       "slice": 10,
       "tier": "T3",
       "phase": "MOONSHOT",
-      "title": "Integrate moat narrative: controlled agentic + receipt on every page",
+      "title": "Integrate moat narrative: governed agentic + receipt on every page",
       "status": "open",
       "score_delta": null,
       "priority_rank": 950,
       "path": "prompts/phase-sa-score2-t20-competitive-moat/w15-integrate/slice-10.md",
       "lane": "sourcea-site-batch2",
       "prerequisite_pack": "sourcea-site-score-up-1000",
-      "agent_prompt": "WORK \u2014 sa-score2-0950: Integrate moat narrative: controlled agentic + receipt on every page"
+      "agent_prompt": "WORK \u2014 sa-score2-0950: Integrate moat narrative: governed agentic + receipt on every page"
     },
     {
       "id": "sa-score2-0951",
@@ -22166,14 +22166,14 @@
       "slice": 9,
       "tier": "T3",
       "phase": "MOONSHOT",
-      "title": "Optimize moat narrative: controlled agentic + receipt on every page",
+      "title": "Optimize moat narrative: governed agentic + receipt on every page",
       "status": "open",
       "score_delta": null,
       "priority_rank": 959,
       "path": "prompts/phase-sa-score2-t20-competitive-moat/w16-optimize/slice-09.md",
       "lane": "sourcea-site-batch2",
       "prerequisite_pack": "sourcea-site-score-up-1000",
-      "agent_prompt": "WORK \u2014 sa-score2-0959: Optimize moat narrative: controlled agentic + receipt on every page"
+      "agent_prompt": "WORK \u2014 sa-score2-0959: Optimize moat narrative: governed agentic + receipt on every page"
     },
     {
       "id": "sa-score2-0960",
@@ -22373,14 +22373,14 @@
       "slice": 8,
       "tier": "T2",
       "phase": "MOONSHOT",
-      "title": "Comply moat narrative: controlled agentic + receipt on every page",
+      "title": "Comply moat narrative: governed agentic + receipt on every page",
       "status": "open",
       "score_delta": null,
       "priority_rank": 968,
       "path": "prompts/phase-sa-score2-t20-competitive-moat/w17-comply/slice-08.md",
       "lane": "sourcea-site-batch2",
       "prerequisite_pack": "sourcea-site-score-up-1000",
-      "agent_prompt": "WORK \u2014 sa-score2-0968: Comply moat narrative: controlled agentic + receipt on every page"
+      "agent_prompt": "WORK \u2014 sa-score2-0968: Comply moat narrative: governed agentic + receipt on every page"
     },
     {
       "id": "sa-score2-0969",
@@ -22580,14 +22580,14 @@
       "slice": 7,
       "tier": "T2",
       "phase": "MOONSHOT",
-      "title": "Scale moat narrative: controlled agentic + receipt on every page",
+      "title": "Scale moat narrative: governed agentic + receipt on every page",
       "status": "open",
       "score_delta": null,
       "priority_rank": 977,
       "path": "prompts/phase-sa-score2-t20-competitive-moat/w18-scale/slice-07.md",
       "lane": "sourcea-site-batch2",
       "prerequisite_pack": "sourcea-site-score-up-1000",
-      "agent_prompt": "WORK \u2014 sa-score2-0977: Scale moat narrative: controlled agentic + receipt on every page"
+      "agent_prompt": "WORK \u2014 sa-score2-0977: Scale moat narrative: governed agentic + receipt on every page"
     },
     {
       "id": "sa-score2-0978",
@@ -22787,14 +22787,14 @@
       "slice": 6,
       "tier": "T2",
       "phase": "MOONSHOT",
-      "title": "Monetize moat narrative: controlled agentic + receipt on every page",
+      "title": "Monetize moat narrative: governed agentic + receipt on every page",
       "status": "open",
       "score_delta": null,
       "priority_rank": 986,
       "path": "prompts/phase-sa-score2-t20-competitive-moat/w19-monetize/slice-06.md",
       "lane": "sourcea-site-batch2",
       "prerequisite_pack": "sourcea-site-score-up-1000",
-      "agent_prompt": "WORK \u2014 sa-score2-0986: Monetize moat narrative: controlled agentic + receipt on every page"
+      "agent_prompt": "WORK \u2014 sa-score2-0986: Monetize moat narrative: governed agentic + receipt on every page"
     },
     {
       "id": "sa-score2-0987",
@@ -22994,14 +22994,14 @@
       "slice": 5,
       "tier": "T1",
       "phase": "MOONSHOT",
-      "title": "Defend moat narrative: controlled agentic + receipt on every page",
+      "title": "Defend moat narrative: governed agentic + receipt on every page",
       "status": "open",
       "score_delta": null,
       "priority_rank": 995,
       "path": "prompts/phase-sa-score2-t20-competitive-moat/w20-defend/slice-05.md",
       "lane": "sourcea-site-batch2",
       "prerequisite_pack": "sourcea-site-score-up-1000",
-      "agent_prompt": "WORK \u2014 sa-score2-0995: Defend moat narrative: controlled agentic + receipt on every page"
+      "agent_prompt": "WORK \u2014 sa-score2-0995: Defend moat narrative: governed agentic + receipt on every page"
     },
     {
       "id": "sa-score2-0996",

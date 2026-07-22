@@ -18,7 +18,7 @@
 
 ## 1. Diagnosis — why Copilot-only is a dead end today
 
-| Signal | Truth logged | Business meaning |
+| Signal | Truth on disk | Business meaning |
 |--------|---------------|------------------|
 | **NW1** Design Partner signed | ❌ | No contracted Noetfield buyer |
 | **NW2** Trust Brief delivered | ❌ | No finished governance deliverable in market |
@@ -42,7 +42,7 @@
 |----------------|-------------------|
 | Copilot audit copilot | **Noetfield Intelligence** — AI consulting + vertical automation |
 | Horizontal “governance for M365” | **Vertical-first** — one industry deeply, then productize |
-| Zero clients, zero market proof | **Paid Diagnostic Sprints** in 90 days — case studies logged |
+| Zero clients, zero market proof | **Paid Diagnostic Sprints** in 90 days — case studies on disk |
 | Product = someday | **Consulting = product R&D** — every client pays to build modules |
 | Noetfield = vague “decide & audit” | **Noetfield = advise · build · govern · receipt** (Trust Brief stays) |
 
@@ -71,7 +71,7 @@ Per blueprint + portfolio law §9:
 | Governance artifact | Trust Brief · TLE v1 | unchanged — **opening credential** for consulting |
 
 **Public one-liner (Noetfield Intelligence):**  
-> *We automate the operations Canadian SMEs still run on spreadsheets — with controlled AI you can show your accountant, your client, and your board.*
+> *We automate the operations Canadian SMEs still run on spreadsheets — with governed AI you can show your accountant, your client, and your board.*
 
 **Copilot line (secondary, enterprise only):**  
 > *Every Copilot action evaluated, signed, and logged — procurement-grade record in six weeks.*
@@ -119,7 +119,7 @@ Noetfield Systems Inc.
 
 | Horizon | Timeline | Revenue target | Win condition |
 |---------|----------|----------------|---------------|
-| **H1 — Cash** | Days 1–90 | **$5K–$15K** collected | 2–3 Diagnostic Sprints closed · 1 case study logged |
+| **H1 — Cash** | Days 1–90 | **$5K–$15K** collected | 2–3 Diagnostic Sprints closed · 1 case study on disk |
 | **H2 — MRR** | Months 4–8 | **$15K–$25K/mo** | 3–5 AI Ops retainers · 1 vertical chosen for SaaS MVP |
 | **H3 — Scale** | Months 8–18 | **$50K–$100K Mo** | SaaS V1 live · 50+ seats · Copilot Pack as upsell to largest accounts |
 

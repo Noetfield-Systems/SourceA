@@ -40,7 +40,7 @@ def build_receipt(
         "schema": "external-verify-receipt-v1",
         "version": "1.1.0",
         "at": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
-        "law": "CONTROLLED_AUTORUN_LAWS_v3 L4+L13 — external verify + determinism gate",
+        "law": "GOVERNED_AUTORUN_LAWS_v3 L4+L13 — external verify + determinism gate",
         "github_run_id": github_run_id,
         "github_sha": github_sha,
         "run_url": run_url,

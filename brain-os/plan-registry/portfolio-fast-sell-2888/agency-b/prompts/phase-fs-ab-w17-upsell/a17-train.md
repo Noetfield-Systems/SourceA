@@ -10,12 +10,12 @@
 
 ## Task
 
-Fast-sell: SourceA Agency Asset B · Tier-1 → Tier-2 upsell motion · Client handoff doc. Ship smallest slice that moves a buyer toward **Workflow audit $1.5–3K** with a path to **Build + $1–5K/mo optimize**. Receipt logged before done.
+Fast-sell: SourceA Agency Asset B · Tier-1 → Tier-2 upsell motion · Client handoff doc. Ship smallest slice that moves a buyer toward **Workflow audit $1.5–3K** with a path to **Build + $1–5K/mo optimize**. Receipt on disk before done.
 
 ## Verify
 
 ```bash
-test -f ~/Desktop/SourceA/brain-os/law/SOURCEA_ASSET_B_CONTROLLED_AGENTIC_AUTOMATION_LOCKED_v1.md
+test -f ~/Desktop/SourceA/brain-os/law/SOURCEA_ASSET_B_GOVERNED_AGENTIC_AUTOMATION_LOCKED_v1.md
 ```
 
 ## Closeout

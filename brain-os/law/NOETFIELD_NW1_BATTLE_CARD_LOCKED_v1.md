@@ -26,15 +26,15 @@
 | Copilot rolled out, board asks "who approved what?" | No procurement-grade receipt trail |
 | Purview shows activity — not admissibility | Audit log ≠ governance proof |
 | Policy updated — agents still act on old rules | **Governance latency** |
-| Securiti/SourceA sold data posture — board still wants **signed evidence** | Assessment ≠ ongoing enforcement |
+| Securiti/Zenity sold data posture — board still wants **signed evidence** | Assessment ≠ ongoing enforcement |
 
 ---
 
 ## Noetfield vs alternatives (battle table)
 
-| | **Microsoft Purview** | **Securiti** | **SourceA** | **Noetfield** |
+| | **Microsoft Purview** | **Securiti** | **Zenity** | **Noetfield** |
 |---|----------------------|--------------|------------|---------------|
-| **Primary job** | M365 audit · retention · eDiscovery | Data discovery · Copilot readiness · labeling | Agent build-time + runtime security (AISPM/AIDR) | **Delivery records + re-brief on policy change** |
+| **Primary job** | M365 audit · retention · eDiscovery | Data discovery · Copilot readiness · labeling | Agent build-time + runtime security (AISPM/AIDR) | **Governance receipts + re-brief on policy change** |
 | **Copilot audit** | Metadata in Unified Audit Log; full prompts via eDiscovery only | Readiness checklist · extends Purview gaps | Copilot Studio / Bedrock agent inventory | **TLE v1 + board PDF + procurement ZIP** |
 | **Pre-execution BLOCK** | Authorization Fabric (Azure DIY) | Partial — data/policy gates | Runtime AIDR on agent steps | **`critic_boot` — 4 disk checks, PASS/BLOCK** |
 | **Policy change → agents updated** | Manual re-config · lag quarters | Re-assessment cycles | Build-time policy refresh | **SSOT_CHANGED → instant re-brief** |
@@ -61,7 +61,7 @@
 ## When to lose (honest)
 
 - Buyer needs full data estate discovery across 50 clouds → Securiti / Purview bundle wins on breadth.
-- Buyer needs Copilot Studio agent inventory at scale → SourceA AISPM is built for that UI.
+- Buyer needs Copilot Studio agent inventory at scale → Zenity AISPM is built for that UI.
 - Buyer has zero Copilot deployment → sell **NF-QS** only; do not oversell NF-RD.
 
 ---
@@ -74,11 +74,11 @@
 **vs Securiti:**  
 > Securiti gets your data ready for Copilot. Noetfield keeps your **governance current after** Copilot is live — re-brief on every policy change, signed receipt on every material action.
 
-**vs SourceA:**  
-> SourceA secures how agents are **built**. Noetfield kills **governance latency** — stale policy cannot execute because the machine blocks until re-brief clears.
+**vs Zenity:**  
+> Zenity secures how agents are **built**. Noetfield kills **governance latency** — stale policy cannot execute because the machine blocks until re-brief clears.
 
 **bridge (engine — say once):**  
-> Under the hood this runs on the same controlled execution spine we use for regulated lanes — you buy Noetfield, not infrastructure plumbing.
+> Under the hood this runs on the same governed execution spine we use for regulated lanes — you buy Noetfield, not infrastructure plumbing.
 
 ---
 
@@ -117,7 +117,7 @@
 **Subject:** Copilot governance receipt — design partner
 
 > Every Microsoft Copilot action your team executes leaves no verifiable trail. If something goes wrong — wrong output, unauthorized action, policy violation — you have no cryptographic proof of what happened.  
-> We fix that in 30 days. Delivery records for every Copilot action. Invalid actions blocked before execution. Tamper detected immediately.  
+> We fix that in 30 days. Governance receipts for every Copilot action. Invalid actions blocked before execution. Tamper detected immediately.  
 > Pilot: CAD $2K deposit. Refund if we don't deliver. 15 minutes?
 
 ---
@@ -128,7 +128,7 @@
 |-----------|----------|
 | "We have Purview." | "Keep it. Noetfield is the **board pack** Purview was not designed to produce — permitted vs merely logged." |
 | "We use Securiti for readiness." | "Perfect front door. Noetfield is **after go-live** — ongoing receipt + re-brief when legal updates policy." |
-| "SourceA covers our agents." | "SourceA watches agent build and runtime. We enforce **organizational policy version** in the repository before your governance agents run." |
+| "Zenity covers our agents." | "Zenity watches agent build and runtime. We enforce **organizational policy version** on disk before your governance agents run." |
 | "Too early for us." | "NF-QS in 3–5 days — you'll know if you have a board gap before full pilot spend." |
 | "What's SourceA?" | "Internal engine name — irrelevant on your invoice. You buy **Noetfield**." |
 

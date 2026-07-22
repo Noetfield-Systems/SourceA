@@ -35,7 +35,7 @@ Deliver alone ≠ ACTIVATE. Worker chat validation required on **visible lane**;
 ## 3. PEV spine (disk checkpoints only)
 
 ```text
-PLAN     → healthy-queue-30-active.json + INBOX logged
+PLAN     → healthy-queue-30-active.json + INBOX on disk
 EXECUTE  → agent -p -f (headless) OR Worker chat "run inbox" (visible lane)
 VERIFY   → machine validators + WORKER_ROUND_REPORT YAML
 SYNC     → orchestrator poll_once — no advance without report
@@ -90,7 +90,7 @@ Hub: **founder-auto-run-healthy-10** · API: `POST /api/run-goal1-auto-loop`
 See `SINA_GOAL1_LOOP_UNVALIDATED_PROOF_INCIDENT_LOCKED_v1.md` §5:
 
 - Batch log **`AGENT DONE … exit=0`**
-- Queue position advanced logged
+- Queue position advanced on disk
 - Hub `/health` + `/api/goal1-loop-status` live
 - Never cite PID alone or Worker chat silence as proof
 

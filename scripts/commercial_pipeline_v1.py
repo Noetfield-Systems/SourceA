@@ -281,7 +281,7 @@ def pipeline_glance_payload(*, refresh: bool = True) -> dict[str, Any]:
 
 
 def sync_from_receipts() -> list[dict[str, Any]]:
-    """Seed/update rows from outbound + AEG receipts logged."""
+    """Seed/update rows from outbound + AEG receipts on disk."""
     rows = load_rows()
     by_company: dict[str, str] = {str(r.get("company")): rid for rid, r in rows.items()}
     synced: list[dict[str, Any]] = []

@@ -1018,7 +1018,7 @@ function parsePreset(presetDir) {
 
 // ═══════════════════ Capability detection ═════════════════
 // A capability requirement is satisfied when its kind-specific check passes:
-//   block_installed: BOTH `verify_file` AND `verify_lib` exist logged.
+//   block_installed: BOTH `verify_file` AND `verify_lib` exist on disk.
 //                    `verify_file` alone is not enough — `hyperframes add` writes
 //                    the block HTML but the lib/*.iife.js is shipped separately
 //                    by some blocks, so we check both. Missing → subagent should

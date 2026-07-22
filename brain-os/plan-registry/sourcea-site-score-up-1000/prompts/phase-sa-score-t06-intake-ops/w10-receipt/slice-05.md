@@ -1,4 +1,4 @@
-# sa-score-0395 — Receipt logged for Resend notify on every feedback + MVP
+# sa-score-0395 — Receipt on disk for Resend notify on every feedback + MVP
 
 **Saved at:** 2026-06-25T09:23:55Z
 **Version:** 1 · **Tier:** T2 · **Phase:** LATER
@@ -16,7 +16,7 @@ Raise SourceA site score toward **95+/100** — proof before call · stranger se
 
 P2 — harden · document · validate
 
-**Deliverable:** Receipt logged for Resend notify on every feedback + MVP
+**Deliverable:** Receipt on disk for Resend notify on every feedback + MVP
 
 Bounded paths: `SourceA-landing/green-unified/` · `cloud/workers/sourcea-site-pulse-v1/` · `scripts/validate-sourcea-modern-stack-e2e-v1.sh`
 

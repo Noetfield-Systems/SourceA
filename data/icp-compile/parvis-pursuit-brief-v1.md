@@ -21,7 +21,7 @@
 
 ## Before send
 
-- [ ] FINTRAC/OSC registration verified logged  
+- [ ] FINTRAC/OSC registration verified on disk  
 - [ ] Champion role confirmed (CCO / platform)  
 - [ ] `verify_outbound_no_invitation.sh` on draft  
 - [ ] Separate from Ocree thread timing (stagger W3)

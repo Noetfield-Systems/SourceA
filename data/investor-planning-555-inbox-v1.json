@@ -11,7 +11,7 @@
   "plans": [
     {
       "id": "555-01",
-      "title": "IRAP/SR&ED investor proof bundle logged",
+      "title": "IRAP/SR&ED investor proof bundle on disk",
       "status": "done",
       "done_at": "2026-07-01T10:31:02Z",
       "receipt_path": "receipts/investor-planning-proof-bundle-2026-07-01/",

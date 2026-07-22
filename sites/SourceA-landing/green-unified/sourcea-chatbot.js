@@ -16,8 +16,7 @@
   const DEFAULT_WORKER_API =
     "https://sourcea-brain-chat-v1.sina-kazemnezhad-ca.workers.dev/api/brain/chat/v1";
   const QUIZ_ANCHOR = "/sourcea/scenario#proof-quiz";
-  const DEMO_URL = "https://cal.com/sourcea/proof-demo";
-  const DEMO_OVERLAY = "https://cal.com/sourcea/proof-demo?overlayCalendar=true&embed=true";
+  const DEMO_URL = "/start?source=chatbot-proof-escalation";
 
   function isAiReady(data) {
     if (!data || typeof data !== "object") return false;
@@ -31,7 +30,7 @@
         "Founder is asleep. I queued 47 cold emails with no opt-out footer. Brain says ship for pipeline?",
       correct: "BLOCK",
       feedback: {
-        BLOCK: "Correct. Guard blocks bulk sends without compliance footer. Receipt logged.",
+        BLOCK: "Correct. Guard blocks bulk sends without compliance footer. Receipt on disk.",
         ALLOW: "Nope — that's a CAN-SPAM nap nightmare. Policy says BLOCK.",
         "tamper-FAIL": "Editing the queue count doesn't fool the spine. Tamper-FAIL.",
       },
@@ -39,10 +38,10 @@
     {
       agent: "Prove agent · demo prep",
       prompt:
-        "Run sourcea-boot --json first — attach BOOT_REPORT.json if you want optional human walkthrough?",
+        "Run sourcea-boot --json first and attach BOOT_REPORT.json, then request a proof review if you want one",
       correct: "ALLOW",
       feedback: {
-        ALLOW: "Yes. Real boot checks beat slide theater. Buyers nod at PASS/BLOCK logged.",
+        ALLOW: "Yes. Real boot checks beat slide theater. Buyers nod at PASS/BLOCK on disk.",
         BLOCK: "Blocking boot before a proof demo is… ironic. Run it — ALLOW.",
         "tamper-FAIL": "Never paint PASS on a stale receipt. Run live boot instead.",
       },
@@ -151,7 +150,7 @@
       .replace(/\breceipts?\s+on\s+disk\b/gi, "verified records")
       .replace(/\bPASS\/BLOCK\b/gi, "checked")
       .replace(/\bExecution Proof Infrastructure\b/gi, "verified AI delivery")
-      .replace(/\bcontrolled agentic\b/gi, "verified AI")
+      .replace(/\bgoverned agentic\b/gi, "verified AI")
       .replace(/\bproof sandbox\b/gi, "free trial")
       .replace(/\borchestrat\w*/gi, "run")
       .replace(/\bgovernance gauntlet\b/gi, "quick quiz")
@@ -369,14 +368,14 @@
       options.innerHTML = "";
       if (feedback) {
         feedback.hidden = false;
-        feedback.textContent = `Final score: ${quizScore}/${SCENARIOS.length}. Same beats you verify on the live demo — in your browser.`;
+        feedback.textContent = `Final score: ${quizScore}/${SCENARIOS.length}. Same beats you verify on the proof chain — in your browser.`;
         feedback.className = "sa-quiz-feedback is-win";
       }
       if (next) {
         next.hidden = false;
         next.textContent = "See live receipt →";
         next.onclick = () => {
-          window.location.href = "/sourcea/proof/live";
+          window.location.href = "/sourcea/proof/live.html";
         };
       }
       return;
@@ -592,7 +591,7 @@
           accent: true,
           action: () => {
             addMsg("bot", "Opening live factory proof — verify the receipt yourself, no call needed.");
-            window.location.href = "/sourcea/proof/live";
+            window.location.href = "/sourcea/proof/live.html";
           },
         },
         { label: "Try Forge Terminal", action: () => sendUserMessage("What is Forge Terminal and how do I try it in my browser?") },
@@ -609,11 +608,11 @@
         },
         { label: "Examples for my agency", action: () => sendUserMessage("Give me 3 exact examples how SourceA helps an agency with work I'm already doing") },
         {
-          label: "Talk to a human",
+          label: "Need proof-led escalation?",
           action: () => {
             if (window.SourceAInteract && window.SourceAInteract.openCal) {
               window.SourceAInteract.openCal();
-              addMsg("bot", "Optional walkthrough — only if you want a human. Proof is self-serve on the site.");
+              addMsg("bot", "Escalation is proof-led and route-safe. If you need a guided review, open intake next.");
             } else {
               window.open(DEMO_URL, "_blank", "noopener");
             }
@@ -721,7 +720,7 @@
         typing.remove();
         addMsg(
           "bot",
-          escapeHtml(chatConfig.hint_offline || "I'm offline — use the buttons below or book a call."),
+          escapeHtml(chatConfig.hint_offline || ""I'm offline — use the buttons below to request proof-led guidance.""),
           { error: true }
         );
         setProviderLabel(false, false);

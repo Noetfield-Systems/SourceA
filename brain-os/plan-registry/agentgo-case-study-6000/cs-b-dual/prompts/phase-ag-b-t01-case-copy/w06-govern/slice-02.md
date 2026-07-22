@@ -14,7 +14,7 @@ Dual desktop deploy — agentrun-app :5180 + SA4 AgentGo :8080 · landing parity
 
 ## Task
 
-**Run cross_lane_edit_guard for** case study prose (challenge · shipped · verification).
+**Run cross_lane_edit_guard for** case study prose (challenge · shipped · proof chain).
 
 Before any write.
 

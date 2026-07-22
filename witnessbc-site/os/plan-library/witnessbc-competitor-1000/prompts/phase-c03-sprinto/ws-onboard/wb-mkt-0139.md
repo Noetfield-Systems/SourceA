@@ -23,7 +23,7 @@ Docs: onboarding section cites Sprinto as market analog with https://sprinto.com
 
 ## Implementation extraction
 
-`Sprinto · Onboarding & PLG` → what buyer sees at vendor → what we ship logged with receipt.
+`Sprinto · Onboarding & PLG` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

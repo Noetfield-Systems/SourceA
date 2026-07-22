@@ -34,7 +34,7 @@ import json
 from pathlib import Path
 receipt=json.loads(Path('$p').read_text())
 assert receipt.get('schema')=='agent-runtime-promotion-report-v1', receipt
-print('OK: promotion receipt logged')
+print('OK: promotion receipt on disk')
 "
 else
   echo "WARN: promotion receipt missing at $p (run report without --no-write to materialize)"

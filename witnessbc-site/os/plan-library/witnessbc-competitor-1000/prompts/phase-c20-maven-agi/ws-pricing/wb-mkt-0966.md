@@ -23,7 +23,7 @@ Document why buyers pay per Maven AGI: Support volume exceeds headcount — tie 
 
 ## Implementation extraction
 
-`Maven AGI · Pricing & packaging` → what buyer sees at vendor → what we ship logged with receipt.
+`Maven AGI · Pricing & packaging` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

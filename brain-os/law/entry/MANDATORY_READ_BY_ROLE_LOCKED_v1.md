@@ -35,7 +35,7 @@
 | 2b | `brain-os/contract/BRAIN_E2E_EXECUTOR_PASTE_LOCKED_v1.md` — **ASF "check e2e" only** |
 | 3 | `brain-os/contract/MANDATORY_BRAIN_CHAT_LOCKED_v1.md` |
 | 4 | `brain-os/law/BRAIN_RULES_AUTHORITY_INDEX_LOCKED_v1.md` |
-| 5 | `brain-os/system/CONTROLLED_EXECUTION_OS_MASTER_LOCKED_v1.md` |
+| 5 | `brain-os/system/GOVERNED_EXECUTION_OS_MASTER_LOCKED_v1.md` |
 | 6 | `brain-os/system/WORKER_ASSIGNMENT_AND_CHAT_ROUTING_LOCKED_v1.md` |
 | 7 | `brain-os/system/GOAL_HIERARCHY_LOCKED_v1.md` |
 | 7b | `brain-os/incidents/SINA_GOAL_HIERARCHY_ENFORCEMENT_INCIDENT_LOCKED_v1.md` — **INCIDENT-004** |
@@ -148,7 +148,7 @@
 | # | File |
 |---|------|
 | 1 | `brain-os/lanes/GOAL_SPECIALIST_CHAT_PACK_LOCKED_v1.md` §1 |
-| 2 | `brain-os/system/CONTROLLED_EXECUTION_OS_MASTER_LOCKED_v1.md` §6 YAML vault |
+| 2 | `brain-os/system/GOVERNED_EXECUTION_OS_MASTER_LOCKED_v1.md` §6 YAML vault |
 
 ---
 

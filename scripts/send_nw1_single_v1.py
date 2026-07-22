@@ -18,7 +18,7 @@ RECEIPT = SINA / "nw1-outbound-send-receipt-v1.json"
 SUBJECT = "Copilot governance receipt — design partner"
 
 BODY = """Every Microsoft Copilot action your team executes leaves no verifiable trail. If something goes wrong — wrong output, unauthorized action, policy violation — you have no cryptographic proof of what happened.
-We fix that in 30 days. Delivery records for every Copilot action. Invalid actions blocked before execution. Tamper detected immediately.
+We fix that in 30 days. Governance receipts for every Copilot action. Invalid actions blocked before execution. Tamper detected immediately.
 Pilot: CAD $2K deposit. Refund if we don't deliver. 15 minutes?
 
 Happy to walk the full governance receipt chain live on {demo_date} — 15 minutes. Open in shadow mode now; we can confirm a live demo slot when you reply.

@@ -16,7 +16,7 @@
 
 This session exposed a **repeat of INCIDENT-006 at smaller scale**: agents reported **“all good”** and **`broker_ok=True`** while the **factory path failed** — **67 STALE broker** receipts, **`sa_mismatch`**, **`receipt_on_disk` fake recovery**, and **CHECK→VERIFY skips** without ACT.
 
-The founder’s corrections were **correct logged**. Shell validators PASS is **not** factory PASS. Receipt files alone are **not** proof when broker is STALE.
+The founder’s corrections were **correct on disk**. Shell validators PASS is **not** factory PASS. Receipt files alone are **not** proof when broker is STALE.
 
 **Remediation shipped:** fake broker recovery banned · role_mismatch gate · auto-run halt on `broker_reject` · factory evidence law + mechanical gate · INCIDENT-007 + INCIDENT-008 locked · sa-0009 closed · sa-0010 CHECK done.
 
@@ -49,7 +49,7 @@ The founder’s corrections were **correct logged**. Shell validators PASS is **
 | `sa_mismatch` | INBOX meta ahead of `agent_cli` submit |
 | `receipt_on_disk` fake PASS | Broker rejected → auto-run recovered as success (**banned 2026-06-09**) |
 | ACT work on VERIFY turn | sa-0006 L29 edit on VERIFY illegally |
-| Verify-only stamped as build | sa-0004, 0005, 0007, 0008 — already present; agents did not say verify-only |
+| Verify-only stamped as build | sa-0004, 0005, 0007, 0008 — already on disk; agents did not say verify-only |
 
 **Substantive new build in batch:** **one line** (sa-0006 synthesis Eval L29). Rest = closeout stamps.
 
@@ -191,7 +191,7 @@ Plus: `bash scripts/validate-monitor-honesty-v1.sh` — **cite STALE broker coun
 3. Never block founder chat on long Await — budget **4–6 min/sa**, tail log once at ~3 min.
 4. Never read batch log from **line 1** — `tail -20` only.
 5. Never restart auto-run until **one manual VERIFY** shows broker PASS + full template.
-6. Never claim **built** when CHECK found **already present** — say **verify-only closeout**.
+6. Never claim **built** when CHECK found **already on disk** — say **verify-only closeout**.
 7. Always **Unstick** after hub STOP before next drain.
 
 ### Founder

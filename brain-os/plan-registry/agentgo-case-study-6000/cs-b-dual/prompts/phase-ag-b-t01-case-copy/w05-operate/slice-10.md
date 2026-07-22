@@ -14,7 +14,7 @@ Dual desktop deploy — agentrun-app :5180 + SA4 AgentGo :8080 · landing parity
 
 ## Task
 
-**Check pack disk budget for** case study prose (challenge · shipped · verification).
+**Check pack disk budget for** case study prose (challenge · shipped · proof chain).
 
 plan-registry size.
 

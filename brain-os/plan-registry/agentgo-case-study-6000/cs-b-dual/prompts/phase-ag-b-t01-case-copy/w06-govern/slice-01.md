@@ -14,7 +14,7 @@ Dual desktop deploy — agentrun-app :5180 + SA4 AgentGo :8080 · landing parity
 
 ## Task
 
-**Apply separation law to** case study prose (challenge · shipped · verification).
+**Apply separation law to** case study prose (challenge · shipped · proof chain).
 
 AgentGo ≠ SourceA ≠ Wil.
 

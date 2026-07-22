@@ -14,7 +14,7 @@ Dual desktop deploy — agentrun-app :5180 + SA4 AgentGo :8080 · landing parity
 
 ## Task
 
-**Log win/loss retro for** case study prose (challenge · shipped · verification).
+**Log win/loss retro for** case study prose (challenge · shipped · proof chain).
 
 Even loss gets receipt.
 

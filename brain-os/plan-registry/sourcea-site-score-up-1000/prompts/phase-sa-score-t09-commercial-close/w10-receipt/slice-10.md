@@ -1,4 +1,4 @@
-# sa-score-0300 — Receipt logged for self-serve MSA snippet on /trust
+# sa-score-0300 — Receipt on disk for self-serve MSA snippet on /trust
 
 **Saved at:** 2026-06-25T09:23:55Z
 **Version:** 1 · **Tier:** T3 · **Phase:** LATER
@@ -16,7 +16,7 @@ Raise SourceA site score toward **95+/100** — proof before call · stranger se
 
 P3 — bench · defer · compare-only
 
-**Deliverable:** Receipt logged for self-serve MSA snippet on /trust
+**Deliverable:** Receipt on disk for self-serve MSA snippet on /trust
 
 Bounded paths: `SourceA-landing/green-unified/` · `cloud/workers/sourcea-site-pulse-v1/` · `scripts/validate-sourcea-modern-stack-e2e-v1.sh`
 

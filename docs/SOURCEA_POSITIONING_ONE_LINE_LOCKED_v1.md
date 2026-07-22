@@ -27,7 +27,7 @@ Use this verbatim when a stranger asks “What is SourceA?” — in Brain, sale
 |-----------------------------------|--------|
 | “AI proof / verification / audit trail software” | **Execution platform** — Forge runs the work |
 | “We just give you records” | **Forge executes**; proof shows what ran and why |
-| “ChatGPT wrapper for agencies” | **Controlled agent workflows** with quality gate + execute |
+| “ChatGPT wrapper for agencies” | **Governed agent workflows** with quality gate + execute |
 | Lead with **$1,500–$5,000** before value | **Problem → solution → example → value → price** |
 
 ---
@@ -112,7 +112,7 @@ Stranger chat on [sourcea.app/sourcea/forge/](https://sourcea.app/sourcea/forge/
 - “Do you have IDE cloud?” answered with flat **No** instead of Forge Terminal
 - User objection **“You just give me records??”** was not recovered
 
-**Fix:** Positioning v3.1.0 logged + Brain system prompt v2.0.0 deployed to Cloudflare worker.
+**Fix:** Positioning v3.1.0 on disk + Brain system prompt v2.0.0 deployed to Cloudflare worker.
 
 ---
 

@@ -85,7 +85,7 @@ RIGHT (locked):
 
 ---
 
-## Grades locally (2026-06-15)
+## Grades on disk (2026-06-15)
 
 | Asset | Grade | Status |
 |-------|-------|--------|

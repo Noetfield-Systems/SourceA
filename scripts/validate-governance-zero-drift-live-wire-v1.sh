@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Governance zero-drift live wire — chain must PASS logged
+# Governance zero-drift live wire — chain must PASS on disk
 set -euo pipefail
 cd "$(dirname "$0")/.."
 ROOT="$(pwd)"

@@ -21,7 +21,7 @@ SEED_NATIONS: list[dict[str, Any]] = [
     {
         "id": "nation-sourcea",
         "name": "SourceA Mac Control Plane",
-        "ideology": "controlled_automation",
+        "ideology": "governed_automation",
         "economy": {"gdp": 100.0, "currency": 1000.0, "inflation": 0.02},
         "population": 13,
         "resources": {"compute": 2.0, "data": 500.0, "energy": 10.0, "influence": 0.6},

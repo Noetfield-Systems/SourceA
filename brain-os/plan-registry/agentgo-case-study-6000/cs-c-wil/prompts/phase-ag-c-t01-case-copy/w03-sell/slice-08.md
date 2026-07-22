@@ -14,7 +14,7 @@ Wil L3 portfolio demo — YA5 mirror · AgentGo ≠ SourceA separation · ship g
 
 ## Task
 
-**Tie to Asset B SKU for** case study prose (challenge · shipped · verification).
+**Tie to Asset B SKU for** case study prose (challenge · shipped · proof chain).
 
 $3–10K loop build · not GEO subscription.
 

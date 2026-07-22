@@ -14,6 +14,6 @@ https://www.trustfield.ca/start
 Sina Kazemnezhad · TrustField Technologies
 hello@trustfield.ca · Canada
 
-Powered by SourceA — advisory only · no custody · no payment initiation.
+Powered by SourceA governed execution — advisory only · no custody · no payment initiation.
 
 Reply **stop** — no further messages.

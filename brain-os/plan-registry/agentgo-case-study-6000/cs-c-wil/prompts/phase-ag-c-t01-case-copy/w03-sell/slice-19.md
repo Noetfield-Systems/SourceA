@@ -14,7 +14,7 @@ Wil L3 portfolio demo — YA5 mirror · AgentGo ≠ SourceA separation · ship g
 
 ## Task
 
-**Log win/loss retro for** case study prose (challenge · shipped · verification).
+**Log win/loss retro for** case study prose (challenge · shipped · proof chain).
 
 Even loss gets receipt.
 

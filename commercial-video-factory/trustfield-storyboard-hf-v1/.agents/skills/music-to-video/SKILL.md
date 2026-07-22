@@ -112,9 +112,9 @@ Canvas: <w>×<h>   Pacing: <beat_cut|phrase_flow>
 Write to: PROJECT_DIR/compositions/frames/<frame_id>.html
 ```
 
-The worker forks the cited materials, converts every anchor to frame-local seconds (`local_t = track_t − span_sec[0]`), gates its groups with 0ms cuts, and writes one seek-safe frame file. **The worker never runs the `hyperframes` CLI** — those commands operate on the assembled project, which doesn't exist yet, so they'd report on the wrong files. The worker just writes to the contract and stops; you verify after assembly (Step 6). As each worker returns, you can confirm its file landed logged.
+The worker forks the cited materials, converts every anchor to frame-local seconds (`local_t = track_t − span_sec[0]`), gates its groups with 0ms cuts, and writes one seek-safe frame file. **The worker never runs the `hyperframes` CLI** — those commands operate on the assembled project, which doesn't exist yet, so they'd report on the wrong files. The worker just writes to the contract and stops; you verify after assembly (Step 6). As each worker returns, you can confirm its file landed on disk.
 
-**Gate:** every frame has its `compositions/frames/NN-*.html` logged.
+**Gate:** every frame has its `compositions/frames/NN-*.html` on disk.
 
 ---
 

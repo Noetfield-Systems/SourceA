@@ -17349,12 +17349,12 @@
       "slice_ref": "",
       "lane": "enforcement-6mo",
       "slot": 0,
-      "title": "Binary check W1: filmed demo exists in the repository",
+      "title": "Binary check W1: filmed demo exists on disk",
       "path": "prompts/phase-e9-dec-closeout/T0/enf-0901.md",
       "status": "backlog",
       "verify": "cd ~/Desktop/SourceA && bash scripts/validate-demo-enforcement-v1.sh && bash scripts/validate-universe-invariants-v1.sh",
       "agent_tag": "AGENT-AUTO-ENFORCEMENT",
-      "agent_prompt": "PLAN WITH NO ASF \u2014 ENFORCEMENT-6MO enf-0901: Binary check W1: filmed demo exists in the repository"
+      "agent_prompt": "PLAN WITH NO ASF \u2014 ENFORCEMENT-6MO enf-0901: Binary check W1: filmed demo exists on disk"
     },
     {
       "id": "enf-0902",
@@ -17824,12 +17824,12 @@
       "slice_ref": "",
       "lane": "enforcement-6mo",
       "slot": 0,
-      "title": "[CI] Wire regression + REPO_EXECUTION_LOGS evidence for: Binary check W1: filmed demo exists in the repository",
+      "title": "[CI] Wire regression + REPO_EXECUTION_LOGS evidence for: Binary check W1: filmed demo exists on disk",
       "path": "prompts/phase-e9-dec-closeout/T1/enf-0926.md",
       "status": "backlog",
       "verify": "cd ~/Desktop/SourceA && bash scripts/validate-demo-enforcement-v1.sh && SINA_FCB_FAST=1 python3 scripts/find_critical_bugs.py",
       "agent_tag": "AGENT-AUTO-ENFORCEMENT",
-      "agent_prompt": "PLAN WITH NO ASF \u2014 ENFORCEMENT-6MO enf-0926: [CI] Wire regression + REPO_EXECUTION_LOGS evidence for: Binary check W1: filmed demo exists in the repository"
+      "agent_prompt": "PLAN WITH NO ASF \u2014 ENFORCEMENT-6MO enf-0926: [CI] Wire regression + REPO_EXECUTION_LOGS evidence for: Binary check W1: filmed demo exists on disk"
     },
     {
       "id": "enf-0927",
@@ -18299,12 +18299,12 @@
       "slice_ref": "",
       "lane": "enforcement-6mo",
       "slot": 0,
-      "title": "[CHAOS] Kill/replay stress \u2014 prove still holds: Binary check W1: filmed demo exists in the repository",
+      "title": "[CHAOS] Kill/replay stress \u2014 prove still holds: Binary check W1: filmed demo exists on disk",
       "path": "prompts/phase-e9-dec-closeout/T2/enf-0951.md",
       "status": "backlog",
       "verify": "cd ~/Desktop/SourceA && bash scripts/demo-enforcement-5min-v1.sh --dry-run",
       "agent_tag": "AGENT-AUTO-ENFORCEMENT",
-      "agent_prompt": "PLAN WITH NO ASF \u2014 ENFORCEMENT-6MO enf-0951: [CHAOS] Kill/replay stress \u2014 prove still holds: Binary check W1: filmed demo exists in the repository"
+      "agent_prompt": "PLAN WITH NO ASF \u2014 ENFORCEMENT-6MO enf-0951: [CHAOS] Kill/replay stress \u2014 prove still holds: Binary check W1: filmed demo exists on disk"
     },
     {
       "id": "enf-0952",
@@ -18774,12 +18774,12 @@
       "slice_ref": "",
       "lane": "enforcement-6mo",
       "slot": 0,
-      "title": "[POLISH] Document or DELETE if no CLOSEOUT impact: Binary check W1: filmed demo exists in the repository",
+      "title": "[POLISH] Document or DELETE if no CLOSEOUT impact: Binary check W1: filmed demo exists on disk",
       "path": "prompts/phase-e9-dec-closeout/T3/enf-0976.md",
       "status": "backlog",
       "verify": "cd ~/Desktop/SourceA && bash scripts/validate-enforcement-demo-v1.sh 2>/dev/null || bash scripts/validate-demo-enforcement-v1.sh",
       "agent_tag": "AGENT-AUTO-ENFORCEMENT",
-      "agent_prompt": "PLAN WITH NO ASF \u2014 ENFORCEMENT-6MO enf-0976: [POLISH] Document or DELETE if no CLOSEOUT impact: Binary check W1: filmed demo exists in the repository"
+      "agent_prompt": "PLAN WITH NO ASF \u2014 ENFORCEMENT-6MO enf-0976: [POLISH] Document or DELETE if no CLOSEOUT impact: Binary check W1: filmed demo exists on disk"
     },
     {
       "id": "enf-0977",

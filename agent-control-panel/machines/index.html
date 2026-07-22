@@ -196,7 +196,7 @@
       const qs = d.quarantine_bookmark_slice || {};
       $("quarantine-line").textContent = qs.display_line || "Quarantine bookmark unknown";
       $("quarantine-sub").textContent =
-        "archive quarantined logged · not on daily H1/H2 · cross_check " + (qs.cross_check_ok ? "ok" : "fail");
+        "archive quarantined on disk · not on daily H1/H2 · cross_check " + (qs.cross_check_ok ? "ok" : "fail");
       $("executor-ship").innerHTML = tableRows(b.maintainer_ship || [], [
         { label: "ID", val: "id" },
         { label: "Title", val: "title" },

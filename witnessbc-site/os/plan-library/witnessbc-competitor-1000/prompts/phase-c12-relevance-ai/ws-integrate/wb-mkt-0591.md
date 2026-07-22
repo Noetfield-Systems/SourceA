@@ -23,7 +23,7 @@ List Relevance AI integrations/APIs from https://relevanceai.com/docs/get-starte
 
 ## Implementation extraction
 
-`Relevance AI · Integrations & API` → what buyer sees at vendor → what we ship logged with receipt.
+`Relevance AI · Integrations & API` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

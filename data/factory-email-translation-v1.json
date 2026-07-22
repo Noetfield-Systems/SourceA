@@ -15,7 +15,7 @@
     "replay engine",
     "auditable execution trail",
     "partner-grade attestation",
-    "controlled issuance",
+    "governed issuance",
     "agentic",
     "orchestrator"
   ],
@@ -34,7 +34,7 @@
     "runtime": "while the AI is working",
     "attestation": "proof",
     "governance": "control",
-    "controlled issuance": "proof each step was permitted",
+    "governed issuance": "proof each step was permitted",
     "auditable execution trail": "proof of what actually happened after the fact",
     "partner-grade attestation": "proof each step was permitted",
     "agentic": "helping teams get value from AI",

@@ -1,4 +1,4 @@
-# sa-score-0793 — Receipt logged for top_events alert threshold in founder UI
+# sa-score-0793 — Receipt on disk for top_events alert threshold in founder UI
 
 **Saved at:** 2026-06-25T09:23:55Z
 **Version:** 1 · **Tier:** T1 · **Phase:** MOONSHOT
@@ -16,7 +16,7 @@ Raise SourceA site score toward **95+/100** — proof before call · stranger se
 
 P1 — next sprint; measurable score delta
 
-**Deliverable:** Receipt logged for top_events alert threshold in founder UI
+**Deliverable:** Receipt on disk for top_events alert threshold in founder UI
 
 Bounded paths: `SourceA-landing/green-unified/` · `cloud/workers/sourcea-site-pulse-v1/` · `scripts/validate-sourcea-modern-stack-e2e-v1.sh`
 

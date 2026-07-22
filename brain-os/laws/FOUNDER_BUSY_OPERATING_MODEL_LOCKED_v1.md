@@ -114,7 +114,7 @@ Engines: `validators` · `worker` · `api` · `cli` · `brain_route`
 | `api` + `act` | **ALWAYS INVALID** — no file tools |
 | `validators` | **ONLY** progress authority for PASS/FAIL |
 | AI on CHECK | Report gaps only — **MUST NOT** mark DONE |
-| `brain_route` | **MUST NOT** implement `sa-XXXX` logged |
+| `brain_route` | **MUST NOT** implement `sa-XXXX` on disk |
 
 ---
 

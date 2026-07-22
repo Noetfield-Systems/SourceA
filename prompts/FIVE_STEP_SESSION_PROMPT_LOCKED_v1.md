@@ -22,7 +22,7 @@ Run exactly five steps. Simplification is mandatory.
    If context thin/summarized: run @sina-conscious-recovery (transcript + MASTER_CATALOG §2 + truth tree §2b).
    Output SCAN card: Pain · Goal · Red · Green (max 10 lines, cite paths).
 
-2. SAY — Plain founder language. Per issue/fork: Subject · Question · In the repository · Effect.
+2. SAY — Plain founder language. Per issue/fork: Subject · Question · On disk · Effect.
    Format: 4 options OR yes/no quad OR text box. No jargon. No vague confirm.
 
 3. PICK — STOP until founder orders:

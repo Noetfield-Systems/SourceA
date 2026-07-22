@@ -1,7 +1,7 @@
 # fs-wb-0267 — Fast-sell plan
 
 **Version:** 1 · **Tier:** T0 · **Phase:** MOONSHOT
-**Lane:** WitnessBC · **Wedge:** w15-archived-research · Ship differentiated feature slice
+**Lane:** WitnessBC · **Wedge:** w15-competitor-clone · Clone one competitor feature slice
 **Action:** a01-research · Research comp pricing page
 **Comp anchor:** LowerPlane · Delve
 **Tier 1:** Public proof page pilot
@@ -10,7 +10,7 @@
 
 ## Task
 
-Fast-sell: WitnessBC · Ship differentiated feature slice · Research comp pricing page. Ship smallest slice that moves a buyer toward **Public proof page pilot** with a path to **Civic annual + audit export**. Receipt logged before done.
+Fast-sell: WitnessBC · Clone one competitor feature slice · Research comp pricing page. Ship smallest slice that moves a buyer toward **Public proof page pilot** with a path to **Civic annual + audit export**. Receipt on disk before done.
 
 ## Verify
 

@@ -34,7 +34,7 @@ def _use_slim_prompt(slim: bool | None) -> bool:
 
 
 def build_turn_prompt_slim(*, item: dict, pos: int, total: int, engine: str = "WORKER") -> str:
-    """~12 lines — founder/Worker chat. Laws logged; agent reads paths, not pasted walls."""
+    """~12 lines — founder/Worker chat. Laws on disk; agent reads paths, not pasted walls."""
     sa_id = item.get("sa_id", "?")
     role = (item.get("queue_role") or "check").lower()
     instr = (item.get("instruction") or item.get("sa_title") or "").strip()

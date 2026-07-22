@@ -12,7 +12,7 @@ Revenue Engine · Proof Pack · landing · factory-runtime-spike
 
 ## Task
 
-SourceA · Cloud & integrate · Validate · slice 5/10 — P2 — harden · validate · document. Bounded path only. Receipt logged before done. Parent: Revenue Engine · Proof Pack · landing · factory-runtime-spike. Priority doc: `brain-os/plan-registry/SOURCEA-PRIORITY.md`.
+SourceA · Cloud & integrate · Validate · slice 5/10 — P2 — harden · validate · document. Bounded path only. Receipt on disk before done. Parent: Revenue Engine · Proof Pack · landing · factory-runtime-spike. Priority doc: `brain-os/plan-registry/SOURCEA-PRIORITY.md`.
 
 ## Verify
 

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""CI determinism gate — controlled-autorun D1–D8.
+"""CI determinism gate — governed-autorun D1–D8.
 
 Law: references/deterministic-loops.md · L13
 """
@@ -202,7 +202,7 @@ def verify() -> dict[str, Any]:
         "schema": "autorun-determinism-verify-v1",
         "version": "1.1.0",
         "at": _now(),
-        "law": "controlled-autorun L13 · deterministic-loops D1-D8",
+        "law": "governed-autorun L13 · deterministic-loops D1-D8",
         "ok": ok,
         "tests": tests,
         "report_line": f"determinism {'PASS' if ok else 'FAIL'} · "

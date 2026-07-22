@@ -14,7 +14,7 @@ Wil L3 portfolio demo — YA5 mirror · AgentGo ≠ SourceA separation · ship g
 
 ## Task
 
-**Govern audit for** case study prose (challenge · shipped · verification).
+**Govern audit for** case study prose (challenge · shipped · proof chain).
 
 10 spot plans.
 

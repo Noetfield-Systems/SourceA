@@ -25,7 +25,7 @@ def main() -> int:
     qsa = queue_sa_from_disk()
     nxt = _read_latest_next()
     if not qsa:
-        print("OK: validate-repo-execution-log-queue-v1 · no queue_sa logged")
+        print("OK: validate-repo-execution-log-queue-v1 · no queue_sa on disk")
         return 0
     if nxt != qsa:
         print(f"FAIL: latest.yaml next_task={nxt!r} != queue_sa {qsa!r}")

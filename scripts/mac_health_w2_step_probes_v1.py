@@ -55,7 +55,7 @@ def _health_version() -> str:
 
 
 def probe_step(plan_id: str, step: int, wired_to: str) -> bool:
-  """Return True when step acceptance is met logged."""
+  """Return True when step acceptance is met on disk."""
   wt = wired_to.replace("~", str(Path.home()))
   rel = wired_to
   if wired_to.startswith("~/"):

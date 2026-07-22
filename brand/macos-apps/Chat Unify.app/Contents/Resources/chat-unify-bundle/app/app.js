@@ -840,7 +840,7 @@
       const human = text.slice(0, idx).trim();
       const woId = workOrder?.id || "proposed";
       const blocked = workOrder?.dispatch_blocked ? "\n⚠ Dispatch blocked until Eval-1b proof passes." : "";
-      return `${human}\n\n[Work order ${woId} in the repository — tap WO to copy JSON]${blocked}`;
+      return `${human}\n\n[Work order ${woId} on disk — tap WO to copy JSON]${blocked}`;
     }
     return text;
   }
@@ -1468,7 +1468,7 @@
 
     if (!json) return null;
     renderProofPack(json);
-    if (!opts.fromAuto) toast(json.ok ? "Proof Pack sealed logged" : json.message || "Proof Pack blocked", json.ok ? 4000 : 6000);
+    if (!opts.fromAuto) toast(json.ok ? "Proof Pack sealed on disk" : json.message || "Proof Pack blocked", json.ok ? 4000 : 6000);
     return json;
   }
 
@@ -1802,7 +1802,7 @@
     renderVocabularyIntelligence(json);
     if (!opts.fromAuto) {
       toast(
-        json.ok ? "Vocabulary scan complete — receipt logged" : json.message || "Vocabulary scan blocked",
+        json.ok ? "Vocabulary scan complete — receipt on disk" : json.message || "Vocabulary scan blocked",
         json.ok ? 4000 : 6000
       );
     }
@@ -1841,7 +1841,7 @@
     const cn = (json.features || []).includes("connect_hub") ? " · Connect hub live" : "";
     const vim = (json.features || []).includes("vocabulary_intelligence") ? " · Vocabulary Intel live" : "";
     const ver = serverVer || json.ui_version || CLIENT_UI_VERSION;
-    const msg = `Chat Unify live · UI ${ver} · ${feats} capabilities wired${pf}${cn}${pp}${vim} · receipts logged`;
+    const msg = `Chat Unify live · UI ${ver} · ${feats} capabilities wired${pf}${cn}${pp}${vim} · receipts on disk`;
     lines.forEach((line) => {
       line.textContent = msg;
     });

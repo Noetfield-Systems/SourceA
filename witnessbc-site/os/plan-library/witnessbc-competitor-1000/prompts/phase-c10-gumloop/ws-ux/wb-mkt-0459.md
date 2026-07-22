@@ -23,7 +23,7 @@ Ship summary in PRIORITY: preserved · changed · achieved vs Gumloop Buyer-visi
 
 ## Implementation extraction
 
-`Gumloop · Buyer-visible UX` → what buyer sees at vendor → what we ship logged with receipt.
+`Gumloop · Buyer-visible UX` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

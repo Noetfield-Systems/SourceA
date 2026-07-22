@@ -15,7 +15,7 @@
     "defer flag ON": "outbound email stays blocked",
     "email-defer": "email send stays blocked",
     "lift=NO": "the block is still active",
-    "SSOT": "the official record logged",
+    "SSOT": "the official record on disk",
     "wired": "connected in the system",
     "probe": "automatic health check",
     "pulse": "regular status update",

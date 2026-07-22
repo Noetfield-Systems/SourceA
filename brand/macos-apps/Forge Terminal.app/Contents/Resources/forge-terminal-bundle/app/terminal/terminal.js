@@ -1362,7 +1362,7 @@
 
   const LIVING_CHIPS = [
     { label: "Ship 48h MVP", text: "I need a 48-hour MVP — what's the intake path and what proof do I get?", accent: true },
-    { label: "Pricing", text: "What would you charge for controlled agent ops for a 12-person agency?" },
+    { label: "Pricing", text: "What would you charge for governed agent ops for a 12-person agency?" },
     { label: "See live receipt", text: "Show me what a client receives as proof after a job completes — no call needed." },
     { label: "Client QBR audit", text: "Audit my agency's AI deliverables before a client QBR next week" },
     { label: "I'm new here", text: "I'm new to agentic AI — what's the simplest path to learn and build on SourceA?" },

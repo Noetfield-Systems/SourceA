@@ -14,7 +14,7 @@ Dual desktop deploy — agentrun-app :5180 + SA4 AgentGo :8080 · landing parity
 
 ## Task
 
-**Add CSS hook for** case study prose (challenge · shipped · verification).
+**Add CSS hook for** case study prose (challenge · shipped · proof chain).
 
 sourcea.css only if needed.
 

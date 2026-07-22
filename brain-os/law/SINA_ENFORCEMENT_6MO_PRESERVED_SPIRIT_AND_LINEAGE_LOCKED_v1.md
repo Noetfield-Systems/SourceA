@@ -122,7 +122,7 @@ Source: VC-ROADMAP §CRITICAL PATH — delivery now via `AGENTIC_W3_OUTREACH_WOR
 | 13–14 | Receipt JSONL export · diligence bundle | Open |
 | 15–16 | RPAA stub (TF second beat) | Open |
 | 17–18 | **Scope freeze** · close W3 | Open |
-| 19–20 | Pilot support · ≥10 controlled transactions · case study | Open |
+| 19–20 | Pilot support · ≥10 governed transactions · case study | Open |
 | 21 | 3-slide deck · sendable 24h | Open |
 | 22–26 | 10 investor meetings · tier honest assessment | Open |
 
@@ -206,7 +206,7 @@ Sources: MASTER-PLAN DELETE · VC-ROADMAP DELETE · weekly plan §9 · P0 law §
 | August | Pilot in negotiation | LOI draft |
 | Sept | Receipts exportable | Diligence bundle |
 | Oct | Paid design partner | Deposit/invoice |
-| Nov | Controlled AI execution category | 2 logos |
+| Nov | Governed AI execution category | 2 logos |
 | Dec | Seed or honest tier | Evidence declared |
 
 Source: MASTER-PLAN INVESTOR NARRATIVE · VC-ROADMAP month table.

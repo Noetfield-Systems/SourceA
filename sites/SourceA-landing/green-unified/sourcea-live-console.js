@@ -85,7 +85,7 @@
     const checks = aeg.checks || boot.checks || [];
     const terminal = (aeg.terminal_transcript || "").split("\n").slice(0, 12).join("\n");
     const verdict = fmtVal(aeg.verdict || boot.verdict, "pending");
-    const url = live.aeg_live_url || aeg.site_proof_url || "/sourcea/proof/live";
+    const url = live.aeg_live_url || aeg.site_proof_url || "/sourcea/proof/live.html";
     const eid = fmtVal(aeg.evidence_id, "sample");
     const valid =
       live.valid_yes != null ? `${live.valid_yes}/${live.valid_yes_total || 1000}` : "checks live";
@@ -254,10 +254,10 @@
         return `  <span class="${cls}">[${mark}]</span> ${esc(c.name)}: ${esc(c.reason)}`;
       })
       .join("\n");
-    const proofUrl = live.aeg_live_url || "/sourcea/proof/live";
+    const proofUrl = live.aeg_live_url || "/sourcea/proof/live.html";
     panel.innerHTML = `
       <div class="sa-fleet-head">
-        <span>Verification · replay</span>
+        <span>Proof chain · replay</span>
         <span class="sa-live">${esc(fmtVal(boot.verdict, "pending"))} · disk</span>
       </div>
       <div class="sa-w1-mini-terminal">
@@ -495,7 +495,7 @@ ${terminal}
     switchTab("aeg");
 
     const chrome = panelRoot.querySelector(".sa-console-chrome");
-    const proofUrl = (live.aeg || {}).site_proof_url || live.aeg_live_url || "/sourcea/proof/live";
+    const proofUrl = (live.aeg || {}).site_proof_url || live.aeg_live_url || "/sourcea/proof/live.html";
     const openProof = () => {
       trackHero("hero_console_chrome", { href: proofUrl });
       window.location.href = proofUrl;

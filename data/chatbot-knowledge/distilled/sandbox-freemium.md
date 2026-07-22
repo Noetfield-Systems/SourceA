@@ -26,7 +26,7 @@ www_url: https://sourcea.app/sourcea/48h-mvp
 
 ## Run
 
-## Everything you need — one controlled stack.
+## Everything you need — one governed stack.
 
 ## We route you — wherever you ship from.
 

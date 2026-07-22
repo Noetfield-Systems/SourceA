@@ -13,7 +13,7 @@
 
 ## 0. One sentence
 
-> **SourceA FBE compiles three controlled factory lines (Trust Motor · Refinery · Assembly), spawns them headless in cloud, and federates receipts to Mac — quality spec in, platinum artifact + RunReceipt ZIP out; Mac manages the platform only.**
+> **SourceA FBE compiles three governed factory lines (Trust Motor · Refinery · Assembly), spawns them headless in cloud, and federates receipts to Mac — quality spec in, platinum artifact + RunReceipt ZIP out; Mac manages the platform only.**
 
 **Category sold:** Governable Executable Factory Line Systems (GEFLS) — not agents · not audit-only · not Mac-dependent production.
 
@@ -222,7 +222,7 @@ These are the **first three factory campuses** FBE compiles and sells. Each bund
 
 | Field | Value |
 |-------|-------|
-| **Commercial name** | Controlled Web Product Factory |
+| **Commercial name** | Governed Web Product Factory |
 | **Lines** | Motor + Refinery (36) + Assembly (22) |
 | **Pattern** | CREED + CHURCH full campus |
 | **First tenant** | Internal design partner · Wil AI lane |
@@ -235,7 +235,7 @@ These are the **first three factory campuses** FBE compiles and sells. Each bund
 
 | Field | Value |
 |-------|-------|
-| **Commercial name** | Controlled Exchange Factory |
+| **Commercial name** | Governed Exchange Factory |
 | **Lines** | Motor + Refinery + Assembly (exchange template) |
 | **Pattern** | CREED EX · match floor routes 100% · assets ≥99% |
 | **First tenant** | TrustField commercial lane |
@@ -244,16 +244,16 @@ These are the **first three factory campuses** FBE compiles and sells. Each bund
 | **Tier target** | PLATINUM · MSB advisory perimeter on voice gates |
 | **Wave** | W3 (after Factory 1 platinum) |
 
-### Factory 3 — `forge-app-factory-v1` (Controlled App Ship Line)
+### Factory 3 — `forge-app-factory-v1` (Governed App Ship Line)
 
 | Field | Value |
 |-------|-------|
-| **Commercial name** | Controlled App Factory (FORGE) |
+| **Commercial name** | Governed App Factory (FORGE) |
 | **Lines** | Motor + Refinery (app scaffold subgraph) + Assembly (deploy only) |
 | **Pattern** | FORGE SKU · SourceA Worker inbox · no web clone |
 | **First tenant** | FORGE portfolio lane |
 | **Input** | App spec · agent shell · ship gate class |
-| **Output** | Controlled app artifact + session/receipt pack |
+| **Output** | Governed app artifact + session/receipt pack |
 | **Tier target** | GOLD ship gate · G0–G3 proof class |
 | **Wave** | W4 |
 

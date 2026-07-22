@@ -88,7 +88,7 @@
 | `/Users/sinakazemnezhad/Desktop/SourceA/brain-os/system/FOUNDER_DAILY_OPERATING_MODEL_LOCKED_v1.md` |
 | `/Users/sinakazemnezhad/Desktop/SourceA/brain-os/system/GOAL_EXECUTION_ACTIVE_LOCKED_v1.md` |
 | `/Users/sinakazemnezhad/Desktop/SourceA/brain-os/system/GOAL_HIERARCHY_LOCKED_v1.md` |
-| `/Users/sinakazemnezhad/Desktop/SourceA/brain-os/system/CONTROLLED_EXECUTION_OS_MASTER_LOCKED_v1.md` |
+| `/Users/sinakazemnezhad/Desktop/SourceA/brain-os/system/GOVERNED_EXECUTION_OS_MASTER_LOCKED_v1.md` |
 | `/Users/sinakazemnezhad/Desktop/SourceA/brain-os/system/README_INDEX_LOCKED_v1.md` |
 | `/Users/sinakazemnezhad/Desktop/SourceA/brain-os/system/SINAAIDB_ARCHIVE_RETIREMENT_HANDOFF_LOCKED_v1.md` |
 | `/Users/sinakazemnezhad/Desktop/SourceA/brain-os/system/UNIFIED_RESEARCH_ROOT_LOCKED_v1.md` |

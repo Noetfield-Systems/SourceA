@@ -17,7 +17,7 @@
 - Read REGISTRY.json and pick next plan
 - Paste `RAW AI WORK — ft-score-NNNN` into Forge Terminal or Chat Unify
 - Run light checks ≤90s (`forge_terminal_living_ui_e2e_verify_v1.py`, curl health)
-- Update plan `status: done` when RAW AI receipt exists in the repository
+- Update plan `status: done` when RAW AI receipt exists on disk
 - Explain to founder what shipped vs what is blocked
 - Route cloud dispatch to `:13027` when Mac law requires
 

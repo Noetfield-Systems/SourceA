@@ -459,9 +459,9 @@ def _artifact_row(account_id: str, *, existing: dict | None = None) -> dict:
     if brain_pct is not None and machine_pct and brain_pct != machine_pct:
         brain_artifact_note = f"brain lane avg {brain_pct}% ≠ this artifact {machine_pct}%"
     elif machine_pct:
-        brain_artifact_note = f"brain lane avg {brain_pct}% (no per-email brain score logged)"
+        brain_artifact_note = f"brain lane avg {brain_pct}% (no per-email brain score on disk)"
     else:
-        brain_artifact_note = "no body in the repository — compile stub only"
+        brain_artifact_note = "no body on disk — compile stub only"
 
     approvals = _read_json(APPROVALS)
     acct_row = next((a for a in (approvals.get("accounts") or []) if a.get("id") == account_id), {})
@@ -561,7 +561,7 @@ def _artifact_row(account_id: str, *, existing: dict | None = None) -> dict:
                 "receiver_interest_pct ≥ 90 when Mode B (RIL)",
                 "sina_read_score_pct ≥ 90 (Sina human only — ship authority)",
                 "founder approves recipient + sends manually from Mail",
-                "confirm-sent in the repository — agents never send",
+                "confirm-sent on disk — agents never send",
             ],
         },
     }
@@ -790,7 +790,7 @@ def validate_sina_read_note_required_acceptance() -> dict:
 
 
 def validate_founder_review_order_acceptance() -> dict:
-    """U065 acceptance — NF · OCree · SA · Forge order logged + hub mirror."""
+    """U065 acceptance — NF · OCree · SA · Forge order on disk + hub mirror."""
     expected = list(FOUNDER_REVIEW_ACCOUNTS)
     row = build_review(write=False)
     bundle_order = list(row.get("founder_review_bundle_order") or [])
@@ -1415,7 +1415,7 @@ def print_show(row: dict) -> None:
             print(art.get("body_text"))
             print("\n--- END EMAIL ---")
         else:
-            print("\n--- NO BODY YET (compile stub logged) ---")
+            print("\n--- NO BODY YET (compile stub on disk) ---")
 
     print("\n" + "=" * 72)
     print(

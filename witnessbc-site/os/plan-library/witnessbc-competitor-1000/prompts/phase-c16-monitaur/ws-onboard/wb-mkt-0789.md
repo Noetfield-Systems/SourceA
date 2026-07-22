@@ -23,7 +23,7 @@ Docs: onboarding section cites Monitaur as market analog with https://www.monita
 
 ## Implementation extraction
 
-`Monitaur · Onboarding & PLG` → what buyer sees at vendor → what we ship logged with receipt.
+`Monitaur · Onboarding & PLG` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

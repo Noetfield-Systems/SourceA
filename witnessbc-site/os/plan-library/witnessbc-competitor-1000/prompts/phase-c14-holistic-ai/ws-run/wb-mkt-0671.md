@@ -23,7 +23,7 @@ From https://www.holisticai.com document Holistic AI run/history UX: Inventory A
 
 ## Implementation extraction
 
-`Holistic AI · Run history & proof` → what buyer sees at vendor → what we ship logged with receipt.
+`Holistic AI · Run history & proof` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

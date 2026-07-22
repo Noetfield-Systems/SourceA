@@ -19,11 +19,11 @@ A SourceA Worker auto-run session for **sa-0009** (Q16–Q18 CHECK→ACT→VERIF
 2. **Factory gate / agent prompt mismatch** — new **CLOSEOUT_TEMPLATE** law (INCIDENT-007) enforced on broker **before** headless agent wrapper included **RECIPE · VALIDATION · EVIDENCE · BUILT** lines → VERIFY broker **reject** halted auto-run at turn 3 despite disk closeout.
 3. **Legacy log confusion** — founder screenshot showed top-of-log **`agent` not found** (`WORKER_BATCH_HALT` **2026-06-09T02:30Z**) — **stale**; fixed earlier (`~/.local/bin/agent` present for 10:41Z run).
 
-**Outcome:** sa-0009 **closed logged** (receipt + REGISTRY `done` · validators PASS · **78/1000** honest). Broker VERIFY submit **rejected once** (`CLOSEOUT_TEMPLATE_MISSING`); auto-run **correctly stopped** on `broker_reject`. Wrapper patched for future VERIFY turns.
+**Outcome:** sa-0009 **closed on disk** (receipt + REGISTRY `done` · validators PASS · **78/1000** honest). Broker VERIFY submit **rejected once** (`CLOSEOUT_TEMPLATE_MISSING`); auto-run **correctly stopped** on `broker_reject`. Wrapper patched for future VERIFY turns.
 
 **One-line law for all future Workers:**
 
-> **Estimate turn time (CHECK ~60s · ACT ~30s · VERIFY ~90–150s) → tail log once → never block chat on long Await. Law in repository must match agent wrapper the same ship.**
+> **Estimate turn time (CHECK ~60s · ACT ~30s · VERIFY ~90–150s) → tail log once → never block chat on long Await. Law on disk must match agent wrapper the same ship.**
 
 ---
 
@@ -39,7 +39,7 @@ A SourceA Worker auto-run session for **sa-0009** (Q16–Q18 CHECK→ACT→VERIF
 | 10:42:03 | Turn 1 CHECK done · broker OK · orchestrator `role_mismatch expected=act got=check` (non-fatal) | batch log JSON |
 | 10:42:37 | Turn 2 ACT done · broker OK · INBOX deliver **chars: 0** for meta | batch log |
 | 10:45:15 | Turn 3 VERIFY agent done · **broker FAIL** `CLOSEOUT_TEMPLATE_MISSING` | batch log |
-| 10:45:16 | Auto-run **stopped** `broker_reject` · receipt + REGISTRY sa-0009 **done** logged | `receipts/sa-0009-receipt.json` |
+| 10:45:16 | Auto-run **stopped** `broker_reject` · receipt + REGISTRY sa-0009 **done** on disk | `receipts/sa-0009-receipt.json` |
 | 10:45+ | Wrapper patched · auto-run STOP · hub refresh | `start_goal1_worker_turn_v1.py` |
 
 ---
@@ -91,7 +91,7 @@ A SourceA Worker auto-run session for **sa-0009** (Q16–Q18 CHECK→ACT→VERIF
 
 ### 4.4 Built
 
-**No new implementation** — verify-only closeout (governance drift validator already green logged).
+**No new implementation** — verify-only closeout (governance drift validator already green on disk).
 
 ---
 

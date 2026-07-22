@@ -29,11 +29,11 @@ WEDGES = [
     ("w08-landing", "Landing + pricing page ship"),
     ("w09-demo", "Live demo URL + proof"),
     ("w10-outreach", "Cold outreach + book meeting"),
-    ("w11-case-study", "Client case study logged"),
+    ("w11-case-study", "Client case study on disk"),
     ("w12-receipt-pdf", "Receipt / Proof Pack PDF"),
     ("w13-hub-action", "Hub one-tap Action"),
     ("w14-cloud-forge", "Cloud forge run + Supabase row"),
-    ("w15-archived-research", "Ship differentiated feature slice"),
+    ("w15-competitor-clone", "Clone one competitor feature slice"),
     ("w16-onboard", "Client onboard checklist"),
     ("w17-upsell", "Tier-1 → Tier-2 upsell motion"),
     ("w18-referral", "Partner / accountant channel"),
@@ -144,7 +144,7 @@ LANES = [
         "comp_anchor": "Pickaxe 3-tier agency",
         "tier1": "Workflow audit $1.5–3K",
         "tier2": "Build + $1–5K/mo optimize",
-        "verify": "test -f ~/Desktop/SourceA/brain-os/law/SOURCEA_ASSET_B_CONTROLLED_AGENTIC_AUTOMATION_LOCKED_v1.md",
+        "verify": "test -f ~/Desktop/SourceA/brain-os/law/SOURCEA_ASSET_B_GOVERNED_AGENTIC_AUTOMATION_LOCKED_v1.md",
         "external_repo": "~/Desktop/SourceA",
     },
     {
@@ -197,7 +197,7 @@ def prompt_md(
 
 ## Task
 
-Fast-sell: {lane['label']} · {wedge_label} · {act_label}. Ship smallest slice that moves a buyer toward **{lane['tier1']}** with a path to **{lane['tier2']}**. Receipt logged before done.
+Fast-sell: {lane['label']} · {wedge_label} · {act_label}. Ship smallest slice that moves a buyer toward **{lane['tier1']}** with a path to **{lane['tier2']}**. Receipt on disk before done.
 
 ## Verify
 

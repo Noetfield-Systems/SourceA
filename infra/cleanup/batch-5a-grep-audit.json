@@ -46,7 +46,7 @@
       "agent-control-panel/command-data.json",
       "scripts/run_sourcea_agency_product_demo_v1.sh",
       "scripts/validate-competitor-landscape-v1_3.sh",
-      "scripts/validate-controlled-agentic-automation-offer-v1.sh"
+      "scripts/validate-governed-agentic-automation-offer-v1.sh"
     ],
     "hit_count": 5
   },
@@ -81,18 +81,18 @@
     "hit_count": 4
   },
   {
-    "path": "SOURCEA_ASSET_B_CONTROLLED_AGENTIC_AUTOMATION_LOCKED_v1.md",
+    "path": "SOURCEA_ASSET_B_GOVERNED_AGENTIC_AUTOMATION_LOCKED_v1.md",
     "size": "8.0K",
-    "first": "# Asset B \u2014 Controlled Agentic Automation (DFY) \u2014 LOCKED v1",
+    "first": "# Asset B \u2014 Governed Agentic Automation (DFY) \u2014 LOCKED v1",
     "risk": "HIGH",
     "hits": [
       "agent-control-panel/command-data-canonical.json",
       "agent-control-panel/command-data.json",
       "data/sourcea_agentic_unified_bundle_v1.json",
-      "scripts/controlled_agentic_automation_offer_v1.py",
+      "scripts/governed_agentic_automation_offer_v1.py",
       "scripts/send_ab1_single_v1.py",
       "scripts/validate-competitor-landscape-v1_3.sh",
-      "scripts/validate-controlled-agentic-automation-offer-v1.sh"
+      "scripts/validate-governed-agentic-automation-offer-v1.sh"
     ],
     "hit_count": 7
   },
@@ -165,7 +165,7 @@
       "agent-control-panel/command-data.json",
       "data/commercial-mail-from-gate-v1.json",
       "scripts/commercial_mail_draft_v1.py",
-      "scripts/controlled_agentic_automation_offer_v1.py",
+      "scripts/governed_agentic_automation_offer_v1.py",
       "scripts/send_ab1_single_v1.py"
     ],
     "hit_count": 6

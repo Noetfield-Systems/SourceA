@@ -11,7 +11,7 @@
 
 ## 1. One sentence
 
-**Poison = a writer logged or in the hub that injects the wrong founder path into agent sessions — PT-METHOD finds the writer, fixes the wire, proves PASS on validators, and tracks until Governance + ASF close with streak proof.**
+**Poison = a writer on disk or in the hub that injects the wrong founder path into agent sessions — PT-METHOD finds the writer, fixes the wire, proves PASS on validators, and tracks until Governance + ASF close with streak proof.**
 
 ---
 
@@ -108,7 +108,7 @@ python3 scripts/agent_session_gate_run_v1.py --role worker --json
 | Read transcripts | Brain · Worker · Gov · Commercial · executor arc |
 | Find **first founder-facing** poison line | Not diagnosis text |
 | Record | transcript id · line · date · exact string |
-| Correlate | Which writer existed logged **at that time** |
+| Correlate | Which writer existed on disk **at that time** |
 
 **Forbidden:** “Fresh chat fixes it” · “Brain reads chat not disk” · blame consumer agent.
 

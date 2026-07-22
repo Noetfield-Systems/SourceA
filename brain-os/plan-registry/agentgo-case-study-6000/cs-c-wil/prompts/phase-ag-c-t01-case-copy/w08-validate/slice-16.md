@@ -14,7 +14,7 @@ Wil L3 portfolio demo — YA5 mirror · AgentGo ≠ SourceA separation · ship g
 
 ## Task
 
-**Validate receipt gates for** case study prose (challenge · shipped · verification).
+**Validate receipt gates for** case study prose (challenge · shipped · proof chain).
 
 landing_ship rows.
 

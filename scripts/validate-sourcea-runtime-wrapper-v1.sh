@@ -52,7 +52,7 @@ else
   fail=1
 fi
 
-if grep -q 'Controlled Runtime' SourceA-landing/green-unified/pricing.html; then
+if grep -q 'Governed Runtime' SourceA-landing/green-unified/pricing.html; then
   echo "PASS: pricing row present"
 else
   echo "FAIL: pricing row missing"

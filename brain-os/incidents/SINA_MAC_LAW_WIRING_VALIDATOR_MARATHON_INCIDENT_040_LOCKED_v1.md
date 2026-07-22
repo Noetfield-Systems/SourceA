@@ -5,7 +5,7 @@
 **Reporter:** ASF — *“write new”* after agent updated INCIDENT-039 instead of filing fresh incident  
 **Agent:** Cursor Auto · **sequence_id:** SA-2026-06-20-INCIDENT-040  
 **Opened:** 2026-06-20 · **Related:** INCIDENT-039 · INCIDENT-026 · INCIDENT-038 · INCIDENT-031  
-**Status:** OPEN — RED FLAG logged · canonical body v1.0
+**Status:** OPEN — RED FLAG on disk · canonical body v1.0
 
 ---
 
@@ -23,7 +23,7 @@ During a **founder session on Mac**, while ASF asked to **wire Mac Law to machin
 
 > **Mac founder session: NEVER stuck in validators. Reply <30s → STOP. One light check ≤90s. No chains. No Await. 11 minutes = P0 harm. Wiring Mac Law = Read receipts + grep — NOT bash validate marathon.**
 
-**Severity:** **P0 RED FLAG** — Mac Law violation · founder time theft · CPU heat · conduct failure after law already present.
+**Severity:** **P0 RED FLAG** — Mac Law violation · founder time theft · CPU heat · conduct failure after law already on disk.
 
 ---
 
@@ -110,7 +110,7 @@ FORBIDDEN:
 
 ---
 
-## 7. Remediatilocally (v1.0)
+## 7. Remediation disk (v1.0)
 
 | Artifact | Path |
 |----------|------|

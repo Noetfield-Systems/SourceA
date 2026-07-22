@@ -23,7 +23,7 @@ Mark wb-mkt-0010 done in REGISTRY with evidence path + https://lowerplane.com ·
 
 ## Implementation extraction
 
-`LowerPlane · Buyer-visible UX` → what buyer sees at vendor → what we ship logged with receipt.
+`LowerPlane · Buyer-visible UX` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

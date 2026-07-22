@@ -79,7 +79,7 @@ Use Cloudflare Bindings when the question is “what Cloudflare state exists?”
 
 - `sourcea-site-pulse-v1`
   - KV binding: `PULSE_KV`
-  - namespace id logged: `a07c528436c84691be51ebc936184304`
+  - namespace id on disk: `a07c528436c84691be51ebc936184304`
   - used for stats, feedback inbox, dashboard rollups.
 
 - `sourcea-brain-chat-v1`
@@ -100,7 +100,7 @@ Use Cloudflare Bindings when the question is “what Cloudflare state exists?”
 - Heavy local validator marathons on Mac.
 - Guessing secrets or printing secret values.
 - Replacing Railway proof for the factory body.
-- Treating Cloudflare Queues or D1 as live until bindings exist logged.
+- Treating Cloudflare Queues or D1 as live until bindings exist on disk.
 - Making destructive Cloudflare changes without explicit founder approval.
 
 ## Proof Endpoints

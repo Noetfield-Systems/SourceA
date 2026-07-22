@@ -14,7 +14,7 @@ Dual desktop deploy — agentrun-app :5180 + SA4 AgentGo :8080 · landing parity
 
 ## Task
 
-**Note Noetfield parallel for** case study prose (challenge · shipped · verification).
+**Note Noetfield parallel for** case study prose (challenge · shipped · proof chain).
 
 Do not merge ICPs.
 

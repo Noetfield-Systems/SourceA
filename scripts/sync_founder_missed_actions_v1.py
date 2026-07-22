@@ -258,7 +258,7 @@ def _missed_founder_items(*, progress: dict, wire: dict, mp_prog: dict, drain: d
         {
             "id": "founder-next-steps",
             "label": "Next steps — live next 10 turns",
-            "why": "Machine queue order in the repository — optional big-picture commentary only",
+            "why": "Machine queue order on disk — optional big-picture commentary only",
             "kind": "tab",
             "tab": "next-steps",
             "priority": 6,

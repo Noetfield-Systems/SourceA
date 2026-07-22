@@ -194,7 +194,7 @@ These examples are buyer-facing evidence and demonstration scenarios. Any compan
 
 1. **Live blocked-action demo** — A prospect sees an AI action blocked because it tried to use private customer data. The page shows the block reason in plain English.
 2. **Allowed-action demo** — A prospect sees a safe AI workflow complete, with proof of policy check and output quality.
-3. **Before/after governance demo** — The page compares blind AI execution versus controlled execution with evidence.
+3. **Before/after governance demo** — The page compares blind AI execution versus governed execution with evidence.
 4. **Buyer proof page for sales** — A skeptical buyer asks "is this real?" WitnessBC shows recent anonymized proof runs.
 5. **Tamper-fail demonstration** — A demo shows that changing evidence after execution breaks verification.
 6. **Audit-ready public artifact** — A buyer downloads a proof bundle that explains what happened without exposing secrets.

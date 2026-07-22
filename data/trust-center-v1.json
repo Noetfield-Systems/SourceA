@@ -12,7 +12,7 @@
   "validator": "scripts/validate-trust-center-v1.sh",
   "receipt": "~/.sina/trust-center-receipt-v1.json",
   "surfaces": [
-    "Controlled execution — advisory only",
+    "Governed execution — advisory only",
     "No custody · no payment initiation",
     "Public proof links — no brain internals"
   ],

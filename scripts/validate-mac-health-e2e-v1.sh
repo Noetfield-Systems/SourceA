@@ -16,7 +16,7 @@ for arg in "$@"; do
   esac
 done
 
-# Mac control plane → NEVER marathon (even if stale ship-window flag logged)
+# Mac control plane → NEVER marathon (even if stale ship-window flag on disk)
 if [[ -f "${HOME}/.sina/mac-control-plane-v1.flag" ]] \
   && [[ "${SOURCEA_CI:-}${GITHUB_ACTIONS:-}" == "" ]] \
   && [[ "${MH_FORCE_E2E_MARATHON:-}" != "1" ]] \

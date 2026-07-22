@@ -14,7 +14,7 @@ Wil L3 portfolio demo — YA5 mirror · AgentGo ≠ SourceA separation · ship g
 
 ## Task
 
-**Log pick-agentgo drain for** case study prose (challenge · shipped · verification).
+**Log pick-agentgo drain for** case study prose (challenge · shipped · proof chain).
 
 3 picks/week max Mac.
 

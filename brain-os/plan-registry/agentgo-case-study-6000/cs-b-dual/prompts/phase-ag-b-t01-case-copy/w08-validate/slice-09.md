@@ -14,7 +14,7 @@ Dual desktop deploy — agentrun-app :5180 + SA4 AgentGo :8080 · landing parity
 
 ## Task
 
-**Smoke pick-agentgo for** case study prose (challenge · shipped · verification).
+**Smoke pick-agentgo for** case study prose (challenge · shipped · proof chain).
 
 3 rows.
 

@@ -22,8 +22,8 @@ One shippable artifact only — no drive-by refactors.
 **Pure law:** Pure story: Wil AI ecosystem intelligence hosts SourceA lane — products stay separate.
 **Anti-drift:** Never sell AgentGo sign-in localhost:3001 as production.
 **Target path:** `scripts/sourcea_revenue_engine_crm_v1.py`
-**Success metric:** outreach_sent logged
-**Receipt:** file in the repository before `status: done`.
+**Success metric:** outreach_sent on disk
+**Receipt:** file on disk before `status: done`.
 **Phase:** MOONSHOT · **Tier:** T0 · **Workstream:** Ship
 
 ## Verify

@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# validate-ui-upgrade-no-downgrade-v1.sh — controlled landing UI must match baseline SSOT
+# validate-ui-upgrade-no-downgrade-v1.sh — governed landing UI must match baseline SSOT
 set -euo pipefail
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 cd "$ROOT"

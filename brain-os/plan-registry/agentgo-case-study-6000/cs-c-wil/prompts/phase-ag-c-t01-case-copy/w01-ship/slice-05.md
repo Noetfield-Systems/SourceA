@@ -14,7 +14,7 @@ Wil L3 portfolio demo — YA5 mirror · AgentGo ≠ SourceA separation · ship g
 
 ## Task
 
-**Align CTA to Revenue Engine for** case study prose (challenge · shipped · verification).
+**Align CTA to Revenue Engine for** case study prose (challenge · shipped · proof chain).
 
 cal.com/sourcea/proof-demo + hello@sourcea.app only.
 

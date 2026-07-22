@@ -243,7 +243,7 @@ class ForgeSwarmTools(ForgeAgentTools):
 SWARM_CRITIC = """You are a Forge Critic agent (swarm v3 parallel).
 Given goal and blackboard snapshot, reply JSON only:
 {"approved": true|false, "score": 0.0-1.0, "issues": ["..."]}
-Score 1.0 = goal fully met logged. Be strict on missing tests or broken patches."""
+Score 1.0 = goal fully met on disk. Be strict on missing tests or broken patches."""
 
 
 def _planner_tasks(*, goal: str, intel: dict[str, Any], planner_id: int = 0) -> dict[str, Any]:

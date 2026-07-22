@@ -15,7 +15,7 @@ Gartner-class forecasts put dedicated governance platform spend near **half a bi
 
 ## What SourceA already is (disk)
 
-SSOT v3.1 locks identity: **pre-LLM controlled execution** — intent → policy → broker → validator → **receipt + spine**. Blueprint drafts (inform only) add the commercial motion: **CAD $4K pilot, $2K deposit, refund in 30 days** — which matches market PoC norms exactly.
+SSOT v3.1 locks identity: **pre-LLM governed execution** — intent → policy → broker → validator → **receipt + spine**. Blueprint drafts (inform only) add the commercial motion: **CAD $4K pilot, $2K deposit, refund in 30 days** — which matches market PoC norms exactly.
 
 ## What is still missing (honest)
 

@@ -24,7 +24,7 @@
 
 | Check | Result |
 |-------|--------|
-| All 25 source files logged | **PASS** (25/25) |
+| All 25 source files on disk | **PASS** (25/25) |
 | Secret scan | **PASS** (`scan-secrets-v1.sh` — no key hits) |
 | Dest filename collision | **FIXED** — INCIDENT-023 root file is pointer stub; row changed to `archive/root-stubs/` |
 | Dupes vs `brain-os/incidents/` | **1 reconciled** — canonical body already under `brain-os/incidents/` |

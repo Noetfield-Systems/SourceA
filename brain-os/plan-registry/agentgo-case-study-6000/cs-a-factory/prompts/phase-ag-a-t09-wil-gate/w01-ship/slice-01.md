@@ -19,11 +19,11 @@ AgentGo GEO factory scale — 1259-page surface · trackers · research · compa
 One shippable artifact only — no drive-by refactors.
 
 **Angle:** marketing leader who needs category surface at factory speed
-**Pure law:** Pure story: controlled pipeline → 1259-page GEO surface. Not a PureFlow trades clone.
+**Pure law:** Pure story: governed pipeline → 1259-page GEO surface. Not a PureFlow trades clone.
 **Anti-drift:** Never claim live SaaS billing — SA4 is marketing surface proof.
 **Target path:** `~/Desktop/YA5/.cursor/governance/TERMINOLOGY_2026.md`
 **Success metric:** AgentGo ≠ SourceA disclaimer present
-**Receipt:** file in the repository before `status: done`.
+**Receipt:** file on disk before `status: done`.
 **Phase:** MOONSHOT · **Tier:** T0 · **Workstream:** Ship
 
 ## Verify

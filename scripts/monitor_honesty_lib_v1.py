@@ -199,7 +199,7 @@ def broker_column(
             return "PEND"
         if cycle and cycle.verify_orch_ok is False:
             return "FAIL"
-        # Receipt logged wins over deliver_ok=false (hub cooldown — INCIDENT-006)
+        # Receipt on disk wins over deliver_ok=false (hub cooldown — INCIDENT-006)
         if cycle and (cycle.verify_deliver_ok is True or cycle.verify_orch_ok is True):
             return "PASS"
         return "PEND"

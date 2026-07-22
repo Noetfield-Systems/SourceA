@@ -14,7 +14,7 @@ Dual desktop deploy — agentrun-app :5180 + SA4 AgentGo :8080 · landing parity
 
 ## Task
 
-**SaaS pricing tier research for** case study prose (challenge · shipped · verification).
+**SaaS pricing tier research for** case study prose (challenge · shipped · proof chain).
 
 compare only.
 

@@ -10,7 +10,7 @@
 
 ## Task
 
-Fast-sell: VIRLUX · Vertical wedge (diaspora · RCIC · broker · trades) · Client handoff doc. Ship smallest slice that moves a buyer toward **One factory recipe demo** with a path to **Team + usage tier**. Receipt logged before done.
+Fast-sell: VIRLUX · Vertical wedge (diaspora · RCIC · broker · trades) · Client handoff doc. Ship smallest slice that moves a buyer toward **One factory recipe demo** with a path to **Team + usage tier**. Receipt on disk before done.
 
 ## Verify
 

@@ -14,7 +14,7 @@ Dual desktop deploy — agentrun-app :5180 + SA4 AgentGo :8080 · landing parity
 
 ## Task
 
-**Bump law doc version for** case study prose (challenge · shipped · verification).
+**Bump law doc version for** case study prose (challenge · shipped · proof chain).
 
 AGENTGO_SA4 v2 smart.
 

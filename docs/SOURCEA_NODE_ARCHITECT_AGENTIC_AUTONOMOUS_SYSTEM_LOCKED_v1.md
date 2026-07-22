@@ -118,7 +118,7 @@ flowchart TB
 | ID | Phase | Priority | Node / deliverable | Proof |
 |----|-------|----------|-------------------|-------|
 | **N01** | 0 | P0 | Graph SSOT v1 + runner + validator | `validate-pipeline-node-graph-v1.sh` PASS |
-| **N02** | 0 | P0 | This LOCKED charter + skills synced | Files logged |
+| **N02** | 0 | P0 | This LOCKED charter + skills synced | Files on disk |
 | **N03** | 1 | P0 | Session gate delegates T0–T1 to runner | Gate receipt shows graph tier |
 | **N04** | 1 | P0 | Remove duplicate linear steps in gate | No double crawl-mirror |
 | **N05** | 1 | P1 | Explicit `edges_in/out` in graph JSON | Schema v1.1 |
@@ -181,7 +181,7 @@ bash scripts/sync-cursor-agent-skills.sh
 
 ## 9. Founder one-liner
 
-> **Nodes, not fragments:** one graph logged, parallel tiers like n8n, every step receipted, agents and founder read the same skill.
+> **Nodes, not fragments:** one graph on disk, parallel tiers like n8n, every step receipted, agents and founder read the same skill.
 
 ---
 

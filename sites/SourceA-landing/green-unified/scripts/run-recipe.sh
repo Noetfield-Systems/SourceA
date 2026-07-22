@@ -113,7 +113,7 @@ fi
   echo "  Clone or restore agentrun-app before run-recipe deploy"
   exit 1
 }
-echo "OK: preflight · ${page_count} pages · green-unified logged · SA4 + agentrun-app present"
+echo "OK: preflight · ${page_count} pages · green-unified on disk · SA4 + agentrun-app present"
 echo ""
 echo "=== step 1b: ui upgrade baseline (no downgrade) ==="
 python3 "$REPO/scripts/ui_upgrade_baseline_guard_v1.py" verify-all --json | python3 - <<'PY'

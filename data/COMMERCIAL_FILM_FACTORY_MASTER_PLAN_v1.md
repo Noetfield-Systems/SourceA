@@ -188,7 +188,7 @@ Enable in beats JSON:
 
 ### Phase 1 — Cinematic rules engine (QUEUED)
 
-**Acceptance:** WitnessBC v5 render with `cinematic_finish + sfx` · dark frame visible · SFX audible on BLOCK/TAMPER · receipt v5 logged.
+**Acceptance:** WitnessBC v5 render with `cinematic_finish + sfx` · dark frame visible · SFX audible on BLOCK/TAMPER · receipt v5 on disk.
 
 ### Phase 2 — Multi-format (DRAFT beats saved)
 
@@ -280,7 +280,7 @@ python3 scripts/remotion_artifact_factory_v1.py --sample --json
 
 ## GPT cinematic factory — full synthesis (routed, not greenfield)
 
-GPT described a **cinematic trust distribution system**. In the repository that maps to **Phase 0 live + Phases 1–5 routed** — extend the compiler, do not replace it.
+GPT described a **cinematic trust distribution system**. On disk that maps to **Phase 0 live + Phases 1–5 routed** — extend the compiler, do not replace it.
 
 ### Core principle (GPT + disk agree)
 

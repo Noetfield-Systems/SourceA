@@ -14,7 +14,7 @@ Wil L3 portfolio demo — YA5 mirror · AgentGo ≠ SourceA separation · ship g
 
 ## Task
 
-**Validate UP-888 merge untouched for** case study prose (challenge · shipped · verification).
+**Validate UP-888 merge untouched for** case study prose (challenge · shipped · proof chain).
 
 legacy_upgrade_id.
 

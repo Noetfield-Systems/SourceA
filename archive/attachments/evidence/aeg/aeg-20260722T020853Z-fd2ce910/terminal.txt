@@ -1,0 +1,13 @@
+$ python3 /Users/sinakazemnezhad/Desktop/Noetfield-Systems/SourceA/scripts/critic_boot_v1.py --json --no-aeg
+
+CRITIC_BOOT BLOCK ok=False
+RECEIPT=/tmp/.sina/critic-boot-v1.json
+
+  [FAIL] ssot_brief: no agent briefing receipt on disk — run session gate / briefing first
+  [PASS] voyage_provider: hash_local allowed (no voyage key)
+  [PASS] truth_match: inbox matches queue head
+  [FAIL] gate_fresh: agent_session_gate_receipt missing
+
+blockers:
+  - no agent briefing receipt on disk — run session gate / briefing first
+  - agent_session_gate_receipt missing

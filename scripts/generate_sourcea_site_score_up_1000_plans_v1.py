@@ -186,7 +186,7 @@ WS_ACTION = {
     "w07-deploy": "Deploy",
     "w08-e2e": "E2E gate for",
     "w09-bench": "Bench vs market for",
-    "w10-receipt": "Receipt logged for",
+    "w10-receipt": "Receipt on disk for",
 }
 
 

@@ -13,7 +13,7 @@
 ONLY healthy-drain-orchestrator complete_if_ready() may call advance-healthy-queue-v1.py
 ```
 
-After **WORKER_ROUND_REPORT** logged matches bound `expected_sa` + `expected_pos`.
+After **WORKER_ROUND_REPORT** on disk matches bound `expected_sa` + `expected_pos`.
 
 ---
 

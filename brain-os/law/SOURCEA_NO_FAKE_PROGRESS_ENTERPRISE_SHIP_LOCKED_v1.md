@@ -12,7 +12,7 @@
 
 ## Law (one sentence)
 
-**No fake progress is allowed — every act, plan, and “done” claim requires proven evidence logged, meaningful effect on the system, and output that grows ship velocity toward enterprise-grade, reliable, real products.**
+**No fake progress is allowed — every act, plan, and “done” claim requires proven evidence on disk, meaningful effect on the system, and output that grows ship velocity toward enterprise-grade, reliable, real products.**
 
 ---
 
@@ -25,7 +25,7 @@
 | **Meaningful effect** | Buyer, counsel, or next gate can trust the change — not cosmetic or archaeology |
 | **Result-driven** | Every plan ends in **SHIP** artifact — LOCKED law, code, demo film, deposit, or explicit DEFER with receipt |
 | **Grow faster · ship more** | Prefer paths that unblock W1 demo · W2 honest factory · W3 first money — not parallel unify theater |
-| **Enterprise grade** | Non-risky SKUs · controlled receipt · no autopilot fantasy · no money-movement without counsel |
+| **Enterprise grade** | Non-risky SKUs · governed receipt · no autopilot fantasy · no money-movement without counsel |
 
 ---
 
@@ -37,7 +37,7 @@ Progress requires **all three**:
 |---|------|-------|
 | **1** | **Evidence** | Reproducible cite — who can re-run and see same result |
 | **2** | **Effect** | System behavior, law, or buyer-facing surface **changed** — not index-only |
-| **3** | **Output** | Durable artifact — file present, receipt JSON, filmed demo, signed SOW path |
+| **3** | **Output** | Durable artifact — file on disk, receipt JSON, filmed demo, signed SOW path |
 
 **Factory lane:** Valid YES per `SOURCEA_VALID_YES_PROGRESS_VERDICT_LOCKED_v1.md` — receipt + REGISTRY + hygiene 0 unproven_done.
 
@@ -51,7 +51,7 @@ Progress requires **all three**:
 
 | Fake signal | Why forbidden | Required instead |
 |-------------|---------------|------------------|
-| Hub form **0 open** without apply SHIP | Picks recorded, law not present locally | `canvas_form_apply_picks_v1.py` receipt + §ANSWERED row **or** `form-ship-receipt-v1.json` |
+| Hub form **0 open** without apply SHIP | Picks recorded, law not on disk | `canvas_form_apply_picks_v1.py` receipt + §ANSWERED row **or** `form-ship-receipt-v1.json` |
 | **“E2E unify done”** in chat | Docs synced, product not shippable | W1 film receipt or explicit defer |
 | REGISTRY batch **done** without receipt | INCIDENT-006 class | Quarantine + hygiene gate |
 | Validator **PASS** on stale/missing artifact | False PASS | Fix validator or artifact — re-run |

@@ -141,7 +141,7 @@ Checklist: `WIRE_LANE_PROGRESS.md`
 
 ## Repo agent reports (feedback loop)
 
-**Reports logged:** 5 / 6  
+**Reports on disk:** 5 / 6  
 **Folder:** `/Users/sinakazemnezhad/Desktop/SourceA/REPO_STATUS_REPORTS`  
 **Aggregate:** `FEEDBACK_AGGREGATE.json`
 

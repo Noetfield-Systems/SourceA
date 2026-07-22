@@ -23,7 +23,7 @@ Docs: onboarding section cites Comp AI as market analog with https://comp.ai
 
 ## Implementation extraction
 
-`Comp AI · Onboarding & PLG` → what buyer sees at vendor → what we ship logged with receipt.
+`Comp AI · Onboarding & PLG` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

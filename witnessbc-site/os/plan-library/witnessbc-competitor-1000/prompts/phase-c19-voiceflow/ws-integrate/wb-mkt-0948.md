@@ -23,7 +23,7 @@ Validate adapter with one fixture test or validator script
 
 ## Implementation extraction
 
-`Voiceflow · Integrations & API` → what buyer sees at vendor → what we ship logged with receipt.
+`Voiceflow · Integrations & API` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

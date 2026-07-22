@@ -670,10 +670,10 @@
     },
     {
       "id": "Q-SESSION-ARCH-REFSTD",
-      "title": "SourceA \u2014 reference standard for agentic prof logged?",
+      "title": "SourceA \u2014 reference standard for agentic prof on disk?",
       "recommended": "A",
       "options": [
-        "A \u2014 YES \u2014 reference standard for controlled agentic automation (recommended)",
+        "A \u2014 YES \u2014 reference standard for governed agentic automation (recommended)",
         "B \u2014 Video factory product only",
         "C \u2014 MCP marketplace plugin only",
         "D \u2014 Internal tooling \u2014 no public standard claim"
@@ -712,7 +712,7 @@
     },
     {
       "id": "Q-SESSION-PHASE0-SPOT",
-      "title": "Phase0 13/13 logged \u2014 spot-check or trust?",
+      "title": "Phase0 13/13 on disk \u2014 spot-check or trust?",
       "recommended": "B",
       "options": [
         "A \u2014 Trust machine \u2014 move to outbound scale",

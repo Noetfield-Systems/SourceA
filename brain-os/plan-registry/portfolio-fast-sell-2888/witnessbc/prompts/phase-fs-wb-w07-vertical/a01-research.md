@@ -10,7 +10,7 @@
 
 ## Task
 
-Fast-sell: WitnessBC · Vertical wedge (diaspora · RCIC · broker · trades) · Research comp pricing page. Ship smallest slice that moves a buyer toward **Public proof page pilot** with a path to **Civic annual + audit export**. Receipt logged before done.
+Fast-sell: WitnessBC · Vertical wedge (diaspora · RCIC · broker · trades) · Research comp pricing page. Ship smallest slice that moves a buyer toward **Public proof page pilot** with a path to **Civic annual + audit export**. Receipt on disk before done.
 
 ## Verify
 

@@ -227,7 +227,7 @@
     if (!log || log.dataset.saLive === "1") return;
     const msgs = [
       "Brain routing · 6 agents active · $24K pipeline",
-      "Outreach agent booked 3 discovery calls today",
+      "Outreach agent completed 3 proof reviews today",
       "Prove agent sealed replay — demo closes in 15 min",
       "$8K deposit received · Build agent scoping loop",
       "Guard blocked rogue ops edit · client protected",
@@ -674,15 +674,15 @@
     const beats = [
       { who: "brain", act: "Act I · Wake", verdict: "· LIVE", narrator: "2:14am. While your team sleeps, the orchestrator reads your disk — not yesterday's chat.", line: "Good morning path starts here — council online." },
       { who: "broker", act: "Act II · Context", verdict: "· FOUND", narrator: "Context arrives first. Benchmarks, prior threads, handoff notes — gathered before anyone prompts.", line: "Found your AB1 thread + benchmark. Handing to worker." },
-      { who: "worker", act: "Act III · Propose", verdict: "· QUEUED", narrator: "Your worker proposes the action: a controlled send, scoped and slim — no paste-the-entire-repo.", line: "Outreach queued — ready for policy check." },
+      { who: "worker", act: "Act III · Propose", verdict: "· QUEUED", narrator: "Your worker proposes the action: a governed send, scoped and slim — no paste-the-entire-repo.", line: "Outreach queued — ready for policy check." },
       { who: "gate", act: "Act IV · Scope", verdict: "· PASS", narrator: "The gate answers: is this role allowed, is the session feasible, is scope within bounds?", line: "Scope clear · session feasible · proceed." },
       { who: "critic", act: "Act V · Policy", verdict: "· ALLOW", narrator: "Policy speaks at dispatch — the moment that matters, not the kickoff meeting last Tuesday.", line: "Policy allows · this action may run." },
-      { who: "factory", act: "Act VI · Record", verdict: "· SYNCED", narrator: "The verdict writes to disk. Tomorrow you open evidence, not a Slack thread.", line: "Recorded logged · dual-proof sealed." },
+      { who: "factory", act: "Act VI · Record", verdict: "· SYNCED", narrator: "The verdict writes to disk. Tomorrow you open evidence, not a Slack thread.", line: "Recorded on disk · dual-proof sealed." },
       { who: "spine", act: "Act VII · Wire", verdict: "· LIVE", narrator: "Automation spine connects — your orchestrator and workflow stay in sync with the receipt.", line: "Loop wired · receipt path connected." },
       { who: "receipt", act: "Act VIII · Seal", verdict: "· PASS", narrator: "PASS means you can replay. Your client gets proof, not promises.", line: "Verdict sealed · export ready for Monday." },
-      { who: "brain", act: "Act IX · Align", verdict: "· ALL IN", narrator: "Eight voices, one story: what was proposed, what was checked, what landed logged.", line: "Council aligned · show this on screen-share." },
+      { who: "brain", act: "Act IX · Align", verdict: "· ALL IN", narrator: "Eight voices, one story: what was proposed, what was checked, what landed on disk.", line: "Council aligned · show this on screen-share." },
       { who: "critic", act: "Act X · Stop", verdict: "· BLOCK", narrator: "Same night — a rogue edit tries to slip through. Policy says no. The loop stops. That is the demo.", line: "Blocked · out-of-scope write refused." },
-      { who: "brain", act: "Act XI · Close", verdict: "· SEALED", narrator: "Every turn logged. This is what you owe your buyer — proof of what executed last night.", line: "Night closed · full receipt logged." },
+      { who: "brain", act: "Act XI · Close", verdict: "· SEALED", narrator: "Every turn logged. This is what you owe your buyer — proof of what executed last night.", line: "Night closed · full receipt on disk." },
     ];
 
     const polar = (deg) => {
@@ -973,7 +973,7 @@
     const weekLine = document.getElementById("sa-growth-week-line");
     if (weekLine) {
       const lines = [
-        "3 discovery calls booked · proof deck attached to every invite",
+        "3 proof packet reviews completed · proof deck attached to every intake",
         "$24K open pipeline · 2 loop builds in scoping",
         "Proof-to-close at 34% · replay demo is the closer",
         "Retainer expansion +$2K/mo · weekly export signed off",

@@ -212,7 +212,7 @@ Compose freely from `## Effects catalog` to fit the scene's `narrativeRole` + `k
 
 ## 4. Writing the Plan - Film Direction Once, Scene Deltas After
 
-**Step 0 (before writing, mandatory):** restate voice register to yourself - that restatement **only sets direction in your head**; what belongs logged is `## Film Direction` (film-level invariants, §4.1) and the scene blocks; any other preface = validator fatal.
+**Step 0 (before writing, mandatory):** restate voice register to yourself - that restatement **only sets direction in your head**; what belongs on disk is `## Film Direction` (film-level invariants, §4.1) and the scene blocks; any other preface = validator fatal.
 
 **The litmus test that governs this whole section:** _"Could this sentence appear verbatim in another scene's prose?"_ **Yes -> it belongs in `## Film Direction`, not in the scene.** The archived failure mode this kills: an 11-scene plan of 4,000 words where every scene restated the caption band, the 60-30-10 split, the ambient layers, `multiplicative breathing`, and a `stillness-before-climax` - ~80% invariants repeated 11×, burying each scene's 2-3 genuinely unique ideas where the worker had to dig for them.
 

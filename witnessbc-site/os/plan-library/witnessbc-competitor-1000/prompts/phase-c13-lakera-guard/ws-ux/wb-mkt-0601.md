@@ -23,7 +23,7 @@ Open https://www.lakera.ai — screenshot or quote the exact buyer-facing Buyer-
 
 ## Implementation extraction
 
-`Lakera Guard · Buyer-visible UX` → what buyer sees at vendor → what we ship logged with receipt.
+`Lakera Guard · Buyer-visible UX` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

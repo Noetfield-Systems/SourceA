@@ -45,7 +45,7 @@ GATHER_META_ROWS: list[dict] = [
         "title": "Form looks empty — which Canvas view is the form office?",
         "question": "You see an empty form. Disk has open rows but wrong view shows 100-pack only. Which surface is FORM_OFFICIAL?",
         "blocks": "INCIDENT-029 · founder perception · Canvas view routing",
-        "diskToday": "OPEN_FORM_QUESTIONS logged · Pending confirmations view · not agent-pov 100-pack",
+        "diskToday": "OPEN_FORM_QUESTIONS on disk · Pending confirmations view · not agent-pov 100-pack",
         "recommended": "A",
         "options": [
             "A — Pending confirmations view ONLY is form office (recommended)",
@@ -70,7 +70,7 @@ GATHER_META_ROWS: list[dict] = [
         "title": "Canva vs Cursor Canvas — lock terminology",
         "question": "You said CANVA FORM twice before. Law says Cursor Canvas. Confirm FORM_OFFICIAL = Cursor Canvas M1?",
         "blocks": "FR-FORM terminology · integrity-open-row-spec.ts",
-        "diskToday": "spec says Canva → Cursor Canvas · M1 slot D path logged",
+        "diskToday": "spec says Canva → Cursor Canvas · M1 slot D path on disk",
         "recommended": "A",
         "options": [
             "A — YES — FORM_OFFICIAL = Cursor Canvas only (recommended)",
@@ -148,7 +148,7 @@ GATHER_META_ROWS: list[dict] = [
             "Until cap: agents focus BUILD plans. Confirm?"
         ),
         "blocks": "ASF order 2026-06-19 · gather cap · minder reminder",
-        "diskToday": "gather_cap=100 · rows stay until ASF PICK · minder receipt logged",
+        "diskToday": "gather_cap=100 · rows stay until ASF PICK · minder receipt on disk",
         "recommended": "A",
         "options": [
             "A — YES — 100 cap · remind minder fast · else BUILD (recommended)",
@@ -164,14 +164,14 @@ GATHER_META_ROWS: list[dict] = [
     },
 ]
 
-# Session-critical forks — stay on form until founder PICK (evidence logged)
+# Session-critical forks — stay on form until founder PICK (evidence on disk)
 SESSION_GATHER_ROWS: list[dict] = [
     {
         "id": "Q-SESSION-INBOX-NEXT",
         "title": "Next INBOX head — Noetfield freemium bay (P0-13)?",
         "question": "Unified queue head is P0-13 Noetfield freemium cloud bay. Run INBOX on this next after form glance?",
         "blocks": "phase0-freemium-sandbox-reference · plans-unified-worker-queue",
-        "diskToday": "P0-01 P0-02 done · P0-13 pending · cat-noetfield-freemium logged",
+        "diskToday": "P0-01 P0-02 done · P0-13 pending · cat-noetfield-freemium on disk",
         "recommended": "A",
         "options": [
             "A — YES — RUN INBOX P0-13 next (recommended)",
@@ -225,7 +225,7 @@ SESSION_GATHER_ROWS: list[dict] = [
         "title": "After you fill — Brain UNIFY pass on all rows?",
         "question": "When you finish PICKs (or hit cap), Brain runs unify · organize · prioritize on gathered rows. Auto-start UNIFY?",
         "blocks": "brain_form_gather_unify_plan_v1.py · Q-GATH-05 sequence",
-        "diskToday": "gather phase active · unify plan logged",
+        "diskToday": "gather phase active · unify plan on disk",
         "recommended": "A",
         "options": [
             "A — YES — auto UNIFY when open count drops below 10 (recommended)",
@@ -240,7 +240,7 @@ SESSION_GATHER_ROWS: list[dict] = [
     },
     {
         "id": "Q-SESSION-PHASE0-SPOT",
-        "title": "Phase0 13/13 in the repository — spot-check or trust?",
+        "title": "Phase0 13/13 on disk — spot-check or trust?",
         "question": "Phase0 pulse shows 13/13 complete after WitnessBC P0-03/P0-08. Trust machine or you spot-check Proof Lab + Trust Center?",
         "blocks": "phase0-freemium-sandbox-reference-v1.json · pulse receipt",
         "diskToday": "13/13 marked · validators PASS on bays",
@@ -277,7 +277,7 @@ SESSION_GATHER_ROWS: list[dict] = [
     {
         "id": "Q-SESSION-WBC-SUMMARY",
         "title": "WitnessBC work summary — deposit to vault?",
-        "question": "WitnessBC lane + Proof Lab factory + film ship gate summary logged. Deposit summary receipt to vault for portfolio?",
+        "question": "WitnessBC lane + Proof Lab factory + film ship gate summary on disk. Deposit summary receipt to vault for portfolio?",
         "blocks": "witnessbc-work-summary-receipt-v1.json · commercial pipeline",
         "diskToday": "WBC lane cp-47ccf0bd93 · proof_lab bay PASS",
         "recommended": "A",

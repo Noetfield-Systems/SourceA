@@ -7,7 +7,7 @@
 ## Key verdicts
 
 1. SourceA spans developer infra (Stripe/Resend) + trust/compliance (Vanta/Credo) — need two homepage doors.
-2. Moat is receipt layer in the repository — homepage must show real eval/audit in 2s.
+2. Moat is receipt layer on disk — homepage must show real eval/audit in 2s.
 3. Recommended headline: **"Prove every agent action."**
 4. Category: **Agentic trust infrastructure**
 5. Split product site vs investor data room — portfolio OS stays confidential deck.

@@ -1,4 +1,4 @@
-# sa-score-0898 — Receipt logged for living_ui label on Forge paths only
+# sa-score-0898 — Receipt on disk for living_ui label on Forge paths only
 
 **Saved at:** 2026-06-25T09:23:55Z
 **Version:** 1 · **Tier:** T3 · **Phase:** MOONSHOT
@@ -16,7 +16,7 @@ Raise SourceA site score toward **95+/100** — proof before call · stranger se
 
 P3 — bench · defer · compare-only
 
-**Deliverable:** Receipt logged for living_ui label on Forge paths only
+**Deliverable:** Receipt on disk for living_ui label on Forge paths only
 
 Bounded paths: `SourceA-landing/green-unified/` · `cloud/workers/sourcea-site-pulse-v1/` · `scripts/validate-sourcea-modern-stack-e2e-v1.sh`
 

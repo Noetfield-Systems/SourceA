@@ -14,7 +14,7 @@ Dual desktop deploy — agentrun-app :5180 + SA4 AgentGo :8080 · landing parity
 
 ## Task
 
-**Validate phase law for** case study prose (challenge · shipped · verification).
+**Validate phase law for** case study prose (challenge · shipped · proof chain).
 
 NOW 1-30.
 

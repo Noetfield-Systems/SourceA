@@ -23,7 +23,7 @@ Capture Lasso Security public pricing evidence: Startup and enterprise tiers —
 
 ## Implementation extraction
 
-`Lasso Security · Pricing & packaging` → what buyer sees at vendor → what we ship logged with receipt.
+`Lasso Security · Pricing & packaging` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

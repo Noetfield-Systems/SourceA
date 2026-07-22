@@ -23,7 +23,7 @@ One shippable artifact only — no drive-by refactors.
 **Anti-drift:** Never sell AgentGo sign-in localhost:3001 as production.
 **Target path:** `SourceA-landing/green-unified/case-studies/agentgo.html`
 **Success metric:** commercial + depth gate PASS
-**Receipt:** file in the repository before `status: done`.
+**Receipt:** file on disk before `status: done`.
 **Phase:** LATER · **Tier:** T0 · **Workstream:** Ship
 
 ## Verify

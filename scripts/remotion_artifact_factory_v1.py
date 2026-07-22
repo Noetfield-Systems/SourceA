@@ -39,7 +39,7 @@ LANE_DEFAULTS = {
     "AB1": {
         "brand": "SourceA",
         "accent": "#044441",
-        "cta": "See controlled automation proof",
+        "cta": "See governed automation proof",
         "proof_base": "http://127.0.0.1:5180/sourcea/proof.html#",
     },
     "NW1": {

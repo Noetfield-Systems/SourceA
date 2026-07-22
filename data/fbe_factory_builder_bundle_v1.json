@@ -6,7 +6,7 @@
   "epic": "E12",
   "category": "GEFLS",
   "category_label": "Governable Executable Factory Line Systems",
-  "one_sentence": "FBE compiles three controlled factory lines, spawns headless in cloud, federates receipts to Mac control plane.",
+  "one_sentence": "FBE compiles three governed factory lines, spawns headless in cloud, federates receipts to Mac control plane.",
   "live_snapshot": {
     "read_at": "2026-06-17T11:46:34Z",
     "sourcea": {
@@ -132,7 +132,7 @@
   "first_three_factories": [
     {
       "template_id": "web-product-factory-v1",
-      "commercial_name": "Controlled Web Product Factory",
+      "commercial_name": "Governed Web Product Factory",
       "lines": [
         "trust_motor",
         "refinery",
@@ -144,7 +144,7 @@
     },
     {
       "template_id": "exchange-factory-v1",
-      "commercial_name": "Controlled Exchange Factory",
+      "commercial_name": "Governed Exchange Factory",
       "lines": [
         "trust_motor",
         "refinery",
@@ -156,7 +156,7 @@
     },
     {
       "template_id": "forge-app-factory-v1",
-      "commercial_name": "Controlled App Factory",
+      "commercial_name": "Governed App Factory",
       "lines": [
         "trust_motor",
         "refinery",

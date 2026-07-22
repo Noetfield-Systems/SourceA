@@ -246,7 +246,7 @@ When A and B disagree → **Source A wins.**
 | G1/G2 smoke | pass | |
 | physical_iphone | pass | |
 | full_m8_iphone | pass | `run_2026-06-03T23-35-31Z` |
-| g3_tailscale | **pending** logged | Close with `npm run record:g3` if not done |
+| g3_tailscale | **pending** on disk | Close with `npm run record:g3` if not done |
 
 **M8 here = automation stack / full_m8 lane — NOT $10K MRR.** See `ASF_MILESTONE_GLOSSARY_LOCKED_v1.md`.
 
@@ -429,7 +429,7 @@ No Render credit card; Cloudflare + free tiers only.
 | MERGEPACK | Vercel, Stripe, ads, Day 7 M8 |
 | CHAT-CONSOLIDATION | First raw chat drop + L2 entries |
 | SUPERBRAIN | Fill `001-sina-core` non-negotiables; promote L2/L3 |
-| WIRE | G3 `g3_tailscale` pending logged if not recorded |
+| WIRE | G3 `g3_tailscale` pending on disk if not recorded |
 | PORTFOLIO | Per-repo blockers in GLOBAL_BLOCKERS |
 | AUDIENCE-HUB | Paused |
 | CURSOR-OS-PRO | Reference parity + store (parallel) |

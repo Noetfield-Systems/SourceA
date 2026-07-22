@@ -9,9 +9,9 @@
   "dashboard_path": "/api/site/dashboard/v1",
   "founder_dashboard_page": "/sourcea/pulse-founder",
   "public_stats_page": "/sourcea/status",
-  "booking_url": "https://cal.com/sourcea/proof-demo",
-  "booking_overlay_url": "https://cal.com/sourcea/proof-demo?overlayCalendar=true&embed=true",
-  "booking_label": "Talk to a human",
+  "booking_url": "/start?source=pulse-escalation",
+  "booking_overlay_url": "/start?source=pulse-escalation",
+  "booking_label": "Need proof-led escalation?",
   "feedback_types": [
     { "id": "bug", "label": "Something is broken" },
     { "id": "confused", "label": "This confused me" },

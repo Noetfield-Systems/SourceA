@@ -219,7 +219,7 @@ def _question_ts(q: dict, *, open_row: bool = False) -> str:
                 key = o.split(" — ")[0].strip() if " — " in o else o.split()[0]
                 effects = q.get("option_effects") or {}
                 ifYouPick = effects.get(key) or str(
-                    q.get("effect") or "Maintainer 2 records your pick logged · owner agent executes."
+                    q.get("effect") or "Maintainer 2 records your pick on disk · owner agent executes."
                 )
                 opts.append(
                     {

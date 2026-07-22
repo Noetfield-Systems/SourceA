@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Backfill broker WORKER_SUBMIT events for honest-done rows with PARTIAL broker gap.
 
-Law: receipt logged is truth; this repairs audit trail only — never changes REGISTRY.
+Law: receipt on disk is truth; this repairs audit trail only — never changes REGISTRY.
 """
 from __future__ import annotations
 

@@ -1,4 +1,4 @@
-# Controlled Execution OS — Master Charter (LOCKED v1)
+# Governed Execution OS — Master Charter (LOCKED v1)
 
 **Saved:** 2026-06-16T05:49:57Z · **Retrofit:** doc-datetime-law batch retrofit
 **Version:** 1.0 · **Locked:** 2026-06-06  
@@ -13,7 +13,7 @@
 **Full layered map:** `brain-os/system/SOURCEA_FULL_LAYERED_CONTROL_PLAN_LOCKED_v1.md` — central engines · parallel portfolio · ENFORCEMENT-6MO wedge.  
 **Agentic stack (ASF 2026-06-14):** `SOURCEA_AGENTIC_LAYER_STACK_LOCKED_v2.md` — L1 Brain→Gov→Commercial→Brief · L2 Worker→R2→M2→M3 · **L3 portfolio repos**.
 
-We run a **Controlled Execution OS for AI business automation**: SourceA is the **only execution authority**; **Commercial** and **Governance Goal Specialists** advocate for money and safety without running loops or code; **Research Acquisitor** gathers external facts and competitor comparisons (including RAIS-type systems); **disk** (D1–D16, REGISTRY, LOCKED law, audits) is SSOT; **ASF** sets priority on the Hub. Long-term goal is self-improving business automation with minimal founder design; today we operate at **semi-auto Level 1** with honest gates until Eval-1b live. SinaaiDataBase and old brain are **archive**; new ops live in **SourceA**.
+We run a **Governed Execution OS for AI business automation**: SourceA is the **only execution authority**; **Commercial** and **Governance Goal Specialists** advocate for money and safety without running loops or code; **Research Acquisitor** gathers external facts and competitor comparisons (including RAIS-type systems); **disk** (D1–D16, REGISTRY, LOCKED law, audits) is SSOT; **ASF** sets priority on the Hub. Long-term goal is self-improving business automation with minimal founder design; today we operate at **semi-auto Level 1** with honest gates until Eval-1b live. SinaaiDataBase and old brain are **archive**; new ops live in **SourceA**.
 
 ---
 
@@ -92,7 +92,7 @@ A system that understands **companies, repos, workflows, and operations**, learn
 
 ### Authority table
 
-| Layer | Acts logged? | Assigns sa-XXXX? | Decides builds? |
+| Layer | Acts on disk? | Assigns sa-XXXX? | Decides builds? |
 |-------|---------------|------------------|-----------------|
 | Commercial Goal Specialist | ❌ | ❌ | ❌ (advocates money) |
 | Governance Goal Specialist | ❌ | ❌ | ❌ (constrains risk) |
@@ -124,7 +124,7 @@ At Execution Core SYNC: **Governance constraints beat Commercial speed** unless 
 
 | ✅ Use | ❌ Stop |
 |--------|---------|
-| Controlled Execution OS for AI business automation | “3 equal brains” / “brain federation” |
+| Governed Execution OS for AI business automation | “3 equal brains” / “brain federation” |
 | Goal Specialist (mission-bound advocate) | “Reasoning module” alone |
 | SourceA Execution Core | “RAIS layer” inside our stack |
 | Research Acquisitor | Another brain with execution power |
@@ -233,7 +233,7 @@ Wire vault paths + SYNC procedure into `BRAIN_KNOWLEDGE_INDEX_LOCKED_v1.md` §Go
 | Execution Core | Who **routes** |
 | Research Acquisitor | What the **world** looks like |
 
-North star unchanged: structured truth + outside references → minimal founder design → controlled execution.
+North star unchanged: structured truth + outside references → minimal founder design → governed execution.
 
 ---
 
@@ -255,7 +255,7 @@ North star unchanged: structured truth + outside references → minimal founder 
 | # | Item | Owner |
 |---|------|-------|
 | 1 | First full loop run | ASF opens chats per pack |
-| 2 | YAML vault files logged | Goal Specialists |
+| 2 | YAML vault files on disk | Goal Specialists |
 | 3 | Brain index wiring | Worker sa-XXXX after loop 1 |
 | 4 | Research Acquisitor v1 | After loop 1 |
 | 5 | Eval-1b live credits | ASF commercial parallel |
@@ -291,7 +291,7 @@ Execution Core **never** loads raw lane matrices or full audit packs — digest 
 
 | Doc | Path |
 |-----|------|
-| This charter | `os/chat-handoffs/CONTROLLED_EXECUTION_OS_MASTER_LOCKED_v1.md` |
+| This charter | `os/chat-handoffs/GOVERNED_EXECUTION_OS_MASTER_LOCKED_v1.md` |
 | Unified research | `os/chat-handoffs/UNIFIED_RESEARCH_ROOT_LOCKED_v1.md` |
 | Chat paste pack | `os/chat-handoffs/GOAL_SPECIALIST_CHAT_PACK_LOCKED_v1.md` |
 | Brain transfer | `os/chat-handoffs/BRAIN_FULL_TRANSFER_PROMPT_LOCKED_v1.md` |
@@ -307,8 +307,8 @@ Execution Core **never** loads raw lane matrices or full audit packs — digest 
 bash ~/Desktop/SourceA/scripts/sync-brain-pack.sh
 ```
 
-Copies `CONTROLLED_EXECUTION_OS_MASTER_LOCKED_v1.md` and `GOAL_SPECIALIST_CHAT_PACK_LOCKED_v1.md` to `~/.sina/brain/`.
+Copies `GOVERNED_EXECUTION_OS_MASTER_LOCKED_v1.md` and `GOAL_SPECIALIST_CHAT_PACK_LOCKED_v1.md` to `~/.sina/brain/`.
 
 ---
 
-*End CONTROLLED EXECUTION OS MASTER v1*
+*End GOVERNED EXECUTION OS MASTER v1*

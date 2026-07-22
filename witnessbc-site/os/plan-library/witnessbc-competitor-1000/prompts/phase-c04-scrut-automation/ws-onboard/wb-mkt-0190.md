@@ -23,7 +23,7 @@ Close wb-mkt-0190 with onboarding evidence + verify PASS
 
 ## Implementation extraction
 
-`Scrut Automation · Onboarding & PLG` → what buyer sees at vendor → what we ship logged with receipt.
+`Scrut Automation · Onboarding & PLG` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Auto-note autorun pending blockers — every cycle, no manual founder reminder.
 
-Law: CONTROLLED_AUTORUN_LAWS_v2 L3/L4/L12 — pending = {decision, reason, evidence}.
+Law: GOVERNED_AUTORUN_LAWS_v2 L3/L4/L12 — pending = {decision, reason, evidence}.
 Receipt: receipts/cloud/autorun-pending/pending-latest-v1.json
 Mirror: ~/.sina/autorun-pending-v1.json
 """
@@ -283,7 +283,7 @@ def pending_snapshot(*, max_age_hours: float = 24.0) -> dict[str, Any]:
                 "status": "pending",
                 "severity": "P0",
                 "law": "L4",
-                "reason": "external-verify.yml not present locally",
+                "reason": "external-verify.yml not on disk",
                 "evidence": {"path": ".github/workflows/external-verify.yml"},
                 "action": "restore workflow",
             }

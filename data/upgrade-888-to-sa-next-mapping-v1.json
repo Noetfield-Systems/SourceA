@@ -1091,7 +1091,7 @@
       "theme": "t02-proof",
       "phase": "NEXT",
       "receipt_gate": "nw1_w3",
-      "title": "Verification interactive"
+      "title": "Proof chain interactive"
     },
     {
       "up_id": "UP-0109",
@@ -1101,7 +1101,7 @@
       "theme": "t02-proof",
       "phase": "NEXT",
       "receipt_gate": "proof_pack_sealed",
-      "title": "Verification interactive"
+      "title": "Proof chain interactive"
     },
     {
       "up_id": "UP-0110",
@@ -1111,7 +1111,7 @@
       "theme": "t02-proof",
       "phase": "NEXT",
       "receipt_gate": "landing_ship",
-      "title": "Verification interactive"
+      "title": "Proof chain interactive"
     },
     {
       "up_id": "UP-0111",
@@ -2121,7 +2121,7 @@
       "theme": "t03-landing",
       "phase": "LATER",
       "receipt_gate": "proof_pack_sealed",
-      "title": "Verification beat 6"
+      "title": "Proof chain beat 6"
     },
     {
       "up_id": "UP-0212",
@@ -2131,7 +2131,7 @@
       "theme": "t03-landing",
       "phase": "LATER",
       "receipt_gate": "landing_ship",
-      "title": "Verification beat 6"
+      "title": "Proof chain beat 6"
     },
     {
       "up_id": "UP-0213",
@@ -2141,7 +2141,7 @@
       "theme": "t03-landing",
       "phase": "LATER",
       "receipt_gate": "runtime_spike_pass",
-      "title": "Verification beat 6"
+      "title": "Proof chain beat 6"
     },
     {
       "up_id": "UP-0214",

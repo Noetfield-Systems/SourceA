@@ -126,7 +126,7 @@ def notifications_enabled() -> bool:
 
 
 def load_settings() -> dict[str, Any]:
-    """Merge defaults with in-repo panic + prevention configs."""
+    """Merge defaults with on-disk panic + prevention configs."""
     settings = deepcopy(DEFAULTS)
     panic = _read_json(PANIC_PATH)
     prev = _read_json(PREVENTION_PATH)
@@ -235,7 +235,7 @@ def load_settings() -> dict[str, Any]:
 
 
 def save_settings(patch: dict[str, Any]) -> dict[str, Any]:
-    """Apply founder patch → write panic + prevention JSON logged."""
+    """Apply founder patch → write panic + prevention JSON on disk."""
     current = load_settings()
     merged = _deep_merge(current, patch)
     ag = merged["auto_guard"]

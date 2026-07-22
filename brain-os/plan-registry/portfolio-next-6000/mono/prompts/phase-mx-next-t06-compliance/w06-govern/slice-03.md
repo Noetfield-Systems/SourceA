@@ -12,7 +12,7 @@ Mono portfolio spine — cross-lane receipts only
 
 ## Task
 
-SinaaiMonoRepo · MSB & compliance · Govern · slice 3/10 — P1 — next sprint outcome. Bounded path only. Receipt logged before done. Parent: Mono portfolio spine — cross-lane receipts only. Priority doc: `os/plan-library/mono-1000/REGISTRY.json`.
+SinaaiMonoRepo · MSB & compliance · Govern · slice 3/10 — P1 — next sprint outcome. Bounded path only. Receipt on disk before done. Parent: Mono portfolio spine — cross-lane receipts only. Priority doc: `os/plan-library/mono-1000/REGISTRY.json`.
 
 ## Verify
 

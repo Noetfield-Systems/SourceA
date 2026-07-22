@@ -64,7 +64,7 @@ After reading both, do the following in order:
    current system state.
 
 3. Confirm FILE_STORAGE_GOVERNANCE_LOCKED_v1.md is consistent with 
-   current brain-os/ directory structure and ~/.sina/ paths logged.
+   current brain-os/ directory structure and ~/.sina/ paths on disk.
 
 4. If any current file is stored in the wrong tier per the new 
    FILE_STORAGE_GOVERNANCE law, log it as MISS-XXX in the Master 
@@ -92,7 +92,7 @@ Read these two new LOCKED governance documents immediately:
 After reading both:
 
 1. Verify the governance law in FILE_STORAGE_GOVERNANCE_LOCKED_v1.md 
-   is consistent with all existing LOCKED governance docs logged.
+   is consistent with all existing LOCKED governance docs on disk.
    Flag any conflicts.
 
 2. Verify the Master Tracker's enforcement model (Section 0 and 

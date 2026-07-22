@@ -58,7 +58,7 @@ Law: `SOURCEA_REFERENCE_ARCHITECTURE_CONSTELLATION_LOCKED_v1.md`
 | Founder / HashiCorp signal | **Not a strategy** | Solo founder + agents | Regulated wedge + live tamper demo |
 | Lead VC syndicate | **Aspirational** | No tier-1 lead · $0 revenue | Seed $3–10M after pilot |
 | Enterprise pilot | **P0** | W3 = $0 | This week — `ENFORCEMENT_OUTREACH_v1.md` |
-| Tech paper / whitepaper | **Deferred** | Architecture logged | One-pager after demo |
+| Tech paper / whitepaper | **Deferred** | Architecture on disk | One-pager after demo |
 | Secure connectors / VAPT | **P2** | Stub demo only | Post-pilot · pre-Series A |
 | Holding + 10 startups | **Reframe** | Portfolio OS exists | Legal formalization after 2 paying wedges |
 

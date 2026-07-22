@@ -1,4 +1,4 @@
-# sa-score-0892 — Receipt logged for sourcea-landing-cta-v1.json version bump + changelog
+# sa-score-0892 — Receipt on disk for sourcea-landing-cta-v1.json version bump + changelog
 
 **Saved at:** 2026-06-25T09:23:55Z
 **Version:** 1 · **Tier:** T0 · **Phase:** MOONSHOT
@@ -16,7 +16,7 @@ Raise SourceA site score toward **95+/100** — proof before call · stranger se
 
 P0 — smallest shippable slice; live on sourcea.app
 
-**Deliverable:** Receipt logged for sourcea-landing-cta-v1.json version bump + changelog
+**Deliverable:** Receipt on disk for sourcea-landing-cta-v1.json version bump + changelog
 
 Bounded paths: `SourceA-landing/green-unified/` · `cloud/workers/sourcea-site-pulse-v1/` · `scripts/validate-sourcea-modern-stack-e2e-v1.sh`
 

@@ -71,14 +71,14 @@ def hub_canvas_target() -> dict:
     subject_preview = (head_card or {}).get("subject") or "—"
     if open_count:
         form_line = (
-            f"{open_count} open PICKs logged · M1 Canvas · "
+            f"{open_count} open PICKs on disk · M1 Canvas · "
             "INCIDENT-037 block ON · agent-submit forbidden"
         )
         form_hub_line = (
             f"{open_count} open PICKs · M1 Canvas · {subject_preview[:72]} · guard active"
         )
     else:
-        form_line = "Form clear — 0 open PICKs logged · guard PASS"
+        form_line = "Form clear — 0 open PICKs on disk · guard PASS"
         form_hub_line = "Form clear — 0 open PICKs · guard PASS"
 
     return {
@@ -92,7 +92,7 @@ def hub_canvas_target() -> dict:
         "founder_head_card": head_card,
         "form_page_url": FORM_PAGE_URL,
         "hint": (
-            f"M1 Canvas Pending confirmations · {open_count} open PICKs logged · "
+            f"M1 Canvas Pending confirmations · {open_count} open PICKs on disk · "
             "founder supremacy guard · agent-submit blocked"
         ),
         "open_gath_ids": sorted(i for i in open_ids if i.startswith("Q-GATH-")),

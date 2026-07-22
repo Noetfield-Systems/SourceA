@@ -25,7 +25,7 @@ Better Loop = system running · Best Loop = machine ≥90% · Critic Circle = cl
 
 | Loop | Question | Script |
 |------|----------|--------|
-| Best Loop OQG | Structural + FEFS logged? | `best_loop_oqg_score_v1.py` |
+| Best Loop OQG | Structural + FEFS on disk? | `best_loop_oqg_score_v1.py` |
 | Critic Circle | One fix until true ≥90%? | `factory_output_critic_circle_v1.py` |
 | **Receiver Interest** | Click-worthy preview for **this** recipient? | `receiver_interest_loop_v1.py` |
 

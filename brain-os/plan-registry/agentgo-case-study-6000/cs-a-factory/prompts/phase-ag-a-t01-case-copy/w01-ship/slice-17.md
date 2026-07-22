@@ -14,12 +14,12 @@ AgentGo GEO factory scale — 1259-page surface · trackers · research · compa
 
 ## Task
 
-**Document subdomain option for** case study prose (challenge · shipped · verification).
+**Document subdomain option for** case study prose (challenge · shipped · proof chain).
 
 agentgo.sourcea.app — defer until ASF.
 
 **Angle:** marketing leader who needs category surface at factory speed
-**Pure law:** Pure story: controlled pipeline → 1259-page GEO surface. Not a PureFlow trades clone.
+**Pure law:** Pure story: governed pipeline → 1259-page GEO surface. Not a PureFlow trades clone.
 **Anti-drift:** Never claim live SaaS billing — SA4 is marketing surface proof.
 **Target path:** `SourceA-landing/green-unified/case-studies/agentgo.html`
 **Success metric:** buyer comprehension in one screen
@@ -28,7 +28,7 @@ agentgo.sourcea.app — defer until ASF.
 
 ## Polish wisdom (v3)
 
-Proof pack row optional — only if phase1 ticket still sealed logged.
+Proof pack row optional — only if phase1 ticket still sealed on disk.
 
 ## Verify
 

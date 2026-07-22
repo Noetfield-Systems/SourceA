@@ -35,7 +35,7 @@ python3 scripts/l1_agent_pipeline_wire_v1.py --json
 |------|-----|
 | `reconciled_decision.yaml` stale | **IGNORE** — obey `active_decisions[]` + LOCKED paths |
 | Brain locked a `*_LOCKED_v1.md` | Governance propagates via cascade + stairlift — never relitigate in chat |
-| Queue head logged | Brain pick ≠ chat memory — wire `queue_head` wins |
+| Queue head on disk | Brain pick ≠ chat memory — wire `queue_head` wins |
 
 Chats: Brain `58148ac9` (route + lock law) · Commercial `6245d9dd` · Governance `e54ddfa8`.
 
@@ -71,7 +71,7 @@ python3 scripts/governance_center_run_v1.py --tier fast --text "<input>"
 
 | Forbidden | Required instead |
 |-----------|------------------|
-| "Fixed" / "not present locally" without proof | Attach `~/.sina/governance-meta-audit-receipt-v1.json` **`ok: true`** |
+| "Fixed" / "not on disk" without proof | Attach `~/.sina/governance-meta-audit-receipt-v1.json` **`ok: true`** |
 | Deny Worker disk when grep fails | Cite failure `id` + path from meta-audit `failures[]` |
 | Daily audit of `/legacy/` or full command-data | Zone A only — `SOURCEA_THREE_ZONE_HUB_SPINE_LOCKED_v1.md` |
 

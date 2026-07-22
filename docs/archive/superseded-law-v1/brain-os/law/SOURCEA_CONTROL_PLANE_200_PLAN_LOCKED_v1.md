@@ -5,7 +5,7 @@
 **Saved:** 2026-06-16T05:49:57Z · **Retrofit:** doc-datetime-law batch retrofit
 **Version:** 1.1 · **Locked:** 2026-06-15  
 **Branch tree:** `SOURCEA_CONTROL_PLANE_200_PLAN_BRANCH_INDEX_LOCKED_v1.md` → `archive/attachments/commercial_goal_specialist/sina_os/branches/` (14 buckets · full PLAN cards)  
-**Label:** **Control plane** (market) · **Controlled execution OS** (SSOT law)  
+**Label:** **Control plane** (market) · **Governed execution OS** (SSOT law)  
 **Authority:** `SOURCEA_UNIFIED_PORTFOLIO_COMMERCIAL_SSOT_LOCKED_v3.1.md` · `SOURCEA_REFERENCE_ARCHITECTURE_CONSTELLATION_LOCKED_v1.md`  
 **Prior:** PLAN-001–100 `BLUEPRINT_MARKET_100_PLANS_RESEARCH_REPORT_v1.md` · PLAN-101–200 tier slice from `BLUEPRINT_MARKET_300_PLANS_TIER1_RESEARCH_REPORT_v1.md`  
 **June 2026 updates:** `SOURCEA_COMPETITOR_LANDSCAPE_RESEARCH_REPORT_v1.md` · `NOETFIELD_NW1_BATTLE_CARD_LOCKED_v1.md` · `SOURCEA_ORCHESTRATOR_PARTNER_INTEGRATION_LOCKED_v1.md` · `critic_boot_v1.py` shipped
@@ -110,7 +110,7 @@
 | PLAN-049 | B-roll: spine jsonl append | Event sourcing | ASF | P2 | other-repo |
 | PLAN-050 | Demo subtitle — commercial sentence | Message discipline | ASF | P1 | other-repo |
 
-**SourceA substitute until film ships:** `NOETFIELD_COMPLIANCE_DEMO_SCRIPT_LOCKED_v1.md` + `run_noetfield_compliance_demo_v1.sh` (live BLOCK→PASS logged).
+**SourceA substitute until film ships:** `NOETFIELD_COMPLIANCE_DEMO_SCRIPT_LOCKED_v1.md` + `run_noetfield_compliance_demo_v1.sh` (live BLOCK→PASS on disk).
 
 ---
 
@@ -141,13 +141,13 @@
 | ID | Plan | Market driver | Owner | P | Status |
 |----|------|---------------|-------|---|--------|
 | PLAN-066 | Battlecard: SourceA vs **Notenic** (L6 peer) | Pre-execution authority | ASF | P1 | **done** → competitor report |
-| PLAN-067 | Battlecard: **Noetfield** vs Securiti/SourceA/Purview | NW1 outbound | ASF | P0 | **done** → NW1 battle card |
+| PLAN-067 | Battlecard: **Noetfield** vs Securiti/Zenity/Purview | NW1 outbound | ASF | P0 | **done** → NW1 battle card |
 | PLAN-068 | Battlecard: SourceA vs LangSmith | Trace vs receipt | ASF | P2 | open |
 | PLAN-069 | Partner note: SourceA **above** Temporal/LangGraph | Not competitor | ASF | P1 | **done** → orchestrator integration |
 | PLAN-070 | “10-minute instrument” one workflow | Geordie bar | M2 | P1 | open |
 | PLAN-071 | Comparison landing — receipts vs observability | SEO | M2 | P3 | open |
 | PLAN-072 | RSAC talk abstract — tamper FAIL live | Category | ASF | P3 | open |
-| PLAN-073 | Monitor Notenic/SourceA/FuseGov quarterly | CI | M2 | P1 | open |
+| PLAN-073 | Monitor Notenic/Zenity/FuseGov quarterly | CI | M2 | P1 | open |
 | PLAN-074 | MCP governance — tool call receipts | Agent sprawl | M2 | P2 | open |
 | PLAN-075 | Open-source spine smoke sample | GitHub eval | W | P2 | open |
 

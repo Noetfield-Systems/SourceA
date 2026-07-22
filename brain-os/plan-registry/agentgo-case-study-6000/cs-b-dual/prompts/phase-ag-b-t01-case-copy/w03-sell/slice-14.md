@@ -14,7 +14,7 @@ Dual desktop deploy — agentrun-app :5180 + SA4 AgentGo :8080 · landing parity
 
 ## Task
 
-**Log W3 economic signal for** case study prose (challenge · shipped · verification).
+**Log W3 economic signal for** case study prose (challenge · shipped · proof chain).
 
 CAD ≥2K path.
 

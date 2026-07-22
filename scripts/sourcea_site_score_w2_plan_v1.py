@@ -155,7 +155,7 @@ def probe_step(sa_score_id: str, theme: str, workstream: str) -> bool:
     if key in probes:
         return probes[key]
 
-    # Generic: prompt file exists + theme workstream row logged
+    # Generic: prompt file exists + theme workstream row on disk
     reg = json.loads(REGISTRY.read_text(encoding="utf-8")) if REGISTRY.is_file() else {}
     for p in reg.get("plans") or []:
         if p.get("id") == sa_score_id:

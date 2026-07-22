@@ -3,7 +3,7 @@
 **Saved:** 2026-06-16T05:49:57Z · **Retrofit:** doc-datetime-law batch retrofit
 **Version:** 1.3 · **Locked:** 2026-06-23 (anti-poison · hello@sourcea.app · forge@sourcea.app)  
 **Authority:** Portfolio SSOT §9 separation — SourceA lane only · CASL (Canada)  
-**Law:** `SOURCEA_UNIFIED_PORTFOLIO_COMMERCIAL_SSOT_LOCKED_v3.1.md` · `SOURCEA_ASSET_B_CONTROLLED_AGENTIC_AUTOMATION_LOCKED_v1.md`
+**Law:** `SOURCEA_UNIFIED_PORTFOLIO_COMMERCIAL_SSOT_LOCKED_v3.1.md` · `SOURCEA_ASSET_B_GOVERNED_AGENTIC_AUTOMATION_LOCKED_v1.md`
 
 ---
 
@@ -43,7 +43,7 @@ Machine SSOT: `data/sourcea-commercial-email-routes-v1.json` · contract aliases
 ```text
 —
 Sina Kazemnezhad
-SourceA · controlled agentic automation
+SourceA · governed agentic automation
 hello@sourcea.app
 https://sourcea.app
 
@@ -74,7 +74,7 @@ Override founder name: `SOURCEA_FOUNDER_NAME` env var. **Do not include:** perso
 | Asset B AB1 | `scripts/send_ab1_single_v1.py` | `~/.sina/outbound/ab1-send-001/` |
 | NW1 | `scripts/send_nw1_single_v1.py` | `~/.sina/outbound/nw1-send-001/` |
 
-Templates: `~/.sina/controlled-agentic-automation-email-templates-v1.json` · refresh `controlled_agentic_automation_offer_v1.py --pack`
+Templates: `~/.sina/governed-agentic-automation-email-templates-v1.json` · refresh `governed_agentic_automation_offer_v1.py --pack`
 
 ---
 

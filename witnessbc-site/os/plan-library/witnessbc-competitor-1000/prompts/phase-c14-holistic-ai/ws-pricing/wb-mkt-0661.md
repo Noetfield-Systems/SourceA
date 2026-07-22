@@ -23,7 +23,7 @@ Capture Holistic AI public pricing evidence: Enterprise custom — save link or 
 
 ## Implementation extraction
 
-`Holistic AI · Pricing & packaging` → what buyer sees at vendor → what we ship logged with receipt.
+`Holistic AI · Pricing & packaging` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

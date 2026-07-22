@@ -14,7 +14,7 @@ Dual desktop deploy — agentrun-app :5180 + SA4 AgentGo :8080 · landing parity
 
 ## Task
 
-**Refresh localhost caveat copy for** case study prose (challenge · shipped · verification).
+**Refresh localhost caveat copy for** case study prose (challenge · shipped · proof chain).
 
 Buyer honesty.
 

@@ -23,7 +23,7 @@ Add `Witness AI Flow install replay demo + 6 receipt types` mock row labeled moc
 
 ## Implementation extraction
 
-`Lakera Guard · Buyer-visible UX` → what buyer sees at vendor → what we ship logged with receipt.
+`Lakera Guard · Buyer-visible UX` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

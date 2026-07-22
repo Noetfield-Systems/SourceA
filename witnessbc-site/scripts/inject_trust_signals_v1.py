@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Inject live trust signals for Witness AI site — factory repository + governance events."""
+"""Inject live trust signals for Witness AI site — factory disk + governance events."""
 from __future__ import annotations
 
 import argparse

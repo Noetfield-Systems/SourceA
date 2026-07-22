@@ -17,7 +17,7 @@
 2. Show **factory FREEZE / queue position**
 3. **Safety check** one tap
 4. **Light refresh** one tap (~1s, no rebuild)
-5. **Policy links** open law docs locally (no embedded 9MB JSON)
+5. **Policy links** open law docs on disk (no embedded 9MB JSON)
 
 Rules, commercial policy, governance systems stay on **disk + Actions in legacy** — not loaded into the default hub.
 

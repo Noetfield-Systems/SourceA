@@ -165,7 +165,7 @@ can check on my own disk.
 ## J. My Dispatch Checklist (run before sending ANY order)
 1. One job? (else split)
 2. ALREADY DONE pinned? (else rebuild risk)
-3. DONE conditiin the repository-checkable? (else it's draft)
+3. DONE condition disk-checkable? (else it's draft)
 4. Ends in one bounded action? (else fake layering)
 5. Would it pass ORD? Any red flags? (else fix first)
 6. Founder decisions left to me, not guessed? (else add "ask, don't guess")

@@ -14,7 +14,7 @@ Dual desktop deploy — agentrun-app :5180 + SA4 AgentGo :8080 · landing parity
 
 ## Task
 
-**Cross-link offer.html to** case study prose (challenge · shipped · verification).
+**Cross-link offer.html to** case study prose (challenge · shipped · proof chain).
 
 Two case studies: PureFlow local · AgentGo scale.
 

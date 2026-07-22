@@ -23,7 +23,7 @@ Mark wb-mkt-0060 done in REGISTRY with evidence path + https://delve.co after ve
 
 ## Implementation extraction
 
-`Delve · Buyer-visible UX` → what buyer sees at vendor → what we ship logged with receipt.
+`Delve · Buyer-visible UX` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

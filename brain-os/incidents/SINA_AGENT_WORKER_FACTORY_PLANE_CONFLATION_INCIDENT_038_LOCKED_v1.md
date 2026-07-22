@@ -92,7 +92,7 @@ Mac never enters the loop body for secondary.
 
 ---
 
-## 7. Remediatilocally (v1.1)
+## 7. Remediation disk (v1.1)
 
 | Artifact | v1.1 fix |
 |----------|----------|

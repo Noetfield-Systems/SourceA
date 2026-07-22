@@ -12,7 +12,7 @@ Mono portfolio spine — cross-lane receipts only
 
 ## Task
 
-SinaaiMonoRepo · Landing & web · Govern · slice 7/10 — P2 — harden · validate · document. Bounded path only. Receipt logged before done. Parent: Mono portfolio spine — cross-lane receipts only. Priority doc: `os/plan-library/mono-1000/REGISTRY.json`.
+SinaaiMonoRepo · Landing & web · Govern · slice 7/10 — P2 — harden · validate · document. Bounded path only. Receipt on disk before done. Parent: Mono portfolio spine — cross-lane receipts only. Priority doc: `os/plan-library/mono-1000/REGISTRY.json`.
 
 ## Verify
 

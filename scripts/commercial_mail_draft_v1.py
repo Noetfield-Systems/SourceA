@@ -84,7 +84,7 @@ def mail_configured_addresses() -> list[str]:
 
 
 def _disk_mail_addresses() -> list[str]:
-    """Founder-confirmed Mail FROM logged when Mail.app probe unavailable."""
+    """Founder-confirmed Mail FROM on disk when Mail.app probe unavailable."""
     ssot = SINA / "commercial-mail-from-ssot-v1.json"
     if not ssot.is_file():
         return []

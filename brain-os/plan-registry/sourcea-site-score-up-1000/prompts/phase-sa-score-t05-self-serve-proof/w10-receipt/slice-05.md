@@ -1,4 +1,4 @@
-# sa-score-0095 — Receipt logged for proof run status page /sourcea/proof/run/:id
+# sa-score-0095 — Receipt on disk for proof run status page /sourcea/proof/run/:id
 
 **Saved at:** 2026-06-25T09:23:55Z
 **Version:** 1 · **Tier:** T2 · **Phase:** NEXT
@@ -16,7 +16,7 @@ Raise SourceA site score toward **95+/100** — proof before call · stranger se
 
 P2 — harden · document · validate
 
-**Deliverable:** Receipt logged for proof run status page /sourcea/proof/run/:id
+**Deliverable:** Receipt on disk for proof run status page /sourcea/proof/run/:id
 
 Bounded paths: `SourceA-landing/green-unified/` · `cloud/workers/sourcea-site-pulse-v1/` · `scripts/validate-sourcea-modern-stack-e2e-v1.sh`
 

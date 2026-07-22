@@ -23,7 +23,7 @@ Compare Holistic AI PLG motion (Enterprise AI governance sales) vs our onboardin
 
 ## Implementation extraction
 
-`Holistic AI · Pricing & packaging` → what buyer sees at vendor → what we ship logged with receipt.
+`Holistic AI · Pricing & packaging` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

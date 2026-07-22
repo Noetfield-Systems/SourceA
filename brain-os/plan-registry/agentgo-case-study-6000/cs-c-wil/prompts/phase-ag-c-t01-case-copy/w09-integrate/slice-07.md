@@ -14,7 +14,7 @@ Wil L3 portfolio demo — YA5 mirror · AgentGo ≠ SourceA separation · ship g
 
 ## Task
 
-**Cross-link portfolio-8888 if needed for** case study prose (challenge · shipped · verification).
+**Cross-link portfolio-8888 if needed for** case study prose (challenge · shipped · proof chain).
 
 fast-sell.
 

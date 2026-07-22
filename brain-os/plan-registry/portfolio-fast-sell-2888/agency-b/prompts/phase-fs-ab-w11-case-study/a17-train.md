@@ -1,7 +1,7 @@
 # fs-ab-0207 — Fast-sell plan
 
 **Version:** 1 · **Tier:** T2 · **Phase:** LATER
-**Lane:** SourceA Agency Asset B · **Wedge:** w11-case-study · Client case study logged
+**Lane:** SourceA Agency Asset B · **Wedge:** w11-case-study · Client case study on disk
 **Action:** a17-train · Client handoff doc
 **Comp anchor:** Pickaxe 3-tier agency
 **Tier 1:** Workflow audit $1.5–3K
@@ -10,12 +10,12 @@
 
 ## Task
 
-Fast-sell: SourceA Agency Asset B · Client case study logged · Client handoff doc. Ship smallest slice that moves a buyer toward **Workflow audit $1.5–3K** with a path to **Build + $1–5K/mo optimize**. Receipt logged before done.
+Fast-sell: SourceA Agency Asset B · Client case study on disk · Client handoff doc. Ship smallest slice that moves a buyer toward **Workflow audit $1.5–3K** with a path to **Build + $1–5K/mo optimize**. Receipt on disk before done.
 
 ## Verify
 
 ```bash
-test -f ~/Desktop/SourceA/brain-os/law/SOURCEA_ASSET_B_CONTROLLED_AGENTIC_AUTOMATION_LOCKED_v1.md
+test -f ~/Desktop/SourceA/brain-os/law/SOURCEA_ASSET_B_GOVERNED_AGENTIC_AUTOMATION_LOCKED_v1.md
 ```
 
 ## Closeout

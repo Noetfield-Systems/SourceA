@@ -2,7 +2,7 @@
 
 **Saved:** 2026-06-16T05:49:57Z · **Retrofit:** doc-datetime-law batch retrofit
 **Version:** 1.0 — FINAL LOCKED  
-**Law:** Claude audit 2026-06-07 — discipline gap closed logged  
+**Law:** Claude audit 2026-06-07 — discipline gap closed on disk  
 **Canonical:** `os/chat-handoffs/ONE_SA_PER_TURN_MECHANICAL_LOCKED_v1.md`  
 **Enforcer:** `scripts/one_sa_per_turn_gate_v1.py`
 

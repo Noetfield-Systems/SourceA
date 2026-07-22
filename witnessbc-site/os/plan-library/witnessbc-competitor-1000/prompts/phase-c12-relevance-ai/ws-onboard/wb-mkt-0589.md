@@ -23,7 +23,7 @@ Docs: onboarding section cites Relevance AI as market analog with https://releva
 
 ## Implementation extraction
 
-`Relevance AI · Onboarding & PLG` → what buyer sees at vendor → what we ship logged with receipt.
+`Relevance AI · Onboarding & PLG` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

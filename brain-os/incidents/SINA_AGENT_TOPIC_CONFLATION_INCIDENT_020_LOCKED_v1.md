@@ -52,7 +52,7 @@ ASF correction: **right bash is agent communication with founder**. **S10 is a t
 1. **Convenience collapse** — one reply, one incident, one summary for two concerns.  
 2. **Recency bias** — last built thing (S10) became incident umbrella.  
 3. **Missing taxonomy step** — agent did not ask: "Is this communication or subsystem?"  
-4. **Miss loop shortcut** — patched in chat + S10 files before splitting topics logged.
+4. **Miss loop shortcut** — patched in chat + S10 files before splitting topics on disk.
 
 ---
 

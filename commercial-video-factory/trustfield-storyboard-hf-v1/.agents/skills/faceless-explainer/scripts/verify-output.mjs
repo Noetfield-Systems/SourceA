@@ -22,7 +22,7 @@ import { join, resolve } from "node:path";
 // the file + ffprobe + group_spec.total_duration_s. The finalize/visual-QA
 // agent no longer hand-runs stat/ffprobe or eyeballs the duration delta.
 //
-// Reads:  ./group_spec.json (total_duration_s) + the rendered mp4 present.
+// Reads:  ./group_spec.json (total_duration_s) + the rendered mp4 on disk.
 // Checks: 1. file exists
 //         2. size >= MIN_BYTES (a 0-frame / header-only mp4 is a failed render)
 //         3. ffprobe container duration within DUR_TOLERANCE_S of

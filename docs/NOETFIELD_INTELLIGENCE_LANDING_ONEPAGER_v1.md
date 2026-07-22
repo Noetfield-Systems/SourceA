@@ -35,7 +35,7 @@ We design, build, and govern AI for immigration firms, diaspora businesses, mort
 **Secondary CTA:** See how we govern AI (Trust Brief)
 
 **Trust line:**  
-Noetfield Systems Inc. · Vancouver · controlled automation · optional payment rails via TrustField (separate engagement)
+Noetfield Systems Inc. · Vancouver · governed automation · optional payment rails via TrustField (separate engagement)
 
 ---
 
@@ -71,7 +71,7 @@ Noetfield Systems Inc. · Vancouver · controlled automation · optional payment
 
 ## Why Noetfield (3 proof points)
 
-1. **Controlled by default** — every workflow can produce a Trust Brief–grade audit trail when you need board or procurement proof.  
+1. **Governed by default** — every workflow can produce a Trust Brief–grade audit trail when you need board or procurement proof.  
 2. **Built from real client work** — we productize only after paid diagnostics and builds — not slideware.  
 3. **Payments stay separate** — money movement runs through TrustField Technologies; consulting stays with Noetfield Systems.
 

@@ -28,7 +28,7 @@ if event:
 else:
     bridge_rows = [r for r in tail(topic="spine.bridge", n=5)]
     assert not bridge_rows or ROW_MARKER in pri or "spine bridge founder" in pri.lower(), (
-        "PRIORITY spine proof row expected when bridge events logged"
+        "PRIORITY spine proof row expected when bridge events on disk"
     )
 
 out = maybe_append_spine_proof_row()

@@ -14,7 +14,7 @@ Wil L3 portfolio demo — YA5 mirror · AgentGo ≠ SourceA separation · ship g
 
 ## Task
 
-**Founder review doc for** case study prose (challenge · shipped · verification).
+**Founder review doc for** case study prose (challenge · shipped · proof chain).
 
 sign-off.
 

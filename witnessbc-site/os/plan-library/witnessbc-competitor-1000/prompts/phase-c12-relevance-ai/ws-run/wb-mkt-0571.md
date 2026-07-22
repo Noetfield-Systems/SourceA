@@ -23,7 +23,7 @@ From https://relevanceai.com/docs/get-started/pricing document Relevance AI run/
 
 ## Implementation extraction
 
-`Relevance AI · Run history & proof` → what buyer sees at vendor → what we ship logged with receipt.
+`Relevance AI · Run history & proof` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

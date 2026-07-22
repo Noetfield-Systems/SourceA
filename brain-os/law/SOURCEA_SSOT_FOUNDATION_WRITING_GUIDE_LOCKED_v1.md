@@ -29,7 +29,7 @@ This is the document you meant: **how people understand and write SSOT** — not
 | **SoT Hierarchy Registry** | **FOUND** — `002-sot-hierarchy-registry.md` (LAW → OPERATIONAL → ARCHIVE) |
 | **SLF v5 frozen spec** | **FOUND** — MonoRepo L0-meta + SourceA `META_REASONING` descendant |
 | **Registry of Foundations** (mega-chat name) | **Same family as 002 + 018** — not a separate missing doc |
-| **“First egg” book passage** | **NOT FOUND logged** — captured as metaphor §3 |
+| **“First egg” book passage** | **NOT FOUND on disk** — captured as metaphor §3 |
 
 When you recover Registry of Foundations → GOV_UNIFY merge into §8 slot — **one row, no duplicate prose**.
 
@@ -127,7 +127,7 @@ Execute with META_REASONING §9.5 stages:
 | **Governance foundation** | META_REASONING L0–L12 | **Human reasoning** — teaches before lock |
 | **Ecosystem SSOT** | `SINA_OS_SSOT` | **P0 apex** — mono structure |
 | **Cognitive OS (POSA v3)** | Noetfield L0-law POSA | **Parallel product philosophy** — perception→learning loop; **subordinate** to SourceA apex for mono |
-| **Execution OS** | `CONTROLLED_EXECUTION_OS_MASTER` | Specialists advocate · Core decides |
+| **Execution OS** | `GOVERNED_EXECUTION_OS_MASTER` | Specialists advocate · Core decides |
 | **Integrity pack** | SESSION-INTEGRITY-10 cluster | Daily + deep audit |
 | **Live propagation** | `governance_propagation_cascade_v1.py` | Hatch stage |
 

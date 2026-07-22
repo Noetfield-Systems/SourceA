@@ -23,7 +23,7 @@ Close wb-mkt-0350: integration receipt + verify PASS + https://secureframe.com
 
 ## Implementation extraction
 
-`Secureframe · Integrations & API` → what buyer sees at vendor → what we ship logged with receipt.
+`Secureframe · Integrations & API` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

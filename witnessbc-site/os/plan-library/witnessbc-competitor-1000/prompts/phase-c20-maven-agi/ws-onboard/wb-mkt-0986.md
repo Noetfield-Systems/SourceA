@@ -23,7 +23,7 @@ Write founder-facing SOW snippet if Maven AGI uses services-led motion — Witne
 
 ## Implementation extraction
 
-`Maven AGI · Onboarding & PLG` → what buyer sees at vendor → what we ship logged with receipt.
+`Maven AGI · Onboarding & PLG` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

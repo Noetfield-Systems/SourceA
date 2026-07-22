@@ -1,7 +1,7 @@
 # Asset B — Policy Pack SOW Mapping (LOCKED v1)
 
 **Saved:** 2026-06-23T12:15:00Z  
-**Authority:** `SOURCEA_ASSET_B_CONTROLLED_AGENTIC_AUTOMATION_LOCKED_v1.md` · `docs/SOURCEA_ASSET_B_POLICY_PACK_LOCKED_v1.md`  
+**Authority:** `SOURCEA_ASSET_B_GOVERNED_AGENTIC_AUTOMATION_LOCKED_v1.md` · `docs/SOURCEA_ASSET_B_POLICY_PACK_LOCKED_v1.md`  
 **Demo:** `bash scripts/demo-asset-b-policy-v1.sh --policy outreach`  
 **Machine:** `data/asset-b-policy-pack-v1.json`
 
@@ -31,7 +31,7 @@
 |------|-----------------|---------|
 | 1 | **BLOCK** — policy denies action | `python3 scripts/commit_intent_v1.py --asset-b-policy outreach --case block --json` |
 | 2 | **ALLOW** — same policy, valid input → signed receipt | `python3 scripts/commit_intent_v1.py --asset-b-policy outreach --case allow --json` |
-| 3 | **VERIFY** — receipt checksum logged | Read `~/.sina/demo-enforcement/receipts/latest-demo-receipt.json` |
+| 3 | **VERIFY** — receipt checksum on disk | Read `~/.sina/demo-enforcement/receipts/latest-demo-receipt.json` |
 | 4 | **TAMPER FAIL** — modified receipt fails validator | `bash scripts/validate-demo-enforcement-v1.sh --tamper-test` |
 
 Swap `outreach` for `ops` or `creative` on discovery calls scoped to that loop type.
@@ -42,21 +42,21 @@ Swap `outreach` for `ops` or `creative` on discovery calls scoped to that loop t
 
 ### Outreach loop (SKU-DFY-001)
 
-- One tracked outreach loop: research → draft → **approval gate** → send/book
+- One governed outreach loop: research → draft → **approval gate** → send/book
 - Policy: `outreach_loop_v1` — no send without `approval_ref`
 - Deliverable: live loop + handoff doc + 30-day fix window
 - Closeout: signed receipt export + replay demo
 
 ### Ops loop (SKU-DFY-001)
 
-- One controlled ops loop: monitor → act → **spend cap** → log
+- One governed ops loop: monitor → act → **spend cap** → log
 - Policy: `ops_spend_v1` — deny spend over $50 USD
 - Deliverable: live loop + weekly export template
 - Closeout: receipt chain + tamper-checked export
 
 ### Creative/post loop (SKU-DFY-001)
 
-- One controlled publish loop: brief → generate → **human handoff** → post
+- One governed publish loop: brief → generate → **human handoff** → post
 - Policy: `creative_publish_v1` — deny publish without `human_handoff`
 - Deliverable: live loop + lineage fields on first artifact
 - Closeout: receipt + optional Meta Graph wire (week 3+)
@@ -74,7 +74,7 @@ Swap `outreach` for `ops` or `creative` on discovery calls scoped to that loop t
 
 ---
 
-## Paths logged
+## Paths on disk
 
 | Artifact | Path |
 |----------|------|

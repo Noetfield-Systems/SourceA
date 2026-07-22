@@ -13,7 +13,7 @@ advisory_class: EXTERNAL_CRITIC + Brain synthesis
 | | |
 |--|--|
 | **Version** | `SOURCEA-LAYERED-ADVISORY-1.0-DRAFT-LOCKED` |
-| **Purpose** | Multi-focus brainstorm — every thread, goal, lens, perspective logged |
+| **Purpose** | Multi-focus brainstorm — every thread, goal, lens, perspective on disk |
 | **Companion** | `SOURCEA_FOUNDER_PINNED_ACTIONS_LOCKED_v1.md` · `SOURCEA_1000PACK_AUDIT_JUDGE_LOCKED_v1.md` |
 | **Validator** | `validate-sourcea-layered-advisory-locked-v1.sh` |
 | **Tracker hook** | Register trace in `SOURCEA_MASTER_OPERATING_TRACKER_LOCKED_v1.md` Section 6 |
@@ -30,7 +30,7 @@ advisory_class: EXTERNAL_CRITIC + Brain synthesis
 
 | Lens | Weight | Optimizes for |
 |------|--------|---------------|
-| **A — Controlled factory spine** | 40% | Receipt → gate → broker → honest counter (enterprise sellable story) |
+| **A — Governed factory spine** | 40% | Receipt → gate → broker → honest counter (enterprise sellable story) |
 | **B — Phase-first drain accuracy** | 25% | s0→s2 before s6 inflation |
 | **C — Lane separation** | 15% | One thread per chat |
 | **D — Earning bridge** | 15% | FORGE / RunReceipt / receipt-native pitch |
@@ -38,7 +38,7 @@ advisory_class: EXTERNAL_CRITIC + Brain synthesis
 
 **Not in scope:** NDAX revival · M8 24/7 daemon · Participation OS · investor deck polish · iPhone cloud full merge.
 
-**Prior miss corrected:** EMBED-014 (256 hash → semantic) is **P1 after AUTH-LIVE** — code v2 logged, runtime still `hash_local`.
+**Prior miss corrected:** EMBED-014 (256 hash → semantic) is **P1 after AUTH-LIVE** — code v2 on disk, runtime still `hash_local`.
 
 ---
 
@@ -51,7 +51,7 @@ Refresh: `python3 scripts/goal-progress-v1.py`
 |-------|--------------|----------|
 | s0 | High % done | Active drain band |
 | s1 | Partial | After s0 band |
-| **s2** | **0% at draft** · **100% as of 2026-06-12** | Was immune-system gap — **closed logged** |
+| **s2** | **0% at draft** · **100% as of 2026-06-12** | Was immune-system gap — **closed on disk** |
 | s6 | ~50% at draft · **93%** now | Still ahead of s5/s8/s9 |
 
 **Counter law:** `honest_done` only — not REGISTRY YAML alone, not stale PRIORITY rows.
@@ -92,7 +92,7 @@ Source: `GOAL_HIERARCHY_LOCKED_v1.md`
 
 | Goal | Name | Earning role |
 |------|------|--------------|
-| 1 | Controlled factory + M8 spine | Proof engine |
+| 1 | Governed factory + M8 spine | Proof engine |
 | 2 | WTM + Pre-LLM | Intelligence before LLM |
 | 3 | **FORGE** | Primary sellable SKU |
 | 4 | Research sensor | Positioning |
@@ -123,7 +123,7 @@ Source: `GOAL_HIERARCHY_LOCKED_v1.md`
 
 Enterprises pay for: **VALIDATOR_PASS → TASK_CLOSED → BROKER_ACK** · `closeout_gate_v1.py` · receipts · incidents · monitor table.
 
-**Not the 1000 count** — controlled agent runs (Microsoft Agent Governance Toolkit class).
+**Not the 1000 count** — governed agent runs (Microsoft Agent Governance Toolkit class).
 
 ### 5B — Evidence flywheel
 
@@ -134,7 +134,7 @@ Enterprises pay for: **VALIDATOR_PASS → TASK_CLOSED → BROKER_ACK** · `close
 | SKU | Sells | Ready |
 |-----|-------|-------|
 | RunReceipt | PASS/FAIL receipt pack | Spine exists — package |
-| FORGE | Controlled factory port | Needs demo |
+| FORGE | Governed factory port | Needs demo |
 | MergePack | Event capture L1 | Deploy friction |
 | TrustField | B2B governance | Infra blockers |
 
@@ -205,7 +205,7 @@ Enterprises pay for: **VALIDATOR_PASS → TASK_CLOSED → BROKER_ACK** · `close
 
 ### One truth
 
-Not behind on **architecture**. Behind on **serialization**: one thread · one counter · one motion/day · one SKU story (controlled receipts).
+Not behind on **architecture**. Behind on **serialization**: one thread · one counter · one motion/day · one SKU story (governed receipts).
 
 ### Week pattern (earn + accelerate)
 
@@ -221,7 +221,7 @@ Not behind on **architecture**. Behind on **serialization**: one thread · one c
 
 | Stop | Start |
 |------|-------|
-| Finish 1000 before revenue | Sell controlled runs with receipts |
+| Finish 1000 before revenue | Sell governed runs with receipts |
 | Rewrite embedding_provider | Configure keys + reindex (014) |
 | Mix lanes in one chat | β+ hybrid week |
 
@@ -278,7 +278,7 @@ On advisory asks: read tracker + threads + goal-progress · name lens weights ·
 
 | Lens | Draft weight | **Now** | Note |
 |------|--------------|---------|------|
-| A Controlled factory spine | 40% | **25%** | Proven — shift to enforcement demo |
+| A Governed factory spine | 40% | **25%** | Proven — shift to enforcement demo |
 | B Phase-first drain | 25% | **10%** | s0/s2/s3 largely done |
 | C Lane separation | 15% | **15%** | Still daily law |
 | D Earning bridge | 15% | **20%** | FORGE checklist complete |
@@ -289,7 +289,7 @@ On advisory asks: read tracker + threads + goal-progress · name lens weights ·
 
 | # | Draft position | **2026-06-12 read** |
 |---|----------------|---------------------|
-| 1 | Receipt spine SKU | **Still true** — plus Copilot demo logged |
+| 1 | Receipt spine SKU | **Still true** — plus Copilot demo on disk |
 | 2 | Cloud Forge Run P0 until s2 green | **Partially superseded** — s2 green; hub P0 = STRATEGIC-SLICE |
 | 3 | Semantic P1 after AUTH-LIVE | **Still true** |
 | 4 | TF parallel calendar | **Still true** — now **W3 P0** |

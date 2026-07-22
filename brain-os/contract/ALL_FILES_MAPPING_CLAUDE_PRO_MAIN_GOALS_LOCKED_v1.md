@@ -14,7 +14,7 @@
 
 | # | Core mission | Phase |
 |---|--------------|-------|
-| 1 | **Controlled automation loop** (Goal1 drain, healthy queue, validators) | Phase 1 + 2 |
+| 1 | **Governed automation loop** (Goal1 drain, healthy queue, validators) | Phase 1 + 2 |
 | 2 | **WTM** (World Target Model — A→D map) | Phase 2 |
 | 3 | **Pre-LLM readiness** (D1–D16 modules, packet, dispatch closure) | Phase 2 |
 | 4 | **FORGE** (primary sellable app) | Phase 2 |
@@ -28,7 +28,7 @@
 
 | Goal # | Name | Machine path |
 |--------|------|--------------|
-| **1** | Controlled automation factory | REGISTRY drain · automation loop |
+| **1** | Governed automation factory | REGISTRY drain · automation loop |
 | **2** | WTM + Pre-LLM | `brain-os/wtm/` · `scripts/pre_llm/` |
 | **3** | FORGE | `/Users/sinakazemnezhad/Desktop/forge/` |
 | **6** | Strategic engineering (dispatch spine) | `scripts/runtime/` · Eval-1b closure |
@@ -63,7 +63,7 @@
 
 | File | Full path |
 |------|-----------|
-| Controlled OS master | `/Users/sinakazemnezhad/Desktop/SourceA/brain-os/system/CONTROLLED_EXECUTION_OS_MASTER_LOCKED_v1.md` |
+| Governed OS master | `/Users/sinakazemnezhad/Desktop/SourceA/brain-os/system/GOVERNED_EXECUTION_OS_MASTER_LOCKED_v1.md` |
 | Goal hierarchy | `…/brain-os/system/GOAL_HIERARCHY_LOCKED_v1.md` |
 | Goal execution active | `…/brain-os/system/GOAL_EXECUTION_ACTIVE_LOCKED_v1.md` |
 | Founder daily ops | `…/brain-os/system/FOUNDER_DAILY_OPERATING_MODEL_LOCKED_v1.md` |

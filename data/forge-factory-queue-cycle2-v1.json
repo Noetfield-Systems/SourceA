@@ -81,7 +81,7 @@
       "sa_id": "sa-1206",
       "phase": "forge-factory-cycle2",
       "title": "[CHECK] sa-1206 — TrustField ladder commercial_blocked",
-      "instruction": "CHECK — TrustField ladder steps 1-4 logged. Report RED items with proof paths.",
+      "instruction": "CHECK — TrustField ladder steps 1-4 on disk. Report RED items with proof paths.",
       "closeout": false,
       "one_sa_per_turn": true
     },

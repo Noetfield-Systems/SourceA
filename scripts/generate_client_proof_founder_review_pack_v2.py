@@ -16,7 +16,7 @@ TRANCHE2 = [
     ("cpr-public-changelog", "https://sourcea.app/changelog", "STAB-026"),
     ("cpr-public-team", "https://sourcea.app/team", "Your agentic team"),
     ("cpr-public-start", "https://sourcea.app/start", "data-sa-page"),
-    ("cpr-public-proof-hub", "https://sourcea.app/proof", "Verification"),
+    ("cpr-public-proof-hub", "https://sourcea.app/proof", "Proof chain"),
     ("cpr-public-pricing", "https://sourcea.app/pricing", "Pricing"),
     ("cpr-public-proof-sample", "https://sourcea.app/attach/proof-bundle-sample", "proof bundle"),
     ("cpr-public-scenario", "https://sourcea.app/sourcea/scenario.html", "scenario"),

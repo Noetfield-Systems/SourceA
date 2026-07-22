@@ -56,7 +56,7 @@ Validators — strict build · find_critical_bugs · audits
 
 | Tier | Default daily relevance |
 |------|-------------------------|
-| **T0** | Controlled automation factory — REGISTRY 1000-pack · honest gates |
+| **T0** | Governed automation factory — REGISTRY 1000-pack · honest gates |
 | **T1** | Research analogs only — not internal step IDs |
 | **T2** | **FORGE** primary sellable app |
 | **T2b** | Side SKUs one bucket — MergePack · RunReceipt · Cursor OS Pro (parallel) |
@@ -138,7 +138,7 @@ Never fake autonomy. OpenRouter credits = founder lane for live 5/5.
 
 When any agent notices a miss or ASF corrects routing/assignment:
 
-1. Fix **root-cause LOCKED doc** logged  
+1. Fix **root-cause LOCKED doc** on disk  
 2. Wire index + brain-pack + PRIORITY if material  
 3. **Then** one-screen reply to ASF — not apology-first  
 

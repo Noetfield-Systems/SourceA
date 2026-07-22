@@ -14,6 +14,6 @@
 
 ## WTM wire
 
-- Gate J (W1 film) blocked until Screen Studio master logged
+- Gate J (W1 film) blocked until Screen Studio master on disk
 - DEMO-411–417, DEMO-431–435, DEMO-500 from existing 100-plan
 - HQ-001: block TerminalMock from outbound

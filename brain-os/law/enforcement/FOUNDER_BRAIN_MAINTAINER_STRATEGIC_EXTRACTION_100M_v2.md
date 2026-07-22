@@ -16,7 +16,7 @@
 
 ### What you built (Jun 6 → Jun 12)
 
-A **Controlled Execution OS** — not one startup:
+A **Governed Execution OS** — not one startup:
 
 ```text
 ASF (hub tap only · no Terminal)
@@ -105,7 +105,7 @@ GPT "maximum compression to $100M signal" = **EXTERNAL_CRITIC** — accepted as 
 |---------------------|---------|-------------------|
 | Small daily read, not 40 files | **The Bowl** · `DAILY_BOWL.md` | Serialization |
 | Chic control panel | **Sina Command** 6+ tabs | Founder clicks only |
-| Organize ALL messages | `ASF_MASTER_ORDERS_ORGANIZED_LOCKED_v1.md` | Imperatives logged |
+| Organize ALL messages | `ASF_MASTER_ORDERS_ORGANIZED_LOCKED_v1.md` | Imperatives on disk |
 | Evidence flywheel | MergePack → RunReceipt P0 → participation hooks | Events → Receipts → Trust |
 | Product factory re-score (no ads) | RunReceipt #1 over MergePack | No SEO war |
 | Program progress | `PROGRAM_PROGRESS.json` | Parallel plans one screen |
@@ -131,7 +131,7 @@ Brain = **role + docs + worker board** — not one Cursor thread.
 
 ### Founder words → unified platform
 
-| Founder word | Unified logged |
+| Founder word | Unified on disk |
 |--------------|-----------------|
 | Lovable / no-code | **FORGE** — speed + receipts + tamper FAIL |
 | Voice app | **FORGE-VOICE** — Vapi integrate |
@@ -177,7 +177,7 @@ Part 3 — Transfer to ten            AFTER Part 2 receipt
 | Symptom | Disk | Unknown without W3 |
 |---------|------|---------------------|
 | Many directions | 54+ registry artifacts | First dollar |
-| Controlled OS as product | Charter locked | Buyer pays? |
+| Governed OS as product | Charter locked | Buyer pays? |
 | TrustField offer | $6K + $2.5K/mo `/pilot` | $0 receipt |
 | Competitors ship sandboxes | Devin/Cursor/Vapi | dispatch_ready false |
 | Digests | 4 filtered YAMLs | Not routing-grade |
@@ -198,7 +198,7 @@ Producers → register → ~/.sina/research-root/registry.jsonl
 
 ### 24-month north star
 
-> **Controlled Execution OS** — one central control layer moves every lane with reliable enforcement, honest projections, minimal founder terminal.
+> **Governed Execution OS** — one central control layer moves every lane with reliable enforcement, honest projections, minimal founder terminal.
 
 ### 6-month — two clocks (never merge)
 
@@ -247,7 +247,7 @@ L4  PORTFOLIO LANES (all plug into L1):
 |------|------|-----|
 | **SourceA** | L1 motor · governance proof | Consumer brand · contract party for all lanes |
 | **Thunderfield** | VC/LP relationship + intelligence surface | TrustField · not MSB delivery site |
-| **FounderField** | LOCKED working name logged until trademark | Same L2 as Thunderfield |
+| **FounderField** | LOCKED working name on disk until trademark | Same L2 as Thunderfield |
 | **TrustField** | Regulated commercial delivery · invoices · SOW | VC platform brand |
 | **Noetfield** | Governance product wedge | Money collection entity |
 
@@ -307,7 +307,7 @@ All three: `execution_authority: false` — Brain routes; specialists advise onl
 | **L2 Threads** | One chat = one THREAD ID | ENFORCEMENT + lane chat for investor month |
 | **L3 Goals** | Goal 1 factory ≠ invoice | Goals 3/5/7 = earning clocks (Forge/SKUs/TF) |
 | **L4 Era** | Jun 11 picks authoritative | Chat memory stale |
-| **L5 Revenue** | Sell controlled execution + receipts | Not 1000-pack % |
+| **L5 Revenue** | Sell governed execution + receipts | Not 1000-pack % |
 | **L6 Tech** | Demo path real · full OS ~55% | L5–L6 market layer post-proof |
 | **L7 Roles** | Specialists advise · Brain routes · M2 scrubs | ASF signs |
 | **L8 Gaps** | See paradox matrix §IX | |

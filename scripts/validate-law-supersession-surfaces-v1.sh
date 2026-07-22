@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# validate-law-supersession-surfaces-v1.sh — CRITICAL: no stale forbidden phrases logged
+# validate-law-supersession-surfaces-v1.sh — CRITICAL: no stale forbidden phrases on disk
 set -euo pipefail
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 cd "$ROOT"

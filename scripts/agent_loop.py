@@ -499,7 +499,7 @@ def _deliver_round(st: dict) -> dict:
     if inj.get("blocked"):
         inj = {
             **inj,
-            "message": "Round saved logged + INBOX — RUN INBOX in Worker chat (legacy loop archive).",
+            "message": "Round saved on disk + INBOX — RUN INBOX in Worker chat (legacy loop archive).",
         }
     st["status"] = "awaiting_agent"
     st["awaiting_since"] = datetime.now(timezone.utc).isoformat()

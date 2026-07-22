@@ -23,7 +23,7 @@ Close wb-mkt-0820: PRIORITY row + verify PASS + link https://www.lasso.security
 
 ## Implementation extraction
 
-`Lasso Security · Pricing & packaging` → what buyer sees at vendor → what we ship logged with receipt.
+`Lasso Security · Pricing & packaging` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

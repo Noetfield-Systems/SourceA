@@ -1,9 +1,9 @@
 # Hub Unify + Proof UX — Master Plan v1
 
 **Saved:** 2026-06-16T05:49:57Z · **Retrofit:** doc-datetime-law batch retrofit
-**Status:** Shipped locally (2026-06-10) — Track 2 live system + HUB-P0-1/2/3 proof UX  
+**Status:** Shipped on disk (2026-06-10) — Track 2 live system + HUB-P0-1/2/3 proof UX  
 **Date:** 2026-06-10  
-**Authority:** ASF — `execution_authority: false` for proof UX; gates stay logged  
+**Authority:** ASF — `execution_authority: false` for proof UX; gates stay on disk  
 **Implementers:** SourceA scripts · SinaaiDataBase Hub UI (per locked spec)
 
 ---
@@ -119,7 +119,7 @@ Built in `hub_home_founder_view_v1.py` from **`program-1000-honest-status-v1.py`
 
 | Condition | `kill` | Copy |
 |-----------|--------|------|
-| `unproven_done > 0` or `drift > 0` | RED | "Semi-auto blocked — unproven closes logged" |
+| `unproven_done > 0` or `drift > 0` | RED | "Semi-auto blocked — unproven closes on disk" |
 | FREEZE + stop receipt | RED | "Factory FROZEN — founder-gated resume only" |
 | else | GREEN | "Receipt-bound progress only" |
 

@@ -15,7 +15,7 @@ Agent **stuck Mac ~28 minutes** in chained `validate-mac-law-*` scripts while wi
 
 `data/incident-040-mac-validator-marathon-v1.json`
 
-## RED FLAG logged
+## RED FLAG on disk
 
 - `~/.sina/incident-040-validator-marathon-red-flag-v1.flag`
 - `~/.sina/incident-040-validator-marathon-receipt-v1.json`

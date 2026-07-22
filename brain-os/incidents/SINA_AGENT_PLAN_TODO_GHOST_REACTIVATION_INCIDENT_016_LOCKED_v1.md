@@ -98,7 +98,7 @@ INCIDENT-015 documented STOP ignored + autodrain resume. **This incident adds §
 1. **Cancel means ALL todos** — every id from the plan, including completed.
 2. **“4 of 4 Completed” in UI** after cancel = bug — fix with bulk cancelled + PLAN_REVOKED.
 3. New question ≠ continue old plan — read founder message as **fresh mission**.
-4. Queue status logged is **state snapshot**, not permission to resume.
+4. Queue status on disk is **state snapshot**, not permission to resume.
 5. Screenshot queue 17/30 with freeze flag = **frozen cursor**, not running drain.
 
 ---

@@ -153,7 +153,7 @@ def scan_disk_bug_signals() -> list[dict]:
         signals.append(
             {
                 "id": "main_problem_next",
-                "plain": f"North-star next action logged: {na.get('because') or na.get('action')}.",
+                "plain": f"North-star next action on disk: {na.get('because') or na.get('action')}.",
                 "disk": "main-problem-trigger-receipt-v1.json",
             }
         )
@@ -249,7 +249,7 @@ def run_output_analyst(*, draft: str, issue_signals: list[dict]) -> dict:
         findings.append(
             {
                 "id": "queue_mismatch",
-                "plain": f"Queue mismatch locally (surfaces={q_surf} vs anti-staleness={q_anti}) — agent cites wrong task.",
+                "plain": f"Queue mismatch on disk (surfaces={q_surf} vs anti-staleness={q_anti}) — agent cites wrong task.",
                 "disk": "queue_sa",
             }
         )
@@ -367,7 +367,7 @@ def _analyze_output(
     elif root == "DISK_POISON" and findings:
         verdict = "FIX_DISK"
         accepted = ""
-        agent_line = "Analyst: inject poison/stale vocabulary in the repository — scrub mirror before blaming agent."
+        agent_line = "Analyst: inject poison/stale vocabulary on disk — scrub mirror before blaming agent."
         return_reasons = [f["plain"] for f in findings[:4]] + return_reasons[:2]
     elif root in ("DISK_STALE", "DISK_WRONG") and findings and draft_bad:
         verdict = "FIX_DISK"

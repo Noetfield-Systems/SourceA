@@ -94,7 +94,7 @@ def build_founder_p0_next_action(
     if oq > 0:
         headline = str(
             form.get("form_headline")
-            or f"{oq} open PICKs · FORM logged · INCIDENT-037 block ON"
+            or f"{oq} open PICKs · FORM on disk · INCIDENT-037 block ON"
         ).strip()
         out = f"{headline} · Safety guard"
         if _forbidden(out) or _drain_headline(out):

@@ -1905,13 +1905,13 @@
       "slice": 1,
       "tier": "T0",
       "phase": "NEXT",
-      "title": "Receipt logged for stranger proof SLA copy \u226415 min on hero",
+      "title": "Receipt on disk for stranger proof SLA copy \u226415 min on hero",
       "status": "done",
       "score_delta": null,
       "priority_rank": 91,
       "path": "prompts/phase-sa-score-t05-self-serve-proof/w10-receipt/slice-01.md",
       "lane": "sourcea-site",
-      "agent_prompt": "WORK \u2014 sa-score-0091: Receipt logged for stranger proof SLA copy \u226415 min on hero"
+      "agent_prompt": "WORK \u2014 sa-score-0091: Receipt on disk for stranger proof SLA copy \u226415 min on hero"
     },
     {
       "id": "sa-score-0092",
@@ -1925,13 +1925,13 @@
       "slice": 2,
       "tier": "T0",
       "phase": "NEXT",
-      "title": "Receipt logged for stranger POST /api/proof/run/v1 \u2192 cloud job \u2192 public receipt URL",
+      "title": "Receipt on disk for stranger POST /api/proof/run/v1 \u2192 cloud job \u2192 public receipt URL",
       "status": "open",
       "score_delta": null,
       "priority_rank": 92,
       "path": "prompts/phase-sa-score-t05-self-serve-proof/w10-receipt/slice-02.md",
       "lane": "sourcea-site",
-      "agent_prompt": "WORK \u2014 sa-score-0092: Receipt logged for stranger POST /api/proof/run/v1 \u2192 cloud job \u2192 public receipt URL"
+      "agent_prompt": "WORK \u2014 sa-score-0092: Receipt on disk for stranger POST /api/proof/run/v1 \u2192 cloud job \u2192 public receipt URL"
     },
     {
       "id": "sa-score-0093",
@@ -1945,13 +1945,13 @@
       "slice": 3,
       "tier": "T1",
       "phase": "NEXT",
-      "title": "Receipt logged for proof run progress bar on /sourcea/proof/live",
+      "title": "Receipt on disk for proof run progress bar on /sourcea/proof/live",
       "status": "open",
       "score_delta": null,
       "priority_rank": 93,
       "path": "prompts/phase-sa-score-t05-self-serve-proof/w10-receipt/slice-03.md",
       "lane": "sourcea-site",
-      "agent_prompt": "WORK \u2014 sa-score-0093: Receipt logged for proof run progress bar on /sourcea/proof/live"
+      "agent_prompt": "WORK \u2014 sa-score-0093: Receipt on disk for proof run progress bar on /sourcea/proof/live"
     },
     {
       "id": "sa-score-0094",
@@ -1965,13 +1965,13 @@
       "slice": 4,
       "tier": "T1",
       "phase": "NEXT",
-      "title": "Receipt logged for email receipt link after async proof completes",
+      "title": "Receipt on disk for email receipt link after async proof completes",
       "status": "open",
       "score_delta": null,
       "priority_rank": 94,
       "path": "prompts/phase-sa-score-t05-self-serve-proof/w10-receipt/slice-04.md",
       "lane": "sourcea-site",
-      "agent_prompt": "WORK \u2014 sa-score-0094: Receipt logged for email receipt link after async proof completes"
+      "agent_prompt": "WORK \u2014 sa-score-0094: Receipt on disk for email receipt link after async proof completes"
     },
     {
       "id": "sa-score-0095",
@@ -1985,13 +1985,13 @@
       "slice": 5,
       "tier": "T2",
       "phase": "NEXT",
-      "title": "Receipt logged for proof run status page /sourcea/proof/run/:id",
+      "title": "Receipt on disk for proof run status page /sourcea/proof/run/:id",
       "status": "open",
       "score_delta": null,
       "priority_rank": 95,
       "path": "prompts/phase-sa-score-t05-self-serve-proof/w10-receipt/slice-05.md",
       "lane": "sourcea-site",
-      "agent_prompt": "WORK \u2014 sa-score-0095: Receipt logged for proof run status page /sourcea/proof/run/:id"
+      "agent_prompt": "WORK \u2014 sa-score-0095: Receipt on disk for proof run status page /sourcea/proof/run/:id"
     },
     {
       "id": "sa-score-0096",
@@ -2005,13 +2005,13 @@
       "slice": 6,
       "tier": "T2",
       "phase": "NEXT",
-      "title": "Receipt logged for Forge Terminal handoff after proof quiz pass",
+      "title": "Receipt on disk for Forge Terminal handoff after proof quiz pass",
       "status": "open",
       "score_delta": null,
       "priority_rank": 96,
       "path": "prompts/phase-sa-score-t05-self-serve-proof/w10-receipt/slice-06.md",
       "lane": "sourcea-site",
-      "agent_prompt": "WORK \u2014 sa-score-0096: Receipt logged for Forge Terminal handoff after proof quiz pass"
+      "agent_prompt": "WORK \u2014 sa-score-0096: Receipt on disk for Forge Terminal handoff after proof quiz pass"
     },
     {
       "id": "sa-score-0097",
@@ -2025,13 +2025,13 @@
       "slice": 7,
       "tier": "T2",
       "phase": "NEXT",
-      "title": "Receipt logged for VC proof lane ends on verifiable receipt not Cal",
+      "title": "Receipt on disk for VC proof lane ends on verifiable receipt not Cal",
       "status": "open",
       "score_delta": null,
       "priority_rank": 97,
       "path": "prompts/phase-sa-score-t05-self-serve-proof/w10-receipt/slice-07.md",
       "lane": "sourcea-site",
-      "agent_prompt": "WORK \u2014 sa-score-0097: Receipt logged for VC proof lane ends on verifiable receipt not Cal"
+      "agent_prompt": "WORK \u2014 sa-score-0097: Receipt on disk for VC proof lane ends on verifiable receipt not Cal"
     },
     {
       "id": "sa-score-0098",
@@ -2045,13 +2045,13 @@
       "slice": 8,
       "tier": "T3",
       "phase": "NEXT",
-      "title": "Receipt logged for 48h MVP intake triggers scoped proof job template",
+      "title": "Receipt on disk for 48h MVP intake triggers scoped proof job template",
       "status": "open",
       "score_delta": null,
       "priority_rank": 98,
       "path": "prompts/phase-sa-score-t05-self-serve-proof/w10-receipt/slice-08.md",
       "lane": "sourcea-site",
-      "agent_prompt": "WORK \u2014 sa-score-0098: Receipt logged for 48h MVP intake triggers scoped proof job template"
+      "agent_prompt": "WORK \u2014 sa-score-0098: Receipt on disk for 48h MVP intake triggers scoped proof job template"
     },
     {
       "id": "sa-score-0099",
@@ -2065,13 +2065,13 @@
       "slice": 9,
       "tier": "T3",
       "phase": "NEXT",
-      "title": "Receipt logged for sandbox bounded job \u2192 worker queue not mailto",
+      "title": "Receipt on disk for sandbox bounded job \u2192 worker queue not mailto",
       "status": "open",
       "score_delta": null,
       "priority_rank": 99,
       "path": "prompts/phase-sa-score-t05-self-serve-proof/w10-receipt/slice-09.md",
       "lane": "sourcea-site",
-      "agent_prompt": "WORK \u2014 sa-score-0099: Receipt logged for sandbox bounded job \u2192 worker queue not mailto"
+      "agent_prompt": "WORK \u2014 sa-score-0099: Receipt on disk for sandbox bounded job \u2192 worker queue not mailto"
     },
     {
       "id": "sa-score-0100",
@@ -2085,13 +2085,13 @@
       "slice": 10,
       "tier": "T3",
       "phase": "NEXT",
-      "title": "Receipt logged for proof pack download ZIP with checksum",
+      "title": "Receipt on disk for proof pack download ZIP with checksum",
       "status": "open",
       "score_delta": null,
       "priority_rank": 100,
       "path": "prompts/phase-sa-score-t05-self-serve-proof/w10-receipt/slice-10.md",
       "lane": "sourcea-site",
-      "agent_prompt": "WORK \u2014 sa-score-0100: Receipt logged for proof pack download ZIP with checksum"
+      "agent_prompt": "WORK \u2014 sa-score-0100: Receipt on disk for proof pack download ZIP with checksum"
     },
     {
       "id": "sa-score-0101",
@@ -3905,13 +3905,13 @@
       "slice": 1,
       "tier": "T0",
       "phase": "NEXT",
-      "title": "Receipt logged for lighthouse performance budget \u226590 mobile",
+      "title": "Receipt on disk for lighthouse performance budget \u226590 mobile",
       "status": "done",
       "score_delta": null,
       "priority_rank": 191,
       "path": "prompts/phase-sa-score-t08-market-polish/w10-receipt/slice-01.md",
       "lane": "sourcea-site",
-      "agent_prompt": "WORK \u2014 sa-score-0191: Receipt logged for lighthouse performance budget \u226590 mobile"
+      "agent_prompt": "WORK \u2014 sa-score-0191: Receipt on disk for lighthouse performance budget \u226590 mobile"
     },
     {
       "id": "sa-score-0192",
@@ -3925,13 +3925,13 @@
       "slice": 2,
       "tier": "T0",
       "phase": "NEXT",
-      "title": "Receipt logged for hero typography pass \u2014 match Linear/Vercel rhythm",
+      "title": "Receipt on disk for hero typography pass \u2014 match Linear/Vercel rhythm",
       "status": "open",
       "score_delta": null,
       "priority_rank": 192,
       "path": "prompts/phase-sa-score-t08-market-polish/w10-receipt/slice-02.md",
       "lane": "sourcea-site",
-      "agent_prompt": "WORK \u2014 sa-score-0192: Receipt logged for hero typography pass \u2014 match Linear/Vercel rhythm"
+      "agent_prompt": "WORK \u2014 sa-score-0192: Receipt on disk for hero typography pass \u2014 match Linear/Vercel rhythm"
     },
     {
       "id": "sa-score-0193",
@@ -3945,13 +3945,13 @@
       "slice": 3,
       "tier": "T1",
       "phase": "NEXT",
-      "title": "Receipt logged for mobile nav + segment strip responsive QA",
+      "title": "Receipt on disk for mobile nav + segment strip responsive QA",
       "status": "open",
       "score_delta": null,
       "priority_rank": 193,
       "path": "prompts/phase-sa-score-t08-market-polish/w10-receipt/slice-03.md",
       "lane": "sourcea-site",
-      "agent_prompt": "WORK \u2014 sa-score-0193: Receipt logged for mobile nav + segment strip responsive QA"
+      "agent_prompt": "WORK \u2014 sa-score-0193: Receipt on disk for mobile nav + segment strip responsive QA"
     },
     {
       "id": "sa-score-0194",
@@ -3965,13 +3965,13 @@
       "slice": 4,
       "tier": "T1",
       "phase": "NEXT",
-      "title": "Receipt logged for dark mode contrast audit on proof pages",
+      "title": "Receipt on disk for dark mode contrast audit on proof pages",
       "status": "open",
       "score_delta": null,
       "priority_rank": 194,
       "path": "prompts/phase-sa-score-t08-market-polish/w10-receipt/slice-04.md",
       "lane": "sourcea-site",
-      "agent_prompt": "WORK \u2014 sa-score-0194: Receipt logged for dark mode contrast audit on proof pages"
+      "agent_prompt": "WORK \u2014 sa-score-0194: Receipt on disk for dark mode contrast audit on proof pages"
     },
     {
       "id": "sa-score-0195",
@@ -3985,13 +3985,13 @@
       "slice": 5,
       "tier": "T2",
       "phase": "NEXT",
-      "title": "Receipt logged for loading skeleton on pulse-founder dashboard",
+      "title": "Receipt on disk for loading skeleton on pulse-founder dashboard",
       "status": "open",
       "score_delta": null,
       "priority_rank": 195,
       "path": "prompts/phase-sa-score-t08-market-polish/w10-receipt/slice-05.md",
       "lane": "sourcea-site",
-      "agent_prompt": "WORK \u2014 sa-score-0195: Receipt logged for loading skeleton on pulse-founder dashboard"
+      "agent_prompt": "WORK \u2014 sa-score-0195: Receipt on disk for loading skeleton on pulse-founder dashboard"
     },
     {
       "id": "sa-score-0196",
@@ -4005,13 +4005,13 @@
       "slice": 6,
       "tier": "T2",
       "phase": "NEXT",
-      "title": "Receipt logged for unified button radius + shadow tokens in app.css",
+      "title": "Receipt on disk for unified button radius + shadow tokens in app.css",
       "status": "open",
       "score_delta": null,
       "priority_rank": 196,
       "path": "prompts/phase-sa-score-t08-market-polish/w10-receipt/slice-06.md",
       "lane": "sourcea-site",
-      "agent_prompt": "WORK \u2014 sa-score-0196: Receipt logged for unified button radius + shadow tokens in app.css"
+      "agent_prompt": "WORK \u2014 sa-score-0196: Receipt on disk for unified button radius + shadow tokens in app.css"
     },
     {
       "id": "sa-score-0197",
@@ -4025,13 +4025,13 @@
       "slice": 7,
       "tier": "T2",
       "phase": "NEXT",
-      "title": "Receipt logged for trust page visual parity with pricing",
+      "title": "Receipt on disk for trust page visual parity with pricing",
       "status": "open",
       "score_delta": null,
       "priority_rank": 197,
       "path": "prompts/phase-sa-score-t08-market-polish/w10-receipt/slice-07.md",
       "lane": "sourcea-site",
-      "agent_prompt": "WORK \u2014 sa-score-0197: Receipt logged for trust page visual parity with pricing"
+      "agent_prompt": "WORK \u2014 sa-score-0197: Receipt on disk for trust page visual parity with pricing"
     },
     {
       "id": "sa-score-0198",
@@ -4045,13 +4045,13 @@
       "slice": 8,
       "tier": "T3",
       "phase": "NEXT",
-      "title": "Receipt logged for forge terminal iframe chrome polish",
+      "title": "Receipt on disk for forge terminal iframe chrome polish",
       "status": "open",
       "score_delta": null,
       "priority_rank": 198,
       "path": "prompts/phase-sa-score-t08-market-polish/w10-receipt/slice-08.md",
       "lane": "sourcea-site",
-      "agent_prompt": "WORK \u2014 sa-score-0198: Receipt logged for forge terminal iframe chrome polish"
+      "agent_prompt": "WORK \u2014 sa-score-0198: Receipt on disk for forge terminal iframe chrome polish"
     },
     {
       "id": "sa-score-0199",
@@ -4065,13 +4065,13 @@
       "slice": 9,
       "tier": "T3",
       "phase": "NEXT",
-      "title": "Receipt logged for learn quiz micro-animations",
+      "title": "Receipt on disk for learn quiz micro-animations",
       "status": "open",
       "score_delta": null,
       "priority_rank": 199,
       "path": "prompts/phase-sa-score-t08-market-polish/w10-receipt/slice-09.md",
       "lane": "sourcea-site",
-      "agent_prompt": "WORK \u2014 sa-score-0199: Receipt logged for learn quiz micro-animations"
+      "agent_prompt": "WORK \u2014 sa-score-0199: Receipt on disk for learn quiz micro-animations"
     },
     {
       "id": "sa-score-0200",
@@ -4085,13 +4085,13 @@
       "slice": 10,
       "tier": "T3",
       "phase": "NEXT",
-      "title": "Receipt logged for footer link grid cleanup",
+      "title": "Receipt on disk for footer link grid cleanup",
       "status": "open",
       "score_delta": null,
       "priority_rank": 200,
       "path": "prompts/phase-sa-score-t08-market-polish/w10-receipt/slice-10.md",
       "lane": "sourcea-site",
-      "agent_prompt": "WORK \u2014 sa-score-0200: Receipt logged for footer link grid cleanup"
+      "agent_prompt": "WORK \u2014 sa-score-0200: Receipt on disk for footer link grid cleanup"
     },
     {
       "id": "sa-score-0201",
@@ -5905,13 +5905,13 @@
       "slice": 1,
       "tier": "T0",
       "phase": "LATER",
-      "title": "Receipt logged for revenue receipt in founder dashboard",
+      "title": "Receipt on disk for revenue receipt in founder dashboard",
       "status": "done",
       "score_delta": null,
       "priority_rank": 291,
       "path": "prompts/phase-sa-score-t09-commercial-close/w10-receipt/slice-01.md",
       "lane": "sourcea-site",
-      "agent_prompt": "WORK \u2014 sa-score-0291: Receipt logged for revenue receipt in founder dashboard"
+      "agent_prompt": "WORK \u2014 sa-score-0291: Receipt on disk for revenue receipt in founder dashboard"
     },
     {
       "id": "sa-score-0292",
@@ -5925,13 +5925,13 @@
       "slice": 2,
       "tier": "T0",
       "phase": "LATER",
-      "title": "Receipt logged for pricing CTA \u2192 /start not mailto",
+      "title": "Receipt on disk for pricing CTA \u2192 /start not mailto",
       "status": "open",
       "score_delta": null,
       "priority_rank": 292,
       "path": "prompts/phase-sa-score-t09-commercial-close/w10-receipt/slice-02.md",
       "lane": "sourcea-site",
-      "agent_prompt": "WORK \u2014 sa-score-0292: Receipt logged for pricing CTA \u2192 /start not mailto"
+      "agent_prompt": "WORK \u2014 sa-score-0292: Receipt on disk for pricing CTA \u2192 /start not mailto"
     },
     {
       "id": "sa-score-0293",
@@ -5945,13 +5945,13 @@
       "slice": 3,
       "tier": "T1",
       "phase": "LATER",
-      "title": "Receipt logged for Stripe payment link for Ops Health Audit $750",
+      "title": "Receipt on disk for Stripe payment link for Ops Health Audit $750",
       "status": "open",
       "score_delta": null,
       "priority_rank": 293,
       "path": "prompts/phase-sa-score-t09-commercial-close/w10-receipt/slice-03.md",
       "lane": "sourcea-site",
-      "agent_prompt": "WORK \u2014 sa-score-0293: Receipt logged for Stripe payment link for Ops Health Audit $750"
+      "agent_prompt": "WORK \u2014 sa-score-0293: Receipt on disk for Stripe payment link for Ops Health Audit $750"
     },
     {
       "id": "sa-score-0294",
@@ -5965,13 +5965,13 @@
       "slice": 4,
       "tier": "T1",
       "phase": "LATER",
-      "title": "Receipt logged for scoped SKU cards with DONE \u00b7 VERIFY bullets",
+      "title": "Receipt on disk for scoped SKU cards with DONE \u00b7 VERIFY bullets",
       "status": "open",
       "score_delta": null,
       "priority_rank": 294,
       "path": "prompts/phase-sa-score-t09-commercial-close/w10-receipt/slice-04.md",
       "lane": "sourcea-site",
-      "agent_prompt": "WORK \u2014 sa-score-0294: Receipt logged for scoped SKU cards with DONE \u00b7 VERIFY bullets"
+      "agent_prompt": "WORK \u2014 sa-score-0294: Receipt on disk for scoped SKU cards with DONE \u00b7 VERIFY bullets"
     },
     {
       "id": "sa-score-0295",
@@ -5985,13 +5985,13 @@
       "slice": 5,
       "tier": "T2",
       "phase": "LATER",
-      "title": "Receipt logged for agency retainer intake \u2192 CRM row",
+      "title": "Receipt on disk for agency retainer intake \u2192 CRM row",
       "status": "open",
       "score_delta": null,
       "priority_rank": 295,
       "path": "prompts/phase-sa-score-t09-commercial-close/w10-receipt/slice-05.md",
       "lane": "sourcea-site",
-      "agent_prompt": "WORK \u2014 sa-score-0295: Receipt logged for agency retainer intake \u2192 CRM row"
+      "agent_prompt": "WORK \u2014 sa-score-0295: Receipt on disk for agency retainer intake \u2192 CRM row"
     },
     {
       "id": "sa-score-0296",
@@ -6005,13 +6005,13 @@
       "slice": 6,
       "tier": "T2",
       "phase": "LATER",
-      "title": "Receipt logged for license inquiry \u2192 worker not mailto",
+      "title": "Receipt on disk for license inquiry \u2192 worker not mailto",
       "status": "open",
       "score_delta": null,
       "priority_rank": 296,
       "path": "prompts/phase-sa-score-t09-commercial-close/w10-receipt/slice-06.md",
       "lane": "sourcea-site",
-      "agent_prompt": "WORK \u2014 sa-score-0296: Receipt logged for license inquiry \u2192 worker not mailto"
+      "agent_prompt": "WORK \u2014 sa-score-0296: Receipt on disk for license inquiry \u2192 worker not mailto"
     },
     {
       "id": "sa-score-0297",
@@ -6025,13 +6025,13 @@
       "slice": 7,
       "tier": "T2",
       "phase": "LATER",
-      "title": "Receipt logged for cal.com demoted below proof on pricing",
+      "title": "Receipt on disk for cal.com demoted below proof on pricing",
       "status": "open",
       "score_delta": null,
       "priority_rank": 297,
       "path": "prompts/phase-sa-score-t09-commercial-close/w10-receipt/slice-07.md",
       "lane": "sourcea-site",
-      "agent_prompt": "WORK \u2014 sa-score-0297: Receipt logged for cal.com demoted below proof on pricing"
+      "agent_prompt": "WORK \u2014 sa-score-0297: Receipt on disk for cal.com demoted below proof on pricing"
     },
     {
       "id": "sa-score-0298",
@@ -6045,13 +6045,13 @@
       "slice": 8,
       "tier": "T3",
       "phase": "LATER",
-      "title": "Receipt logged for ROI calculator widget on /offer",
+      "title": "Receipt on disk for ROI calculator widget on /offer",
       "status": "open",
       "score_delta": null,
       "priority_rank": 298,
       "path": "prompts/phase-sa-score-t09-commercial-close/w10-receipt/slice-08.md",
       "lane": "sourcea-site",
-      "agent_prompt": "WORK \u2014 sa-score-0298: Receipt logged for ROI calculator widget on /offer"
+      "agent_prompt": "WORK \u2014 sa-score-0298: Receipt on disk for ROI calculator widget on /offer"
     },
     {
       "id": "sa-score-0299",
@@ -6065,13 +6065,13 @@
       "slice": 9,
       "tier": "T3",
       "phase": "LATER",
-      "title": "Receipt logged for case study PDF gate with email capture",
+      "title": "Receipt on disk for case study PDF gate with email capture",
       "status": "open",
       "score_delta": null,
       "priority_rank": 299,
       "path": "prompts/phase-sa-score-t09-commercial-close/w10-receipt/slice-09.md",
       "lane": "sourcea-site",
-      "agent_prompt": "WORK \u2014 sa-score-0299: Receipt logged for case study PDF gate with email capture"
+      "agent_prompt": "WORK \u2014 sa-score-0299: Receipt on disk for case study PDF gate with email capture"
     },
     {
       "id": "sa-score-0300",
@@ -6085,13 +6085,13 @@
       "slice": 10,
       "tier": "T3",
       "phase": "LATER",
-      "title": "Receipt logged for self-serve MSA snippet on /trust",
+      "title": "Receipt on disk for self-serve MSA snippet on /trust",
       "status": "open",
       "score_delta": null,
       "priority_rank": 300,
       "path": "prompts/phase-sa-score-t09-commercial-close/w10-receipt/slice-10.md",
       "lane": "sourcea-site",
-      "agent_prompt": "WORK \u2014 sa-score-0300: Receipt logged for self-serve MSA snippet on /trust"
+      "agent_prompt": "WORK \u2014 sa-score-0300: Receipt on disk for self-serve MSA snippet on /trust"
     },
     {
       "id": "sa-score-0301",
@@ -7905,13 +7905,13 @@
       "slice": 1,
       "tier": "T0",
       "phase": "LATER",
-      "title": "Receipt logged for unified inbox export CSV",
+      "title": "Receipt on disk for unified inbox export CSV",
       "status": "done",
       "score_delta": null,
       "priority_rank": 391,
       "path": "prompts/phase-sa-score-t06-intake-ops/w10-receipt/slice-01.md",
       "lane": "sourcea-site",
-      "agent_prompt": "WORK \u2014 sa-score-0391: Receipt logged for unified inbox export CSV"
+      "agent_prompt": "WORK \u2014 sa-score-0391: Receipt on disk for unified inbox export CSV"
     },
     {
       "id": "sa-score-0392",
@@ -7925,13 +7925,13 @@
       "slice": 2,
       "tier": "T0",
       "phase": "LATER",
-      "title": "Receipt logged for sandbox-intake.js \u2192 sourcea-mvp-intake-v1 worker",
+      "title": "Receipt on disk for sandbox-intake.js \u2192 sourcea-mvp-intake-v1 worker",
       "status": "open",
       "score_delta": null,
       "priority_rank": 392,
       "path": "prompts/phase-sa-score-t06-intake-ops/w10-receipt/slice-02.md",
       "lane": "sourcea-site",
-      "agent_prompt": "WORK \u2014 sa-score-0392: Receipt logged for sandbox-intake.js \u2192 sourcea-mvp-intake-v1 worker"
+      "agent_prompt": "WORK \u2014 sa-score-0392: Receipt on disk for sandbox-intake.js \u2192 sourcea-mvp-intake-v1 worker"
     },
     {
       "id": "sa-score-0393",
@@ -7945,13 +7945,13 @@
       "slice": 3,
       "tier": "T1",
       "phase": "LATER",
-      "title": "Receipt logged for MVP submissions in pulse-founder inbox tab",
+      "title": "Receipt on disk for MVP submissions in pulse-founder inbox tab",
       "status": "open",
       "score_delta": null,
       "priority_rank": 393,
       "path": "prompts/phase-sa-score-t06-intake-ops/w10-receipt/slice-03.md",
       "lane": "sourcea-site",
-      "agent_prompt": "WORK \u2014 sa-score-0393: Receipt logged for MVP submissions in pulse-founder inbox tab"
+      "agent_prompt": "WORK \u2014 sa-score-0393: Receipt on disk for MVP submissions in pulse-founder inbox tab"
     },
     {
       "id": "sa-score-0394",
@@ -7965,13 +7965,13 @@
       "slice": 4,
       "tier": "T1",
       "phase": "LATER",
-      "title": "Receipt logged for brain chat transcript KV log (founder-only)",
+      "title": "Receipt on disk for brain chat transcript KV log (founder-only)",
       "status": "open",
       "score_delta": null,
       "priority_rank": 394,
       "path": "prompts/phase-sa-score-t06-intake-ops/w10-receipt/slice-04.md",
       "lane": "sourcea-site",
-      "agent_prompt": "WORK \u2014 sa-score-0394: Receipt logged for brain chat transcript KV log (founder-only)"
+      "agent_prompt": "WORK \u2014 sa-score-0394: Receipt on disk for brain chat transcript KV log (founder-only)"
     },
     {
       "id": "sa-score-0395",
@@ -7985,13 +7985,13 @@
       "slice": 5,
       "tier": "T2",
       "phase": "LATER",
-      "title": "Receipt logged for Resend notify on every feedback + MVP",
+      "title": "Receipt on disk for Resend notify on every feedback + MVP",
       "status": "open",
       "score_delta": null,
       "priority_rank": 395,
       "path": "prompts/phase-sa-score-t06-intake-ops/w10-receipt/slice-05.md",
       "lane": "sourcea-site",
-      "agent_prompt": "WORK \u2014 sa-score-0395: Receipt logged for Resend notify on every feedback + MVP"
+      "agent_prompt": "WORK \u2014 sa-score-0395: Receipt on disk for Resend notify on every feedback + MVP"
     },
     {
       "id": "sa-score-0396",
@@ -8005,13 +8005,13 @@
       "slice": 6,
       "tier": "T2",
       "phase": "LATER",
-      "title": "Receipt logged for intake schema sourcea-site-intake-v1.json",
+      "title": "Receipt on disk for intake schema sourcea-site-intake-v1.json",
       "status": "open",
       "score_delta": null,
       "priority_rank": 396,
       "path": "prompts/phase-sa-score-t06-intake-ops/w10-receipt/slice-06.md",
       "lane": "sourcea-site",
-      "agent_prompt": "WORK \u2014 sa-score-0396: Receipt logged for intake schema sourcea-site-intake-v1.json"
+      "agent_prompt": "WORK \u2014 sa-score-0396: Receipt on disk for intake schema sourcea-site-intake-v1.json"
     },
     {
       "id": "sa-score-0397",
@@ -8025,13 +8025,13 @@
       "slice": 7,
       "tier": "T2",
       "phase": "LATER",
-      "title": "Receipt logged for duplicate intake dedupe by email+day",
+      "title": "Receipt on disk for duplicate intake dedupe by email+day",
       "status": "open",
       "score_delta": null,
       "priority_rank": 397,
       "path": "prompts/phase-sa-score-t06-intake-ops/w10-receipt/slice-07.md",
       "lane": "sourcea-site",
-      "agent_prompt": "WORK \u2014 sa-score-0397: Receipt logged for duplicate intake dedupe by email+day"
+      "agent_prompt": "WORK \u2014 sa-score-0397: Receipt on disk for duplicate intake dedupe by email+day"
     },
     {
       "id": "sa-score-0398",
@@ -8045,13 +8045,13 @@
       "slice": 8,
       "tier": "T3",
       "phase": "LATER",
-      "title": "Receipt logged for intake status webhook to founder Slack",
+      "title": "Receipt on disk for intake status webhook to founder Slack",
       "status": "open",
       "score_delta": null,
       "priority_rank": 398,
       "path": "prompts/phase-sa-score-t06-intake-ops/w10-receipt/slice-08.md",
       "lane": "sourcea-site",
-      "agent_prompt": "WORK \u2014 sa-score-0398: Receipt logged for intake status webhook to founder Slack"
+      "agent_prompt": "WORK \u2014 sa-score-0398: Receipt on disk for intake status webhook to founder Slack"
     },
     {
       "id": "sa-score-0399",
@@ -8065,13 +8065,13 @@
       "slice": 9,
       "tier": "T3",
       "phase": "LATER",
-      "title": "Receipt logged for 48h MVP scope lock UI on /start",
+      "title": "Receipt on disk for 48h MVP scope lock UI on /start",
       "status": "open",
       "score_delta": null,
       "priority_rank": 399,
       "path": "prompts/phase-sa-score-t06-intake-ops/w10-receipt/slice-09.md",
       "lane": "sourcea-site",
-      "agent_prompt": "WORK \u2014 sa-score-0399: Receipt logged for 48h MVP scope lock UI on /start"
+      "agent_prompt": "WORK \u2014 sa-score-0399: Receipt on disk for 48h MVP scope lock UI on /start"
     },
     {
       "id": "sa-score-0400",
@@ -8085,13 +8085,13 @@
       "slice": 10,
       "tier": "T3",
       "phase": "LATER",
-      "title": "Receipt logged for agency lane intake on case-studies",
+      "title": "Receipt on disk for agency lane intake on case-studies",
       "status": "open",
       "score_delta": null,
       "priority_rank": 400,
       "path": "prompts/phase-sa-score-t06-intake-ops/w10-receipt/slice-10.md",
       "lane": "sourcea-site",
-      "agent_prompt": "WORK \u2014 sa-score-0400: Receipt logged for agency lane intake on case-studies"
+      "agent_prompt": "WORK \u2014 sa-score-0400: Receipt on disk for agency lane intake on case-studies"
     },
     {
       "id": "sa-score-0401",
@@ -9905,13 +9905,13 @@
       "slice": 1,
       "tier": "T0",
       "phase": "LATER",
-      "title": "Receipt logged for error states on pulse-founder auth failure",
+      "title": "Receipt on disk for error states on pulse-founder auth failure",
       "status": "done",
       "score_delta": null,
       "priority_rank": 491,
       "path": "prompts/phase-sa-score-t02-client-ui/w10-receipt/slice-01.md",
       "lane": "sourcea-site",
-      "agent_prompt": "WORK \u2014 sa-score-0491: Receipt logged for error states on pulse-founder auth failure"
+      "agent_prompt": "WORK \u2014 sa-score-0491: Receipt on disk for error states on pulse-founder auth failure"
     },
     {
       "id": "sa-score-0492",
@@ -9925,13 +9925,13 @@
       "slice": 2,
       "tier": "T0",
       "phase": "LATER",
-      "title": "Receipt logged for founder-home hero primary = See live receipt per CTA SSOT",
+      "title": "Receipt on disk for founder-home hero primary = See live receipt per CTA SSOT",
       "status": "open",
       "score_delta": null,
       "priority_rank": 492,
       "path": "prompts/phase-sa-score-t02-client-ui/w10-receipt/slice-02.md",
       "lane": "sourcea-site",
-      "agent_prompt": "WORK \u2014 sa-score-0492: Receipt logged for founder-home hero primary = See live receipt per CTA SSOT"
+      "agent_prompt": "WORK \u2014 sa-score-0492: Receipt on disk for founder-home hero primary = See live receipt per CTA SSOT"
     },
     {
       "id": "sa-score-0493",
@@ -9945,13 +9945,13 @@
       "slice": 3,
       "tier": "T1",
       "phase": "LATER",
-      "title": "Receipt logged for remove duplicate pulse script tags on founder-home",
+      "title": "Receipt on disk for remove duplicate pulse script tags on founder-home",
       "status": "open",
       "score_delta": null,
       "priority_rank": 493,
       "path": "prompts/phase-sa-score-t02-client-ui/w10-receipt/slice-03.md",
       "lane": "sourcea-site",
-      "agent_prompt": "WORK \u2014 sa-score-0493: Receipt logged for remove duplicate pulse script tags on founder-home"
+      "agent_prompt": "WORK \u2014 sa-score-0493: Receipt on disk for remove duplicate pulse script tags on founder-home"
     },
     {
       "id": "sa-score-0494",
@@ -9965,13 +9965,13 @@
       "slice": 4,
       "tier": "T1",
       "phase": "LATER",
-      "title": "Receipt logged for data-sa-proof-cta href consistency sitewide",
+      "title": "Receipt on disk for data-sa-proof-cta href consistency sitewide",
       "status": "open",
       "score_delta": null,
       "priority_rank": 494,
       "path": "prompts/phase-sa-score-t02-client-ui/w10-receipt/slice-04.md",
       "lane": "sourcea-site",
-      "agent_prompt": "WORK \u2014 sa-score-0494: Receipt logged for data-sa-proof-cta href consistency sitewide"
+      "agent_prompt": "WORK \u2014 sa-score-0494: Receipt on disk for data-sa-proof-cta href consistency sitewide"
     },
     {
       "id": "sa-score-0495",
@@ -9985,13 +9985,13 @@
       "slice": 5,
       "tier": "T2",
       "phase": "LATER",
-      "title": "Receipt logged for platform portal honest beta layout pass",
+      "title": "Receipt on disk for platform portal honest beta layout pass",
       "status": "open",
       "score_delta": null,
       "priority_rank": 495,
       "path": "prompts/phase-sa-score-t02-client-ui/w10-receipt/slice-05.md",
       "lane": "sourcea-site",
-      "agent_prompt": "WORK \u2014 sa-score-0495: Receipt logged for platform portal honest beta layout pass"
+      "agent_prompt": "WORK \u2014 sa-score-0495: Receipt on disk for platform portal honest beta layout pass"
     },
     {
       "id": "sa-score-0496",
@@ -10005,13 +10005,13 @@
       "slice": 6,
       "tier": "T2",
       "phase": "LATER",
-      "title": "Receipt logged for feedback FAB z-index above Cal overlay",
+      "title": "Receipt on disk for feedback FAB z-index above Cal overlay",
       "status": "open",
       "score_delta": null,
       "priority_rank": 496,
       "path": "prompts/phase-sa-score-t02-client-ui/w10-receipt/slice-06.md",
       "lane": "sourcea-site",
-      "agent_prompt": "WORK \u2014 sa-score-0496: Receipt logged for feedback FAB z-index above Cal overlay"
+      "agent_prompt": "WORK \u2014 sa-score-0496: Receipt on disk for feedback FAB z-index above Cal overlay"
     },
     {
       "id": "sa-score-0497",
@@ -10025,13 +10025,13 @@
       "slice": 7,
       "tier": "T2",
       "phase": "LATER",
-      "title": "Receipt logged for guided tour dismiss persists per session",
+      "title": "Receipt on disk for guided tour dismiss persists per session",
       "status": "open",
       "score_delta": null,
       "priority_rank": 497,
       "path": "prompts/phase-sa-score-t02-client-ui/w10-receipt/slice-07.md",
       "lane": "sourcea-site",
-      "agent_prompt": "WORK \u2014 sa-score-0497: Receipt logged for guided tour dismiss persists per session"
+      "agent_prompt": "WORK \u2014 sa-score-0497: Receipt on disk for guided tour dismiss persists per session"
     },
     {
       "id": "sa-score-0498",
@@ -10045,13 +10045,13 @@
       "slice": 8,
       "tier": "T3",
       "phase": "LATER",
-      "title": "Receipt logged for segment strip on all dist pages via build inject",
+      "title": "Receipt on disk for segment strip on all dist pages via build inject",
       "status": "open",
       "score_delta": null,
       "priority_rank": 498,
       "path": "prompts/phase-sa-score-t02-client-ui/w10-receipt/slice-08.md",
       "lane": "sourcea-site",
-      "agent_prompt": "WORK \u2014 sa-score-0498: Receipt logged for segment strip on all dist pages via build inject"
+      "agent_prompt": "WORK \u2014 sa-score-0498: Receipt on disk for segment strip on all dist pages via build inject"
     },
     {
       "id": "sa-score-0499",
@@ -10065,13 +10065,13 @@
       "slice": 9,
       "tier": "T3",
       "phase": "LATER",
-      "title": "Receipt logged for proof quiz keyboard accessibility",
+      "title": "Receipt on disk for proof quiz keyboard accessibility",
       "status": "open",
       "score_delta": null,
       "priority_rank": 499,
       "path": "prompts/phase-sa-score-t02-client-ui/w10-receipt/slice-09.md",
       "lane": "sourcea-site",
-      "agent_prompt": "WORK \u2014 sa-score-0499: Receipt logged for proof quiz keyboard accessibility"
+      "agent_prompt": "WORK \u2014 sa-score-0499: Receipt on disk for proof quiz keyboard accessibility"
     },
     {
       "id": "sa-score-0500",
@@ -10085,13 +10085,13 @@
       "slice": 10,
       "tier": "T3",
       "phase": "LATER",
-      "title": "Receipt logged for status page live stats refresh interval",
+      "title": "Receipt on disk for status page live stats refresh interval",
       "status": "open",
       "score_delta": null,
       "priority_rank": 500,
       "path": "prompts/phase-sa-score-t02-client-ui/w10-receipt/slice-10.md",
       "lane": "sourcea-site",
-      "agent_prompt": "WORK \u2014 sa-score-0500: Receipt logged for status page live stats refresh interval"
+      "agent_prompt": "WORK \u2014 sa-score-0500: Receipt on disk for status page live stats refresh interval"
     },
     {
       "id": "sa-score-0501",
@@ -11905,13 +11905,13 @@
       "slice": 1,
       "tier": "T0",
       "phase": "MOONSHOT",
-      "title": "Receipt logged for routing decision receipt in pulse events",
+      "title": "Receipt on disk for routing decision receipt in pulse events",
       "status": "done",
       "score_delta": null,
       "priority_rank": 591,
       "path": "prompts/phase-sa-score-t04-deterministic-routing/w10-receipt/slice-01.md",
       "lane": "sourcea-site",
-      "agent_prompt": "WORK \u2014 sa-score-0591: Receipt logged for routing decision receipt in pulse events"
+      "agent_prompt": "WORK \u2014 sa-score-0591: Receipt on disk for routing decision receipt in pulse events"
     },
     {
       "id": "sa-score-0592",
@@ -11925,13 +11925,13 @@
       "slice": 2,
       "tier": "T0",
       "phase": "MOONSHOT",
-      "title": "Receipt logged for segment click \u2192 pulse track \u2192 correct href E2E",
+      "title": "Receipt on disk for segment click \u2192 pulse track \u2192 correct href E2E",
       "status": "open",
       "score_delta": null,
       "priority_rank": 592,
       "path": "prompts/phase-sa-score-t04-deterministic-routing/w10-receipt/slice-02.md",
       "lane": "sourcea-site",
-      "agent_prompt": "WORK \u2014 sa-score-0592: Receipt logged for segment click \u2192 pulse track \u2192 correct href E2E"
+      "agent_prompt": "WORK \u2014 sa-score-0592: Receipt on disk for segment click \u2192 pulse track \u2192 correct href E2E"
     },
     {
       "id": "sa-score-0593",
@@ -11945,13 +11945,13 @@
       "slice": 3,
       "tier": "T1",
       "phase": "MOONSHOT",
-      "title": "Receipt logged for guided prompt once-per-session localStorage key",
+      "title": "Receipt on disk for guided prompt once-per-session localStorage key",
       "status": "open",
       "score_delta": null,
       "priority_rank": 593,
       "path": "prompts/phase-sa-score-t04-deterministic-routing/w10-receipt/slice-03.md",
       "lane": "sourcea-site",
-      "agent_prompt": "WORK \u2014 sa-score-0593: Receipt logged for guided prompt once-per-session localStorage key"
+      "agent_prompt": "WORK \u2014 sa-score-0593: Receipt on disk for guided prompt once-per-session localStorage key"
     },
     {
       "id": "sa-score-0594",
@@ -11965,13 +11965,13 @@
       "slice": 4,
       "tier": "T1",
       "phase": "MOONSHOT",
-      "title": "Receipt logged for brain chip messages map to segment tracks",
+      "title": "Receipt on disk for brain chip messages map to segment tracks",
       "status": "open",
       "score_delta": null,
       "priority_rank": 594,
       "path": "prompts/phase-sa-score-t04-deterministic-routing/w10-receipt/slice-04.md",
       "lane": "sourcea-site",
-      "agent_prompt": "WORK \u2014 sa-score-0594: Receipt logged for brain chip messages map to segment tracks"
+      "agent_prompt": "WORK \u2014 sa-score-0594: Receipt on disk for brain chip messages map to segment tracks"
     },
     {
       "id": "sa-score-0595",
@@ -11985,13 +11985,13 @@
       "slice": 5,
       "tier": "T2",
       "phase": "MOONSHOT",
-      "title": "Receipt logged for URL utm_segment overrides default lane",
+      "title": "Receipt on disk for URL utm_segment overrides default lane",
       "status": "open",
       "score_delta": null,
       "priority_rank": 595,
       "path": "prompts/phase-sa-score-t04-deterministic-routing/w10-receipt/slice-05.md",
       "lane": "sourcea-site",
-      "agent_prompt": "WORK \u2014 sa-score-0595: Receipt logged for URL utm_segment overrides default lane"
+      "agent_prompt": "WORK \u2014 sa-score-0595: Receipt on disk for URL utm_segment overrides default lane"
     },
     {
       "id": "sa-score-0596",
@@ -12005,13 +12005,13 @@
       "slice": 6,
       "tier": "T2",
       "phase": "MOONSHOT",
-      "title": "Receipt logged for returning visitor last-segment hint",
+      "title": "Receipt on disk for returning visitor last-segment hint",
       "status": "open",
       "score_delta": null,
       "priority_rank": 596,
       "path": "prompts/phase-sa-score-t04-deterministic-routing/w10-receipt/slice-06.md",
       "lane": "sourcea-site",
-      "agent_prompt": "WORK \u2014 sa-score-0596: Receipt logged for returning visitor last-segment hint"
+      "agent_prompt": "WORK \u2014 sa-score-0596: Receipt on disk for returning visitor last-segment hint"
     },
     {
       "id": "sa-score-0597",
@@ -12025,13 +12025,13 @@
       "slice": 7,
       "tier": "T2",
       "phase": "MOONSHOT",
-      "title": "Receipt logged for VC proof lane skip learn redirect",
+      "title": "Receipt on disk for VC proof lane skip learn redirect",
       "status": "open",
       "score_delta": null,
       "priority_rank": 597,
       "path": "prompts/phase-sa-score-t04-deterministic-routing/w10-receipt/slice-07.md",
       "lane": "sourcea-site",
-      "agent_prompt": "WORK \u2014 sa-score-0597: Receipt logged for VC proof lane skip learn redirect"
+      "agent_prompt": "WORK \u2014 sa-score-0597: Receipt on disk for VC proof lane skip learn redirect"
     },
     {
       "id": "sa-score-0598",
@@ -12045,13 +12045,13 @@
       "slice": 8,
       "tier": "T3",
       "phase": "MOONSHOT",
-      "title": "Receipt logged for cursor lane deep-link Forge with query",
+      "title": "Receipt on disk for cursor lane deep-link Forge with query",
       "status": "open",
       "score_delta": null,
       "priority_rank": 598,
       "path": "prompts/phase-sa-score-t04-deterministic-routing/w10-receipt/slice-08.md",
       "lane": "sourcea-site",
-      "agent_prompt": "WORK \u2014 sa-score-0598: Receipt logged for cursor lane deep-link Forge with query"
+      "agent_prompt": "WORK \u2014 sa-score-0598: Receipt on disk for cursor lane deep-link Forge with query"
     },
     {
       "id": "sa-score-0599",
@@ -12065,13 +12065,13 @@
       "slice": 9,
       "tier": "T3",
       "phase": "MOONSHOT",
-      "title": "Receipt logged for beginner lane forces /learn before /start",
+      "title": "Receipt on disk for beginner lane forces /learn before /start",
       "status": "open",
       "score_delta": null,
       "priority_rank": 599,
       "path": "prompts/phase-sa-score-t04-deterministic-routing/w10-receipt/slice-09.md",
       "lane": "sourcea-site",
-      "agent_prompt": "WORK \u2014 sa-score-0599: Receipt logged for beginner lane forces /learn before /start"
+      "agent_prompt": "WORK \u2014 sa-score-0599: Receipt on disk for beginner lane forces /learn before /start"
     },
     {
       "id": "sa-score-0600",
@@ -12085,13 +12085,13 @@
       "slice": 10,
       "tier": "T3",
       "phase": "MOONSHOT",
-      "title": "Receipt logged for agency lane case-study filter preset",
+      "title": "Receipt on disk for agency lane case-study filter preset",
       "status": "open",
       "score_delta": null,
       "priority_rank": 600,
       "path": "prompts/phase-sa-score-t04-deterministic-routing/w10-receipt/slice-10.md",
       "lane": "sourcea-site",
-      "agent_prompt": "WORK \u2014 sa-score-0600: Receipt logged for agency lane case-study filter preset"
+      "agent_prompt": "WORK \u2014 sa-score-0600: Receipt on disk for agency lane case-study filter preset"
     },
     {
       "id": "sa-score-0601",
@@ -13905,13 +13905,13 @@
       "slice": 1,
       "tier": "T0",
       "phase": "MOONSHOT",
-      "title": "Receipt logged for worker health /api/site/health/v1",
+      "title": "Receipt on disk for worker health /api/site/health/v1",
       "status": "done",
       "score_delta": null,
       "priority_rank": 691,
       "path": "prompts/phase-sa-score-t01-live-wiring/w10-receipt/slice-01.md",
       "lane": "sourcea-site",
-      "agent_prompt": "WORK \u2014 sa-score-0691: Receipt logged for worker health /api/site/health/v1"
+      "agent_prompt": "WORK \u2014 sa-score-0691: Receipt on disk for worker health /api/site/health/v1"
     },
     {
       "id": "sa-score-0692",
@@ -13925,13 +13925,13 @@
       "slice": 2,
       "tier": "T0",
       "phase": "MOONSHOT",
-      "title": "Receipt logged for pulse worker route on sourcea.app/api/site/*",
+      "title": "Receipt on disk for pulse worker route on sourcea.app/api/site/*",
       "status": "open",
       "score_delta": null,
       "priority_rank": 692,
       "path": "prompts/phase-sa-score-t01-live-wiring/w10-receipt/slice-02.md",
       "lane": "sourcea-site",
-      "agent_prompt": "WORK \u2014 sa-score-0692: Receipt logged for pulse worker route on sourcea.app/api/site/*"
+      "agent_prompt": "WORK \u2014 sa-score-0692: Receipt on disk for pulse worker route on sourcea.app/api/site/*"
     },
     {
       "id": "sa-score-0693",
@@ -13945,13 +13945,13 @@
       "slice": 3,
       "tier": "T1",
       "phase": "MOONSHOT",
-      "title": "Receipt logged for sourcea-site-pulse-config-v1.json worker URL",
+      "title": "Receipt on disk for sourcea-site-pulse-config-v1.json worker URL",
       "status": "open",
       "score_delta": null,
       "priority_rank": 693,
       "path": "prompts/phase-sa-score-t01-live-wiring/w10-receipt/slice-03.md",
       "lane": "sourcea-site",
-      "agent_prompt": "WORK \u2014 sa-score-0693: Receipt logged for sourcea-site-pulse-config-v1.json worker URL"
+      "agent_prompt": "WORK \u2014 sa-score-0693: Receipt on disk for sourcea-site-pulse-config-v1.json worker URL"
     },
     {
       "id": "sa-score-0694",
@@ -13965,13 +13965,13 @@
       "slice": 4,
       "tier": "T1",
       "phase": "MOONSHOT",
-      "title": "Receipt logged for RESEND_API_KEY verified send on feedback",
+      "title": "Receipt on disk for RESEND_API_KEY verified send on feedback",
       "status": "open",
       "score_delta": null,
       "priority_rank": 694,
       "path": "prompts/phase-sa-score-t01-live-wiring/w10-receipt/slice-04.md",
       "lane": "sourcea-site",
-      "agent_prompt": "WORK \u2014 sa-score-0694: Receipt logged for RESEND_API_KEY verified send on feedback"
+      "agent_prompt": "WORK \u2014 sa-score-0694: Receipt on disk for RESEND_API_KEY verified send on feedback"
     },
     {
       "id": "sa-score-0695",
@@ -13985,13 +13985,13 @@
       "slice": 5,
       "tier": "T2",
       "phase": "MOONSHOT",
-      "title": "Receipt logged for FOUNDER_PULSE_KEY rotation doc in SETUP",
+      "title": "Receipt on disk for FOUNDER_PULSE_KEY rotation doc in SETUP",
       "status": "open",
       "score_delta": null,
       "priority_rank": 695,
       "path": "prompts/phase-sa-score-t01-live-wiring/w10-receipt/slice-05.md",
       "lane": "sourcea-site",
-      "agent_prompt": "WORK \u2014 sa-score-0695: Receipt logged for FOUNDER_PULSE_KEY rotation doc in SETUP"
+      "agent_prompt": "WORK \u2014 sa-score-0695: Receipt on disk for FOUNDER_PULSE_KEY rotation doc in SETUP"
     },
     {
       "id": "sa-score-0696",
@@ -14005,13 +14005,13 @@
       "slice": 6,
       "tier": "T2",
       "phase": "MOONSHOT",
-      "title": "Receipt logged for KV PULSE_KV backup export cron",
+      "title": "Receipt on disk for KV PULSE_KV backup export cron",
       "status": "open",
       "score_delta": null,
       "priority_rank": 696,
       "path": "prompts/phase-sa-score-t01-live-wiring/w10-receipt/slice-06.md",
       "lane": "sourcea-site",
-      "agent_prompt": "WORK \u2014 sa-score-0696: Receipt logged for KV PULSE_KV backup export cron"
+      "agent_prompt": "WORK \u2014 sa-score-0696: Receipt on disk for KV PULSE_KV backup export cron"
     },
     {
       "id": "sa-score-0697",
@@ -14025,13 +14025,13 @@
       "slice": 7,
       "tier": "T2",
       "phase": "MOONSHOT",
-      "title": "Receipt logged for brain-chat worker pulse event bridge",
+      "title": "Receipt on disk for brain-chat worker pulse event bridge",
       "status": "open",
       "score_delta": null,
       "priority_rank": 697,
       "path": "prompts/phase-sa-score-t01-live-wiring/w10-receipt/slice-07.md",
       "lane": "sourcea-site",
-      "agent_prompt": "WORK \u2014 sa-score-0697: Receipt logged for brain-chat worker pulse event bridge"
+      "agent_prompt": "WORK \u2014 sa-score-0697: Receipt on disk for brain-chat worker pulse event bridge"
     },
     {
       "id": "sa-score-0698",
@@ -14045,13 +14045,13 @@
       "slice": 8,
       "tier": "T3",
       "phase": "MOONSHOT",
-      "title": "Receipt logged for mvp-intake worker linked from /start form",
+      "title": "Receipt on disk for mvp-intake worker linked from /start form",
       "status": "open",
       "score_delta": null,
       "priority_rank": 698,
       "path": "prompts/phase-sa-score-t01-live-wiring/w10-receipt/slice-08.md",
       "lane": "sourcea-site",
-      "agent_prompt": "WORK \u2014 sa-score-0698: Receipt logged for mvp-intake worker linked from /start form"
+      "agent_prompt": "WORK \u2014 sa-score-0698: Receipt on disk for mvp-intake worker linked from /start form"
     },
     {
       "id": "sa-score-0699",
@@ -14065,13 +14065,13 @@
       "slice": 9,
       "tier": "T3",
       "phase": "MOONSHOT",
-      "title": "Receipt logged for public stats embed on /sourcea/status",
+      "title": "Receipt on disk for public stats embed on /sourcea/status",
       "status": "open",
       "score_delta": null,
       "priority_rank": 699,
       "path": "prompts/phase-sa-score-t01-live-wiring/w10-receipt/slice-09.md",
       "lane": "sourcea-site",
-      "agent_prompt": "WORK \u2014 sa-score-0699: Receipt logged for public stats embed on /sourcea/status"
+      "agent_prompt": "WORK \u2014 sa-score-0699: Receipt on disk for public stats embed on /sourcea/status"
     },
     {
       "id": "sa-score-0700",
@@ -14085,13 +14085,13 @@
       "slice": 10,
       "tier": "T3",
       "phase": "MOONSHOT",
-      "title": "Receipt logged for CORS allow sourcea.app on all site APIs",
+      "title": "Receipt on disk for CORS allow sourcea.app on all site APIs",
       "status": "open",
       "score_delta": null,
       "priority_rank": 700,
       "path": "prompts/phase-sa-score-t01-live-wiring/w10-receipt/slice-10.md",
       "lane": "sourcea-site",
-      "agent_prompt": "WORK \u2014 sa-score-0700: Receipt logged for CORS allow sourcea.app on all site APIs"
+      "agent_prompt": "WORK \u2014 sa-score-0700: Receipt on disk for CORS allow sourcea.app on all site APIs"
     },
     {
       "id": "sa-score-0701",
@@ -15905,13 +15905,13 @@
       "slice": 1,
       "tier": "T0",
       "phase": "MOONSHOT",
-      "title": "Receipt logged for weekly email digest to founder",
+      "title": "Receipt on disk for weekly email digest to founder",
       "status": "done",
       "score_delta": null,
       "priority_rank": 791,
       "path": "prompts/phase-sa-score-t07-analytics-feedback/w10-receipt/slice-01.md",
       "lane": "sourcea-site",
-      "agent_prompt": "WORK \u2014 sa-score-0791: Receipt logged for weekly email digest to founder"
+      "agent_prompt": "WORK \u2014 sa-score-0791: Receipt on disk for weekly email digest to founder"
     },
     {
       "id": "sa-score-0792",
@@ -15925,13 +15925,13 @@
       "slice": 2,
       "tier": "T0",
       "phase": "MOONSHOT",
-      "title": "Receipt logged for funnel dashboard: segment \u2192 proof \u2192 intake",
+      "title": "Receipt on disk for funnel dashboard: segment \u2192 proof \u2192 intake",
       "status": "open",
       "score_delta": null,
       "priority_rank": 792,
       "path": "prompts/phase-sa-score-t07-analytics-feedback/w10-receipt/slice-02.md",
       "lane": "sourcea-site",
-      "agent_prompt": "WORK \u2014 sa-score-0792: Receipt logged for funnel dashboard: segment \u2192 proof \u2192 intake"
+      "agent_prompt": "WORK \u2014 sa-score-0792: Receipt on disk for funnel dashboard: segment \u2192 proof \u2192 intake"
     },
     {
       "id": "sa-score-0793",
@@ -15945,13 +15945,13 @@
       "slice": 3,
       "tier": "T1",
       "phase": "MOONSHOT",
-      "title": "Receipt logged for top_events alert threshold in founder UI",
+      "title": "Receipt on disk for top_events alert threshold in founder UI",
       "status": "open",
       "score_delta": null,
       "priority_rank": 793,
       "path": "prompts/phase-sa-score-t07-analytics-feedback/w10-receipt/slice-03.md",
       "lane": "sourcea-site",
-      "agent_prompt": "WORK \u2014 sa-score-0793: Receipt logged for top_events alert threshold in founder UI"
+      "agent_prompt": "WORK \u2014 sa-score-0793: Receipt on disk for top_events alert threshold in founder UI"
     },
     {
       "id": "sa-score-0794",
@@ -15965,13 +15965,13 @@
       "slice": 4,
       "tier": "T1",
       "phase": "MOONSHOT",
-      "title": "Receipt logged for feedback type filter bug/idea/praise",
+      "title": "Receipt on disk for feedback type filter bug/idea/praise",
       "status": "open",
       "score_delta": null,
       "priority_rank": 794,
       "path": "prompts/phase-sa-score-t07-analytics-feedback/w10-receipt/slice-04.md",
       "lane": "sourcea-site",
-      "agent_prompt": "WORK \u2014 sa-score-0794: Receipt logged for feedback type filter bug/idea/praise"
+      "agent_prompt": "WORK \u2014 sa-score-0794: Receipt on disk for feedback type filter bug/idea/praise"
     },
     {
       "id": "sa-score-0795",
@@ -15985,13 +15985,13 @@
       "slice": 5,
       "tier": "T2",
       "phase": "MOONSHOT",
-      "title": "Receipt logged for pageview path normalization /sourcea prefix",
+      "title": "Receipt on disk for pageview path normalization /sourcea prefix",
       "status": "open",
       "score_delta": null,
       "priority_rank": 795,
       "path": "prompts/phase-sa-score-t07-analytics-feedback/w10-receipt/slice-05.md",
       "lane": "sourcea-site",
-      "agent_prompt": "WORK \u2014 sa-score-0795: Receipt logged for pageview path normalization /sourcea prefix"
+      "agent_prompt": "WORK \u2014 sa-score-0795: Receipt on disk for pageview path normalization /sourcea prefix"
     },
     {
       "id": "sa-score-0796",
@@ -16005,13 +16005,13 @@
       "slice": 6,
       "tier": "T2",
       "phase": "MOONSHOT",
-      "title": "Receipt logged for cal overlay open/close conversion metric",
+      "title": "Receipt on disk for cal overlay open/close conversion metric",
       "status": "open",
       "score_delta": null,
       "priority_rank": 796,
       "path": "prompts/phase-sa-score-t07-analytics-feedback/w10-receipt/slice-06.md",
       "lane": "sourcea-site",
-      "agent_prompt": "WORK \u2014 sa-score-0796: Receipt logged for cal overlay open/close conversion metric"
+      "agent_prompt": "WORK \u2014 sa-score-0796: Receipt on disk for cal overlay open/close conversion metric"
     },
     {
       "id": "sa-score-0797",
@@ -16025,13 +16025,13 @@
       "slice": 7,
       "tier": "T2",
       "phase": "MOONSHOT",
-      "title": "Receipt logged for guided_show completion rate",
+      "title": "Receipt on disk for guided_show completion rate",
       "status": "open",
       "score_delta": null,
       "priority_rank": 797,
       "path": "prompts/phase-sa-score-t07-analytics-feedback/w10-receipt/slice-07.md",
       "lane": "sourcea-site",
-      "agent_prompt": "WORK \u2014 sa-score-0797: Receipt logged for guided_show completion rate"
+      "agent_prompt": "WORK \u2014 sa-score-0797: Receipt on disk for guided_show completion rate"
     },
     {
       "id": "sa-score-0798",
@@ -16045,13 +16045,13 @@
       "slice": 8,
       "tier": "T3",
       "phase": "MOONSHOT",
-      "title": "Receipt logged for export 7-day rollup JSON",
+      "title": "Receipt on disk for export 7-day rollup JSON",
       "status": "open",
       "score_delta": null,
       "priority_rank": 798,
       "path": "prompts/phase-sa-score-t07-analytics-feedback/w10-receipt/slice-08.md",
       "lane": "sourcea-site",
-      "agent_prompt": "WORK \u2014 sa-score-0798: Receipt logged for export 7-day rollup JSON"
+      "agent_prompt": "WORK \u2014 sa-score-0798: Receipt on disk for export 7-day rollup JSON"
     },
     {
       "id": "sa-score-0799",
@@ -16065,13 +16065,13 @@
       "slice": 9,
       "tier": "T3",
       "phase": "MOONSHOT",
-      "title": "Receipt logged for anonymize PII in public stats",
+      "title": "Receipt on disk for anonymize PII in public stats",
       "status": "open",
       "score_delta": null,
       "priority_rank": 799,
       "path": "prompts/phase-sa-score-t07-analytics-feedback/w10-receipt/slice-09.md",
       "lane": "sourcea-site",
-      "agent_prompt": "WORK \u2014 sa-score-0799: Receipt logged for anonymize PII in public stats"
+      "agent_prompt": "WORK \u2014 sa-score-0799: Receipt on disk for anonymize PII in public stats"
     },
     {
       "id": "sa-score-0800",
@@ -16085,13 +16085,13 @@
       "slice": 10,
       "tier": "T3",
       "phase": "MOONSHOT",
-      "title": "Receipt logged for spam feedback rate limit per IP",
+      "title": "Receipt on disk for spam feedback rate limit per IP",
       "status": "open",
       "score_delta": null,
       "priority_rank": 800,
       "path": "prompts/phase-sa-score-t07-analytics-feedback/w10-receipt/slice-10.md",
       "lane": "sourcea-site",
-      "agent_prompt": "WORK \u2014 sa-score-0800: Receipt logged for spam feedback rate limit per IP"
+      "agent_prompt": "WORK \u2014 sa-score-0800: Receipt on disk for spam feedback rate limit per IP"
     },
     {
       "id": "sa-score-0801",
@@ -17905,13 +17905,13 @@
       "slice": 1,
       "tier": "T0",
       "phase": "MOONSHOT",
-      "title": "Receipt logged for glossary page /sourcea/vocabulary",
+      "title": "Receipt on disk for glossary page /sourcea/vocabulary",
       "status": "done",
       "score_delta": null,
       "priority_rank": 891,
       "path": "prompts/phase-sa-score-t03-vocabulary/w10-receipt/slice-01.md",
       "lane": "sourcea-site",
-      "agent_prompt": "WORK \u2014 sa-score-0891: Receipt logged for glossary page /sourcea/vocabulary"
+      "agent_prompt": "WORK \u2014 sa-score-0891: Receipt on disk for glossary page /sourcea/vocabulary"
     },
     {
       "id": "sa-score-0892",
@@ -17925,13 +17925,13 @@
       "slice": 2,
       "tier": "T0",
       "phase": "MOONSHOT",
-      "title": "Receipt logged for sourcea-landing-cta-v1.json version bump + changelog",
+      "title": "Receipt on disk for sourcea-landing-cta-v1.json version bump + changelog",
       "status": "open",
       "score_delta": null,
       "priority_rank": 892,
       "path": "prompts/phase-sa-score-t03-vocabulary/w10-receipt/slice-02.md",
       "lane": "sourcea-site",
-      "agent_prompt": "WORK \u2014 sa-score-0892: Receipt logged for sourcea-landing-cta-v1.json version bump + changelog"
+      "agent_prompt": "WORK \u2014 sa-score-0892: Receipt on disk for sourcea-landing-cta-v1.json version bump + changelog"
     },
     {
       "id": "sa-score-0893",
@@ -17945,13 +17945,13 @@
       "slice": 3,
       "tier": "T1",
       "phase": "MOONSHOT",
-      "title": "Receipt logged for ban Book a demo sitewide grep gate",
+      "title": "Receipt on disk for ban Book a demo sitewide grep gate",
       "status": "open",
       "score_delta": null,
       "priority_rank": 893,
       "path": "prompts/phase-sa-score-t03-vocabulary/w10-receipt/slice-03.md",
       "lane": "sourcea-site",
-      "agent_prompt": "WORK \u2014 sa-score-0893: Receipt logged for ban Book a demo sitewide grep gate"
+      "agent_prompt": "WORK \u2014 sa-score-0893: Receipt on disk for ban Book a demo sitewide grep gate"
     },
     {
       "id": "sa-score-0894",
@@ -17965,13 +17965,13 @@
       "slice": 4,
       "tier": "T1",
       "phase": "MOONSHOT",
-      "title": "Receipt logged for Talk to a human only on data-sa-book-fallback",
+      "title": "Receipt on disk for Talk to a human only on data-sa-book-fallback",
       "status": "open",
       "score_delta": null,
       "priority_rank": 894,
       "path": "prompts/phase-sa-score-t03-vocabulary/w10-receipt/slice-04.md",
       "lane": "sourcea-site",
-      "agent_prompt": "WORK \u2014 sa-score-0894: Receipt logged for Talk to a human only on data-sa-book-fallback"
+      "agent_prompt": "WORK \u2014 sa-score-0894: Receipt on disk for Talk to a human only on data-sa-book-fallback"
     },
     {
       "id": "sa-score-0895",
@@ -17985,13 +17985,13 @@
       "slice": 5,
       "tier": "T2",
       "phase": "MOONSHOT",
-      "title": "Receipt logged for technique labels in interact JSON documented",
+      "title": "Receipt on disk for technique labels in interact JSON documented",
       "status": "open",
       "score_delta": null,
       "priority_rank": 895,
       "path": "prompts/phase-sa-score-t03-vocabulary/w10-receipt/slice-05.md",
       "lane": "sourcea-site",
-      "agent_prompt": "WORK \u2014 sa-score-0895: Receipt logged for technique labels in interact JSON documented"
+      "agent_prompt": "WORK \u2014 sa-score-0895: Receipt on disk for technique labels in interact JSON documented"
     },
     {
       "id": "sa-score-0896",
@@ -18005,13 +18005,13 @@
       "slice": 6,
       "tier": "T2",
       "phase": "MOONSHOT",
-      "title": "Receipt logged for proof_surface copy on all proof CTAs",
+      "title": "Receipt on disk for proof_surface copy on all proof CTAs",
       "status": "open",
       "score_delta": null,
       "priority_rank": 896,
       "path": "prompts/phase-sa-score-t03-vocabulary/w10-receipt/slice-06.md",
       "lane": "sourcea-site",
-      "agent_prompt": "WORK \u2014 sa-score-0896: Receipt logged for proof_surface copy on all proof CTAs"
+      "agent_prompt": "WORK \u2014 sa-score-0896: Receipt on disk for proof_surface copy on all proof CTAs"
     },
     {
       "id": "sa-score-0897",
@@ -18025,13 +18025,13 @@
       "slice": 7,
       "tier": "T2",
       "phase": "MOONSHOT",
-      "title": "Receipt logged for commercial_intake GOAL\u00b7DONE\u00b7VERIFY on /start",
+      "title": "Receipt on disk for commercial_intake GOAL\u00b7DONE\u00b7VERIFY on /start",
       "status": "open",
       "score_delta": null,
       "priority_rank": 897,
       "path": "prompts/phase-sa-score-t03-vocabulary/w10-receipt/slice-07.md",
       "lane": "sourcea-site",
-      "agent_prompt": "WORK \u2014 sa-score-0897: Receipt logged for commercial_intake GOAL\u00b7DONE\u00b7VERIFY on /start"
+      "agent_prompt": "WORK \u2014 sa-score-0897: Receipt on disk for commercial_intake GOAL\u00b7DONE\u00b7VERIFY on /start"
     },
     {
       "id": "sa-score-0898",
@@ -18045,13 +18045,13 @@
       "slice": 8,
       "tier": "T3",
       "phase": "MOONSHOT",
-      "title": "Receipt logged for living_ui label on Forge paths only",
+      "title": "Receipt on disk for living_ui label on Forge paths only",
       "status": "open",
       "score_delta": null,
       "priority_rank": 898,
       "path": "prompts/phase-sa-score-t03-vocabulary/w10-receipt/slice-08.md",
       "lane": "sourcea-site",
-      "agent_prompt": "WORK \u2014 sa-score-0898: Receipt logged for living_ui label on Forge paths only"
+      "agent_prompt": "WORK \u2014 sa-score-0898: Receipt on disk for living_ui label on Forge paths only"
     },
     {
       "id": "sa-score-0899",
@@ -18065,13 +18065,13 @@
       "slice": 9,
       "tier": "T3",
       "phase": "MOONSHOT",
-      "title": "Receipt logged for segment labels A/B test copy variants",
+      "title": "Receipt on disk for segment labels A/B test copy variants",
       "status": "open",
       "score_delta": null,
       "priority_rank": 899,
       "path": "prompts/phase-sa-score-t03-vocabulary/w10-receipt/slice-09.md",
       "lane": "sourcea-site",
-      "agent_prompt": "WORK \u2014 sa-score-0899: Receipt logged for segment labels A/B test copy variants"
+      "agent_prompt": "WORK \u2014 sa-score-0899: Receipt on disk for segment labels A/B test copy variants"
     },
     {
       "id": "sa-score-0900",
@@ -18085,13 +18085,13 @@
       "slice": 10,
       "tier": "T3",
       "phase": "MOONSHOT",
-      "title": "Receipt logged for vocabulary validator script in CI",
+      "title": "Receipt on disk for vocabulary validator script in CI",
       "status": "open",
       "score_delta": null,
       "priority_rank": 900,
       "path": "prompts/phase-sa-score-t03-vocabulary/w10-receipt/slice-10.md",
       "lane": "sourcea-site",
-      "agent_prompt": "WORK \u2014 sa-score-0900: Receipt logged for vocabulary validator script in CI"
+      "agent_prompt": "WORK \u2014 sa-score-0900: Receipt on disk for vocabulary validator script in CI"
     },
     {
       "id": "sa-score-0901",
@@ -19905,13 +19905,13 @@
       "slice": 1,
       "tier": "T0",
       "phase": "MOONSHOT",
-      "title": "Receipt logged for score-up registry validate script PASS",
+      "title": "Receipt on disk for score-up registry validate script PASS",
       "status": "done",
       "score_delta": null,
       "priority_rank": 991,
       "path": "prompts/phase-sa-score-t10-e2e-quality/w10-receipt/slice-01.md",
       "lane": "sourcea-site",
-      "agent_prompt": "WORK \u2014 sa-score-0991: Receipt logged for score-up registry validate script PASS"
+      "agent_prompt": "WORK \u2014 sa-score-0991: Receipt on disk for score-up registry validate script PASS"
     },
     {
       "id": "sa-score-0992",
@@ -19925,13 +19925,13 @@
       "slice": 2,
       "tier": "T0",
       "phase": "MOONSHOT",
-      "title": "Receipt logged for validate-sourcea-modern-stack-e2e-v1 weekly cron",
+      "title": "Receipt on disk for validate-sourcea-modern-stack-e2e-v1 weekly cron",
       "status": "open",
       "score_delta": null,
       "priority_rank": 992,
       "path": "prompts/phase-sa-score-t10-e2e-quality/w10-receipt/slice-02.md",
       "lane": "sourcea-site",
-      "agent_prompt": "WORK \u2014 sa-score-0992: Receipt logged for validate-sourcea-modern-stack-e2e-v1 weekly cron"
+      "agent_prompt": "WORK \u2014 sa-score-0992: Receipt on disk for validate-sourcea-modern-stack-e2e-v1 weekly cron"
     },
     {
       "id": "sa-score-0993",
@@ -19945,13 +19945,13 @@
       "slice": 3,
       "tier": "T1",
       "phase": "MOONSHOT",
-      "title": "Receipt logged for Playwright proof run happy path",
+      "title": "Receipt on disk for Playwright proof run happy path",
       "status": "open",
       "score_delta": null,
       "priority_rank": 993,
       "path": "prompts/phase-sa-score-t10-e2e-quality/w10-receipt/slice-03.md",
       "lane": "sourcea-site",
-      "agent_prompt": "WORK \u2014 sa-score-0993: Receipt logged for Playwright proof run happy path"
+      "agent_prompt": "WORK \u2014 sa-score-0993: Receipt on disk for Playwright proof run happy path"
     },
     {
       "id": "sa-score-0994",
@@ -19965,13 +19965,13 @@
       "slice": 4,
       "tier": "T1",
       "phase": "MOONSHOT",
-      "title": "Receipt logged for Playwright sandbox submit no mailto",
+      "title": "Receipt on disk for Playwright sandbox submit no mailto",
       "status": "open",
       "score_delta": null,
       "priority_rank": 994,
       "path": "prompts/phase-sa-score-t10-e2e-quality/w10-receipt/slice-04.md",
       "lane": "sourcea-site",
-      "agent_prompt": "WORK \u2014 sa-score-0994: Receipt logged for Playwright sandbox submit no mailto"
+      "agent_prompt": "WORK \u2014 sa-score-0994: Receipt on disk for Playwright sandbox submit no mailto"
     },
     {
       "id": "sa-score-0995",
@@ -19985,13 +19985,13 @@
       "slice": 5,
       "tier": "T2",
       "phase": "MOONSHOT",
-      "title": "Receipt logged for Playwright pulse-founder key gate",
+      "title": "Receipt on disk for Playwright pulse-founder key gate",
       "status": "open",
       "score_delta": null,
       "priority_rank": 995,
       "path": "prompts/phase-sa-score-t10-e2e-quality/w10-receipt/slice-05.md",
       "lane": "sourcea-site",
-      "agent_prompt": "WORK \u2014 sa-score-0995: Receipt logged for Playwright pulse-founder key gate"
+      "agent_prompt": "WORK \u2014 sa-score-0995: Receipt on disk for Playwright pulse-founder key gate"
     },
     {
       "id": "sa-score-0996",
@@ -20005,13 +20005,13 @@
       "slice": 6,
       "tier": "T2",
       "phase": "MOONSHOT",
-      "title": "Receipt logged for broken link crawler on dist/",
+      "title": "Receipt on disk for broken link crawler on dist/",
       "status": "open",
       "score_delta": null,
       "priority_rank": 996,
       "path": "prompts/phase-sa-score-t10-e2e-quality/w10-receipt/slice-06.md",
       "lane": "sourcea-site",
-      "agent_prompt": "WORK \u2014 sa-score-0996: Receipt logged for broken link crawler on dist/"
+      "agent_prompt": "WORK \u2014 sa-score-0996: Receipt on disk for broken link crawler on dist/"
     },
     {
       "id": "sa-score-0997",
@@ -20025,13 +20025,13 @@
       "slice": 7,
       "tier": "T2",
       "phase": "MOONSHOT",
-      "title": "Receipt logged for JSON schema validate all data/*.json",
+      "title": "Receipt on disk for JSON schema validate all data/*.json",
       "status": "open",
       "score_delta": null,
       "priority_rank": 997,
       "path": "prompts/phase-sa-score-t10-e2e-quality/w10-receipt/slice-07.md",
       "lane": "sourcea-site",
-      "agent_prompt": "WORK \u2014 sa-score-0997: Receipt logged for JSON schema validate all data/*.json"
+      "agent_prompt": "WORK \u2014 sa-score-0997: Receipt on disk for JSON schema validate all data/*.json"
     },
     {
       "id": "sa-score-0998",
@@ -20045,13 +20045,13 @@
       "slice": 8,
       "tier": "T3",
       "phase": "MOONSHOT",
-      "title": "Receipt logged for visual regression founder-home screenshot",
+      "title": "Receipt on disk for visual regression founder-home screenshot",
       "status": "open",
       "score_delta": null,
       "priority_rank": 998,
       "path": "prompts/phase-sa-score-t10-e2e-quality/w10-receipt/slice-08.md",
       "lane": "sourcea-site",
-      "agent_prompt": "WORK \u2014 sa-score-0998: Receipt logged for visual regression founder-home screenshot"
+      "agent_prompt": "WORK \u2014 sa-score-0998: Receipt on disk for visual regression founder-home screenshot"
     },
     {
       "id": "sa-score-0999",
@@ -20065,13 +20065,13 @@
       "slice": 9,
       "tier": "T3",
       "phase": "MOONSHOT",
-      "title": "Receipt logged for accessibility axe on /learn",
+      "title": "Receipt on disk for accessibility axe on /learn",
       "status": "open",
       "score_delta": null,
       "priority_rank": 999,
       "path": "prompts/phase-sa-score-t10-e2e-quality/w10-receipt/slice-09.md",
       "lane": "sourcea-site",
-      "agent_prompt": "WORK \u2014 sa-score-0999: Receipt logged for accessibility axe on /learn"
+      "agent_prompt": "WORK \u2014 sa-score-0999: Receipt on disk for accessibility axe on /learn"
     },
     {
       "id": "sa-score-1000",
@@ -20085,13 +20085,13 @@
       "slice": 10,
       "tier": "T3",
       "phase": "MOONSHOT",
-      "title": "Receipt logged for deploy smoke after wrangler pages",
+      "title": "Receipt on disk for deploy smoke after wrangler pages",
       "status": "open",
       "score_delta": null,
       "priority_rank": 1000,
       "path": "prompts/phase-sa-score-t10-e2e-quality/w10-receipt/slice-10.md",
       "lane": "sourcea-site",
-      "agent_prompt": "WORK \u2014 sa-score-1000: Receipt logged for deploy smoke after wrangler pages"
+      "agent_prompt": "WORK \u2014 sa-score-1000: Receipt on disk for deploy smoke after wrangler pages"
     }
   ],
   "w2_execution": {
@@ -20212,7 +20212,7 @@
             "sa_score_id": "sa-score-0091",
             "workstream": "w10-receipt",
             "workstream_label": "Receipt",
-            "title": "Receipt logged for stranger proof SLA copy \u226415 min on hero",
+            "title": "Receipt on disk for stranger proof SLA copy \u226415 min on hero",
             "wired_to": "prompts/phase-sa-score-t05-self-serve-proof/w10-receipt/slice-01.md",
             "acceptance": "REGISTRY sa-score-0091 status=done",
             "status": "done"
@@ -20323,7 +20323,7 @@
             "sa_score_id": "sa-score-0191",
             "workstream": "w10-receipt",
             "workstream_label": "Receipt",
-            "title": "Receipt logged for lighthouse performance budget \u226590 mobile",
+            "title": "Receipt on disk for lighthouse performance budget \u226590 mobile",
             "wired_to": "prompts/phase-sa-score-t08-market-polish/w10-receipt/slice-01.md",
             "acceptance": "REGISTRY sa-score-0191 status=done",
             "status": "done"
@@ -20434,7 +20434,7 @@
             "sa_score_id": "sa-score-0291",
             "workstream": "w10-receipt",
             "workstream_label": "Receipt",
-            "title": "Receipt logged for revenue receipt in founder dashboard",
+            "title": "Receipt on disk for revenue receipt in founder dashboard",
             "wired_to": "prompts/phase-sa-score-t09-commercial-close/w10-receipt/slice-01.md",
             "acceptance": "REGISTRY sa-score-0291 status=done",
             "status": "done"
@@ -20545,7 +20545,7 @@
             "sa_score_id": "sa-score-0391",
             "workstream": "w10-receipt",
             "workstream_label": "Receipt",
-            "title": "Receipt logged for unified inbox export CSV",
+            "title": "Receipt on disk for unified inbox export CSV",
             "wired_to": "prompts/phase-sa-score-t06-intake-ops/w10-receipt/slice-01.md",
             "acceptance": "REGISTRY sa-score-0391 status=done",
             "status": "done"
@@ -20656,7 +20656,7 @@
             "sa_score_id": "sa-score-0491",
             "workstream": "w10-receipt",
             "workstream_label": "Receipt",
-            "title": "Receipt logged for error states on pulse-founder auth failure",
+            "title": "Receipt on disk for error states on pulse-founder auth failure",
             "wired_to": "prompts/phase-sa-score-t02-client-ui/w10-receipt/slice-01.md",
             "acceptance": "REGISTRY sa-score-0491 status=done",
             "status": "done"
@@ -20767,7 +20767,7 @@
             "sa_score_id": "sa-score-0591",
             "workstream": "w10-receipt",
             "workstream_label": "Receipt",
-            "title": "Receipt logged for routing decision receipt in pulse events",
+            "title": "Receipt on disk for routing decision receipt in pulse events",
             "wired_to": "prompts/phase-sa-score-t04-deterministic-routing/w10-receipt/slice-01.md",
             "acceptance": "REGISTRY sa-score-0591 status=done",
             "status": "done"
@@ -20878,7 +20878,7 @@
             "sa_score_id": "sa-score-0691",
             "workstream": "w10-receipt",
             "workstream_label": "Receipt",
-            "title": "Receipt logged for worker health /api/site/health/v1",
+            "title": "Receipt on disk for worker health /api/site/health/v1",
             "wired_to": "prompts/phase-sa-score-t01-live-wiring/w10-receipt/slice-01.md",
             "acceptance": "REGISTRY sa-score-0691 status=done",
             "status": "done"
@@ -20989,7 +20989,7 @@
             "sa_score_id": "sa-score-0791",
             "workstream": "w10-receipt",
             "workstream_label": "Receipt",
-            "title": "Receipt logged for weekly email digest to founder",
+            "title": "Receipt on disk for weekly email digest to founder",
             "wired_to": "prompts/phase-sa-score-t07-analytics-feedback/w10-receipt/slice-01.md",
             "acceptance": "REGISTRY sa-score-0791 status=done",
             "status": "done"
@@ -21100,7 +21100,7 @@
             "sa_score_id": "sa-score-0891",
             "workstream": "w10-receipt",
             "workstream_label": "Receipt",
-            "title": "Receipt logged for glossary page /sourcea/vocabulary",
+            "title": "Receipt on disk for glossary page /sourcea/vocabulary",
             "wired_to": "prompts/phase-sa-score-t03-vocabulary/w10-receipt/slice-01.md",
             "acceptance": "REGISTRY sa-score-0891 status=done",
             "status": "done"
@@ -21211,7 +21211,7 @@
             "sa_score_id": "sa-score-0991",
             "workstream": "w10-receipt",
             "workstream_label": "Receipt",
-            "title": "Receipt logged for score-up registry validate script PASS",
+            "title": "Receipt on disk for score-up registry validate script PASS",
             "wired_to": "prompts/phase-sa-score-t10-e2e-quality/w10-receipt/slice-01.md",
             "acceptance": "REGISTRY sa-score-0991 status=done",
             "status": "done"

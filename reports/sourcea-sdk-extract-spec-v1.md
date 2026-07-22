@@ -20,7 +20,7 @@ Extract a **portable Python package** (`sourcea-sdk`) from the monorepo governan
 | Layer | Tool | When it runs | Output |
 |-------|------|--------------|--------|
 | **Pre-flight** | `sourcea-boot` | Before any agent work | `BOOT_REPORT.json` · exit 0 PASS / 1 BLOCK |
-| **During/after** | `sourcea-sdk` | After boot PASS, on each controlled action | Signed governance receipt + spine event |
+| **During/after** | `sourcea-sdk` | After boot PASS, on each governed action | Signed governance receipt + spine event |
 
 **Law:** Boot gate is mandatory first step (SW1). SDK never replaces boot — it extends the chain with durable receipts.
 

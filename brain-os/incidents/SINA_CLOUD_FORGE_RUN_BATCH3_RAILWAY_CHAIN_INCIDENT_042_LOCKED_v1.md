@@ -29,7 +29,7 @@ ONE trigger (CF cron */10 OR Cloud Workers Proceed)
   → ONE observer row per trigger
 ```
 
-**Law in repository:** `brain-os/law/enforcement/SOURCEA_CLOUD_FORGE_RUN_FULL_PACK_PATTERN_LOCKED_v1.md`  
+**Law on disk:** `brain-os/law/enforcement/SOURCEA_CLOUD_FORGE_RUN_FULL_PACK_PATTERN_LOCKED_v1.md`  
 **Machine SSOT:** `data/cloud-forge-run-full-pack-pattern-v1.json`
 
 ---
@@ -136,7 +136,7 @@ Symptom: `activate_batch` / `_cloud_plans()` → empty → `no_cloud_plans_in_ac
 
 ---
 
-## 7. Remediatilocally (shipped 2026-06-23)
+## 7. Remediation disk (shipped 2026-06-23)
 
 | Artifact | Change |
 |----------|--------|

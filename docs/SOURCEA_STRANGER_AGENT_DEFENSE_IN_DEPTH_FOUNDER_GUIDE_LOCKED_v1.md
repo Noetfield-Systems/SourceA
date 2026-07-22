@@ -12,7 +12,7 @@
 
 ## 0. Short answer (founder)
 
-SourceA does **not** rely on “trust the model.” It uses **defense in depth** — identify every agent session, quarantine strangers on write, restrict each lane to an allowlist, require founder verbs for cross-lane edits, and prove posture logged every session. Nothing is a perfect OS sandbox, but **unapproved strangers are designed to fail closed** on code/system changes.
+SourceA does **not** rely on “trust the model.” It uses **defense in depth** — identify every agent session, quarantine strangers on write, restrict each lane to an allowlist, require founder verbs for cross-lane edits, and prove posture on disk every session. Nothing is a perfect OS sandbox, but **unapproved strangers are designed to fail closed** on code/system changes.
 
 **Quote live posture from disk** (not chat):
 

@@ -23,7 +23,7 @@ From https://www.mavenagi.com document Maven AGI run/history UX: Agent resolves 
 
 ## Implementation extraction
 
-`Maven AGI · Run history & proof` → what buyer sees at vendor → what we ship logged with receipt.
+`Maven AGI · Run history & proof` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

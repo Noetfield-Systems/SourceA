@@ -24,7 +24,7 @@ FOOTER_PRODUCT_NEW = """      <a href="/sourcea/platform">Platform</a>
       <a href="/sourcea/team">Your team</a>
       <a href="/sourcea/growth">Growth system</a>
       <a href="/sourcea/scenario">Scenario</a>
-      <a href="/sourcea/proof">Verification</a>
+      <a href="/sourcea/proof">Proof chain</a>
       <a href="/sourcea/compare">Compare</a>
       <a href="/sourcea/pricing">Pricing</a>
       <a href="/sourcea/security">Security &amp; procurement</a>
@@ -101,6 +101,7 @@ COMMERCIAL_PAGES_NO_CASE_FOOTER = frozenset(
 KERNEL_HEADER_SKIP = frozenset({"legacy-full-home-v1.html"})
 
 CHATBOT_SCRIPT = '<script src="/sourcea/sourcea-chatbot.js" defer></script>'
+CHATBOT_PROOF_EXCLUDE = frozenset({"proof.html"})
 
 EXPLORE_COMMERCIAL = """
   <section class="ar-section ar-section-muted ar-reveal sa-explore">
@@ -248,9 +249,10 @@ def patch_file(path: Path) -> list[str]:
             text, did = inject_footer_case_studies(text)
             if did:
                 changes.append("footer-case-studies")
-        text, did = inject_chatbot_script(text)
-        if did:
-            changes.append("chatbot-script")
+        if rel_key not in CHATBOT_PROOF_EXCLUDE:
+            text, did = inject_chatbot_script(text)
+            if did:
+                changes.append("chatbot-script")
 
     if text != orig:
         path.write_text(text, encoding="utf-8")

@@ -13,10 +13,10 @@
       "brand": "SourceA",
       "status": "active",
       "priority": 1,
-      "domain": "factory builder · controlled execution engine",
-      "question": "Engine underneath — repeatable factory output with verification built in",
-      "triggers": ["factory builder", "controlled execution", "RunReceipt", "FBE", "agentic pipeline", "verification built in"],
-      "tension_kernel": "how do teams ship controlled outputs repeatedly without drift?",
+      "domain": "factory builder · governed execution engine",
+      "question": "Engine underneath — repeatable factory output with proof on disk",
+      "triggers": ["factory builder", "governed execution", "RunReceipt", "FBE", "agentic pipeline", "proof on disk"],
+      "tension_kernel": "how do teams ship governed outputs repeatedly without drift?",
       "narrative_angle": "factory + proof spine — never hero in cold commercial email",
       "forbidden": ["replace TrustField brand", "replace Noetfield brand", "hero in cold email subject", "MSB cold lead"],
       "compose_modes": ["factory_output", "fbe_demo"],
@@ -25,7 +25,7 @@
       "active_compile": ["sourcea-factory"],
       "compile_queued": [],
       "compile_gate": "blocked_until_noetfield_and_trustfield_compiled",
-      "note": "Deferred after Noetfield ∥ TrustField — pack locally for later"
+      "note": "Deferred after Noetfield ∥ TrustField — pack on disk for later"
     },
     "noetfield": {
       "brand": "Noetfield",

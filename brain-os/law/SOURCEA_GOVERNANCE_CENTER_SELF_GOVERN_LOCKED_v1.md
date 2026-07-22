@@ -46,7 +46,7 @@
 
 ---
 
-## 3. Raw OpenRouter AI → controlled specialists
+## 3. Raw OpenRouter AI → governed specialists
 
 ```text
 OPENROUTER (raw model)

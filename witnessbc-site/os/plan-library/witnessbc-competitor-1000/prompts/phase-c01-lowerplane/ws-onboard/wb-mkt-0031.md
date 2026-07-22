@@ -23,7 +23,7 @@ Document LowerPlane onboarding path (Public price cards vs Delve sales-led): who
 
 ## Implementation extraction
 
-`LowerPlane · Onboarding & PLG` → what buyer sees at vendor → what we ship logged with receipt.
+`LowerPlane · Onboarding & PLG` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

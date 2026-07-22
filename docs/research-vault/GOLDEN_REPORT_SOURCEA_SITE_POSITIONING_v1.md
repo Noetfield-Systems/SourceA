@@ -26,7 +26,7 @@ sources:
 
 ## Executive summary (read this first)
 
-SourceA is **not** a compliance SaaS company yet. It is a **Controlled Execution OS** — governance logged, validators as truth, workers as execution, receipts as proof. That makes it closer to **Credo AI + Vanta + Linear + Resend** combined at the *philosophy* layer, but closer to **Supabase/Stripe** at the *buyer* layer (developers and technical founders who need infrastructure they can trust).
+SourceA is **not** a compliance SaaS company yet. It is a **Governed Execution OS** — governance on disk, validators as truth, workers as execution, receipts as proof. That makes it closer to **Credo AI + Vanta + Linear + Resend** combined at the *philosophy* layer, but closer to **Supabase/Stripe** at the *buyer* layer (developers and technical founders who need infrastructure they can trust).
 
 The 10 sites share one pattern the founder paste got exactly right:
 
@@ -46,7 +46,7 @@ SourceA's golden move is **not** to become "Vanta for AI agents" on day one. It 
 
 | Surface | Buyer | Proof |
 |---------|-------|-------|
-| **FORGE** (T2 primary) | Founders / small teams | "Ship an app with controlled agents" |
+| **FORGE** (T2 primary) | Founders / small teams | "Ship an app with governed agents" |
 | **SourceA spine** (T0) | Technical buyers / design partners | Eval-1b + dispatch gate + receipt API |
 | **Portfolio OS** (investor) | Angels / strategics | Multi-business founder operating at scale |
 
@@ -93,7 +93,7 @@ SourceA's golden move is **not** to become "Vanta for AI agents" on day one. It 
          Vercel            │
                            │
               ★ SourceA sweet spot ★
-         "Controlled execution + receipts
+         "Governed execution + receipts
           for agentic dev teams"
                            │
                     PRODUCT VELOCITY
@@ -156,9 +156,9 @@ This is your moat diagram. Vanta has compliance loop; you have **execution loop*
 
 | Pattern | Application |
 |---------|-------------|
-| One sentence hero | "The system for product development" → **"The system for controlled agent execution"** |
+| One sentence hero | "The system for product development" → **"The system for governed agent execution"** |
 | Product UI as hero | Animated hub panel / eval scoreboard — **no stock photos ever** |
-| Agent workflows central | Linear sells human+agent issues — SourceA sells **controlled agent rounds** |
+| Agent workflows central | Linear sells human+agent issues — SourceA sells **governed agent rounds** |
 | Dark, fast, dense | Default dark mode; sub-200ms hero load; typography = taste signal |
 | "You just have to use it" social proof | Design partner quotes about **receipts saved them**, not "nice UI" |
 
@@ -203,7 +203,7 @@ Even if API is aspirational packaging, **show the shape**. Stripe won by making 
 |---------|-------------|
 | Site speed = product speed | Hub build under 3s; homepage static-first |
 | Blueprint grid aesthetic | **"Receipt grid"** visual — each cell = validator PASS/FAIL |
-| Deploy narrative | **"Deploy controlled agents"** for FORGE |
+| Deploy narrative | **"Deploy governed agents"** for FORGE |
 
 **Golden suggestion #5 — Visual identity: "Receipt Grid"**
 Replace generic gradients with a grid of proof cells (eval, alignment, fleet, gate). Vercel's blueprint grid is recognizable; SourceA's receipt grid could be equally ownable.
@@ -231,7 +231,7 @@ When OpenRouter 402 blocks live eval, homepage shows **"Structural mode — live
 | Pattern | Application |
 |---------|-------------|
 | GitHub stars prominent | Show SourceA validator count, open governance docs count |
-| "Build in a weekend" | **FORGE: "Ship a controlled app in a weekend"** |
+| "Build in a weekend" | **FORGE: "Ship a governed app in a weekend"** |
 | Postgres portability | **"Governance portable — brain-os/ is your constitution"** |
 | Self-host path | Enterprise design partners self-host receipt layer |
 
@@ -328,7 +328,7 @@ SourceA: **"Govern agent execution everywhere"** or **"Measurable execution, not
 
 ### Tier B — Do in 60–90 days (FORGE + design partners)
 
-7. **FORGE launch site (copy Plain + Supabase):** Separate SKU, separate hero: *"Build apps with controlled agents."*
+7. **FORGE launch site (copy Plain + Supabase):** Separate SKU, separate hero: *"Build apps with governed agents."*
 
 8. **Open-core strategy (copy Supabase):** Publish receipt schema + validator suite; commercial hub/orchestration.
 
@@ -366,7 +366,7 @@ SourceA: **"Govern agent execution everywhere"** or **"Measurable execution, not
 │   │  eval_1b: 80% live · gate: shadow · audit: PASS      │   │
 │   └─────────────────────────────────────────────────────┘   │
 │                                                             │
-│   Trusted by design partners building with controlled agents  │
+│   Trusted by design partners building with governed agents  │
 │   (3 names — not Fortune 500 fiction)                       │
 ├─────────────────────────────────────────────────────────────┤
 │  CODE SNIPPET — gate.evaluate → dispatch → receipt.write    │
@@ -375,7 +375,7 @@ SourceA: **"Govern agent execution everywhere"** or **"Measurable execution, not
 ├─────────────────────────────────────────────────────────────┤
 │  CONTINUOUS LOOP DIAGRAM                                     │
 ├─────────────────────────────────────────────────────────────┤
-│  FORGE — "Ship a controlled app" → separate CTA               │
+│  FORGE — "Ship a governed app" → separate CTA               │
 ├─────────────────────────────────────────────────────────────┤
 │  Footer: Security · GitHub · Handbook · Anthropic-style     │
 │          "We under-claim until validators pass"             │

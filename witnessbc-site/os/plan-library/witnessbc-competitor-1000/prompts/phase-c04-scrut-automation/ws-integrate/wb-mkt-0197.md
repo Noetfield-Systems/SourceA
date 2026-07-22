@@ -23,7 +23,7 @@ Rate-limit + retry policy copied from Scrut Automation operating model (Control 
 
 ## Implementation extraction
 
-`Scrut Automation · Integrations & API` → what buyer sees at vendor → what we ship logged with receipt.
+`Scrut Automation · Integrations & API` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

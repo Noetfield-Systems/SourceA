@@ -23,7 +23,7 @@ Write founder-facing SOW snippet if Gumloop uses services-led motion — Witness
 
 ## Implementation extraction
 
-`Gumloop · Onboarding & PLG` → what buyer sees at vendor → what we ship logged with receipt.
+`Gumloop · Onboarding & PLG` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

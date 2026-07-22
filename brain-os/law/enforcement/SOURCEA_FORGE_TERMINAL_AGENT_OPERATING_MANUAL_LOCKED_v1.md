@@ -10,7 +10,7 @@
 
 ## One law
 
-> **Every Cursor agent or Forge Terminal API caller is a constrained execution unit inside a controlled software nation — not a free chatbot. Read this manual + linked paths before acting.**
+> **Every Cursor agent or Forge Terminal API caller is a constrained execution unit inside a governed software nation — not a free chatbot. Read this manual + linked paths before acting.**
 
 ---
 
@@ -36,7 +36,7 @@
 
 | Advisor v5 concept | SourceA implementation |
 |--------------------|------------------------|
-| Execution unit in controlled system | `scripts/forge_agent_kernel_v1.py` · `scripts/forge_agent_kernel_v3_swarm.py` |
+| Execution unit in governed system | `scripts/forge_agent_kernel_v1.py` · `scripts/forge_agent_kernel_v3_swarm.py` |
 | Not free autonomous agent | Tool allowlists · `FORBIDDEN_PATH` · quality gate blocks execute |
 | Software nation | v4 civilization layer — memory + registry + economy lite (no v5 credits yet) |
 

@@ -114,7 +114,7 @@ cat ~/.sina/brain/research-library/INDEX.yaml
 
 | ASF says | Brain runs | Time limit |
 |----------|------------|------------|
-| **run the loop** (default) | `brain_run_loop_trace_v1.py` | **< 30s** reply; loop in the repository after |
+| **run the loop** (default) | `brain_run_loop_trace_v1.py` | **< 30s** reply; loop on disk after |
 | `narrate only` | `brain_narrate_loop_v1.py` | **< 75s** |
 | `activate loop` / `execute turn` | `brain_run_loop_v1.py` | spawn |
 
@@ -188,7 +188,7 @@ note: No implementation in brain chat — handoff SourceA Worker only
 5. `/Users/sinakazemnezhad/.sina/brain/BRAIN_MASTER_MEMORY_LOCKED_v1.md`
 6. `/Users/sinakazemnezhad/Desktop/SourceA/os/chat-handoffs/BRAIN_FOUNDER_INTENT_REGISTRY_LOCKED_v1.md`
 7. `/Users/sinakazemnezhad/Desktop/SourceA/os/chat-handoffs/BRAIN_FULL_SYSTEM_MAP_LOCKED_v1.md`
-8. `/Users/sinakazemnezhad/Desktop/SourceA/os/chat-handoffs/CONTROLLED_EXECUTION_OS_MASTER_LOCKED_v1.md` (**goal architecture + operating loop**)
+8. `/Users/sinakazemnezhad/Desktop/SourceA/os/chat-handoffs/GOVERNED_EXECUTION_OS_MASTER_LOCKED_v1.md` (**goal architecture + operating loop**)
 9. `/Users/sinakazemnezhad/Desktop/SourceA/os/chat-handoffs/FOUNDER_DAILY_OPERATING_MODEL_LOCKED_v1.md` (**ASF daily Hub rhythm — REGISTRY → FORGE → WTM**)
 10. `/Users/sinakazemnezhad/Desktop/SourceA/os/chat-handoffs/WORKER_ASSIGNMENT_AND_CHAT_ROUTING_LOCKED_v1.md` (**who gets work — one worker · RA L1/L2 · archive no jobs**)
 11. `/Users/sinakazemnezhad/Desktop/SourceA/os/chat-handoffs/AGENT_MISS_DISK_FIRST_CORRECTION_LOOP_LOCKED_v1.md` (**miss → fix disk first → then reply to ASF**)

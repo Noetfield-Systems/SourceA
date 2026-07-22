@@ -23,7 +23,7 @@ Close wb-mkt-0970: PRIORITY row + verify PASS + link https://www.mavenagi.com
 
 ## Implementation extraction
 
-`Maven AGI · Pricing & packaging` → what buyer sees at vendor → what we ship logged with receipt.
+`Maven AGI · Pricing & packaging` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

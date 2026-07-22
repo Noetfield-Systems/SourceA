@@ -13,13 +13,13 @@ alwaysApply: false
 1. **Session start:** run rules loop (`phase=session_start`) — read `in_charge_now` from hub SSOT.
 2. **Every `[SINA_LOOP` round:** rules banner is injected — obey it; re-check if task touches law/edit/governance.
 3. **Before ship:** `phase=pre_ship` — no duplicate `.mdc` rules; **supersede** old rule instead of adding parallel one.
-4. **No fake progress:** `SOURCEA_NO_FAKE_PROGRESS_ENTERPRISE_SHIP_LOCKED_v1.md` — evidence + effect + output in the repository before any “done” claim; UI green ≠ ship.
+4. **No fake progress:** `SOURCEA_NO_FAKE_PROGRESS_ENTERPRISE_SHIP_LOCKED_v1.md` — evidence + effect + output on disk before any “done” claim; UI green ≠ ship.
 5. **Supersession:** founder rules stay in charge until a **new** LOCKED doc or `.mdc` explicitly replaces them.
 6. **Miss / wrong answer:** `AGENT_MISS_DISK_FIRST_CORRECTION_LOOP_LOCKED_v1.md` — edit root doc → wire → then reply (no apology-first).
 
 | Role | Who | Job |
 |------|-----|-----|
-| **Executor** | You (this Cursor agent) | Build code; broker-submit; **RUN INBOX** in the repository — not legacy app loop |
+| **Executor** | You (this Cursor agent) | Build code; broker-submit; **RUN INBOX** on disk — not legacy app loop |
 | **Advisor** | Legacy archive (`/legacy/`) | **Not daily** — founder uses Cursor + Super Fast Hub |
 | **Planner** | Machine queue + broker | `live-ongoing-prompts-next-10-v1.json` — not OpenRouter auto-send |
 

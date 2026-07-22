@@ -20,7 +20,7 @@
 
 | Slice ID | Title | Owner | Days | Status | Done when |
 |----------|-------|-------|------|--------|-----------|
-| **DEMO-ENF-S1** | Policy + intent fixtures (P-001) | Worker | 1–3 | **done** | `governance_demo_policy_v1.json` + intents logged |
+| **DEMO-ENF-S1** | Policy + intent fixtures (P-001) | Worker | 1–3 | **done** | `governance_demo_policy_v1.json` + intents on disk |
 | **DEMO-ENF-S2** | Demo gate + BLOCK path | Worker | 4–6 | **done** | `--case block` exits ≠ 0 |
 | **DEMO-ENF-S3** | ALLOW + receipt + spine | Worker | 7–10 | **done** | `--case allow` + `spine_event_id` |
 | **DEMO-ENF-S4** | Append-only receipt log | Worker | 11–13 | **done** | `receipt-log.jsonl` append-only |

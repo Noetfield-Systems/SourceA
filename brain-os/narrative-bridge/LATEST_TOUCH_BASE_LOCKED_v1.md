@@ -9,7 +9,7 @@
 
 ## MEANT (founder voice)
 
-- **Three megachat anchors logged** — never re-teach every season; search transcripts by ID.
+- **Three megachat anchors on disk** — never re-teach every season; search transcripts by ID.
 - **Megachat = thread advisor** · **Machine = custodian** · **Bridge = copy translator behavior**.
 - Maintainer 2 ops (anti-staleness, FREEZE, bowl) must **propagate** to all agents on SAVE — not stay in one chat.
 - Brain **31-min E2E marathon** was agent retry sin + idle-unsafe ladder — **fixed with `--require-idle`**.

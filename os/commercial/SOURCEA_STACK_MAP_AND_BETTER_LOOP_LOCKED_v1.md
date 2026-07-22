@@ -220,7 +220,7 @@ Machine SSOT: `data/icp-output-compiler-v1.json` · accounts: `data/icp-compile/
 | Step | Name | Pass |
 |------|------|------|
 | RIL1 | Receiver interest score | preview/demo URL + recipient hook ≥90% |
-| RIL2 | Interest asset SSOT | per-account demo/catalog URLs logged |
+| RIL2 | Interest asset SSOT | per-account demo/catalog URLs on disk |
 | RIL3 | RIL loop law | LOCKED doc datetime PASS |
 
 **Factory law:** Machine OQG can PASS with nothing interesting to click — RIL scores from the recipient's chair only.
@@ -237,7 +237,7 @@ Machine SSOT: `data/icp-output-compiler-v1.json` · accounts: `data/icp-compile/
 | Step | Name | Pass |
 |------|------|------|
 | APC1 | Human clarity score | `human_clarity_pct` ≥90 · no jargon hard fails |
-| APC2 | SSOT + example | rules JSON + canonical Richard compile logged |
+| APC2 | SSOT + example | rules JSON + canonical Richard compile on disk |
 | APC3 | APC loop law | LOCKED doc datetime PASS |
 
 **Factory law:** Scheduled advisor/mentor pre-call only — business-not-AI audience · **Sina read** ship authority · separate from W3 commercial.

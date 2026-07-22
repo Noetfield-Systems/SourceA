@@ -98,7 +98,7 @@
     { title: "Intake", desc: "Agent action arrives · classify scope · initial policy scan.", code: "wbc.intake.received" },
     { title: "Policy eval", desc: "AI policy pack runs at dispatch — BLOCK · ESCALATE · ALLOW.", code: "wbc.triage.complete → verdict" },
     { title: "Human gate", desc: "Approve irreversible agent actions before execution.", code: "wbc.review.approved" },
-    { title: "Execute", desc: "Agent runs under policy · signed receipt logged.", code: "wbc.publish.sent" },
+    { title: "Execute", desc: "Agent runs under policy · signed receipt on disk.", code: "wbc.publish.sent" },
     { title: "Audit", desc: "Log overrides · replay proof · policy version pinned.", code: "wbc.correction.logged" },
     { title: "Prove", desc: "Signed ledger + replay. Hand-edited receipts FAIL validation.", code: "export → replay → tamper-FAIL" },
   ];

@@ -23,7 +23,7 @@ Document Relevance AI onboarding path (Agent workforce PLG): who runs (Vendor Sa
 
 ## Implementation extraction
 
-`Relevance AI · Onboarding & PLG` → what buyer sees at vendor → what we ship logged with receipt.
+`Relevance AI · Onboarding & PLG` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

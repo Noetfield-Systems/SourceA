@@ -512,7 +512,7 @@ a{{color:#7dd3fc}} pre.recipe{{font-size:.75rem;overflow:auto;background:#0f1729
 </style></head><body>
 <main class=card>
 <h1>Cloud Forge Run · evidence audit</h1>
-<p class=muted>head <strong>{esc(payload.get('queue_head'))}</strong> · total logged {esc(payload.get('total_on_disk'))} · {esc(payload.get('at'))}</p>
+<p class=muted>head <strong>{esc(payload.get('queue_head'))}</strong> · total on disk {esc(payload.get('total_on_disk'))} · {esc(payload.get('at'))}</p>
 <p class=counts><strong>Never blend:</strong>
 <span class="badge tier-verified">http_fetch {esc(tc.get('verified_fetch',0))}</span>
 <span class="badge tier-vendor">vendor_says {esc(tc.get('labeled_claim',0))}</span>

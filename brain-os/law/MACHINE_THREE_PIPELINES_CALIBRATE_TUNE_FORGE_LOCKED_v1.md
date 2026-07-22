@@ -78,7 +78,7 @@ Receipt: `~/.sina/machine-forge-receipt-v1.json`
 Passport: `~/.sina/machine-forge-passport-v1.json`  
 Attest: `~/.sina/machine-forge-proven-lines-v1.json`
 
-**Not:** Forge product build · ICP compile · Controlled App Factory line.
+**Not:** Forge product build · ICP compile · Governed App Factory line.
 
 ---
 

@@ -67,7 +67,7 @@ agent-control-panel/command-data-shell.json
 agent-control-panel/command-data-canonical.json
 ```
 
-**Policy:** Runtime receipts live logged / cloud volume / `~/.sina` — not in git. Canonical locked receipts at repo root of `receipts/` (e.g. `sa-*-receipt.json`) remain tracked where referenced by law.
+**Policy:** Runtime receipts live on disk / cloud volume / `~/.sina` — not in git. Canonical locked receipts at repo root of `receipts/` (e.g. `sa-*-receipt.json`) remain tracked where referenced by law.
 
 ---
 
@@ -100,7 +100,7 @@ Manifest updated: `infra/cleanup/cleanup-manifest.md` — Batch 7 **APPROVED** (
 
 ## Phase 5 — What stays intentionally local
 
-These may exist logged but are **gitignored** and will not re-dirty the tree:
+These may exist on disk but are **gitignored** and will not re-dirty the tree:
 
 - `receipts/bays/**`, `receipts/cloud-dispatch/**`
 - Hub projection JSON (`command-data-runtime/shell/canonical`)
@@ -109,7 +109,7 @@ These may exist logged but are **gitignored** and will not re-dirty the tree:
 Rebuild hub projections locally:
 
 ```bash
-python3 scripts/disk_live_wire_sync_v1.py  # or hub refresh path logged
+python3 scripts/disk_live_wire_sync_v1.py  # or hub refresh path on disk
 ```
 
 ---

@@ -4,7 +4,7 @@
 
 ## One sentence
 
-> **Mac = control panel · Mac Health = silent auto heal · validators/E2E on cloud · founder progress honest logged**
+> **Mac = control panel · Mac Health = silent auto heal · validators/E2E on cloud · founder progress honest on disk**
 
 ## Critical path
 
@@ -12,7 +12,7 @@
 - **M111-012** — mac-control-plane-v1.flag default on founder boot
 - **M111-023** — Hub pressure badge — OK/HOT/STOP STACKING from ecosystem-pressure-v1
 - **M111-034** — Founder-session deny gate blocks validate-mac-law-surfaces-e2e-v1.sh when control-plane flag set
-- **M111-045** — Cloud factory video_ad_factory — public HTTPS health receipt logged
+- **M111-045** — Cloud factory video_ad_factory — public HTTPS health receipt on disk
 - **M111-056** — Warn when renderer RSS >2800MB — banner in Mac Health
 - **M111-078** — loop_specialist observe_only default — dispatch only when graduated
 - **M111-111** — Gate M111-111 complete — ecosystem optimized for founder session

@@ -23,7 +23,7 @@ Document why buyers pay per Dust.tt: ChatGPT doesn't know company context safely
 
 ## Implementation extraction
 
-`Dust.tt · Pricing & packaging` → what buyer sees at vendor → what we ship logged with receipt.
+`Dust.tt · Pricing & packaging` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

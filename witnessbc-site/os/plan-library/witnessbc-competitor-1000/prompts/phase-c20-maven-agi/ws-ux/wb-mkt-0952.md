@@ -23,7 +23,7 @@ Write one-line UX spec: `Maven AGI Buyer-visible UX` → buyer sees X → we sho
 
 ## Implementation extraction
 
-`Maven AGI · Buyer-visible UX` → what buyer sees at vendor → what we ship logged with receipt.
+`Maven AGI · Buyer-visible UX` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

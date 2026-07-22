@@ -23,7 +23,7 @@ Add upgrade CTA path: sandbox/free → paid bay matching LowerPlane upgrade patt
 
 ## Implementation extraction
 
-`LowerPlane · Pricing & packaging` → what buyer sees at vendor → what we ship logged with receipt.
+`LowerPlane · Pricing & packaging` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

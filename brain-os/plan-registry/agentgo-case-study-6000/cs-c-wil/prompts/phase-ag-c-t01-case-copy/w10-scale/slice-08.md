@@ -14,7 +14,7 @@ Wil L3 portfolio demo — YA5 mirror · AgentGo ≠ SourceA separation · ship g
 
 ## Task
 
-**Enterprise GEO pitch for** case study prose (challenge · shipped · verification).
+**Enterprise GEO pitch for** case study prose (challenge · shipped · proof chain).
 
 moonshot.
 

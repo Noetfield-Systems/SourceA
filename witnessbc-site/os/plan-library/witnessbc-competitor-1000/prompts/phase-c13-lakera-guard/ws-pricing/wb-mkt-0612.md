@@ -23,7 +23,7 @@ Map Lakera Guard revenue model (API usage + enterprise) to our `Free toolkits �
 
 ## Implementation extraction
 
-`Lakera Guard · Pricing & packaging` → what buyer sees at vendor → what we ship logged with receipt.
+`Lakera Guard · Pricing & packaging` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

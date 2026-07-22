@@ -43,7 +43,7 @@ FORBIDDEN IN BRAIN CHAT (instant STOP):
 - Await >90s without replying
 - tail on validator logs
 
-FACTORY DONE = receipt logged + REGISTRY done + broker idle.
+FACTORY DONE = receipt on disk + REGISTRY done + broker idle.
 Cursor todos = IGNORE (INCIDENT-016).
 
 READ: ~/.sina/brain/E2E_EXECUTOR_CHECKLIST_LOCKED_v1.md

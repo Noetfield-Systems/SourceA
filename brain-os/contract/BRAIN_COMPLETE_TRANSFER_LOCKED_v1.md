@@ -13,7 +13,7 @@
 One ordered transfer for **SourceA Execution Core** (Brain). Merges:
 
 - Brain pack + rules + founder intent  
-- Controlled Execution OS goal architecture  
+- Governed Execution OS goal architecture  
 - System audits reference  
 - Two-layer prompt model (router + REGISTRY)  
 - Folder / routing law for humans and agents  
@@ -100,7 +100,7 @@ locked: false                # true only when ASF requests LOCKED law path
 
 ---
 
-## §3 — Controlled Execution OS (goal architecture — LOCKED summary)
+## §3 — Governed Execution OS (goal architecture — LOCKED summary)
 
 **Not 3 equal brains.** One Execution Core + Goal Specialists + Research + Disk + ASF.
 
@@ -119,7 +119,7 @@ locked: false                # true only when ASF requests LOCKED law path
 
 **Phase:** First Operating Loop — Commercial → Governance → SYNC → one `sa-XXXX` → Research after vault.
 
-**Full charter:** `CONTROLLED_EXECUTION_OS_MASTER_LOCKED_v1.md`  
+**Full charter:** `GOVERNED_EXECUTION_OS_MASTER_LOCKED_v1.md`  
 **Specialist pastes:** `GOAL_SPECIALIST_CHAT_PACK_LOCKED_v1.md`
 
 ---
@@ -137,7 +137,7 @@ Brain **must** read in this order every new session. Index lives in:
 | 1 | `MANDATORY_BRAIN_CHAT_LOCKED_v1.md` | Contract · forbidden |
 | 2 | `BRAIN_RULES_AUTHORITY_INDEX_LOCKED_v1.md` | All rules + incidents |
 | 3 | `SINA_COMMAND_NO_TERMINAL_FOUNDER_LOCKED_v1.md` | Founder never Terminal |
-| 4 | `CONTROLLED_EXECUTION_OS_MASTER_LOCKED_v1.md` | Goal architecture + loop |
+| 4 | `GOVERNED_EXECUTION_OS_MASTER_LOCKED_v1.md` | Goal architecture + loop |
 | 5 | `WORKER_ASSIGNMENT_AND_CHAT_ROUTING_LOCKED_v1.md` | Who gets work — one worker · RA L1/L2 |
 | 6 | `FOUNDER_DAILY_OPERATING_MODEL_LOCKED_v1.md` | ASF daily Hub rhythm |
 | 7 | `BRAIN_KNOWLEDGE_INDEX_LOCKED_v1.md` | Master map §A–§P |
@@ -180,7 +180,7 @@ STEP 1 — READ IN ORDER (mandatory — entire brain transfer):
 2. ~/Desktop/SourceA/os/chat-handoffs/MANDATORY_BRAIN_CHAT_LOCKED_v1.md
 3. ~/Desktop/SourceA/os/chat-handoffs/BRAIN_RULES_AUTHORITY_INDEX_LOCKED_v1.md
 4. ~/Desktop/SourceA/SINA_COMMAND_NO_TERMINAL_FOUNDER_LOCKED_v1.md
-5. ~/Desktop/SourceA/os/chat-handoffs/CONTROLLED_EXECUTION_OS_MASTER_LOCKED_v1.md
+5. ~/Desktop/SourceA/os/chat-handoffs/GOVERNED_EXECUTION_OS_MASTER_LOCKED_v1.md
 6. ~/Desktop/SourceA/os/chat-handoffs/WORKER_ASSIGNMENT_AND_CHAT_ROUTING_LOCKED_v1.md
 7. ~/Desktop/SourceA/os/chat-handoffs/FOUNDER_DAILY_OPERATING_MODEL_LOCKED_v1.md
 8. ~/Desktop/SourceA/os/chat-handoffs/BRAIN_KNOWLEDGE_INDEX_LOCKED_v1.md
@@ -205,7 +205,7 @@ status: BRAIN_ACK
 lane: execution_core
 workspace: SourceA
 transfer: BRAIN_COMPLETE_TRANSFER_LOCKED_v1.md
-controlled_execution_os: loaded
+governed_execution_os: loaded
 rules_index: loaded
 brain_pack_synced: true
 machine_truth: <from SOURCEA-PRIORITY.md live>
@@ -225,7 +225,7 @@ LOCKED LAWS (internalize):
 - RAIS = external competitor reference — not our internal layer.
 - SinaaiDataBase = archive/broker — **no build jobs**. One SourceA Worker builds all (SourceA + Hub + FORGE). See WORKER_ASSIGNMENT_AND_CHAT_ROUTING_LOCKED_v1.md.
 - No separate FORGE builder chat. Research L1 = briefs · L2 = register/sync. T5 TrustField = `founder mode revenue` only — not "prompt 13".
-- On miss or ASF correction: AGENT_MISS_DISK_FIRST_CORRECTION_LOOP — fix root doc logged BEFORE chat correction to ASF.
+- On miss or ASF correction: AGENT_MISS_DISK_FIRST_CORRECTION_LOOP — fix root doc on disk BEFORE chat correction to ASF.
 - Brain every session: `bash scripts/brain-session-start.sh` → BRAIN_ACK from receipt only — chat memory forbidden. See BRAIN_DISK_BEFORE_CHAT_SESSION_LOOP_LOCKED_v1.md.
 - New docs: correct folder + doc_class/lane tags per BRAIN_COMPLETE_TRANSFER §1.1
 

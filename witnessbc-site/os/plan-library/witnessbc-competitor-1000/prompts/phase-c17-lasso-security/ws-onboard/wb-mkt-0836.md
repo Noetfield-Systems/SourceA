@@ -23,7 +23,7 @@ Write founder-facing SOW snippet if Lasso Security uses services-led motion — 
 
 ## Implementation extraction
 
-`Lasso Security · Onboarding & PLG` → what buyer sees at vendor → what we ship logged with receipt.
+`Lasso Security · Onboarding & PLG` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

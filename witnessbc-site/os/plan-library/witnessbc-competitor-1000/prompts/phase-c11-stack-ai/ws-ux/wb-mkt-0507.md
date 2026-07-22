@@ -23,7 +23,7 @@ Document who buys (Regulated enterprise IT) vs our ICP one sentence on `witnessb
 
 ## Implementation extraction
 
-`Stack AI · Buyer-visible UX` → what buyer sees at vendor → what we ship logged with receipt.
+`Stack AI · Buyer-visible UX` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

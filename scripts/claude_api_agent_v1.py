@@ -229,7 +229,7 @@ def _build_user_prompt(item: dict, *, pos: int, total: int) -> str:
         parts += ["## FORBIDDEN (hard rules — never do these)", forbidd, ""]
 
     if receipt_content:
-        parts += ["## Existing receipt logged", f"```json\n{receipt_content}\n```", ""]
+        parts += ["## Existing receipt on disk", f"```json\n{receipt_content}\n```", ""]
 
     if sa_content:
         parts += ["## Full task file (sa_path)", sa_content, ""]
@@ -463,7 +463,7 @@ def run_turn(*, dry_run: bool = False) -> dict:
                 result["broker"] = broker_result
             except Exception as _exc:
                 result["broker_error"] = str(_exc)
-                # Non-fatal — queue already advanced, receipt logged is truth
+                # Non-fatal — queue already advanced, receipt on disk is truth
 
         _log({"event": "AGENT_DONE", "model": selected_model, **{k: v for k, v in result.items() if k != "broker"}})
         print(f"[{_now()}] AGENT DONE {sa_id} model={selected_model} status={status} cost=${result['cost_usd']}")

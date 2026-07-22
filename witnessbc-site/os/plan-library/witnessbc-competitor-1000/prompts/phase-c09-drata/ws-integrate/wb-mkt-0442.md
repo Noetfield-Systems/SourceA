@@ -23,7 +23,7 @@ Spec `Policy packs mapped to agent receipt gates` contract: input → policy gat
 
 ## Implementation extraction
 
-`Drata · Integrations & API` → what buyer sees at vendor → what we ship logged with receipt.
+`Drata · Integrations & API` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

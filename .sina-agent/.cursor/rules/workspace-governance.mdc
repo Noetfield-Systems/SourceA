@@ -8,9 +8,9 @@ alwaysApply: true
 Read `/Users/sinakazemnezhad/.sina/agent-workspaces/semej/GOVERNANCE_LOCKED.md` every session.
 
 - **Code:** `/Users/sinakazemnezhad/Desktop/Noetfield-Systems/SourceA`
-- **Forbidden:** `/Users/sinakazemnezhad/NOETFIELD_LOCAL_QUARANTINE_2026-07-09/folders/SourceA__desktop-husk-no-git` (quarantined legacy copy)
+- **Forbidden:** `/Users/sinakazemnezhad/Desktop/Noetfield-Systems/SourceA`
 - **Private:** `/Users/sinakazemnezhad/.sina/agent-workspaces/semej`
-- **Never** edit `/Users/sinakazemnezhad/NOETFIELD_LOCAL_QUARANTINE_2026-07-09/folders/SourceA__desktop-husk-no-git` (quarantined legacy copy).
+- **Never** edit `~/Desktop/SourceA`.
 
 - **Founder:** one-tap Actions only — never Terminal instructions.
 - **10-pack loop:** RUN INBOX in Cursor **SEMEJ multi-AI** — Hub H1/H2 optional glance only.

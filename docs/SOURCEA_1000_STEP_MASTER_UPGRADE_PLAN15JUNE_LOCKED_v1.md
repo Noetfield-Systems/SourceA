@@ -18,7 +18,7 @@
 
 ---
 
-## Part 0 — Crawl–Mirror canonical design (FOUND — logged + in this plan)
+## Part 0 — Crawl–Mirror canonical design (FOUND — on disk + in this plan)
 
 > **This section answers:** *Did you save and mention the one-line crawl–mirror design in the plans?*  
 > **YES.** It was saved first to `SOURCEA_CRAWL_MIRROR_PIPELINE_LOCKED_v1.md` (ASF SAVE).  

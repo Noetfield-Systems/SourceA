@@ -15,11 +15,11 @@
 
 | Entity | What it is | Say | Never say |
 |--------|------------|-----|-----------|
-| **SourceA / Sina OS** | Controlled Execution OS — portfolio engine (L0.5) | *Agentic trust infrastructure* · *Prove every agent action* | “AI chat product” · “compliance SaaS today” |
+| **SourceA / Sina OS** | Governed Execution OS — portfolio engine (L0.5) | *Agentic trust infrastructure* · *Prove every agent action* | “AI chat product” · “compliance SaaS today” |
 | **Wil AI** | Sovereign L3 product (YA5 repo) | *AI Ecosystem Intelligence* · *11,150 routes · ship gate* | “mirror site” · “rebrand skin” |
 | **Noetfield** | Governance product wedge (W3) | *Pre-execution governance* · *Evidence-grade audit* | “SourceA engine” · “TrustField invoices” |
 | **TrustField** | Commercial / MSB lane (W3) | *Trust Brief* · *contracts money lane* | “VC platform” · “Thunderfield” |
-| **FORGE** | Primary sellable app SKU (T2) | *Ship with controlled agents* | “second worker chat” |
+| **FORGE** | Primary sellable app SKU (T2) | *Ship with governed agents* | “second worker chat” |
 | **MergePack** | Event capture + evidence flywheel | *Evidence factory* | “side project” |
 | **RunReceipt** | PASS/FAIL receipt pack SKU | *Agent run proof* | Default north star (factory parallel only) |
 
@@ -49,7 +49,7 @@ Buyers are tired of **agent demos without proof**, **AI projects that drift**, a
 
 | Pillar | Tune | One phrase |
 |--------|------|------------|
-| **Trust** | Evidence beats narrative | *Receipts logged, not slides* |
+| **Trust** | Evidence beats narrative | *Receipts on disk, not slides* |
 | **Control** | Bounded AI, human veto | *Agents work inside the gate* |
 | **Honesty** | Understate like Anthropic | *Structural mode when live eval blocked* |
 | **Scale** | Factory proves spine first | *986 honest steps — not hero fiction* |
@@ -71,16 +71,16 @@ Buyers are tired of **agent demos without proof**, **AI projects that drift**, a
 
 ### Board / investor
 
-- *Governance in the repository — validators as truth, not chat as memory.*
+- *Governance on disk — validators as truth, not chat as memory.*
 - *A founder operating system at scale — three parallel lanes, one engine.*
-- *986 controlled steps toward a thousand — honest counter, not marketing fiction.*
+- *986 governed steps toward a thousand — honest counter, not marketing fiction.*
 - *Agentic trust infrastructure — before the model runs, after it ships.*
 
 ### Buyer / design partner
 
 - *Every agent session identified — strangers fail closed on writes.*
-- *Parallel node tiers prove posture — SASCIP ADMIT logged.*
-- *Ship an app with controlled agents* (FORGE wedge).
+- *Parallel node tiers prove posture — SASCIP ADMIT on disk.*
+- *Ship an app with governed agents* (FORGE wedge).
 - *Leave-behind: receipt JSON, not a screenshot.*
 
 ### Engineering / platform
@@ -102,13 +102,13 @@ Buyers are tired of **agent demos without proof**, **AI projects that drift**, a
 ## Elevator pitches
 
 **30 seconds (SourceA spine)**  
-SourceA is a **Controlled Execution OS**: law in repository, validators as truth, workers as execution, receipts as proof. Every session identifies the agent, quarantines strangers, and runs parallel **node tiers** for safety and truth. We do not sell “trust the model” — we sell **prove every agent action**. The factory is at **986/1000 honest steps**; commercial lanes (Noetfield, TrustField) run **parallel**, not instead of the engine.
+SourceA is a **Governed Execution OS**: law on disk, validators as truth, workers as execution, receipts as proof. Every session identifies the agent, quarantines strangers, and runs parallel **node tiers** for safety and truth. We do not sell “trust the model” — we sell **prove every agent action**. The factory is at **986/1000 honest steps**; commercial lanes (Noetfield, TrustField) run **parallel**, not instead of the engine.
 
 **15 seconds (buyer)**  
 *Agentic trust infrastructure — identify, gate, receipt. Proof in JSON, not in chat.*
 
 **15 seconds (board)**  
-*Portfolio-grade agent governance: SASCIP defense-in-depth, zero-drift score logged, institutional path to SKU.*
+*Portfolio-grade agent governance: SASCIP defense-in-depth, zero-drift score on disk, institutional path to SKU.*
 
 **15 seconds (LinkedIn — founder)**  
 *AI Governance & RWA Infrastructure Architect — pre-execution risk before money or settlement moves.*
@@ -125,7 +125,7 @@ SourceA is a **Controlled Execution OS**: law in repository, validators as truth
          (commercial $)   │      (governance wedge)
                            │
          SourceA L0.5 ◄────┼────► Wil AI L3 (sovereign product)
-         Controlled Exec OS  │      11,150 routes · ship gate
+         Governed Exec OS  │      11,150 routes · ship gate
                            │
                            ▼
                     EVIDENCE NOT CHAT
@@ -140,7 +140,7 @@ SourceA is a **Controlled Execution OS**: law in repository, validators as truth
 | **L1** | Brain · Gov · Commercial | Route · advise · no product build |
 | **L2** | Worker · Maintainer | One sa-* · lane allowlist · build |
 | **L3** | Portfolio repos | TrustField · Noetfield · YA5/Wil · Forge |
-| **Product** | Controlled factory | 1000-pack proves spine — not homepage hero |
+| **Product** | Governed factory | 1000-pack proves spine — not homepage hero |
 | **Runtime** | Receipt plane | Chat is not memory |
 | **Mesh** | Node graph | T0→T1→T2→T3 parallel tiers |
 | **Evidence** | Proof spine | W10 · SASCIP · session gate PASS |
@@ -205,7 +205,7 @@ SourceA is a **Controlled Execution OS**: law in repository, validators as truth
 | Term | Definition | Commercial use |
 |------|------------|----------------|
 | **Evidence not chat** | P0 invariant | **2026 signature phrase** |
-| **Evidence-grade** | Tamper FAIL on camera · receipt logged | W1 proof track |
+| **Evidence-grade** | Tamper FAIL on camera · receipt on disk | W1 proof track |
 | **Evidence factory** | MergePack → events → proof | “Traffic without events = zero compounding.” |
 | **Evolution not drift** | Refinement with receipt | Not topic wandering |
 | **EXTERNAL_CRITIC** | Advisor paste — not build order | Reports only — no queue reorder |
@@ -214,9 +214,9 @@ SourceA is a **Controlled Execution OS**: law in repository, validators as truth
 
 | Term | Definition | Commercial use |
 |------|------------|----------------|
-| **Factory** | 1000-step controlled pack | Background proof — not investor hero |
+| **Factory** | 1000-step governed pack | Background proof — not investor hero |
 | **factory_now_line** | Live queue + honest count | Quote every agent reply |
-| **FORGE** | T2 primary sellable app | “Ship with controlled agents.” |
+| **FORGE** | T2 primary sellable app | “Ship with governed agents.” |
 | **Founder verbs** | WORK · SAVE · EDIT ALLOWED · ASF | “Permission before cross-lane law.” |
 | **Freeze** | SINGLE_SA mode — no drain hero | Resume when founder confirms |
 
@@ -225,7 +225,7 @@ SourceA is a **Controlled Execution OS**: law in repository, validators as truth
 | Term | Definition | Commercial use |
 |------|------------|----------------|
 | **G0–G3** | Read → patch → tier → ship rewrite | Plain English governance tier |
-| **Controlled Execution OS** | SourceA category (internal + technical) | Not “compliance SaaS yet” |
+| **Governed Execution OS** | SourceA category (internal + technical) | Not “compliance SaaS yet” |
 | **Goal hierarchy** | T0 factory default · T2b parallel bucket | Never ask founder to pick factory vs commercial |
 
 ### H
@@ -260,7 +260,7 @@ SourceA is a **Controlled Execution OS**: law in repository, validators as truth
 | **Mac Health** | `:13024` safety heart · ADMIT tile | “Safety pulse — founder never Terminal.” |
 | **MergePack** | Event capture L1 · evidence flywheel | Parallel T2b — deploy friction honest |
 | **Money track** | W3 NF / TF first pilot | Deposit or LOI — not $100M in 6 months |
-| **Node mesh** | Graph SSOT + parallel tiers | “Connected like n8n · controlled like law.” |
+| **Node mesh** | Graph SSOT + parallel tiers | “Connected like n8n · governed like law.” |
 
 ### N
 
@@ -362,7 +362,7 @@ Full dictionary: `archive/attachments/founder-language/dictionary.yaml`
 | Mirror site / rebrand skin (Wil) | Sovereign Wil AI · local-brand presentation |
 | 616 or Cloud Forge Run as hero | Honest counter background · 986/1000 internal |
 | $100M close in 6 months | Narrative upside band — not guarantee |
-| Trust OS / Decision Cloud as build | Controlled execution layer · demo scope |
+| Trust OS / Decision Cloud as build | Governed execution layer · demo scope |
 | We custody funds / move money | Pre-execution advisory · licensed partners execute |
 | Guaranteed RPAA/FINTRAC approval | Readiness assessment — not approval guarantee |
 | Merge Noetfield + TrustField into one sprint | Three parallel lanes · one engine |
@@ -377,7 +377,7 @@ Full dictionary: `archive/attachments/founder-language/dictionary.yaml`
 | Notefield / TerraceField | Noetfield · TrustField (typos) |
 | clone to 10 lanes | Transfer to 10 lanes |
 | All pages done (Wil) | 22/22 · 42/42 · verify PASS |
-| Compliance SaaS today (SourceA) | Controlled Execution OS · path to enterprise |
+| Compliance SaaS today (SourceA) | Governed Execution OS · path to enterprise |
 
 Full list: `archive/attachments/founder-language/forbidden.yaml` (FT-01–FT-20+)
 
@@ -388,10 +388,10 @@ Full list: `archive/attachments/founder-language/forbidden.yaml` (FT-01–FT-20+
 | Product | Lane | Say | Not |
 |---------|------|-----|-----|
 | **Trust Brief** | TrustField | Executive-ready governance snapshot | Trust OS build |
-| **Evidence-Grade Audit Engine** | Noetfield | Tamper-evident verification | Generic audit chatbot |
+| **Evidence-Grade Audit Engine** | Noetfield | Tamper-evident proof chain | Generic audit chatbot |
 | **Policy Replay** | Noetfield | What policy allowed vs what ran | Debug log dump |
 | **Pre-Execution Regulatory Pack** | TrustField | RPAA-safe readiness — advisory | MSB registration substitute |
-| **FORGE** | SourceA T2 | Controlled factory port / sellable app | Second worker chat |
+| **FORGE** | SourceA T2 | Governed factory port / sellable app | Second worker chat |
 | **MergePack** | T2b parallel | Event capture · evidence factory | Blocked deploy = honest status |
 | **RunReceipt** | T2b parallel | Agent run PASS/FAIL pack | Default P0 north star |
 | **Wil AI** | L3 YA5 | AI Ecosystem Intelligence | Upstream alias |
@@ -406,7 +406,7 @@ Full list: `archive/attachments/founder-language/forbidden.yaml` (FT-01–FT-20+
 
 ### Objection: “Another AI agent wrapper”
 
-> “Wrappers trust the model. We **prove every agent action** — gate before run, validator after ship. **Strangers fail closed** on writes. Fleet agents stay **lane-scoped**. That’s a **Controlled Execution OS**, not a chat UI.”
+> “Wrappers trust the model. We **prove every agent action** — gate before run, validator after ship. **Strangers fail closed** on writes. Fleet agents stay **lane-scoped**. That’s a **Governed Execution OS**, not a chat UI.”
 
 ### Objection: “Where’s the revenue?”
 
@@ -427,7 +427,7 @@ Full list: `archive/attachments/founder-language/forbidden.yaml` (FT-01–FT-20+
 | SKU phrase | Includes | Proof artifact |
 |------------|----------|----------------|
 | **Design partner** | Session gate walkthrough + SASCIP | `agent_session_gate_receipt_v1.json` |
-| **Controlled factory demo** | RUN INBOX + honest counter | Hub Home §1 · PROGRAM_1000_HONEST_STATUS |
+| **Governed factory demo** | RUN INBOX + honest counter | Hub Home §1 · PROGRAM_1000_HONEST_STATUS |
 | **Integrity demo** | M1 form + Mac Health ADMIT | `:13024` tile + form receipt |
 | **Node mesh assessment** | Graph tier run + validate | `pipeline-node-graph-receipt-v1.json` |
 | **Trust Brief** (TrustField) | Executive snapshot | Commercial lane SKU |
@@ -452,7 +452,7 @@ Full list: `archive/attachments/founder-language/forbidden.yaml` (FT-01–FT-20+
 
 ## 2026 keyword cloud (SEO / LinkedIn safe)
 
-**Use:** agentic trust infrastructure · controlled execution · evidence not chat · pre-execution governance · bounded autonomy · receipt-first · defense in depth · node mesh · disk SSOT · institutional grade · design partner · prove every agent action · RWA readiness · policy replay · stranger quarantine · zero-drift · honest counter · parallel tracks · local-brand · ship gate (Wil)
+**Use:** agentic trust infrastructure · governed execution · evidence not chat · pre-execution governance · bounded autonomy · receipt-first · defense in depth · node mesh · disk SSOT · institutional grade · design partner · prove every agent action · RWA readiness · policy replay · stranger quarantine · zero-drift · honest counter · parallel tracks · local-brand · ship gate (Wil)
 
 **Avoid:** hype AGI · fully autonomous without bounds · $100M guarantee · custody/payment claims · legacy Command brand · AUTO-RUN · compliance SaaS (for SourceA today) · competitor brand as identity · status words in LOCKED titles
 

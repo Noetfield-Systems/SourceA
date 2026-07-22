@@ -14,7 +14,7 @@ Wil L3 portfolio demo — YA5 mirror · AgentGo ≠ SourceA separation · ship g
 
 ## Task
 
-**Pick 10-page public demo subset from** case study prose (challenge · shipped · verification).
+**Pick 10-page public demo subset from** case study prose (challenge · shipped · proof chain).
 
 Home + 3 trackers + 3 compare + 3 research — honest scope.
 

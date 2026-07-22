@@ -26,7 +26,7 @@
 
 ## 1. One sentence (founder line)
 
-> **SourceA is a company that sells pre-LLM controlled execution infrastructure — durable runs, policy at dispatch, ledger + replay — and is the engine that powers Noetfield, TrustField, Forge, AgentField, and every portfolio lane.**
+> **SourceA is a company that sells pre-LLM governed execution infrastructure — durable runs, policy at dispatch, ledger + replay — and is the engine that powers Noetfield, TrustField, Forge, AgentField, and every portfolio lane.**
 
 **Positioning one-liner (public):**  
 **Temporal meets Stripe — with policy as the wedge** — not Linear with an API, not chat-first AI SaaS.
@@ -51,7 +51,7 @@
 |------|------|---------------------|-------------------------|
 | **Noetfield** | noetfield.com | CISO · GRC · M365 · procurement (Copilot governance) | **Primary earning product co NOW** — same engine, compliance wedge |
 | **TrustField** | trustfield.ca | MSB · fintech · regulated ops | **Second polish** — same engine, regulated wedge |
-| **Forge** | — | Controlled app factory SKU | Engine-powered product lane |
+| **Forge** | — | Governed app factory SKU | Engine-powered product lane |
 | **AgentField** | — | Agentic ops / outreach face | Engine-powered GTM glue |
 
 **Operating focus (ASF):** one engine (SourceA) + one primary earner (Noetfield) + one backup earner (TrustField) — while **SourceA direct GTM to Buyer 1 runs in parallel.**
@@ -70,7 +70,7 @@ organizational intent in
     → ledger + replay + closed out
 ```
 
-**Category:** workflow runtimes · agent orchestration platforms · **policy-controlled execution layers** — the stratum **under** agents and automations, not the agent UI.
+**Category:** workflow runtimes · agent orchestration platforms · **policy-governed execution layers** — the stratum **under** agents and automations, not the agent UI.
 
 **Technical stack identity (L1 motor):**
 
@@ -110,7 +110,7 @@ organizational intent in
 |----------------|----------------------------|
 | **Linear / Notion / Asana / Height / Plane** | Work management — not runtime infra |
 | **ChatGPT / Jasper / copycat AI SaaS** | Chat-first — not execution spine |
-| **Zapier / Make** | No-code glue — not controlled runtime |
+| **Zapier / Make** | No-code glue — not governed runtime |
 | **LangSmith alone** | Observability — not full execution + enforce path |
 
 **Three-layer clone rule:** Never pick **one** clone. Identity = **Temporal + Inngest + Stripe** surface; wedge = **Cerbos/OPA-class policy**; reject **Linear-as-category**.
@@ -136,7 +136,7 @@ The right category — **Temporal · Inngest · Trigger.dev** — has a **specif
 
 | Field | Detail |
 |-------|--------|
-| **Who** | Engineering at AI-native product cos (IDE-class · workflow automation · agent platforms) needing **controlled execution under their SKU** |
+| **Who** | Engineering at AI-native product cos (IDE-class · workflow automation · agent platforms) needing **governed execution under their SKU** |
 | **Pain** | “Every agent action must be auditable for enterprise customers. Building durable execution + policy is not our core product.” |
 | **Why SourceA** | Embed **receipt/audit/runtime** without rebuilding from scratch · one partnership → their customer base |
 | **How they buy** | Engineering eval → commercial agreement · **$5K–$20K/month** (usage) · **4–8 week** eval |
@@ -184,7 +184,7 @@ The right category — **Temporal · Inngest · Trigger.dev** — has a **specif
 | Health check + restart | Validator + repair loop |
 | Cluster audit log | Event chain: `VALIDATOR_PASS` → `TASK_CLOSED` → `BROKER_ACK` |
 
-**Law:** Kubernetes does not compete with application frameworks — it becomes the **infra layer all frameworks run on**. SourceA ambition: **infra layer for controlled agent execution** — frameworks and portfolio products run on top.
+**Law:** Kubernetes does not compete with application frameworks — it becomes the **infra layer all frameworks run on**. SourceA ambition: **infra layer for governed agent execution** — frameworks and portfolio products run on top.
 
 ---
 
@@ -236,7 +236,7 @@ Product → Docs → API → Portal
 
 ### Use
 
-- Controlled execution · durable runs · policy at dispatch  
+- Governed execution · durable runs · policy at dispatch  
 - Pre-LLM gate · receipt spine · tamper-evident · replay  
 - Execution infrastructure · agent runtime · API-first  
 - Temporal-class · Kubernetes for agent tasks  
@@ -265,7 +265,7 @@ Product → Docs → API → Portal
 
 | VOID | Replace with |
 |------|--------------|
-| “SourceA is not a company you sell to customers” | **SourceA is a company that sells controlled execution infrastructure** |
+| “SourceA is not a company you sell to customers” | **SourceA is a company that sells governed execution infrastructure** |
 | “SourceA is not a product” | **SourceA is an infra product company** |
 | “Not for sale as standalone offering” | **Direct sale + portfolio-powered sale** |
 | “Backend only — no SourceA GTM” | **SourceA GTM to Buyer 1 in parallel with Noetfield** |

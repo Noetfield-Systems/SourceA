@@ -53,7 +53,7 @@ ASF + Hub (override)
 
 ---
 
-## P0 — verified logged
+## P0 — verified on disk
 
 | Artifact | Path |
 |----------|------|
@@ -82,7 +82,7 @@ ASF + Hub (override)
 
 ## P1.5 — hooks (hybrid — not overclaimed)
 
-| Item | In the repository | Honest note |
+| Item | On disk | Honest note |
 |------|---------|-------------|
 | `EVENT_CONTRACT.yaml` | Yes | Interface defined; JSONL impl partial |
 | `execution_event_log_v1.py` | Yes | Broker dual-write + orchestrator |

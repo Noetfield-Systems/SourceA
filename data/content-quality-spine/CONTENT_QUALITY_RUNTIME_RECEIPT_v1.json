@@ -141,7 +141,7 @@
           "proof": true
         },
         "draft_artifact": {
-          "text": "VO: Your agents execute right now. Who stops the one that goes too far?\n\nVO: SourceA puts policy, BLOCK, and receipt on every loop — before spend, send, or deploy.\n\nVO: Book a fifteen-minute proof. See the gate logged, not in a slide deck.",
+          "text": "VO: Your agents execute right now. Who stops the one that goes too far?\n\nVO: SourceA puts policy, BLOCK, and receipt on every loop — before spend, send, or deploy.\n\nVO: Book a fifteen-minute proof. See the gate on disk, not in a slide deck.",
           "input_hash": "16b6e9d4f4f6e534"
         },
         "deterministic_receipt": {
@@ -235,7 +235,7 @@
         "revision_history": [],
         "final_artifact": {
           "status": "APPROVED",
-          "text": "VO: Your agents execute right now. Who stops the one that goes too far?\n\nVO: SourceA puts policy, BLOCK, and receipt on every loop — before spend, send, or deploy.\n\nVO: Book a fifteen-minute proof. See the gate logged, not in a slide deck.",
+          "text": "VO: Your agents execute right now. Who stops the one that goes too far?\n\nVO: SourceA puts policy, BLOCK, and receipt on every loop — before spend, send, or deploy.\n\nVO: Book a fifteen-minute proof. See the gate on disk, not in a slide deck.",
           "quarantine_reason": null
         },
         "expensive_generation_allowed": true,
@@ -264,7 +264,7 @@
           "proof": true
         },
         "draft_artifact": {
-          "text": "Subject: Ocree — one question on controlled agent loops\n\nHi Sarah,\n\nTeams like yours are shipping faster with agent loops — and one bad send can erase the win.\n\nWe built a checker that blocks architecture jargon and unsupported claims before anything leaves draft.\n\nWould a 15-minute walkthrough of the receipt trail be useful this week?\n\nSina\nReply **stop** to opt out.",
+          "text": "Subject: Ocree — one question on governed agent loops\n\nHi Sarah,\n\nTeams like yours are shipping faster with agent loops — and one bad send can erase the win.\n\nWe built a checker that blocks architecture jargon and unsupported claims before anything leaves draft.\n\nWould a 15-minute walkthrough of the receipt trail be useful this week?\n\nSina\nReply **stop** to opt out.",
           "input_hash": "d3dd00a4aea0d02c"
         },
         "deterministic_receipt": {
@@ -373,7 +373,7 @@
         "revision_history": [],
         "final_artifact": {
           "status": "APPROVED",
-          "text": "Subject: Ocree — one question on controlled agent loops\n\nHi Sarah,\n\nTeams like yours are shipping faster with agent loops — and one bad send can erase the win.\n\nWe built a checker that blocks architecture jargon and unsupported claims before anything leaves draft.\n\nWould a 15-minute walkthrough of the receipt trail be useful this week?\n\nSina\nReply **stop** to opt out.",
+          "text": "Subject: Ocree — one question on governed agent loops\n\nHi Sarah,\n\nTeams like yours are shipping faster with agent loops — and one bad send can erase the win.\n\nWe built a checker that blocks architecture jargon and unsupported claims before anything leaves draft.\n\nWould a 15-minute walkthrough of the receipt trail be useful this week?\n\nSina\nReply **stop** to opt out.",
           "quarantine_reason": null
         },
         "expensive_generation_allowed": true,
@@ -402,7 +402,7 @@
           "proof": true
         },
         "draft_artifact": {
-          "text": "Controlled agentic automation for teams that cannot afford a bad send.\n\nPolicy runs before spend. Every loop leaves a receipt you can audit.\n\nBook a 15-minute proof — see BLOCK logged, not in a deck.",
+          "text": "Governed agentic automation for teams that cannot afford a bad send.\n\nPolicy runs before spend. Every loop leaves a receipt you can audit.\n\nBook a 15-minute proof — see BLOCK on disk, not in a deck.",
           "input_hash": "1d9f339523c27468"
         },
         "deterministic_receipt": {
@@ -496,7 +496,7 @@
         "revision_history": [],
         "final_artifact": {
           "status": "APPROVED",
-          "text": "Controlled agentic automation for teams that cannot afford a bad send.\n\nPolicy runs before spend. Every loop leaves a receipt you can audit.\n\nBook a 15-minute proof — see BLOCK logged, not in a deck.",
+          "text": "Governed agentic automation for teams that cannot afford a bad send.\n\nPolicy runs before spend. Every loop leaves a receipt you can audit.\n\nBook a 15-minute proof — see BLOCK on disk, not in a deck.",
           "quarantine_reason": null
         },
         "expensive_generation_allowed": true,

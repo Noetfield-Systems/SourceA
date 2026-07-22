@@ -46,7 +46,7 @@ bash scripts/validate-demo-enforcement-v1.sh --tamper-test
 pause 2
 echo ""
 
-echo "[4:00] BEAT 4 — Kill switch (FREEZE) logged"
+echo "[4:00] BEAT 4 — Kill switch (FREEZE) on disk"
 FREEZE="${HOME}/.sina/auto-run-disabled-v1.flag"
 if [[ -f "$FREEZE" ]]; then
   echo "  FREEZE flag PRESENT → factory auto-run disabled"

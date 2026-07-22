@@ -14,7 +14,7 @@ Dual desktop deploy — agentrun-app :5180 + SA4 AgentGo :8080 · landing parity
 
 ## Task
 
-**Build metric card for** case study prose (challenge · shipped · verification).
+**Build metric card for** case study prose (challenge · shipped · proof chain).
 
 1259 · trackers · research counts.
 

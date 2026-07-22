@@ -23,7 +23,7 @@ Map Dust.tt revenue model (Seat + usage SaaS) to our `Free toolkits → Pro pack
 
 ## Implementation extraction
 
-`Dust.tt · Pricing & packaging` → what buyer sees at vendor → what we ship logged with receipt.
+`Dust.tt · Pricing & packaging` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

@@ -1,4 +1,4 @@
-/* SourceA green-unified v2 — Agent Run shell + light/dark layout themes sections */
+/* SourceA green-unified v2 — Agent Run shell + Nomotic/Zenity sections */
 
 .sa-v2 .sa-header.ar-header { transition: background 0.35s ease, box-shadow 0.35s ease; }
 .sa-v2 .sa-header.is-scrolled {
@@ -17,7 +17,7 @@
 .sa-hero-grid { display: grid; gap: 2rem; align-items: center; }
 @media (min-width: 960px) { .sa-hero-grid { grid-template-columns: 1.05fr 0.95fr; } }
 
-/* Pillar chips (SourceA) */
+/* Pillar chips (Nomotic) */
 .sa-pillar-chips {
   display: flex; flex-wrap: wrap; gap: 0.45rem; margin-top: 1.25rem;
 }
@@ -149,7 +149,7 @@
 }
 @keyframes sa-shine { to { background-position: 200% center; } }
 
-/* Verification + compare — light green only */
+/* Proof chain + compare — light green only */
 
 .sa-proof-light { background: #fff; }
 
@@ -190,7 +190,7 @@
 .sa-chain-flow .ok { color: #2d8a4e; }
 .sa-chain-flow .bad { color: #b91c1c; }
 
-/* Verification beat cards (landing mock v1) */
+/* Proof chain beat cards (landing mock v1) */
 .sa-chain-beats {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -3428,7 +3428,7 @@ body.sa-brain-open { overflow: hidden; }
   color: #a9c99a;
 }
 
-/* Verification verdict row */
+/* Proof chain verdict row */
 .sa-proof-gate-row {
   display: flex;
   flex-wrap: wrap;

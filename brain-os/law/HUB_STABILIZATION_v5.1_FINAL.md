@@ -55,7 +55,7 @@ The light E2E must grep both server files and fail on any request-path violation
 | ID | Rule |
 |----|------|
 | C-H01 | `:13021` = Monitor · `:13022` = Mono · `:13023` = Chat Unify — all occupied. Phase N uses `:13030+` only. |
-| C-H02 | `queue_sa.json` does not exist logged. Never reference it. |
+| C-H02 | `queue_sa.json` does not exist on disk. Never reference it. |
 | C-H10 | `t.get("queue_sa")` → None. Use `t.get("queue", {}).get("sa_id")` or `queue_sa_from_disk()`. |
 | C-H04 | `run_branch_action` lines ~2197–2733 — 25 inline build paths. Phase C covers this. Not skippable. |
 | C-H05 | Broken POST-in-GET: move to `do_POST`, keep GET reads. |
@@ -121,7 +121,7 @@ print('queue.sa_id:', t.get('queue',{}).get('sa_id'))
 ## PHASE A — READ PATH
 
 **File:** `scripts/sina-command-server.py` ONLY  
-**Edit targets confirmed logged:** lines 159–171 (hub-sync), 1021–1031 (/refresh)
+**Edit targets confirmed on disk:** lines 159–171 (hub-sync), 1021–1031 (/refresh)
 
 ### A0 — Create shared queue lib first
 
@@ -328,7 +328,7 @@ _lib_enqueue(source="branch_action", run_refresh=<was_True_or_False>)
 return {"ok": True}
 ```
 
-### C2 — scripts/hub_rebuild_worker_v1.py (in the repository — N1)
+### C2 — scripts/hub_rebuild_worker_v1.py (on disk — N1)
 
 Standalone service on `:13030` (health HTTP) + daemon queue consumer thread.  
 **Canonical source:** `scripts/hub_rebuild_worker_v1.py` — do not duplicate here.
@@ -602,7 +602,7 @@ cd ~/Desktop/SourceA && bash scripts/validate-hub-projection-disposable-v1.sh
 | Phase N | `ASF: Phase N approved` |
 
 **Implementation: A–E + N1 + P1–P10 DONE.**  
-Phases A–E and N1 shipped logged; stabilization backlog P1–P10 complete (Gate N receipt 2026-06-10).
+Phases A–E and N1 shipped on disk; stabilization backlog P1–P10 complete (Gate N receipt 2026-06-10).
 
 ### N2 candidates (deferred — ASF explicit approval + `lsof`)
 

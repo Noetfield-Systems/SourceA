@@ -14,7 +14,7 @@ Wil L3 portfolio demo — YA5 mirror · AgentGo ≠ SourceA separation · ship g
 
 ## Task
 
-**Add Cal.com talking point for** case study prose (challenge · shipped · verification).
+**Add Cal.com talking point for** case study prose (challenge · shipped · proof chain).
 
 Screen-share script bullet.
 

@@ -20,7 +20,7 @@ RECEIPTS = ROOT / "receipts"
 
 
 class ReceiptGateError(Exception):
-    """Closeout aborted — no honest receipt logged."""
+    """Closeout aborted — no honest receipt on disk."""
 
 
 def _require_receipt_on_disk(task_id: str) -> dict:

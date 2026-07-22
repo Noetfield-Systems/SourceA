@@ -401,7 +401,7 @@ Every Microsoft Copilot action your team executes leaves no verifiable trail.
 If something goes wrong — wrong output, unauthorized action, policy violation —
 you have no cryptographic proof of what happened.
 
-We fix that in 30 days. Delivery records for every Copilot action.
+We fix that in 30 days. Governance receipts for every Copilot action.
 Invalid actions blocked before execution. Tamper detected immediately.
 
 Pilot: CAD $2K deposit. Refund if we don't deliver.

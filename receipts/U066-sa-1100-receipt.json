@@ -5,7 +5,7 @@
   "round_type": "act",
   "upgrade_id": "U066",
   "title": "Red only when sina\u226590 AND to set AND not sent",
-  "evidence": "_compute_send_red() extracted; ready_for_founder_send allowed; --check-send-red-logic PASS; validate_ship_authority PASS; no false RED logged",
+  "evidence": "_compute_send_red() extracted; ready_for_founder_send allowed; --check-send-red-logic PASS; validate_ship_authority PASS; no false RED on disk",
   "receipt_law": "receipts/{upgrade_id}-{sa_id}-receipt.json",
   "at": "2026-06-19T04:09:49Z",
   "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"

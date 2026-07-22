@@ -17,7 +17,7 @@ Each row is a **real vendor** with links and pricing evidence. Portfolio compani
 
 ---
 
-## 1. SourceA — controlled agent orchestration + run history (rows 1–20)
+## 1. SourceA — governed agent orchestration + run history (rows 1–20)
 
 ### 1. Trigger.dev
 
@@ -526,7 +526,7 @@ Each row is a **real vendor** with links and pricing evidence. Portfolio compani
 | Who buys | Business and ops teams |
 | Pricing / cost | Free 5k credits/mo; Pro $37/mo — https://www.gumloop.com/pricing |
 | Revenue model | Credit-based subscription |
-| Why buyers pay | Non-dev teams need controlled AI automation |
+| Why buyers pay | Non-dev teams need governed AI automation |
 | How they reached market | PLG free tier → Pro $37 |
 | Source links | https://www.gumloop.com/pricing |
 | Portfolio lesson | App policies + guardrails UI on agent dispatch |
@@ -543,7 +543,7 @@ Each row is a **real vendor** with links and pricing evidence. Portfolio compani
 | Who buys | Regulated enterprise IT |
 | Pricing / cost | Free 500 runs/mo; enterprise custom |
 | Revenue model | Enterprise annual contracts |
-| Why buyers pay | Need controlled internal AI without dev team |
+| Why buyers pay | Need governed internal AI without dev team |
 | How they reached market | Enterprise compliance positioning |
 | Source links | https://www.stack-ai.com |
 | Portfolio lesson | SOC2/HIPAA lane packaging for Witness AI Ops retainer |
@@ -645,7 +645,7 @@ Each row is a **real vendor** with links and pricing evidence. Portfolio compani
 | Who buys | CISO teams |
 | Pricing / cost | Startup and enterprise tiers |
 | Revenue model | Annual SaaS |
-| Why buyers pay | Employees use uncontrolled AI tools |
+| Why buyers pay | Employees use ungoverned AI tools |
 | How they reached market | GenAI security startup wedge |
 | Source links | https://www.lasso.security |
 | Portfolio lesson | Shadow AI discovery in policy starter kits |
@@ -1433,7 +1433,7 @@ Each row is a **real vendor** with links and pricing evidence. Portfolio compani
 | Who buys | Business teams |
 | Pricing / cost | Free 5k credits; Pro $37/mo — https://www.gumloop.com/pricing |
 | Revenue model | Credit SaaS |
-| Why buyers pay | Controlled automation without engineering |
+| Why buyers pay | Governed automation without engineering |
 | How they reached market | PLG $37/mo wedge |
 | Source links | https://www.gumloop.com/pricing |
 | Portfolio lesson | Guardrails + MCP hosting on factory runs |
@@ -1467,7 +1467,7 @@ Each row is a **real vendor** with links and pricing evidence. Portfolio compani
 | Who buys | Enterprise IT in regulated industries |
 | Pricing / cost | Free 500 runs; enterprise custom |
 | Revenue model | Enterprise annual |
-| Why buyers pay | Need controlled agents without custom dev |
+| Why buyers pay | Need governed agents without custom dev |
 | How they reached market | Enterprise compliance GTM |
 | Source links | https://www.stack-ai.com |
 | Portfolio lesson | Compliance wrapper tier on premium factories |

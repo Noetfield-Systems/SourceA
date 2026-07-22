@@ -23,7 +23,7 @@ Compare Monitaur PLG motion (Regulated industry ML governance) vs our onboarding
 
 ## Implementation extraction
 
-`Monitaur · Pricing & packaging` → what buyer sees at vendor → what we ship logged with receipt.
+`Monitaur · Pricing & packaging` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

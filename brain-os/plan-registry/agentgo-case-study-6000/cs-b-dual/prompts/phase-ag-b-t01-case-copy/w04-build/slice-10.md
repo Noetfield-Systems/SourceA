@@ -14,7 +14,7 @@ Dual desktop deploy — agentrun-app :5180 + SA4 AgentGo :8080 · landing parity
 
 ## Task
 
-**Build breadcrumb for** case study prose (challenge · shipped · verification).
+**Build breadcrumb for** case study prose (challenge · shipped · proof chain).
 
 Home / Offer / AgentGo.
 

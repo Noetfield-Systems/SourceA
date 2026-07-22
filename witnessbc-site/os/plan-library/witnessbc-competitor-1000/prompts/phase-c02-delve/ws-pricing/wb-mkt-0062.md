@@ -23,7 +23,7 @@ Map Delve revenue model (High-touch annual SaaS) to our `Free toolkits → Pro p
 
 ## Implementation extraction
 
-`Delve · Pricing & packaging` → what buyer sees at vendor → what we ship logged with receipt.
+`Delve · Pricing & packaging` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

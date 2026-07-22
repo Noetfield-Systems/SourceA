@@ -95,7 +95,7 @@ flowchart LR
 | **TF-001** | **TrustField** | MSB · RPAA · regulated receipts | Backup | Active |
 | **AF** | **AgentField** | Agentic automation brand | — | Brand locked |
 | **FF** | **FounderField** | VC signal · 10 ideas | Post-W3 | Named |
-| **FORGE** | Forge | Controlled app factory (sellable) | — | Launch-ready |
+| **FORGE** | Forge | Governed app factory (sellable) | — | Launch-ready |
 | **MP** | MergePack | Evidence → flywheel | — | Parallel |
 | **RR** | RunReceipt | PASS/FAIL receipt pack | — | Package when W3 done |
 | **ADB** | AI Dev Bridge | Wire · iPhone desk | — | Mostly PASS |
@@ -143,7 +143,7 @@ Evertrace · Fundverse · Crunchbase · Dealroom · CB Insights · PortfolioIQ �
 | **Devin** / RAIS | Autonomous dev | Compare only |
 | **Cursor** | IDE agent | Executor tool — not SSOT |
 
-### 4E — Voice AI (future lane — research logged)
+### 4E — Voice AI (future lane — research on disk)
 
 | Reference | Path |
 |-----------|------|

@@ -14,7 +14,7 @@ Wil L3 portfolio demo — YA5 mirror · AgentGo ≠ SourceA separation · ship g
 
 ## Task
 
-**Plan registry v3 for** case study prose (challenge · shipped · verification).
+**Plan registry v3 for** case study prose (challenge · shipped · proof chain).
 
 if grid changes.
 

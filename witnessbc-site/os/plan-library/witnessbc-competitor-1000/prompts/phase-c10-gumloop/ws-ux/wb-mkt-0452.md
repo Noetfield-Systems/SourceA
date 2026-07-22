@@ -23,7 +23,7 @@ Write one-line UX spec: `Gumloop Buyer-visible UX` → buyer sees X → we show 
 
 ## Implementation extraction
 
-`Gumloop · Buyer-visible UX` → what buyer sees at vendor → what we ship logged with receipt.
+`Gumloop · Buyer-visible UX` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

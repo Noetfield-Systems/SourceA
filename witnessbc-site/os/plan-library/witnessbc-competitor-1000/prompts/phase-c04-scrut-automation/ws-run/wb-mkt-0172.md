@@ -23,7 +23,7 @@ Spec run detail fields: status · steps · failure class · retry · timestamp (
 
 ## Implementation extraction
 
-`Scrut Automation · Run history & proof` → what buyer sees at vendor → what we ship logged with receipt.
+`Scrut Automation · Run history & proof` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

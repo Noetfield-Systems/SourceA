@@ -277,7 +277,7 @@ def classify_row(row: dict[str, Any], *, receipts: dict[str, str], git: dict[str
     trace_state = "proven_done" if is_done and has_proof else ("planned" if not is_done else "done_unproven")
     follow_up_reason = ""
     if trace_state == "done_unproven":
-        follow_up_reason = "status is done but no receipt/evidence was found logged"
+        follow_up_reason = "status is done but no receipt/evidence was found on disk"
     elif trace_state == "planned":
         follow_up_reason = row.get("verify") or row.get("argument") or "status is not closed"
 

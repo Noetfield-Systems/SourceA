@@ -17,7 +17,7 @@ def scaffold(*, bay_slug: str, tenant: str) -> dict:
         line="refinery",
         mode="app_scaffold_stub",
         extra={
-            "artifact_class": "controlled_app_manifest",
+            "artifact_class": "governed_app_manifest",
             "note": "App scaffold subgraph — prove_only stub until FORGE SKU pipeline wired",
         },
     )

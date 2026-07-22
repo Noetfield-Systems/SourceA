@@ -23,7 +23,7 @@ Validator: public copy contains no stale price; tier badge matches REGISTRY hone
 
 ## Implementation extraction
 
-`Lasso Security · Pricing & packaging` → what buyer sees at vendor → what we ship logged with receipt.
+`Lasso Security · Pricing & packaging` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

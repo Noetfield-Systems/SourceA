@@ -7,7 +7,7 @@ CHECK → ACT (only if gap found) → VERIFY → receipts/sa-XXXX-receipt.json �
 
 ## What counts as done
 
-- receipts/sa-XXXX-receipt.json exists in the repository
+- receipts/sa-XXXX-receipt.json exists on disk
 - receipt.status = DONE / PASS / VERIFIED / CHECK_PASSED
 - receipt.source set (goal1_lane_broker / worker_inbox / api / maintainer_executor)
 - critical_bugs: 0 at closeout
@@ -40,6 +40,6 @@ Always one of: goal1_lane_broker / restore-broker-proven-v1 / worker_inbox / api
 
 ## Progress SSOT
 
-honest_done = count of receipts/sa-XXXX-receipt.json logged
+honest_done = count of receipts/sa-XXXX-receipt.json on disk
 
 NOT: REGISTRY counter / YAML count / hub % / chat claim

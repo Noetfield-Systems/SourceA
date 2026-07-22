@@ -1,13 +1,13 @@
 # System summary — executive
 
 **Saved:** 2026-06-06T12:00:00Z · **Retrofit:** doc-datetime-law batch retrofit @ 2026-06-16T05:49:57Z · **Evidence base:** live validators, PRIORITY, REGISTRY, hub APIs  
-**Classification:** Controlled multi-repo execution OS + pre-LLM context compiler (control plane, not product)
+**Classification:** Governed multi-repo execution OS + pre-LLM context compiler (control plane, not product)
 
 ---
 
 ## One sentence
 
-A controlled local execution OS with **101/1000** verify tasks done, **prompt_router** shipped, **honest gates** off live dispatch, **0 critical bugs** when hub is up — next work is **sa-0202**, kernel `--json` fix, and **OpenRouter credits** for Eval-1b live.
+A governed local execution OS with **101/1000** verify tasks done, **prompt_router** shipped, **honest gates** off live dispatch, **0 critical bugs** when hub is up — next work is **sa-0202**, kernel `--json` fix, and **OpenRouter credits** for Eval-1b live.
 
 ---
 
@@ -21,7 +21,7 @@ A controlled local execution OS with **101/1000** verify tasks done, **prompt_ro
 | **Worker lane** | One `sa-XXXX` per session via `plan-no-asf-run.sh` |
 | **Brain lane** | Routes from PRIORITY + BRAIN_RULES; SinaaiDataBase = archive only |
 
-**Not:** Lovable/Devin-style autonomous builder. **Is:** controlled execution + verify pack + founder-safe hub ops.
+**Not:** Lovable/Devin-style autonomous builder. **Is:** governed execution + verify pack + founder-safe hub ops.
 
 ---
 
@@ -42,7 +42,7 @@ A controlled local execution OS with **101/1000** verify tasks done, **prompt_ro
 
 ---
 
-## Scale locally (SourceA)
+## Scale on disk (SourceA)
 
 | Asset | Count |
 |-------|-------|

@@ -76,7 +76,7 @@ bash scripts/validate-s10-eternal-loop-v1.sh
 ## Founder communication (separate topic)
 
 S10 ≠ bash law. See `AGENT_FOUNDER_BASH_COMMUNICATION_LOCKED_v1.md`.  
-S10 default: headless receipt logged — not founder Terminal.
+S10 default: headless receipt on disk — not founder Terminal.
 
 ## When to invoke
 

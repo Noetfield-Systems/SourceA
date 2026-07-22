@@ -33,7 +33,7 @@
 | Tier | Score | Status | Blocker |
 |------|-------|--------|---------|
 | **T0 Legal/entity** | 1/10 | 🔴 Not fundable | CCPC · IP assignment · bank — COUNSEL |
-| **T1 Grants (SR&ED/IRAP)** | 4/12 | 🟡 Experiment log logged · ITA call pending | SR&ED 33% · 1-877-994-4727 |
+| **T1 Grants (SR&ED/IRAP)** | 4/12 | 🟡 Experiment log on disk · ITA call pending | SR&ED 33% · 1-877-994-4727 |
 | **T2 Angel** | 6/23 | 🟡 Tech + grant records · no W3 | Film W1 · paid pilot · LinkedIn anchor |
 | **T3 Seed VC** | 0/8 | 🔴 Do not raise | W1+W3 + MRR path |
 | **W1/W2/W3 (ENFORCEMENT)** | W2 ✅ · W1 ⏳ · W3 ⏳ | 🟡 Kernel yes · economic no | Film demo · close TF pilot |
@@ -48,7 +48,7 @@ bash scripts/validate-demo-write-path-v1.sh
 bash scripts/validate-enforcement-kernel-v1.sh
 ```
 
-**Commercial signal logged:** Ocree Capital (TrustField T-P6/TF-001) and Fundmore.ai (Noetfield NF-RD) **approved to send** per `os/commercial/SOURCEA_ECOSYSTEM_FAST_BUSINESS_MODEL_LOCKED_v2.md` — champion + send still pending.
+**Commercial signal on disk:** Ocree Capital (TrustField T-P6/TF-001) and Fundmore.ai (Noetfield NF-RD) **approved to send** per `os/commercial/SOURCEA_ECOSYSTEM_FAST_BUSINESS_MODEL_LOCKED_v2.md` — champion + send still pending.
 
 ---
 
@@ -350,4 +350,4 @@ October–December 2026
 
 *Locked for investor planning database v1.1. Bump `Saved:` UTC on material edits.*
 
-**Upgrade v1.2:** 555 inbox wired · 555-01/02 executed · SR&ED log logged · queue_head 555-03.
+**Upgrade v1.2:** 555 inbox wired · 555-01/02 executed · SR&ED log on disk · queue_head 555-03.

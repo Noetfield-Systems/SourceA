@@ -14,7 +14,7 @@
 
 ---
 
-## Verification (5-minute live — W1)
+## Proof chain (5-minute live — W1)
 
 Not a slide. A live chain the buyer watches end to end:
 
@@ -53,7 +53,7 @@ Noetfield closes the gap: **evaluate → sign → log** before execution, with *
 | **Procurement ZIP** | Diligence bundle for legal / procurement |
 | **Shadow deployment** | Runs **parallel** to your existing stack — no production cutover required |
 
-**Under the hood:** the same controlled execution spine used in regulated lanes. **On your invoice:** Noetfield only.
+**Under the hood:** the same governed execution spine used in regulated lanes. **On your invoice:** Noetfield only.
 
 ---
 
@@ -79,7 +79,7 @@ We agree **one primary metric** before kickoff — not a feature checklist:
 |-------------------|------------|
 | **Policy-gated coverage** | % of in-scope Copilot / agent actions evaluated with full audit replay |
 | **Out-of-policy detection** | Count of actions **blocked or escalated** that your current setup would have missed |
-| **Governance latency** | Time from policy change logged → fleet re-briefed and PASS receipt (target: same business day) |
+| **Governance latency** | Time from policy change on disk → fleet re-briefed and PASS receipt (target: same business day) |
 
 Example target line for your internal sponsor:  
 *“≥95% of in-scope Copilot actions produce a signed governance receipt within 30 days, in shadow mode.”*
@@ -146,7 +146,7 @@ If the metric is not met: you keep all deliverables produced; deposit refund ter
 **Subject:** Copilot governance receipt — founding customer pilot
 
 > Every Microsoft Copilot action your team executes leaves no verifiable trail. If something goes wrong — wrong output, unauthorized action, policy violation — you have no cryptographic proof of what happened.  
-> We fix that in 30–60 days, in **shadow mode** alongside your current stack. Delivery records for every in-scope action. Invalid actions blocked before execution. Tamper detected on export.  
+> We fix that in 30–60 days, in **shadow mode** alongside your current stack. Governance receipts for every in-scope action. Invalid actions blocked before execution. Tamper detected on export.  
 > **Founding customer:** CAD $2K deposit · one agreed success metric · conversion to annual if we hit the number. 15 minutes?
 
 ---

@@ -112,7 +112,7 @@
     return [
       "GOAL: " + goal.slice(0, 280),
       ctx.length ? "WORKSPACE CONTEXT:\n" + ctx.join("\n") : "",
-      "CONTEXT: Signed-in Forge Terminal workspace on sourcea.app — controlled agent execution with receipts.",
+      "CONTEXT: Signed-in Forge Terminal workspace on sourcea.app — governed agent execution with receipts.",
       "VERIFY: Reply in plain English with four short sections:",
       "  1) Bottom line",
       "  2) What this means for their business",
@@ -205,9 +205,9 @@
         });
         if (orOnly.length) applyModels(orOnly, pub.default_model);
       }
-      setLive(isAiReady(st) ? "Live · prompt forge on send" : "Offline — book a walkthrough", isAiReady(st));
+      setLive(isAiReady(st) ? "Live · prompt forge on send" : "Offline — request a proof review", isAiReady(st));
     } catch (_) {
-      setLive("Offline — book a walkthrough", false);
+      setLive("Offline — request a proof review", false);
     }
   }
 
@@ -304,7 +304,7 @@
       paintSidebar(merged);
       if (statusEl) {
         statusEl.textContent = row.workspace_ready
-          ? ".sourcea kernel initialized logged"
+          ? ".sourcea kernel initialized on disk"
           : "Folder created — open Mac app to finish init";
       }
       return merged;

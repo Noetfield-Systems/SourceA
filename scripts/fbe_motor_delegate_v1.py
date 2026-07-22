@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import subprocess
 import sys
 import time
@@ -58,6 +59,47 @@ def _run_cmd(cmd: list[str], *, timeout: int = 120) -> dict[str, Any]:
     }
 
 
+def _live_sibling_motor_count() -> int:
+    """Count OTHER live fbe_motor_delegate_v1 processes (excludes this one).
+
+    Reuses Mac Health Guard's reaper pgrep pattern so the spawn-site cap and
+    the reactive reaper count the same thing (see brainstorm: one authoritative
+    counter). Falls back to a self-contained pgrep if that import is
+    unavailable. Never raises — a counting failure must not block a real run.
+    """
+    self_pid = os.getpid()
+    pids: set[int] = set()
+    try:
+        from mac_health_never_again_v1 import _motor_pids, SOURCEA_MOTOR_PATTERN  # noqa: WPS433
+
+        pids = set(_motor_pids((SOURCEA_MOTOR_PATTERN,)))
+    except Exception:
+        try:
+            out = subprocess.run(
+                ["pgrep", "-f", "fbe_motor_delegate_v1"],
+                capture_output=True,
+                text=True,
+                timeout=4.0,
+            )
+            if out.returncode == 0:
+                pids = {int(x) for x in out.stdout.split() if x.strip().isdigit()}
+        except (OSError, subprocess.TimeoutExpired, ValueError):
+            pids = set()
+    pids.discard(self_pid)
+    return len(pids)
+
+
+def _motor_hard_cap() -> int:
+    """Storm hard-cap, read from the same config the reaper uses (default 15)."""
+    try:
+        from mac_health_never_again_v1 import _load_config, DEFAULTS  # noqa: WPS433
+
+        cfg = _load_config()
+        return int(cfg.get("motor_hard_cap") or DEFAULTS["motor_hard_cap"])
+    except Exception:
+        return 15
+
+
 def delegate(*, tier_filter: str | None = None, skip_federate: bool = False, fbe_prove: bool = False, force: bool = False) -> dict:
     sys.path.insert(0, str(ROOT / "scripts"))
     from mac_focus_freeze_v1 import is_focus_freeze, skip_receipt  # noqa: WPS433
@@ -71,9 +113,35 @@ def delegate(*, tier_filter: str | None = None, skip_federate: bool = False, fbe
         row["wave"] = "W1"
         row["mode"] = "motor_delegate"
         row["fbe_prove"] = fbe_prove
+        row["status"] = "deferred"
         SINA.mkdir(parents=True, exist_ok=True)
         RECEIPT_PATH.write_text(json.dumps(row, indent=2) + "\n", encoding="utf-8")
         return row
+
+    # Admission control — preventive backpressure at the spawn site. Refuse to
+    # start if we would exceed the storm hard-cap, so proliferation is stopped
+    # BEFORE it happens rather than reaped after the fact by Mac Health Guard.
+    # Refusing exits 0 with a receipt; it never signals or kills anything. The
+    # reactive reaper remains defense-in-depth, not the primary limiter.
+    if not force:
+        live_motors = _live_sibling_motor_count()
+        hard_cap = _motor_hard_cap()
+        if live_motors >= hard_cap:
+            row = {
+                "schema": "fbe-motor-delegate-receipt-v1",
+                "ok": True,
+                "status": "refused_at_capacity",
+                "at": _now(),
+                "live_sibling_motors": live_motors,
+                "hard_cap": hard_cap,
+                "note": f"refused: {live_motors} sibling motors >= hard_cap {hard_cap} (use --force to override)",
+                "wave": "W1",
+                "mode": "motor_delegate",
+                "fbe_prove": fbe_prove,
+            }
+            SINA.mkdir(parents=True, exist_ok=True)
+            RECEIPT_PATH.write_text(json.dumps(row, indent=2) + "\n", encoding="utf-8")
+            return row
 
     if fbe_prove:
         for flag in (SINA / "agent-cancel-v1.flag", SINA / "mac-health-emergency-active-v1.flag"):
@@ -115,6 +183,14 @@ def delegate(*, tier_filter: str | None = None, skip_federate: bool = False, fbe
                 if node.get("required", True):
                     ok = False
                 continue
+            # Never shell out to our own top-level entrypoint. A node whose cmd
+            # re-invokes fbe_motor_delegate_v1.py spawns a full child copy of
+            # this process on every run — the mechanical doubling that drives
+            # motor storms. A tier that needs the prove-chain must run it
+            # in-process, not as a subprocess of itself.
+            if any("fbe_motor_delegate_v1.py" in str(part) for part in cmd):
+                node_results.append({"id": nid, "ok": True, "skipped": True, "mode": "self_spawn_suppressed"})
+                continue
             row = _run_cmd(cmd)
             row["id"] = nid
             row["required"] = bool(node.get("required", True))
@@ -126,6 +202,7 @@ def delegate(*, tier_filter: str | None = None, skip_federate: bool = False, fbe
     receipt = {
         "schema": "fbe-motor-delegate-receipt-v1",
         "ok": ok,
+        "status": "ran_pass" if ok else "ran_fail",
         "at": _now(),
         "elapsed_sec": round(time.monotonic() - t0, 2),
         "tiers": tier_rows,

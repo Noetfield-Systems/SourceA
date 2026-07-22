@@ -23,7 +23,7 @@ Compare Delve PLG motion (YC 2023 → $32M Series A 2025) vs our onboarding — 
 
 ## Implementation extraction
 
-`Delve · Pricing & packaging` → what buyer sees at vendor → what we ship logged with receipt.
+`Delve · Pricing & packaging` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

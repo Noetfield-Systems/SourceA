@@ -14,7 +14,7 @@ Dual desktop deploy — agentrun-app :5180 + SA4 AgentGo :8080 · landing parity
 
 ## Task
 
-**Check supersede chain for** case study prose (challenge · shipped · verification).
+**Check supersede chain for** case study prose (challenge · shipped · proof chain).
 
 UP-888 · portfolio 6000.
 

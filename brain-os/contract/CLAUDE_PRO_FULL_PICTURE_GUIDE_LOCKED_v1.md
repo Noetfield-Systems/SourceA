@@ -16,7 +16,7 @@
 
 ## 0. Read this first — one paragraph
 
-SourceA is a **Controlled Execution OS**. **Brain + Memory exist to serve five core missions:** (1) controlled **automation loop**, (2) **WTM**, (3) **Pre-LLM readiness**, (4) **FORGE** sellable app, (5) **AI Dev Bridge** remote wire. Everything else (TrustField MSB, VIRLUX, mono/noetfield consolidation, MergePack) runs **in parallel** — never default north star. **Disk + validators = truth.** Chat = not truth. Hub `http://127.0.0.1:13020` only for founder — no Terminal.
+SourceA is a **Governed Execution OS**. **Brain + Memory exist to serve five core missions:** (1) governed **automation loop**, (2) **WTM**, (3) **Pre-LLM readiness**, (4) **FORGE** sellable app, (5) **AI Dev Bridge** remote wire. Everything else (TrustField MSB, VIRLUX, mono/noetfield consolidation, MergePack) runs **in parallel** — never default north star. **Disk + validators = truth.** Chat = not truth. Hub `http://127.0.0.1:13020` only for founder — no Terminal.
 
 ---
 
@@ -76,7 +76,7 @@ From `brain-os/system/GOAL_HIERARCHY_LOCKED_v1.md`:
 
 | Goal # | Name | Step model | Main? |
 |--------|------|------------|-------|
-| **1** | Controlled automation factory + remote M8 | 1000-pack `sa-XXXX` | **YES** |
+| **1** | Governed automation factory + remote M8 | 1000-pack `sa-XXXX` | **YES** |
 | **2** | WTM + Pre-LLM | 33 WTM steps + phases 0–5 | **YES** |
 | **3** | FORGE | PRD + launch checklist | **YES** |
 | **4** | Research sensor (RAIS, Lovable, Devin…) | Briefs only | Advisory |
@@ -427,7 +427,7 @@ From `founder/ASF_REPOS_AND_LANES.md`:
 6. Use **MAIN_GOALS map** for paths when advising on WTM/FORGE/loop/Pre-LLM/DevBridge
 7. Use **PARALLEL_ONLY map** only for TrustField/VIRLUX/mono/archive
 8. Re-check `goal-progress-v1.py --json` if progress asked — do not invent
-9. End: **"Worker/Brain implements in the repository — I hold until you ask."**
+9. End: **"Worker/Brain implements on disk — I hold until you ask."**
 
 ---
 

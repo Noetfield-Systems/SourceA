@@ -97,7 +97,7 @@ Law: `SINA_COMMAND_NO_TERMINAL_FOUNDER_LOCKED_v1.md` · Daily rhythm: `FOUNDER_D
 
 ## On miss / wrong answer (mandatory loop)
 
-`AGENT_MISS_DISK_FIRST_CORRECTION_LOOP_LOCKED_v1.md` — fix root doc logged **before** chat correction to ASF.
+`AGENT_MISS_DISK_FIRST_CORRECTION_LOOP_LOCKED_v1.md` — fix root doc on disk **before** chat correction to ASF.
 
 ---
 

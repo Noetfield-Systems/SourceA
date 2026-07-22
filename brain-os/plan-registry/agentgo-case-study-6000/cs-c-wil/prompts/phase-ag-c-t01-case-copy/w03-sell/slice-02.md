@@ -14,7 +14,7 @@ Wil L3 portfolio demo — YA5 mirror · AgentGo ≠ SourceA separation · ship g
 
 ## Task
 
-**Seed CRM placeholder for** case study prose (challenge · shipped · verification).
+**Seed CRM placeholder for** case study prose (challenge · shipped · proof chain).
 
 sourcea_revenue_engine_crm_v1.py add.
 

@@ -7,7 +7,7 @@
   "sender": "operations@noetfield.com",
   "diagnostic_intake_url": "https://www.noetfield.com/intelligence/intake/",
   "homepage_url": "https://www.noetfield.com/",
-  "one_law": "Log every outreach row in the repository — insight hook first, Diagnostic URL second. NW1 fires on first ≥$2.5K Diagnostic invoice.",
+  "one_law": "Log every outreach row on disk — insight hook first, Diagnostic URL second. NW1 fires on first ≥$2.5K Diagnostic invoice.",
   "stages": [
     { "id": "lead", "label": "Lead", "order": 1 },
     { "id": "outreach_sent", "label": "Outreach sent", "order": 2 },

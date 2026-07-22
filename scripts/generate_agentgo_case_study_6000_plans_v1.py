@@ -102,7 +102,7 @@ NOW_TASKS: dict[tuple[str, int], str] = {
     ("cs-a-factory", 2): "Ship `case-studies/agentgo.html` on green-unified — challenge / what shipped / build chain sections",
     ("cs-a-factory", 3): "Add agentgo.html to commercial copy gate + copy depth gate manifests",
     ("cs-a-factory", 4): "Wire footer + offer page link to AgentGo case study next to PureFlow",
-    ("cs-a-factory", 5): "Document SA4 page inventory — trackers · compare · research counts logged receipt",
+    ("cs-a-factory", 5): "Document SA4 page inventory — trackers · compare · research counts on disk receipt",
     ("cs-a-factory", 6): "Select 10-page public demo subset from SA4 (homepage + 3 trackers + 3 compare + 3 research)",
     ("cs-a-factory", 7): "Case study metrics block — page count · sitemap · ship date · honest localhost caveat",
     ("cs-a-factory", 8): "CRM row — SaaS/marketing ICP prospect for GEO case study outreach",
@@ -129,7 +129,7 @@ NOW_TASKS: dict[tuple[str, int], str] = {
     ("cs-c-wil", 7): "Governance row — agentgo_case_study_6000 active in manifest (no SSOT supersede of portfolio 6000)",
     ("cs-c-wil", 8): "CRM — portfolio/strategic buyer pitch using Wil demo + SourceA governance story",
     ("cs-c-wil", 9): "Compare case study #1 PureFlow · #2 AgentGo three-angle index page or offer subsection",
-    ("cs-c-wil", 10): "Seal case study law doc AGENTGO_SA4_CASE_STUDY_6000 in the repository — validator PASS",
+    ("cs-c-wil", 10): "Seal case study law doc AGENTGO_SA4_CASE_STUDY_6000 on disk — validator PASS",
 }
 
 
@@ -175,7 +175,7 @@ def task_text(angle: dict, theme_label: str, ws_label: str, slice_n: int, tier: 
     return (
         f"{angle['label']} · {theme_label} · {ws_label} · slice {slice_n}/{SLICES_PER_CELL} — "
         f"{TIER_DEPTH[tier]}. {angle['story']}. "
-        f"Bounded path only. Receipt logged before done. "
+        f"Bounded path only. Receipt on disk before done. "
         f"SA4: ~/Desktop/SA4 · PureFlow ref: case-studies/pureflow.html."
     )
 

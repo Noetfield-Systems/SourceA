@@ -12,7 +12,7 @@
 | **v2 smart** | `archive/attachments/2026-06-14/FOUNDER_DAILY_PROMPT_PACK_v2_SMART_LOCKED.md` | ACTION + SCOPE + DONE-WHEN | Short paste · quick orders |
 | **v3 pro** | `archive/attachments/2026-06-14/FOUNDER_DAILY_PROMPT_PACK_v3_PRO_LOCKED.md` | ACTION + SCOPE + CONSTRAINTS + DONE-WHEN | **Daily Cursor Agent (default)** |
 
-## JSON logged
+## JSON on disk
 
 | Version | Path |
 |---------|------|

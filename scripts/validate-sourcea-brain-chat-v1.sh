@@ -12,7 +12,7 @@ if [[ -z "$WORKER_URL" ]]; then
 fi
 [[ -n "$WORKER_URL" ]] || { echo "FAIL: no api_worker_url in $CONFIG"; exit 1; }
 
-echo "=== brain chat config logged ===" | tee "$RECEIPT"
+echo "=== brain chat config on disk ===" | tee "$RECEIPT"
 python3 -c "
 import json, sys
 from pathlib import Path

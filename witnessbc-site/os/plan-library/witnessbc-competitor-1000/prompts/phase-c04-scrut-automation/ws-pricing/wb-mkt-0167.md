@@ -23,7 +23,7 @@ Add upgrade CTA path: sandbox/free → paid bay matching Scrut Automation upgrad
 
 ## Implementation extraction
 
-`Scrut Automation · Pricing & packaging` → what buyer sees at vendor → what we ship logged with receipt.
+`Scrut Automation · Pricing & packaging` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

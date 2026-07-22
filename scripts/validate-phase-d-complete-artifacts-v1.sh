@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# sa-0037 / sa-0087 / sa-0012 — _phase_d_complete() must match D1–D16 in-repo artifacts
+# sa-0037 / sa-0087 / sa-0012 — _phase_d_complete() must match D1–D16 on-disk artifacts
 set -euo pipefail
 cd "$(dirname "$0")"
 export PYTHONPATH="${PYTHONPATH:-}:$(pwd)"

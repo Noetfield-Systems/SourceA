@@ -18,9 +18,9 @@
   "note": "First active brand — SourceA ICP compile · engine/FBE buyer · NOT Forge product",
   "fdg_version": "icp-failure-driven-generator-v1",
   "output_spec": {
-    "domain": "factory builder / controlled agentic output",
+    "domain": "factory builder / governed agentic output",
     "target_role": "CTO / platform buyer",
-    "intent": "curiosity about repeatable controlled output with verification built in",
+    "intent": "curiosity about repeatable governed output with proof on disk",
     "conversion_type": "reply or demo",
     "risk_level": "low",
     "message_type": "factory_output"
@@ -28,23 +28,23 @@
   "icp_profile": {
     "champion": "CTO / platform lead · agent workflow owner",
     "signal": "Team ships repeated outreach or agent workflows — incident review asks what actually shipped",
-    "their_world": ["outreach", "agent workflow", "shipped artifact", "verification built in", "drift", "RunReceipt"]
+    "their_world": ["outreach", "agent workflow", "shipped artifact", "proof on disk", "drift", "RunReceipt"]
   },
   "failure_moment": {
     "scenario": "Incident review after a bad agent or outreach run",
     "pressure": "output quality drifts — no reproducible trace from input to shipped artifact",
     "consequence_implicit": "cannot prove what the factory did when something goes wrong"
   },
-  "tension_kernel": "reproducible trace logged per run — not chat history as SSOT",
+  "tension_kernel": "reproducible trace on disk per run — not chat history as SSOT",
   "angle": "CTO — reconstruct what shipped vs what team remembers",
-  "solution_hook_plain": "SourceA controlled factory output with proof spine — input to artifact replay",
+  "solution_hook_plain": "SourceA governed factory output with proof spine — input to artifact replay",
   "interest_asset": "https://sourcea.com",
   "compose_mode": "B_interest_asset",
   "approved_body_path": "data/icp-compile/sourcea-factory-approved-v1.txt",
   "reverse_engineered_rules": [
     "open with repeated workflow / incident review pressure — not product hero",
     "frame reconstruct shipped artifact vs chat memory — not architecture",
-    "SourceA as controlled factory + verification built in — one line max",
+    "SourceA as governed factory + proof on disk — one line max",
     "forbidden: hero subject · TrustField · Noetfield · architecture dump · agentic jargon",
     "required: drift · reproducible trace · shipped · incident or review pressure",
     "end curiosity question before optional sourcea.com link",

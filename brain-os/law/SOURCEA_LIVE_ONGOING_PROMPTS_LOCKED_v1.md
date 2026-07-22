@@ -50,7 +50,7 @@ OpenRouter `prompt-direction` = **optional AI commentary** — not the list sour
 4. `run_inbox_disk_truth_v1.py` — `write_truth`  
 5. Hub command-data build — `sina_command_lib` embeds payload  
 
-When cursor moves **106 → 107**, `turns[0].queue_pos` must become **107** in the repository before next hub poll.
+When cursor moves **106 → 107**, `turns[0].queue_pos` must become **107** on disk before next hub poll.
 
 ---
 

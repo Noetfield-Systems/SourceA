@@ -227,10 +227,10 @@ Tetra · Stablecorp · Ocree · Atlas/Parvis (one) · Fractionvest · Bitbuy · 
 
 | They sell | You sell |
 |-----------|----------|
-| Tokenization platform / chain | **Evidence of controlled operations** |
+| Tokenization platform / chain | **Evidence of governed operations** |
 | AML software dashboard | **Live tamper-FAIL demo** |
 | Big 4 compliance PDF | **Shadow pilot with one metric** |
-| “AI governance” slide | **Five-minute cold-start verification** |
+| “AI governance” slide | **Five-minute cold-start proof chain** |
 
 **Complement (do not attack):** Polymesh, QCAD, CADD, Securitize-style rails — you govern **before** and **prove after** on their stack.
 
@@ -261,7 +261,7 @@ Tetra · Stablecorp · Ocree · Atlas/Parvis (one) · Fractionvest · Bitbuy · 
 | **D6** | Fundmore Noetfield thread — separate from any TrustField send |
 | **D7** | Log reactions · scorecard update · no second architecture track |
 
-**30-day:** 3 Priority A conversations · 1 shadow pilot signed · 1 metric agreed logged.
+**30-day:** 3 Priority A conversations · 1 shadow pilot signed · 1 metric agreed on disk.
 
 ---
 

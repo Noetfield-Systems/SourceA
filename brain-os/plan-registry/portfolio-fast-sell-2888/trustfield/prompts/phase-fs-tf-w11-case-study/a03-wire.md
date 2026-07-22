@@ -1,7 +1,7 @@
 # fs-tf-0193 — Fast-sell plan
 
 **Version:** 1 · **Tier:** T1 · **Phase:** LATER
-**Lane:** TrustField · **Wedge:** w11-case-study · Client case study logged
+**Lane:** TrustField · **Wedge:** w11-case-study · Client case study on disk
 **Action:** a03-wire · Wire SKU on landing
 **Comp anchor:** Wise Business · FINTRAC vendors
 **Tier 1:** FINTRAC readiness scan
@@ -10,7 +10,7 @@
 
 ## Task
 
-Fast-sell: TrustField · Client case study logged · Wire SKU on landing. Ship smallest slice that moves a buyer toward **FINTRAC readiness scan** with a path to **MSB program + settlement**. Receipt logged before done.
+Fast-sell: TrustField · Client case study on disk · Wire SKU on landing. Ship smallest slice that moves a buyer toward **FINTRAC readiness scan** with a path to **MSB program + settlement**. Receipt on disk before done.
 
 ## Verify
 

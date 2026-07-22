@@ -23,7 +23,7 @@ Mark wb-mkt-0710 done in REGISTRY with evidence path + https://www.arthur.ai aft
 
 ## Implementation extraction
 
-`Arthur AI · Buyer-visible UX` → what buyer sees at vendor → what we ship logged with receipt.
+`Arthur AI · Buyer-visible UX` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

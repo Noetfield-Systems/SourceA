@@ -137,7 +137,7 @@ def _write_staging_index(staging: Path, bundles: list[str]) -> None:
 def stage_bundles(*, evidence_id: str | None = None) -> tuple[Path, list[str]]:
     bundles = _list_bundles(evidence_id)
     if not bundles:
-        raise SystemExit("FAIL: no AEG bundles logged")
+        raise SystemExit("FAIL: no AEG bundles on disk")
     if STAGING.exists():
         shutil.rmtree(STAGING)
     STAGING.mkdir(parents=True)

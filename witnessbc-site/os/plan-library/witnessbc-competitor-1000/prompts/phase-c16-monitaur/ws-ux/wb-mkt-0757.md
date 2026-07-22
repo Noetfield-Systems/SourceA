@@ -23,7 +23,7 @@ Document who buys (Regulated ML teams) vs our ICP one sentence on `witnessbc-sit
 
 ## Implementation extraction
 
-`Monitaur · Buyer-visible UX` → what buyer sees at vendor → what we ship logged with receipt.
+`Monitaur · Buyer-visible UX` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

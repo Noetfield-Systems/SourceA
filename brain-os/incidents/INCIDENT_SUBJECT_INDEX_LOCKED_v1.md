@@ -21,7 +21,7 @@
 | **This file** | Subject/category view of the same ids |
 | **Superseded tombstones** | Registry § Superseded — do not cite |
 
-**List locally (agent):**
+**List on disk (agent):**
 
 ```bash
 cd /Users/sinakazemnezhad/Desktop/SourceA && ls -1 brain-os/incidents/SINA_*INCIDENT*.md brain-os/incidents/SINAAI_* brain-os/incidents/CURSOR_*INCIDENT*

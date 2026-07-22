@@ -24,10 +24,10 @@ def _wire_specs() -> list[tuple]:
         ("Deploy Railway FBE runner from cloud/Dockerfile.fbe-runner — capture public URL", "Remote GET /health returns ok=true", "fbe-cloud-deploy-receipt-v1.json", "wire"),
         ("Write FBE_CLOUD_WORKER_URL to ~/.sina/secrets.env — never commit", "hub_cloud_proxy_v1.cloud_worker_url non-empty", "cloud-url-set-v1.json", "wire"),
         ("Write FBE_INTERNAL_SECRET to secrets.env for cloud runner auth", "Proxy auth header validates on /health", "cloud-secret-set-v1.json", "wire"),
-        ("Point data/fbe_cloud_worker_config worker_url at live Railway URL logged", "Config worker_url matches secrets.env", "fbe-cloud-worker-config-sync-v1.json", "wire"),
+        ("Point data/fbe_cloud_worker_config worker_url at live Railway URL on disk", "Config worker_url matches secrets.env", "fbe-cloud-worker-config-sync-v1.json", "wire"),
         ("Hub GET /api/fbe/cloud-proxy/v1 shows configured=true", "HTTP 200 · configured · url host matches Railway", "hub-cloud-proxy-check-v1.json", "wire"),
         ("Validate mono_mirror_fallback only as documented fallback not primary", "Primary URL is Railway not mirror alone", "cloud-url-primary-receipt-v1.json", "wire"),
-        ("Document Fly deploy_status blocked_billing — Railway hobby until card", "fbe_cloud_worker_config fly.deploy_status logged", "fly-billing-blocker-note-v1.json", "wire"),
+        ("Document Fly deploy_status blocked_billing — Railway hobby until card", "fbe_cloud_worker_config fly.deploy_status on disk", "fly-billing-blocker-note-v1.json", "wire"),
         ("Run scripts/deploy_fbe_fly_free_v1.sh dry-run — record blocker not fake PASS", "Dry-run receipt honest RED if billing blocked", "fly-deploy-dry-run-v1.json", "wire"),
         ("Smoke POST cloud runner /health with internal secret", "Latency <5s · service=fbe-runner", "cloud-health-smoke-v1.json", "wire"),
         ("Sync fbe-federated-receipt live_snapshot.cloud_worker_url from secrets", "Federated receipt url matches secrets", "fbe-federated-receipt-v1.json", "wire"),
@@ -122,7 +122,7 @@ def _nf_specs() -> list[tuple]:
         0: ("Deploy noetfield-freemium-bay on cloud runner — POST /api/fbe/run-bay/v1", "HTTP 200 · bay_slug=noetfield-freemium-bay · remote", "fbe-bay-run-receipt-v1.json", "nf_factory"),
         1: ("Run noetfield-freemium-factory-v1 --validate-only on cloud not Mac", "validate-only PASS · execution_plane=cloud", "phase0-noetfield-freemium-factory-receipt-v1.json", "nf_factory"),
         2: ("Phase0 receipt cloud_stub=false bay_ok=true federated_ok=true", "All three flags true on dispatch receipt", "brain-phase0-dispatch-receipt-v1.json", "nf_factory"),
-        9: ("Compile order locked: Sina read → Noetfield compile → TrustField send", "founder-pivot compile_order logged surfaces", "founder-pivot-routing-receipt-v1.json", "nf_factory"),
+        9: ("Compile order locked: Sina read → Noetfield compile → TrustField send", "founder-pivot compile_order on disk surfaces", "founder-pivot-routing-receipt-v1.json", "nf_factory"),
         24: ("Publish NF freemium mock artifact URL for ATTRACT Phase 0", "Public or signed preview URL live", "nf-freemium-attract-url-v1.json", "market"),
         49: ("Gate C300-100: NF factory cloud_proof — ready for TF sandbox", "C300-051..100 cloud_proven count=50", "brain-cloud-practical-300-plan-v1.json", "nf_factory"),
     }
@@ -153,7 +153,7 @@ def _tf_specs() -> list[tuple]:
         "Receipt cross-ref NF attract URL → TF shadow invite",
         "Validate phase0-freemium-sandbox-reference-v1.json surfaces",
         "Gate C300-130: TF sandbox cloud_proof before loop scale",
-        "TF-001 brand routing in the repository — never merge with NF-RD",
+        "TF-001 brand routing on disk — never merge with NF-RD",
         "TrustField bay_slug mapped on brain work-order",
         "Cloud stub false on TF factory receipt",
         "OQG lint TF outbound copy on cloud batch",
@@ -192,7 +192,7 @@ def _loop_specs() -> list[tuple]:
         "Loop degraded heals when cloud URL wired — not form submit",
         "Cross-ref sa-1100 outbound to cloud job_id in coherence",
         "Auto Runtime graduation receipt loop-auto-graduation-v1.json",
-        "Cloudflare phase 2b contract wired locally",
+        "Cloudflare phase 2b contract wired on disk",
         "Mac SSOT loop tick — cloud worker executes",
         "Investigator commercial founder_action aligns C300",
         "Auto Runtime specialist rooms run cloud-safe observe only",
@@ -263,7 +263,7 @@ def _grad_specs() -> list[tuple]:
         ))
     rows[0] = ("Mark healthy-drain-orchestrator local factory path deprecated", "Orchestrator cloud branch only when URL set", "healthy-drain-orchestrator-v1.json", "graduate")
     rows[19] = ("OpenRouter-only on cloud worker — purge Mac Ollama from factory path", "No local LLM in federated receipt", "cloud-openrouter-wire-v1.json", "openrouter")
-    rows[49] = ("Gate C300-280: local_worker muscle fully deprecated logged", "All active WO local_worker_deprecated=true", "brain-outbound-work-order-active-v1.json", "graduate")
+    rows[49] = ("Gate C300-280: local_worker muscle fully deprecated on disk", "All active WO local_worker_deprecated=true", "brain-outbound-work-order-active-v1.json", "graduate")
     return rows
 
 

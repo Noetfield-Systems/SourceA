@@ -1,7 +1,7 @@
 # fs-vx-0204 — Fast-sell plan
 
 **Version:** 1 · **Tier:** T1 · **Phase:** LATER
-**Lane:** VIRLUX · **Wedge:** w11-case-study · Client case study logged
+**Lane:** VIRLUX · **Wedge:** w11-case-study · Client case study on disk
 **Action:** a14-metrics · Log W3 / NW economic signal
 **Comp anchor:** Windmill · Activepieces
 **Tier 1:** One factory recipe demo
@@ -10,7 +10,7 @@
 
 ## Task
 
-Fast-sell: VIRLUX · Client case study logged · Log W3 / NW economic signal. Ship smallest slice that moves a buyer toward **One factory recipe demo** with a path to **Team + usage tier**. Receipt logged before done.
+Fast-sell: VIRLUX · Client case study on disk · Log W3 / NW economic signal. Ship smallest slice that moves a buyer toward **One factory recipe demo** with a path to **Team + usage tier**. Receipt on disk before done.
 
 ## Verify
 

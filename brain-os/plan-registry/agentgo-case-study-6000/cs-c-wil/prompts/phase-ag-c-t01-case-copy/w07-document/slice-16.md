@@ -14,7 +14,7 @@ Wil L3 portfolio demo — YA5 mirror · AgentGo ≠ SourceA separation · ship g
 
 ## Task
 
-**Document competitor framing for** case study prose (challenge · shipped · verification).
+**Document competitor framing for** case study prose (challenge · shipped · proof chain).
 
 fair compare.
 

@@ -12,7 +12,7 @@ Intelligence 613 · Copilot governance upsell · Trust Brief
 
 ## Task
 
-Noetfield · Proof & receipts · Build · slice 2/10 — P0 — smallest shippable slice with receipt. Bounded path only. Receipt logged before done. Parent: Intelligence 613 · Copilot governance upsell · Trust Brief. Priority doc: `docs/NOETFIELD_INTELLIGENCE_613_PLAN_LOCKED_v1.md`.
+Noetfield · Proof & receipts · Build · slice 2/10 — P0 — smallest shippable slice with receipt. Bounded path only. Receipt on disk before done. Parent: Intelligence 613 · Copilot governance upsell · Trust Brief. Priority doc: `docs/NOETFIELD_INTELLIGENCE_613_PLAN_LOCKED_v1.md`.
 
 ## Verify
 

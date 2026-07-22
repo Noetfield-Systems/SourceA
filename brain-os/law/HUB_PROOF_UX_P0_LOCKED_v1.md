@@ -2,7 +2,7 @@
 
 **Saved:** 2026-06-16T05:49:57Z · **Retrofit:** doc-datetime-law batch retrofit
 **Version:** 1.0 · **Locked:** 2026-06-10  
-**Authority:** ASF order — ship controlled proof UX on Hub Home (no third-party analog)  
+**Authority:** ASF order — ship governed proof UX on Hub Home (no third-party analog)  
 **Implementer:** SinaaiDataBase workspace (Hub UI) · SourceA scripts (export CLI)  
 **execution_authority:** false
 
@@ -10,7 +10,7 @@
 
 ## 0. One sentence
 
-> **Wire disk-backed honest progress, one-sa event chain export, and founder-gated overnight verify on Hub Home — gates stay logged; UX stays plain English.**
+> **Wire disk-backed honest progress, one-sa event chain export, and founder-gated overnight verify on Hub Home — gates stay on disk; UX stays plain English.**
 
 ---
 

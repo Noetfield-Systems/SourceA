@@ -23,7 +23,7 @@ Validator: public copy contains no stale price; tier badge matches REGISTRY hone
 
 ## Implementation extraction
 
-`Delve · Pricing & packaging` → what buyer sees at vendor → what we ship logged with receipt.
+`Delve · Pricing & packaging` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

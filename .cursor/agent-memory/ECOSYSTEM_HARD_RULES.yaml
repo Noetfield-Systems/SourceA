@@ -15,7 +15,7 @@ hard_rules:
     rule: ALWAYS ask for next move, clarification, and suggested implementation before acting, except registry-first filing resolution is allowed after founder SAVE/LOCK/ASF filing intent; ask only on REGISTRY_NO_MATCH or REGISTRY_AMBIGUOUS.
     skill: skill-006-ask-before-implement
   - id: R-009
-    rule: If mandatory SourceA handoff file is not present locally, BLOCK — do not pseudo-ACK; ask founder to sync or paste.
+    rule: If mandatory SourceA handoff file is not on disk, BLOCK — do not pseudo-ACK; ask founder to sync or paste.
     incident: CURSOR_AGENT_CONTEXT_MEMORY_INCIDENT_LOCKED_v1.md
   - id: R-010
     rule: On rule conflict, run SKILL-007 before edits. Precedence — founder order > permission/ask-first > incidents > execution_authority false > workflow bundles > ship-first/plan.json.

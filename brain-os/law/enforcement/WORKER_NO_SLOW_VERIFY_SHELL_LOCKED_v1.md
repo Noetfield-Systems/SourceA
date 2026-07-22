@@ -101,7 +101,7 @@ bash scripts/validate-worker-anti-staleness-v1.sh
 
 1. Task validator(s) PASS  
 2. `WORKER_ROUND_REPORT` + `goal1_lane_broker.py worker-submit --stdin`  
-3. `receipts/sa-XXXX-receipt.json` logged  
+3. `receipts/sa-XXXX-receipt.json` on disk  
 4. **Canonical closeout:**
 
 ```bash

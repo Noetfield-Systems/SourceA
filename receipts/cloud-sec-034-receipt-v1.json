@@ -135,7 +135,7 @@
           "run_id": "forge-run-20260622T111948-sa-mkt-0034",
           "saved_at": "2026-06-22T11:19:48Z",
           "prompt": {
-            "raw": "Freemium cap or trial label visible before first run (Controlled agent orchestration motor \u2014 not MSB product)",
+            "raw": "Freemium cap or trial label visible before first run (Governed agent orchestration motor \u2014 not MSB product)",
             "intent": "SourceA competitor parity \u00b7 Trigger.dev \u00b7 ws-onboard",
             "constraints": [
               "cloud_only",

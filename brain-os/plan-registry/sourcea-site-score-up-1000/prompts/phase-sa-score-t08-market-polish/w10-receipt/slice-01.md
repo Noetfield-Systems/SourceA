@@ -1,4 +1,4 @@
-# sa-score-0191 — Receipt logged for lighthouse performance budget ≥90 mobile
+# sa-score-0191 — Receipt on disk for lighthouse performance budget ≥90 mobile
 
 **Saved at:** 2026-06-25T09:23:55Z
 **Version:** 1 · **Tier:** T0 · **Phase:** NEXT
@@ -16,7 +16,7 @@ Raise SourceA site score toward **95+/100** — proof before call · stranger se
 
 P0 — smallest shippable slice; live on sourcea.app
 
-**Deliverable:** Receipt logged for lighthouse performance budget ≥90 mobile
+**Deliverable:** Receipt on disk for lighthouse performance budget ≥90 mobile
 
 Bounded paths: `SourceA-landing/green-unified/` · `cloud/workers/sourcea-site-pulse-v1/` · `scripts/validate-sourcea-modern-stack-e2e-v1.sh`
 

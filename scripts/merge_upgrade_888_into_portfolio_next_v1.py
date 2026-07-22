@@ -98,7 +98,7 @@ Revenue Engine · Proof Pack · landing · factory-runtime-spike
 **{title}** — {up['category_name']} ({up['category']}).
 
 {plan['theme_label']} · {plan['workstream_label']} · slice {plan['slice']}/10.
-Bounded path only. Receipt logged before done.
+Bounded path only. Receipt on disk before done.
 Parent: Revenue Engine · Proof Pack · landing · factory-runtime-spike.
 Priority doc: `brain-os/plan-registry/SOURCEA-PRIORITY.md`.
 

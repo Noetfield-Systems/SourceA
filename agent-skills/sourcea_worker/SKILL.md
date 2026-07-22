@@ -24,7 +24,7 @@ disable-model-invocation: true
 
 **Law:** Cursor AUTO-RUN / Hub batch buttons = **STALE**. Execution = **RUN INBOX** only.
 
-**REGISTRY_DRAIN:** `REGISTRY_DRAIN_RAIL_LOCKED_v1.md` · `REGISTRY_DRAIN_PROCESS_LOCKED_v1.md` — one sa/turn · receipt logged only.
+**REGISTRY_DRAIN:** `REGISTRY_DRAIN_RAIL_LOCKED_v1.md` · `REGISTRY_DRAIN_PROCESS_LOCKED_v1.md` — one sa/turn · receipt on disk only.
 
 ## Founder close-line (INCIDENT-028 — mandatory)
 
@@ -89,7 +89,7 @@ Brain polls `brain-poll` · you **submit** · broker advances queue.
 
 | Counts | Does not count |
 |--------|----------------|
-| `receipts/sa-XXXX-receipt.json` logged | YAML batch stamp · chat claim · REGISTRY without receipt |
+| `receipts/sa-XXXX-receipt.json` on disk | YAML batch stamp · chat claim · REGISTRY without receipt |
 | Broker CHECK→ACT→VERIFY chain | Hub % without receipt |
 | `enforce-registry-hygiene-v1.sh` PASS | fake done in REGISTRY |
 

@@ -684,7 +684,7 @@ def deliver_to_worker_inbox(
         "clipboard_paste": False,
         "reason": "worker_inbox_delivery",
         "message": (
-            "Founder says RUN INBOX — prompt logged · no Hub · no app · read inbox JSON",
+            "Founder says RUN INBOX — prompt on disk · no Hub · no app · read inbox JSON",
             "(editor tab NOT opened — that was not loop start)"
         ),
         "inbox_json": str(INBOX_JSON),
@@ -943,10 +943,10 @@ def inject_worker_prompt(
     result["delivery"] = "inbox+worker_chat_resume" if inj.get("ok") else "inbox_only"
     result["conversation_id"] = inj.get("conversation_id")
     result["message"] = (
-        f"Worker chat {inj.get('conversation_id')} focused via agent --resume + INBOX logged. "
+        f"Worker chat {inj.get('conversation_id')} focused via agent --resume + INBOX on disk. "
         "Batch run_turn executes in Worker chat only — never Brain."
         if inj.get("ok")
-        else f"INBOX in the repository — worker chat focus failed: {inj.get('error') or inj.get('stderr')}"
+        else f"INBOX on disk — worker chat focus failed: {inj.get('error') or inj.get('stderr')}"
     )
     return result
 

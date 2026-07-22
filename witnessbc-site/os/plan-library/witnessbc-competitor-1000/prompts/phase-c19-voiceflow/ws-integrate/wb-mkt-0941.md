@@ -23,7 +23,7 @@ List Voiceflow integrations/APIs from https://www.voiceflow.com or docs — pick
 
 ## Implementation extraction
 
-`Voiceflow · Integrations & API` → what buyer sees at vendor → what we ship logged with receipt.
+`Voiceflow · Integrations & API` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

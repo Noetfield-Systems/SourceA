@@ -10,7 +10,7 @@
 
 ## Task
 
-Fast-sell: VIRLUX · Repeatable playbook + template · Save reusable template. Ship smallest slice that moves a buyer toward **One factory recipe demo** with a path to **Team + usage tier**. Receipt logged before done.
+Fast-sell: VIRLUX · Repeatable playbook + template · Save reusable template. Ship smallest slice that moves a buyer toward **One factory recipe demo** with a path to **Team + usage tier**. Receipt on disk before done.
 
 ## Verify
 

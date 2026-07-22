@@ -36,7 +36,7 @@ T30 (remember everything)
 
 ## 2. Test readiness — honest gate (what “ready” means)
 
-### 1A — READY locally (materials for test day)
+### 1A — READY on disk (materials for test day)
 
 | Artifact | Path | Status |
 |----------|------|--------|
@@ -165,7 +165,7 @@ Brain assigns · monitors · never mixes goals in one worker chat.
 
 ```text
 TRIGGER:  validate-demo-write-path PASS
-       +  demo film logged
+       +  demo film on disk
        +  NF W3 receipt ($1+ or LOI)
 
 DAY 0   Brain locks transfer template JSON (outreach · social · spine hooks)

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """SourceA agent orient — session brief + receipt cascade + role routing + node mesh.
 
-Like Wil `npm run agent:orient` — read-only orientation bundle logged.
+Like Wil `npm run agent:orient` — read-only orientation bundle on disk.
 
 Usage:
   python3 scripts/agent_orient_v1.py --json

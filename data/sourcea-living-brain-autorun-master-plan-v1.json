@@ -4,8 +4,8 @@
   "saved_at": "2026-07-02T21:30:00Z",
   "one_law": "One living brain — every plane wired through bridges; no island runs without truth_log or repo receipt; Worker implements; Brain routes; cloud executes motors; Mac observes and dispatches.",
   "authority": {
-    "law": "docs/CONTROLLED_AUTORUN_LAWS_v3.md",
-    "skill": ".cursor/skills/controlled-autorun/SKILL.md",
+    "law": "docs/GOVERNED_AUTORUN_LAWS_v3.md",
+    "skill": ".cursor/skills/governed-autorun/SKILL.md",
     "runtime": "data/cloud-auto-runtime-v1.json",
     "control_plane": "data/cloud-workers-control-plane-v1.json",
     "node_graph": "data/sourcea_pipeline_node_graph_v1.json",
@@ -195,7 +195,7 @@
       "id": "P8_parallel_tier1",
       "label": "Multi-lane parallel sandboxes",
       "owner_chat": "Founder trigger required",
-      "law": "CONTROLLED_AUTORUN_LAWS_v3.md §Parallel orchestration Tier 1+",
+      "law": "GOVERNED_AUTORUN_LAWS_v3.md §Parallel orchestration Tier 1+",
       "status": "blocked_founder_gated",
       "gaps": ["Lane registry JSON", "Concurrency keys", "CF routing per lane"]
     },
@@ -267,7 +267,7 @@
         "title": "Kaizen queue motor — one machine_safe item per Forge Run cycle",
         "paths": ["scripts/autorun_kaizen_queue_v1.py", "data/autorun-kaizen-backlog-v1.json"],
         "wire_to": ["autorun_pending_v1.py", "cloud_auto_runtime_v1.py"],
-        "verify": "scripts/validate-controlled-autorun-skill-v1.sh",
+        "verify": "scripts/validate-governed-autorun-skill-v1.sh",
         "receipt": "receipts/cloud/w-lba-005-kaizen-v1.json"
       },
       {
@@ -324,11 +324,11 @@
   "brain_coherence_rules": [
     "Every plane writes to ≥1 bridge before claiming COMPLETE.",
     "Worker inbox receives dispatch_ready from loop specialist — not ad hoc chat paste.",
-    "Brain reads pending-latest + nerve receipt + last 3 cycle receipts every session (controlled-autorun standing duties).",
+    "Brain reads pending-latest + nerve receipt + last 3 cycle receipts every session (governed-autorun standing duties).",
     "No plane reads another plane's disk directly — truth_log or shared sink only (L10).",
     "Mac never drains motor; dispatch upgrades blocked paths to CF tick.",
     "Self-improvement items enter Kaizen backlog with value_class; >30% none spend → THROTTLED_ROI.",
-    "Public Brain answers cite brain_registry assets — signal-factory, controlled-autorun, locked-definitions."
+    "Public Brain answers cite brain_registry assets — signal-factory, governed-autorun, locked-definitions."
   ],
   "session_standing_duties": {
     "brain": [

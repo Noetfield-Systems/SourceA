@@ -21,7 +21,7 @@ FOOTER_TF = """[Full name] · TrustField Technologies
 hello@trustfield.ca · [Phone] · [Canadian address for CASL]
 Reply **stop** — no further messages.
 
-*Powered by SourceA — advisory only · no custody · no payment initiation.*"""
+*Powered by SourceA governed execution — advisory only · no custody · no payment initiation.*"""
 
 FOOTER_NF = """[Full name] · Noetfield
 hello@noetfield.com · [Phone] · [Canadian address for CASL]
@@ -46,7 +46,7 @@ ACCOUNTS = [
 
 [True relationship basis only — e.g. public OSC registration, Polymesh listing, industry event.]
 
-Saw Ocree's live tokenized CRE platform and the CSA Project Tokenization workshop (June 11, Toronto). Before Collaboratory live tests, EMDs are being asked a harder question than "can we tokenize?" — **can we prove every issuance and investor-facing ops step was controlled?**
+Saw Ocree's live tokenized CRE platform and the CSA Project Tokenization workshop (June 11, Toronto). Before Collaboratory live tests, EMDs are being asked a harder question than "can we tokenize?" — **can we prove every issuance and investor-facing ops step was governed?**
 
 **TrustField** delivers partner-grade attestation for regulated commercial flow: Trust Brief, execution receipt chain, replay, tamper-evidence — shadow first on staging.
 
@@ -112,7 +112,7 @@ CADD going live puts Tetra at the centre of Canada's regulated CAD rail story �
 
 Partners and supervisors will ask: **where is the evidence chain for issuance, custody, and MSB-adjacent ops** — not a deck after the fact.
 
-**TrustField** contracts the commercial evidence lane: RPAA/FINTRAC readiness artifacts, Trust Brief, partner receipt packs on controlled infrastructure. We verified FINTRAC MSB context before writing — reply stop anytime.
+**TrustField** contracts the commercial evidence lane: RPAA/FINTRAC readiness artifacts, Trust Brief, partner receipt packs on governed infrastructure. We verified FINTRAC MSB context before writing — reply stop anytime.
 
 Live demo < 5 min: policy → signed receipt → replay → tamper-FAIL.
 
@@ -176,11 +176,11 @@ Treating Atlas One and Parvis as one pursuit given the May 2026 LOI — digital 
 
 Investors and exempt-market reviewers ask: prove ops governance — issuance steps, disclosures, agent-assisted workflows — with replay, not chat logs.
 
-**TrustField** delivers Trust Brief + partner receipt packs (T-P6) on controlled infrastructure. Shadow first · no custody · no payment initiation.
+**TrustField** delivers Trust Brief + partner receipt packs (T-P6) on governed infrastructure. Shadow first · no custody · no payment initiation.
 
 **Pilot:** one EMD workflow · 30–60 days · one metric · CAD $3K refunded if miss.
 
-Five-minute live verification?
+Five-minute live proof chain?
 
 [calendar link]""",
         "attach": "T-P6 Trust Brief · EMD attestation outline",
@@ -386,7 +386,7 @@ CAD $3K pilot · 30–60 days · refund if metric missed.
 
 [True relationship basis only — ideally 2+ weeks after any TrustField attestation thread.]
 
-Separate from mortgage tokenization rails: when **AI broker ops** touch production, incident review asks *was this action controlled before execution?*
+Separate from mortgage tokenization rails: when **AI broker ops** touch production, incident review asks *was this action governed before execution?*
 
 **Noetfield NF-RD:** policy at dispatch → signed receipt → replay → tamper-FAIL. Shadow pilot · one metric · CAD $2K refund if miss.
 

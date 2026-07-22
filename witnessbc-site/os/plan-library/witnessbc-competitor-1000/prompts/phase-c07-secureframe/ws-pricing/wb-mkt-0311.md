@@ -23,7 +23,7 @@ Capture Secureframe public pricing evidence: Custom; typically $10k+ (market) �
 
 ## Implementation extraction
 
-`Secureframe · Pricing & packaging` → what buyer sees at vendor → what we ship logged with receipt.
+`Secureframe · Pricing & packaging` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

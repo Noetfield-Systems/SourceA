@@ -14,7 +14,7 @@ Dual desktop deploy — agentrun-app :5180 + SA4 AgentGo :8080 · landing parity
 
 ## Task
 
-**Add honest metrics block for** case study prose (challenge · shipped · verification).
+**Add honest metrics block for** case study prose (challenge · shipped · proof chain).
 
 1259 pages · June 2026 · localhost caveat.
 

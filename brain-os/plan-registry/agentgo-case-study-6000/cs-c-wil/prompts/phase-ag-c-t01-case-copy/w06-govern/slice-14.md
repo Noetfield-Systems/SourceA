@@ -14,7 +14,7 @@ Wil L3 portfolio demo — YA5 mirror · AgentGo ≠ SourceA separation · ship g
 
 ## Task
 
-**FORM pick if strategic for** case study prose (challenge · shipped · verification).
+**FORM pick if strategic for** case study prose (challenge · shipped · proof chain).
 
 80 OPEN PICKs.
 

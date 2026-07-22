@@ -14,7 +14,7 @@ Wil L3 portfolio demo — YA5 mirror · AgentGo ≠ SourceA separation · ship g
 
 ## Task
 
-**Archive prove retro for** case study prose (challenge · shipped · verification).
+**Archive prove retro for** case study prose (challenge · shipped · proof chain).
 
 knowledge-library path.
 

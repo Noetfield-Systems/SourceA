@@ -14,7 +14,7 @@
 ## How to use the live form (Founder)
 
 1. Open Canvas sidebar → view **Live form — founder decisions**.
-2. For each card: read **Why this matters** + **In the repository today** + **If you pick X — what happens**.
+2. For each card: read **Why this matters** + **On disk today** + **If you pick X — what happens**.
 3. Set **Your assessment** → `I have a question` if anything unclear — type in comment box or ask in chat.
 4. Only tick **Confirmed** when you understand the consequence line.
 5. **Confirmation preview** at top lists only confirmed rows — copy that ASF block into chat. Maintainer executes to disk and replies with result table.
@@ -43,7 +43,7 @@
 
 | Issue | Action | Proof |
 |-------|--------|-------|
-| `~/.sina/auto-run-disabled-v1.flag` **missing** | Restored per `FOUNDER_AGENTIC` law §1 | Flag logged · `validate-founder-agentic-commercial-policy-v1` PASS |
+| `~/.sina/auto-run-disabled-v1.flag` **missing** | Restored per `FOUNDER_AGENTIC` law §1 | Flag on disk · `validate-founder-agentic-commercial-policy-v1` PASS |
 | `factory-now` kill_flag false | Rebuilt after flag · `kill_flag: true` | `factory_control_v1.py now --rebuild` |
 
 **Factory line:** `Valid YES 607 · brain 607 · dual_proof True · mode SINGLE_SA · queue sa-0791 · kill_flag true`
@@ -56,7 +56,7 @@
 |------|-----|--------|------|
 | 1.01 FREEZE / flag | B | **DONE (M)** | Flag restored · kill_flag true · hub still shows FREEZE copy |
 | 1.02 P0 north star | **F** | **DONE** | `GOAL_HIERARCHY` §Hub founder P0 · receipt `SOURCEA_PHASE2_INTEGRITY_PICK_RECEIPT_2026-06-11_LOCKED_v1.md` |
-| 1.03 Honest progress | M | **DONE** | Valid YES 607 · PROGRAM_PROGRESS logged |
+| 1.03 Honest progress | M | **DONE** | Valid YES 607 · PROGRAM_PROGRESS on disk |
 | 1.04 ACTIVE_NOW sync | M | **PARTIAL** | ACTIVE_NOW footer stale vs factory-now — ASF-only edit field |
 | 1.05 Resume policy | **F** | **DONE** | `ACTIVE_NOW.md` — one sa/turn Brain route (pick B) |
 | 1.06 Disk truth matrix | M | **DONE** | Brief: RT ok · LAG: ACTIVE_NOW · GAP: ecosystem-safety fail |
@@ -128,7 +128,7 @@ Reply with: `ASF: FIVE-STEP — PICK: [id]=KEY` + Effect line (see Batch 2 §10)
 | Q-CRITIC YES | EXTERNAL_CRITIC report-only |
 | Q-NEXT-WORK 10.10 D | Pause Phases 3–10 until RT LIVE · then playbook |
 | Q-GRADE **C** | Spine green · hub not RT yet |
-| Q-DRIFT **90** | Drift floor locked logged |
+| Q-DRIFT **90** | Drift floor locked on disk |
 
 **Maintainer next:** RT LIVE gate proof · wire FR-003 paste paths · hold Phase 3 until gate PASS.
 
@@ -170,7 +170,7 @@ Reply with: `ASF: FIVE-STEP — PICK: [id]=KEY` + Effect line (see Batch 2 §10)
 | 3.05 Mandatory read paths | M | **DONE** | PASS |
 | 3.06 Cursor rules vs law | M | **DONE** | `validate-cursor-rules-scoping-v1` PASS |
 | 3.09 Archive ≠ law | M | **DONE** | PASS |
-| 3.07 GOV_UNIFY batch | **F** | **DONE** | PICK **NO** 2026-06-12 · index-only · receipt logged |
+| 3.07 GOV_UNIFY batch | **F** | **DONE** | PICK **NO** 2026-06-12 · index-only · receipt on disk |
 | 3.10 Phase 3 seal | **F** | **DEFER** | After maintainer index rows + ASF seal order |
 
 **Governance modes (pulse):** anti-staleness 31/31 · G7 9/9 · propagation PASS · strict-hub timeout → 300s

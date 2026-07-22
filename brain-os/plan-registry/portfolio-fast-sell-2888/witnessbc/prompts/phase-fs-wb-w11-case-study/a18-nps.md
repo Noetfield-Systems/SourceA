@@ -1,7 +1,7 @@
 # fs-wb-0208 — Fast-sell plan
 
 **Version:** 1 · **Tier:** T1 · **Phase:** LATER
-**Lane:** WitnessBC · **Wedge:** w11-case-study · Client case study logged
+**Lane:** WitnessBC · **Wedge:** w11-case-study · Client case study on disk
 **Action:** a18-nps · Ask for referral
 **Comp anchor:** LowerPlane · Delve
 **Tier 1:** Public proof page pilot
@@ -10,7 +10,7 @@
 
 ## Task
 
-Fast-sell: WitnessBC · Client case study logged · Ask for referral. Ship smallest slice that moves a buyer toward **Public proof page pilot** with a path to **Civic annual + audit export**. Receipt logged before done.
+Fast-sell: WitnessBC · Client case study on disk · Ask for referral. Ship smallest slice that moves a buyer toward **Public proof page pilot** with a path to **Civic annual + audit export**. Receipt on disk before done.
 
 ## Verify
 

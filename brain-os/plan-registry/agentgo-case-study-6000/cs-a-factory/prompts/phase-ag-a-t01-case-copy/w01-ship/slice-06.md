@@ -14,12 +14,12 @@ AgentGo GEO factory scale — 1259-page surface · trackers · research · compa
 
 ## Task
 
-**Pick 10-page public demo subset from** case study prose (challenge · shipped · verification).
+**Pick 10-page public demo subset from** case study prose (challenge · shipped · proof chain).
 
 Home + 3 trackers + 3 compare + 3 research — honest scope.
 
 **Angle:** marketing leader who needs category surface at factory speed
-**Pure law:** Pure story: controlled pipeline → 1259-page GEO surface. Not a PureFlow trades clone.
+**Pure law:** Pure story: governed pipeline → 1259-page GEO surface. Not a PureFlow trades clone.
 **Anti-drift:** Never claim live SaaS billing — SA4 is marketing surface proof.
 **Target path:** `SourceA-landing/green-unified/case-studies/agentgo.html`
 **Success metric:** buyer comprehension in one screen

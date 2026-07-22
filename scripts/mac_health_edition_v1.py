@@ -12,7 +12,7 @@ automatically at runtime with no config file required:
 - "personal": this maintainer's own machine. Opts in automatically whenever
   SINA_SOURCEA is set (every launchd job and script in this repo already
   sets it) or MAC_HEALTH_EDITION=personal is set explicitly. Data stays at
-  ~/.sina so nothing already present moves or breaks.
+  ~/.sina so nothing already on disk moves or breaks.
 
 Modules that are personal-only (cloud glance, agent mandates, founder
 session gate, W2 plan probes, etc.) should check IS_PERSONAL before wiring

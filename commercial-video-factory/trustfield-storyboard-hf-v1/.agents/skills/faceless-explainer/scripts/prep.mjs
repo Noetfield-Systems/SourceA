@@ -59,7 +59,7 @@ if (!rulesDirArg) die("Missing required --rules-dir");
 const rulesDir = resolve(rulesDirArg);
 // `--capture` is the v3 flag (hyperframes capture). `--research` kept as a
 // deprecated alias to make in-flight projects upgrade cleanly. Either one
-// resolves to the same in-repo root that holds the page-load artifacts that
+// resolves to the same on-disk root that holds the page-load artifacts that
 // downstream phases reference.
 const captureDir = resolve(flag("capture", flag("research", "./capture")));
 const designSystemDir = resolve(flag("design-system", "./design-system"));
@@ -132,7 +132,7 @@ for (const s of scenes) {
 
 // anomalies collected throughout the rest of the script (non-fatal mismatches:
 // chunks missing → fallback, audio duration drift, voice file dropped, asset
-// candidate not present locally, BGM still rendering). Declared up-front so Step 4b
+// candidate not on disk, BGM still rendering). Declared up-front so Step 4b
 // can append to it.
 const anomalies = [];
 
@@ -206,7 +206,7 @@ for (const s of scenes) {
       audioDurSource = "audio_meta";
     } else if (audioScene) {
       // audio_meta lists the scene but voiceDuration is missing/0 (e.g. an
-      // interrupted or partially-written audio.mjs run). The TTS wav present is
+      // interrupted or partially-written audio.mjs run). The TTS wav on disk is
       // still the real truth — ffprobe it before falling back to the plan
       // estimate, so a stale 0 doesn't inflate the scene into dead air (visual
       // slot far longer than the voiceover → captions vanish mid-scene).
@@ -273,11 +273,11 @@ for (const s of scenes) {
 
   // disk checks (drop missing voice/words paths to empty + record anomaly)
   if (s.voicePath && !existsSync(join(hyperframesDir, s.voicePath))) {
-    anomalies.push(`${s.sceneId}: voicePath "${s.voicePath}" not present locally — dropping to ""`);
+    anomalies.push(`${s.sceneId}: voicePath "${s.voicePath}" not on disk — dropping to ""`);
     s.voicePath = "";
   }
   if (s.wordsPath && !existsSync(join(hyperframesDir, s.wordsPath))) {
-    anomalies.push(`${s.sceneId}: wordsPath "${s.wordsPath}" not present locally — dropping to ""`);
+    anomalies.push(`${s.sceneId}: wordsPath "${s.wordsPath}" not on disk — dropping to ""`);
     s.wordsPath = "";
   }
   // Check assetCandidates[] — worker may reference any of them as
@@ -526,7 +526,7 @@ if (audioMeta?.bgm_path) {
 
 // Single deterministic gate for the readability-A keep-out + caption band:
 // same condition captions.mjs group uses to emit-vs-skip (≥1 scene has a usable
-// in-repo wordsPath). When true: build-captions(-html) emit captions, assemble
+// on-disk wordsPath). When true: build-captions(-html) emit captions, assemble
 // mounts track-12, AND every scene worker receives `Captions: enabled` so it
 // keeps foreground content in the upper ~83% and reserves the bottom ~17% band.
 // When false: no captions and scene workers use full-canvas layouts.

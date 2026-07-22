@@ -19,10 +19,10 @@ AgentGo GEO factory scale — 1259-page surface · trackers · research · compa
 GEO · factory scale.
 
 **Angle:** marketing leader who needs category surface at factory speed
-**Pure law:** Pure story: controlled pipeline → 1259-page GEO surface. Not a PureFlow trades clone.
+**Pure law:** Pure story: governed pipeline → 1259-page GEO surface. Not a PureFlow trades clone.
 **Anti-drift:** Never claim live SaaS billing — SA4 is marketing surface proof.
 **Target path:** `scripts/sourcea_revenue_engine_crm_v1.py`
-**Success metric:** outreach_sent logged
+**Success metric:** outreach_sent on disk
 **Receipt:** glossary before `status: done`.
 **Phase:** MOONSHOT · **Tier:** T2 · **Workstream:** Document
 

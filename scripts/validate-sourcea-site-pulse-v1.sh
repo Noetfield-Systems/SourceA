@@ -72,7 +72,7 @@ for f in \
   SourceA-landing/green-unified/data/sourcea-site-pulse-config-v1.json; do
   test -f "$ROOT/$f" || { echo "FAIL: missing disk $f"; exit 1; }
 done
-echo "OK pulse dashboard files logged"
+echo "OK pulse dashboard files on disk"
 
 python3 - <<PY
 import json, time

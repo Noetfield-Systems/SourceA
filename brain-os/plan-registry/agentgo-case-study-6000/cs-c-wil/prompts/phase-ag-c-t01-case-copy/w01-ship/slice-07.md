@@ -14,7 +14,7 @@ Wil L3 portfolio demo — YA5 mirror · AgentGo ≠ SourceA separation · ship g
 
 ## Task
 
-**Sync sites/ mirror if required for** case study prose (challenge · shipped · verification).
+**Sync sites/ mirror if required for** case study prose (challenge · shipped · proof chain).
 
 SourceA-landing canonical first.
 

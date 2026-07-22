@@ -14,7 +14,7 @@ Wil L3 portfolio demo — YA5 mirror · AgentGo ≠ SourceA separation · ship g
 
 ## Task
 
-**Audit NOW rows 1–30 concrete for** case study prose (challenge · shipped · verification).
+**Audit NOW rows 1–30 concrete for** case study prose (challenge · shipped · proof chain).
 
 No generic slice filler.
 

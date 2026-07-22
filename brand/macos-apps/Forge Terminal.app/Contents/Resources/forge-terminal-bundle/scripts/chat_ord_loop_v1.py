@@ -246,7 +246,7 @@ def _classify_line(line: str) -> str:
         return "INSTRUCTION"
     if re.search(r"\b(probably|likely|assume|might|may|if .+ then)\b", low):
         return "ASSUMPTION"
-    if re.search(r"\b(pass|fail|wired|verified|complete|done|ready|fixed|exists in the repository)\b", low):
+    if re.search(r"\b(pass|fail|wired|verified|complete|done|ready|fixed|exists on disk)\b", low):
         return "CLAIM"
     if re.search(r"\b(is |are |was |has |have |will |can )\b", low) and not re.search(r"\?", low):
         return "FACT"
@@ -434,7 +434,7 @@ def _stage_redflags(*, draft: str, issues: list[str], tags: list[str], stats: di
     if any("DISK" in t for t in tags):
         flags.append("Disk mismatch risk — read receipts before acting")
     if not flags:
-        flags.append("Low flag count — still verify any execution claim logged")
+        flags.append("Low flag count — still verify any execution claim on disk")
 
     text = "\n".join(["Red flags", "", *(f"· {f}" for f in flags)])
     return {"ok": True, "text": text, "method": "rules", "flags": flags}
@@ -475,7 +475,7 @@ def _stage_report(
 
     issue_lines = [f"· {i}" for i in issues[:6]]
     if not issue_lines and st.get("unverified", 0) > 0:
-        issue_lines = [f"· {st['unverified']} checkable claim(s) unverified logged"]
+        issue_lines = [f"· {st['unverified']} checkable claim(s) unverified on disk"]
     if not issue_lines:
         issue_lines = ["· none from rules scan"]
 

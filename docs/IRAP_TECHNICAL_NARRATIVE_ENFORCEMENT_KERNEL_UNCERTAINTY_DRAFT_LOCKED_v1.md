@@ -23,7 +23,7 @@
 
 **Proposed R&D:** Develop and validate a **runtime enforcement kernel** that: (1) gates every agent write through a single commit path; (2) emits signed receipts per action; (3) hard-fails on policy violation or receipt tampering; (4) integrates with existing agent development environments (e.g. Cursor-class IDEs) without replacing the LLM.
 
-**Commercialization:** License enforcement proof to regulated commercial pilots (Canadian fintech/crypto evidence chain) and developer SKU (controlled app factory). First revenue target: paid shadow pilots CAD $3–7.5K.
+**Commercialization:** License enforcement proof to regulated commercial pilots (Canadian fintech/crypto evidence chain) and developer SKU (governed app factory). First revenue target: paid shadow pilots CAD $3–7.5K.
 
 **Canada benefit:** Jobs in technical R&D in [province]; exportable governance IP; supports Canadian regulated financial sector readiness (CSA tokenization, FINTRAC evidence expectations, Bill C-15 stablecoin readiness).
 
@@ -62,7 +62,7 @@
 |----|------------|-------------|-------------------|---------------------|
 | H1 | A single write entrypoint can enforce 100% of demo-scope agent commits | Route all demo writes through `commit_intent_v1.py` | Zero bypass paths in validator scan | **Partial PASS** — `validate-demo-write-path-v1.sh` |
 | H2 | Policy evaluation can run pre-commit without >500ms p95 overhead | Benchmark gate latency under load | p95 < 500ms on reference hardware | **Open** — not benchmarked |
-| H3 | Receipt checksum chain detects tampering post-hoc | Adversarial edit + `validate-demo-enforcement-v1.sh --tamper-test` | HARD FAIL on tamper | **PASS** — tamper detected logged |
+| H3 | Receipt checksum chain detects tampering post-hoc | Adversarial edit + `validate-demo-enforcement-v1.sh --tamper-test` | HARD FAIL on tamper | **PASS** — tamper detected on disk |
 | H4 | Eval gate can block factory dispatch when live model eval fails | Integrate eval-1b packet with dispatch gate | `dispatch_ready: false` when eval fails honestly | **Open** — `eval_packet_v1b_report.json` absent |
 | H5 | Evidence export format is usable by compliance reviewer without founder narration | Blind review by external reviewer | Reviewer reproduces BLOCK/ALLOW from JSON alone | **Open** — needs external reviewer |
 
@@ -97,7 +97,7 @@ Agent intent (JSON)
 - `scripts/validate-demo-write-path-v1.sh` — W2 single write path ✅ PASS
 - `scripts/validate-enforcement-kernel-v1.sh` — K1 tamper-on-read ✅ PASS
 - `scripts/demo-enforcement-5min-v1.sh` — investor/demo runner
-- `~/.sina/demo-enforcement/receipts/` — sample receipts logged
+- `~/.sina/demo-enforcement/receipts/` — sample receipts on disk
 - `brain-os/law/enforcement/ENFORCEMENT_6MO_INVESTOR_WIN_LOCKED_v1.md` — project scope law
 
 ### 4.2 Experiments (phased)
@@ -170,7 +170,7 @@ Agent intent (JSON)
 ### 8.1 Market
 
 - **Primary (2026–2027):** Canadian regulated fintech/crypto — evidence chain for FINTRAC-adjacent and CSA tokenization scrutiny  
-- **Secondary:** Developer teams running Cursor-class agents in production — controlled execution SKU (FORGE)
+- **Secondary:** Developer teams running Cursor-class agents in production — governed execution SKU (FORGE)
 
 ### 8.2 Go-to-market
 

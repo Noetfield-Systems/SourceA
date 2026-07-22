@@ -14,7 +14,7 @@ Wil L3 portfolio demo — YA5 mirror · AgentGo ≠ SourceA separation · ship g
 
 ## Task
 
-**Document README for** case study prose (challenge · shipped · verification).
+**Document README for** case study prose (challenge · shipped · proof chain).
 
 Pack README_LOCKED.
 

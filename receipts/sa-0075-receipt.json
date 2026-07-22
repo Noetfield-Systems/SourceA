@@ -6,7 +6,7 @@
   "critical_bugs": 0,
   "engine": "WORKER",
   "source": "goal1_lane_broker",
-  "evidence": "sa-0075 VERIFY PASS \u2014 audit_backend_e2e + spine-bridge; receipt logged; critical 0",
+  "evidence": "sa-0075 VERIFY PASS \u2014 audit_backend_e2e + spine-bridge; receipt on disk; critical 0",
   "at": "2026-06-10T00:27:59Z",
   "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
 }

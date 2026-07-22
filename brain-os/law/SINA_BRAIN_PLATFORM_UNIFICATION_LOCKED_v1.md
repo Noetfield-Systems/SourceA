@@ -11,7 +11,7 @@
 
 ## 0. What you said — unified (not fragmented)
 
-| Your word | Unified meaning logged |
+| Your word | Unified meaning on disk |
 |-----------|-------------------------|
 | **LOVABLE · no-code apps** | **Forge** = Cursor × Lovable hybrid at `~/Desktop/forge` — describe → app → deploy **with receipts** |
 | **Voice no-code app** | **FORGE-VOICE** SKU — Vapi Composer-class · integrate not fork |
@@ -59,7 +59,7 @@
 
 | SKU | Like whom | We build | We integrate | When |
 |-----|-----------|----------|--------------|------|
-| **FORGE** | **Lovable** ($6.6B) | Yes — repo logged | GitHub · Vercel · Stripe | Launch post-W3 or parallel |
+| **FORGE** | **Lovable** ($6.6B) | Yes — repo on disk | GitHub · Vercel · Stripe | Launch post-W3 or parallel |
 | **FORGE-VOICE** | **Vapi** Composer | Spec + receipt layer | Vapi/Telnyx runtime | Post-W3 |
 | **AF-SOCIAL** | **Sydium** · SmartSocial | Agent queues on motor | Buffer API pattern · n8n | **Week 1 LinkedIn** |
 | **FF-MARKET** | **Presenc.ai** | Tracker spec | Licensed Crunchbase/Dealroom | Post-W3 |
@@ -70,7 +70,7 @@
 
 ---
 
-## 3. Competition learned (all bets — full YAML logged)
+## 3. Competition learned (all bets — full YAML on disk)
 
 ### No-code (Forge)
 
@@ -210,7 +210,7 @@ detect → classify → remediate → harden → verify → record
 
 | Risk | Unification |
 |------|-------------|
-| Lovewell vs **Lovable** vs Forge | **Forge** = Lovable-class · logged `~/Desktop/forge` |
+| Lovewell vs **Lovable** vs Forge | **Forge** = Lovable-class · on disk `~/Desktop/forge` |
 | Presenc vs FounderField vs Signal Radar | **FF-MARKET** one SKU post-W3 |
 | Social = Buffer vs AgentField vs manual | **AF-SOCIAL** only · Week 1 LinkedIn |
 | Voice = founder dials vs agent | Law: **founder never dials** · Voice AI on slots |

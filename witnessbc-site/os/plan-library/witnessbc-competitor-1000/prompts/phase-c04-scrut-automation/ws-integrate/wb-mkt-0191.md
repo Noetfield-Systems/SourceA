@@ -23,7 +23,7 @@ List Scrut Automation integrations/APIs from https://scrut.io or docs — pick o
 
 ## Implementation extraction
 
-`Scrut Automation · Integrations & API` → what buyer sees at vendor → what we ship logged with receipt.
+`Scrut Automation · Integrations & API` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

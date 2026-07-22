@@ -23,7 +23,7 @@ Rate-limit + retry policy copied from Vanta operating model (Connect stack; cont
 
 ## Implementation extraction
 
-`Vanta · Integrations & API` → what buyer sees at vendor → what we ship logged with receipt.
+`Vanta · Integrations & API` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

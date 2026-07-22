@@ -13,7 +13,7 @@
   "human_smooth": true,
   "proof_density": true,
   "cinematic_finish": true,
-  "title": "SourceA — Controlled Agentic Automation",
+  "title": "SourceA — Governed Agentic Automation",
   "runtime_target_seconds": 32,
   "polish": {
     "edge_voice": "en-US-AndrewMultilingualNeural",
@@ -26,8 +26,8 @@
   "brand": {
     "name": "SourceA",
     "domain": "sourcea-landing.vercel.app",
-    "card_footer": "SourceA · live verification built in",
-    "hook_title": "Controlled agentic automation",
+    "card_footer": "SourceA · live proof on disk",
+    "hook_title": "Governed agentic automation",
     "hook_subtitle": "Policy · BLOCK · Receipt",
     "hook_label": "Commercial proof film",
     "hook_card_seconds": 0,
@@ -99,7 +99,7 @@
     }
   ],
   "cta": {
-    "narration": "SourceA. Controlled agentic automation with verification built in. Book fifteen minutes.",
+    "narration": "SourceA. Governed agentic automation with proof on disk. Book fifteen minutes.",
     "seconds": 5,
     "broll_urls": [
       "http://127.0.0.1:5180/sourcea/proof.html?film_capture=1#w1-demo-film"

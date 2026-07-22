@@ -30,7 +30,7 @@
 
   const COMPOSER_CHIPS = [
     { label: "Ship 48h MVP", text: "I need a 48-hour MVP — what's the intake path and what proof do I get?" },
-    { label: "Pricing", text: "What would you charge for controlled agent ops for a 12-person agency?" },
+    { label: "Pricing", text: "What would you charge for governed agent ops for a 12-person agency?" },
     { label: "See live receipt", text: "Show me what a client receives as proof after a job completes." },
   ];
 
@@ -39,7 +39,7 @@
     const goal = raw.split(/[.!?\n]/)[0].trim() || raw;
     return [
       "GOAL: " + goal.slice(0, 280),
-      "CONTEXT: Forge Terminal on sourcea.app — founder evaluating controlled agent execution.",
+      "CONTEXT: Forge Terminal on sourcea.app — founder evaluating governed agent execution.",
       "VERIFY: Reply in plain English with four short sections:",
       "  1) Bottom line",
       "  2) What this means for their business",

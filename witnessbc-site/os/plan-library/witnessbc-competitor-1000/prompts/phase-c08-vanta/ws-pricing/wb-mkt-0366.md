@@ -23,7 +23,7 @@ Document why buyers pay per Vanta: Buyers require SOC 2 proof before contract �
 
 ## Implementation extraction
 
-`Vanta · Pricing & packaging` → what buyer sees at vendor → what we ship logged with receipt.
+`Vanta · Pricing & packaging` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

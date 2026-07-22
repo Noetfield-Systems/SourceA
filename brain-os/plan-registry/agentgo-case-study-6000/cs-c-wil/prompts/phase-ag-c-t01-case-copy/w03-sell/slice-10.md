@@ -14,7 +14,7 @@ Wil L3 portfolio demo — YA5 mirror · AgentGo ≠ SourceA separation · ship g
 
 ## Task
 
-**Write case study email for** case study prose (challenge · shipped · verification).
+**Write case study email for** case study prose (challenge · shipped · proof chain).
 
 Link pureflow + agentgo.
 

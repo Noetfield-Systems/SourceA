@@ -27,7 +27,7 @@ Do **not** pitch SourceA as a Temporal replacement. Pitch as **L6 governance lay
 │   critic_boot · session gate · validators · trust ledger    │
 ├─────────────────────────────────────────────────────────────┤
 │ L5 ENTERPRISE EXECUTION — approve → orchestrate → audit     │
-│   (Hubler-class — Order Guardian · task orders logged)     │
+│   (Hubler-class — Order Guardian · task orders on disk)     │
 ├─────────────────────────────────────────────────────────────┤
 │ L4 LANGGRAPH / MAF — reasoning · tools · HITL                       │
 │   subgraph inside Temporal activities                               │
@@ -53,14 +53,14 @@ Do **not** pitch SourceA as a Temporal replacement. Pitch as **L6 governance lay
 | **D — Graph node** | LangGraph | Gate node → conditional edge ALLOW/BLOCK | LangGraph StateGraph |
 | **E — n8n glue** | Founder ops | Receipt ingest · intelligence wire | Kestra/n8n cron |
 
-**Minimum viable partner story:** Mode A + B today logged. Mode C + D = integration blueprint for embed buyers.
+**Minimum viable partner story:** Mode A + B today on disk. Mode C + D = integration blueprint for embed buyers.
 
 ---
 
 ## Mode C — Temporal partner pattern
 
 ```text
-Workflow: CopilotControlledJob
+Workflow: CopilotGovernedJob
   1. Activity: sourcea_critic_boot()     → PASS | BLOCK
   2. if BLOCK → Activity: notify_compliance() → end
   3. Activity: langgraph_agent_step()   → tool calls (inner graph)
@@ -78,7 +78,7 @@ Workflow: CopilotControlledJob
   "intent_summary": "export board pack",
   "policy_version": "SOURCEA_UNIFIED_PORTFOLIO_COMMERCIAL_SSOT_LOCKED_v3.1.md",
   "orchestrator": "temporal",
-  "workflow_id": "copilot-controlled-job"
+  "workflow_id": "copilot-governed-job"
 }
 ```
 
@@ -93,7 +93,7 @@ Workflow: CopilotControlledJob
 }
 ```
 
-**Today logged:** CLI `python3 scripts/critic_boot_v1.py --json` + `agent_session_gate_run_v1.py` — wrap as Temporal Activity via subprocess or HTTP sidecar.
+**Today on disk:** CLI `python3 scripts/critic_boot_v1.py --json` + `agent_session_gate_run_v1.py` — wrap as Temporal Activity via subprocess or HTTP sidecar.
 
 ---
 
@@ -152,7 +152,7 @@ Gate mode: `~/.sina/gate_mode_v1.txt` → `off` | `shadow` | `enforce`
 | **LangGraph** | Partner — inner agent graph |
 | **Inngest** | Partner — lighter TS alternative |
 | **Notenic** | Competitor — same L6, different packaging |
-| **SourceA** | Competitor on Copilot — different layer (agent security vs policy re-brief) |
+| **Zenity** | Competitor on Copilot — different layer (agent security vs policy re-brief) |
 
 ---
 

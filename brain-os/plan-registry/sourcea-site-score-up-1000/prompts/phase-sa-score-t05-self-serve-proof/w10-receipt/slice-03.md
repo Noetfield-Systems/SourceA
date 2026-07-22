@@ -1,4 +1,4 @@
-# sa-score-0093 — Receipt logged for proof run progress bar on /sourcea/proof/live
+# sa-score-0093 — Receipt on disk for proof run progress bar on /sourcea/proof/live
 
 **Saved at:** 2026-06-25T09:23:55Z
 **Version:** 1 · **Tier:** T1 · **Phase:** NEXT
@@ -16,7 +16,7 @@ Raise SourceA site score toward **95+/100** — proof before call · stranger se
 
 P1 — next sprint; measurable score delta
 
-**Deliverable:** Receipt logged for proof run progress bar on /sourcea/proof/live
+**Deliverable:** Receipt on disk for proof run progress bar on /sourcea/proof/live
 
 Bounded paths: `SourceA-landing/green-unified/` · `cloud/workers/sourcea-site-pulse-v1/` · `scripts/validate-sourcea-modern-stack-e2e-v1.sh`
 

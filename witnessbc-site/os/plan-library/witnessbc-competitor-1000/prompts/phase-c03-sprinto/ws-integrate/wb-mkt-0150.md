@@ -23,7 +23,7 @@ Close wb-mkt-0150: integration receipt + verify PASS + https://sprinto.com
 
 ## Implementation extraction
 
-`Sprinto · Integrations & API` → what buyer sees at vendor → what we ship logged with receipt.
+`Sprinto · Integrations & API` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

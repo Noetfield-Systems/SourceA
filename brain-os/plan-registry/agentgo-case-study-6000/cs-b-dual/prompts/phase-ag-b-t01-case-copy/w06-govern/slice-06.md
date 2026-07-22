@@ -14,7 +14,7 @@ Dual desktop deploy — agentrun-app :5180 + SA4 AgentGo :8080 · landing parity
 
 ## Task
 
-**Align Planning Authority Card for** case study prose (challenge · shipped · verification).
+**Align Planning Authority Card for** case study prose (challenge · shipped · proof chain).
 
 A T1 after B proof.
 

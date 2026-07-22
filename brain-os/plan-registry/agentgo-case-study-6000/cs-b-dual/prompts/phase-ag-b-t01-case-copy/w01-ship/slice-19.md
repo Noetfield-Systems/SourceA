@@ -14,7 +14,7 @@ Dual desktop deploy — agentrun-app :5180 + SA4 AgentGo :8080 · landing parity
 
 ## Task
 
-**Seal ship receipt for** case study prose (challenge · shipped · verification).
+**Seal ship receipt for** case study prose (challenge · shipped · proof chain).
 
 landing_ship gate satisfied.
 

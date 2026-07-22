@@ -181,7 +181,7 @@ def _proof_counter() -> dict:
     kill = "RED" if unproven > 0 or drift > 0 else "GREEN"
     kill_reason = ""
     if unproven > 0:
-        kill_reason = f"{unproven} unproven done logged"
+        kill_reason = f"{unproven} unproven done on disk"
     elif drift > 0:
         kill_reason = f"{drift} drift vs receipts"
     factory = _read_json(Path.home() / ".sina" / "factory-now-v1.json")
@@ -320,7 +320,7 @@ def _home_actions(*, busy: bool, g1: dict | None = None) -> list[dict]:
         {
             "id": "founder-export-event-chain",
             "label": "Export event chain",
-            "hint": "Download JSONL for current queue sa_id — one-sa verification",
+            "hint": "Download JSONL for current queue sa_id — one-sa proof chain",
             "kind": "export",
         },
         {

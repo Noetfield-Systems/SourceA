@@ -23,7 +23,7 @@ Diff our public copy vs Scrut Automation pricing/product page — list 3 concret
 
 ## Implementation extraction
 
-`Scrut Automation · Buyer-visible UX` → what buyer sees at vendor → what we ship logged with receipt.
+`Scrut Automation · Buyer-visible UX` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

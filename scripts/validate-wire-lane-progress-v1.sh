@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# sa-0512 — WIRE_LANE_PROGRESS.md locally for Wire agent
+# sa-0512 — WIRE_LANE_PROGRESS.md on disk for Wire agent
 set -euo pipefail
 cd "$(dirname "$0")"
 ROOT="$(cd .. && pwd)"

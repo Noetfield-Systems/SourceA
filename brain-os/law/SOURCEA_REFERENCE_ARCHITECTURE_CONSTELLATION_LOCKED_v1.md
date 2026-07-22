@@ -34,7 +34,7 @@ One **locked map** of the external agentic-AI market — every reference ASF nam
 | **2010s AI planning** | What will happen? | Anaplan, IBP, predictive AI | Plans don’t execute |
 | **2020s agentic execution** | **How do we make agents actually work — safely?** | Temporal, Frontier, Hubler, ThinkFleet, SourceA | Needs governance + proof |
 
-**2026 market thesis:** Intelligence without execution is a recommendation nobody acts on. The winning layer is **controlled execution** — not another chat UI.
+**2026 market thesis:** Intelligence without execution is a recommendation nobody acts on. The winning layer is **governed execution** — not another chat UI.
 
 **Sprawl warning (Tech in Asia / enterprise surveys):** ~94% of enterprises flag **agent sprawl** — many agents, no control tower. SourceA’s anti-fragmentation laws exist because this is the default failure mode.
 
@@ -143,7 +143,7 @@ One **locked map** of the external agentic-AI market — every reference ASF nam
 | Ref | URL | One-line role | SourceA use |
 |-----|-----|---------------|-------------|
 | **Claude Opus 4.6** | https://www.anthropic.com/news/claude-opus-4-6 | Long-running agents, 1M context (beta), adaptive thinking, compaction | Brain/Worker when ASF names — under edit lock + gates |
-| **Claude Opus 4.7** | https://www.anthropic.com/news/claude-opus-4-7 | Successor — stronger SWE, instruction following | Same — model inside controlled runtime |
+| **Claude Opus 4.7** | https://www.anthropic.com/news/claude-opus-4-7 | Successor — stronger SWE, instruction following | Same — model inside governed runtime |
 | **OpenAI Frontier models** | (via Frontier platform) | GPT-5.x family for enterprise agent execution | External critic / compare only unless ASF adopts |
 
 ### 3.9 Market signal sources (watch — not products)
@@ -163,7 +163,7 @@ One **locked map** of the external agentic-AI market — every reference ASF nam
 |----------|---------|----------------|
 | **Durable spine** | Temporal, Jetty workflows, Kestra | Work survives failure; schedulable pipelines |
 | **Agent brain** | LangGraph, Devin, Cursor-class tools | Reason, plan, use tools in session |
-| **Enterprise execution** | Hubler, Frontier, XGEN, Botpress | Turn plans into controlled business outcomes |
+| **Enterprise execution** | Hubler, Frontier, XGEN, Botpress | Turn plans into governed business outcomes |
 | **Governance PEP** | Notenic, ThinkFleet Shield, Canada guide | Stop bad actions **before** systems of record |
 | **Agent platform** | Prajvis, Vybe, Jetty sandboxes | Identity + tools + sandbox + schedules |
 | **Infra** | K8s, Fly | Where binaries run |
@@ -179,12 +179,12 @@ One **locked map** of the external agentic-AI market — every reference ASF nam
 
 ### 5.1 What we are
 
-**SourceA is a self-hosted, law-first controlled execution OS** for ASF’s mono factory — not a generic agent SaaS.
+**SourceA is a self-hosted, law-first governed execution OS** for ASF’s mono factory — not a generic agent SaaS.
 
 | Layer | SourceA today | Maturity |
 |-------|---------------|----------|
 | **L7 Surface** | Sina Command hub (13020) · quarantined public site experiment (13060) | Hub strong · public site ~82% fidelity — not production spine |
-| **L6 Governance** | LOCKED laws, council_governance, ENFORCE, trust ledger, result-driven policy | **Strong logged** · daily map fixed (sa-0790) |
+| **L6 Governance** | LOCKED laws, council_governance, ENFORCE, trust ledger, result-driven policy | **Strong on disk** · daily map fixed (sa-0790) |
 | **L5 Execution** | Factory INBOX, Worker one-sa, Order Guardian, task orders | **Active** · FREEZE/conduct incidents show control-plane gaps |
 | **L4 Agent runtime** | 8 private agents, Cursor chats, workspace vault | **Designed** · needs consistent vault deposit discipline |
 | **L3 Durable orchestration** | Broker, factory gate, validators — Temporal-**like** patterns, not Temporal Cloud | **Partial** — receipts law improving |
@@ -201,7 +201,7 @@ One **locked map** of the external agentic-AI market — every reference ASF nam
 | Wrong label | Why |
 |-------------|-----|
 | “SourceA is like Linear” | Linear is L7 product management — we are L3–L6 execution + law |
-| “SourceA is like ChatGPT” | Consumer chat — we are result-in-repo factory |
+| “SourceA is like ChatGPT” | Consumer chat — we are result-on-disk factory |
 | “SourceA is like Devin alone” | Devin is L4 builder — we are whole OS + founder hub |
 | “SourceA is Palantir” | Ontology sales motion + $M contracts — we are founder mono with WTM |
 | “SourceA is Vybe” | SMB coworker sparkle — we need enterprise ops sobriety |
@@ -290,7 +290,7 @@ One **locked map** of the external agentic-AI market — every reference ASF nam
 ```text
 Read SOURCEA_REFERENCE_ARCHITECTURE_CONSTELLATION_LOCKED_v1.md.
 Classify: EXTERNAL_CRITIC — compare only.
-SourceA = L3–L6 self-hosted controlled execution OS (not Linear, not Vybe, not Palantir).
+SourceA = L3–L6 self-hosted governed execution OS (not Linear, not Vybe, not Palantir).
 Tone = ThinkFleet-class enterprise ops. Proof = disk + validators + gate receipts.
 Forbidden: replatform to Frontier/Temporal Cloud as P0 · consumer AI hero · chat-only advice.
 ```

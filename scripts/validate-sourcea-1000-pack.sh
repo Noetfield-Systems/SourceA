@@ -44,7 +44,7 @@ md_count = len(list((root / "brain-os/plan-registry/sourcea-1000/prompts").rglob
 if md_count != 1000:
     print(f"FAIL: expected 1000 md files got {md_count}")
     sys.exit(1)
-print(f"OK: {md_count} prompt markdown files logged")
+print(f"OK: {md_count} prompt markdown files on disk")
 
 done = sum(1 for pl in plans if pl.get("status") == "done")
 backlog = sum(1 for pl in plans if pl.get("status") == "backlog")

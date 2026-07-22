@@ -27,7 +27,7 @@ Agents run **both**. Ship summary cites **general + per-app** checklists.
 | surface_id | `<id>` |
 | label | `<human name>` |
 | repo | `<repo path>` |
-| root | `<UI root logged>` |
+| root | `<UI root on disk>` |
 | url | `<founder URL>` |
 | ledger_json | `data/ui-upgrade-ledgers/<surface_id>-v1.json` |
 

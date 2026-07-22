@@ -12,7 +12,7 @@
 
 ## One sentence
 
-> **Test by cadence logged receipts — not by “green UI.” Upgrade only when a W1/W2/W3 win moves, with a validator before code and a baseline before/after photo.**
+> **Test by cadence on disk receipts — not by “green UI.” Upgrade only when a W1/W2/W3 win moves, with a validator before code and a baseline before/after photo.**
 
 ---
 
@@ -341,7 +341,7 @@ What are you trying to learn?
 
 ## 10. One sentence to remember
 
-**Run the tiered ladder logged receipts; read what moved; upgrade only where W1/W2/W3 or H1 truth gains a provable delta — contract and validator before code, schedule before whim.**
+**Run the tiered ladder on disk receipts; read what moved; upgrade only where W1/W2/W3 or H1 truth gains a provable delta — contract and validator before code, schedule before whim.**
 
 ---
 

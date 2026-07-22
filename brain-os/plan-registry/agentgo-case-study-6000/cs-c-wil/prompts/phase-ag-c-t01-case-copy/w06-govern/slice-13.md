@@ -14,7 +14,7 @@ Wil L3 portfolio demo — YA5 mirror · AgentGo ≠ SourceA separation · ship g
 
 ## Task
 
-**Vocabulary unified check for** case study prose (challenge · shipped · verification).
+**Vocabulary unified check for** case study prose (challenge · shipped · proof chain).
 
 No second prohibition law.
 

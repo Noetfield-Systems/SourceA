@@ -14,7 +14,7 @@ Wil L3 portfolio demo — YA5 mirror · AgentGo ≠ SourceA separation · ship g
 
 ## Task
 
-**Note ASF requirement for** case study prose (challenge · shipped · verification).
+**Note ASF requirement for** case study prose (challenge · shipped · proof chain).
 
 Public subdomain ship.
 

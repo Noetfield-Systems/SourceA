@@ -38,7 +38,7 @@ Separate program — paying customers, not internal orchestra.
 
 ---
 
-## Live plan / wire_proof (verify logged)
+## Live plan / wire_proof (verify on disk)
 
   • (refresh hub Repos or wire:preflight)
 

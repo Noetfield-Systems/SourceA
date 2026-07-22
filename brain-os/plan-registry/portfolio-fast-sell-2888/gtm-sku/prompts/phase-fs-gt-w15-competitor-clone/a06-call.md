@@ -1,7 +1,7 @@
 # fs-gt-0272 — Fast-sell plan
 
 **Version:** 1 · **Tier:** T2 · **Phase:** MOONSHOT
-**Lane:** Vertical GTM SKUs · **Wedge:** w15-archived-research · Ship differentiated feature slice
+**Lane:** Vertical GTM SKUs · **Wedge:** w15-competitor-clone · Clone one competitor feature slice
 **Action:** a06-call · Discovery call script
 **Comp anchor:** 11x · vertical SaaS
 **Tier 1:** $99–199/mo self-serve
@@ -10,7 +10,7 @@
 
 ## Task
 
-Fast-sell: Vertical GTM SKUs · Ship differentiated feature slice · Discovery call script. Ship smallest slice that moves a buyer toward **$99–199/mo self-serve** with a path to **$499/mo + onboarding**. Receipt logged before done.
+Fast-sell: Vertical GTM SKUs · Clone one competitor feature slice · Discovery call script. Ship smallest slice that moves a buyer toward **$99–199/mo self-serve** with a path to **$499/mo + onboarding**. Receipt on disk before done.
 
 ## Verify
 

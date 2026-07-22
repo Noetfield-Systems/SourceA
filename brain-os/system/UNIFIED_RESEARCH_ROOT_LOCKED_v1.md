@@ -2,7 +2,7 @@
 
 **Saved:** 2026-06-16T05:49:57Z · **Retrofit:** doc-datetime-law batch retrofit
 **Version:** 1.0 · **Locked:** 2026-06-06  
-**Parent:** `CONTROLLED_EXECUTION_OS_MASTER_LOCKED_v1.md` · `AGENT_SKILLS_AND_RESEARCH_PIPELINE_LOCKED_v1.md`  
+**Parent:** `GOVERNED_EXECUTION_OS_MASTER_LOCKED_v1.md` · `AGENT_SKILLS_AND_RESEARCH_PIPELINE_LOCKED_v1.md`  
 **Purpose:** Single systematic loop for **all** research (lanes, workers, Research Acquisitor, external critic) → **one registry** → **filtered digests** → **reasoning cores** — without overloading Execution Core.
 
 ---
@@ -156,7 +156,7 @@ cores_target: [commercial, governance, research, execution_core]  # filter outpu
 
 ---
 
-## 8. Link to Controlled Execution OS
+## 8. Link to Governed Execution OS
 
 | OS part | Research root relationship |
 |---------|---------------------------|
@@ -194,7 +194,7 @@ cores_target: [commercial, governance, research, execution_core]  # filter outpu
 |-----|------|
 | This law | `os/chat-handoffs/UNIFIED_RESEARCH_ROOT_LOCKED_v1.md` |
 | Hub pipeline | `AGENT_SKILLS_AND_RESEARCH_PIPELINE_LOCKED_v1.md` |
-| Controlled OS | `CONTROLLED_EXECUTION_OS_MASTER_LOCKED_v1.md` |
+| Governed OS | `GOVERNED_EXECUTION_OS_MASTER_LOCKED_v1.md` |
 | Research paste | `GOAL_SPECIALIST_CHAT_PACK_LOCKED_v1.md` §4 |
 | Script | `scripts/research_root_sync.py` |
 

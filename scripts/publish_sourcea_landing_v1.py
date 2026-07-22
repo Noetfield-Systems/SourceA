@@ -960,7 +960,7 @@ def publish(
             "ok": False,
             "schema": "sourcea-landing-publish-v1",
             "steps": steps,
-            "error": "commercial_copy_gate BLOCK — fix copy in the repository before publish",
+            "error": "commercial_copy_gate BLOCK — fix copy on disk before publish",
         }
 
     depth_gate = run_copy_depth_gate()
@@ -970,7 +970,7 @@ def publish(
             "ok": False,
             "schema": "sourcea-landing-publish-v1",
             "steps": steps,
-            "error": "copy_depth_gate BLOCK — cut repetition/padding in the repository before publish",
+            "error": "copy_depth_gate BLOCK — cut repetition/padding on disk before publish",
         }
 
     ui_gate = run_ui_mechanical_gate()

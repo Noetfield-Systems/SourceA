@@ -33,11 +33,11 @@ Before blaming the agent, analyst checks live disk:
 |------------|---------|-----------|
 | **AGENT_DRAFT** | Draft quality problem | Agent rewrites |
 | **DISK_STALE** | Stale inject/surfaces/receipts | Live wire + mirror sync |
-| **DISK_WRONG** | Queue/SSOT mismatch logged | queue_ssot_unify + live wire |
+| **DISK_WRONG** | Queue/SSOT mismatch on disk | queue_ssot_unify + live wire |
 | **DISK_POISON** | Meaningless/prohibition inject | Mirror scrub + vocabulary guard |
 | **MACHINE_STALE** | Governance/factory drift | governance_zero_drift heal |
 
-Bad parrot answers often mean **stale or poisin the repository** — FIX_DISK before rewrite.
+Bad parrot answers often mean **stale or poison disk** — FIX_DISK before rewrite.
 
 ## Output quality gate (C7)
 

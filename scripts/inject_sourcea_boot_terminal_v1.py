@@ -296,7 +296,7 @@ def main() -> int:
             "verdict": row.get("verdict"),
             "ok": row.get("ok"),
             "checks": row.get("checks") or [],
-            "founder_line": f"Factory boot {row.get('verdict')} — four checks logged",
+            "founder_line": f"Factory boot {row.get('verdict')} — four checks on disk",
         }
         (data_dir / "boot-proof.json").write_text(json.dumps(proof, indent=2) + "\n", encoding="utf-8")
         factory_live = build_factory_live(row)

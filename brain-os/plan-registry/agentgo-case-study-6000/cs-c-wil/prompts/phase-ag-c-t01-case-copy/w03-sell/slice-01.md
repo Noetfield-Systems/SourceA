@@ -14,7 +14,7 @@ Wil L3 portfolio demo — YA5 mirror · AgentGo ≠ SourceA separation · ship g
 
 ## Task
 
-**Define ICP one-pager for** case study prose (challenge · shipped · verification).
+**Define ICP one-pager for** case study prose (challenge · shipped · proof chain).
 
 SaaS marketing · GEO buyer — not pool owner.
 

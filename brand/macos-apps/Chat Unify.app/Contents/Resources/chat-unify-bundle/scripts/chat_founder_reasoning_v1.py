@@ -106,7 +106,7 @@ def _compose_rules(*, cleaned: str, founder_message: str) -> str:
     if buckets["assumptions"]:
         assume = "\n".join(f"· {_glossary_line(x)}" for x in buckets["assumptions"][:3])
     else:
-        assume = "· The agent treats its last answer as complete — you still verify logged.\n· It may be optimizing for cleanup speed over breaking live refs."
+        assume = "· The agent treats its last answer as complete — you still verify on disk.\n· It may be optimizing for cleanup speed over breaking live refs."
 
     if buckets["options"]:
         opts = "\n".join(f"· {_glossary_line(x)}" for x in buckets["options"][:4])

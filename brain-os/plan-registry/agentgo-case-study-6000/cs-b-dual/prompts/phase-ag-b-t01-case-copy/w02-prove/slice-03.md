@@ -14,7 +14,7 @@ Dual desktop deploy — agentrun-app :5180 + SA4 AgentGo :8080 · landing parity
 
 ## Task
 
-**Parse sitemap.xml scope for** case study prose (challenge · shipped · verification).
+**Parse sitemap.xml scope for** case study prose (challenge · shipped · proof chain).
 
 SA4 sitemap line count vs claim.
 

@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# validate-stranger-agent-safety-live-wire-v1.sh — SASCIP live wire chain logged
+# validate-stranger-agent-safety-live-wire-v1.sh — SASCIP live wire chain on disk
 set -euo pipefail
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 cd "$ROOT"

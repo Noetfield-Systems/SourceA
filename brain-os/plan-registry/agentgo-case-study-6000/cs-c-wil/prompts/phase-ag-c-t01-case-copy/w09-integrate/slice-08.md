@@ -14,7 +14,7 @@ Wil L3 portfolio demo — YA5 mirror · AgentGo ≠ SourceA separation · ship g
 
 ## Task
 
-**Integrate Wil lane doc for** case study prose (challenge · shipped · verification).
+**Integrate Wil lane doc for** case study prose (challenge · shipped · proof chain).
 
 SOURCEA-PRIORITY.
 

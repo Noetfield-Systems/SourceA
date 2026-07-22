@@ -9,7 +9,7 @@
     "apex_commercial": {
       "row": "SOURCEA_PORTFOLIO_SSOT",
       "human": "brain-os/law/SOURCEA_UNIFIED_PORTFOLIO_COMMERCIAL_SSOT_LOCKED_v3.1.md",
-      "one_sentence_key": "runs_and_sells_controlled_agentic_automation",
+      "one_sentence_key": "runs_and_sells_governed_agentic_automation",
       "wins_over": [
         "SOURCEA_COMPANY_INFRA_BUYER_AND_POSITION_SSOT_LOCKED_v1.md",
         "archive/superseded/blueprint-drafts-2026-06-12/SOURCEA_MASTER_BLUEPRINT_SSOT_v2_DRAFT.md"
@@ -43,8 +43,8 @@
       "rule": "One queue sa-* · plans_unified tick — no parallel hero queues"
     },
     "asset_commercial": {
-      "human": "brain-os/law/SOURCEA_ASSET_B_CONTROLLED_AGENTIC_AUTOMATION_LOCKED_v1.md",
-      "script": "scripts/controlled_agentic_automation_offer_v1.py",
+      "human": "brain-os/law/SOURCEA_ASSET_B_GOVERNED_AGENTIC_AUTOMATION_LOCKED_v1.md",
+      "script": "scripts/governed_agentic_automation_offer_v1.py",
       "rule": "DFY SKU only — does not replace apex identity"
     },
     "forbidden": [

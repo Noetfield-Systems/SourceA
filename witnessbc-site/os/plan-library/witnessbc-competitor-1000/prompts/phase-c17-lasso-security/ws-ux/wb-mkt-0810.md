@@ -23,7 +23,7 @@ Mark wb-mkt-0810 done in REGISTRY with evidence path + https://www.lasso.securit
 
 ## Implementation extraction
 
-`Lasso Security · Buyer-visible UX` → what buyer sees at vendor → what we ship logged with receipt.
+`Lasso Security · Buyer-visible UX` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

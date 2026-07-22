@@ -25,12 +25,14 @@
       </a>
       <nav class="ar-nav" id="ar-nav" aria-label="Primary">
         <a href="/" data-sa-nav data-sa-nav-home>Home</a>
-        <a href="/sourcea/offer" data-sa-nav>Offer</a>
-        <a href="/sourcea/pricing" data-sa-nav>Pricing</a>
-        <a href="/sourcea/investors" data-sa-nav>Investors</a>
+        <a href="/sourcea/offer.html" data-sa-nav>Offer</a>
+        <a href="/sourcea/pricing.html" data-sa-nav>Pricing</a>
+        <a href="/sourcea/growth.html" data-sa-nav>Growth</a>
+        <a href="/sourcea/team.html" data-sa-nav>Your team</a>
+        <a href="/sourcea/investors.html" data-sa-nav>Investors</a>
         <a href="/sourcea/kernel/" data-sa-nav>Kernel</a>
         <a class="ar-btn ar-btn-ghost ar-btn-sm ar-nav-signin-mobile" href="/platform">Sign in</a>
-        <a class="ar-btn ar-btn-primary ar-btn-sm ar-nav-cta-mobile sa-btn-glow" data-sa-proof-cta href="/sourcea/proof/live">See live receipt</a>
+        <a class="ar-btn ar-btn-primary ar-btn-sm ar-nav-cta-mobile sa-btn-glow" data-sa-proof-cta href="/sourcea/proof/live.html">Talk to a human</a>
       </nav>
       <button type="button" class="ar-nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="ar-nav">
         <span class="ar-nav-toggle-bar"></span>
@@ -39,7 +41,7 @@
       </button>
       <div class="ar-header-actions">
         <a class="ar-btn ar-btn-ghost ar-btn-sm ar-header-signin" href="/platform">Sign in</a>
-        <a class="ar-btn ar-btn-primary ar-btn-sm sa-btn-glow ar-header-cta" data-sa-proof-cta href="/sourcea/proof/live">See live receipt</a>
+        <a class="ar-btn ar-btn-primary ar-btn-sm sa-btn-glow ar-header-cta" data-sa-proof-cta href="/sourcea/proof/live.html">Talk to a human</a>
       </div>
     </div>
   </div>
@@ -82,7 +84,7 @@
       </div>
       <p class="sa-metric-note" data-pulse-note style="margin-top:1rem">Loading pulse…</p>
       <div class="sa-cta-actions" style="margin-top:1rem">
-        <a class="ar-btn ar-btn-ghost ar-btn-sm" href="/sourcea/pulse-founder">Founder inbox →</a>
+        <a class="ar-btn ar-btn-ghost ar-btn-sm" href="/sourcea/pulse-founder.html">Founder inbox →</a>
         <a class="ar-btn ar-btn-ghost ar-btn-sm" href="/sourcea/forge/terminal">Try Forge Terminal</a>
       </div>
     </div>
@@ -92,9 +94,9 @@
     <div class="ar-container">
       <div class="sa-trust-bar sa-trust-bar-page" data-sa-trust-bar>
         <article class="sa-trust-stat">
-          <span class="sa-trust-stat-label">Receipts logged</span>
+          <span class="sa-trust-stat-label">Receipts on disk</span>
           <strong class="sa-trust-stat-value" data-trust-receipts-lifetime>—</strong>
-          <span class="sa-trust-stat-hint"><span data-trust-receipts-lifetime-label>Logged and reviewable</span></span>
+          <span class="sa-trust-stat-hint"><span data-trust-receipts-lifetime-label>Governance receipts signed</span></span>
         </article>
         <article class="sa-trust-stat">
           <span class="sa-trust-stat-label">Proof checks</span>
@@ -120,8 +122,8 @@
       <p class="sa-metric-note" id="sa-status-sync">Loading trust signals…</p>
       <div class="sa-cta-actions" style="margin-top:1.25rem">
         <a class="ar-btn ar-btn-primary sa-btn-glow" data-trust-github-link href="https://pypi.org/project/sourcea-boot/" target="_blank" rel="noopener">GitHub repo →</a>
-        <a class="ar-btn ar-btn-ghost" data-trust-sample-link href="/sourcea/attach/proof-bundle-sample" target="_blank" rel="noopener">Download proof sample</a>
-        <a class="ar-btn ar-btn-ghost" href="/sourcea/proof">Verification</a>
+        <a class="ar-btn ar-btn-ghost" data-trust-sample-link href="/sourcea/attach/proof-bundle-sample.html" target="_blank" rel="noopener">Download proof sample</a>
+        <a class="ar-btn ar-btn-ghost" href="/sourcea/proof">Proof chain</a>
       </div>
     </div>
   </section>
@@ -153,7 +155,7 @@
 <p class="sa-metric-note" style="margin-top:1.25rem;text-align:center">Technical depth: <a href="/sourcea/kernel/">Technical overview →</a></p>
 
 <footer class="ar-site-footer sa-footer-rich">
-  <div class="ar-container sa-footer-bottom"><p>© 2026 Noetfield Systems Inc. · SourceA is a product of Noetfield Systems Inc. · <a href="https://noetfield.com" rel="noopener">noetfield.com</a> · <a href="/sourcea/">Home</a> · <a href="/sourcea/security">Security</a></p></div>
+  <div class="ar-container sa-footer-bottom"><p>© 2026 Noetfield Systems Inc. · SourceA is a product of Noetfield Systems Inc. · <a href="https://noetfield.com" rel="noopener">noetfield.com</a> · <a href="/sourcea/">Home</a> · <a href="/sourcea/security.html">Security</a> · <a href="mailto:hello@sourcea.app">hello@sourcea.app</a></p></div>
 </footer>
 
 <script src="/sourcea/sourcea-pulse-public-v1.js" defer></script>
@@ -179,7 +181,7 @@
         bootEl.textContent = `SOURCEA_BOOT ${boot.verdict || "?"}\n` + lines.join("\n") + `\n\nat: ${boot.at || ""}`;
       }
       if (syncEl && trust) {
-        syncEl.textContent = `Synced ${trust.at || "—"} · ${trust.factory_now_line || "factory state logged"}`;
+        syncEl.textContent = `Synced ${trust.at || "—"} · ${trust.factory_now_line || "factory state on disk"}`;
       }
     })
     .catch(() => {

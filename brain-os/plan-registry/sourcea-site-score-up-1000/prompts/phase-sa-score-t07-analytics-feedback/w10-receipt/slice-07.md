@@ -1,4 +1,4 @@
-# sa-score-0797 — Receipt logged for guided_show completion rate
+# sa-score-0797 — Receipt on disk for guided_show completion rate
 
 **Saved at:** 2026-06-25T09:23:55Z
 **Version:** 1 · **Tier:** T2 · **Phase:** MOONSHOT
@@ -16,7 +16,7 @@ Raise SourceA site score toward **95+/100** — proof before call · stranger se
 
 P2 — harden · document · validate
 
-**Deliverable:** Receipt logged for guided_show completion rate
+**Deliverable:** Receipt on disk for guided_show completion rate
 
 Bounded paths: `SourceA-landing/green-unified/` · `cloud/workers/sourcea-site-pulse-v1/` · `scripts/validate-sourcea-modern-stack-e2e-v1.sh`
 

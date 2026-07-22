@@ -23,7 +23,7 @@ From https://oneleet.com document Oneleet run/history UX: Security controls + co
 
 ## Implementation extraction
 
-`Oneleet · Run history & proof` → what buyer sees at vendor → what we ship logged with receipt.
+`Oneleet · Run history & proof` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

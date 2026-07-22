@@ -23,7 +23,7 @@ List Gumloop integrations/APIs from https://www.gumloop.com/pricing or docs — 
 
 ## Implementation extraction
 
-`Gumloop · Integrations & API` → what buyer sees at vendor → what we ship logged with receipt.
+`Gumloop · Integrations & API` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# SourceA Worker connected gate — one command verification is live
+# SourceA Worker connected gate — one command proof chain is live
 set -euo pipefail
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 cd "$ROOT"

@@ -14,7 +14,7 @@ Dual desktop deploy — agentrun-app :5180 + SA4 AgentGo :8080 · landing parity
 
 ## Task
 
-**Write manifest JSON for** case study prose (challenge · shipped · verification).
+**Write manifest JSON for** case study prose (challenge · shipped · proof chain).
 
 schema + generated_at + counts.
 

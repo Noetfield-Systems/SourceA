@@ -23,7 +23,7 @@ Close wb-mkt-0100: integration receipt + verify PASS + https://delve.co
 
 ## Implementation extraction
 
-`Delve · Integrations & API` → what buyer sees at vendor → what we ship logged with receipt.
+`Delve · Integrations & API` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

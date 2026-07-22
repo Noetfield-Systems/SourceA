@@ -22,7 +22,7 @@
 | **Theory** | On paper · validators exist · agents *should* obey | Most of 2026 governance build |
 | **Proven** | Machine-enforceable · live projection · **no governance latency** on critical path | **Partial** — see §6 |
 
-**Proven criterion (your bar):** Complete policy logged **and** worker says “file done” → machine updates monitor + inbox + factory-now **in one cascade** — no founder refresh · no second agent audit.
+**Proven criterion (your bar):** Complete policy on disk **and** worker says “file done” → machine updates monitor + inbox + factory-now **in one cascade** — no founder refresh · no second agent audit.
 
 ---
 

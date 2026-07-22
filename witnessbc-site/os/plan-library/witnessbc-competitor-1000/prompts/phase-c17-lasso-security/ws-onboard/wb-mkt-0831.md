@@ -23,7 +23,7 @@ Document Lasso Security onboarding path (GenAI security startup wedge): who runs
 
 ## Implementation extraction
 
-`Lasso Security · Onboarding & PLG` → what buyer sees at vendor → what we ship logged with receipt.
+`Lasso Security · Onboarding & PLG` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

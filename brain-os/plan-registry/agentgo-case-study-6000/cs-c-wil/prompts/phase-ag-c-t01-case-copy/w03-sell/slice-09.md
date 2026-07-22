@@ -14,7 +14,7 @@ Wil L3 portfolio demo — YA5 mirror · AgentGo ≠ SourceA separation · ship g
 
 ## Task
 
-**Write 15-min Cal script for** case study prose (challenge · shipped · verification).
+**Write 15-min Cal script for** case study prose (challenge · shipped · proof chain).
 
 Screen-share order.
 

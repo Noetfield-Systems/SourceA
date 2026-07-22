@@ -23,7 +23,7 @@ Add checklist or wizard step on `witnessbc.com pricing + toolkits hub` — no Te
 
 ## Implementation extraction
 
-`Monitaur · Onboarding & PLG` → what buyer sees at vendor → what we ship logged with receipt.
+`Monitaur · Onboarding & PLG` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

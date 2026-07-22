@@ -9,7 +9,7 @@
   "incident_refs": ["INCIDENT-042", "INCIDENT-043"],
   "law_doc": "brain-os/law/enforcement/SOURCEA_CLOUD_FORGE_RUN_AUTO_RUNTIME_VOCABULARY_LOCKED_v1.md",
   "cursor_rule": ".cursor/rules/038-cloud-forge-run-vocabulary-v1.mdc",
-  "one_law": "Physical names: cloud-forge-run + cloud-auto-runtime logged. drain and loop filenames retired.",
+  "one_law": "Physical names: cloud-forge-run + cloud-auto-runtime on disk. drain and loop filenames retired.",
   "terms": {
     "drain": {
       "status": "RETIRED_FILENAME",

@@ -14,7 +14,7 @@ Dual desktop deploy — agentrun-app :5180 + SA4 AgentGo :8080 · landing parity
 
 ## Task
 
-**Validate SA4 tree exists for** case study prose (challenge · shipped · verification).
+**Validate SA4 tree exists for** case study prose (challenge · shipped · proof chain).
 
 symlink ok.
 

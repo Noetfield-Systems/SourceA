@@ -1,5 +1,5 @@
 /sourcea/forge/terminal*
-  Content-Security-Policy: frame-ancestors 'self' https://sourcea.app https://www.sourcea.app https://sourcea.ca https://www.sourcea.ca
+  Content-Security-Policy: frame-ancestors 'self' https://sourcea.app https://www.sourcea.app https://sourcea.ca https://www.sourcea.ca https://sourcea.uk https://www.sourcea.uk
 
 /*
   X-Frame-Options: SAMEORIGIN

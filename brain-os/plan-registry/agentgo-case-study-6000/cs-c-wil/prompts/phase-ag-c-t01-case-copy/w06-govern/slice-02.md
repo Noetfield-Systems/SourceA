@@ -14,7 +14,7 @@ Wil L3 portfolio demo — YA5 mirror · AgentGo ≠ SourceA separation · ship g
 
 ## Task
 
-**Run cross_lane_edit_guard for** case study prose (challenge · shipped · verification).
+**Run cross_lane_edit_guard for** case study prose (challenge · shipped · proof chain).
 
 Before any write.
 

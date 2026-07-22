@@ -12,7 +12,7 @@
 
 ## 0. One sentence
 
-> **Sell the controlled receipt layer to regulated Canadian buyers; bootstrap **P05 → P03 → P06 → P04 → P02 (optional)** this week in parallel with factory P0 — credits never replace first TF/NF invoice or sustained AUTO-RUN proof.**
+> **Sell the governed receipt layer to regulated Canadian buyers; bootstrap **P05 → P03 → P06 → P04 → P02 (optional)** this week in parallel with factory P0 — credits never replace first TF/NF invoice or sustained AUTO-RUN proof.**
 
 ---
 
@@ -20,7 +20,7 @@
 
 | Claim | Status |
 |-------|--------|
-| Controlled audit layer for multi-agent execution | **LOCKED** |
+| Governed audit layer for multi-agent execution | **LOCKED** |
 | Machine-verified closeouts (`receipts/sa-*`, `VALIDATOR_PASS` → `TASK_CLOSED`) | **LOCKED proof kernel** |
 | TrustField = seller of record · Noetfield = methodology only | **LOCKED** |
 | Not another app builder (Lovable/Bolt/Replit speed-without-proof) | **LOCKED positioning** |
@@ -57,7 +57,7 @@
 
 | Gate | Then |
 |------|------|
-| Receipt deck + cost/sa + receipts logged | **P01** Anthropic |
+| Receipt deck + cost/sa + receipts on disk | **P01** Anthropic |
 | Eval path documented | **P09** OpenRouter (verify program — grade **D** until confirmed) |
 | Kill #6 sustained + TF-001 or NF-001 invoice | **P08** AGT + **P04** ISV |
 | AUTO-RUN sustained locally | **P07** GCP · **P10** AWS via Inception |
@@ -124,7 +124,7 @@ Full cloud worker deploy · ISV marketplace listing · any vendor exclusivity.
 
 ## 8. One-line gold (LOCKED)
 
-Controlled receipt layer wedge — **Voyage + Inception + Groq** this week; **Ramp OpenAI + Microsoft Founders Hub** for cash-flow relief; pitch **Anthropic + Microsoft ISV + AGT** only with **receipts, sustained AUTO-RUN, and a paying Copilot or RPAA pilot**.
+Governed receipt layer wedge — **Voyage + Inception + Groq** this week; **Ramp OpenAI + Microsoft Founders Hub** for cash-flow relief; pitch **Anthropic + Microsoft ISV + AGT** only with **receipts, sustained AUTO-RUN, and a paying Copilot or RPAA pilot**.
 
 ---
 

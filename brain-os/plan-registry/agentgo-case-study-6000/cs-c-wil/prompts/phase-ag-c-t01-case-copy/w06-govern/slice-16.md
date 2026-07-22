@@ -14,7 +14,7 @@ Wil L3 portfolio demo — YA5 mirror · AgentGo ≠ SourceA separation · ship g
 
 ## Task
 
-**Bump law doc version for** case study prose (challenge · shipped · verification).
+**Bump law doc version for** case study prose (challenge · shipped · proof chain).
 
 AGENTGO_SA4 v2 smart.
 

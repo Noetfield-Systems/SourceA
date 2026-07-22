@@ -313,7 +313,7 @@ def check_receipt_fresh(project_root: Path, cfg: dict[str, Any], *, in_gate: boo
                 "id": "C3",
                 "name": "receipt_fresh",
                 "ok": False,
-                "reason": "no boot/gate receipt logged",
+                "reason": "no boot/gate receipt on disk",
                 "mode": "portable" if not factory else "sourcea_factory",
             }
         return {

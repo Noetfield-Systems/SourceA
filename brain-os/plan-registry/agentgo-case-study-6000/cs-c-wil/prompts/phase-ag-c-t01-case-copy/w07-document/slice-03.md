@@ -14,7 +14,7 @@ Wil L3 portfolio demo — YA5 mirror · AgentGo ≠ SourceA separation · ship g
 
 ## Task
 
-**Update law doc section for** case study prose (challenge · shipped · verification).
+**Update law doc section for** case study prose (challenge · shipped · proof chain).
 
 v2 smart upgrade.
 

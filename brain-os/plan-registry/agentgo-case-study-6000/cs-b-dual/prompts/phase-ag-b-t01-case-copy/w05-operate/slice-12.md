@@ -14,7 +14,7 @@ Dual desktop deploy — agentrun-app :5180 + SA4 AgentGo :8080 · landing parity
 
 ## Task
 
-**File incident if blocked on** case study prose (challenge · shipped · verification).
+**File incident if blocked on** case study prose (challenge · shipped · proof chain).
 
 brain-os/incidents.
 

@@ -25,7 +25,7 @@ This is not a slogan; it is the exact thing the June-2026 market is converging o
 Synthesized from current market data; treat as positioning input, re-check quarterly.
 
 - **Vertical AI agents are the main investable surface** (~55% of agentic-AI capital). Generalists lose; "industry-embedded" wins. Play: one vertical, one workflow, ship in ~90 days.
-- **Agent execution infrastructure** (runtimes, control layers, observability, recovery) is the fast-rising second category — investors now fund whether agents can be *monitored, controlled, secured, recovered*, not just what they can do.
+- **Agent execution infrastructure** (runtimes, control layers, observability, recovery) is the fast-rising second category — investors now fund whether agents can be *monitored, governed, secured, recovered*, not just what they can do.
 - **Governance is table stakes AND a sales advantage.** EU AI Act (Art. 12: immutable logs, SHA-256 hash-chaining, ≥6-month retention), NIST AI RMF 1.1 (Mar 2026), NIST AI Agent Standards Initiative (Feb 2026), COSO gen-AI guidance. Regulators now require the *reasoning trace*, not just the action log.
 - **The pain is acute:** ~88% of enterprises reported AI-agent security incidents in the past year. The market's named failure modes — **"Paper Governance"** (policy in a doc, disconnected from the running system) and **"Retrofitted Evidence"** (compliance reconstructed after the fact) — are *exactly* what SourceA's design prevents.
 - **Funding reality:** median round ~$19M (down from ~$25M), fewer-but-bigger checks, ~65% follow-ons, but first financings still win big when mapped to an *urgent bottleneck* (security, orchestration, control). Founder-market fit matters.
@@ -38,7 +38,7 @@ Synthesized from current market data; treat as positioning input, re-check quart
 
 ## 2. Honest current state (Reality vs Target — no Paper Governance)
 
-| Layer | Reality today (in the repository / live) | Target |
+| Layer | Reality today (on disk / live) | Target |
 | :-- | :-- | :-- |
 | L0 control plane | Mac Workbench (Hub :13020, AG Routing :8782, Mac Law :8781), SCAN→SHIP belt, `~/.sina` receipts — **live** | unchanged |
 | Cloud motor | Railway FBE, always-on, contract-gated — **live** | hardened, autoscale |
@@ -48,7 +48,7 @@ Synthesized from current market data; treat as positioning input, re-check quart
 | Storefront | `sourcea.app` live (200/TLS via Worker proxy) | offer + proof on page |
 | Observability | JSON receipts + Hub logs | OpenTelemetry (later) |
 
-**Rule:** every claim in a sale, a deck, or an agent reply must be **disk-bound** (SSOT v3 §B). If it isn't logged, it's draft.
+**Rule:** every claim in a sale, a deck, or an agent reply must be **disk-bound** (SSOT v3 §B). If it isn't on disk, it's draft.
 
 ---
 
@@ -110,7 +110,7 @@ founder language → [Prompt Forge] → Cursor → reply → [ORD + Truth gate] 
 Each phase ships only when its **proof receipt** exists. No phase is "done" by self-report.
 
 **Phase 0 — Sell Now (0–2 weeks).** Put the offer + the green receipt + the video-ad sample on `sourcea.app`; one CTA (book a run). Land **1 paying done-for-you client**.
-→ *Proof:* a signed T1 client + a delivered Proof Pack receipt logged.
+→ *Proof:* a signed T1 client + a delivered Proof Pack receipt on disk.
 
 **Phase 1 — Productize one workflow (2–6 weeks).** Harden the one vertical factory; build the **Proof Pack machine** (below) so every run auto-produces the buyer/audit artifact.
 → *Proof:* 5 consecutive green runs, each with a Proof Pack, delivered to ≥2 clients.
@@ -136,7 +136,7 @@ Each phase ships only when its **proof receipt** exists. No phase is "done" by s
 5. **Emit** — write to `~/.sina/chat-unify/proof-packs/` + a shareable export; log a Proof Pack receipt.
 
 **Output:** a sealed, replayable Proof Pack (deliverable + demo + audit pack) and its own receipt.
-**Done = disk-checkable:** a sample green run produces a sealed Proof Pack logged that re-verifies green and renders all three views.
+**Done = disk-checkable:** a sample green run produces a sealed Proof Pack on disk that re-verifies green and renders all three views.
 
 *(The exact build prompt for Cursor follows this document.)*
 
@@ -165,7 +165,7 @@ These map 1:1 to what 2026 investors underwrite: a specific buyer, budget, outco
 | **Infra availability** (Mac-tied loop) | Always-on Railway + cloud cron; Mac → observer |
 | **Single-founder bandwidth** | The machines do the work; ramp gated by greens (10 before throttle up) |
 | **The inevitable 2026 agent incident** | Gates + immutable audit trail are both the defense *and* the product |
-| **Paper Governance accusation** | Every control has a location in code + an in-repo artifact + an owner (SSOT v3) |
+| **Paper Governance accusation** | Every control has a location in code + an on-disk artifact + an owner (SSOT v3) |
 
 ---
 

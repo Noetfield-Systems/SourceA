@@ -11,7 +11,7 @@
 
 ## 0. One-sentence verdict
 
-**Architecture through D16 is shipped; gate mode = machine `~/.sina/gate_mode_v1.txt` (**enforce** as of 2026-06-14 — live logged); remaining work is live senses depth (L0/L1), full cloud L8 embeddings (hybrid scaffold shipped), and live LLM outcome proof beyond Eval-1b — external AI was right on gaps, unreliable on operational state.**
+**Architecture through D16 is shipped; gate mode = machine `~/.sina/gate_mode_v1.txt` (**enforce** as of 2026-06-14 — live on disk); remaining work is live senses depth (L0/L1), full cloud L8 embeddings (hybrid scaffold shipped), and live LLM outcome proof beyond Eval-1b — external AI was right on gaps, unreliable on operational state.**
 
 ---
 
@@ -49,7 +49,7 @@
 
 ### What Claude got right
 
-- 16/16 verified logged is a real engineering milestone
+- 16/16 verified on disk is a real engineering milestone
 - Four open items (L0, L8, Eval, D15.2 UI) do not block enforce
 - Pre-mortem on enforce edge cases is correct **behavior**
 - Packet-as-intelligence-path is the right framing

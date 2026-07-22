@@ -111,7 +111,7 @@ npx hyperframes snapshot . --frames 3
 
 After lint passes, snapshots are taken, and you've fixed every issue you saw — report back to the main agent with concrete observations. Not "0 errors, looks good." That phrasing is what got prior videos shipped with mismatched brand colors, missing logos, and headlines too small to read.
 
-**The main agent will OPEN your composition file and read it top-to-bottom** to cross-check against DESIGN.md and STORYBOARD.md — does the brand bg/accent hex actually appear in your CSS, are the captured assets the storyboard called for actually referenced, is the headline ≥80px, does the GSAP timeline cover the full beat duration. You cannot pass that check by claiming things you didn't do; the file is logged, the truth is in the file.
+**The main agent will OPEN your composition file and read it top-to-bottom** to cross-check against DESIGN.md and STORYBOARD.md — does the brand bg/accent hex actually appear in your CSS, are the captured assets the storyboard called for actually referenced, is the headline ≥80px, does the GSAP timeline cover the full beat duration. You cannot pass that check by claiming things you didn't do; the file is on disk, the truth is in the file.
 
 So in your report, name the hex codes you used, the captured asset paths you placed, the headline `font-size`, and the GSAP timeline's last `tl.fromTo(...)` timestamp. Brief, concrete, true. If anything diverges from DESIGN.md or the storyboard, say so explicitly — the main agent can decide whether to accept the divergence or send you back to fix it. Surprises caught at this hand-off cost minutes; surprises caught at Step 6 cost iterations.
 

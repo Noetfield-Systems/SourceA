@@ -23,7 +23,7 @@ Write competitor row evidence: Gumloop pricing → our SKU → defer/shipped wit
 
 ## Implementation extraction
 
-`Gumloop · Pricing & packaging` → what buyer sees at vendor → what we ship logged with receipt.
+`Gumloop · Pricing & packaging` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

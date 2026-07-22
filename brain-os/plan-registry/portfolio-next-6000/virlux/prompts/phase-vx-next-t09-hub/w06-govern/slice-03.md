@@ -12,7 +12,7 @@ Agentic factory SaaS — no payment/FINTRAC copy
 
 ## Task
 
-VIRLUX · Hub & control plane · Govern · slice 3/10 — P1 — next sprint outcome. Bounded path only. Receipt logged before done. Parent: Agentic factory SaaS — no payment/FINTRAC copy. Priority doc: `os/plan-library/VIRLUX-PRIORITY.md`.
+VIRLUX · Hub & control plane · Govern · slice 3/10 — P1 — next sprint outcome. Bounded path only. Receipt on disk before done. Parent: Agentic factory SaaS — no payment/FINTRAC copy. Priority doc: `os/plan-library/VIRLUX-PRIORITY.md`.
 
 ## Verify
 

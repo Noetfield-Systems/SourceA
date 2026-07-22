@@ -11,7 +11,7 @@
 
 ## One sentence
 
-> **Mac is a Hardened Machine Workbench — a deterministic industrial control room where agents are production-line workers, every action has an API/CLI twin, UI mirrors receipts logged, and cloud runs the motor body.**
+> **Mac is a Hardened Machine Workbench — a deterministic industrial control room where agents are production-line workers, every action has an API/CLI twin, UI mirrors receipts on disk, and cloud runs the motor body.**
 
 ---
 
@@ -93,7 +93,7 @@ Fixed lifecycle — agents **cannot skip a stage** without binary proof (validat
 | 2 | **SAY** | Plain-English intent · task-plan pipeline sections |
 | 3 | **PICK** | Resolved task id · usefulness verdict · priority P0–P4 |
 | 4 | **PROVE** | Validator/gate receipt · no chat-only green |
-| 5 | **SHIP** | Cloud motor receipt · product file present |
+| 5 | **SHIP** | Cloud motor receipt · product file on disk |
 
 **SSOT:** `docs/SOURCEA_FIVE_STEP_AUTONOMOUS_PROGRESS_BLUEPRINT_LOCKED_v1.md` (when present) · `data/sourcea-next-task-trigger-v1.json` · `034-next-task-trigger-v1.mdc`
 

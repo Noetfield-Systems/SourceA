@@ -128,7 +128,7 @@ Gemini GAC collapses into **existing lanes + one deterministic Critic module**:
 | Rejected | Why |
 |----------|-----|
 | Raw OpenAI/Anthropic SDK fuzz harness | Scope creep · duplicate of intent + validator stack |
-| Mock `execute_settlement` / brokerage APIs | Wrong wedge — controlled commit/receipt, not capital ops |
+| Mock `execute_settlement` / brokerage APIs | Wrong wedge — governed commit/receipt, not capital ops |
 | Conversational probes before week 8 | Distraction from form SHIP + W1 film |
 | Agent "sounds safe" as pass criteria | Test tool boundary + checksum, not prose |
 

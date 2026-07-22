@@ -27,7 +27,7 @@ Do **not** build an “online UI critic” that claims to judge taste, convictio
 
 ### Canonical one-liner (LOCKED)
 
-**SourceA is an AI execution platform powered by Forge — it runs real builds, automations, agent workflows, and controlled development pipelines for founders and agencies.**
+**SourceA is an AI execution platform powered by Forge — it runs real builds, automations, agent workflows, and governed development pipelines for founders and agencies.**
 
 Supporting law: **Proof is built in; it is not the whole product.**
 
@@ -43,7 +43,7 @@ Use these as **design bar**, not feature parity:
 | **Lovable / v0** | Instant try · living product screenshot · low friction first action | Chat-only with no execution spine |
 | **Devin-class agents** | Autonomy narrative when honest | Overclaiming autonomy without gates |
 
-**SourceA differentiation on the page:** execution desk (Forge Terminal) + controlled run + proof as feature — not proof-as-product, not chat theater.
+**SourceA differentiation on the page:** execution desk (Forge Terminal) + governed run + proof as feature — not proof-as-product, not chat theater.
 
 ---
 
@@ -87,7 +87,7 @@ The page must not fight Brain or the locked one-liner.
 | A3.4 | Dead chips / CTAs | link crawl (bounded) | Brain chips 404; primary CTA `href="#"` or mailto poison `hello@sourcea.com` |
 | A3.5 | Asset 200 | HEAD key assets | `sourcea.css`, `sourcea-chatbot.js`, `boot-proof.json` not 200 on production |
 
-### A4 — Copy gates (already present — wire, do not duplicate logic)
+### A4 — Copy gates (already on disk — wire, do not duplicate logic)
 
 | ID | Gate | Script | Role in UI rubric |
 |----|------|--------|-------------------|
@@ -184,7 +184,7 @@ NEVER:
 
 ## What already exists vs. what to build
 
-### Already locally (keep wiring)
+### Already on disk (keep wiring)
 
 | Asset | Status |
 |-------|--------|
@@ -213,7 +213,7 @@ NEVER:
 
 ### Phase 0 — Lock the bar (DONE)
 
-- [x] Positioning one-liner logged
+- [x] Positioning one-liner on disk
 - [x] Brain worker v2.0 deployed
 - [x] UI Standard rubric (this doc)
 - [x] Brain mobile header + copy alignment hotfix shipped 2026-06-25

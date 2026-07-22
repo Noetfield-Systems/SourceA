@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""SourceA pipeline node graph runner — parallel tiers like n8n, receipts logged.
+"""SourceA pipeline node graph runner — parallel tiers like n8n, receipts on disk.
 
 Law: SINA_AUTOMATION_SPINE_AND_N8N_LOCKED_v1.md (n8n = external glue only)
 Graph SSOT: data/sourcea_pipeline_node_graph_v1.json

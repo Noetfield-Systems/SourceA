@@ -1,6 +1,6 @@
 {
   "schema": "w1-film-beats-v1",
-  "title": "SourceA W1 — controlled agent execution",
+  "title": "SourceA W1 — governed agent execution",
   "hook": "If AI executes without governance, it fails.",
   "beats": [
     {
@@ -30,8 +30,8 @@
     {
       "id": "FREEZE",
       "label": "Beat 4 — kill switch",
-      "title": "Factory freeze logged",
-      "narration": "The kill switch lives in the repository — not in chat memory. When auto-run is disabled, the factory stops. Human approval stays in the loop.",
+      "title": "Factory freeze on disk",
+      "narration": "The kill switch lives on disk — not in chat memory. When auto-run is disabled, the factory stops. Human approval stays in the loop.",
       "card_seconds": 3,
       "broll_seconds": 10
     }

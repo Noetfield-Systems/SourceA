@@ -166,7 +166,7 @@ L4 Portfolio lanes (NF · TF · Forge · ×10 transfer)
 |-------|--------|
 | **Procedure** | Before inventing history: `rg KEYWORD` on `a53f3fa1` jsonl (~13k records) |
 | **Artifacts** | `MEGA_CHAT_MAINTAINER_1_ARCHIVE_REFERENCE_LOCKED_v1.md` |
-| **Success** | Historical claims have M1 citation or "not found logged" |
+| **Success** | Historical claims have M1 citation or "not found on disk" |
 | **Failure routing** | Do not fabricate — label unknown · ask ASF or search wider |
 | **Frequency** | Before any historical narrative |
 

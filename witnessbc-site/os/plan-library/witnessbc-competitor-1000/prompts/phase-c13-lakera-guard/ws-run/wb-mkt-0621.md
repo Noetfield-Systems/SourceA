@@ -23,7 +23,7 @@ From https://www.lakera.ai document Lakera Guard run/history UX: API middleware 
 
 ## Implementation extraction
 
-`Lakera Guard · Run history & proof` → what buyer sees at vendor → what we ship logged with receipt.
+`Lakera Guard · Run history & proof` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

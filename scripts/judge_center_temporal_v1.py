@@ -153,7 +153,7 @@ def _detect_revert(windows: TranscriptWindows) -> list[dict]:
                 {
                     "code": f"revert_{code}",
                     "excerpt": matches[-1].group(0)[:120],
-                    "note": "Correction markers logged but stale claim repeated in recent assistant output",
+                    "note": "Correction markers on disk but stale claim repeated in recent assistant output",
                 }
             )
     return reverts

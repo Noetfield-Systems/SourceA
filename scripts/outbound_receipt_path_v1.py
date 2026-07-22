@@ -140,7 +140,7 @@ def write_receipt(
         "round_type": "act",
         "upgrade_id": upgrade_id,
         "title": title or f"{upgrade_id} shipped",
-        "evidence": evidence or f"{upgrade_id} acceptance verified logged",
+        "evidence": evidence or f"{upgrade_id} acceptance verified on disk",
         "receipt_law": LAW,
         "at": _now(),
         "workspace": str(ROOT),

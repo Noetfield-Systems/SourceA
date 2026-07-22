@@ -261,7 +261,7 @@
       "competitor": "LowerPlane",
       "competitor_row": 21,
       "competitor_slug": "lowerplane",
-      "title": "E2E or glance check: founder can see `Buyer-visible UX` outcome without Terminal; receipt timestamp logged",
+      "title": "E2E or glance check: founder can see `Buyer-visible UX` outcome without Terminal; receipt timestamp on disk",
       "path": "prompts/phase-c01-lowerplane/ws-ux/wb-mkt-0004.md",
       "status": "backlog",
       "verify": "bash ~/Desktop/SourceA/scripts/validate-witnessbc-competitor-1000-v1.sh",
@@ -270,7 +270,7 @@
       "source_links": "https://lowerplane.com \u00b7 https://lowerplane.com/pricing",
       "implementation": "LowerPlane Buyer-visible UX -> buyer-visible proof -> witnessbc.com pricing + toolkits hub",
       "agent_tag": "AGENT-AUTO-WITNESSBC",
-      "agent_prompt": "PLAN WITH NO ASF \u2014 wb-mkt-0004: E2E or glance check: founder can see `Buyer-visible UX` outcome without Terminal; receipt timestamp logged"
+      "agent_prompt": "PLAN WITH NO ASF \u2014 wb-mkt-0004: E2E or glance check: founder can see `Buyer-visible UX` outcome without Terminal; receipt timestamp on disk"
     },
     {
       "id": "wb-mkt-0005",
@@ -1361,7 +1361,7 @@
       "competitor": "Delve",
       "competitor_row": 22,
       "competitor_slug": "delve",
-      "title": "E2E or glance check: founder can see `Buyer-visible UX` outcome without Terminal; receipt timestamp logged",
+      "title": "E2E or glance check: founder can see `Buyer-visible UX` outcome without Terminal; receipt timestamp on disk",
       "path": "prompts/phase-c02-delve/ws-ux/wb-mkt-0054.md",
       "status": "backlog",
       "verify": "bash ~/Desktop/SourceA/scripts/validate-witnessbc-competitor-1000-v1.sh",
@@ -1370,7 +1370,7 @@
       "source_links": "https://delve.co",
       "implementation": "Delve Buyer-visible UX -> buyer-visible proof -> witnessbc.com pricing + toolkits hub",
       "agent_tag": "AGENT-AUTO-WITNESSBC",
-      "agent_prompt": "PLAN WITH NO ASF \u2014 wb-mkt-0054: E2E or glance check: founder can see `Buyer-visible UX` outcome without Terminal; receipt timestamp logged"
+      "agent_prompt": "PLAN WITH NO ASF \u2014 wb-mkt-0054: E2E or glance check: founder can see `Buyer-visible UX` outcome without Terminal; receipt timestamp on disk"
     },
     {
       "id": "wb-mkt-0055",
@@ -2461,7 +2461,7 @@
       "competitor": "Sprinto",
       "competitor_row": 23,
       "competitor_slug": "sprinto",
-      "title": "E2E or glance check: founder can see `Buyer-visible UX` outcome without Terminal; receipt timestamp logged",
+      "title": "E2E or glance check: founder can see `Buyer-visible UX` outcome without Terminal; receipt timestamp on disk",
       "path": "prompts/phase-c03-sprinto/ws-ux/wb-mkt-0104.md",
       "status": "backlog",
       "verify": "bash ~/Desktop/SourceA/scripts/validate-witnessbc-competitor-1000-v1.sh",
@@ -2470,7 +2470,7 @@
       "source_links": "https://sprinto.com",
       "implementation": "Sprinto Buyer-visible UX -> buyer-visible proof -> witnessbc.com pricing + toolkits hub",
       "agent_tag": "AGENT-AUTO-WITNESSBC",
-      "agent_prompt": "PLAN WITH NO ASF \u2014 wb-mkt-0104: E2E or glance check: founder can see `Buyer-visible UX` outcome without Terminal; receipt timestamp logged"
+      "agent_prompt": "PLAN WITH NO ASF \u2014 wb-mkt-0104: E2E or glance check: founder can see `Buyer-visible UX` outcome without Terminal; receipt timestamp on disk"
     },
     {
       "id": "wb-mkt-0105",
@@ -3561,7 +3561,7 @@
       "competitor": "Scrut Automation",
       "competitor_row": 24,
       "competitor_slug": "scrut-automation",
-      "title": "E2E or glance check: founder can see `Buyer-visible UX` outcome without Terminal; receipt timestamp logged",
+      "title": "E2E or glance check: founder can see `Buyer-visible UX` outcome without Terminal; receipt timestamp on disk",
       "path": "prompts/phase-c04-scrut-automation/ws-ux/wb-mkt-0154.md",
       "status": "backlog",
       "verify": "bash ~/Desktop/SourceA/scripts/validate-witnessbc-competitor-1000-v1.sh",
@@ -3570,7 +3570,7 @@
       "source_links": "https://scrut.io",
       "implementation": "Scrut Automation Buyer-visible UX -> buyer-visible proof -> witnessbc.com pricing + toolkits hub",
       "agent_tag": "AGENT-AUTO-WITNESSBC",
-      "agent_prompt": "PLAN WITH NO ASF \u2014 wb-mkt-0154: E2E or glance check: founder can see `Buyer-visible UX` outcome without Terminal; receipt timestamp logged"
+      "agent_prompt": "PLAN WITH NO ASF \u2014 wb-mkt-0154: E2E or glance check: founder can see `Buyer-visible UX` outcome without Terminal; receipt timestamp on disk"
     },
     {
       "id": "wb-mkt-0155",
@@ -4661,7 +4661,7 @@
       "competitor": "Comp AI",
       "competitor_row": 25,
       "competitor_slug": "comp-ai",
-      "title": "E2E or glance check: founder can see `Buyer-visible UX` outcome without Terminal; receipt timestamp logged",
+      "title": "E2E or glance check: founder can see `Buyer-visible UX` outcome without Terminal; receipt timestamp on disk",
       "path": "prompts/phase-c05-comp-ai/ws-ux/wb-mkt-0204.md",
       "status": "backlog",
       "verify": "bash ~/Desktop/SourceA/scripts/validate-witnessbc-competitor-1000-v1.sh",
@@ -4670,7 +4670,7 @@
       "source_links": "https://comp.ai",
       "implementation": "Comp AI Buyer-visible UX -> buyer-visible proof -> witnessbc.com pricing + toolkits hub",
       "agent_tag": "AGENT-AUTO-WITNESSBC",
-      "agent_prompt": "PLAN WITH NO ASF \u2014 wb-mkt-0204: E2E or glance check: founder can see `Buyer-visible UX` outcome without Terminal; receipt timestamp logged"
+      "agent_prompt": "PLAN WITH NO ASF \u2014 wb-mkt-0204: E2E or glance check: founder can see `Buyer-visible UX` outcome without Terminal; receipt timestamp on disk"
     },
     {
       "id": "wb-mkt-0205",
@@ -5761,7 +5761,7 @@
       "competitor": "Oneleet",
       "competitor_row": 26,
       "competitor_slug": "oneleet",
-      "title": "E2E or glance check: founder can see `Buyer-visible UX` outcome without Terminal; receipt timestamp logged",
+      "title": "E2E or glance check: founder can see `Buyer-visible UX` outcome without Terminal; receipt timestamp on disk",
       "path": "prompts/phase-c06-oneleet/ws-ux/wb-mkt-0254.md",
       "status": "backlog",
       "verify": "bash ~/Desktop/SourceA/scripts/validate-witnessbc-competitor-1000-v1.sh",
@@ -5770,7 +5770,7 @@
       "source_links": "https://oneleet.com",
       "implementation": "Oneleet Buyer-visible UX -> buyer-visible proof -> witnessbc.com pricing + toolkits hub",
       "agent_tag": "AGENT-AUTO-WITNESSBC",
-      "agent_prompt": "PLAN WITH NO ASF \u2014 wb-mkt-0254: E2E or glance check: founder can see `Buyer-visible UX` outcome without Terminal; receipt timestamp logged"
+      "agent_prompt": "PLAN WITH NO ASF \u2014 wb-mkt-0254: E2E or glance check: founder can see `Buyer-visible UX` outcome without Terminal; receipt timestamp on disk"
     },
     {
       "id": "wb-mkt-0255",
@@ -6861,7 +6861,7 @@
       "competitor": "Secureframe",
       "competitor_row": 27,
       "competitor_slug": "secureframe",
-      "title": "E2E or glance check: founder can see `Buyer-visible UX` outcome without Terminal; receipt timestamp logged",
+      "title": "E2E or glance check: founder can see `Buyer-visible UX` outcome without Terminal; receipt timestamp on disk",
       "path": "prompts/phase-c07-secureframe/ws-ux/wb-mkt-0304.md",
       "status": "backlog",
       "verify": "bash ~/Desktop/SourceA/scripts/validate-witnessbc-competitor-1000-v1.sh",
@@ -6870,7 +6870,7 @@
       "source_links": "https://secureframe.com",
       "implementation": "Secureframe Buyer-visible UX -> buyer-visible proof -> witnessbc.com pricing + toolkits hub",
       "agent_tag": "AGENT-AUTO-WITNESSBC",
-      "agent_prompt": "PLAN WITH NO ASF \u2014 wb-mkt-0304: E2E or glance check: founder can see `Buyer-visible UX` outcome without Terminal; receipt timestamp logged"
+      "agent_prompt": "PLAN WITH NO ASF \u2014 wb-mkt-0304: E2E or glance check: founder can see `Buyer-visible UX` outcome without Terminal; receipt timestamp on disk"
     },
     {
       "id": "wb-mkt-0305",
@@ -7961,7 +7961,7 @@
       "competitor": "Vanta",
       "competitor_row": 28,
       "competitor_slug": "vanta",
-      "title": "E2E or glance check: founder can see `Buyer-visible UX` outcome without Terminal; receipt timestamp logged",
+      "title": "E2E or glance check: founder can see `Buyer-visible UX` outcome without Terminal; receipt timestamp on disk",
       "path": "prompts/phase-c08-vanta/ws-ux/wb-mkt-0354.md",
       "status": "backlog",
       "verify": "bash ~/Desktop/SourceA/scripts/validate-witnessbc-competitor-1000-v1.sh",
@@ -7970,7 +7970,7 @@
       "source_links": "https://www.vanta.com",
       "implementation": "Vanta Buyer-visible UX -> buyer-visible proof -> witnessbc.com pricing + toolkits hub",
       "agent_tag": "AGENT-AUTO-WITNESSBC",
-      "agent_prompt": "PLAN WITH NO ASF \u2014 wb-mkt-0354: E2E or glance check: founder can see `Buyer-visible UX` outcome without Terminal; receipt timestamp logged"
+      "agent_prompt": "PLAN WITH NO ASF \u2014 wb-mkt-0354: E2E or glance check: founder can see `Buyer-visible UX` outcome without Terminal; receipt timestamp on disk"
     },
     {
       "id": "wb-mkt-0355",
@@ -9061,7 +9061,7 @@
       "competitor": "Drata",
       "competitor_row": 29,
       "competitor_slug": "drata",
-      "title": "E2E or glance check: founder can see `Buyer-visible UX` outcome without Terminal; receipt timestamp logged",
+      "title": "E2E or glance check: founder can see `Buyer-visible UX` outcome without Terminal; receipt timestamp on disk",
       "path": "prompts/phase-c09-drata/ws-ux/wb-mkt-0404.md",
       "status": "backlog",
       "verify": "bash ~/Desktop/SourceA/scripts/validate-witnessbc-competitor-1000-v1.sh",
@@ -9070,7 +9070,7 @@
       "source_links": "https://drata.com",
       "implementation": "Drata Buyer-visible UX -> buyer-visible proof -> witnessbc.com pricing + toolkits hub",
       "agent_tag": "AGENT-AUTO-WITNESSBC",
-      "agent_prompt": "PLAN WITH NO ASF \u2014 wb-mkt-0404: E2E or glance check: founder can see `Buyer-visible UX` outcome without Terminal; receipt timestamp logged"
+      "agent_prompt": "PLAN WITH NO ASF \u2014 wb-mkt-0404: E2E or glance check: founder can see `Buyer-visible UX` outcome without Terminal; receipt timestamp on disk"
     },
     {
       "id": "wb-mkt-0405",
@@ -10161,7 +10161,7 @@
       "competitor": "Gumloop",
       "competitor_row": 30,
       "competitor_slug": "gumloop",
-      "title": "E2E or glance check: founder can see `Buyer-visible UX` outcome without Terminal; receipt timestamp logged",
+      "title": "E2E or glance check: founder can see `Buyer-visible UX` outcome without Terminal; receipt timestamp on disk",
       "path": "prompts/phase-c10-gumloop/ws-ux/wb-mkt-0454.md",
       "status": "backlog",
       "verify": "bash ~/Desktop/SourceA/scripts/validate-witnessbc-competitor-1000-v1.sh",
@@ -10170,7 +10170,7 @@
       "source_links": "https://www.gumloop.com/pricing",
       "implementation": "Gumloop Buyer-visible UX -> buyer-visible proof -> witnessbc.com pricing + toolkits hub",
       "agent_tag": "AGENT-AUTO-WITNESSBC",
-      "agent_prompt": "PLAN WITH NO ASF \u2014 wb-mkt-0454: E2E or glance check: founder can see `Buyer-visible UX` outcome without Terminal; receipt timestamp logged"
+      "agent_prompt": "PLAN WITH NO ASF \u2014 wb-mkt-0454: E2E or glance check: founder can see `Buyer-visible UX` outcome without Terminal; receipt timestamp on disk"
     },
     {
       "id": "wb-mkt-0455",
@@ -10425,7 +10425,7 @@
       "competitor": "Gumloop",
       "competitor_row": 30,
       "competitor_slug": "gumloop",
-      "title": "Document why buyers pay per Gumloop: Non-dev teams need controlled AI automation \u2014 tie to our offer in plain English",
+      "title": "Document why buyers pay per Gumloop: Non-dev teams need governed AI automation \u2014 tie to our offer in plain English",
       "path": "prompts/phase-c10-gumloop/ws-pricing/wb-mkt-0466.md",
       "status": "backlog",
       "verify": "bash ~/Desktop/SourceA/scripts/validate-witnessbc-competitor-1000-v1.sh",
@@ -10434,7 +10434,7 @@
       "source_links": "https://www.gumloop.com/pricing",
       "implementation": "Gumloop Pricing & packaging -> buyer-visible proof -> witnessbc.com pricing + toolkits hub",
       "agent_tag": "AGENT-AUTO-WITNESSBC",
-      "agent_prompt": "PLAN WITH NO ASF \u2014 wb-mkt-0466: Document why buyers pay per Gumloop: Non-dev teams need controlled AI automation \u2014 tie to our offer in plain English"
+      "agent_prompt": "PLAN WITH NO ASF \u2014 wb-mkt-0466: Document why buyers pay per Gumloop: Non-dev teams need governed AI automation \u2014 tie to our offer in plain English"
     },
     {
       "id": "wb-mkt-0467",
@@ -11261,7 +11261,7 @@
       "competitor": "Stack AI",
       "competitor_row": 31,
       "competitor_slug": "stack-ai",
-      "title": "E2E or glance check: founder can see `Buyer-visible UX` outcome without Terminal; receipt timestamp logged",
+      "title": "E2E or glance check: founder can see `Buyer-visible UX` outcome without Terminal; receipt timestamp on disk",
       "path": "prompts/phase-c11-stack-ai/ws-ux/wb-mkt-0504.md",
       "status": "backlog",
       "verify": "bash ~/Desktop/SourceA/scripts/validate-witnessbc-competitor-1000-v1.sh",
@@ -11270,7 +11270,7 @@
       "source_links": "https://www.stack-ai.com",
       "implementation": "Stack AI Buyer-visible UX -> buyer-visible proof -> witnessbc.com pricing + toolkits hub",
       "agent_tag": "AGENT-AUTO-WITNESSBC",
-      "agent_prompt": "PLAN WITH NO ASF \u2014 wb-mkt-0504: E2E or glance check: founder can see `Buyer-visible UX` outcome without Terminal; receipt timestamp logged"
+      "agent_prompt": "PLAN WITH NO ASF \u2014 wb-mkt-0504: E2E or glance check: founder can see `Buyer-visible UX` outcome without Terminal; receipt timestamp on disk"
     },
     {
       "id": "wb-mkt-0505",
@@ -11525,7 +11525,7 @@
       "competitor": "Stack AI",
       "competitor_row": 31,
       "competitor_slug": "stack-ai",
-      "title": "Document why buyers pay per Stack AI: Need controlled internal AI without dev team \u2014 tie to our offer in plain English",
+      "title": "Document why buyers pay per Stack AI: Need governed internal AI without dev team \u2014 tie to our offer in plain English",
       "path": "prompts/phase-c11-stack-ai/ws-pricing/wb-mkt-0516.md",
       "status": "backlog",
       "verify": "bash ~/Desktop/SourceA/scripts/validate-witnessbc-competitor-1000-v1.sh",
@@ -11534,7 +11534,7 @@
       "source_links": "https://www.stack-ai.com",
       "implementation": "Stack AI Pricing & packaging -> buyer-visible proof -> witnessbc.com pricing + toolkits hub",
       "agent_tag": "AGENT-AUTO-WITNESSBC",
-      "agent_prompt": "PLAN WITH NO ASF \u2014 wb-mkt-0516: Document why buyers pay per Stack AI: Need controlled internal AI without dev team \u2014 tie to our offer in plain English"
+      "agent_prompt": "PLAN WITH NO ASF \u2014 wb-mkt-0516: Document why buyers pay per Stack AI: Need governed internal AI without dev team \u2014 tie to our offer in plain English"
     },
     {
       "id": "wb-mkt-0517",
@@ -12361,7 +12361,7 @@
       "competitor": "Relevance AI",
       "competitor_row": 32,
       "competitor_slug": "relevance-ai",
-      "title": "E2E or glance check: founder can see `Buyer-visible UX` outcome without Terminal; receipt timestamp logged",
+      "title": "E2E or glance check: founder can see `Buyer-visible UX` outcome without Terminal; receipt timestamp on disk",
       "path": "prompts/phase-c12-relevance-ai/ws-ux/wb-mkt-0554.md",
       "status": "backlog",
       "verify": "bash ~/Desktop/SourceA/scripts/validate-witnessbc-competitor-1000-v1.sh",
@@ -12370,7 +12370,7 @@
       "source_links": "https://relevanceai.com/docs/get-started/pricing",
       "implementation": "Relevance AI Buyer-visible UX -> buyer-visible proof -> witnessbc.com pricing + toolkits hub",
       "agent_tag": "AGENT-AUTO-WITNESSBC",
-      "agent_prompt": "PLAN WITH NO ASF \u2014 wb-mkt-0554: E2E or glance check: founder can see `Buyer-visible UX` outcome without Terminal; receipt timestamp logged"
+      "agent_prompt": "PLAN WITH NO ASF \u2014 wb-mkt-0554: E2E or glance check: founder can see `Buyer-visible UX` outcome without Terminal; receipt timestamp on disk"
     },
     {
       "id": "wb-mkt-0555",
@@ -13461,7 +13461,7 @@
       "competitor": "Lakera Guard",
       "competitor_row": 33,
       "competitor_slug": "lakera-guard",
-      "title": "E2E or glance check: founder can see `Buyer-visible UX` outcome without Terminal; receipt timestamp logged",
+      "title": "E2E or glance check: founder can see `Buyer-visible UX` outcome without Terminal; receipt timestamp on disk",
       "path": "prompts/phase-c13-lakera-guard/ws-ux/wb-mkt-0604.md",
       "status": "backlog",
       "verify": "bash ~/Desktop/SourceA/scripts/validate-witnessbc-competitor-1000-v1.sh",
@@ -13470,7 +13470,7 @@
       "source_links": "https://www.lakera.ai",
       "implementation": "Lakera Guard Buyer-visible UX -> buyer-visible proof -> witnessbc.com pricing + toolkits hub",
       "agent_tag": "AGENT-AUTO-WITNESSBC",
-      "agent_prompt": "PLAN WITH NO ASF \u2014 wb-mkt-0604: E2E or glance check: founder can see `Buyer-visible UX` outcome without Terminal; receipt timestamp logged"
+      "agent_prompt": "PLAN WITH NO ASF \u2014 wb-mkt-0604: E2E or glance check: founder can see `Buyer-visible UX` outcome without Terminal; receipt timestamp on disk"
     },
     {
       "id": "wb-mkt-0605",
@@ -14561,7 +14561,7 @@
       "competitor": "Holistic AI",
       "competitor_row": 34,
       "competitor_slug": "holistic-ai",
-      "title": "E2E or glance check: founder can see `Buyer-visible UX` outcome without Terminal; receipt timestamp logged",
+      "title": "E2E or glance check: founder can see `Buyer-visible UX` outcome without Terminal; receipt timestamp on disk",
       "path": "prompts/phase-c14-holistic-ai/ws-ux/wb-mkt-0654.md",
       "status": "backlog",
       "verify": "bash ~/Desktop/SourceA/scripts/validate-witnessbc-competitor-1000-v1.sh",
@@ -14570,7 +14570,7 @@
       "source_links": "https://www.holisticai.com",
       "implementation": "Holistic AI Buyer-visible UX -> buyer-visible proof -> witnessbc.com pricing + toolkits hub",
       "agent_tag": "AGENT-AUTO-WITNESSBC",
-      "agent_prompt": "PLAN WITH NO ASF \u2014 wb-mkt-0654: E2E or glance check: founder can see `Buyer-visible UX` outcome without Terminal; receipt timestamp logged"
+      "agent_prompt": "PLAN WITH NO ASF \u2014 wb-mkt-0654: E2E or glance check: founder can see `Buyer-visible UX` outcome without Terminal; receipt timestamp on disk"
     },
     {
       "id": "wb-mkt-0655",
@@ -15661,7 +15661,7 @@
       "competitor": "Arthur AI",
       "competitor_row": 35,
       "competitor_slug": "arthur-ai",
-      "title": "E2E or glance check: founder can see `Buyer-visible UX` outcome without Terminal; receipt timestamp logged",
+      "title": "E2E or glance check: founder can see `Buyer-visible UX` outcome without Terminal; receipt timestamp on disk",
       "path": "prompts/phase-c15-arthur-ai/ws-ux/wb-mkt-0704.md",
       "status": "backlog",
       "verify": "bash ~/Desktop/SourceA/scripts/validate-witnessbc-competitor-1000-v1.sh",
@@ -15670,7 +15670,7 @@
       "source_links": "https://www.arthur.ai",
       "implementation": "Arthur AI Buyer-visible UX -> buyer-visible proof -> witnessbc.com pricing + toolkits hub",
       "agent_tag": "AGENT-AUTO-WITNESSBC",
-      "agent_prompt": "PLAN WITH NO ASF \u2014 wb-mkt-0704: E2E or glance check: founder can see `Buyer-visible UX` outcome without Terminal; receipt timestamp logged"
+      "agent_prompt": "PLAN WITH NO ASF \u2014 wb-mkt-0704: E2E or glance check: founder can see `Buyer-visible UX` outcome without Terminal; receipt timestamp on disk"
     },
     {
       "id": "wb-mkt-0705",
@@ -16761,7 +16761,7 @@
       "competitor": "Monitaur",
       "competitor_row": 36,
       "competitor_slug": "monitaur",
-      "title": "E2E or glance check: founder can see `Buyer-visible UX` outcome without Terminal; receipt timestamp logged",
+      "title": "E2E or glance check: founder can see `Buyer-visible UX` outcome without Terminal; receipt timestamp on disk",
       "path": "prompts/phase-c16-monitaur/ws-ux/wb-mkt-0754.md",
       "status": "backlog",
       "verify": "bash ~/Desktop/SourceA/scripts/validate-witnessbc-competitor-1000-v1.sh",
@@ -16770,7 +16770,7 @@
       "source_links": "https://www.monitaur.ai",
       "implementation": "Monitaur Buyer-visible UX -> buyer-visible proof -> witnessbc.com pricing + toolkits hub",
       "agent_tag": "AGENT-AUTO-WITNESSBC",
-      "agent_prompt": "PLAN WITH NO ASF \u2014 wb-mkt-0754: E2E or glance check: founder can see `Buyer-visible UX` outcome without Terminal; receipt timestamp logged"
+      "agent_prompt": "PLAN WITH NO ASF \u2014 wb-mkt-0754: E2E or glance check: founder can see `Buyer-visible UX` outcome without Terminal; receipt timestamp on disk"
     },
     {
       "id": "wb-mkt-0755",
@@ -17861,7 +17861,7 @@
       "competitor": "Lasso Security",
       "competitor_row": 37,
       "competitor_slug": "lasso-security",
-      "title": "E2E or glance check: founder can see `Buyer-visible UX` outcome without Terminal; receipt timestamp logged",
+      "title": "E2E or glance check: founder can see `Buyer-visible UX` outcome without Terminal; receipt timestamp on disk",
       "path": "prompts/phase-c17-lasso-security/ws-ux/wb-mkt-0804.md",
       "status": "backlog",
       "verify": "bash ~/Desktop/SourceA/scripts/validate-witnessbc-competitor-1000-v1.sh",
@@ -17870,7 +17870,7 @@
       "source_links": "https://www.lasso.security",
       "implementation": "Lasso Security Buyer-visible UX -> buyer-visible proof -> witnessbc.com pricing + toolkits hub",
       "agent_tag": "AGENT-AUTO-WITNESSBC",
-      "agent_prompt": "PLAN WITH NO ASF \u2014 wb-mkt-0804: E2E or glance check: founder can see `Buyer-visible UX` outcome without Terminal; receipt timestamp logged"
+      "agent_prompt": "PLAN WITH NO ASF \u2014 wb-mkt-0804: E2E or glance check: founder can see `Buyer-visible UX` outcome without Terminal; receipt timestamp on disk"
     },
     {
       "id": "wb-mkt-0805",
@@ -18125,7 +18125,7 @@
       "competitor": "Lasso Security",
       "competitor_row": 37,
       "competitor_slug": "lasso-security",
-      "title": "Document why buyers pay per Lasso Security: Employees use uncontrolled AI tools \u2014 tie to our offer in plain English",
+      "title": "Document why buyers pay per Lasso Security: Employees use ungoverned AI tools \u2014 tie to our offer in plain English",
       "path": "prompts/phase-c17-lasso-security/ws-pricing/wb-mkt-0816.md",
       "status": "backlog",
       "verify": "bash ~/Desktop/SourceA/scripts/validate-witnessbc-competitor-1000-v1.sh",
@@ -18134,7 +18134,7 @@
       "source_links": "https://www.lasso.security",
       "implementation": "Lasso Security Pricing & packaging -> buyer-visible proof -> witnessbc.com pricing + toolkits hub",
       "agent_tag": "AGENT-AUTO-WITNESSBC",
-      "agent_prompt": "PLAN WITH NO ASF \u2014 wb-mkt-0816: Document why buyers pay per Lasso Security: Employees use uncontrolled AI tools \u2014 tie to our offer in plain English"
+      "agent_prompt": "PLAN WITH NO ASF \u2014 wb-mkt-0816: Document why buyers pay per Lasso Security: Employees use ungoverned AI tools \u2014 tie to our offer in plain English"
     },
     {
       "id": "wb-mkt-0817",
@@ -18961,7 +18961,7 @@
       "competitor": "Dust.tt",
       "competitor_row": 38,
       "competitor_slug": "dust-tt",
-      "title": "E2E or glance check: founder can see `Buyer-visible UX` outcome without Terminal; receipt timestamp logged",
+      "title": "E2E or glance check: founder can see `Buyer-visible UX` outcome without Terminal; receipt timestamp on disk",
       "path": "prompts/phase-c18-dust-tt/ws-ux/wb-mkt-0854.md",
       "status": "backlog",
       "verify": "bash ~/Desktop/SourceA/scripts/validate-witnessbc-competitor-1000-v1.sh",
@@ -18970,7 +18970,7 @@
       "source_links": "https://dust.tt",
       "implementation": "Dust.tt Buyer-visible UX -> buyer-visible proof -> witnessbc.com pricing + toolkits hub",
       "agent_tag": "AGENT-AUTO-WITNESSBC",
-      "agent_prompt": "PLAN WITH NO ASF \u2014 wb-mkt-0854: E2E or glance check: founder can see `Buyer-visible UX` outcome without Terminal; receipt timestamp logged"
+      "agent_prompt": "PLAN WITH NO ASF \u2014 wb-mkt-0854: E2E or glance check: founder can see `Buyer-visible UX` outcome without Terminal; receipt timestamp on disk"
     },
     {
       "id": "wb-mkt-0855",
@@ -20061,7 +20061,7 @@
       "competitor": "Voiceflow",
       "competitor_row": 39,
       "competitor_slug": "voiceflow",
-      "title": "E2E or glance check: founder can see `Buyer-visible UX` outcome without Terminal; receipt timestamp logged",
+      "title": "E2E or glance check: founder can see `Buyer-visible UX` outcome without Terminal; receipt timestamp on disk",
       "path": "prompts/phase-c19-voiceflow/ws-ux/wb-mkt-0904.md",
       "status": "backlog",
       "verify": "bash ~/Desktop/SourceA/scripts/validate-witnessbc-competitor-1000-v1.sh",
@@ -20070,7 +20070,7 @@
       "source_links": "https://www.voiceflow.com",
       "implementation": "Voiceflow Buyer-visible UX -> buyer-visible proof -> witnessbc.com pricing + toolkits hub",
       "agent_tag": "AGENT-AUTO-WITNESSBC",
-      "agent_prompt": "PLAN WITH NO ASF \u2014 wb-mkt-0904: E2E or glance check: founder can see `Buyer-visible UX` outcome without Terminal; receipt timestamp logged"
+      "agent_prompt": "PLAN WITH NO ASF \u2014 wb-mkt-0904: E2E or glance check: founder can see `Buyer-visible UX` outcome without Terminal; receipt timestamp on disk"
     },
     {
       "id": "wb-mkt-0905",
@@ -21161,7 +21161,7 @@
       "competitor": "Maven AGI",
       "competitor_row": 40,
       "competitor_slug": "maven-agi",
-      "title": "E2E or glance check: founder can see `Buyer-visible UX` outcome without Terminal; receipt timestamp logged",
+      "title": "E2E or glance check: founder can see `Buyer-visible UX` outcome without Terminal; receipt timestamp on disk",
       "path": "prompts/phase-c20-maven-agi/ws-ux/wb-mkt-0954.md",
       "status": "backlog",
       "verify": "bash ~/Desktop/SourceA/scripts/validate-witnessbc-competitor-1000-v1.sh",
@@ -21170,7 +21170,7 @@
       "source_links": "https://www.mavenagi.com",
       "implementation": "Maven AGI Buyer-visible UX -> buyer-visible proof -> witnessbc.com pricing + toolkits hub",
       "agent_tag": "AGENT-AUTO-WITNESSBC",
-      "agent_prompt": "PLAN WITH NO ASF \u2014 wb-mkt-0954: E2E or glance check: founder can see `Buyer-visible UX` outcome without Terminal; receipt timestamp logged"
+      "agent_prompt": "PLAN WITH NO ASF \u2014 wb-mkt-0954: E2E or glance check: founder can see `Buyer-visible UX` outcome without Terminal; receipt timestamp on disk"
     },
     {
       "id": "wb-mkt-0955",

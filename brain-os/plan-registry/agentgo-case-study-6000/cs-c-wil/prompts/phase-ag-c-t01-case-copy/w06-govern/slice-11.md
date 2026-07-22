@@ -14,7 +14,7 @@ Wil L3 portfolio demo — YA5 mirror · AgentGo ≠ SourceA separation · ship g
 
 ## Task
 
-**Check supersede chain for** case study prose (challenge · shipped · verification).
+**Check supersede chain for** case study prose (challenge · shipped · proof chain).
 
 UP-888 · portfolio 6000.
 

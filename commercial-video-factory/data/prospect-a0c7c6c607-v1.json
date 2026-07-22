@@ -5,7 +5,7 @@
   "lane": "AB1",
   "hook": "Can you prove what your agents ran last night?",
   "pain": "Logs aren't receipts \u2014 counsel can't file a chat transcript when execution has no signed gate.",
-  "proof_line": "PASS \u00b7 BLOCK \u00b7 tamper-FAIL \u2014 every gate logged and signed",
+  "proof_line": "PASS \u00b7 BLOCK \u00b7 tamper-FAIL \u2014 every gate signed on disk",
   "scenario": "sourcea-boot",
   "verdict": "BLOCK",
   "receipt_hash": "sha256:aeg-20260702T194402Z-2c9c78f7",

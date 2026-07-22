@@ -23,7 +23,7 @@ Document why buyers pay per Oneleet: Separate security and compliance tools are 
 
 ## Implementation extraction
 
-`Oneleet · Pricing & packaging` → what buyer sees at vendor → what we ship logged with receipt.
+`Oneleet · Pricing & packaging` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

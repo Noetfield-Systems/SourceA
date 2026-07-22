@@ -14,7 +14,7 @@ Dual desktop deploy — agentrun-app :5180 + SA4 AgentGo :8080 · landing parity
 
 ## Task
 
-**Archive doc bundle for** case study prose (challenge · shipped · verification).
+**Archive doc bundle for** case study prose (challenge · shipped · proof chain).
 
 vault.
 

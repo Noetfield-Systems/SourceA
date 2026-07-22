@@ -38,7 +38,7 @@ The founder correctly called this **stupid and stale**: the agent parroted compl
 | Who | Verdict | Detail |
 |-----|---------|--------|
 | **Worker (agent)** | **Main fault** | Read ASF stop as cosmetic; recycled prior session “remaining tasks” template; ended two replies with hub-ui next actions (`sa-0857`) |
-| **Machine** | **Design gap** | No ASF directive latch logged; `agent_turn_context_v1.py` does not inject founder stop phrases into turn law |
+| **Machine** | **Design gap** | No ASF directive latch on disk; `agent_turn_context_v1.py` does not inject founder stop phrases into turn law |
 | **Founder (ASF)** | **Not at fault** | Clear imperative; agent contradicted it in the same thread |
 | **Broker / REGISTRY** | **Not involved** | No disk corruption — pure chat obedience failure |
 
@@ -122,7 +122,7 @@ Same family as **INCIDENT-013** (stale parrot), **INCIDENT-020** (wrong topic co
 
 | Row | Role | Obligation | Artifact | Validator | Status |
 |-----|------|------------|----------|-----------|--------|
-| F1 | **Worker** | On ASF no-hub phrases → set latch · never suggest hub-ui sa / hub refresh in reply | `worker_asf_directive_latch_v1.py` | latch file present | **shipped** |
+| F1 | **Worker** | On ASF no-hub phrases → set latch · never suggest hub-ui sa / hub refresh in reply | `worker_asf_directive_latch_v1.py` | latch file on disk | **shipped** |
 | F2 | **Machine** | Inject ASF directive block into turn context | `agent_turn_context_v1.py` | import smoke | **shipped** |
 | F3 | **Maintainer** | Wire latch read on turn entry (future) | `worker_turn_entry_v1.sh` (optional) | — | open |
 | F6 | **Stairlift** | Incident + latch law in stairlift watch | `governance_stairlift_sync_v1.py` | `validate-incident-fix-ownership-v1.sh` | **shipped** |

@@ -113,7 +113,7 @@
       "sourcea_target": "scripts/validate-governance-drift-v1.sh",
       "workflow_hint": ".github/workflows/sourcea-automation-surface-health.yml",
       "receipt_path": "receipts/cloud/kaizen/kaizen-automation-catalog-miss-latest-v1.json",
-      "notes": "Evidence drift watch over verifications and receipts."
+      "notes": "Evidence drift watch over proof chains and receipts."
     },
     {
       "id": "weekly-docs-integrity",
@@ -233,7 +233,7 @@
       "status": "mapped",
       "sourcea_target": "scripts/build_external_verify_receipt_v1.py",
       "workflow_hint": ".github/workflows/sourcea-automation-surface-health.yml",
-      "notes": "Evidence pack and verification audit."
+      "notes": "Evidence pack and proof chain audit."
     },
     {
       "id": "manual-deployment-boundary-audit",

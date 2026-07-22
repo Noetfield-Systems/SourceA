@@ -17,7 +17,7 @@ Using **`move`** → `brain-os/wtm/` would skip all 10 rows (`execute-batch-v1.s
 
 | Check | Result |
 |-------|--------|
-| Source stubs logged | **PASS** (10/10) |
+| Source stubs on disk | **PASS** (10/10) |
 | Canonical at `brain-os/wtm/` | **PASS** (10/10) |
 | Dest collision at `archive/root-stubs/` | **PASS** (0 existing WORLD_* there) |
 | Pointer patch before archive | **PASS** (6 scripts + governance_paths_v1) |

@@ -14,7 +14,7 @@ Dual desktop deploy — agentrun-app :5180 + SA4 AgentGo :8080 · landing parity
 
 ## Task
 
-**Pick 10-page public demo subset from** case study prose (challenge · shipped · verification).
+**Pick 10-page public demo subset from** case study prose (challenge · shipped · proof chain).
 
 Home + 3 trackers + 3 compare + 3 research — honest scope.
 

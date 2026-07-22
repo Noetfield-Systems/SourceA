@@ -23,7 +23,7 @@ Map Stack AI revenue model (Enterprise annual contracts) to our `Free toolkits �
 
 ## Implementation extraction
 
-`Stack AI · Pricing & packaging` → what buyer sees at vendor → what we ship logged with receipt.
+`Stack AI · Pricing & packaging` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

@@ -12,7 +12,7 @@ Intelligence 613 · Copilot governance upsell · Trust Brief
 
 ## Task
 
-Noetfield · Landing & web · Integrate · slice 9/10 — P3 — research · defer · compare-only. Bounded path only. Receipt logged before done. Parent: Intelligence 613 · Copilot governance upsell · Trust Brief. Priority doc: `docs/NOETFIELD_INTELLIGENCE_613_PLAN_LOCKED_v1.md`.
+Noetfield · Landing & web · Integrate · slice 9/10 — P3 — research · defer · compare-only. Bounded path only. Receipt on disk before done. Parent: Intelligence 613 · Copilot governance upsell · Trust Brief. Priority doc: `docs/NOETFIELD_INTELLIGENCE_613_PLAN_LOCKED_v1.md`.
 
 ## Verify
 

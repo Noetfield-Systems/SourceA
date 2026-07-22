@@ -23,7 +23,7 @@ Compare Voiceflow PLG motion (Conversation design community → SaaS) vs our onb
 
 ## Implementation extraction
 
-`Voiceflow · Pricing & packaging` → what buyer sees at vendor → what we ship logged with receipt.
+`Voiceflow · Pricing & packaging` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

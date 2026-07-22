@@ -79,7 +79,7 @@
     const lifetimeN = Number(data.receipts_signed_lifetime) || 0;
     lifetime.forEach((el) => {
       el.textContent = lifetimeN ? fmtCount(lifetimeN) : "—";
-      el.setAttribute("title", data.receipts_lifetime_label || "Delivery records logged");
+      el.setAttribute("title", data.receipts_lifetime_label || "Governance receipts on disk");
     });
     const lifetimeLabel = document.querySelectorAll("[data-trust-receipts-lifetime-label]");
     lifetimeLabel.forEach((el) => {

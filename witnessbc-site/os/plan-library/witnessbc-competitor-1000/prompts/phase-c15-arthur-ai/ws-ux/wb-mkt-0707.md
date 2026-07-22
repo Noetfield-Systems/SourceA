@@ -23,7 +23,7 @@ Document who buys (ML platform owners) vs our ICP one sentence on `witnessbc-sit
 
 ## Implementation extraction
 
-`Arthur AI · Buyer-visible UX` → what buyer sees at vendor → what we ship logged with receipt.
+`Arthur AI · Buyer-visible UX` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

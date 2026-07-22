@@ -14,7 +14,7 @@ Dual desktop deploy — agentrun-app :5180 + SA4 AgentGo :8080 · landing parity
 
 ## Task
 
-**Write 5-line ship retro for** case study prose (challenge · shipped · verification).
+**Write 5-line ship retro for** case study prose (challenge · shipped · proof chain).
 
 What worked · what blocked · next slice.
 

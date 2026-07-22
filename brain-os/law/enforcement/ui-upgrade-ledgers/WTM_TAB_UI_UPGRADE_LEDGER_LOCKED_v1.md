@@ -55,7 +55,7 @@
 | Field | Value |
 |-------|-------|
 | Preserved | All frozen inventory |
-| Changed | Per-app WTM upgrade ledger logged |
+| Changed | Per-app WTM upgrade ledger on disk |
 | Achieved | Tracked WTM inventory + checklist |
 | Quality vs last | same |
 | Founder approval | **pending** |

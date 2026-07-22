@@ -51,7 +51,7 @@
     var subTitle = document.getElementById("sa-unify-sub-title");
     var subLead = document.getElementById("sa-unify-sub-lead");
     if (subKicker) subKicker.textContent = "Full desk · all machines · cloud receipts";
-    if (subTitle) subTitle.textContent = "Chat Unify — your agent work desk";
+    if (subTitle) subTitle.textContent = "Chat Unify — your governed agent desk";
     if (subLead) {
       subLead.textContent =
         "Workspace IDE, Verify & Act, Audit Trail, Proof Pack, Connect — every run receipted when the cloud API is live.";

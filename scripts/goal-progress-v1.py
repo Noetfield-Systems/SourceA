@@ -89,7 +89,7 @@ def goal_progress(*, pick_script: bool = True) -> dict:
     return {
         "schema": "goal-progress-v1",
         "goal_1": {
-            "name": "Controlled automation factory — sourcea-1000 REGISTRY",
+            "name": "Governed automation factory — sourcea-1000 REGISTRY",
             "done": done,
             "honest_done": done,
             "raw_done": raw_done,
@@ -99,7 +99,7 @@ def goal_progress(*, pick_script: bool = True) -> dict:
             "total": total,
             "pct": pct,
             "north_star": "GOAL_HIERARCHY_LOCKED_v1.md Goal 1",
-            "law": "honest_done = receipt logged only — YAML restore illegal",
+            "law": "honest_done = receipt on disk only — YAML restore illegal",
         },
         "live_pick": {
             "id": live.get("id") if live else None,

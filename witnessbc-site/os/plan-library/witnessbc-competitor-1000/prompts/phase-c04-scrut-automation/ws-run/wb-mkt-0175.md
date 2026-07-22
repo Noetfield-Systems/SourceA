@@ -23,7 +23,7 @@ Add retention note: how long run history kept vs Scrut Automation (Custom mid-ma
 
 ## Implementation extraction
 
-`Scrut Automation · Run history & proof` → what buyer sees at vendor → what we ship logged with receipt.
+`Scrut Automation · Run history & proof` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

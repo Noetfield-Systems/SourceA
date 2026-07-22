@@ -16,7 +16,7 @@ CARD="${HOME}/.sina/agent-executor-daily-duty-card-v1.json"
 [[ -f "$RULE" ]] || fail "missing 002-hospital-trigger-only.mdc"
 [[ -f "$MIRROR" ]] || fail "missing agent-memory-mirror.mdc"
 [[ -f "$GATE" ]] || fail "missing agent_session_gate_run_v1.py"
-[[ -f "$CARD" ]] || fail "missing daily duty card logged"
+[[ -f "$CARD" ]] || fail "missing daily duty card on disk"
 
 grep -q "Session start = session gate only" "$LAW" || fail "law missing session start rule"
 grep -q "founder trigger only\|founder word ONLY\|Founder says one word" "$RULE" || fail "002 must document founder-word-only trigger"

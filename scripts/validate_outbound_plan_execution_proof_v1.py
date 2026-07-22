@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Validate outbound plan v3 — done rows require canonical execution_proof receipt logged."""
+"""Validate outbound plan v3 — done rows require canonical execution_proof receipt on disk."""
 from __future__ import annotations
 
 import argparse

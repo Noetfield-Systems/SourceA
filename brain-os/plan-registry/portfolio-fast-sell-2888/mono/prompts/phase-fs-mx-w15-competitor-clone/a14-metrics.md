@@ -1,7 +1,7 @@
 # fs-mx-0280 — Fast-sell plan
 
 **Version:** 1 · **Tier:** T1 · **Phase:** MOONSHOT
-**Lane:** SinaaiMonoRepo · **Wedge:** w15-archived-research · Ship differentiated feature slice
+**Lane:** SinaaiMonoRepo · **Wedge:** w15-competitor-clone · Clone one competitor feature slice
 **Action:** a14-metrics · Log W3 / NW economic signal
 **Comp anchor:** PLG demo products
 **Tier 1:** Live :8000 demo URL
@@ -10,7 +10,7 @@
 
 ## Task
 
-Fast-sell: SinaaiMonoRepo · Ship differentiated feature slice · Log W3 / NW economic signal. Ship smallest slice that moves a buyer toward **Live :8000 demo URL** with a path to **White-label spine**. Receipt logged before done.
+Fast-sell: SinaaiMonoRepo · Clone one competitor feature slice · Log W3 / NW economic signal. Ship smallest slice that moves a buyer toward **Live :8000 demo URL** with a path to **White-label spine**. Receipt on disk before done.
 
 ## Verify
 

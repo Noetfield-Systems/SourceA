@@ -14,7 +14,7 @@ Dual desktop deploy — agentrun-app :5180 + SA4 AgentGo :8080 · landing parity
 
 ## Task
 
-**Run run-recipe deploy step for** case study prose (challenge · shipped · verification).
+**Run run-recipe deploy step for** case study prose (challenge · shipped · proof chain).
 
 agentrun-app + SA4 when ship window open.
 

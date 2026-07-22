@@ -23,7 +23,7 @@ Capture Relevance AI public pricing evidence: Pro $19/mo; Team $234/mo — https
 
 ## Implementation extraction
 
-`Relevance AI · Pricing & packaging` → what buyer sees at vendor → what we ship logged with receipt.
+`Relevance AI · Pricing & packaging` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

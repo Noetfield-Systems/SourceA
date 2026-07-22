@@ -327,7 +327,7 @@
           {
             "backlog_index": 20017,
             "plan_id": "sa-score-0398",
-            "title": "Receipt logged for intake status webhook to founder Slack",
+            "title": "Receipt on disk for intake status webhook to founder Slack",
             "lane": "sourcea-site",
             "tier": "T3",
             "status": "open",
@@ -447,7 +447,7 @@
           {
             "backlog_index": 20029,
             "plan_id": "sa-score-0399",
-            "title": "Receipt logged for 48h MVP scope lock UI on /start",
+            "title": "Receipt on disk for 48h MVP scope lock UI on /start",
             "lane": "sourcea-site",
             "tier": "T3",
             "status": "open",
@@ -567,7 +567,7 @@
           {
             "backlog_index": 20041,
             "plan_id": "sa-score-0400",
-            "title": "Receipt logged for agency lane intake on case-studies",
+            "title": "Receipt on disk for agency lane intake on case-studies",
             "lane": "sourcea-site",
             "tier": "T3",
             "status": "open",
@@ -4136,7 +4136,7 @@
           {
             "backlog_index": 20391,
             "plan_id": "sa-score-0498",
-            "title": "Receipt logged for segment strip on all dist pages via build inject",
+            "title": "Receipt on disk for segment strip on all dist pages via build inject",
             "lane": "sourcea-site",
             "tier": "T3",
             "status": "open",
@@ -4279,7 +4279,7 @@
           {
             "backlog_index": 20403,
             "plan_id": "sa-score-0499",
-            "title": "Receipt logged for proof quiz keyboard accessibility",
+            "title": "Receipt on disk for proof quiz keyboard accessibility",
             "lane": "sourcea-site",
             "tier": "T3",
             "status": "open",
@@ -4399,7 +4399,7 @@
           {
             "backlog_index": 20415,
             "plan_id": "sa-score-0500",
-            "title": "Receipt logged for status page live stats refresh interval",
+            "title": "Receipt on disk for status page live stats refresh interval",
             "lane": "sourcea-site",
             "tier": "T3",
             "status": "open",
@@ -7968,7 +7968,7 @@
           {
             "backlog_index": 20765,
             "plan_id": "sa-score-0598",
-            "title": "Receipt logged for cursor lane deep-link Forge with query",
+            "title": "Receipt on disk for cursor lane deep-link Forge with query",
             "lane": "sourcea-site",
             "tier": "T3",
             "status": "open",
@@ -8088,7 +8088,7 @@
           {
             "backlog_index": 20777,
             "plan_id": "sa-score-0599",
-            "title": "Receipt logged for beginner lane forces /learn before /start",
+            "title": "Receipt on disk for beginner lane forces /learn before /start",
             "lane": "sourcea-site",
             "tier": "T3",
             "status": "open",
@@ -8208,7 +8208,7 @@
           {
             "backlog_index": 20789,
             "plan_id": "sa-score-0600",
-            "title": "Receipt logged for agency lane case-study filter preset",
+            "title": "Receipt on disk for agency lane case-study filter preset",
             "lane": "sourcea-site",
             "tier": "T3",
             "status": "open",
@@ -11800,7 +11800,7 @@
           {
             "backlog_index": 21139,
             "plan_id": "sa-score-0698",
-            "title": "Receipt logged for mvp-intake worker linked from /start form",
+            "title": "Receipt on disk for mvp-intake worker linked from /start form",
             "lane": "sourcea-site",
             "tier": "T3",
             "status": "open",
@@ -11920,7 +11920,7 @@
           {
             "backlog_index": 21151,
             "plan_id": "sa-score-0699",
-            "title": "Receipt logged for public stats embed on /sourcea/status",
+            "title": "Receipt on disk for public stats embed on /sourcea/status",
             "lane": "sourcea-site",
             "tier": "T3",
             "status": "open",
@@ -12040,7 +12040,7 @@
           {
             "backlog_index": 21163,
             "plan_id": "sa-score-0700",
-            "title": "Receipt logged for CORS allow sourcea.app on all site APIs",
+            "title": "Receipt on disk for CORS allow sourcea.app on all site APIs",
             "lane": "sourcea-site",
             "tier": "T3",
             "status": "open",
@@ -15632,7 +15632,7 @@
           {
             "backlog_index": 21513,
             "plan_id": "sa-score-0798",
-            "title": "Receipt logged for export 7-day rollup JSON",
+            "title": "Receipt on disk for export 7-day rollup JSON",
             "lane": "sourcea-site",
             "tier": "T3",
             "status": "open",
@@ -15752,7 +15752,7 @@
           {
             "backlog_index": 21525,
             "plan_id": "sa-score-0799",
-            "title": "Receipt logged for anonymize PII in public stats",
+            "title": "Receipt on disk for anonymize PII in public stats",
             "lane": "sourcea-site",
             "tier": "T3",
             "status": "open",
@@ -15872,7 +15872,7 @@
           {
             "backlog_index": 21537,
             "plan_id": "sa-score-0800",
-            "title": "Receipt logged for spam feedback rate limit per IP",
+            "title": "Receipt on disk for spam feedback rate limit per IP",
             "lane": "sourcea-site",
             "tier": "T3",
             "status": "open",
@@ -19441,7 +19441,7 @@
           {
             "backlog_index": 21887,
             "plan_id": "sa-score-0898",
-            "title": "Receipt logged for living_ui label on Forge paths only",
+            "title": "Receipt on disk for living_ui label on Forge paths only",
             "lane": "sourcea-site",
             "tier": "T3",
             "status": "open",
@@ -19561,7 +19561,7 @@
           {
             "backlog_index": 21899,
             "plan_id": "sa-score-0899",
-            "title": "Receipt logged for segment labels A/B test copy variants",
+            "title": "Receipt on disk for segment labels A/B test copy variants",
             "lane": "sourcea-site",
             "tier": "T3",
             "status": "open",
@@ -19704,7 +19704,7 @@
           {
             "backlog_index": 21911,
             "plan_id": "sa-score-0900",
-            "title": "Receipt logged for vocabulary validator script in CI",
+            "title": "Receipt on disk for vocabulary validator script in CI",
             "lane": "sourcea-site",
             "tier": "T3",
             "status": "open",
@@ -21437,7 +21437,7 @@
           {
             "backlog_index": 22082,
             "plan_id": "sa-score2-0950",
-            "title": "Integrate moat narrative: controlled agentic + receipt on every page",
+            "title": "Integrate moat narrative: governed agentic + receipt on every page",
             "lane": "sourcea-site-batch2",
             "tier": "T3",
             "status": "open",
@@ -21820,7 +21820,7 @@
           {
             "backlog_index": 22118,
             "plan_id": "sa-score2-0959",
-            "title": "Optimize moat narrative: controlled agentic + receipt on every page",
+            "title": "Optimize moat narrative: governed agentic + receipt on every page",
             "lane": "sourcea-site-batch2",
             "tier": "T3",
             "status": "open",
@@ -23273,7 +23273,7 @@
           {
             "backlog_index": 22261,
             "plan_id": "sa-score-0998",
-            "title": "Receipt logged for visual regression founder-home screenshot",
+            "title": "Receipt on disk for visual regression founder-home screenshot",
             "lane": "sourcea-site",
             "tier": "T3",
             "status": "open",
@@ -23393,7 +23393,7 @@
           {
             "backlog_index": 22273,
             "plan_id": "sa-score-0999",
-            "title": "Receipt logged for accessibility axe on /learn",
+            "title": "Receipt on disk for accessibility axe on /learn",
             "lane": "sourcea-site",
             "tier": "T3",
             "status": "open",
@@ -23513,7 +23513,7 @@
           {
             "backlog_index": 22285,
             "plan_id": "sa-score-1000",
-            "title": "Receipt logged for deploy smoke after wrangler pages",
+            "title": "Receipt on disk for deploy smoke after wrangler pages",
             "lane": "sourcea-site",
             "tier": "T3",
             "status": "open",

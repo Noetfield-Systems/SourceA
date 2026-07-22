@@ -29,7 +29,7 @@
 //                  "duration_s": 1.0, "volume": 0.35 } ] }
 //
 // Reads:  --storyboard STORYBOARD.md, --hyperframes <project root>,
-//         [--audio-meta audio_meta.json]. Locally: each built frame's src html,
+//         [--audio-meta audio_meta.json]. On disk: each built frame's src html,
 //         capture/{assets,assets/videos,screenshots}/<basename> for staging, compositions/captions.html.
 // Writes: <project>/index.html  +  stages assets/<basename>.
 //
@@ -69,7 +69,7 @@ const manifest = parseStoryboard(readFileSync(storyboardPath, "utf8"));
 const { width: WIDTH, height: HEIGHT } = parseFormat(manifest.globals.format);
 
 // ---------- resolve mountable frames in document order ----------
-// A frame mounts when its src html exists locally. A built/animated frame
+// A frame mounts when its src html exists on disk. A built/animated frame
 // missing its src/file is a contract break (die). An outline frame with no
 // file is skipped (still a placeholder) with an anomaly note.
 const mounted = [];
@@ -84,8 +84,8 @@ for (const f of manifest.frames) {
   const compAbs = join(hyperframesDir, f.src);
   if (!existsSync(compAbs)) {
     if (built)
-      die(`${label} is ${f.status} but its src ${f.src} is not locally — re-dispatch the worker`);
-    anomalies.push(`${label}: src ${f.src} not present locally (status ${f.status}) — skipped`);
+      die(`${label} is ${f.status} but its src ${f.src} is not on disk — re-dispatch the worker`);
+    anomalies.push(`${label}: src ${f.src} not on disk (status ${f.status}) — skipped`);
     continue;
   }
   if (!Number.isFinite(f.durationSeconds) || f.durationSeconds <= 0) {
@@ -115,7 +115,7 @@ for (const f of manifest.frames) {
   }
   mounted.push({ frame: f, compId, durationSeconds: r3(f.durationSeconds) });
 }
-if (mounted.length === 0) die("no mountable frames (none built with an in-repo src)");
+if (mounted.length === 0) die("no mountable frames (none built with an on-disk src)");
 
 // cumulative starts — emitted data-start[i] + data-duration[i] == start[i+1] by
 // construction (renderer computes end the same way), so adjacent clips touch
@@ -159,7 +159,7 @@ for (const m of mounted) {
     `        data-track-index="1"`,
     `      ></div>`,
   );
-  // (track 10) voice — only when the file is actually present.
+  // (track 10) voice — only when the file is actually on disk.
   const v = m.frame.number != null ? voiceByFrame.get(m.frame.number) : undefined;
   if (v?.path) {
     if (existsSync(join(hyperframesDir, v.path))) {
@@ -175,7 +175,7 @@ for (const m of mounted) {
       );
       voiceCount++;
     } else {
-      anomalies.push(`${m.compId}: voice ${v.path} not present locally — skipped`);
+      anomalies.push(`${m.compId}: voice ${v.path} not on disk — skipped`);
     }
   }
   body.push("");
@@ -200,7 +200,7 @@ if (audio.bgm?.path) {
     );
     bgmEmitted = true;
   } else {
-    anomalies.push(`bgm ${audio.bgm.path} not present locally — skipped`);
+    anomalies.push(`bgm ${audio.bgm.path} not on disk — skipped`);
   }
 }
 
@@ -233,7 +233,7 @@ audio.sfx.forEach((cue, i) => {
   }
   const rel = cue.file;
   if (!existsSync(join(hyperframesDir, rel))) {
-    anomalies.push(`sfx ${rel} not present locally — skipped`);
+    anomalies.push(`sfx ${rel} not on disk — skipped`);
     return;
   }
   const t = r3(host.start + (cue.offset_s ?? 0));

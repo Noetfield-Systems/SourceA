@@ -2,7 +2,7 @@
   "schema": "sourcea-dual-plane-v1",
   "version": "1.0.0",
   "saved_at": "2026-06-23T07:00:00Z",
-  "one_law": "SourceA has TWO sides: KERNEL (foundation — feeds all repos) and COMMERCIAL (paying customers — less infra, more agentic product). Never mix them logged or in agent rules.",
+  "one_law": "SourceA has TWO sides: KERNEL (foundation — feeds all repos) and COMMERCIAL (paying customers — less infra, more agentic product). Never mix them on disk or in agent rules.",
   "foundation_kernel": {
     "role": "Governance systems, engines, cloud factory, brain-os entry, scripts, data SSOT",
     "feeds": ["TrustField", "Noetfield", "WitnessBC", "VIRLUX", "all portfolio repos"],

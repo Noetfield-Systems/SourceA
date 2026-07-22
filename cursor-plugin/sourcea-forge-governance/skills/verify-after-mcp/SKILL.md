@@ -3,7 +3,7 @@ name: verify-after-mcp
 description: >-
   After any GitHub, Linear, or action MCP call, invoke sourcea-verify verify_run
   and emit_receipt_readonly. Use on PR workflows, issue sync, or when the user
-  asks for proof, audit, or controlled agent runs.
+  asks for proof, audit, or governed agent runs.
 ---
 
 # Verify after MCP action

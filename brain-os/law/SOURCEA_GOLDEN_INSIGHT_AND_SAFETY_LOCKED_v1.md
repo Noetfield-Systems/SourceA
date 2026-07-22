@@ -65,7 +65,7 @@ status: LOCKED
 
 ### 3. Model / eval layer
 
-- **Eval-1b live logged** is the behavioral gate — 5/5 · 100% aligned with synthesis when live passes.
+- **Eval-1b live on disk** is the behavioral gate — 5/5 · 100% aligned with synthesis when live passes.
 - **Packet context beats raw LLM** — moat story for TrustField governance tooling.
 - Do not chase 100% every run — **4/5 · 80%** is valid; sync from disk, never hope-edit synthesis.
 
@@ -142,7 +142,7 @@ bash ~/Desktop/SourceA/scripts/validate-ecosystem-safety-v1.sh
 
 1. CanadaBuys registration (Week 1 in playbook)
 2. Book **1** TrustField demo (not 3 research docs)
-3. Close Canada canvas tab — markdown logged is enough
+3. Close Canada canvas tab — markdown on disk is enough
 
 ### MONTH (ecosystem)
 

@@ -10,7 +10,7 @@ cp "$BO/law/"*.md "$DEST/" 2>/dev/null || true
 cp "$BO/memory/"*.md "$DEST/" 2>/dev/null || true
 cp "$BO/contract/"*.md "$DEST/" 2>/dev/null || true
 cp "$BO/enforcement/"BRAIN_DISK_BEFORE_CHAT_SESSION_LOOP_LOCKED_v1.md "$DEST/" 2>/dev/null || true
-cp "$BO/system/"CONTROLLED_EXECUTION_OS_MASTER_LOCKED_v1.md "$DEST/" 2>/dev/null || true
+cp "$BO/system/"GOVERNED_EXECUTION_OS_MASTER_LOCKED_v1.md "$DEST/" 2>/dev/null || true
 cp "$BO/system/"GOAL_HIERARCHY_LOCKED_v1.md "$DEST/" 2>/dev/null || true
 cp "$BO/system/"FOUNDER_DAILY_OPERATING_MODEL_LOCKED_v1.md "$DEST/" 2>/dev/null || true
 cp "$BO/system/"WORKER_ASSIGNMENT_AND_CHAT_ROUTING_LOCKED_v1.md "$DEST/" 2>/dev/null || true

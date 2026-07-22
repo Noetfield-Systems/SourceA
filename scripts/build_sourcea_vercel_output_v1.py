@@ -123,9 +123,17 @@ def build(*, clean: bool = True) -> dict:
             shutil.copy2(legal_src, DIST / legal)
 
     sys.path.insert(0, str(ROOT / "scripts"))
-    from sourcea_clean_urls_v1 import write_redirects  # noqa: WPS433
+    from sourcea_clean_urls_v1 import (
+        parse_redirect_lines,
+        write_redirects,
+        materialize_extensionless_aliases,
+    )  # noqa: WPS433
 
     redirect_lines = write_redirects(DIST)
+    alias_report = materialize_extensionless_aliases(
+        DIST,
+        redirect_pairs=parse_redirect_lines(redirect_lines),
+    )
 
     headers_src = GREEN / "_headers"
     if headers_src.is_file():
@@ -247,6 +255,7 @@ def build(*, clean: bool = True) -> dict:
         "dist": str(DIST.relative_to(ROOT)),
         "page_count": page_count,
         "clean_url_rules": len(redirect_lines),
+        "clean_url_aliases": alias_report,
         "truth_gate": {
             "proof_pack": str(proof_pack.relative_to(ROOT)),
             "pack_id": proof_row.get("pack_id"),

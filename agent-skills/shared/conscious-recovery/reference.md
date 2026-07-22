@@ -14,7 +14,7 @@ Closure = went back · named mistake · showed path · connected thread · no re
 | `.cursor/rules` + skills | Reload every turn |
 | Validators | Leaf cannot fake thorn |
 | Cascade receipt | Hatch proof |
-| `cursor_agent_self_audit.py` | Next sessiin the repository ledger |
+| `cursor_agent_self_audit.py` | Next session disk ledger |
 
 ## Consciousness vs system
 

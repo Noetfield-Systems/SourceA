@@ -14,7 +14,7 @@ Wil L3 portfolio demo — YA5 mirror · AgentGo ≠ SourceA separation · ship g
 
 ## Task
 
-**Polish OG title + meta for** case study prose (challenge · shipped · verification).
+**Polish OG title + meta for** case study prose (challenge · shipped · proof chain).
 
 One sharp sentence — no ALLOW/BLOCK repetition.
 

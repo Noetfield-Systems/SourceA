@@ -26,7 +26,7 @@ On **2026-06-13**, SourceA Worker repeated INCIDENT-028: ended substantive repli
 | 4 | Hub `must_do_today` hardcoded "answer pending" ignoring `open_questions_count=0` | 10% |
 | 5 | Conversation summary preserved early wrong close-line after mid-session fixes | 5% |
 
-**Not the root cause:** broken queue · broken Prompt feed API · missing skills logged.
+**Not the root cause:** broken queue · broken Prompt feed API · missing skills on disk.
 
 ---
 

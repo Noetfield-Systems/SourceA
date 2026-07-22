@@ -49,7 +49,7 @@
 | Priority | Action | Done = |
 |----------|--------|--------|
 | **B** · **FIRST** | **Seal 1 real Proof Pack** from green run (`phase1-pevc-truth-ticket-v1.json` or next GREEN Cloud Forge Run) | `~/.sina/chat-unify/proof-packs/` + re-verify PASS |
-| **A** · **SECOND** | **1 paying T1 client** — run factory · deliver output | SOW + client Proof Pack receipt logged |
+| **A** · **SECOND** | **1 paying T1 client** — run factory · deliver output | SOW + client Proof Pack receipt on disk |
 | **C** · **THIRD** | **Executor + router hardening** (after B + A) | 3 consecutive Cloud Forge Run PASS · idempotency on FBE paths |
 
 **Everything else this month:** consult-when-blocked only (SQL migration · OTel · Neon · CF Queues · registry beyond queue head).

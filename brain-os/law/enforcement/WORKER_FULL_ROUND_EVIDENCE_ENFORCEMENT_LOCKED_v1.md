@@ -13,7 +13,7 @@
 
 ## 1. One-line law
 
-> **No Worker turn ships without recipe logged, factory gate PASS, role-correct broker submit, and closeout reply citing RECIPE · VALIDATION · EVIDENCE · BUILT. Receipt alone never counts when broker is STALE or `sa_mismatch`.**
+> **No Worker turn ships without recipe on disk, factory gate PASS, role-correct broker submit, and closeout reply citing RECIPE · VALIDATION · EVIDENCE · BUILT. Receipt alone never counts when broker is STALE or `sa_mismatch`.**
 
 ---
 
@@ -28,7 +28,7 @@ RECIPE (3 files) → CHECK → ACT (only if CHECK gap) → VERIFY → broker PAS
 | **Recipe** | REGISTRY `title` + `prompts/.../sa-XXXX.md` + REGISTRY `verify` | All three exist; INBOX `bound: sa_id=… role=…` matches queue head |
 | **Validation** | Machine validators + broker factory | Validators exit 0; broker ≠ STALE; no `sa_mismatch`; no `receipt_on_disk` recovery |
 | **Evidence** | `receipts/sa-XXXX-receipt.json` (VERIFY only) + disk delta | Written **after** broker VERIFY `WORKER_SUBMIT` PASS; PRIORITY row on closeout |
-| **Built** | Git/disk delta | Agent states **built** vs **verify-only closeout** — never claim build when CHECK said already present |
+| **Built** | Git/disk delta | Agent states **built** vs **verify-only closeout** — never claim build when CHECK said already on disk |
 
 ---
 

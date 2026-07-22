@@ -34,7 +34,7 @@ def _e01_mac_health_silent() -> list[Spec]:
         ("Mac Health never-again log cap 50MiB on hub command-server.log", "log shield truncates before agent cat bomb", "mac-health-log-shield-v1.json", "scripts/mac_health_log_shield_v1.py", "mac_control_panel", "P0"),
         ("Visual proof disabled — critic_boot in_gate skips screencapture", "visual_proof.enabled=false · zero screencapture pids", "config/visual_proof.json", "scripts/critic_boot_v1.py", "mac_control_panel", "P0"),
         ("Film render frozen flag enforced every pulse", "commercial-film-render-frozen-v1.flag present", "commercial-film-render-frozen-v1.flag", "scripts/mac_health_never_again_v1.py", "mac_control_panel", "P0"),
-        ("e2e-latest-v1.json written every recipe — honest grade logged", "overall_ok field present after pulse", "mac-health/e2e-latest-v1.json", "scripts/run-mac-health-recipe-v1.sh", "mac_control_panel", "P1"),
+        ("e2e-latest-v1.json written every recipe — honest grade on disk", "overall_ok field present after pulse", "mac-health/e2e-latest-v1.json", "scripts/run-mac-health-recipe-v1.sh", "mac_control_panel", "P1"),
         ("Mac Health Guard.app bundle parity with scripts SSOT", "validate-mac-health-bundle-parity-v1.sh PASS", "mac-health-bundle-parity-v1.json", "scripts/validate-mac-health-bundle-parity-v1.sh", "mac_control_panel", "P1"),
         ("Silent menu bar dot — LIVE without opening :13024", "Optional menubar shows grade only when yellow/red", "mac-health-menubar-grade-v1.json", "brand/macos-apps/Mac Health Guard.app", "mac_control_panel", "P2"),
     ]
@@ -51,7 +51,7 @@ def _e02_control_plane() -> list[Spec]:
         ("machine-execution-plane-registry mac_role=control_plane_only", "registry mac_role matches SSOT", "machine-execution-plane-registry-v1.json", "scripts/founder_execution_model_v1.py", "mac_control_panel", "P0"),
         ("api-disabled absent — cloud APIs callable from Mac cockpit", "paid_engine_gate allows API when founder-work-mode", "founder-work-mode-v1.flag", "scripts/paid_engine_gate_v1.py", "mac_control_panel", "P0"),
         ("Control plane validate script ship gate", "validate-mac-control-plane-v1.sh PASS", "mac-health/mac-control-plane-assess-v1.json", "scripts/validate-mac-control-plane-v1.sh", "mac_control_panel", "P0"),
-        ("Wire FR-006 FR-009 into founder-execution-model founder_rules_live", "FR-006 FR-009 wired=true logged", "founder-execution-model-v1.json", "scripts/founder_execution_model_v1.py", "mac_control_panel", "P1"),
+        ("Wire FR-006 FR-009 into founder-execution-model founder_rules_live", "FR-006 FR-009 wired=true on disk", "founder-execution-model-v1.json", "scripts/founder_execution_model_v1.py", "mac_control_panel", "P1"),
     ]
 
 
@@ -109,7 +109,7 @@ def _e05_cloud_heartbeat() -> list[Spec]:
     rows: list[Spec] = []
     for i, fid in enumerate(factories):
         rows.append((
-            f"Cloud factory {fid} — public HTTPS health receipt logged",
+            f"Cloud factory {fid} — public HTTPS health receipt on disk",
             f"cloud-factories-online-only lists {fid} online=true with url",
             f"cloud-factory-{fid}-heartbeat-v1.json",
             "data/cloud-factories-online-only-v1.json",
@@ -281,7 +281,7 @@ def generate() -> dict:
         "schema": "ecosystem-mac-health-111-upgrade-plan-v1",
         "version": "1.0.0",
         "saved_at": _now(),
-        "law": "Mac = control panel · Mac Health = silent auto heal · validators/E2E on cloud · founder progress honest logged",
+        "law": "Mac = control panel · Mac Health = silent auto heal · validators/E2E on cloud · founder progress honest on disk",
         "waves": {
             "W1": [
                 f"M111-{i:03d}"

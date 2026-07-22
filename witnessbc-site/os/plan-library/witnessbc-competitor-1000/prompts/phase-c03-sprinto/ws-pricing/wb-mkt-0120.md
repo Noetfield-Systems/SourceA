@@ -23,7 +23,7 @@ Close wb-mkt-0120: PRIORITY row + verify PASS + link https://sprinto.com
 
 ## Implementation extraction
 
-`Sprinto · Pricing & packaging` → what buyer sees at vendor → what we ship logged with receipt.
+`Sprinto · Pricing & packaging` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

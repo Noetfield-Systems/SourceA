@@ -26,7 +26,7 @@
 | **002d** | Jun 7 | Healthy drain feasibility (OpenRouter) | High | Never inject impossible ACT steps (live eval without credits) | `brain-os/incidents/SINA_HEALTHY_DRAIN_PROMPT_FEASIBILITY_INCIDENT_REPORT_LOCKED_v1.md` |
 | **003a** | Jun 7 | Goal 1 unvalidated proof | Critical | Spawn ≠ running — need AGENT DONE + broker + hub health | `brain-os/incidents/SINA_GOAL1_LOOP_UNVALIDATED_PROOF_INCIDENT_LOCKED_v1.md` |
 | **003b** | Jun 7 | Brain/Worker lane cross | — | Brain REFUSE Worker prompts — Worker only executes INBOX | `brain-os/incidents/SINA_BRAIN_WORKER_LANE_CROSS_INCIDENT_LOCKED_v1.md` |
-| **004** | Jun 8 | Goal hierarchy enforcement | Critical | GOAL_HIERARCHY in the repository — never ask founder to pick commercial vs Pre-LLM | `brain-os/incidents/SINA_GOAL_HIERARCHY_ENFORCEMENT_INCIDENT_LOCKED_v1.md` |
+| **004** | Jun 8 | Goal hierarchy enforcement | Critical | GOAL_HIERARCHY on disk — never ask founder to pick commercial vs Pre-LLM | `brain-os/incidents/SINA_GOAL_HIERARCHY_ENFORCEMENT_INCIDENT_LOCKED_v1.md` |
 | **005a** | Jun 8 | Maintainer external-critic procedure | High | First line `INPUT CLASS: EXTERNAL_CRITIC` + §6 table before disk | `brain-os/incidents/SINA_MAINTAINER_EXTERNAL_CRITIC_PROCEDURE_INCIDENT_LOCKED_v1.md` |
 | **005b** | May 27 | Maintainer self-audit / Mac lag | High | `maintainer_self_audit_loop.py` before/after every hub edit | `SINA_COMMAND_MAINTAINER_SELF_AUDIT_INCIDENT_LOCKED_v1.md` |
 | **006** | Jun 8–9 | REGISTRY batch fake progress (607 done) | Critical | Done = receipt file only — YAML/batch stamp never counts | `brain-os/incidents/SINA_REGISTRY_BATCH_FAKE_PROGRESS_INCIDENT_LOCKED_v1.md` |
@@ -113,7 +113,7 @@ Auto-run closed sa-0004..0008 while broker showed **67 STALE**, `sa_mismatch`, `
 
 ### INCIDENT-008 — Stall & timing (ops)
 
-180s blind poll; CLOSEOUT_TEMPLATE law before agent wrapper; stale `agent` not found at log top. **Playbook:** unstick → factory gate → tail log at 3 min. sa-0009 closed logged; broker VERIFY rejected once then wrapper patched.
+180s blind poll; CLOSEOUT_TEMPLATE law before agent wrapper; stale `agent` not found at log top. **Playbook:** unstick → factory gate → tail log at 3 min. sa-0009 closed on disk; broker VERIFY rejected once then wrapper patched.
 
 ### INCIDENT-009 — Session closeout digest
 
@@ -181,7 +181,7 @@ INCIDENT-006 (607 fake done) and INCIDENT-007 (67 STALE broker) are the **same c
 
 | World | What PASS means | Trap |
 |-------|-----------------|------|
-| **Shell validators** | Criteria in the repository today are green | “All good” without broker |
+| **Shell validators** | Criteria on disk today are green | “All good” without broker |
 | **Factory/broker** | Full role chain + clean submit | Receipt exists but STALE |
 
 sa-0001..0009 on the **current road** show broker PASS + receipts — real for this slice. **67 STALE** is older/other sas — honesty debt, not ignored.
@@ -242,7 +242,7 @@ Repeating pattern: unvalidated proof · wrong SSOT · procedure skip. INCIDENT-0
 - Removed `receipt_on_disk` fake recovery
 - `role_mismatch` gate + factory evidence gate wired
 - INCIDENT-007 + 008 + 009 locked
-- sa-0009 VERIFY closeout logged
+- sa-0009 VERIFY closeout on disk
 - sa-0010 CHECK + broker submit
 - Monitor up + hub refreshed
 

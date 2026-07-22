@@ -23,7 +23,7 @@ Document why buyers pay per Voiceflow: Need CX agents without custom dev — tie
 
 ## Implementation extraction
 
-`Voiceflow · Pricing & packaging` → what buyer sees at vendor → what we ship logged with receipt.
+`Voiceflow · Pricing & packaging` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

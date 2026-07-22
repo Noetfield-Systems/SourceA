@@ -14,7 +14,7 @@ Wil L3 portfolio demo — YA5 mirror · AgentGo ≠ SourceA separation · ship g
 
 ## Task
 
-**Draft outreach template B for** case study prose (challenge · shipped · verification).
+**Draft outreach template B for** case study prose (challenge · shipped · proof chain).
 
 Dual deploy angle.
 

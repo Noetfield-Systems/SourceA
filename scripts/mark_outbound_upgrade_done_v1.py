@@ -30,7 +30,7 @@ def mark_done(
         upgrade_id=upgrade_id,
         sa_id=sa_id,
         title=title or f"{upgrade_id} shipped",
-        evidence=evidence or f"{upgrade_id} acceptance verified logged",
+        evidence=evidence or f"{upgrade_id} acceptance verified on disk",
     )
     if not rcpt.get("ok"):
         return rcpt

@@ -23,7 +23,7 @@ Close wb-mkt-0700: integration receipt + verify PASS + https://www.holisticai.co
 
 ## Implementation extraction
 
-`Holistic AI · Integrations & API` → what buyer sees at vendor → what we ship logged with receipt.
+`Holistic AI · Integrations & API` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

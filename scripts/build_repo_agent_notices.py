@@ -305,7 +305,7 @@ def _render_repo_notice(repo_id: str, spec: dict, plan: dict) -> str:
 
 ---
 
-## Live plan.json next tasks (verify logged)
+## Live plan.json next tasks (verify on disk)
 
 {chr(10).join(plan_lines) if plan_lines else '  • (refresh hub Repos tab or run plan sync)'}
 
@@ -384,7 +384,7 @@ def _render_semi_notice(lane_id: str, spec: dict, plan: dict) -> str:
 
 ---
 
-## Live plan / wire_proof (verify logged)
+## Live plan / wire_proof (verify on disk)
 
 {chr(10).join(plan_lines) if plan_lines else '  • (refresh hub Repos or wire:preflight)'}
 

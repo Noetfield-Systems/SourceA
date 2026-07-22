@@ -20,7 +20,7 @@
 | **L0 Mac control** | `data/founder-execution-model-v1.json` · `~/Desktop/MacLaw/MAC_CONTROL_PLANE_LOCKED.md` | SHIPPED | Gating · routing · founder session · Hub :13020 |
 | **L1 Rules in charge** | `.cursor/rules/000-entry-gate.mdc` · 9 always-apply rules | SHIPPED | Cursor agent behavior |
 | **L2 Law plane** | `docs/SOURCEA_GOVERNANCE_ENTRY_UNIFIED_LOCKED_v1.md` + cited LOCKED docs | LOCKED | Policy · incidents · enforcement |
-| **L3 Factory motor** | Railway `sourcea-fbe-runner` · CF cron · `docs/CONTROLLED_AUTORUN_LAWS_v3.md` | LIVE | Execute · verify · cloud drain |
+| **L3 Factory motor** | Railway `sourcea-fbe-runner` · CF cron · `docs/GOVERNED_AUTORUN_LAWS_v3.md` | LIVE | Execute · verify · cloud drain |
 | **L4 Receipts** | `~/.sina/*.json` · `receipts/cloud/` | APPEND-ONLY | Proof · audit trail |
 
 ---

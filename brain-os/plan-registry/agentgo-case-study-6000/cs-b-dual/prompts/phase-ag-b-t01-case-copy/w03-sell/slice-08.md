@@ -14,7 +14,7 @@ Dual desktop deploy — agentrun-app :5180 + SA4 AgentGo :8080 · landing parity
 
 ## Task
 
-**Tie to Asset B SKU for** case study prose (challenge · shipped · verification).
+**Tie to Asset B SKU for** case study prose (challenge · shipped · proof chain).
 
 $3–10K loop build · not GEO subscription.
 

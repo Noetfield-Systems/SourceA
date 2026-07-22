@@ -14,7 +14,7 @@ Wil L3 portfolio demo — YA5 mirror · AgentGo ≠ SourceA separation · ship g
 
 ## Task
 
-**Run copy depth gate for** case study prose (challenge · shipped · verification).
+**Run copy depth gate for** case study prose (challenge · shipped · proof chain).
 
 no filler.
 

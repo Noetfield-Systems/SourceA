@@ -1,4 +1,4 @@
-/* C12 — minimal interactions for SourceA clone */
+/* C12 — minimal interactions for Zenity clone */
 
 (function () {
   const track = document.getElementById("testimonialTrack");

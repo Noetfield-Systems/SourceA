@@ -1,4 +1,4 @@
-# sa-score-0693 — Receipt logged for sourcea-site-pulse-config-v1.json worker URL
+# sa-score-0693 — Receipt on disk for sourcea-site-pulse-config-v1.json worker URL
 
 **Saved at:** 2026-06-25T09:23:55Z
 **Version:** 1 · **Tier:** T1 · **Phase:** MOONSHOT
@@ -16,7 +16,7 @@ Raise SourceA site score toward **95+/100** — proof before call · stranger se
 
 P1 — next sprint; measurable score delta
 
-**Deliverable:** Receipt logged for sourcea-site-pulse-config-v1.json worker URL
+**Deliverable:** Receipt on disk for sourcea-site-pulse-config-v1.json worker URL
 
 Bounded paths: `SourceA-landing/green-unified/` · `cloud/workers/sourcea-site-pulse-v1/` · `scripts/validate-sourcea-modern-stack-e2e-v1.sh`
 

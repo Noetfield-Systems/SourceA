@@ -12,9 +12,9 @@ SINA = Path.home() / ".sina"
 SOURCEA = Path(__file__).resolve().parents[1]
 
 NOETFIELD_HTML = SINA / "noetfield-pilot-onepager-external-v1.html"
-AB1_HTML = SINA / "sourcea-ab1-controlled-automation-onepager-v1.html"
-NOMOTIC_HTML = SINA / "sourcea-sourcea-layout-dark-platform-onepager-v1.html"
-NOMOTIC_ARCHIVE = SOURCEA / "archive/attachments/commercial/sourcea-sourcea-layout-dark-platform-onepager-v1.html"
+AB1_HTML = SINA / "sourcea-ab1-governed-automation-onepager-v1.html"
+NOMOTIC_HTML = SINA / "sourcea-nomotic-platform-onepager-v1.html"
+NOMOTIC_ARCHIVE = SOURCEA / "archive/attachments/commercial/sourcea-nomotic-platform-onepager-v1.html"
 LANDING_DIR = SOURCEA / "SourceA-landing"
 C13_DIR = SOURCEA / "C13"
 
@@ -226,7 +226,7 @@ def noetfield_html() -> str:
     </div>
     <div class="stats">
       <div class="stat"><div class="num">72%</div><div class="lbl">Enterprises lack formal agent governance (pitch hypothesis)</div></div>
-      <div class="stat"><div class="num">5 min</div><div class="lbl">Live verification — block, allow, tamper-FAIL, replay</div></div>
+      <div class="stat"><div class="num">5 min</div><div class="lbl">Live proof chain — block, allow, tamper-FAIL, replay</div></div>
       <div class="stat"><div class="num">Shadow</div><div class="lbl">Parallel to M365 — zero production cutover</div></div>
     </div>
   </header>
@@ -311,12 +311,12 @@ def ab1_html() -> str:
     body = """
 <div class="wrap">
   <div class="topbar">
-    <div class="brand">SourceA <span>Controlled agentic automation</span></div>
+    <div class="brand">SourceA <span>Governed agentic automation</span></div>
     <span class="pill accent">Asset B · DFY · fastest cash</span>
   </div>
   <header class="hero">
     <h1>Agent loops that ship with receipts.</h1>
-    <p class="lead">Done-for-you controlled automation — outreach, ops, research — built on the same factory stack we run daily. Policy at dispatch. Signed proof on closeout.</p>
+    <p class="lead">Done-for-you governed automation — outreach, ops, research — built on the same factory stack we run daily. Policy at dispatch. Signed proof on closeout.</p>
     <blockquote class="quote">We run this stack on our own factory every day. Your loop gets the same receipts — what ran, what was blocked, what policy applied.</blockquote>
     <div class="cta-row no-print">
       <a class="btn btn-primary" href="mailto:hello@sourcea.app">Book discovery call</a>
@@ -331,7 +331,7 @@ def ab1_html() -> str:
 
   <section>
     <h2>What you get</h2>
-    <h3>Controlled execution — not glue scripts without audit.</h3>
+    <h3>Governed execution — not glue scripts without audit.</h3>
     <div class="prose">
       <p>Asset B is the agentic orchestration capability SourceA uses internally — packaged as done-for-you delivery for agencies, founders, and ops teams who need automation that survives scrutiny.</p>
     </div>
@@ -367,7 +367,7 @@ def ab1_html() -> str:
       <div class="card featured">
         <div class="tier">Agent Loop Build</div>
         <div class="price">$3–10K</div>
-        <div class="sub">One scoped loop live · handoff · 30-day fix window</div>
+        <div class="sub">One governed loop live · handoff · 30-day fix window</div>
         <ul><li>Outreach, ops, or research loop</li><li>Policy at dispatch</li><li>Closeout replay demo</li></ul>
       </div>
       <div class="card">
@@ -400,12 +400,12 @@ def ab1_html() -> str:
   </footer>
 </div>
 """
-    return _shell("SourceA — Controlled Agentic Automation (Asset B)", body)
+    return _shell("SourceA — Governed Agentic Automation (Asset B)", body)
 
 
-def bundle_sourcea-layout-dark_layout_html() -> str:
-    """Self-contained SourceA landing — SourceA.ai layout (fleet panel · pillars · matrix · 4-tier pricing)."""
-    html = (LANDING_DIR / "sourcea-layout-dark.html").read_text(encoding="utf-8")
+def bundle_nomotic_layout_html() -> str:
+    """Self-contained SourceA landing — Nomotic.ai layout (fleet panel · pillars · matrix · 4-tier pricing)."""
+    html = (LANDING_DIR / "nomotic.html").read_text(encoding="utf-8")
     base_css = (C13_DIR / "styles.css").read_text(encoding="utf-8")
     theme_css = (LANDING_DIR / "sourcea-theme.css").read_text(encoding="utf-8")
     js = (C13_DIR / "main.js").read_text(encoding="utf-8")
@@ -434,12 +434,12 @@ def write_all() -> dict[str, str]:
     paths["noetfield"] = str(NOETFIELD_HTML)
     AB1_HTML.write_text(ab1_html(), encoding="utf-8")
     paths["ab1"] = str(AB1_HTML)
-    sourcea-layout-dark = bundle_sourcea-layout-dark_layout_html()
-    NOMOTIC_HTML.write_text(sourcea-layout-dark, encoding="utf-8")
-    paths["sourcea-layout-dark"] = str(NOMOTIC_HTML)
+    nomotic = bundle_nomotic_layout_html()
+    NOMOTIC_HTML.write_text(nomotic, encoding="utf-8")
+    paths["nomotic"] = str(NOMOTIC_HTML)
     NOMOTIC_ARCHIVE.parent.mkdir(parents=True, exist_ok=True)
-    NOMOTIC_ARCHIVE.write_text(sourcea-layout-dark, encoding="utf-8")
-    paths["sourcea-layout-dark_archive"] = str(NOMOTIC_ARCHIVE)
+    NOMOTIC_ARCHIVE.write_text(nomotic, encoding="utf-8")
+    paths["nomotic_archive"] = str(NOMOTIC_ARCHIVE)
     return paths
 
 
@@ -452,7 +452,7 @@ def main() -> int:
     parser.add_argument(
         "target",
         nargs="?",
-        choices=["all", "noetfield", "ab1", "sourcea-layout-dark"],
+        choices=["all", "noetfield", "ab1", "nomotic"],
         default="all",
         help="Which one-pager to generate",
     )
@@ -462,8 +462,8 @@ def main() -> int:
 
     paths = write_all()
     selected = paths if args.target == "all" else {args.target: paths[args.target]}
-    if args.target == "sourcea-layout-dark":
-        selected = {"sourcea-layout-dark": paths["sourcea-layout-dark"], "sourcea-layout-dark_archive": paths["sourcea-layout-dark_archive"]}
+    if args.target == "nomotic":
+        selected = {"nomotic": paths["nomotic"], "nomotic_archive": paths["nomotic_archive"]}
 
     if args.json:
         import json

@@ -3,7 +3,7 @@
   "at": "2026-07-07T07:41:42Z",
   "receipts_signed_today": 1,
   "receipts_signed_lifetime": 5677,
-  "receipts_lifetime_label": "Logged and reviewable logged",
+  "receipts_lifetime_label": "Governance receipts signed on disk",
   "receipts_date": "2026-07-07",
   "receipt_samples": [
     "agent-governance-events.jsonl:s10_eternal_audit"

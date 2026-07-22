@@ -26,7 +26,7 @@
 
 | Column | PASS means |
 |--------|------------|
-| **Worker** | Honest receipt logged |
+| **Worker** | Honest receipt on disk |
 | **Broker** | Full broker cycle + verify ok |
 | **Valid** | Worker PASS **and** Broker PASS |
 | **Recipe** | Proof type OK (not batch YAML fake) |

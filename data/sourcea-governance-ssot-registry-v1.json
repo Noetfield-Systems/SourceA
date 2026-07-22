@@ -4,7 +4,7 @@
   "saved_at": "2026-06-26T06:50:00Z",
   "definitions": {
     "active": "Exactly one operating law row \u2014 agents and ORD truth gate may execute from this path only.",
-    "superseded": "Controlled history \u2014 kept for lineage; never executed against; lives under brain-os/ssot/superseded/ or registered pdf_path.",
+    "superseded": "Governed history \u2014 kept for lineage; never executed against; lives under brain-os/ssot/superseded/ or registered pdf_path.",
     "draft": "Work in progress \u2014 not dispatch authority until promoted to active via registry update.",
     "stale": "Rule-like doc with no registry row \u2014 ambiguous authority; flag for founder review; never auto-delete."
   },
@@ -48,7 +48,7 @@
         "llm_agent_operating_law_v1"
       ],
       "superseded_by": "llm_agent_operating_law_v3",
-      "notes": "PDF export retained \u2014 no markdown v2 logged"
+      "notes": "PDF export retained \u2014 no markdown v2 on disk"
     },
     {
       "id": "llm_agent_operating_law_v1",

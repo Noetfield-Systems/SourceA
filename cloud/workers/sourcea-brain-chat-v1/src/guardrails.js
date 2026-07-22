@@ -166,7 +166,7 @@ export function sanitizePublicText(value) {
     .replace(/\bINCIDENT-\d+\b/gi, "internal issue")
     .replace(/\bFactory proceed\b/gi, "Cloud execution")
     .replace(/\bfactory-live\.json\b/gi, "live proof data")
-    .replace(/\bfactory repository\b/gi, "proof record")
+    .replace(/\bfactory disk\b/gi, "proof record")
     .replace(/\binternal factory jargon\b/gi, "internal wording")
     .replace(/\bhighest[- ]confidence public guide\b/gi, "public guide")
     .replace(/\bhighest[- ]confidence public intelligence\b/gi, "public guide")

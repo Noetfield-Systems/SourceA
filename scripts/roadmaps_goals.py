@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Roadmaps & goals payload — reads PROGRAM_PROGRESS.json logged."""
+"""Roadmaps & goals payload — reads PROGRAM_PROGRESS.json on disk."""
 from __future__ import annotations
 
 import json

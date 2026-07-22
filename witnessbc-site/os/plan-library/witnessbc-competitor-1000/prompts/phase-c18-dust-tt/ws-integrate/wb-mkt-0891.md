@@ -23,7 +23,7 @@ List Dust.tt integrations/APIs from https://dust.tt or docs — pick one we can 
 
 ## Implementation extraction
 
-`Dust.tt · Integrations & API` → what buyer sees at vendor → what we ship logged with receipt.
+`Dust.tt · Integrations & API` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

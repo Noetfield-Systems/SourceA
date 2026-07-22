@@ -172,7 +172,7 @@ Runs under Brain + Governance wire — **first infrastructure after human:**
 
 | Doc | Role |
 |-----|------|
-| `CONTROLLED_EXECUTION_OS_MASTER_LOCKED_v1.md` | OS charter |
+| `GOVERNED_EXECUTION_OS_MASTER_LOCKED_v1.md` | OS charter |
 | `EXECUTION_AUTHORITY_MAP_LOCKED_v1.md` | L0–L6 machine numbering (reconcile pointer) |
 | `GOAL_SPECIALIST_CHAT_PACK_LOCKED_v1.md` | Paste blocks per specialist |
 | `BRAIN_GOVERNANCE_WIRE_GAP_LOCKED_v1.md` | Wire gap fix receipt |

@@ -14,7 +14,7 @@ Wil L3 portfolio demo — YA5 mirror · AgentGo ≠ SourceA separation · ship g
 
 ## Task
 
-**Plan batch 3 case study for** case study prose (challenge · shipped · verification).
+**Plan batch 3 case study for** case study prose (challenge · shipped · proof chain).
 
 WitnessBC adjacency.
 

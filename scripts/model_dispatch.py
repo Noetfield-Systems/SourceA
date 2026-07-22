@@ -249,7 +249,7 @@ def pick_forge_default_model(keys: dict[str, str] | None = None) -> str:
 
 
 def pick_roi_model(role: str, keys: dict[str, str] | None = None) -> str:
-    """Pick highest-ROI model for role among keys currently logged."""
+    """Pick highest-ROI model for role among keys currently on disk."""
     role_id = (role or FORGE_DEFAULT_ROLE).strip().lower()
     matrix = _load_roi_matrix()
     roles = matrix.get("roles") or {}

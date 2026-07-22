@@ -13,7 +13,7 @@
 
 | Dimension | Score /10 | Today |
 |-----------|-----------|--------|
-| Vision / story | 8 | Strong — controlled agents + proof + control plane |
+| Vision / story | 8 | Strong — governed agents + proof + control plane |
 | Core machines on Mac | 6.5 | Founder loop + ORD loop **still exist** (Verify & Act · Audit Trail) |
 | Product UX for non-experts | 5 | Home 4.4 better; localhost + server lifecycle still friction |
 | Integration platform (market) | 3.5 | Local webhooks + manifest; not marketplace-listed |
@@ -21,7 +21,7 @@
 | Live public proof | 3.5 | Disk ahead of sourcea.app deploy |
 | Enterprise procurement | 2 | Story on site; not turnkey SKU |
 
-**Completion estimate:** ~**68% logged** · ~**38% live in market**
+**Completion estimate:** ~**68% on disk** · ~**38% live in market**
 
 **Founder loop / ORD loop:** NOT removed. Renamed, de-emphasized on Home, moved under “48-hour MVP” collapsible. Tabs **Verify & Act** and **Audit Trail** — full 7-step pipelines unchanged in `chat_founder_loop_v1.py` / `chat_ord_loop_v1.py`.
 
@@ -61,7 +61,7 @@ Week 4  P6 enterprise docs + P7 CI smoke + score refresh
 
 ## P0 — Public truth (15 items) · STAB-001 → STAB-015
 
-**Goal:** What visitors see at https://sourcea.app/sourcea/ matches what you built logged.
+**Goal:** What visitors see at https://sourcea.app/sourcea/ matches what you built on disk.
 
 | ID | Check | Done when | Command / path |
 |----|-------|-----------|----------------|
@@ -75,7 +75,7 @@ Week 4  P6 enterprise docs + P7 CI smoke + score refresh
 | STAB-008 | contact@ intake live | Form submissions arrive | MVP intake config |
 | STAB-009 | No fake email CTAs | Hide buttons if inbox missing | UI audit |
 | STAB-010 | Deploy receipt | JSON receipt with checksum | Post-deploy script |
-| STAB-011 | Anti-poison logged | hello@sourcea.app | **partial** — law + JSON done |
+| STAB-011 | Anti-poison on disk | hello@sourcea.app | **partial** — law + JSON done |
 | STAB-012 | Anti-poison on live site | grep sourcea.com = 0 hits | curl + grep |
 | STAB-013 | _redirects synced | Cloudflare Pages rules | dist `_redirects` |
 | STAB-014 | Single deploy doc | Founder one command | [`docs/SOURCEA_LANDING_DEPLOY_FOUNDER_ONE_PAGER_LOCKED_v1.md`](SOURCEA_LANDING_DEPLOY_FOUNDER_ONE_PAGER_LOCKED_v1.md) |

@@ -2,7 +2,7 @@
   "schema": "campaign-automation-v1",
   "id": "t1-client-002-campaign-v1",
   "creator_id": "t1-client-002",
-  "raw_brief": "15s vertical ad for Meridian AI Studio \u2014 controlled AI output with proof receipt.",
+  "raw_brief": "15s vertical ad for Meridian AI Studio \u2014 governed AI output with proof receipt.",
   "current_step": "HUMAN_APPROVAL_REQUIRED",
   "created_at": "2026-06-24T06:23:43Z",
   "updated_at": "2026-06-24T06:23:43Z",

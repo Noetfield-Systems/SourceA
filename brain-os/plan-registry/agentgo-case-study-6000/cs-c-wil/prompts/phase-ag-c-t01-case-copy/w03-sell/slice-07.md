@@ -14,7 +14,7 @@ Wil L3 portfolio demo — YA5 mirror · AgentGo ≠ SourceA separation · ship g
 
 ## Task
 
-**Write objection handler for** case study prose (challenge · shipped · verification).
+**Write objection handler for** case study prose (challenge · shipped · proof chain).
 
 Is this live SaaS? → honest answer.
 

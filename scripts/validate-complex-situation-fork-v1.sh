@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# validate-complex-situation-fork-v1.sh — Fork Machine law + wiring logged
+# validate-complex-situation-fork-v1.sh — Fork Machine law + wiring on disk
 set -euo pipefail
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 # shellcheck source=governance-paths-v1.sh

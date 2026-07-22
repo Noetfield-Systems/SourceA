@@ -23,7 +23,7 @@ Document why buyers pay per Relevance AI: Replace repetitive GTM work with agent
 
 ## Implementation extraction
 
-`Relevance AI · Pricing & packaging` → what buyer sees at vendor → what we ship logged with receipt.
+`Relevance AI · Pricing & packaging` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

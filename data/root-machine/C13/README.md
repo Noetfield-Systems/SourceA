@@ -1,9 +1,9 @@
-# C13 — SourceA.ai layout clone (design reference)
+# C13 — Nomotic.ai layout clone (design reference)
 
-**Source:** [https://sourcea-layout-dark.ai/](https://sourcea-layout-dark.ai/)  
+**Source:** [https://nomotic.ai/](https://nomotic.ai/)  
 **Date:** 2026-06-15  
 **Purpose:** UI structure reference — fleet dashboard · 6 pillars · lifecycle flow · pricing grid · vendor matrix  
-**Sibling:** `C12/` — [SourceA](https://sourcea-layout-light.io/) clone
+**Sibling:** `C12/` — [Zenity](https://zenity.io/) clone
 
 ## Open
 
@@ -24,4 +24,4 @@ python3 -m http.server 8130 --directory C13
 
 Swap to Noetfield NF-RD pricing (CAD $5–10K) · proof-chain lifecycle · `operations@noetfield.com`
 
-**Benchmark:** `archive/attachments/commercial/internal capability research archive`
+**Benchmark:** `archive/attachments/commercial/COMPETITOR_SITES_UI_BENCHMARK_2026-06-15_v1.md`

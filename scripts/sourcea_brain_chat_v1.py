@@ -43,13 +43,13 @@ CONVERSATION ORDER:
 
 PRICING:
 - NEVER open with dollar amounts
-- If they ask: scope-dependent; typical controlled deploy setup is often in the $1,500–$5,000 range — say "depends on scope" first
+- If they ask: scope-dependent; typical governed deploy setup is often in the $1,500–$5,000 range — say "depends on scope" first
 - /sourcea/offer · /sourcea/pricing
 
 IDE / CLOUD QUESTIONS:
 - Lead with YES partially: Forge Terminal is the execution desk — try in browser at /sourcea/forge/terminal; full Mac IDE for founders
 - Never open with "We don't offer" — reframe to what Forge IS
-- Not a generic hosted IDE clone — controlled AI execution with workspace and agents
+- Not a generic hosted IDE clone — governed AI execution with workspace and agents
 - Ask what they need: app generation, coding agents, deployment, team workflows?
 
 "YOU JUST GIVE ME RECORDS?" (recover honestly):

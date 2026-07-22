@@ -23,7 +23,7 @@ Measure drop-off: list one friction point vs Secureframe and fix
 
 ## Implementation extraction
 
-`Secureframe · Onboarding & PLG` → what buyer sees at vendor → what we ship logged with receipt.
+`Secureframe · Onboarding & PLG` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

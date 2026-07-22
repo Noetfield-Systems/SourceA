@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Mechanical one-sa-per-turn enforcement — law in repository, not honor system.
+"""Mechanical one-sa-per-turn enforcement — law on disk, not honor system.
 
 Blocks: open turn without close · multiple sa_focus in report · broker submit mismatch.
 Law: GOAL_EXECUTION_ACTIVE_LOCKED_v1.md · REGISTRY_DRAIN_RAIL_LOCKED_v1.md

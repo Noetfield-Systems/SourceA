@@ -21,7 +21,7 @@ Pointer work **completed before execute** (Batch 3 lesson):
 
 | Check | Result |
 |-------|--------|
-| Source files logged | **PASS** (69/69) |
+| Source files on disk | **PASS** (69/69) |
 | Dest filename collision at `brain-os/law/` | **PASS** (0) |
 | Script `ROOT / "SOURCEA_*"` hardcodes | **PASS** (0 remaining in scripts/) |
 | Secret scan | Run before execute |

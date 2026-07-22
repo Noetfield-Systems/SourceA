@@ -23,7 +23,7 @@ CHECKLIST = [
     {"id": "UP-1", "step": "Read all blueprint paths for surface (law + incident + baseline)"},
     {"id": "UP-2", "step": "Inventory last good version — pre_edit command + section list"},
     {"id": "UP-3", "step": "Plan additive edit only — nothing deleted without UI BASELINE BUMP"},
-    {"id": "UP-4", "step": "Edit controlled paths — pre_write_guard + landing baseline check"},
+    {"id": "UP-4", "step": "Edit governed paths — pre_write_guard + landing baseline check"},
     {"id": "UP-5", "step": "Run surface verify command — machine PASS"},
     {"id": "UP-6", "step": "Prove live — e2e / browser / DOM markers"},
     {"id": "UP-7", "step": "Paste UI UPGRADE SHIP SUMMARY in founder reply (same turn)"},

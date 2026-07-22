@@ -23,7 +23,7 @@ Write founder-facing SOW snippet if Arthur AI uses services-led motion — Witne
 
 ## Implementation extraction
 
-`Arthur AI · Onboarding & PLG` → what buyer sees at vendor → what we ship logged with receipt.
+`Arthur AI · Onboarding & PLG` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

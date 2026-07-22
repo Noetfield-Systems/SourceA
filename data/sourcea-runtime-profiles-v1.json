@@ -8,7 +8,7 @@
       "label": "Governance mode",
       "tagline": "Every output logged, signed, replayable",
       "buyer": "Compliance · platform engineering",
-      "pricing_hint": "Flat monthly controlled service · wrapper fee not token markup",
+      "pricing_hint": "Flat monthly governed service · wrapper fee not token markup",
       "allowed_actions": [
         "llm.chat",
         "validate.run",
@@ -33,7 +33,7 @@
       "label": "Agency mode",
       "tagline": "Outreach + proof loop with approval gates",
       "buyer": "AI agencies · revenue shops",
-      "pricing_hint": "Project $3–10K + retainer · controlled sends included",
+      "pricing_hint": "Project $3–10K + retainer · governed sends included",
       "allowed_actions": [
         "llm.chat",
         "outreach.send",
@@ -80,5 +80,5 @@
       "gate_mode_preference": "enforce"
     }
   },
-  "stack_law": "Raw AI (OpenAI/Claude/OpenRouter) → SourceA Runtime (policy + receipt) → Buyer gets controlled service"
+  "stack_law": "Raw AI (OpenAI/Claude/OpenRouter) → SourceA Runtime (policy + receipt) → Buyer gets governed service"
 }

@@ -23,7 +23,7 @@ Open https://www.holisticai.com — screenshot or quote the exact buyer-facing B
 
 ## Implementation extraction
 
-`Holistic AI · Buyer-visible UX` → what buyer sees at vendor → what we ship logged with receipt.
+`Holistic AI · Buyer-visible UX` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

@@ -55,7 +55,7 @@
       "priority": 2,
       "phase": "P2 closeout",
       "progress_pct": 85,
-      "next_action": "Close g3_tailscale if still pending logged",
+      "next_action": "Close g3_tailscale if still pending on disk",
       "hook": "WIRE_LANE_PROGRESS.md"
     },
     {
@@ -72,7 +72,7 @@
     {
       "id": "COMM-PARTNER-BOOT",
       "thread": "THREAD-PORTFOLIO",
-      "title": "AI infra partnerships \u2014 controlled receipt wedge (LOCKED v3)",
+      "title": "AI infra partnerships \u2014 governed receipt wedge (LOCKED v3)",
       "status": "active_parallel",
       "priority": 2,
       "phase": "Phase A \u2014 bootstrap credits (P05 done \u2192 P03\u2192P06\u2192P04\u2192P02)",

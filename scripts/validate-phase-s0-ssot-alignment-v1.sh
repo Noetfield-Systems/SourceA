@@ -273,7 +273,7 @@ PY
 bash validate-phase-d-complete-artifacts-v1.sh
 
 python3 - <<'PY'
-# sa-0037 — _phase_d_complete matches D1–D16 in-repo artifacts
+# sa-0037 — _phase_d_complete matches D1–D16 on-disk artifacts
 from pathlib import Path
 
 import audit_hub_source_alignment as audit

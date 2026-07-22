@@ -49,7 +49,7 @@ Key differences from a typical Lottie embed:
 ## Asset handling
 
 Remotion bundles the animation JSON via webpack import. HF needs the JSON
-in the repository under `assets/` and references it via path:
+on disk under `assets/` and references it via path:
 
 1. Copy `hello.json` from the Remotion project into `hf-src/assets/`.
 2. Reference as `path: "assets/hello.json"` in `loadAnimation`.

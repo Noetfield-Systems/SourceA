@@ -31,7 +31,7 @@ Your portfolio already matches this pattern on paper. The gap is **disk proof** 
 
 ## 2. Repo-by-repo — best comparables & your 2-tier SKU
 
-### SourceA — controlled agent runtime
+### SourceA — governed agent runtime
 
 | | |
 |--|--|
@@ -40,7 +40,7 @@ Your portfolio already matches this pattern on paper. The gap is **disk proof** 
 | **Their Tier 2** | Usage overage · longer retention · team seats · SSO |
 | **Your Tier 1** | **Asset B diagnostic** — map one client loop + receipt sample ($3K project slice) |
 | **Your Tier 2** | DFY automation $3–10K + retainer $2–5K/mo · later SDK credit card |
-| **Fast sell** | One tracked outreach loop with PASS receipt PDF in 14 days |
+| **Fast sell** | One governed outreach loop with PASS receipt PDF in 14 days |
 | **Lesson** | Copy **run detail page + retry + cost per run** — not “governance slides” |
 
 ### WitnessBC — civic / public proof
@@ -127,7 +127,7 @@ Your portfolio already matches this pattern on paper. The gap is **disk proof** 
 
 | Rank | Motion | Repo | Comp anchor | Days to receipt |
 |------|--------|------|-------------|-----------------|
-| 1 | DFY scoped loop + PDF proof | SourceA | Trigger.dev run UX | 7–14 |
+| 1 | DFY governed loop + PDF proof | SourceA | Trigger.dev run UX | 7–14 |
 | 2 | Diagnostic sprint | Noetfield | Pickaxe Tier 1 | 7 |
 | 3 | Public civic proof page | WitnessBC | LowerPlane | 14 |
 | 4 | Demo URL + bot | Mono | PLG demos | 3 |
@@ -144,7 +144,7 @@ Your portfolio already matches this pattern on paper. The gap is **disk proof** 
 2. **Tier 2** must attach to a metric: runs, resolutions, seats, or outcomes.  
 3. **Markup disclosure** if passing through LLM — or BYOK.  
 4. **Vertical** beats horizontal for first $25K/mo MRR.  
-5. **Proof logged** (receipt, PDF, live URL) before raising Tier 2 price.
+5. **Proof on disk** (receipt, PDF, live URL) before raising Tier 2 price.
 
 ---
 
@@ -163,7 +163,7 @@ Your portfolio already matches this pattern on paper. The gap is **disk proof** 
 
 ## 6. Sources
 
-- `docs/PORTFOLIO_100_COMPARABLES_MARKET_REALITY_v1.md` (100 rows logged)  
+- `docs/PORTFOLIO_100_COMPARABLES_MARKET_REALITY_v1.md` (100 rows on disk)  
 - `brain-os/law/SOURCEA_UNIFIED_PORTFOLIO_COMMERCIAL_SSOT_LOCKED_v3.1.md`  
 - `docs/NOETFIELD_INTELLIGENCE_613_PLAN_LOCKED_v1.md`  
 - Market: BetterCloud 2026 SaaS pricing · Pickaxe agency tiers · Agentmelt pricing DB · Simon-Kucher agentic pricing

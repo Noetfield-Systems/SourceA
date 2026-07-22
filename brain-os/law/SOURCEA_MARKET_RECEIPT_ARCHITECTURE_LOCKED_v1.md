@@ -28,7 +28,7 @@ Enterprises (banks, law firms, healthcare, logistics, regulated SaaS) cannot ado
 
 Today most tools answer with chat logs and hope. That fails NIST AI RMF audit-trail expectations, SOC 2 evidence requests, and internal risk committees.
 
-**The gap is not “more intelligence.” It is controlled execution with machine-verifiable closeout.**
+**The gap is not “more intelligence.” It is governed execution with machine-verifiable closeout.**
 
 ---
 
@@ -48,7 +48,7 @@ Today most tools answer with chat logs and hope. That fails NIST AI RMF audit-tr
 
 ---
 
-## What SourceA already has locally (honest)
+## What SourceA already has on disk (honest)
 
 ### The spine (real — this is the product core)
 
@@ -72,7 +72,7 @@ Worker run
 
 ### Scale proof (factory floor — not the invoice line item)
 
-- **Controlled automation factory** drains `sourcea-1000` to prove the spine at volume
+- **Governed automation factory** drains `sourcea-1000` to prove the spine at volume
 - **152+ honest receipts** (refresh via `goal-progress-v1.py`) — not “every task ever”
 - Phase-first law (018): s0→s2 immune system before celebrating s6 volume
 
@@ -81,7 +81,7 @@ Worker run
 | Gap | Why it matters | Fix |
 |-----|----------------|-----|
 | **s2 hub/CI = 0%** | “Correctness” needs immune-system validators green | Phase-first drain |
-| **No paying pilot logged** | Architecture ≠ revenue (PREMORTEM-017) | 1 demo + 1 call |
+| **No paying pilot on disk** | Architecture ≠ revenue (PREMORTEM-017) | 1 demo + 1 call |
 | **Monitor :13021** | Often down — use **:13020** | Package L3 ops on :13020 |
 | **Single-tenant Mac factory** | Enterprises need export / tenancy story | FORGE port + docs |
 | **SOC2/NIST** | Directionally aligned — not certified | Pilot-driven roadmap |
@@ -92,7 +92,7 @@ Worker run
 
 | Player | Offers | SourceA difference |
 |--------|--------|-------------------|
-| Fast builders | Speed | No verification |
+| Fast builders | Speed | No proof chain |
 | **Microsoft Agent Governance Toolkit (Apr 2026)** | Enterprise governance patterns | You **run** receipt-native governance daily on a real factory |
 | Cursor / agents | Execution | No default closeout gate |
 | **SourceA spine** | **Receipt → gate → broker → incident** | Already operational — **152+ audited runs** |
@@ -120,7 +120,7 @@ Worker run
 2. Show validator command from receipt evidence row  
 3. Trace `VALIDATOR_PASS → TASK_CLOSED → BROKER_ACK` in closeout flow  
 4. Open one incident doc — “we document failures, not hide them”  
-5. Close: **“152 controlled runs in the repository — not chat logs.”**
+5. Close: **“152 governed runs on disk — not chat logs.”**
 
 ---
 
@@ -138,7 +138,7 @@ Worker run
 
 ## One-line gold
 
-> **The market pays for provable agent runs. SourceA already built the receipt-native governance spine in the repository — the 1000-pack is the factory floor that proves it scales; RunReceipt/FORGE is what you invoice.**
+> **The market pays for provable agent runs. SourceA already built the receipt-native governance spine on disk — the 1000-pack is the factory floor that proves it scales; RunReceipt/FORGE is what you invoice.**
 
 ---
 

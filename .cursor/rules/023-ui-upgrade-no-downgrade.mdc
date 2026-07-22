@@ -7,9 +7,9 @@
 
 ## Hard rule
 
-Before any agent edits controlled landing UI (HTML/CSS/JS under `SourceA-landing/green-unified/`), it **must** prove the in-repo file already matches the baseline version. Replacing, simplifying, or “upgrading from a mock” without baseline check is **downgrade risk**.
+Before any agent edits governed landing UI (HTML/CSS/JS under `SourceA-landing/green-unified/`), it **must** prove the on-disk file already matches the baseline version. Replacing, simplifying, or “upgrading from a mock” without baseline check is **downgrade risk**.
 
-## Controlled paths
+## Governed paths
 
 - `SourceA-landing/green-unified/*.html` (except `reference/`, `attach/`, `factories/`)
 - `SourceA-landing/green-unified/sourcea.css`
@@ -26,7 +26,7 @@ Before any agent edits controlled landing UI (HTML/CSS/JS under `SourceA-landing
 
 ## Pre-write gate
 
-`pre_write_guard_v1.py` blocks controlled UI edits when baseline check fails (`UI_BASELINE_FAIL`).
+`pre_write_guard_v1.py` blocks governed UI edits when baseline check fails (`UI_BASELINE_FAIL`).
 
 ## Forbidden
 

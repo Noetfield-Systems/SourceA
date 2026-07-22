@@ -22,7 +22,7 @@ def _run(cmd: list[str]) -> dict:
 
 
 def _refresh_outbound_packs(rows: dict) -> list[str]:
-    """Rewrite in-repo packs — public W1 URL, official from, no localhost."""
+    """Rewrite on-disk packs — public W1 URL, official from, no localhost."""
     sys.path.insert(0, str(SCRIPTS))
     from commercial_recipient_guard_v1 import (  # noqa: WPS433
         _urls_in_text,

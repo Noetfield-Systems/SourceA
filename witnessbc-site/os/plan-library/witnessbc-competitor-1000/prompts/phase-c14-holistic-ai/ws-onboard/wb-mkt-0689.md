@@ -23,7 +23,7 @@ Docs: onboarding section cites Holistic AI as market analog with https://www.hol
 
 ## Implementation extraction
 
-`Holistic AI · Onboarding & PLG` → what buyer sees at vendor → what we ship logged with receipt.
+`Holistic AI · Onboarding & PLG` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

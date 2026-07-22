@@ -68,7 +68,7 @@ Machine pulse audits these items against disk. **Head = first failing item.**
 | ID | Kind | Lane | Title | Wired to | Attract hook |
 |----|------|------|-------|----------|--------------|
 | **P0-01** | sandbox | SourceA Forge | FBE sandbox-mock factory demo | `data/fbe_catalog_v1.json` · cat-sandbox-demo | 30s mock run · Try demo CTA · upgrade to engine tier |
-| **P0-02** | freemium_public | TrustField | Trust Center T0 public surface | `data/trust-center-v1.json` | Controlled execution advisory · proof links · eval booking path |
+| **P0-02** | freemium_public | TrustField | Trust Center T0 public surface | `data/trust-center-v1.json` | Governed execution advisory · proof links · eval booking path |
 | **P0-03** | trial | WitnessBC | Commercial proof / eval URLs | `data/commercial-pipeline-v1.jsonl` | 15-min eval · proof URL · W1 film optional |
 | **P0-04** | freemium_stack | SourceA Forge | Phase 1 tool exhaust reference stack | `data/tool-pick-two-phase-v1.json` · phase_1_free | Internal reference for $0 stack before paid AI |
 | **P0-05** | reference_one_pager | Noetfield | Noetfield TLE reference narrative | `data/platform-neutral-world-model-v1.json` · product_routes.noetfield | Board pack · Copilot readiness · governance receipt language |
@@ -119,7 +119,7 @@ bash scripts/validate-phase0-freemium-sandbox-v1.sh
 
 Live surfaces quote **`phase0_line`** from `~/.sina/agent-live-surfaces-v1.json` (via plans unified receipt).
 
-**Pass bar:** 12/12 checklist items logged · validator PASS · receipt fresh on loop chain.
+**Pass bar:** 12/12 checklist items on disk · validator PASS · receipt fresh on loop chain.
 
 ---
 

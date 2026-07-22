@@ -4,9 +4,9 @@
 **Version:** 1.1 — LOCKED  
 **sequence_id:** SA-2026-06-11-FULL-LAYERED-CONTROL  
 **Authority:** ASF · unifies fragmented big-picture docs into one operational map  
-**Parent:** `CONTROLLED_EXECUTION_OS_MASTER_LOCKED_v1.md` · `SOURCEA_LIVE_GOVERNANCE_BIG_PICTURE_LOCKED_v1.md` · `GOAL_HIERARCHY_LOCKED_v1.md`  
+**Parent:** `GOVERNED_EXECUTION_OS_MASTER_LOCKED_v1.md` · `SOURCEA_LIVE_GOVERNANCE_BIG_PICTURE_LOCKED_v1.md` · `GOAL_HIERARCHY_LOCKED_v1.md`  
 **Real goal synthesis:** `RESEARCH/.../2026-06-11_BIG-PICTURE-REAL-GOAL-031.md`  
-**Horizon:** 6-month wedge (ENFORCEMENT-6MO) inside 24-month Controlled Execution OS  
+**Horizon:** 6-month wedge (ENFORCEMENT-6MO) inside 24-month Governed Execution OS  
 **Updated:** 2026-06-12 (disk audit — RT LIVE · D16 · integrity pause · missed clocks)
 
 ---
@@ -15,7 +15,7 @@
 
 **24-month north star:**
 
-> **Build a Controlled Execution OS** — agentic, parallel, multi-project — where **one central control layer** (Hub + Brain + gatekeeper + spine + validators) moves every business lane with **reliable enforcement**, honest projections, and minimal founder terminal use.
+> **Build a Governed Execution OS** — agentic, parallel, multi-project — where **one central control layer** (Hub + Brain + gatekeeper + spine + validators) moves every business lane with **reliable enforcement**, honest projections, and minimal founder terminal use.
 
 **6-month north star (two clocks — not one merged sprint):**
 
@@ -36,7 +36,7 @@
 
 **Agentic loop:** SCAN → SAY → PICK → PROVE → SHIP — **not** Cursor AUTO-RUN (`auto-run-disabled-v1.flag` ON).
 
-**Does not replace** T0 north star (controlled automation factory) or WTM long arc.
+**Does not replace** T0 north star (governed automation factory) or WTM long arc.
 
 ---
 
@@ -141,7 +141,7 @@ Law: `brain-os/law/GOVERNANCE_RUNTIME_GOLDEN_RULE_LOCKED_v1.md`
 | **0** | Disk + validators | Machine PASS/FAIL | Always over chat, hub lag, critic paste |
 | **0b** | Live Founder Form v2 + RT-LIVE receipt | Thorn→leaf read order | Over hub hero / Cloud Forge Run (`INCIDENT-027`) |
 | **1** | ASF Hub PICK | Founder override | Over Brain default |
-| **2** | T0 north star | Controlled automation factory · FORGE path | Over T2b side SKUs |
+| **2** | T0 north star | Governed automation factory · FORGE path | Over T2b side SKUs |
 | **3** | Hub P0 headline | **STRATEGIC-SLICE** (WTM spine) | Over RunReceipt drain hero |
 | **4** | **ENFORCEMENT-6MO** | Investor wedge W1–W3 | Over naming/whitepaper; **not** over FR-003/1.10 |
 | **5** | T2b parallel | MergePack · RunReceipt · Cursor OS Pro | Parallel only — never blocks T0–T4 |
@@ -265,7 +265,7 @@ CLOCK E — AI INFRA PARTNERSHIPS (COMM-PARTNER-BOOT)
 ## 8. ENFORCEMENT-6MO inside the big picture
 
 ```text
-Controlled Execution OS (24 months)
+Governed Execution OS (24 months)
 ├── CLOCK A: WTM D-phase + integrity Phases 3–10
 ├── CLOCK B: Portfolio parallel lanes
 └── CLOCK C: ENFORCEMENT-6MO (Jun–Dec 2026)
@@ -315,7 +315,7 @@ Founder PICK (Hub)
 | Area | Evidence |
 |------|----------|
 | WTM Phase A–C | Execution spine · intelligence OS · runtime steps |
-| G1+G2 spine kernel | Ledger + reference graph logged |
+| G1+G2 spine kernel | Ledger + reference graph on disk |
 | Propagation cascade | Broker → cascade wired |
 | RT LIVE receipt ↔ spine | Universe validator PASS |
 | Copilot demo path | `validate-demo-enforcement-v1.sh` PASS |
@@ -344,7 +344,7 @@ Founder PICK (Hub)
 | G15 | COMM-PARTNER-BOOT not wired to agents | CLOCK E | Commercial | P2 |
 | G16 | HUB_PROOF_UX P0-1..3 not shipped | L2 | SinaaiDataBase | P1 post-1.10 |
 | G17 | `validate-demo-write-path-v1.sh` missing | W2 | Worker | P1 |
-| G18 | CONTROLLED_EXECUTION_OS §14 stale paths | L6 | Maintainer | P3 |
+| G18 | GOVERNED_EXECUTION_OS §14 stale paths | L6 | Maintainer | P3 |
 | G19 | WTM map v5.2 summary says "D2 active" (stale) | L6 | Maintainer | P3 |
 
 ---
@@ -367,7 +367,7 @@ Founder PICK (Hub)
 
 | Phase | Target |
 |-------|--------|
-| **Year 1** | Controlled factory semi-auto L2 · FORGE beta · 3–5 regulated pilots |
+| **Year 1** | Governed factory semi-auto L2 · FORGE beta · 3–5 regulated pilots |
 | **Year 2** | Decision control plane SKU · export API · SOC2 path · seed/Series A |
 | **North star** | Enterprise AI runs model; SourceA runs the decision — with receipt |
 

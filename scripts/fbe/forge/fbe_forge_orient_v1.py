@@ -18,7 +18,7 @@ def orient(*, bay_slug: str, tenant: str) -> dict:
         mode="forge_orient",
         extra={
             "pattern": "FORGE_SKU_worker_inbox_no_web_clone",
-            "note": "Controlled app factory orient — no web clone",
+            "note": "Governed app factory orient — no web clone",
         },
     )
 

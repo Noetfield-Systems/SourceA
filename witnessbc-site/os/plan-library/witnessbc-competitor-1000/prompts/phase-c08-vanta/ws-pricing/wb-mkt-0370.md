@@ -23,7 +23,7 @@ Close wb-mkt-0370: PRIORITY row + verify PASS + link https://www.vanta.com
 
 ## Implementation extraction
 
-`Vanta · Pricing & packaging` → what buyer sees at vendor → what we ship logged with receipt.
+`Vanta · Pricing & packaging` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

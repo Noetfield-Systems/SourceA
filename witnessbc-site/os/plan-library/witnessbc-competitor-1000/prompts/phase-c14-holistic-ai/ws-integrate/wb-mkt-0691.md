@@ -23,7 +23,7 @@ List Holistic AI integrations/APIs from https://www.holisticai.com or docs — p
 
 ## Implementation extraction
 
-`Holistic AI · Integrations & API` → what buyer sees at vendor → what we ship logged with receipt.
+`Holistic AI · Integrations & API` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

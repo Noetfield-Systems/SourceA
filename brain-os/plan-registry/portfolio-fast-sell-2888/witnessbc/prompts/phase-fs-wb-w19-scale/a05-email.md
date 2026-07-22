@@ -10,7 +10,7 @@
 
 ## Task
 
-Fast-sell: WitnessBC · Repeatable playbook + template · Outreach email draft. Ship smallest slice that moves a buyer toward **Public proof page pilot** with a path to **Civic annual + audit export**. Receipt logged before done.
+Fast-sell: WitnessBC · Repeatable playbook + template · Outreach email draft. Ship smallest slice that moves a buyer toward **Public proof page pilot** with a path to **Civic annual + audit export**. Receipt on disk before done.
 
 ## Verify
 

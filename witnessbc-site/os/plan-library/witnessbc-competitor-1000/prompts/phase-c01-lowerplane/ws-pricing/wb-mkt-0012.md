@@ -23,7 +23,7 @@ Map LowerPlane revenue model (Annual subscription transparent tiers) to our `Fre
 
 ## Implementation extraction
 
-`LowerPlane · Pricing & packaging` → what buyer sees at vendor → what we ship logged with receipt.
+`LowerPlane · Pricing & packaging` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 

@@ -14,7 +14,7 @@ Wil L3 portfolio demo — YA5 mirror · AgentGo ≠ SourceA separation · ship g
 
 ## Task
 
-**Prove :5180 and :8080 routes for** case study prose (challenge · shipped · verification).
+**Prove :5180 and :8080 routes for** case study prose (challenge · shipped · proof chain).
 
 curl local when servers up.
 

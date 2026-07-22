@@ -253,7 +253,7 @@ def build_plan() -> dict:
         "source_a_identity_ssot": IDENTITY_APEX,
         "source_a_identity_bundle": str(BUNDLE_PATH),
         "source_a_identity_note": (
-            "Runs and sells controlled agentic automation — pointer only; "
+            "Runs and sells governed agentic automation — pointer only; "
             "full prose lives in portfolio SSOT §0–§2b"
         ),
         "fail_policy": FAIL_POLICY,

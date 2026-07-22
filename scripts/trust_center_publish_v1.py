@@ -41,7 +41,7 @@ def _public_signals() -> dict:
         "saved_at": _now(),
         "disclosure_line": disc.get("public_one_line")
         or "Prove every agent action — before the model runs, after it ships.",
-        "perimeter": "Powered by SourceA — advisory only · no custody · no payment initiation.",
+        "perimeter": "Powered by SourceA governed execution — advisory only · no custody · no payment initiation.",
         "mcp_free_tier_summary": (mcp.get("mcp_stack_line") or "").split("·")[0].strip() or "Free-tier integrations first",
         "proof_urls": [
             "https://sourcea-landing.vercel.app/sourcea/",

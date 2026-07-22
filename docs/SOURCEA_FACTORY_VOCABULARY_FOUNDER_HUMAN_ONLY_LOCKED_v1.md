@@ -65,15 +65,15 @@ Five names — never substitute:
 
 | Say | Means | Never confuse with |
 |-----|-------|-------------------|
-| **Forge** (capital F) | **Product** — AI-native dev platform · `~/Desktop/forge` · THREAD-FORGE | ICP compile · machine prove · Controlled App Factory |
+| **Forge** (capital F) | **Product** — AI-native dev platform · `~/Desktop/forge` · THREAD-FORGE | ICP compile · machine prove · Governed App Factory |
 | **ICP compile** | FDG failure moment → specialized body → CIL/RIL/OQG → RRL → Sina read | “forge email” · legacy icp-forge paths · `forge ocree` |
-| **Controlled App Factory** | FBE factory line 3 — controlled app deploy packs | Forge product |
+| **Governed App Factory** | FBE factory line 3 — governed app deploy packs | Forge product |
 | **machine prove** | Calibrate · Tune · Prove upgrade gauntlet | Forge product · ICP compile |
 | **DevBridge** | Cursor extension + MCP wire lane — subset of Forge integration | Forge product (not equal) |
 
 **Founder trigger word `forge`** still runs `machine_forge_pipeline_v1.py` — agents label it **machine prove** in prose.
 
-**Deprecated paths (rename on sight):** see `data/sourcea-forge-vocabulary-disambiguation-v1.json` → `drift_watch.stale_terms` and `replacements` (full path table in the repository — do not resurrect old compile dir names).
+**Deprecated paths (rename on sight):** see `data/sourcea-forge-vocabulary-disambiguation-v1.json` → `drift_watch.stale_terms` and `replacements` (full path table on disk — do not resurrect old compile dir names).
 
 ---
 

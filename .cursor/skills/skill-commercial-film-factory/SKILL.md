@@ -124,7 +124,7 @@ Work dirs: `~/.sina/witnessbc-commercial-film-work-v1/` (v5: `…-work-v5/`)
 ## v4 → v5 sequence
 
 1. v4 extended runtime must complete (hook_broll · apad fix)
-2. v5 beats already present — flip `cinematic_finish: true`
+2. v5 beats already on disk — flip `cinematic_finish: true`
 3. Waiter: `~/.sina/witnessbc-commercial-v5-after-v4.sh` (if present)
 4. Verify receipt + Desktop MP4 before marking routing `cinematic_finish_v5_queued: false`
 

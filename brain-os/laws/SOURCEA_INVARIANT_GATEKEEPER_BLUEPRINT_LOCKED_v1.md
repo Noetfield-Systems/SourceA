@@ -138,7 +138,7 @@ gatekeeper_v1 → IF PASS → executor → receipt → state advance (existing s
 
 ## 7. Seven-day build map (aligned to disk reality)
 
-| Day | Deliverable | Status logged |
+| Day | Deliverable | Status on disk |
 |-----|-------------|----------------|
 | D1 | Freeze L0–L4 stack in law files | **SHIPPED** — GOAL_HIERARCHY · EXECUTION_LAW · OPERATING_MODEL |
 | D2 | Unified `gatekeeper_v1.py` | **SHIPPED** |

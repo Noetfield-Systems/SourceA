@@ -26,7 +26,7 @@ Cursor agents **lose chat memory** when context is summarized or a new session s
 
 | # | Symptom | Root cause | Fix |
 |---|---------|------------|-----|
-| 1 | User: "you have no memory" after UPG-003/004 | Context summarization; no `SESSION_CLOSEOUT` logged | Run `cursor_agent_self_audit.py session-close` every task end |
+| 1 | User: "you have no memory" after UPG-003/004 | Context summarization; no `SESSION_CLOSEOUT` on disk | Run `cursor_agent_self_audit.py session-close` every task end |
 | 2 | TrustField fintech research names in chat | Skipped `AUTO_INTERNAL_PRIVACY_LOCK.md` at session start | Session-start read chain before edits |
 | 3 | Local agent claims `make verify-gtm` when target missing | Chat memory beat `REPO_TRUTH_CORRECTIONS.md` | Read `AGENT_TEAM_STATE.yaml` + corrections log first |
 | 4 | Work in wrong repo (All-Documents vs TrustField vs Noetfield) | No `resolve-agent` from cwd | Run `session-start` — prints forbidden roots |

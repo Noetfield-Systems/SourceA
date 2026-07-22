@@ -24,7 +24,7 @@ The manifest gives you two views:
 
 **How to use it:**
 
-- For each family you'll reference in DESIGN.md, name it by what's in `families[].family` (e.g. "Inter", not "f266e704 hashed font"). The hashed filenames are the `@font-face src` paths — they stay as-is logged; only the display name comes from the manifest.
+- For each family you'll reference in DESIGN.md, name it by what's in `families[].family` (e.g. "Inter", not "f266e704 hashed font"). The hashed filenames are the `@font-face src` paths — they stay as-is on disk; only the display name comes from the manifest.
 - If a family has `variable: true` and `variationAxes` includes `"wght"`, you can use any weight 100-900 via `font-variation-settings: 'wght' <value>` even if only one static weight appears in the captured files. Note this in DESIGN.md so sub-agents know they have the full weight range available.
 - If the manifest's `unidentified[]` is non-empty, those files failed name-table extraction (rare — heavily subset fonts that strip metadata). Flag them as `unknown` in DESIGN.md and suggest a fallback rather than guessing.
 - Commercial fonts hosted on brand CDNs (GT Walsheim, Söhne, Graphik, Canela) won't be in the manifest because they aren't downloaded. Detect this by checking what the site uses (from `design-styles.json`) against what's in the manifest — anything used but missing is a CDN-hosted font. Flag explicitly: "Söhne not in capture; use Inter 600 as substitute."

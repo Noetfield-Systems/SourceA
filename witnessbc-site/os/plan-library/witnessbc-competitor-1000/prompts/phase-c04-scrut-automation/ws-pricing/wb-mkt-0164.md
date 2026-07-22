@@ -23,7 +23,7 @@ Label free vs paid honestly (AI policy + first agentic install — site independ
 
 ## Implementation extraction
 
-`Scrut Automation · Pricing & packaging` → what buyer sees at vendor → what we ship logged with receipt.
+`Scrut Automation · Pricing & packaging` → what buyer sees at vendor → what we ship on disk with receipt.
 
 ## Verify
 
