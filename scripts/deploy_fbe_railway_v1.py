@@ -147,7 +147,6 @@ _STAGING_SCRIPT_FILES = (
     "forge_v02_github_v1.py",
     "forge_v02_implement_v1.py",
     "implement_run_detail_slice_v1.py",
-    "implement__evidence_slice_v1.py",
     "forge_v02_status_v1.py",
     "forge_v02_drain_v1.py",
     "forge_mvp_lib_v1.py",
@@ -155,6 +154,7 @@ _STAGING_SCRIPT_FILES = (
     "forge_critic_loop_v01.py",
     "forge_task_graph_emit_v01.py",
     "fbe_sign_work_order_v1.py",
+    "sandbox_executor_adapter_v1.py",
     "fbe_cloud_motor_seed_v1.py",
     "hub_cloud_forge_run_proceed_v1.py",
     "truth_log_v1.py",
@@ -168,8 +168,6 @@ _STAGING_SCRIPT_FILES = (
     "sourcea_plan_registry_client_v1.py",
     "autonomous_drain_receipt_cloud_v1.py",
     "living_system_chain_validate_v1.py",
-    "portfolio__forge_dispatch_v1.py",
-    "portfolio__pick_lib.py",
     "forge_cloud_env_load_v1.py",
     "task_plan_priority_v1.py",
     "gmail_inbox_sweep_v1.py",
@@ -288,11 +286,11 @@ def _stage_deploy_context() -> dict:
         shutil.copytree(plans_src, STAGING / "plans")
         copied.append("plans/")
 
-    reg_src = ROOT / "brain-os" / "plan-registry" / "sourcea--1000"
-    reg_dst = STAGING / "data" / "sourcea--1000-registry"
+    reg_src = ROOT / "brain-os" / "plan-registry" / "sourcea-1000"
+    reg_dst = STAGING / "data" / "sourcea-1000-registry"
     if reg_src.is_dir():
         shutil.copytree(reg_src, reg_dst)
-        copied.append("data/sourcea--1000-registry/")
+        copied.append("data/sourcea-1000-registry/")
 
     cloud_dir = STAGING / "cloud"
     cloud_dir.mkdir(parents=True)

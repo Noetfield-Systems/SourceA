@@ -439,12 +439,18 @@ def _git_auth_env(base: dict[str, str] | None = None) -> dict[str, str] | None:
     token = os.environ.get("GITHUB_TOKEN") or os.environ.get("GITHUB_PERSONAL_ACCESS_TOKEN") or ""
     if not token:
         return base
+    # GitHub git-over-HTTPS expects Basic auth (x-access-token:TOKEN), not a Bearer
+    # extraheader. Bearer is valid for the REST API but causes clone to fail with
+    # "could not read Username for 'https://github.com'" when GIT_TERMINAL_PROMPT=0.
+    import base64
+
+    basic = base64.b64encode(f"x-access-token:{token}".encode("utf-8")).decode("ascii")
     env = dict(base or os.environ.copy())
     env.update({
         "GIT_TERMINAL_PROMPT": "0",
         "GIT_CONFIG_COUNT": "1",
         "GIT_CONFIG_KEY_0": "http.https://github.com/.extraheader",
-        "GIT_CONFIG_VALUE_0": f"AUTHORIZATION: bearer {token}",
+        "GIT_CONFIG_VALUE_0": f"AUTHORIZATION: basic {basic}",
     })
     return env
 

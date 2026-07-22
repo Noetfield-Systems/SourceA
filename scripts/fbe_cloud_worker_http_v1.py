@@ -591,8 +591,11 @@ class FbeWorkerHandler(BaseHTTPRequestHandler):
             _json_response(self, code, row)
             return
         if parsed.path.startswith("/api/-evidence/v1"):
-            from implement__evidence_slice_v1 import handle_get_request  # noqa: WPS433
-
+            try:
+                from implement__evidence_slice_v1 import handle_get_request  # noqa: WPS433
+            except ImportError:
+                _json_response(self, 404, {"ok": False, "error": "route_retired"})
+                return
             code, row = handle_get_request(self.path, root=ROOT)
             _json_response(self, code, row)
             return

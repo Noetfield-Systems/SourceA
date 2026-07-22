@@ -1,7 +1,7 @@
 # FBE headless cloud worker — Phase 1 HTTP API + bay/job/fleet execution
 FROM python:3.12-slim
 
-RUN apt-get update && apt-get install -y --no-install-recommends nodejs npm && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get install -y --no-install-recommends git ca-certificates nodejs npm && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /app
 
@@ -52,7 +52,6 @@ COPY scripts/forge_v01_engine_v1.py scripts/forge_v01_engine_v1.py
 COPY scripts/forge_v02_github_v1.py scripts/forge_v02_github_v1.py
 COPY scripts/forge_v02_implement_v1.py scripts/forge_v02_implement_v1.py
 COPY scripts/implement_run_detail_slice_v1.py scripts/implement_run_detail_slice_v1.py
-COPY scripts/implement__evidence_slice_v1.py scripts/implement__evidence_slice_v1.py
 COPY scripts/forge_v02_status_v1.py scripts/forge_v02_status_v1.py
 COPY scripts/forge_v02_drain_v1.py scripts/forge_v02_drain_v1.py
 COPY scripts/forge_mvp_lib_v1.py scripts/forge_mvp_lib_v1.py
@@ -60,6 +59,7 @@ COPY scripts/forge_router_execute_v01.py scripts/forge_router_execute_v01.py
 COPY scripts/forge_critic_loop_v01.py scripts/forge_critic_loop_v01.py
 COPY scripts/forge_task_graph_emit_v01.py scripts/forge_task_graph_emit_v01.py
 COPY scripts/fbe_sign_work_order_v1.py scripts/fbe_sign_work_order_v1.py
+COPY scripts/sandbox_executor_adapter_v1.py scripts/sandbox_executor_adapter_v1.py
 COPY scripts/fbe_cloud_worker_http_v1.py scripts/fbe_cloud_worker_http_v1.py
 COPY scripts/fbe_pipeline_runner_v1.py scripts/fbe_pipeline_runner_v1.py
 COPY scripts/fbe_refinery_runner_v1.py scripts/fbe_refinery_runner_v1.py
@@ -156,11 +156,9 @@ COPY scripts/cloud_forge_run_supabase_v1.py scripts/cloud_forge_run_supabase_v1.
 COPY scripts/sourcea_plan_registry_client_v1.py scripts/sourcea_plan_registry_client_v1.py
 COPY scripts/autonomous_drain_receipt_cloud_v1.py scripts/autonomous_drain_receipt_cloud_v1.py
 COPY scripts/living_system_chain_validate_v1.py scripts/living_system_chain_validate_v1.py
-COPY scripts/portfolio__forge_dispatch_v1.py scripts/portfolio__forge_dispatch_v1.py
-COPY scripts/portfolio__pick_lib.py scripts/portfolio__pick_lib.py
 COPY scripts/forge_cloud_env_load_v1.py scripts/forge_cloud_env_load_v1.py
 COPY scripts/task_plan_priority_v1.py scripts/task_plan_priority_v1.py
-COPY data/sourcea--1000-registry brain-os/plan-registry/sourcea--1000
+COPY data/sourcea-1000-registry brain-os/plan-registry/sourcea-1000
 
 RUN mkdir -p /app/receipts/bays /app/receipts/packs /app/receipts/partners /app/receipts/cloud/autonomous-forge-run-cycles /app/receipts/cloud/ops-heartbeat /app/receipts/cloud/kaizen/nightly /app/receipts/signal-factory/triage /tmp/fbe_artifacts /tmp/fbe_receipts /root/.sina
 
