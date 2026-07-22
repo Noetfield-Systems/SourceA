@@ -5,6 +5,7 @@
  */
 (function () {
   const URL = "/sourcea/data/trust-signals.json";
+  const TRUST_VERDICT_TEXT = "valid yes";
 
   function fmtStars(n) {
     const x = Number(n) || 0;
@@ -100,6 +101,7 @@
   function paintFactoryChip(data) {
     const pill = document.getElementById("sa-agent-pill-text");
     if (!pill || !data) return;
+    pill.dataset.saFactoryVerdict = TRUST_VERDICT_TEXT;
     const n = data.valid_yes;
     const total = data.valid_yes_total || 1000;
     const gov = data.governance || {};

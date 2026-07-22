@@ -1,6 +1,6 @@
 # SourceA Website UI E2E Audit (v2)
 
-**At:** 2026-07-22T02:55:44Z  
+**At:** 2026-07-22T03:12:23Z  
 **Base:** https://sourcea.app  
 **Verdict:** `FAIL`  
 
@@ -8,38 +8,38 @@
 
 | Metric | Count |
 |--------|-------|
-| Live BFS paths | 51 |
+| Live BFS paths | 56 |
 | Dist paths | 122 |
-| Unique audited | 124 |
-| Counted (non-rejected) | 120 |
-| PASS | 7 |
-| FAIL | 113 |
+| Unique audited | 125 |
+| Counted (non-rejected) | 121 |
+| PASS | 1 |
+| FAIL | 120 |
 | Buyer funnel FAIL | 12 |
 | SPA fallback rejected | 4 |
 | Count math | counted = unique_audited - rejected_spa_fallback |
 
 ## Deploy drift (live sha256 vs dist)
 
-- `https://sourcea.app/` dist=`SourceA-landing/green-unified/dist/index.html` live=b4575f5b174f… dist=207514ad1b1c…
-- `https://sourcea.app/48h-mvp` dist=`SourceA-landing/green-unified/dist/48h-mvp/index.html` live=ca9d32f01b45… dist=53a6b8f72055…
-- `https://sourcea.app/agent-run` dist=`SourceA-landing/green-unified/dist/agent-run/index.html` live=720d57cef3dc… dist=25f56e204fd2…
-- `https://sourcea.app/ai-value-governance` dist=`SourceA-landing/green-unified/dist/ai-value-governance/index.html` live=14829112e2c9… dist=6da0f8e9c806…
+- `https://sourcea.app/` dist=`SourceA-landing/green-unified/dist/index.html` live=b4575f5b174f… dist=72eccee50382…
+- `https://sourcea.app/48h-mvp` dist=`SourceA-landing/green-unified/dist/48h-mvp/index.html` live=ca9d32f01b45… dist=5d883df89c4a…
+- `https://sourcea.app/agent-run` dist=`SourceA-landing/green-unified/dist/agent-run/index.html` live=720d57cef3dc… dist=1d00efbedde2…
+- `https://sourcea.app/ai-value-governance` dist=`SourceA-landing/green-unified/dist/ai-value-governance/index.html` live=14829112e2c9… dist=37c4f778bf47…
+- `https://sourcea.app/attach/procurement-pack.html` dist=`SourceA-landing/green-unified/dist/sourcea/attach/procurement-pack.html` live=0df087ba3452… dist=a298305c6f3d…
+- `https://sourcea.app/auth/sign-in` dist=`SourceA-landing/green-unified/dist/auth/sign-in.html` live=83273880b8fb… dist=f21192e23409…
+- `https://sourcea.app/auth/sign-up` dist=`SourceA-landing/green-unified/dist/auth/sign-up.html` live=adb4bad79b6d… dist=b5430a378f78…
 - `https://sourcea.app/changelog` dist=`SourceA-landing/green-unified/dist/changelog/index.html` live=b0f47443d0d0… dist=0a2ee2cd2648…
-- `https://sourcea.app/compare` dist=`SourceA-landing/green-unified/dist/compare/index.html` live=cf2500a359bb… dist=02a7f1bfb64a…
-- `https://sourcea.app/enterprise-ai-control-plane` dist=`SourceA-landing/green-unified/dist/enterprise-ai-control-plane/index.html` live=0750765bae00… dist=209c8fb77ca6…
-- `https://sourcea.app/eval` dist=`SourceA-landing/green-unified/dist/eval.html` live=e053220621a4… dist=bc54a299f360…
+- `https://sourcea.app/compare` dist=`SourceA-landing/green-unified/dist/compare/index.html` live=cf2500a359bb… dist=e59139170e9c…
+- `https://sourcea.app/enterprise-ai-control-plane` dist=`SourceA-landing/green-unified/dist/enterprise-ai-control-plane/index.html` live=0750765bae00… dist=7712ca09a900…
+- `https://sourcea.app/eval` dist=`SourceA-landing/green-unified/dist/eval.html` live=e053220621a4… dist=77838e6827b5…
+- `https://sourcea.app/forge` dist=`SourceA-landing/green-unified/dist/forge/index.html` live=5aaae81eb369… dist=5fe1a62acbe6…
 - `https://sourcea.app/forge/terminal` dist=`SourceA-landing/green-unified/dist/forge/terminal/index.html` live=1c3fe5f86637… dist=e022fc6d6c18…
-- `https://sourcea.app/forge/terminal/profile` dist=`SourceA-landing/green-unified/dist/forge/terminal/profile/index.html` live=52c2dd1adc8b… dist=2ae197ea56b9…
-- `https://sourcea.app/forge/terminal/signin` dist=`SourceA-landing/green-unified/dist/forge/terminal/signin/index.html` live=a1ffda876ed3… dist=6e4987a4f11a…
-- `https://sourcea.app/forge/terminal/signup` dist=`SourceA-landing/green-unified/dist/forge/terminal/signup/index.html` live=91aa5a847954… dist=b5766066f8d4…
-- `https://sourcea.app/forge/terminal/workspace` dist=`SourceA-landing/green-unified/dist/forge/terminal/workspace/index.html` live=233d4547cd05… dist=991cd3012b2a…
+- `https://sourcea.app/forge/terminal/profile` dist=`SourceA-landing/green-unified/dist/forge/terminal/profile/index.html` live=52c2dd1adc8b… dist=cf84e2de112f…
+- `https://sourcea.app/forge/terminal/signin` dist=`SourceA-landing/green-unified/dist/forge/terminal/signin/index.html` live=a1ffda876ed3… dist=ddb8f4ec1be4…
+- `https://sourcea.app/forge/terminal/signup` dist=`SourceA-landing/green-unified/dist/forge/terminal/signup/index.html` live=91aa5a847954… dist=0c4a5d8335da…
+- `https://sourcea.app/forge/terminal/workspace` dist=`SourceA-landing/green-unified/dist/forge/terminal/workspace/index.html` live=233d4547cd05… dist=427b126a8143…
 - `https://sourcea.app/funnel` dist=`SourceA-landing/green-unified/dist/funnel/index.html` live=122987565b73… dist=145e5321ba9b…
-- `https://sourcea.app/growth` dist=`SourceA-landing/green-unified/dist/growth/index.html` live=d3c6d943b5a9… dist=8282fe1353c1…
-- `https://sourcea.app/kernel` dist=`SourceA-landing/green-unified/dist/kernel/index.html` live=de72164bfc0b… dist=cb145dcdcebb…
-- `https://sourcea.app/learn` dist=`SourceA-landing/green-unified/dist/learn/index.html` live=958b30048789… dist=0abe382465ca…
-- `https://sourcea.app/mvp` dist=`SourceA-landing/green-unified/dist/mvp/index.html` live=0490c25f95e6… dist=47ab423f22fe…
-- `https://sourcea.app/operating-brain-install` dist=`SourceA-landing/green-unified/dist/operating-brain-install/index.html` live=2d99122b5a5d… dist=11b77e43773a…
-- `https://sourcea.app/platform` dist=`SourceA-landing/green-unified/dist/platform.html` live=720d57cef3dc… dist=25f56e204fd2…
+- `https://sourcea.app/growth` dist=`SourceA-landing/green-unified/dist/growth/index.html` live=d3c6d943b5a9… dist=64ff8178b3b2…
+- `https://sourcea.app/kernel` dist=`SourceA-landing/green-unified/dist/kernel/index.html` live=de72164bfc0b… dist=508714707b62…
 
 ## Buyer funnel
 
@@ -83,6 +83,15 @@
 ### https://sourcea.app/ai-value-governance
 - `deploy_drift`: live deploy hash != dist (SourceA-landing/green-unified/dist/ai-value-governance/index.html)
 
+### https://sourcea.app/attach/procurement-pack.html
+- `deploy_drift`: live deploy hash != dist (SourceA-landing/green-unified/dist/sourcea/attach/procurement-pack.html)
+
+### https://sourcea.app/auth/sign-in
+- `deploy_drift`: live deploy hash != dist (SourceA-landing/green-unified/dist/auth/sign-in.html)
+
+### https://sourcea.app/auth/sign-up
+- `deploy_drift`: live deploy hash != dist (SourceA-landing/green-unified/dist/auth/sign-up.html)
+
 ### https://sourcea.app/changelog
 - `deploy_drift`: live deploy hash != dist (SourceA-landing/green-unified/dist/changelog/index.html)
 
@@ -94,6 +103,9 @@
 
 ### https://sourcea.app/eval
 - `deploy_drift`: live deploy hash != dist (SourceA-landing/green-unified/dist/eval.html)
+
+### https://sourcea.app/forge
+- `deploy_drift`: live deploy hash != dist (SourceA-landing/green-unified/dist/forge/index.html)
 
 ### https://sourcea.app/forge/terminal
 - `deploy_drift`: live deploy hash != dist (SourceA-landing/green-unified/dist/forge/terminal/index.html)
@@ -137,29 +149,17 @@
 ### https://sourcea.app/platform/profile
 - `deploy_drift`: live deploy hash != dist (SourceA-landing/green-unified/dist/platform/profile/index.html)
 
+### https://sourcea.app/platform/sign-in
+- `deploy_drift`: live deploy hash != dist (SourceA-landing/green-unified/dist/platform/sign-in/index.html)
+
+### https://sourcea.app/platform/sign-up
+- `deploy_drift`: live deploy hash != dist (SourceA-landing/green-unified/dist/platform/sign-up/index.html)
+
 ### https://sourcea.app/platform/workspace
 - `deploy_drift`: live deploy hash != dist (SourceA-landing/green-unified/dist/platform/workspace/index.html)
 
 ### https://sourcea.app/pricing
 - `deploy_drift`: live deploy hash != dist (SourceA-landing/green-unified/dist/pricing/index.html)
-
-### https://sourcea.app/proof
-- `deploy_drift`: live deploy hash != dist (SourceA-landing/green-unified/dist/proof/index.html)
-
-### https://sourcea.app/pulse-founder
-- `deploy_drift`: live deploy hash != dist (SourceA-landing/green-unified/dist/pulse-founder/index.html)
-
-### https://sourcea.app/sandbox
-- `deploy_drift`: live deploy hash != dist (SourceA-landing/green-unified/dist/sandbox/index.html)
-
-### https://sourcea.app/scenario
-- `deploy_drift`: live deploy hash != dist (SourceA-landing/green-unified/dist/scenario/index.html)
-
-### https://sourcea.app/security
-- `deploy_drift`: live deploy hash != dist (SourceA-landing/green-unified/dist/security/index.html)
-
-### https://sourcea.app/sourcea
-- `deploy_drift`: live deploy hash != dist (SourceA-landing/green-unified/dist/sourcea/index.html)
 
 ## Checks
 

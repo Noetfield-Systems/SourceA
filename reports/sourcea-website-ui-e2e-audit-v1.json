@@ -1,21 +1,21 @@
 {
   "schema": "sourcea-website-ui-e2e-audit-v2",
-  "at": "2026-07-22T02:55:44Z",
+  "at": "2026-07-22T03:12:23Z",
   "base": "https://sourcea.app",
   "verdict": "FAIL",
   "summary": {
-    "paths_live_bfs": 51,
+    "paths_live_bfs": 56,
     "paths_dist": 122,
-    "paths_audited_unique": 124,
-    "pages_fetched": 124,
-    "pages_counted": 120,
-    "pass": 7,
-    "fail": 113,
+    "paths_audited_unique": 125,
+    "pages_fetched": 125,
+    "pages_counted": 121,
+    "pass": 1,
+    "fail": 120,
     "warn_only": 0,
     "rejected_spa_fallback": 4,
     "buyer_funnel_fail": 12,
-    "live_only_count": 2,
-    "dist_only_count": 73
+    "live_only_count": 3,
+    "dist_only_count": 69
   },
   "buyer_funnel": [
     {
@@ -24,7 +24,7 @@
       "ok": false,
       "rejected": false,
       "body_sha256": "b4575f5b174f0db4e160745dc8bccb8ccfef69fdd3d4e38513ebfe1efe482344",
-      "dist_sha256": "207514ad1b1c99cf77ee84a7d2a387a4d2e914ef601a2ea45b969e647b981232",
+      "dist_sha256": "72eccee50382ad6b7b702d1b74200e1b6f571003817a5f87e440a294e2423f7f",
       "dist_live_match": false,
       "cf_cache_status": "",
       "title": "SourceA \u2014 AI execution platform with proof built in",
@@ -65,7 +65,7 @@
       "ok": false,
       "rejected": false,
       "body_sha256": "f53e1c15ea36ba8889f3b5c9ceb007a5aa570ef69037a0d40b7b80b69c088727",
-      "dist_sha256": "d80784821ef1a3bf1b2cbd930daa541b0623dd1efda5df04c32692fd40ac78a9",
+      "dist_sha256": "8a913e556fcfe67a856842fb04192e3220aa503b09373335e586d784e2574b85",
       "dist_live_match": false,
       "cf_cache_status": "",
       "title": "Pricing | SourceA \u2014 Build \u00b7 Rent \u00b7 Own",
@@ -83,7 +83,7 @@
       "ok": false,
       "rejected": false,
       "body_sha256": "f53e1c15ea36ba8889f3b5c9ceb007a5aa570ef69037a0d40b7b80b69c088727",
-      "dist_sha256": "5ec43af6b90acab99f85181f3c83e329632e70ee2131abd31329849d1dfeadf3",
+      "dist_sha256": "853018555ebecffe7208328575601daed95715f29c0ba322b67bcb27d94e6bdd",
       "dist_live_match": false,
       "cf_cache_status": "",
       "title": "Pricing | SourceA \u2014 Build \u00b7 Rent \u00b7 Own",
@@ -101,7 +101,7 @@
       "ok": false,
       "rejected": false,
       "body_sha256": "b3599f1b9c0c3e7285b14bcb6cd175fb176cbbace77fbdb93c443e79371c100a",
-      "dist_sha256": "78f6abdc8160f688c06cce391fd95b98e15451c1f12f2e78fd025bdcb994a2dd",
+      "dist_sha256": "cd411e3560922b1d12395659146d0ef4c9ef092fd53376e88a85a82b0f8a310a",
       "dist_live_match": false,
       "cf_cache_status": "",
       "title": "Proof chain | SourceA",
@@ -119,7 +119,7 @@
       "ok": false,
       "rejected": false,
       "body_sha256": "b3599f1b9c0c3e7285b14bcb6cd175fb176cbbace77fbdb93c443e79371c100a",
-      "dist_sha256": "c04864e15a3f20954f5a9e8cb511e9ba773e7405707c908e3905c852577a3dba",
+      "dist_sha256": "7c7c5cb8a09d43e69d1c7c7d57f38618d1f342aac878143ed6aedd02eab9ea33",
       "dist_live_match": false,
       "cf_cache_status": "",
       "title": "Proof chain | SourceA",
@@ -137,7 +137,7 @@
       "ok": false,
       "rejected": false,
       "body_sha256": "29988e80f890bf5343ff7d2ddb9986e92d7a9ff6129e79b1cc8079c0bfa713b1",
-      "dist_sha256": "019a124d5aa526ebbf0fe98e1eb8acaf24205b7cd38a2e1c9b4dbc90a46fb549",
+      "dist_sha256": "a30b4f0984725e1863055ca1e7044ad1469b37efba3d26e1e1b6f038c2ec82cf",
       "dist_live_match": false,
       "cf_cache_status": "",
       "title": "48-Hour MVP Offer | SourceA",
@@ -155,7 +155,7 @@
       "ok": false,
       "rejected": false,
       "body_sha256": "e053220621a4e5bd61c302ff446de38a1963b85bdc972d9082e2c0c34fd1184d",
-      "dist_sha256": "bc54a299f3600d22bab3a6785cb4543b27d062e6e3b5db30e58edf88d6c66e7f",
+      "dist_sha256": "77838e6827b5c474ffe13f41ec6128e192a48e7b75f33045cd50fe18239f65ae",
       "dist_live_match": false,
       "cf_cache_status": "",
       "title": "Technical overview \u00b7 SourceA",
@@ -209,7 +209,7 @@
       "ok": false,
       "rejected": false,
       "body_sha256": "f12fe5d042d3d94469d5e1fa565ba0811f5e67abcca39a6dd164174da8353d40",
-      "dist_sha256": "3ea5646b1854477700d90a41cac97885e14d2c74da94a8b18fbc3ba2978f457b",
+      "dist_sha256": "be5b5426a96bdde1c6a94768fcf191165535621960f3aaad682338cc555f9ad0",
       "dist_live_match": false,
       "cf_cache_status": "",
       "title": "Security & procurement | SourceA",
@@ -227,7 +227,7 @@
       "ok": false,
       "rejected": false,
       "body_sha256": "f12fe5d042d3d94469d5e1fa565ba0811f5e67abcca39a6dd164174da8353d40",
-      "dist_sha256": "c277bbaa990d790798691b57ee2f98d785fb83f61bdd49258c84b04786cb2e08",
+      "dist_sha256": "cd9db7c04e6eda8f05a114b20cb91a6465dfbb5f5cfc3459cda0ff54e9d210b7",
       "dist_live_match": false,
       "cf_cache_status": "",
       "title": "Security & procurement | SourceA",
@@ -245,28 +245,49 @@
       "url": "https://sourcea.app/",
       "dist_path": "SourceA-landing/green-unified/dist/index.html",
       "live_sha256": "b4575f5b174f0db4e160745dc8bccb8ccfef69fdd3d4e38513ebfe1efe482344",
-      "dist_sha256": "207514ad1b1c99cf77ee84a7d2a387a4d2e914ef601a2ea45b969e647b981232",
+      "dist_sha256": "72eccee50382ad6b7b702d1b74200e1b6f571003817a5f87e440a294e2423f7f",
       "match": false
     },
     {
       "url": "https://sourcea.app/48h-mvp",
       "dist_path": "SourceA-landing/green-unified/dist/48h-mvp/index.html",
       "live_sha256": "ca9d32f01b45903ea949a8e99236fa6527f032154d9e9571e5ef8a60fbe6908d",
-      "dist_sha256": "53a6b8f72055cb0e0ce59f9ad2e6803e37411754d30dbb1cc41e742ad4ff09ba",
+      "dist_sha256": "5d883df89c4af98595666aa42c3b457b4d0e0978a515beb42b0ab0d0aaedb7b9",
       "match": false
     },
     {
       "url": "https://sourcea.app/agent-run",
       "dist_path": "SourceA-landing/green-unified/dist/agent-run/index.html",
       "live_sha256": "720d57cef3dcaa2e3f1d9ed37c1b4adcc6532c9962e6ca15c412c81585309287",
-      "dist_sha256": "25f56e204fd2ae4ae2f1fbdadf540e27d7a40beed8c9918f3da5d3685c8bdcdc",
+      "dist_sha256": "1d00efbedde2ce8266dd5dcadd7f9940f5a451960dffc05323a34d08c3839f82",
       "match": false
     },
     {
       "url": "https://sourcea.app/ai-value-governance",
       "dist_path": "SourceA-landing/green-unified/dist/ai-value-governance/index.html",
       "live_sha256": "14829112e2c95a69ddecf73efdef65b2e8d27ab6f43c3f49dd909d0a26765630",
-      "dist_sha256": "6da0f8e9c8065e63c15436985810d0f1fb251cdd615517963d0c33dd9f73973e",
+      "dist_sha256": "37c4f778bf47d4791e701a1cd9f6eb235992196d475fd0e7abad6fb6a1f22db0",
+      "match": false
+    },
+    {
+      "url": "https://sourcea.app/attach/procurement-pack.html",
+      "dist_path": "SourceA-landing/green-unified/dist/sourcea/attach/procurement-pack.html",
+      "live_sha256": "0df087ba3452d6698ea94a36698ee393c646fc4741be62b83754b73698b53e26",
+      "dist_sha256": "a298305c6f3d0b844be958769d46c7b07a2b1b3e1a65369b83bedbca33518564",
+      "match": false
+    },
+    {
+      "url": "https://sourcea.app/auth/sign-in",
+      "dist_path": "SourceA-landing/green-unified/dist/auth/sign-in.html",
+      "live_sha256": "83273880b8fbeb6c9a947791057c02ed6a8289422eb15b4c3ea173a20f39eae1",
+      "dist_sha256": "f21192e2340993f473d5b5c463f8c3bfdb8d3af521a3e70dc4559a3697bf87df",
+      "match": false
+    },
+    {
+      "url": "https://sourcea.app/auth/sign-up",
+      "dist_path": "SourceA-landing/green-unified/dist/auth/sign-up.html",
+      "live_sha256": "adb4bad79b6d0df001211b4b030db5ec5e9e5360168556acba4a42314c6e8c64",
+      "dist_sha256": "b5430a378f78ae80a4aadfd83dc7a079a7ba0fec1f113770e2ee556eb2db9763",
       "match": false
     },
     {
@@ -280,21 +301,28 @@
       "url": "https://sourcea.app/compare",
       "dist_path": "SourceA-landing/green-unified/dist/compare/index.html",
       "live_sha256": "cf2500a359bb07dcaf20df36f4fbd1815802794e3d97983c699f12e79a51e6bd",
-      "dist_sha256": "02a7f1bfb64a9a89efeb41973c227eaca86b53dab3aeca6e0c2c9ea71ba58f01",
+      "dist_sha256": "e59139170e9c06618c71a58f95a0c3962adc17a4a6c904f9c7627330b00fe2cb",
       "match": false
     },
     {
       "url": "https://sourcea.app/enterprise-ai-control-plane",
       "dist_path": "SourceA-landing/green-unified/dist/enterprise-ai-control-plane/index.html",
       "live_sha256": "0750765bae008cc085d265bcf0af5461913a36b8155682de133c01f21b50cf2c",
-      "dist_sha256": "209c8fb77ca60043d42d0641b5460150aebf32be466def6c3ab8fb7e846a4546",
+      "dist_sha256": "7712ca09a900c439ae74824f41fc40dd9d354fbf973fd0ac38eec251d338dc0c",
       "match": false
     },
     {
       "url": "https://sourcea.app/eval",
       "dist_path": "SourceA-landing/green-unified/dist/eval.html",
       "live_sha256": "e053220621a4e5bd61c302ff446de38a1963b85bdc972d9082e2c0c34fd1184d",
-      "dist_sha256": "bc54a299f3600d22bab3a6785cb4543b27d062e6e3b5db30e58edf88d6c66e7f",
+      "dist_sha256": "77838e6827b5c474ffe13f41ec6128e192a48e7b75f33045cd50fe18239f65ae",
+      "match": false
+    },
+    {
+      "url": "https://sourcea.app/forge",
+      "dist_path": "SourceA-landing/green-unified/dist/forge/index.html",
+      "live_sha256": "5aaae81eb3690377bc4a9d00574fc1decba1cd8147fb946c361bad5b29078248",
+      "dist_sha256": "5fe1a62acbe6783af7a16edca7576da2e67956b3b116a744f226f0e846bde846",
       "match": false
     },
     {
@@ -308,28 +336,28 @@
       "url": "https://sourcea.app/forge/terminal/profile",
       "dist_path": "SourceA-landing/green-unified/dist/forge/terminal/profile/index.html",
       "live_sha256": "52c2dd1adc8be86cf7177a7f780743061e864bf705f302bfff035c95383be058",
-      "dist_sha256": "2ae197ea56b901b42da8d54581f6c74000bc50c47d86c439102f48de99f6a6c5",
+      "dist_sha256": "cf84e2de112fa294e50d4209ee2f672cacedeb501d47aaca1ff2b41793277f3e",
       "match": false
     },
     {
       "url": "https://sourcea.app/forge/terminal/signin",
       "dist_path": "SourceA-landing/green-unified/dist/forge/terminal/signin/index.html",
       "live_sha256": "a1ffda876ed3984fdef13f9eecbb163fa23e65a6563d01b4d69952da0be857b9",
-      "dist_sha256": "6e4987a4f11a048f17c5a3b2cde203b7120d8ed59ec515f78c676ffcb2121f44",
+      "dist_sha256": "ddb8f4ec1be4deb60715e55739e1f4f749a0069447bb30ddf4a19beac4b5b664",
       "match": false
     },
     {
       "url": "https://sourcea.app/forge/terminal/signup",
       "dist_path": "SourceA-landing/green-unified/dist/forge/terminal/signup/index.html",
       "live_sha256": "91aa5a847954bbe173988904824b64d97fa7f64096ddde53144d23006db5c4e4",
-      "dist_sha256": "b5766066f8d48b130d84b4719959413ccaa8ea58a582a3517325867a4dac1f34",
+      "dist_sha256": "0c4a5d8335da1bd44ac3ede87aa8f04c0e12b00baf47af5fc7d2e18ae4c985f0",
       "match": false
     },
     {
       "url": "https://sourcea.app/forge/terminal/workspace",
       "dist_path": "SourceA-landing/green-unified/dist/forge/terminal/workspace/index.html",
       "live_sha256": "233d4547cd055a0e98e7baef42c214de830db8a203fe7ca80fb5a3a855cc65c1",
-      "dist_sha256": "991cd3012b2aa889881366635d8d710c327d11ca6ec38a8e57481ee4f17869ca",
+      "dist_sha256": "427b126a8143dd46edb4d0bd4f3c1b5f989e344169d95cad677f8f5d171bc304",
       "match": false
     },
     {
@@ -343,14 +371,14 @@
       "url": "https://sourcea.app/growth",
       "dist_path": "SourceA-landing/green-unified/dist/growth/index.html",
       "live_sha256": "d3c6d943b5a9ecdf47988002c82cbacdf8df999cc5e841bcd42cdb797715c8dd",
-      "dist_sha256": "8282fe1353c197772a2f87d53b02071c84ad566c6a069c99c63bc83c73f056de",
+      "dist_sha256": "64ff8178b3b292a79c1d6000897f3e6f9b2689c9b18408dc03e6bf6fd345fd8e",
       "match": false
     },
     {
       "url": "https://sourcea.app/kernel",
       "dist_path": "SourceA-landing/green-unified/dist/kernel/index.html",
       "live_sha256": "de72164bfc0b7d5b1295bc78d8f82eb9ca2fff434b87a6255750d4b217a6c5d2",
-      "dist_sha256": "cb145dcdcebb69e488e4d43b5f1e4b32fb254aba6b05013fc626faa9d8f14aaf",
+      "dist_sha256": "508714707b62be566491a8588c782cceb00b7ac85be34722a7c36d84a2f6888c",
       "match": false
     },
     {
@@ -371,49 +399,63 @@
       "url": "https://sourcea.app/operating-brain-install",
       "dist_path": "SourceA-landing/green-unified/dist/operating-brain-install/index.html",
       "live_sha256": "2d99122b5a5d7630690b8f0c533a02a6a3a8dfc7a8eaf8137be214e215493960",
-      "dist_sha256": "11b77e43773a67798d4dc00742630c383357a8d28c28a663cce5192c31b9ddef",
+      "dist_sha256": "25455f345ec2b015eceb622d77a8da9ff4a8651f87b558cb7034fda8b8594f49",
       "match": false
     },
     {
       "url": "https://sourcea.app/platform",
       "dist_path": "SourceA-landing/green-unified/dist/platform.html",
       "live_sha256": "720d57cef3dcaa2e3f1d9ed37c1b4adcc6532c9962e6ca15c412c81585309287",
-      "dist_sha256": "25f56e204fd2ae4ae2f1fbdadf540e27d7a40beed8c9918f3da5d3685c8bdcdc",
+      "dist_sha256": "1d00efbedde2ce8266dd5dcadd7f9940f5a451960dffc05323a34d08c3839f82",
       "match": false
     },
     {
       "url": "https://sourcea.app/platform-story",
       "dist_path": "SourceA-landing/green-unified/dist/platform-story/index.html",
       "live_sha256": "e9e91257bd15f361b09d1c47ae54c8842bfe1859f3745f6483be5ae83125a209",
-      "dist_sha256": "9bee04d1f812e45021578170190103b5d95e2e1f36576da30f1742586898a3a1",
+      "dist_sha256": "8e15db0a7be33b3be9d264f9b3e4e243e21a2c496852fff2e9ea29a3c88d44b4",
       "match": false
     },
     {
       "url": "https://sourcea.app/platform/profile",
       "dist_path": "SourceA-landing/green-unified/dist/platform/profile/index.html",
       "live_sha256": "52c2dd1adc8be86cf7177a7f780743061e864bf705f302bfff035c95383be058",
-      "dist_sha256": "2ae197ea56b901b42da8d54581f6c74000bc50c47d86c439102f48de99f6a6c5",
+      "dist_sha256": "cf84e2de112fa294e50d4209ee2f672cacedeb501d47aaca1ff2b41793277f3e",
+      "match": false
+    },
+    {
+      "url": "https://sourcea.app/platform/sign-in",
+      "dist_path": "SourceA-landing/green-unified/dist/platform/sign-in/index.html",
+      "live_sha256": "83273880b8fbeb6c9a947791057c02ed6a8289422eb15b4c3ea173a20f39eae1",
+      "dist_sha256": "f21192e2340993f473d5b5c463f8c3bfdb8d3af521a3e70dc4559a3697bf87df",
+      "match": false
+    },
+    {
+      "url": "https://sourcea.app/platform/sign-up",
+      "dist_path": "SourceA-landing/green-unified/dist/platform/sign-up/index.html",
+      "live_sha256": "adb4bad79b6d0df001211b4b030db5ec5e9e5360168556acba4a42314c6e8c64",
+      "dist_sha256": "b5430a378f78ae80a4aadfd83dc7a079a7ba0fec1f113770e2ee556eb2db9763",
       "match": false
     },
     {
       "url": "https://sourcea.app/platform/workspace",
       "dist_path": "SourceA-landing/green-unified/dist/platform/workspace/index.html",
       "live_sha256": "233d4547cd055a0e98e7baef42c214de830db8a203fe7ca80fb5a3a855cc65c1",
-      "dist_sha256": "991cd3012b2aa889881366635d8d710c327d11ca6ec38a8e57481ee4f17869ca",
+      "dist_sha256": "427b126a8143dd46edb4d0bd4f3c1b5f989e344169d95cad677f8f5d171bc304",
       "match": false
     },
     {
       "url": "https://sourcea.app/pricing",
       "dist_path": "SourceA-landing/green-unified/dist/pricing/index.html",
       "live_sha256": "f53e1c15ea36ba8889f3b5c9ceb007a5aa570ef69037a0d40b7b80b69c088727",
-      "dist_sha256": "d80784821ef1a3bf1b2cbd930daa541b0623dd1efda5df04c32692fd40ac78a9",
+      "dist_sha256": "8a913e556fcfe67a856842fb04192e3220aa503b09373335e586d784e2574b85",
       "match": false
     },
     {
       "url": "https://sourcea.app/proof",
       "dist_path": "SourceA-landing/green-unified/dist/proof/index.html",
       "live_sha256": "b3599f1b9c0c3e7285b14bcb6cd175fb176cbbace77fbdb93c443e79371c100a",
-      "dist_sha256": "78f6abdc8160f688c06cce391fd95b98e15451c1f12f2e78fd025bdcb994a2dd",
+      "dist_sha256": "cd411e3560922b1d12395659146d0ef4c9ef092fd53376e88a85a82b0f8a310a",
       "match": false
     },
     {
@@ -434,42 +476,42 @@
       "url": "https://sourcea.app/scenario",
       "dist_path": "SourceA-landing/green-unified/dist/scenario/index.html",
       "live_sha256": "1775b7e8d524b2733f53974b2fd8634987870ee133c4d2175d3d2cf78e67e2d2",
-      "dist_sha256": "6324c27d9b66c6934aaef79f474f45cd20bcdc41c6872ac7c8f1a063aa0f5848",
+      "dist_sha256": "ba10a72f1fce2442c650817e09d8615622ddb6e8d6e86e4b6ff4cdf88b612346",
       "match": false
     },
     {
       "url": "https://sourcea.app/security",
       "dist_path": "SourceA-landing/green-unified/dist/security/index.html",
       "live_sha256": "f12fe5d042d3d94469d5e1fa565ba0811f5e67abcca39a6dd164174da8353d40",
-      "dist_sha256": "3ea5646b1854477700d90a41cac97885e14d2c74da94a8b18fbc3ba2978f457b",
+      "dist_sha256": "be5b5426a96bdde1c6a94768fcf191165535621960f3aaad682338cc555f9ad0",
       "match": false
     },
     {
       "url": "https://sourcea.app/sourcea",
       "dist_path": "SourceA-landing/green-unified/dist/sourcea/index.html",
       "live_sha256": "de72164bfc0b7d5b1295bc78d8f82eb9ca2fff434b87a6255750d4b217a6c5d2",
-      "dist_sha256": "530bbf652827d54327a988b19f5bfbe78aa697c3266df605f3bec315716be46a",
+      "dist_sha256": "69bd0bffebee88909b47f32068df17e66a511ffa244f75acff0e9d1927a29e19",
       "match": false
     },
     {
       "url": "https://sourcea.app/sourcea-boot",
       "dist_path": "SourceA-landing/green-unified/dist/sourcea-boot/index.html",
       "live_sha256": "e053220621a4e5bd61c302ff446de38a1963b85bdc972d9082e2c0c34fd1184d",
-      "dist_sha256": "bc54a299f3600d22bab3a6785cb4543b27d062e6e3b5db30e58edf88d6c66e7f",
+      "dist_sha256": "77838e6827b5c474ffe13f41ec6128e192a48e7b75f33045cd50fe18239f65ae",
       "match": false
     },
     {
       "url": "https://sourcea.app/sourcea/48h-mvp",
       "dist_path": "SourceA-landing/green-unified/dist/sourcea/48h-mvp.html",
       "live_sha256": "ca9d32f01b45903ea949a8e99236fa6527f032154d9e9571e5ef8a60fbe6908d",
-      "dist_sha256": "cae2dcfaf00f926691ec452dc630504e2e9fe3e87ce65835537477e275221f0b",
+      "dist_sha256": "cd8251b9c0bcd26a9d63c477b695b918f83b6c3d171401f2ce0ff8949a2cad57",
       "match": false
     },
     {
       "url": "https://sourcea.app/sourcea/ai-value-governance",
       "dist_path": "SourceA-landing/green-unified/dist/sourcea/ai-value-governance.html",
       "live_sha256": "14829112e2c95a69ddecf73efdef65b2e8d27ab6f43c3f49dd909d0a26765630",
-      "dist_sha256": "b3e07152de72fe56223976e9915c602c1aa3012c6aa948e40f3beabb1c38afc5",
+      "dist_sha256": "78e4486fa3c00225aa6c53de62b0d9ddd6202b3f0a33a6cec21518c194c5e916",
       "match": false
     },
     {
@@ -497,56 +539,56 @@
       "url": "https://sourcea.app/sourcea/auth/callback",
       "dist_path": "SourceA-landing/green-unified/dist/sourcea/auth/callback.html",
       "live_sha256": "f7c8af30a46fb155fc0012f5601cb4372e512e36319c7a23ec5ae19a8738e399",
-      "dist_sha256": "e42881fad756cf349609e8499723e12910edd9467a00eb34b23e8e9e02e31532",
+      "dist_sha256": "708a926d6efbe8d212ed997d556e2ac9ac70381f851bf2e261b79ca914734e5c",
       "match": false
     },
     {
       "url": "https://sourcea.app/sourcea/auth/sign-in",
       "dist_path": "SourceA-landing/green-unified/dist/sourcea/auth/sign-in.html",
       "live_sha256": "e065ee97b08ebde99fef9e014477a625827096b42cbb6942a8f0bc5b0b3c0106",
-      "dist_sha256": "b49e5785bbdd55adc7f043587b79cf9465e2663f4449b811db2fc639c0d0cc31",
+      "dist_sha256": "178d9c591febbb79d25a1aa565db46c926f04d3df971917e01170586a721ae43",
       "match": false
     },
     {
       "url": "https://sourcea.app/sourcea/auth/sign-out",
       "dist_path": "SourceA-landing/green-unified/dist/sourcea/auth/sign-out.html",
       "live_sha256": "d88f6848c470da11b2fb5ea87d8e66f814c0a0fc72064f08f79fe37827a5c80c",
-      "dist_sha256": "8983b270ef24c109a510d165771ff551231a8e4268ccd0ed282a111833844575",
+      "dist_sha256": "7d3ffc24cb3c0ce3d37f9c2f49cefe171864cb6dc274b3340f7035ec09b15f59",
       "match": false
     },
     {
       "url": "https://sourcea.app/sourcea/auth/sign-up",
       "dist_path": "SourceA-landing/green-unified/dist/sourcea/auth/sign-up.html",
       "live_sha256": "a73c43ebbbb8c7a07da26941cf4e2ca6ed83a9692779a385a0e962e14aa9f33c",
-      "dist_sha256": "9265b4c1744da678ee385a15b8ac424e384f6806ba6f39195fbb9abb740a0aca",
+      "dist_sha256": "0122bae026b9b205b3a972d5b0767b1f36e0bc4fa967e5e04793e2b57fad9196",
       "match": false
     },
     {
       "url": "https://sourcea.app/sourcea/brain-chat-settings",
       "dist_path": "SourceA-landing/green-unified/dist/sourcea/brain-chat-settings.html",
       "live_sha256": "6cdd93fdf1f7eef6466f4706fc6e944430bf2831fe3ecbe72d907c23a846c8aa",
-      "dist_sha256": "9321d33d2de688067e4d84aebf46fe830dc809e0add5992d613619748475c8b6",
+      "dist_sha256": "d102393e5ca4b2fc95bf0912c636e3b5d1ac249378e938694ef9e5f6844b455e",
       "match": false
     },
     {
       "url": "https://sourcea.app/sourcea/case-studies",
       "dist_path": "SourceA-landing/green-unified/dist/sourcea/case-studies/index.html",
       "live_sha256": "56f9195214f9fcc77b5e95d4825d6800670b3f7516964f4699a3f317c4db8a55",
-      "dist_sha256": "cf95b530bed41db459221f2d876bc5cf861a51421094afee949b259d7e24c608",
+      "dist_sha256": "64673d24e1d078ec53f3f06671914651d5f2b11579fc1dbd687f1966b1872c1e",
       "match": false
     },
     {
       "url": "https://sourcea.app/sourcea/case-studies/agentgo",
       "dist_path": "SourceA-landing/green-unified/dist/sourcea/case-studies/agentgo.html",
       "live_sha256": "e37a667dc71b47186bf849cc19fca2ac2d4753921cf426839e763eae296553c3",
-      "dist_sha256": "45e6fdc9f841d15de300d2e251c0cfd4a0491149ff1cb747fd91dc39d5819ba3",
+      "dist_sha256": "9a94c9cc6b73a86527b07e180f394d9d7617f8ff91fd6b12c9cefb0e0357702c",
       "match": false
     },
     {
       "url": "https://sourcea.app/sourcea/case-studies/pureflow",
       "dist_path": "SourceA-landing/green-unified/dist/sourcea/case-studies/pureflow.html",
       "live_sha256": "8aa2310fc9ab09211a4e5060ff83254c740a844e9093a80ed3aef97fe366a695",
-      "dist_sha256": "81a981819ad7a9cb3164a4aa62abe65ecc8917bb386502c00bd8e4771b869d01",
+      "dist_sha256": "c8347b4a797fffdad024508091a52654e4aedd1417437cfa763d594142d3fda4",
       "match": false
     },
     {
@@ -560,14 +602,14 @@
       "url": "https://sourcea.app/sourcea/compare",
       "dist_path": "SourceA-landing/green-unified/dist/sourcea/compare.html",
       "live_sha256": "cf2500a359bb07dcaf20df36f4fbd1815802794e3d97983c699f12e79a51e6bd",
-      "dist_sha256": "6cd9c62b9183d652d975110f362a8a7698a31ed7dec3e2be46611f95ea751f61",
+      "dist_sha256": "b44f27b88aeede37177f12fa1dbfc30cc315232587b3d572b254e0f68e8ed5e6",
       "match": false
     },
     {
       "url": "https://sourcea.app/sourcea/cookies",
       "dist_path": "SourceA-landing/green-unified/dist/sourcea/cookies.html",
       "live_sha256": "b4575f5b174f0db4e160745dc8bccb8ccfef69fdd3d4e38513ebfe1efe482344",
-      "dist_sha256": "86047b247837764b30fc518cf3b6f6e94abb79ef7cc3152fd73ee5b66a750a66",
+      "dist_sha256": "bf773cc1a2a1c75f68154038d03276d5399acd3a63dde9f370ac311afecb5eae",
       "match": false
     },
     {
@@ -581,14 +623,14 @@
       "url": "https://sourcea.app/sourcea/enterprise-ai-control-plane",
       "dist_path": "SourceA-landing/green-unified/dist/sourcea/enterprise-ai-control-plane.html",
       "live_sha256": "0750765bae008cc085d265bcf0af5461913a36b8155682de133c01f21b50cf2c",
-      "dist_sha256": "79e820cc920c02e04ae8685b0cf0c0a6db073756205b9443c9a9083834710706",
+      "dist_sha256": "c497d236b90d45f1faf5fdc2d747f1b9354f4a3ee18a680bb78a8ad610ca2f4f",
       "match": false
     },
     {
       "url": "https://sourcea.app/sourcea/eval",
       "dist_path": "SourceA-landing/green-unified/dist/sourcea/eval.html",
       "live_sha256": "249ac98364515cc91b37842b7b55e2e807565372960bb612cc7d469b10c81d27",
-      "dist_sha256": "75b5c416a94903a032f7e87707d0001773d27c1e7bc261f2f2aa9dc9e7ffb513",
+      "dist_sha256": "5b092bc7fdfb0ab3199d95d623083dd317c26994c748d5c508072407d629c287",
       "match": false
     },
     {
@@ -665,42 +707,42 @@
       "url": "https://sourcea.app/sourcea/forge",
       "dist_path": "SourceA-landing/green-unified/dist/sourcea/forge/index.html",
       "live_sha256": "5aaae81eb3690377bc4a9d00574fc1decba1cd8147fb946c361bad5b29078248",
-      "dist_sha256": "5658c6892add1dc61b2746fae4cffccd20de0c3f65ce346eceb9151c22af7114",
+      "dist_sha256": "c551327b29481daacecd22d077e80e6a8c29a04206b4486930312c38f6ddb551",
       "match": false
     },
     {
       "url": "https://sourcea.app/sourcea/forge/chat-unify",
       "dist_path": "SourceA-landing/green-unified/dist/sourcea/forge/chat-unify.html",
       "live_sha256": "112e72ad86dcf9291d9f8a65c5ace0ae7f8fe4b07074e9e8b3aba48c32138b86",
-      "dist_sha256": "781a0bbdb9811822d6fc093aba2302be9b0e4ea65f8b070be2f1c666d53153b7",
+      "dist_sha256": "8a9996317f8e047058a66c43c717958b2f9b2829af37da3aea9c9df65ec54d8f",
       "match": false
     },
     {
       "url": "https://sourcea.app/sourcea/forge/cursor-bridge",
       "dist_path": "SourceA-landing/green-unified/dist/sourcea/forge/cursor-bridge.html",
       "live_sha256": "73c1f8311ac52601a004c8c04d01127eb05ff6590bbedd2e46e1c40474391642",
-      "dist_sha256": "0d17ace2bfced8c7c9c6a04bad515f859459c7b403c9d69c782e4a0c45276ab4",
+      "dist_sha256": "8459af86c3995d094a39f3c0a597dfaa1d0645cdf7fa91b5349bd1a807667af1",
       "match": false
     },
     {
       "url": "https://sourcea.app/sourcea/forge/how-it-works",
       "dist_path": "SourceA-landing/green-unified/dist/sourcea/forge/how-it-works.html",
       "live_sha256": "ccaa9688d2b494aa8bd81d3c321bcde797b7dec584160c4312d1722e21538aeb",
-      "dist_sha256": "c0941df0be23fbc0f2c3d1a5f0c3651ba348571e6188cf9eea33d9fe42099e0b",
+      "dist_sha256": "80afe04c9c05fc116f3f4a7844382b399661e34d64ddc1093e22a34429ded23e",
       "match": false
     },
     {
       "url": "https://sourcea.app/sourcea/forge/mission-template",
       "dist_path": "SourceA-landing/green-unified/dist/sourcea/forge/mission-template.html",
       "live_sha256": "ea8b7f438ff3c0f8afe58f0c7ab4dd8dffdf6c90f1e9c50b2cdae5661d91c3ee",
-      "dist_sha256": "d2cf3fab45b320c482764275429bc067e882fe5e7aec55daa5bb9bc68d15a7ea",
+      "dist_sha256": "ebd65d3233db64898a124414014c422af7c4de4f48749d6acb474678f1dab6e2",
       "match": false
     },
     {
       "url": "https://sourcea.app/sourcea/forge/ssot-policy",
       "dist_path": "SourceA-landing/green-unified/dist/sourcea/forge/ssot-policy.html",
       "live_sha256": "e80c6f7acee4d61aeb099b5ec4b034b2f9f9359b3b8312f64c3b2631936c4039",
-      "dist_sha256": "bc7dbecea5796fa092f5f3dd0e3ace5db7e1490273395bc484b4654bc743fe49",
+      "dist_sha256": "2e4f745e667b78b2944558b904470bc9fd0190669680c4d8b014500c86a009dc",
       "match": false
     },
     {
@@ -714,42 +756,42 @@
       "url": "https://sourcea.app/sourcea/forge/terminal/profile",
       "dist_path": "SourceA-landing/green-unified/dist/sourcea/forge/terminal/profile.html",
       "live_sha256": "52c2dd1adc8be86cf7177a7f780743061e864bf705f302bfff035c95383be058",
-      "dist_sha256": "469d52965035e99ea8a5d8e59a82e5cfc688bbb74293aa48082e7e0fb5525cf1",
+      "dist_sha256": "2bac93810dbf4b3994ae220a5f8326f579659e33d03882278ee12660686446c1",
       "match": false
     },
     {
       "url": "https://sourcea.app/sourcea/forge/terminal/signin",
       "dist_path": "SourceA-landing/green-unified/dist/sourcea/forge/terminal/signin.html",
       "live_sha256": "a1ffda876ed3984fdef13f9eecbb163fa23e65a6563d01b4d69952da0be857b9",
-      "dist_sha256": "d7c83564905687b047aa5ffee19440e8172a62a0cf36ea7765890912f73ba6d2",
+      "dist_sha256": "4c2ea89c5b3b5dffc77a3357537941b70f6616c726844345551a020e480f4235",
       "match": false
     },
     {
       "url": "https://sourcea.app/sourcea/forge/terminal/signup",
       "dist_path": "SourceA-landing/green-unified/dist/sourcea/forge/terminal/signup.html",
       "live_sha256": "91aa5a847954bbe173988904824b64d97fa7f64096ddde53144d23006db5c4e4",
-      "dist_sha256": "8a77dbdb9f471f89c73b74364fead38a9cc9498fa8fbb33213a8eda2b3e32092",
+      "dist_sha256": "4486abfa469cfad2c6617f98d648693a5e0119b890f2a4472893466fe65e97f6",
       "match": false
     },
     {
       "url": "https://sourcea.app/sourcea/forge/terminal/workspace",
       "dist_path": "SourceA-landing/green-unified/dist/sourcea/forge/terminal/workspace.html",
       "live_sha256": "233d4547cd055a0e98e7baef42c214de830db8a203fe7ca80fb5a3a855cc65c1",
-      "dist_sha256": "0700561cc7974aa589eeb3e3182155de9ed80d58a3dd9f5f595d23220acdbe4a",
+      "dist_sha256": "3342b9747f64299c671ffeb7ccb748febda0fb8091c82e23b21c4ae015d2ead7",
       "match": false
     },
     {
       "url": "https://sourcea.app/sourcea/forge/try",
       "dist_path": "SourceA-landing/green-unified/dist/sourcea/forge/try.html",
       "live_sha256": "7da8b59ee4c5415fd97cc662413118b2ca2c021ef2a31f3b6b46ce8e068c9563",
-      "dist_sha256": "b8c3d8011743257f2d72c7993006a94088169096d7f03380e4d0c70c5930032f",
+      "dist_sha256": "0a1471d4eaf14674dfdd6011be13b68f3b429c90bd0009f82f8e8e06c54e7403",
       "match": false
     },
     {
       "url": "https://sourcea.app/sourcea/founder-home",
       "dist_path": "SourceA-landing/green-unified/dist/sourcea/founder-home.html",
       "live_sha256": "b4575f5b174f0db4e160745dc8bccb8ccfef69fdd3d4e38513ebfe1efe482344",
-      "dist_sha256": "207514ad1b1c99cf77ee84a7d2a387a4d2e914ef601a2ea45b969e647b981232",
+      "dist_sha256": "72eccee50382ad6b7b702d1b74200e1b6f571003817a5f87e440a294e2423f7f",
       "match": false
     },
     {
@@ -763,7 +805,7 @@
       "url": "https://sourcea.app/sourcea/growth",
       "dist_path": "SourceA-landing/green-unified/dist/sourcea/growth.html",
       "live_sha256": "d3c6d943b5a9ecdf47988002c82cbacdf8df999cc5e841bcd42cdb797715c8dd",
-      "dist_sha256": "94f96fd5ba6eb066b51a1210cfffe8c0338729699210ec6bf60880573b82b0f0",
+      "dist_sha256": "290d62df615bf26f51f92bab89475f753ecbb2163693ca1258514afb86ace5bd",
       "match": false
     },
     {
@@ -784,14 +826,14 @@
       "url": "https://sourcea.app/sourcea/investors",
       "dist_path": "SourceA-landing/green-unified/dist/sourcea/investors.html",
       "live_sha256": "b7d0e8d8988ca520654aad9926ee101718c302810a7f5a1de3692ec7dd73b069",
-      "dist_sha256": "203c2fa52d9526571fb9d7e8f9737eb1be01f172d61b1e221f2e0015af69a1c4",
+      "dist_sha256": "92ced155f1861c3cff4950009af4158dc5ba6a9b0d45aae0383a6a5e16538d6e",
       "match": false
     },
     {
       "url": "https://sourcea.app/sourcea/kernel",
       "dist_path": "SourceA-landing/green-unified/dist/sourcea/kernel/index.html",
       "live_sha256": "a7b8bc3e3f72eb2e2c6efcbcec6f4f865ae069d02f3c2405ec3cdfb9450dbfc6",
-      "dist_sha256": "0d9f4f1ff269b8cb1e961dd48a53d2c9cf642f0babd09267260e55d438c7bcb1",
+      "dist_sha256": "ca33240444eb7f3e0ce1c8cddc4a52ff43280bb93396d99738ab99386c83678a",
       "match": false
     },
     {
@@ -805,49 +847,49 @@
       "url": "https://sourcea.app/sourcea/loops",
       "dist_path": "SourceA-landing/green-unified/dist/sourcea/loops/index.html",
       "live_sha256": "cdadd671af5bab2e10b4874ac2ec526286d059f880bf46974f41398212a5cea9",
-      "dist_sha256": "f398eead500dfe77f50a92416dbecb9988e4e65a11575c29d6dbc6f42efd3c66",
+      "dist_sha256": "b3eeeaf90221a1411f67ddba546e5a31bf62d6f773ca93e10ec30179e4cc3aef",
       "match": false
     },
     {
       "url": "https://sourcea.app/sourcea/loops/eval-booking",
       "dist_path": "SourceA-landing/green-unified/dist/sourcea/loops/eval-booking.html",
       "live_sha256": "5542a65c359aab3ab8c70522686d49892b4dcd1e90ff9f9a36efe6bdf8fbef13",
-      "dist_sha256": "a38de9a3dc66c80aeec3b73e6763b47c987606d47e7060da094fd4992ef90e3a",
+      "dist_sha256": "70ac08dbc9417f743fedf9f3f2b96cd45b7e2d0f21fe2bfc3e10c9eafe005c8a",
       "match": false
     },
     {
       "url": "https://sourcea.app/sourcea/loops/ops-monitor",
       "dist_path": "SourceA-landing/green-unified/dist/sourcea/loops/ops-monitor.html",
       "live_sha256": "6ae58f71125bb31ec546895e9167000835858ad87e3829003ead53dae963a054",
-      "dist_sha256": "ef69faebefad979ae3e8ecbb7cb3cc9e3552737d5ed9f8933d5fb111f93236ef",
+      "dist_sha256": "824fd5206277e4e1b0c5bae6c4bcdc0886b6a30f3bf22f6a4f5dcfa09296f341",
       "match": false
     },
     {
       "url": "https://sourcea.app/sourcea/loops/outreach",
       "dist_path": "SourceA-landing/green-unified/dist/sourcea/loops/outreach.html",
       "live_sha256": "af26498822f0545cdac16ed063afc6bf05546aeb533cdf0b11959c13b50fb125",
-      "dist_sha256": "b17610b6e0f1e5eb92c8bc2a435654db0a602854cf7bade06b8d98568b177500",
+      "dist_sha256": "fc9599fa763858573f52128f98c498b547b01b44f6ced0976018bbdb8bd2c294",
       "match": false
     },
     {
       "url": "https://sourcea.app/sourcea/loops/proof-export",
       "dist_path": "SourceA-landing/green-unified/dist/sourcea/loops/proof-export.html",
       "live_sha256": "e0d3dbd8950ba6a92e7308754110e075b19cbb16d0612b82957eeb40faa6a2b2",
-      "dist_sha256": "3957be4a64cd37cd817b110cf5fda91494053ddd478333893319be3313c31f18",
+      "dist_sha256": "e8f1deddd634854bb19a4fe451b3e1f4823520063920d420ae49ec3d8376634c",
       "match": false
     },
     {
       "url": "https://sourcea.app/sourcea/loops/research",
       "dist_path": "SourceA-landing/green-unified/dist/sourcea/loops/research.html",
       "live_sha256": "ecd6e609970f5803511764ff642751983c594dae4307b35444727c34215899eb",
-      "dist_sha256": "9ccd3c879d1b36dd7819200879ad365d06f178f663c7aaec40ec3aa8e559a39c",
+      "dist_sha256": "52734e2630358987a4acc91fa55b6434472268623d8c33f6f1617bf0d72ee39d",
       "match": false
     },
     {
       "url": "https://sourcea.app/sourcea/loops/session-gate",
       "dist_path": "SourceA-landing/green-unified/dist/sourcea/loops/session-gate.html",
       "live_sha256": "5289ec47a4a2b420f24f8935f9e9db597cb876482e5ce11336b3cc682b45caf4",
-      "dist_sha256": "62c95f5ecbf233e9005c91330fe2b3681a26941363de2b84d3ea66e939b082e4",
+      "dist_sha256": "b36aa6a03b2acfc8651594d89b9c1e360a0ea95deb5950d893bbd625e2467508",
       "match": false
     },
     {
@@ -861,84 +903,84 @@
       "url": "https://sourcea.app/sourcea/offer",
       "dist_path": "SourceA-landing/green-unified/dist/sourcea/offer.html",
       "live_sha256": "29988e80f890bf5343ff7d2ddb9986e92d7a9ff6129e79b1cc8079c0bfa713b1",
-      "dist_sha256": "019a124d5aa526ebbf0fe98e1eb8acaf24205b7cd38a2e1c9b4dbc90a46fb549",
+      "dist_sha256": "a30b4f0984725e1863055ca1e7044ad1469b37efba3d26e1e1b6f038c2ec82cf",
       "match": false
     },
     {
       "url": "https://sourcea.app/sourcea/operating-brain-install",
       "dist_path": "SourceA-landing/green-unified/dist/sourcea/operating-brain-install.html",
       "live_sha256": "2d99122b5a5d7630690b8f0c533a02a6a3a8dfc7a8eaf8137be214e215493960",
-      "dist_sha256": "d68fd0ffcceddff2c3e477ab1e61f077b799575c61728f2b3e2e295e56546415",
+      "dist_sha256": "4f4e6b90090e2acc98bcb99b0a74c43d5d91ef090b6ce7ad97cc4bd0dcdaebe5",
       "match": false
     },
     {
       "url": "https://sourcea.app/sourcea/platform",
       "dist_path": "SourceA-landing/green-unified/dist/sourcea/platform.html",
       "live_sha256": "e9e91257bd15f361b09d1c47ae54c8842bfe1859f3745f6483be5ae83125a209",
-      "dist_sha256": "ada47610def74b696e91722c84b841dfff5471639d78ff957448fa362f9b7503",
+      "dist_sha256": "16d6857151757b845bd9423dd632e7a4f8fc94dae782604c58f0730f6fc2035f",
       "match": false
     },
     {
       "url": "https://sourcea.app/sourcea/platform-portal",
       "dist_path": "SourceA-landing/green-unified/dist/sourcea/platform-portal.html",
       "live_sha256": "474abf29c2cdb7403ec2895773015bb13391cf0861401db8cb04a8e8c2325d1d",
-      "dist_sha256": "aab2656bbaf6fcf55f6e27f14e526d1cea829fa35ae2a400e3b9b4bdfcb18809",
+      "dist_sha256": "ab0ac705abdc0d33d9686e193a33ea5064e69446c5b5a86b80330a524d316ef8",
       "match": false
     },
     {
       "url": "https://sourcea.app/sourcea/platform/profile",
       "dist_path": "SourceA-landing/green-unified/dist/sourcea/platform/profile/index.html",
       "live_sha256": "52c2dd1adc8be86cf7177a7f780743061e864bf705f302bfff035c95383be058",
-      "dist_sha256": "469d52965035e99ea8a5d8e59a82e5cfc688bbb74293aa48082e7e0fb5525cf1",
+      "dist_sha256": "2bac93810dbf4b3994ae220a5f8326f579659e33d03882278ee12660686446c1",
       "match": false
     },
     {
       "url": "https://sourcea.app/sourcea/platform/sign-in",
       "dist_path": "SourceA-landing/green-unified/dist/sourcea/platform/sign-in/index.html",
       "live_sha256": "83273880b8fbeb6c9a947791057c02ed6a8289422eb15b4c3ea173a20f39eae1",
-      "dist_sha256": "b49e5785bbdd55adc7f043587b79cf9465e2663f4449b811db2fc639c0d0cc31",
+      "dist_sha256": "178d9c591febbb79d25a1aa565db46c926f04d3df971917e01170586a721ae43",
       "match": false
     },
     {
       "url": "https://sourcea.app/sourcea/platform/sign-up",
       "dist_path": "SourceA-landing/green-unified/dist/sourcea/platform/sign-up/index.html",
       "live_sha256": "adb4bad79b6d0df001211b4b030db5ec5e9e5360168556acba4a42314c6e8c64",
-      "dist_sha256": "9265b4c1744da678ee385a15b8ac424e384f6806ba6f39195fbb9abb740a0aca",
+      "dist_sha256": "0122bae026b9b205b3a972d5b0767b1f36e0bc4fa967e5e04793e2b57fad9196",
       "match": false
     },
     {
       "url": "https://sourcea.app/sourcea/platform/workspace",
       "dist_path": "SourceA-landing/green-unified/dist/sourcea/platform/workspace/index.html",
       "live_sha256": "233d4547cd055a0e98e7baef42c214de830db8a203fe7ca80fb5a3a855cc65c1",
-      "dist_sha256": "0700561cc7974aa589eeb3e3182155de9ed80d58a3dd9f5f595d23220acdbe4a",
+      "dist_sha256": "3342b9747f64299c671ffeb7ccb748febda0fb8091c82e23b21c4ae015d2ead7",
       "match": false
     },
     {
       "url": "https://sourcea.app/sourcea/pricing",
       "dist_path": "SourceA-landing/green-unified/dist/sourcea/pricing.html",
       "live_sha256": "f53e1c15ea36ba8889f3b5c9ceb007a5aa570ef69037a0d40b7b80b69c088727",
-      "dist_sha256": "5ec43af6b90acab99f85181f3c83e329632e70ee2131abd31329849d1dfeadf3",
+      "dist_sha256": "853018555ebecffe7208328575601daed95715f29c0ba322b67bcb27d94e6bdd",
       "match": false
     },
     {
       "url": "https://sourcea.app/sourcea/privacy",
       "dist_path": "SourceA-landing/green-unified/dist/sourcea/privacy.html",
       "live_sha256": "b4575f5b174f0db4e160745dc8bccb8ccfef69fdd3d4e38513ebfe1efe482344",
-      "dist_sha256": "f208a5f4f2e8b7245a09364cb1f60387802b2ac1fbb1138304c1b131adf1884d",
+      "dist_sha256": "1e8e851f82450f3ee073a2e93513a1c6e03741323ef5ad25d1e8c14069990140",
       "match": false
     },
     {
       "url": "https://sourcea.app/sourcea/proof",
       "dist_path": "SourceA-landing/green-unified/dist/sourcea/proof.html",
       "live_sha256": "b3599f1b9c0c3e7285b14bcb6cd175fb176cbbace77fbdb93c443e79371c100a",
-      "dist_sha256": "c04864e15a3f20954f5a9e8cb511e9ba773e7405707c908e3905c852577a3dba",
+      "dist_sha256": "7c7c5cb8a09d43e69d1c7c7d57f38618d1f342aac878143ed6aedd02eab9ea33",
       "match": false
     },
     {
       "url": "https://sourcea.app/sourcea/proof/live",
       "dist_path": "SourceA-landing/green-unified/dist/sourcea/proof/live.html",
       "live_sha256": "14b9037769e8b250ae3b9f1dc0379a2673cc53b5f46825bd4b1e2d20097b45ad",
-      "dist_sha256": "77ab9ed97f9629f52f322ca8713946ff86cefaac8de96fb251e2da3a1c751fe7",
+      "dist_sha256": "849b44b23b144f39f75555a1953ece3f5dd4654eeb2ea98a2ccbeb0d90e60d15",
       "match": false
     },
     {
@@ -966,21 +1008,21 @@
       "url": "https://sourcea.app/sourcea/scenario",
       "dist_path": "SourceA-landing/green-unified/dist/sourcea/scenario.html",
       "live_sha256": "1775b7e8d524b2733f53974b2fd8634987870ee133c4d2175d3d2cf78e67e2d2",
-      "dist_sha256": "550cdb42c5fdee089837818e06012fe4e872befeb935f43ea51db1fd0bd7ff76",
+      "dist_sha256": "170b61c960a84f6f7fcdb62a4a4ffc2d7d7131917b8e1eed1fa2d3b51a2e90ee",
       "match": false
     },
     {
       "url": "https://sourcea.app/sourcea/security",
       "dist_path": "SourceA-landing/green-unified/dist/sourcea/security.html",
       "live_sha256": "f12fe5d042d3d94469d5e1fa565ba0811f5e67abcca39a6dd164174da8353d40",
-      "dist_sha256": "c277bbaa990d790798691b57ee2f98d785fb83f61bdd49258c84b04786cb2e08",
+      "dist_sha256": "cd9db7c04e6eda8f05a114b20cb91a6465dfbb5f5cfc3459cda0ff54e9d210b7",
       "match": false
     },
     {
       "url": "https://sourcea.app/sourcea/sources",
       "dist_path": "SourceA-landing/green-unified/dist/sourcea/sources.html",
       "live_sha256": "a86284c47ccf37c45b0c85058ab7ee36d774bd67ced7ee8d2f87bb72d459dd17",
-      "dist_sha256": "d6a1ed829c3e1d8ef0f6183b0322b99b65146961d09a2936308530c7fc377531",
+      "dist_sha256": "2f8281b4efed8754cde9b72c4f280ef95ad99f5efb7524706c3cd1a31e7c7cc1",
       "match": false
     },
     {
@@ -994,14 +1036,14 @@
       "url": "https://sourcea.app/sourcea/status",
       "dist_path": "SourceA-landing/green-unified/dist/sourcea/status.html",
       "live_sha256": "01e15bc795336781ce0803fd5b4c89d8150e2abd3366ce28b7f159b94d99a1a5",
-      "dist_sha256": "a504233ea681412712d6ac7631de5e2c32a17d2d212a1d93d3114808dbefc1f3",
+      "dist_sha256": "39881f60ccf6d94f96c3483b906985721bf87f81344ce530ef3170b31c18b014",
       "match": false
     },
     {
       "url": "https://sourcea.app/sourcea/team",
       "dist_path": "SourceA-landing/green-unified/dist/sourcea/team.html",
       "live_sha256": "c5b7cbd02895cc38c0ef7445c9def901259002075723d0432c3acefe012752b7",
-      "dist_sha256": "8a8dd19b96bcff20a19b9a4a13dbe963dd04a6fb566fc7bdcf96cceed03bc6f8",
+      "dist_sha256": "eefa07d5d4efb93beca24f3fc8c17e6e88bc80e3b2a7e362ef28d24fd4399f50",
       "match": false
     },
     {
@@ -1015,21 +1057,21 @@
       "url": "https://sourcea.app/sourcea/unify",
       "dist_path": "SourceA-landing/green-unified/dist/sourcea/unify/index.html",
       "live_sha256": "41a47c2521347463ccc275c8b97e8e9b95a4d747452a07a82f5bfb69fcb57d02",
-      "dist_sha256": "88cff0aa130dc137fa38d7144386182ec6076f2bf10bf67d243639822d4f66a7",
+      "dist_sha256": "cbfbdbeffba59deaa0cde93ad0305f45ba6a3198b12510fde7d9cfe0ef413b87",
       "match": false
     },
     {
       "url": "https://sourcea.app/sourcea/unify-demo",
       "dist_path": "SourceA-landing/green-unified/dist/sourcea/unify-demo/index.html",
       "live_sha256": "41a47c2521347463ccc275c8b97e8e9b95a4d747452a07a82f5bfb69fcb57d02",
-      "dist_sha256": "88cff0aa130dc137fa38d7144386182ec6076f2bf10bf67d243639822d4f66a7",
+      "dist_sha256": "cbfbdbeffba59deaa0cde93ad0305f45ba6a3198b12510fde7d9cfe0ef413b87",
       "match": false
     },
     {
       "url": "https://sourcea.app/sourcea/unify/terminal",
       "dist_path": "SourceA-landing/green-unified/dist/sourcea/unify/terminal/index.html",
       "live_sha256": "9d52ee719e3b6e8ace79305ce7786b9943a1239cb22c47c9aab17a5a777f7e6e",
-      "dist_sha256": "fa96db1e6705d4289353faab64adc7527020904c64cc922d77ca720719daa9cd",
+      "dist_sha256": "d22eaa881cd328d4d4c75f3420193a23716d0db86a5b1d92216abe543e12bfc1",
       "match": false
     },
     {
@@ -1043,32 +1085,40 @@
       "url": "https://sourcea.app/team",
       "dist_path": "SourceA-landing/green-unified/dist/team/index.html",
       "live_sha256": "c5b7cbd02895cc38c0ef7445c9def901259002075723d0432c3acefe012752b7",
-      "dist_sha256": "2f632476c85ca4ac2a63157ecbeefdb5c364ee3f44d057fe32b8015b3cfb2fd7",
+      "dist_sha256": "46cdd2e0ef80ce923cd69b1c3aed587335d337a7808d32080c585d21076791ce",
       "match": false
     },
     {
       "url": "https://sourcea.app/unify",
       "dist_path": "SourceA-landing/green-unified/dist/unify/index.html",
       "live_sha256": "6d515715d72c79da5338d23c745c6439dba9bea981cbc63b471a7e68f5f3eb36",
-      "dist_sha256": "847a5567d134c6b110a474dee03a4067b1a85a15037bd577412da287162a74d2",
+      "dist_sha256": "86a91d87aec39b4224a117f7980789f550905a763c6f02ade7a648d3373c6db4",
       "match": false
     },
     {
       "url": "https://sourcea.app/unify-demo",
       "dist_path": "SourceA-landing/green-unified/dist/unify-demo/index.html",
       "live_sha256": "6d515715d72c79da5338d23c745c6439dba9bea981cbc63b471a7e68f5f3eb36",
-      "dist_sha256": "847a5567d134c6b110a474dee03a4067b1a85a15037bd577412da287162a74d2",
+      "dist_sha256": "86a91d87aec39b4224a117f7980789f550905a763c6f02ade7a648d3373c6db4",
+      "match": false
+    },
+    {
+      "url": "https://sourcea.app/unify/terminal",
+      "dist_path": "SourceA-landing/green-unified/dist/unify/terminal/index.html",
+      "live_sha256": "ef5b885bcd6d330a1299f370691237e072ac2faab0c5915711544a09e4e65c52",
+      "dist_sha256": "478f429aa34f7d84c734e87c167aba6d44a95e2dc65b2ebdbc2798c722c12078",
       "match": false
     }
   ],
   "count_math": {
-    "unique_audited": 124,
+    "unique_audited": 125,
     "rejected_spa_fallback": 4,
-    "counted_non_rejected": 120,
+    "counted_non_rejected": 121,
     "formula": "counted = unique_audited - rejected_spa_fallback"
   },
   "drift": {
     "live_only": [
+      "/attach/procurement-pack.html",
       "/auth/sign-in",
       "/auth/sign-up"
     ],
@@ -1104,7 +1154,6 @@
       "/sourcea/auth/sign-out",
       "/sourcea/auth/sign-up",
       "/sourcea/brain-chat-settings",
-      "/sourcea/changelog",
       "/sourcea/cookies",
       "/sourcea/downloads",
       "/sourcea/enterprise-ai-control-plane",
@@ -1112,7 +1161,8 @@
       "/sourcea/factories",
       "/sourcea/factories/aml-screening-factory",
       "/sourcea/factories/cross-border-kyb-factory",
-      "/sourcea/factories/governed-app-factory"
+      "/sourcea/factories/governed-app-factory",
+      "/sourcea/factories/governed-exchange-factory"
     ]
   },
   "failures": [
@@ -1170,6 +1220,42 @@
       ]
     },
     {
+      "url": "https://sourcea.app/attach/procurement-pack.html",
+      "status": 200,
+      "title": "SourceA Procurement Pack",
+      "findings": [
+        {
+          "id": "deploy_drift",
+          "severity": "FAIL",
+          "detail": "live deploy hash != dist (SourceA-landing/green-unified/dist/sourcea/attach/procurement-pack.html)"
+        }
+      ]
+    },
+    {
+      "url": "https://sourcea.app/auth/sign-in",
+      "status": 200,
+      "title": "Sign in \u00b7 SourceA Platform",
+      "findings": [
+        {
+          "id": "deploy_drift",
+          "severity": "FAIL",
+          "detail": "live deploy hash != dist (SourceA-landing/green-unified/dist/auth/sign-in.html)"
+        }
+      ]
+    },
+    {
+      "url": "https://sourcea.app/auth/sign-up",
+      "status": 200,
+      "title": "Create account \u00b7 SourceA Platform",
+      "findings": [
+        {
+          "id": "deploy_drift",
+          "severity": "FAIL",
+          "detail": "live deploy hash != dist (SourceA-landing/green-unified/dist/auth/sign-up.html)"
+        }
+      ]
+    },
+    {
       "url": "https://sourcea.app/changelog",
       "status": 200,
       "title": "Chat Unify 4.4 Release Notes | SourceA",
@@ -1214,6 +1300,18 @@
           "id": "deploy_drift",
           "severity": "FAIL",
           "detail": "live deploy hash != dist (SourceA-landing/green-unified/dist/eval.html)"
+        }
+      ]
+    },
+    {
+      "url": "https://sourcea.app/forge",
+      "status": 200,
+      "title": "Prompt Forge | Prompt Forge \u00b7 SourceA",
+      "findings": [
+        {
+          "id": "deploy_drift",
+          "severity": "FAIL",
+          "detail": "live deploy hash != dist (SourceA-landing/green-unified/dist/forge/index.html)"
         }
       ]
     },
@@ -1382,6 +1480,30 @@
           "id": "deploy_drift",
           "severity": "FAIL",
           "detail": "live deploy hash != dist (SourceA-landing/green-unified/dist/platform/profile/index.html)"
+        }
+      ]
+    },
+    {
+      "url": "https://sourcea.app/platform/sign-in",
+      "status": 200,
+      "title": "Sign in \u00b7 SourceA Platform",
+      "findings": [
+        {
+          "id": "deploy_drift",
+          "severity": "FAIL",
+          "detail": "live deploy hash != dist (SourceA-landing/green-unified/dist/platform/sign-in/index.html)"
+        }
+      ]
+    },
+    {
+      "url": "https://sourcea.app/platform/sign-up",
+      "status": 200,
+      "title": "Create account \u00b7 SourceA Platform",
+      "findings": [
+        {
+          "id": "deploy_drift",
+          "severity": "FAIL",
+          "detail": "live deploy hash != dist (SourceA-landing/green-unified/dist/platform/sign-up/index.html)"
         }
       ]
     },
@@ -2476,6 +2598,18 @@
           "detail": "live deploy hash != dist (SourceA-landing/green-unified/dist/unify-demo/index.html)"
         }
       ]
+    },
+    {
+      "url": "https://sourcea.app/unify/terminal",
+      "status": 200,
+      "title": "SourceA Forge IDE",
+      "findings": [
+        {
+          "id": "deploy_drift",
+          "severity": "FAIL",
+          "detail": "live deploy hash != dist (SourceA-landing/green-unified/dist/unify/terminal/index.html)"
+        }
+      ]
     }
   ],
   "warnings": [],
@@ -2523,8 +2657,8 @@
       "body_sha256": "c1f3d6c3b6b6b7911f94ff58611e501d77d9b5e7aea19673119f1bbd579b2e44",
       "deploy_body_sha256": "b4575f5b174f0db4e160745dc8bccb8ccfef69fdd3d4e38513ebfe1efe482344",
       "dist_path": "SourceA-landing/green-unified/dist/index.html",
-      "dist_sha256": "f6d6033210062a08be77a08375fe93c1150b6ab2f2787cd986de51a505dc5588",
-      "dist_deploy_sha256": "207514ad1b1c99cf77ee84a7d2a387a4d2e914ef601a2ea45b969e647b981232",
+      "dist_sha256": "cbabb3691142d4b8fb8e796b5b408383f7f236be569e99175753aa0c65842749",
+      "dist_deploy_sha256": "72eccee50382ad6b7b702d1b74200e1b6f571003817a5f87e440a294e2423f7f",
       "dist_live_match": false,
       "rejected": false
     },
@@ -2548,8 +2682,8 @@
       "body_sha256": "71d0683fdf58e444816e5273b0ad0eb03100c8e4445b5360debf2ef20b1f7332",
       "deploy_body_sha256": "ca9d32f01b45903ea949a8e99236fa6527f032154d9e9571e5ef8a60fbe6908d",
       "dist_path": "SourceA-landing/green-unified/dist/48h-mvp/index.html",
-      "dist_sha256": "d980297f60e388f33b21116387509907457dff5b77781d328a3d419ba03a2d21",
-      "dist_deploy_sha256": "53a6b8f72055cb0e0ce59f9ad2e6803e37411754d30dbb1cc41e742ad4ff09ba",
+      "dist_sha256": "5943b80c346350eff9673b0c293509414996078916cf5534d1269cad34a6820e",
+      "dist_deploy_sha256": "5d883df89c4af98595666aa42c3b457b4d0e0978a515beb42b0ab0d0aaedb7b9",
       "dist_live_match": false,
       "rejected": false
     },
@@ -2573,8 +2707,8 @@
       "body_sha256": "0090fb495ddf25c5daa51c52d2c536b1667f46429d24d9d1b1477a0236314761",
       "deploy_body_sha256": "720d57cef3dcaa2e3f1d9ed37c1b4adcc6532c9962e6ca15c412c81585309287",
       "dist_path": "SourceA-landing/green-unified/dist/agent-run/index.html",
-      "dist_sha256": "8383c9a7ea0c974c082276bff6b5472b012cf90472e3f833c9234547b40f2dd4",
-      "dist_deploy_sha256": "25f56e204fd2ae4ae2f1fbdadf540e27d7a40beed8c9918f3da5d3685c8bdcdc",
+      "dist_sha256": "6b9e6198b217cd4978990a13b5e7d4025c226f38fe78e46a2204e3a0de59b967",
+      "dist_deploy_sha256": "1d00efbedde2ce8266dd5dcadd7f9940f5a451960dffc05323a34d08c3839f82",
       "dist_live_match": false,
       "rejected": false
     },
@@ -2598,15 +2732,46 @@
       "body_sha256": "516ee56e5b2ea93053ea39b4ee192db12bb6670f9b91e2c0eac31b74d4879694",
       "deploy_body_sha256": "14829112e2c95a69ddecf73efdef65b2e8d27ab6f43c3f49dd909d0a26765630",
       "dist_path": "SourceA-landing/green-unified/dist/ai-value-governance/index.html",
-      "dist_sha256": "7c9a79e3027b1d9652a8bd8680bf0081448290296f36ab60429afcb9dd946c5d",
-      "dist_deploy_sha256": "6da0f8e9c8065e63c15436985810d0f1fb251cdd615517963d0c33dd9f73973e",
+      "dist_sha256": "23f78775c773233256e48a57387fefd34c543157ead4f0c04ca40b42e96abe1c",
+      "dist_deploy_sha256": "37c4f778bf47d4791e701a1cd9f6eb235992196d475fd0e7abad6fb6a1f22db0",
+      "dist_live_match": false,
+      "rejected": false
+    },
+    {
+      "url": "https://sourcea.app/attach/procurement-pack.html",
+      "ok": false,
+      "findings": [
+        {
+          "id": "deploy_drift",
+          "severity": "FAIL",
+          "detail": "live deploy hash != dist (SourceA-landing/green-unified/dist/sourcea/attach/procurement-pack.html)"
+        }
+      ],
+      "status": 200,
+      "final_url": "https://sourcea.app/attach/procurement-pack.html",
+      "content_type": "text/html; charset=utf-8",
+      "cf_cache_status": "",
+      "x_sourcea_pages_path": "/sourcea/attach/procurement-pack",
+      "bytes": 6906,
+      "title": "SourceA Procurement Pack",
+      "body_sha256": "c9d1bc2f3d2b8d0c846fb439d2e8f74519459d9b910eeb310a67552c3263d97c",
+      "deploy_body_sha256": "0df087ba3452d6698ea94a36698ee393c646fc4741be62b83754b73698b53e26",
+      "dist_path": "SourceA-landing/green-unified/dist/sourcea/attach/procurement-pack.html",
+      "dist_sha256": "186b6c49820624227444480e8a1512d2e7c8a3c16bb6a7750f5b95a431db2f42",
+      "dist_deploy_sha256": "a298305c6f3d0b844be958769d46c7b07a2b1b3e1a65369b83bedbca33518564",
       "dist_live_match": false,
       "rejected": false
     },
     {
       "url": "https://sourcea.app/auth/sign-in",
-      "ok": true,
-      "findings": [],
+      "ok": false,
+      "findings": [
+        {
+          "id": "deploy_drift",
+          "severity": "FAIL",
+          "detail": "live deploy hash != dist (SourceA-landing/green-unified/dist/auth/sign-in.html)"
+        }
+      ],
       "status": 200,
       "final_url": "https://sourcea.app/auth/sign-in",
       "content_type": "text/html; charset=utf-8",
@@ -2617,15 +2782,21 @@
       "body_sha256": "1cc90ea48d24edc958c7182171ed14c458b56c799a49093d346b3e26014944af",
       "deploy_body_sha256": "83273880b8fbeb6c9a947791057c02ed6a8289422eb15b4c3ea173a20f39eae1",
       "dist_path": "SourceA-landing/green-unified/dist/auth/sign-in.html",
-      "dist_sha256": "82a6c937ac464af1ce8040392bd669bca0d0ffb39db0761a4f3557a7efd908fc",
-      "dist_deploy_sha256": "83273880b8fbeb6c9a947791057c02ed6a8289422eb15b4c3ea173a20f39eae1",
-      "dist_live_match": true,
+      "dist_sha256": "c54b475228755c5f7dfbf27fd26036fcee5560098436c972f1c08d502eccd76c",
+      "dist_deploy_sha256": "f21192e2340993f473d5b5c463f8c3bfdb8d3af521a3e70dc4559a3697bf87df",
+      "dist_live_match": false,
       "rejected": false
     },
     {
       "url": "https://sourcea.app/auth/sign-up",
-      "ok": true,
-      "findings": [],
+      "ok": false,
+      "findings": [
+        {
+          "id": "deploy_drift",
+          "severity": "FAIL",
+          "detail": "live deploy hash != dist (SourceA-landing/green-unified/dist/auth/sign-up.html)"
+        }
+      ],
       "status": 200,
       "final_url": "https://sourcea.app/auth/sign-up",
       "content_type": "text/html; charset=utf-8",
@@ -2636,9 +2807,9 @@
       "body_sha256": "1751835632a62e21d1abfd1a410dd48fe439e01503b131d9ac533b4594d3c974",
       "deploy_body_sha256": "adb4bad79b6d0df001211b4b030db5ec5e9e5360168556acba4a42314c6e8c64",
       "dist_path": "SourceA-landing/green-unified/dist/auth/sign-up.html",
-      "dist_sha256": "eee9fd1d5617b67a56b5bf2e3f84fce58074496f5a61fbd0a38dccdd09e37556",
-      "dist_deploy_sha256": "adb4bad79b6d0df001211b4b030db5ec5e9e5360168556acba4a42314c6e8c64",
-      "dist_live_match": true,
+      "dist_sha256": "b8d458090b3e3c8e15a6fe48ab87b98b8d8e7ef3b39012d85116a4740eb19ad0",
+      "dist_deploy_sha256": "b5430a378f78ae80a4aadfd83dc7a079a7ba0fec1f113770e2ee556eb2db9763",
+      "dist_live_match": false,
       "rejected": false
     },
     {
@@ -2686,8 +2857,8 @@
       "body_sha256": "36243f397f03199305903f9b10e654c3e16152800db204fb8933fe528d759843",
       "deploy_body_sha256": "cf2500a359bb07dcaf20df36f4fbd1815802794e3d97983c699f12e79a51e6bd",
       "dist_path": "SourceA-landing/green-unified/dist/compare/index.html",
-      "dist_sha256": "b08ee0ed5310e8674585d17e36940fc830cf2bfa38f4240bf9648b0e2762e871",
-      "dist_deploy_sha256": "02a7f1bfb64a9a89efeb41973c227eaca86b53dab3aeca6e0c2c9ea71ba58f01",
+      "dist_sha256": "07ef138b4a4cb47aebab2de27609c385e70754080843f35a6b0b61820493add7",
+      "dist_deploy_sha256": "e59139170e9c06618c71a58f95a0c3962adc17a4a6c904f9c7627330b00fe2cb",
       "dist_live_match": false,
       "rejected": false
     },
@@ -2730,8 +2901,8 @@
       "body_sha256": "8c912401a3cdd258637eca93534ecc6df6bf326bcbfc512a62cfbaf133837572",
       "deploy_body_sha256": "0750765bae008cc085d265bcf0af5461913a36b8155682de133c01f21b50cf2c",
       "dist_path": "SourceA-landing/green-unified/dist/enterprise-ai-control-plane/index.html",
-      "dist_sha256": "f8047e9a2f43afcd15fa7214cbcd436ca85fa4021d0c470e4f9780798b5ad8b3",
-      "dist_deploy_sha256": "209c8fb77ca60043d42d0641b5460150aebf32be466def6c3ab8fb7e846a4546",
+      "dist_sha256": "cdf0fc3e1f453c392fa7db757a197f2842dbcf07436ae47793b0ac37e7d6c50d",
+      "dist_deploy_sha256": "7712ca09a900c439ae74824f41fc40dd9d354fbf973fd0ac38eec251d338dc0c",
       "dist_live_match": false,
       "rejected": false
     },
@@ -2755,15 +2926,21 @@
       "body_sha256": "ecc4ded7194783f26a8bb4cb4ff68b3a08aeea96f96deb57d11bcdaf22e1d5a9",
       "deploy_body_sha256": "e053220621a4e5bd61c302ff446de38a1963b85bdc972d9082e2c0c34fd1184d",
       "dist_path": "SourceA-landing/green-unified/dist/eval.html",
-      "dist_sha256": "0e328d10e093ca031b1452deeecea1d7caa99b68aeff54368083859bf6cf33e9",
-      "dist_deploy_sha256": "bc54a299f3600d22bab3a6785cb4543b27d062e6e3b5db30e58edf88d6c66e7f",
+      "dist_sha256": "c1c01f845fce2ba7d7464b2ee83b29b55a231a336de5f1102a02a2fe6a808be1",
+      "dist_deploy_sha256": "77838e6827b5c474ffe13f41ec6128e192a48e7b75f33045cd50fe18239f65ae",
       "dist_live_match": false,
       "rejected": false
     },
     {
       "url": "https://sourcea.app/forge",
-      "ok": true,
-      "findings": [],
+      "ok": false,
+      "findings": [
+        {
+          "id": "deploy_drift",
+          "severity": "FAIL",
+          "detail": "live deploy hash != dist (SourceA-landing/green-unified/dist/forge/index.html)"
+        }
+      ],
       "status": 200,
       "final_url": "https://sourcea.app/forge",
       "content_type": "text/html; charset=utf-8",
@@ -2773,6 +2950,10 @@
       "title": "Prompt Forge | Prompt Forge \u00b7 SourceA",
       "body_sha256": "a132b547c611caaee46b2f78798046a5ebcbe45a17148806536a3f43f7b6e508",
       "deploy_body_sha256": "5aaae81eb3690377bc4a9d00574fc1decba1cd8147fb946c361bad5b29078248",
+      "dist_path": "SourceA-landing/green-unified/dist/forge/index.html",
+      "dist_sha256": "eab603d12d0ddbd44f65fced5de3acbb5178286c8487a003c0a66b0701f7ad40",
+      "dist_deploy_sha256": "5fe1a62acbe6783af7a16edca7576da2e67956b3b116a744f226f0e846bde846",
+      "dist_live_match": false,
       "rejected": false
     },
     {
@@ -2820,8 +3001,8 @@
       "body_sha256": "be778727e48a71943108f62f0d02242551f359adb35b20da7f604a7b0f55799e",
       "deploy_body_sha256": "52c2dd1adc8be86cf7177a7f780743061e864bf705f302bfff035c95383be058",
       "dist_path": "SourceA-landing/green-unified/dist/forge/terminal/profile/index.html",
-      "dist_sha256": "4ac657a66cb23054c4cff76be157f8631825275f898de120d57aec7c2ee58729",
-      "dist_deploy_sha256": "2ae197ea56b901b42da8d54581f6c74000bc50c47d86c439102f48de99f6a6c5",
+      "dist_sha256": "f44a475e276bdab260ae67c201aaccb03db726a149213b2cbb1c302e7ba0cd18",
+      "dist_deploy_sha256": "cf84e2de112fa294e50d4209ee2f672cacedeb501d47aaca1ff2b41793277f3e",
       "dist_live_match": false,
       "rejected": false
     },
@@ -2845,8 +3026,8 @@
       "body_sha256": "74bf5049a0640fa7afbd45ad51b1b0d055d60b71ad3d30d49850d116803e2c21",
       "deploy_body_sha256": "a1ffda876ed3984fdef13f9eecbb163fa23e65a6563d01b4d69952da0be857b9",
       "dist_path": "SourceA-landing/green-unified/dist/forge/terminal/signin/index.html",
-      "dist_sha256": "e4bb3e203e3475a882ff9b258c8be2e8487b8fdd4407502220965506567f7b44",
-      "dist_deploy_sha256": "6e4987a4f11a048f17c5a3b2cde203b7120d8ed59ec515f78c676ffcb2121f44",
+      "dist_sha256": "3237682f6583ca4fe63340b71297f5eefc279154d3cddd9ecaa2e9f15ed24959",
+      "dist_deploy_sha256": "ddb8f4ec1be4deb60715e55739e1f4f749a0069447bb30ddf4a19beac4b5b664",
       "dist_live_match": false,
       "rejected": false
     },
@@ -2870,8 +3051,8 @@
       "body_sha256": "4a03d9a6d05b0d4d9258a2d669fd13912b366957b850f39b540e355e989cfbdb",
       "deploy_body_sha256": "91aa5a847954bbe173988904824b64d97fa7f64096ddde53144d23006db5c4e4",
       "dist_path": "SourceA-landing/green-unified/dist/forge/terminal/signup/index.html",
-      "dist_sha256": "337c4c3f7443a0caa1cdf4df75d2fa629d02cd1b2323c63cd4913dd3c6cb267d",
-      "dist_deploy_sha256": "b5766066f8d48b130d84b4719959413ccaa8ea58a582a3517325867a4dac1f34",
+      "dist_sha256": "f4bae0f78923b3875ce946b28cbaf0dd4636db069ee700f89e29933693ac1da0",
+      "dist_deploy_sha256": "0c4a5d8335da1bd44ac3ede87aa8f04c0e12b00baf47af5fc7d2e18ae4c985f0",
       "dist_live_match": false,
       "rejected": false
     },
@@ -2895,8 +3076,8 @@
       "body_sha256": "78a06331b8c094efb4a9d0c31cd1823a3a80b6828cdfca4d17b200c7c69e76b7",
       "deploy_body_sha256": "233d4547cd055a0e98e7baef42c214de830db8a203fe7ca80fb5a3a855cc65c1",
       "dist_path": "SourceA-landing/green-unified/dist/forge/terminal/workspace/index.html",
-      "dist_sha256": "38325f771253956b530538369dbf5cb493c04f7f33f2ab28dd5ba4d8321c1ba7",
-      "dist_deploy_sha256": "991cd3012b2aa889881366635d8d710c327d11ca6ec38a8e57481ee4f17869ca",
+      "dist_sha256": "b01a87f30d0a539dfa19e23c4f04ddf96646b4f45f667178412cd9bbde17de0f",
+      "dist_deploy_sha256": "427b126a8143dd46edb4d0bd4f3c1b5f989e344169d95cad677f8f5d171bc304",
       "dist_live_match": false,
       "rejected": false
     },
@@ -2945,8 +3126,8 @@
       "body_sha256": "1ac2024e9b58507123d92060bf9efc08941d5cb698fd34467d507ba6306e7dd2",
       "deploy_body_sha256": "d3c6d943b5a9ecdf47988002c82cbacdf8df999cc5e841bcd42cdb797715c8dd",
       "dist_path": "SourceA-landing/green-unified/dist/growth/index.html",
-      "dist_sha256": "0b1d124509bfe25e9656ebe3a24712f8a811dc508aa023c7071a8e897a6c1e3b",
-      "dist_deploy_sha256": "8282fe1353c197772a2f87d53b02071c84ad566c6a069c99c63bc83c73f056de",
+      "dist_sha256": "dcf8695690af9db335f2161b3f66d65a1ebbd8fba46e3f06421b668d30d3afa9",
+      "dist_deploy_sha256": "64ff8178b3b292a79c1d6000897f3e6f9b2689c9b18408dc03e6bf6fd345fd8e",
       "dist_live_match": false,
       "rejected": false
     },
@@ -2970,8 +3151,8 @@
       "body_sha256": "32ac94155ba0807b45f4ce640f5944bd0774caf81c3e6f05b08a984a185e35a3",
       "deploy_body_sha256": "de72164bfc0b7d5b1295bc78d8f82eb9ca2fff434b87a6255750d4b217a6c5d2",
       "dist_path": "SourceA-landing/green-unified/dist/kernel/index.html",
-      "dist_sha256": "ca4dcef423896ea362153f2eb5705a7b5b7ae00f49ee63e4544f619b5825f4a1",
-      "dist_deploy_sha256": "cb145dcdcebb69e488e4d43b5f1e4b32fb254aba6b05013fc626faa9d8f14aaf",
+      "dist_sha256": "b4127e98c21bed9be5f52cebf13c2b00654dfa04c50468ebaf4ef929efe6ecd5",
+      "dist_deploy_sha256": "508714707b62be566491a8588c782cceb00b7ac85be34722a7c36d84a2f6888c",
       "dist_live_match": false,
       "rejected": false
     },
@@ -3045,8 +3226,8 @@
       "body_sha256": "f2c45aba767db0617798b502d7d053bc94170f6c034da47e70d01808a5e67a45",
       "deploy_body_sha256": "2d99122b5a5d7630690b8f0c533a02a6a3a8dfc7a8eaf8137be214e215493960",
       "dist_path": "SourceA-landing/green-unified/dist/operating-brain-install/index.html",
-      "dist_sha256": "847524a86ed6974593a942c881d5dbbd02b0f7ade9edd2fe5fd8dfa8cf58d9df",
-      "dist_deploy_sha256": "11b77e43773a67798d4dc00742630c383357a8d28c28a663cce5192c31b9ddef",
+      "dist_sha256": "e178347bd301b5742ad49e398c30d66102afc10ca9d16a3773e6d0a62017facf",
+      "dist_deploy_sha256": "25455f345ec2b015eceb622d77a8da9ff4a8651f87b558cb7034fda8b8594f49",
       "dist_live_match": false,
       "rejected": false
     },
@@ -3070,8 +3251,8 @@
       "body_sha256": "0090fb495ddf25c5daa51c52d2c536b1667f46429d24d9d1b1477a0236314761",
       "deploy_body_sha256": "720d57cef3dcaa2e3f1d9ed37c1b4adcc6532c9962e6ca15c412c81585309287",
       "dist_path": "SourceA-landing/green-unified/dist/platform.html",
-      "dist_sha256": "8383c9a7ea0c974c082276bff6b5472b012cf90472e3f833c9234547b40f2dd4",
-      "dist_deploy_sha256": "25f56e204fd2ae4ae2f1fbdadf540e27d7a40beed8c9918f3da5d3685c8bdcdc",
+      "dist_sha256": "6b9e6198b217cd4978990a13b5e7d4025c226f38fe78e46a2204e3a0de59b967",
+      "dist_deploy_sha256": "1d00efbedde2ce8266dd5dcadd7f9940f5a451960dffc05323a34d08c3839f82",
       "dist_live_match": false,
       "rejected": false
     },
@@ -3095,8 +3276,8 @@
       "body_sha256": "2ef190ad8b9dd28a6e1d3dcf99bf9aec5e3c38932aa30c304400030b6fafe9ab",
       "deploy_body_sha256": "e9e91257bd15f361b09d1c47ae54c8842bfe1859f3745f6483be5ae83125a209",
       "dist_path": "SourceA-landing/green-unified/dist/platform-story/index.html",
-      "dist_sha256": "6424998c29dea1bc268328086276c0b5a8d0642eb2a18911e81abe61e424d3a0",
-      "dist_deploy_sha256": "9bee04d1f812e45021578170190103b5d95e2e1f36576da30f1742586898a3a1",
+      "dist_sha256": "316de20ef69cfc16c33d379d1c95f503a750f6c0a15d8588e8c7547d86a825df",
+      "dist_deploy_sha256": "8e15db0a7be33b3be9d264f9b3e4e243e21a2c496852fff2e9ea29a3c88d44b4",
       "dist_live_match": false,
       "rejected": false
     },
@@ -3120,15 +3301,21 @@
       "body_sha256": "be778727e48a71943108f62f0d02242551f359adb35b20da7f604a7b0f55799e",
       "deploy_body_sha256": "52c2dd1adc8be86cf7177a7f780743061e864bf705f302bfff035c95383be058",
       "dist_path": "SourceA-landing/green-unified/dist/platform/profile/index.html",
-      "dist_sha256": "4ac657a66cb23054c4cff76be157f8631825275f898de120d57aec7c2ee58729",
-      "dist_deploy_sha256": "2ae197ea56b901b42da8d54581f6c74000bc50c47d86c439102f48de99f6a6c5",
+      "dist_sha256": "f44a475e276bdab260ae67c201aaccb03db726a149213b2cbb1c302e7ba0cd18",
+      "dist_deploy_sha256": "cf84e2de112fa294e50d4209ee2f672cacedeb501d47aaca1ff2b41793277f3e",
       "dist_live_match": false,
       "rejected": false
     },
     {
       "url": "https://sourcea.app/platform/sign-in",
-      "ok": true,
-      "findings": [],
+      "ok": false,
+      "findings": [
+        {
+          "id": "deploy_drift",
+          "severity": "FAIL",
+          "detail": "live deploy hash != dist (SourceA-landing/green-unified/dist/platform/sign-in/index.html)"
+        }
+      ],
       "status": 200,
       "final_url": "https://sourcea.app/platform/sign-in",
       "content_type": "text/html; charset=utf-8",
@@ -3139,15 +3326,21 @@
       "body_sha256": "1cc90ea48d24edc958c7182171ed14c458b56c799a49093d346b3e26014944af",
       "deploy_body_sha256": "83273880b8fbeb6c9a947791057c02ed6a8289422eb15b4c3ea173a20f39eae1",
       "dist_path": "SourceA-landing/green-unified/dist/platform/sign-in/index.html",
-      "dist_sha256": "82a6c937ac464af1ce8040392bd669bca0d0ffb39db0761a4f3557a7efd908fc",
-      "dist_deploy_sha256": "83273880b8fbeb6c9a947791057c02ed6a8289422eb15b4c3ea173a20f39eae1",
-      "dist_live_match": true,
+      "dist_sha256": "c54b475228755c5f7dfbf27fd26036fcee5560098436c972f1c08d502eccd76c",
+      "dist_deploy_sha256": "f21192e2340993f473d5b5c463f8c3bfdb8d3af521a3e70dc4559a3697bf87df",
+      "dist_live_match": false,
       "rejected": false
     },
     {
       "url": "https://sourcea.app/platform/sign-up",
-      "ok": true,
-      "findings": [],
+      "ok": false,
+      "findings": [
+        {
+          "id": "deploy_drift",
+          "severity": "FAIL",
+          "detail": "live deploy hash != dist (SourceA-landing/green-unified/dist/platform/sign-up/index.html)"
+        }
+      ],
       "status": 200,
       "final_url": "https://sourcea.app/platform/sign-up",
       "content_type": "text/html; charset=utf-8",
@@ -3158,9 +3351,9 @@
       "body_sha256": "1751835632a62e21d1abfd1a410dd48fe439e01503b131d9ac533b4594d3c974",
       "deploy_body_sha256": "adb4bad79b6d0df001211b4b030db5ec5e9e5360168556acba4a42314c6e8c64",
       "dist_path": "SourceA-landing/green-unified/dist/platform/sign-up/index.html",
-      "dist_sha256": "eee9fd1d5617b67a56b5bf2e3f84fce58074496f5a61fbd0a38dccdd09e37556",
-      "dist_deploy_sha256": "adb4bad79b6d0df001211b4b030db5ec5e9e5360168556acba4a42314c6e8c64",
-      "dist_live_match": true,
+      "dist_sha256": "b8d458090b3e3c8e15a6fe48ab87b98b8d8e7ef3b39012d85116a4740eb19ad0",
+      "dist_deploy_sha256": "b5430a378f78ae80a4aadfd83dc7a079a7ba0fec1f113770e2ee556eb2db9763",
+      "dist_live_match": false,
       "rejected": false
     },
     {
@@ -3183,8 +3376,8 @@
       "body_sha256": "78a06331b8c094efb4a9d0c31cd1823a3a80b6828cdfca4d17b200c7c69e76b7",
       "deploy_body_sha256": "233d4547cd055a0e98e7baef42c214de830db8a203fe7ca80fb5a3a855cc65c1",
       "dist_path": "SourceA-landing/green-unified/dist/platform/workspace/index.html",
-      "dist_sha256": "38325f771253956b530538369dbf5cb493c04f7f33f2ab28dd5ba4d8321c1ba7",
-      "dist_deploy_sha256": "991cd3012b2aa889881366635d8d710c327d11ca6ec38a8e57481ee4f17869ca",
+      "dist_sha256": "b01a87f30d0a539dfa19e23c4f04ddf96646b4f45f667178412cd9bbde17de0f",
+      "dist_deploy_sha256": "427b126a8143dd46edb4d0bd4f3c1b5f989e344169d95cad677f8f5d171bc304",
       "dist_live_match": false,
       "rejected": false
     },
@@ -3208,8 +3401,8 @@
       "body_sha256": "66d5812a7bdc90e9efb5a3528ca30c0157ddb094bef96796d5509c522b19ae5f",
       "deploy_body_sha256": "f53e1c15ea36ba8889f3b5c9ceb007a5aa570ef69037a0d40b7b80b69c088727",
       "dist_path": "SourceA-landing/green-unified/dist/pricing/index.html",
-      "dist_sha256": "bd196c38c8782f3b1ea7a581c048446d47e994ee4fc889dd4bf96bbb7b50feeb",
-      "dist_deploy_sha256": "d80784821ef1a3bf1b2cbd930daa541b0623dd1efda5df04c32692fd40ac78a9",
+      "dist_sha256": "9938f2b1e94f65cf6f78b8efc92e35abf0df827886985ca1f5d50e5cabbd47de",
+      "dist_deploy_sha256": "8a913e556fcfe67a856842fb04192e3220aa503b09373335e586d784e2574b85",
       "dist_live_match": false,
       "rejected": false
     },
@@ -3233,8 +3426,8 @@
       "body_sha256": "4b93ae53edf85e0d1b051760008e26bbf0c6fe45b477de88957f2cc632e315d2",
       "deploy_body_sha256": "b3599f1b9c0c3e7285b14bcb6cd175fb176cbbace77fbdb93c443e79371c100a",
       "dist_path": "SourceA-landing/green-unified/dist/proof/index.html",
-      "dist_sha256": "8420862147da04bcb498e86879fe886c6a14aff159c1c6f754cfeb2101b6aae3",
-      "dist_deploy_sha256": "78f6abdc8160f688c06cce391fd95b98e15451c1f12f2e78fd025bdcb994a2dd",
+      "dist_sha256": "39da4947e4b6837f43acea2875d1964f381f46ffa9d1b29442c0acee28091faa",
+      "dist_deploy_sha256": "cd411e3560922b1d12395659146d0ef4c9ef092fd53376e88a85a82b0f8a310a",
       "dist_live_match": false,
       "rejected": false
     },
@@ -3308,8 +3501,8 @@
       "body_sha256": "b3a9b8b2ffe7c1139bdc41bf46afce00f293a9c0d58bbc649bbe6e7e14d572ea",
       "deploy_body_sha256": "1775b7e8d524b2733f53974b2fd8634987870ee133c4d2175d3d2cf78e67e2d2",
       "dist_path": "SourceA-landing/green-unified/dist/scenario/index.html",
-      "dist_sha256": "b1f64894c665827dbfbf86d4c08d70b9ad038d8cdc8b98e58282bd156aa65af0",
-      "dist_deploy_sha256": "6324c27d9b66c6934aaef79f474f45cd20bcdc41c6872ac7c8f1a063aa0f5848",
+      "dist_sha256": "4966936932c59f6065199e6a890b8ad8c8716ffdd18c56c6e5052fe8296b8d88",
+      "dist_deploy_sha256": "ba10a72f1fce2442c650817e09d8615622ddb6e8d6e86e4b6ff4cdf88b612346",
       "dist_live_match": false,
       "rejected": false
     },
@@ -3333,8 +3526,8 @@
       "body_sha256": "667e3abdb628553b78b240e2705dd4a8a5e6a1af8cc96d032f8cf84502e00dd8",
       "deploy_body_sha256": "f12fe5d042d3d94469d5e1fa565ba0811f5e67abcca39a6dd164174da8353d40",
       "dist_path": "SourceA-landing/green-unified/dist/security/index.html",
-      "dist_sha256": "6a5c73597a0702f6f85f8a8d6417e9efbf55fb7c4644e44d37500184a252e989",
-      "dist_deploy_sha256": "3ea5646b1854477700d90a41cac97885e14d2c74da94a8b18fbc3ba2978f457b",
+      "dist_sha256": "03bc438a7f42628862692e8116f483d1d4609bcea50821ee044560c507b2d0e0",
+      "dist_deploy_sha256": "be5b5426a96bdde1c6a94768fcf191165535621960f3aaad682338cc555f9ad0",
       "dist_live_match": false,
       "rejected": false
     },
@@ -3358,8 +3551,8 @@
       "body_sha256": "32ac94155ba0807b45f4ce640f5944bd0774caf81c3e6f05b08a984a185e35a3",
       "deploy_body_sha256": "de72164bfc0b7d5b1295bc78d8f82eb9ca2fff434b87a6255750d4b217a6c5d2",
       "dist_path": "SourceA-landing/green-unified/dist/sourcea/index.html",
-      "dist_sha256": "c432af140acb7cb419834e71e254e238630d17853d8d26dfb2dedfb916d56207",
-      "dist_deploy_sha256": "530bbf652827d54327a988b19f5bfbe78aa697c3266df605f3bec315716be46a",
+      "dist_sha256": "d50e2f099aea81bb0c9cfdd8e189c7fd27bf16bc214e8ddf9ef4a4bf085fb4c4",
+      "dist_deploy_sha256": "69bd0bffebee88909b47f32068df17e66a511ffa244f75acff0e9d1927a29e19",
       "dist_live_match": false,
       "rejected": false
     },
@@ -3383,8 +3576,8 @@
       "body_sha256": "ecc4ded7194783f26a8bb4cb4ff68b3a08aeea96f96deb57d11bcdaf22e1d5a9",
       "deploy_body_sha256": "e053220621a4e5bd61c302ff446de38a1963b85bdc972d9082e2c0c34fd1184d",
       "dist_path": "SourceA-landing/green-unified/dist/sourcea-boot/index.html",
-      "dist_sha256": "0e328d10e093ca031b1452deeecea1d7caa99b68aeff54368083859bf6cf33e9",
-      "dist_deploy_sha256": "bc54a299f3600d22bab3a6785cb4543b27d062e6e3b5db30e58edf88d6c66e7f",
+      "dist_sha256": "c1c01f845fce2ba7d7464b2ee83b29b55a231a336de5f1102a02a2fe6a808be1",
+      "dist_deploy_sha256": "77838e6827b5c474ffe13f41ec6128e192a48e7b75f33045cd50fe18239f65ae",
       "dist_live_match": false,
       "rejected": false
     },
@@ -3408,8 +3601,8 @@
       "body_sha256": "71d0683fdf58e444816e5273b0ad0eb03100c8e4445b5360debf2ef20b1f7332",
       "deploy_body_sha256": "ca9d32f01b45903ea949a8e99236fa6527f032154d9e9571e5ef8a60fbe6908d",
       "dist_path": "SourceA-landing/green-unified/dist/sourcea/48h-mvp.html",
-      "dist_sha256": "d9e4c559f81ca51451ce06fd0f79608dbeb6d0132fcb56ba62c7647e4fb1b3df",
-      "dist_deploy_sha256": "cae2dcfaf00f926691ec452dc630504e2e9fe3e87ce65835537477e275221f0b",
+      "dist_sha256": "e0fc106bf8a749eff476a931b14e79eceb4abbb704f91f809a91d5352171e230",
+      "dist_deploy_sha256": "cd8251b9c0bcd26a9d63c477b695b918f83b6c3d171401f2ce0ff8949a2cad57",
       "dist_live_match": false,
       "rejected": false
     },
@@ -3433,8 +3626,8 @@
       "body_sha256": "516ee56e5b2ea93053ea39b4ee192db12bb6670f9b91e2c0eac31b74d4879694",
       "deploy_body_sha256": "14829112e2c95a69ddecf73efdef65b2e8d27ab6f43c3f49dd909d0a26765630",
       "dist_path": "SourceA-landing/green-unified/dist/sourcea/ai-value-governance.html",
-      "dist_sha256": "b63ed4095ddfab512d4462f8af8a9cf2ce0c345e7905c0ea40fd2c675a8e6890",
-      "dist_deploy_sha256": "b3e07152de72fe56223976e9915c602c1aa3012c6aa948e40f3beabb1c38afc5",
+      "dist_sha256": "623c91f5fa1f8212d28c55b7f5a2af6337f147a96bfe8375eb76715ca3e935c2",
+      "dist_deploy_sha256": "78e4486fa3c00225aa6c53de62b0d9ddd6202b3f0a33a6cec21518c194c5e916",
       "dist_live_match": false,
       "rejected": false
     },
@@ -3533,8 +3726,8 @@
       "body_sha256": "80de03b2535c72b084727d7eb9c365564ec73634721a5e6febc9c305f6c6b803",
       "deploy_body_sha256": "f7c8af30a46fb155fc0012f5601cb4372e512e36319c7a23ec5ae19a8738e399",
       "dist_path": "SourceA-landing/green-unified/dist/sourcea/auth/callback.html",
-      "dist_sha256": "30cf3ecee5b5300393bdebc0ccfd616384d1ac1792d80a60c343f0fa9f1fad86",
-      "dist_deploy_sha256": "e42881fad756cf349609e8499723e12910edd9467a00eb34b23e8e9e02e31532",
+      "dist_sha256": "85ac77dbead89382848a9a55fe0a3bce3cd25c6b35b8d91554a748410c40fdee",
+      "dist_deploy_sha256": "708a926d6efbe8d212ed997d556e2ac9ac70381f851bf2e261b79ca914734e5c",
       "dist_live_match": false,
       "rejected": false
     },
@@ -3558,8 +3751,8 @@
       "body_sha256": "17fff6d4324db333e5e75df4e5505f30ae77a4e9c6bd79ef622609d2c772015f",
       "deploy_body_sha256": "e065ee97b08ebde99fef9e014477a625827096b42cbb6942a8f0bc5b0b3c0106",
       "dist_path": "SourceA-landing/green-unified/dist/sourcea/auth/sign-in.html",
-      "dist_sha256": "1f46d2c00e5f833ee555608395f087eae5a871002f8bce27d9a64bbfe88950ca",
-      "dist_deploy_sha256": "b49e5785bbdd55adc7f043587b79cf9465e2663f4449b811db2fc639c0d0cc31",
+      "dist_sha256": "653be40d161064ef67134a82630b1a38f3fab3748d54e9b0c93ecc33f027f49f",
+      "dist_deploy_sha256": "178d9c591febbb79d25a1aa565db46c926f04d3df971917e01170586a721ae43",
       "dist_live_match": false,
       "rejected": false
     },
@@ -3583,8 +3776,8 @@
       "body_sha256": "adf4d91fdb4abfff4d4974a5f4177b15e0cc883bb55d3751660c12e9baebced0",
       "deploy_body_sha256": "d88f6848c470da11b2fb5ea87d8e66f814c0a0fc72064f08f79fe37827a5c80c",
       "dist_path": "SourceA-landing/green-unified/dist/sourcea/auth/sign-out.html",
-      "dist_sha256": "010e4f55bc5dfd9803292acee7dc1be6cf63a3c753648011bb882d76d5e6d1ed",
-      "dist_deploy_sha256": "8983b270ef24c109a510d165771ff551231a8e4268ccd0ed282a111833844575",
+      "dist_sha256": "e5d0136a445e3cc56da2eed85597648994511ff57c2eb9a99b139208041a89d3",
+      "dist_deploy_sha256": "7d3ffc24cb3c0ce3d37f9c2f49cefe171864cb6dc274b3340f7035ec09b15f59",
       "dist_live_match": false,
       "rejected": false
     },
@@ -3608,8 +3801,8 @@
       "body_sha256": "95247cc42041093363061617b3b8cefe6ddbfc3ad6811a946e2bf49839889c4c",
       "deploy_body_sha256": "a73c43ebbbb8c7a07da26941cf4e2ca6ed83a9692779a385a0e962e14aa9f33c",
       "dist_path": "SourceA-landing/green-unified/dist/sourcea/auth/sign-up.html",
-      "dist_sha256": "45e23c83fd6028231b4cb01b1c523f1c4aeaa344717b6058d565a02abcd3f416",
-      "dist_deploy_sha256": "9265b4c1744da678ee385a15b8ac424e384f6806ba6f39195fbb9abb740a0aca",
+      "dist_sha256": "b2f0e394569fe7f19db17daf53b6840c676e025c092b51efa7674f2e15450f8b",
+      "dist_deploy_sha256": "0122bae026b9b205b3a972d5b0767b1f36e0bc4fa967e5e04793e2b57fad9196",
       "dist_live_match": false,
       "rejected": false
     },
@@ -3633,8 +3826,8 @@
       "body_sha256": "40015869a6515a05a7d0f1687e8586221009c1a817a986b03e39e444e8bf4838",
       "deploy_body_sha256": "6cdd93fdf1f7eef6466f4706fc6e944430bf2831fe3ecbe72d907c23a846c8aa",
       "dist_path": "SourceA-landing/green-unified/dist/sourcea/brain-chat-settings.html",
-      "dist_sha256": "3c71af8a1ee6f4f9c280be5df7dd38c8919e6808960dedb09f7fc9405ee72c55",
-      "dist_deploy_sha256": "9321d33d2de688067e4d84aebf46fe830dc809e0add5992d613619748475c8b6",
+      "dist_sha256": "4a130b7313d25f7f5e08e5bf7d1be9ea6546769fb87192315021472ff51f38b8",
+      "dist_deploy_sha256": "d102393e5ca4b2fc95bf0912c636e3b5d1ac249378e938694ef9e5f6844b455e",
       "dist_live_match": false,
       "rejected": false
     },
@@ -3658,8 +3851,8 @@
       "body_sha256": "1990d94e35928b2f7b8b8b26a877b1e3a28dc7771a74c08d251451f814aa2149",
       "deploy_body_sha256": "56f9195214f9fcc77b5e95d4825d6800670b3f7516964f4699a3f317c4db8a55",
       "dist_path": "SourceA-landing/green-unified/dist/sourcea/case-studies/index.html",
-      "dist_sha256": "bc1fd6e013b1730dac5dd7a8f3ab37beb1b8f0208a5ff2d2fd054703d543066e",
-      "dist_deploy_sha256": "cf95b530bed41db459221f2d876bc5cf861a51421094afee949b259d7e24c608",
+      "dist_sha256": "9e9ac9de8e229a5073df1abed2ccb14e250823f47ea0ce001cad42c5ffcbd972",
+      "dist_deploy_sha256": "64673d24e1d078ec53f3f06671914651d5f2b11579fc1dbd687f1966b1872c1e",
       "dist_live_match": false,
       "rejected": false
     },
@@ -3683,8 +3876,8 @@
       "body_sha256": "db3fe3761cf0c5a48713e02ec396d584251e395e10f18d65c4bc44dc334c040c",
       "deploy_body_sha256": "e37a667dc71b47186bf849cc19fca2ac2d4753921cf426839e763eae296553c3",
       "dist_path": "SourceA-landing/green-unified/dist/sourcea/case-studies/agentgo.html",
-      "dist_sha256": "e3d1b67db657b1fddf3e9d01e021c46ac09e8680b2f9b2c75e9cfd90402e9b3e",
-      "dist_deploy_sha256": "45e6fdc9f841d15de300d2e251c0cfd4a0491149ff1cb747fd91dc39d5819ba3",
+      "dist_sha256": "1de77be7cb5afda29b18d6d186792d302d864c8ee402fe3f8cad88a92a87db35",
+      "dist_deploy_sha256": "9a94c9cc6b73a86527b07e180f394d9d7617f8ff91fd6b12c9cefb0e0357702c",
       "dist_live_match": false,
       "rejected": false
     },
@@ -3708,8 +3901,8 @@
       "body_sha256": "ca36d325bd1cf4f424592d5f1b5cba2b748d130df10396e6bb640eda64c2ca66",
       "deploy_body_sha256": "8aa2310fc9ab09211a4e5060ff83254c740a844e9093a80ed3aef97fe366a695",
       "dist_path": "SourceA-landing/green-unified/dist/sourcea/case-studies/pureflow.html",
-      "dist_sha256": "efacc0a16fecd04e38e8ed2dff5de0adc486e2414332dcd21addd3304ed4f433",
-      "dist_deploy_sha256": "81a981819ad7a9cb3164a4aa62abe65ecc8917bb386502c00bd8e4771b869d01",
+      "dist_sha256": "969594249dc4e05ba684166a3ecc0b2bc1bb3738b18f22bfb706f1f1fd859b76",
+      "dist_deploy_sha256": "c8347b4a797fffdad024508091a52654e4aedd1417437cfa763d594142d3fda4",
       "dist_live_match": false,
       "rejected": false
     },
@@ -3758,8 +3951,8 @@
       "body_sha256": "36243f397f03199305903f9b10e654c3e16152800db204fb8933fe528d759843",
       "deploy_body_sha256": "cf2500a359bb07dcaf20df36f4fbd1815802794e3d97983c699f12e79a51e6bd",
       "dist_path": "SourceA-landing/green-unified/dist/sourcea/compare.html",
-      "dist_sha256": "3052b9c4a94e96b739ea2bc721cb4ed03d1a2d1d9e55f6090e5743c7bcfabcdd",
-      "dist_deploy_sha256": "6cd9c62b9183d652d975110f362a8a7698a31ed7dec3e2be46611f95ea751f61",
+      "dist_sha256": "4af6d9d79d1f2ead8b4d0f82f882adfc8d398f0ab577fe633ca21783deb0d772",
+      "dist_deploy_sha256": "b44f27b88aeede37177f12fa1dbfc30cc315232587b3d572b254e0f68e8ed5e6",
       "dist_live_match": false,
       "rejected": false
     },
@@ -3788,8 +3981,8 @@
       "body_sha256": "c1f3d6c3b6b6b7911f94ff58611e501d77d9b5e7aea19673119f1bbd579b2e44",
       "deploy_body_sha256": "b4575f5b174f0db4e160745dc8bccb8ccfef69fdd3d4e38513ebfe1efe482344",
       "dist_path": "SourceA-landing/green-unified/dist/sourcea/cookies.html",
-      "dist_sha256": "3e3588f9cbd96320162550456388f774514c394ee48f9ffa4f39beaef3421562",
-      "dist_deploy_sha256": "86047b247837764b30fc518cf3b6f6e94abb79ef7cc3152fd73ee5b66a750a66",
+      "dist_sha256": "c40211a5b5f4b7d86359b0785db51f406c22d7d3177920dc8f278920acb8fb18",
+      "dist_deploy_sha256": "bf773cc1a2a1c75f68154038d03276d5399acd3a63dde9f370ac311afecb5eae",
       "dist_live_match": false,
       "spa_fallback": true,
       "rejected": true
@@ -3839,8 +4032,8 @@
       "body_sha256": "8c912401a3cdd258637eca93534ecc6df6bf326bcbfc512a62cfbaf133837572",
       "deploy_body_sha256": "0750765bae008cc085d265bcf0af5461913a36b8155682de133c01f21b50cf2c",
       "dist_path": "SourceA-landing/green-unified/dist/sourcea/enterprise-ai-control-plane.html",
-      "dist_sha256": "2d8c13544ef061251d81866a455e23b0aded9b1122b7d2d83ac326befd2e94df",
-      "dist_deploy_sha256": "79e820cc920c02e04ae8685b0cf0c0a6db073756205b9443c9a9083834710706",
+      "dist_sha256": "424a6e6055154b4b5b1f43caa09595263f79fa98cd9716087ff8d5cf73136e00",
+      "dist_deploy_sha256": "c497d236b90d45f1faf5fdc2d747f1b9354f4a3ee18a680bb78a8ad610ca2f4f",
       "dist_live_match": false,
       "rejected": false
     },
@@ -3864,8 +4057,8 @@
       "body_sha256": "cd6bcc098d9442209f47ef7d2115ead77bb56a53b507888ec2687c5d42fe6d6c",
       "deploy_body_sha256": "249ac98364515cc91b37842b7b55e2e807565372960bb612cc7d469b10c81d27",
       "dist_path": "SourceA-landing/green-unified/dist/sourcea/eval.html",
-      "dist_sha256": "358a71e15b46d720ee18a72137e456ab4cd02d33c8cb4abee7479c25562bf643",
-      "dist_deploy_sha256": "75b5c416a94903a032f7e87707d0001773d27c1e7bc261f2f2aa9dc9e7ffb513",
+      "dist_sha256": "a0069b57796c0a011074f5e8db3b62986e1aeb19005b2bffc57e85953a20261a",
+      "dist_deploy_sha256": "5b092bc7fdfb0ab3199d95d623083dd317c26994c748d5c508072407d629c287",
       "dist_live_match": false,
       "rejected": false
     },
@@ -4139,8 +4332,8 @@
       "body_sha256": "a132b547c611caaee46b2f78798046a5ebcbe45a17148806536a3f43f7b6e508",
       "deploy_body_sha256": "5aaae81eb3690377bc4a9d00574fc1decba1cd8147fb946c361bad5b29078248",
       "dist_path": "SourceA-landing/green-unified/dist/sourcea/forge/index.html",
-      "dist_sha256": "e829b6f54c0100bf4304898d0868da2a6187803cbe8ef6cbe8e30523222e806f",
-      "dist_deploy_sha256": "5658c6892add1dc61b2746fae4cffccd20de0c3f65ce346eceb9151c22af7114",
+      "dist_sha256": "c530a51b1a4e2bf4d902eb7228f7e511d0cf063daebd9ac200f48bb7ca79060c",
+      "dist_deploy_sha256": "c551327b29481daacecd22d077e80e6a8c29a04206b4486930312c38f6ddb551",
       "dist_live_match": false,
       "rejected": false
     },
@@ -4164,8 +4357,8 @@
       "body_sha256": "7485a7954f8c86c0c6da581f5cde08e8262434997eb92653ae632bd90e80d940",
       "deploy_body_sha256": "112e72ad86dcf9291d9f8a65c5ace0ae7f8fe4b07074e9e8b3aba48c32138b86",
       "dist_path": "SourceA-landing/green-unified/dist/sourcea/forge/chat-unify.html",
-      "dist_sha256": "d922158b6e22e3e332301ddf3bd31b18ce377a29e674a422f1ef03c9697c8ec9",
-      "dist_deploy_sha256": "781a0bbdb9811822d6fc093aba2302be9b0e4ea65f8b070be2f1c666d53153b7",
+      "dist_sha256": "bf3bd234ad26df497f8fc25599cc1a2f0463cef692efcf41c72d6292b3c15b10",
+      "dist_deploy_sha256": "8a9996317f8e047058a66c43c717958b2f9b2829af37da3aea9c9df65ec54d8f",
       "dist_live_match": false,
       "rejected": false
     },
@@ -4189,8 +4382,8 @@
       "body_sha256": "ac27c89e35ffe30709e0f529a792c9b5f1802ea442d8a8172714a019d4c8e8c1",
       "deploy_body_sha256": "73c1f8311ac52601a004c8c04d01127eb05ff6590bbedd2e46e1c40474391642",
       "dist_path": "SourceA-landing/green-unified/dist/sourcea/forge/cursor-bridge.html",
-      "dist_sha256": "6a3953e6657bdee3fd576ca52799046e4fa5a8020adcded8fc8d44d4120c3547",
-      "dist_deploy_sha256": "0d17ace2bfced8c7c9c6a04bad515f859459c7b403c9d69c782e4a0c45276ab4",
+      "dist_sha256": "0e33ac2e47bf2ff6ab4a8e3cd239dd5930fcda8cb302856addabc947c6b79155",
+      "dist_deploy_sha256": "8459af86c3995d094a39f3c0a597dfaa1d0645cdf7fa91b5349bd1a807667af1",
       "dist_live_match": false,
       "rejected": false
     },
@@ -4214,8 +4407,8 @@
       "body_sha256": "118a9dbeaa0671fa765be89f1d55c46722bdafece34ca482105394b2e1334c1f",
       "deploy_body_sha256": "ccaa9688d2b494aa8bd81d3c321bcde797b7dec584160c4312d1722e21538aeb",
       "dist_path": "SourceA-landing/green-unified/dist/sourcea/forge/how-it-works.html",
-      "dist_sha256": "e0787713904006419e126cdd2bab5cddb9b61962fd6a558521f174a6e8040866",
-      "dist_deploy_sha256": "c0941df0be23fbc0f2c3d1a5f0c3651ba348571e6188cf9eea33d9fe42099e0b",
+      "dist_sha256": "eeb19afd43e76bac25dafef33bf607d7eb3f69687384bcf18ef572c30cbc3e62",
+      "dist_deploy_sha256": "80afe04c9c05fc116f3f4a7844382b399661e34d64ddc1093e22a34429ded23e",
       "dist_live_match": false,
       "rejected": false
     },
@@ -4239,8 +4432,8 @@
       "body_sha256": "33c817b943f48381b481fe33c0cd433437957fca0459fae21c04b807bb2f0c97",
       "deploy_body_sha256": "ea8b7f438ff3c0f8afe58f0c7ab4dd8dffdf6c90f1e9c50b2cdae5661d91c3ee",
       "dist_path": "SourceA-landing/green-unified/dist/sourcea/forge/mission-template.html",
-      "dist_sha256": "2e8cce245b5d6596d5d7980485e296545364bdc8e4285f3e3bd40bb75648e8e8",
-      "dist_deploy_sha256": "d2cf3fab45b320c482764275429bc067e882fe5e7aec55daa5bb9bc68d15a7ea",
+      "dist_sha256": "2e30c537fbc88e1d07b3e22f5a07f907a14ee98e3cb9833ac25d0a17795c52f4",
+      "dist_deploy_sha256": "ebd65d3233db64898a124414014c422af7c4de4f48749d6acb474678f1dab6e2",
       "dist_live_match": false,
       "rejected": false
     },
@@ -4264,8 +4457,8 @@
       "body_sha256": "55ae3e3c673aee1a1bb9513b4e1982df48728353be2d2a5f9877d23f9ebc81f2",
       "deploy_body_sha256": "e80c6f7acee4d61aeb099b5ec4b034b2f9f9359b3b8312f64c3b2631936c4039",
       "dist_path": "SourceA-landing/green-unified/dist/sourcea/forge/ssot-policy.html",
-      "dist_sha256": "93bd2d3a4715ca0c6809e521e36aa431bae6538e098f15bcb15868fc7121f635",
-      "dist_deploy_sha256": "bc7dbecea5796fa092f5f3dd0e3ace5db7e1490273395bc484b4654bc743fe49",
+      "dist_sha256": "f8a9eaf2ce0d3c30faae40403b6917c1d0b540460faacda84df2055196b35688",
+      "dist_deploy_sha256": "2e4f745e667b78b2944558b904470bc9fd0190669680c4d8b014500c86a009dc",
       "dist_live_match": false,
       "rejected": false
     },
@@ -4314,8 +4507,8 @@
       "body_sha256": "be778727e48a71943108f62f0d02242551f359adb35b20da7f604a7b0f55799e",
       "deploy_body_sha256": "52c2dd1adc8be86cf7177a7f780743061e864bf705f302bfff035c95383be058",
       "dist_path": "SourceA-landing/green-unified/dist/sourcea/forge/terminal/profile.html",
-      "dist_sha256": "8b8d17c8263bd71f86ad95ab749f2bcb6678b8aae9368a6d5a7fc4c02a400636",
-      "dist_deploy_sha256": "469d52965035e99ea8a5d8e59a82e5cfc688bbb74293aa48082e7e0fb5525cf1",
+      "dist_sha256": "ffa7595e0e0284cbf5edd8ab241f02a8ab5c05c17a760c2e380d58bf7f52b398",
+      "dist_deploy_sha256": "2bac93810dbf4b3994ae220a5f8326f579659e33d03882278ee12660686446c1",
       "dist_live_match": false,
       "rejected": false
     },
@@ -4339,8 +4532,8 @@
       "body_sha256": "74bf5049a0640fa7afbd45ad51b1b0d055d60b71ad3d30d49850d116803e2c21",
       "deploy_body_sha256": "a1ffda876ed3984fdef13f9eecbb163fa23e65a6563d01b4d69952da0be857b9",
       "dist_path": "SourceA-landing/green-unified/dist/sourcea/forge/terminal/signin.html",
-      "dist_sha256": "7e73dd0415cae33169b789cc3d2734b3f7aada82d33f96f8f50233a5adf10e7d",
-      "dist_deploy_sha256": "d7c83564905687b047aa5ffee19440e8172a62a0cf36ea7765890912f73ba6d2",
+      "dist_sha256": "c9adb8a45010963ea29ce40c74f742c41e724e26bf56706d380dbce73e19a1ab",
+      "dist_deploy_sha256": "4c2ea89c5b3b5dffc77a3357537941b70f6616c726844345551a020e480f4235",
       "dist_live_match": false,
       "rejected": false
     },
@@ -4364,8 +4557,8 @@
       "body_sha256": "4a03d9a6d05b0d4d9258a2d669fd13912b366957b850f39b540e355e989cfbdb",
       "deploy_body_sha256": "91aa5a847954bbe173988904824b64d97fa7f64096ddde53144d23006db5c4e4",
       "dist_path": "SourceA-landing/green-unified/dist/sourcea/forge/terminal/signup.html",
-      "dist_sha256": "6bba4695dd0da65feedfb6bd61efd49ebe05ddc66eab0fe762d84c5259c37d44",
-      "dist_deploy_sha256": "8a77dbdb9f471f89c73b74364fead38a9cc9498fa8fbb33213a8eda2b3e32092",
+      "dist_sha256": "6e4ce48b074ce9f406e77cbb574d0bf45c9475563c61d510df27a5a279fe97bc",
+      "dist_deploy_sha256": "4486abfa469cfad2c6617f98d648693a5e0119b890f2a4472893466fe65e97f6",
       "dist_live_match": false,
       "rejected": false
     },
@@ -4389,8 +4582,8 @@
       "body_sha256": "78a06331b8c094efb4a9d0c31cd1823a3a80b6828cdfca4d17b200c7c69e76b7",
       "deploy_body_sha256": "233d4547cd055a0e98e7baef42c214de830db8a203fe7ca80fb5a3a855cc65c1",
       "dist_path": "SourceA-landing/green-unified/dist/sourcea/forge/terminal/workspace.html",
-      "dist_sha256": "2895d9ecfdeb9f2f95ffe34f61dfb87bec3758679b791be422b8f0bce1f0616d",
-      "dist_deploy_sha256": "0700561cc7974aa589eeb3e3182155de9ed80d58a3dd9f5f595d23220acdbe4a",
+      "dist_sha256": "0998a6709cf3f50997f2b3b4c203b67c4ae5753ab400b357f10b720b23951fb7",
+      "dist_deploy_sha256": "3342b9747f64299c671ffeb7ccb748febda0fb8091c82e23b21c4ae015d2ead7",
       "dist_live_match": false,
       "rejected": false
     },
@@ -4414,8 +4607,8 @@
       "body_sha256": "572996897e8d61d49585c5ad35033ca15bdf96d32d86415fa6d33683f680509c",
       "deploy_body_sha256": "7da8b59ee4c5415fd97cc662413118b2ca2c021ef2a31f3b6b46ce8e068c9563",
       "dist_path": "SourceA-landing/green-unified/dist/sourcea/forge/try.html",
-      "dist_sha256": "16a2a5ffa9173b10ab830a7955a3b57a50b60e12e25006b3e30e5ab9156936d8",
-      "dist_deploy_sha256": "b8c3d8011743257f2d72c7993006a94088169096d7f03380e4d0c70c5930032f",
+      "dist_sha256": "f3b018b5a2b092542c53c513ddd81c83b466eea7110ee47cb6baebe94aeccad9",
+      "dist_deploy_sha256": "0a1471d4eaf14674dfdd6011be13b68f3b429c90bd0009f82f8e8e06c54e7403",
       "dist_live_match": false,
       "rejected": false
     },
@@ -4444,8 +4637,8 @@
       "body_sha256": "c1f3d6c3b6b6b7911f94ff58611e501d77d9b5e7aea19673119f1bbd579b2e44",
       "deploy_body_sha256": "b4575f5b174f0db4e160745dc8bccb8ccfef69fdd3d4e38513ebfe1efe482344",
       "dist_path": "SourceA-landing/green-unified/dist/sourcea/founder-home.html",
-      "dist_sha256": "f6d6033210062a08be77a08375fe93c1150b6ab2f2787cd986de51a505dc5588",
-      "dist_deploy_sha256": "207514ad1b1c99cf77ee84a7d2a387a4d2e914ef601a2ea45b969e647b981232",
+      "dist_sha256": "cbabb3691142d4b8fb8e796b5b408383f7f236be569e99175753aa0c65842749",
+      "dist_deploy_sha256": "72eccee50382ad6b7b702d1b74200e1b6f571003817a5f87e440a294e2423f7f",
       "dist_live_match": false,
       "spa_fallback": true,
       "rejected": true
@@ -4495,8 +4688,8 @@
       "body_sha256": "1ac2024e9b58507123d92060bf9efc08941d5cb698fd34467d507ba6306e7dd2",
       "deploy_body_sha256": "d3c6d943b5a9ecdf47988002c82cbacdf8df999cc5e841bcd42cdb797715c8dd",
       "dist_path": "SourceA-landing/green-unified/dist/sourcea/growth.html",
-      "dist_sha256": "f1a7fd4a61ca7cbb312095ff983758a319a34c8bc31843b24d3ce0966f307205",
-      "dist_deploy_sha256": "94f96fd5ba6eb066b51a1210cfffe8c0338729699210ec6bf60880573b82b0f0",
+      "dist_sha256": "723751cfb618d22f298d7237fd9cd1900b3dd371a42af76347dc00c203664a21",
+      "dist_deploy_sha256": "290d62df615bf26f51f92bab89475f753ecbb2163693ca1258514afb86ace5bd",
       "dist_live_match": false,
       "rejected": false
     },
@@ -4576,8 +4769,8 @@
       "body_sha256": "36f01c18c3ac0ec2fdbefe4a2ccaecd2b224c7621728b491af7073e417f55f98",
       "deploy_body_sha256": "b7d0e8d8988ca520654aad9926ee101718c302810a7f5a1de3692ec7dd73b069",
       "dist_path": "SourceA-landing/green-unified/dist/sourcea/investors.html",
-      "dist_sha256": "6817fe04a9414f0a3fe994a0190e2695117912cea5c7202ed51b7bb6cd54e52b",
-      "dist_deploy_sha256": "203c2fa52d9526571fb9d7e8f9737eb1be01f172d61b1e221f2e0015af69a1c4",
+      "dist_sha256": "6b4263ec6959c01a2c4c75d7f099b4d5118348414445f85f11a99fd788fd8d0e",
+      "dist_deploy_sha256": "92ced155f1861c3cff4950009af4158dc5ba6a9b0d45aae0383a6a5e16538d6e",
       "dist_live_match": false,
       "rejected": false
     },
@@ -4601,8 +4794,8 @@
       "body_sha256": "021e9c923e8505f4987129e451bf756ac47abd1019fb9ea366d0b6992394f687",
       "deploy_body_sha256": "a7b8bc3e3f72eb2e2c6efcbcec6f4f865ae069d02f3c2405ec3cdfb9450dbfc6",
       "dist_path": "SourceA-landing/green-unified/dist/sourcea/kernel/index.html",
-      "dist_sha256": "4054990764906f2ac4a63bfdc2fbf6630f0152e833f45f68b41f5ea497538e49",
-      "dist_deploy_sha256": "0d9f4f1ff269b8cb1e961dd48a53d2c9cf642f0babd09267260e55d438c7bcb1",
+      "dist_sha256": "17936b2d736ac0f0aa7afcfeff298b60d58fdabcd2e7d9d0da8cbc39782091c8",
+      "dist_deploy_sha256": "ca33240444eb7f3e0ce1c8cddc4a52ff43280bb93396d99738ab99386c83678a",
       "dist_live_match": false,
       "rejected": false
     },
@@ -4651,8 +4844,8 @@
       "body_sha256": "5898d8d30e9103e88971a2036a9e3860999dc9f3316aa36b9488616882a12204",
       "deploy_body_sha256": "cdadd671af5bab2e10b4874ac2ec526286d059f880bf46974f41398212a5cea9",
       "dist_path": "SourceA-landing/green-unified/dist/sourcea/loops/index.html",
-      "dist_sha256": "ca6f4e63c84848552fb536dd4ae7a1c575ebf9fe61021d85d6352a452404494c",
-      "dist_deploy_sha256": "f398eead500dfe77f50a92416dbecb9988e4e65a11575c29d6dbc6f42efd3c66",
+      "dist_sha256": "b8686aa8727180baca21bcdb38b82233234efdfecf119fa359a161508727cb72",
+      "dist_deploy_sha256": "b3eeeaf90221a1411f67ddba546e5a31bf62d6f773ca93e10ec30179e4cc3aef",
       "dist_live_match": false,
       "rejected": false
     },
@@ -4676,8 +4869,8 @@
       "body_sha256": "5e678ac67422799cf9e24d83e1caf953e8b91ec60983ddc8aa3726ec49df5ee2",
       "deploy_body_sha256": "5542a65c359aab3ab8c70522686d49892b4dcd1e90ff9f9a36efe6bdf8fbef13",
       "dist_path": "SourceA-landing/green-unified/dist/sourcea/loops/eval-booking.html",
-      "dist_sha256": "b74b02705aa837d3cfa25fc2cf755f3df0b421976fdaacb5576af3b7c2c8ee64",
-      "dist_deploy_sha256": "a38de9a3dc66c80aeec3b73e6763b47c987606d47e7060da094fd4992ef90e3a",
+      "dist_sha256": "de922cd7b9d05834bb64e7d8fc828cbb0f396c1f23facbaceead0de362089576",
+      "dist_deploy_sha256": "70ac08dbc9417f743fedf9f3f2b96cd45b7e2d0f21fe2bfc3e10c9eafe005c8a",
       "dist_live_match": false,
       "rejected": false
     },
@@ -4701,8 +4894,8 @@
       "body_sha256": "bf293cee9aca9b0db9956429c3cd0a2193fda808b012f837f64553d93496e5f4",
       "deploy_body_sha256": "6ae58f71125bb31ec546895e9167000835858ad87e3829003ead53dae963a054",
       "dist_path": "SourceA-landing/green-unified/dist/sourcea/loops/ops-monitor.html",
-      "dist_sha256": "8f9e72aac4478fa6570bc7db3b14ae8b577ec29f1cedae3851ea86cb32feeb83",
-      "dist_deploy_sha256": "ef69faebefad979ae3e8ecbb7cb3cc9e3552737d5ed9f8933d5fb111f93236ef",
+      "dist_sha256": "1fa9f1c6c14f380654997cd812c7186907c8c2bcfbf7f3d3cc3bdcab7980e65b",
+      "dist_deploy_sha256": "824fd5206277e4e1b0c5bae6c4bcdc0886b6a30f3bf22f6a4f5dcfa09296f341",
       "dist_live_match": false,
       "rejected": false
     },
@@ -4726,8 +4919,8 @@
       "body_sha256": "9bf81d0f50efe7f35dd31801294e939f59958a7464819c8a1226e5850b283ba9",
       "deploy_body_sha256": "af26498822f0545cdac16ed063afc6bf05546aeb533cdf0b11959c13b50fb125",
       "dist_path": "SourceA-landing/green-unified/dist/sourcea/loops/outreach.html",
-      "dist_sha256": "e75e9f8650cc29bf18cb24389f2e67caea80289cb06f36e9ccb0d03abe4ac0c0",
-      "dist_deploy_sha256": "b17610b6e0f1e5eb92c8bc2a435654db0a602854cf7bade06b8d98568b177500",
+      "dist_sha256": "6c491d68ed69b9099a050c23819a15bbed24ef6c1d1211dc272fdd1f395a2e7e",
+      "dist_deploy_sha256": "fc9599fa763858573f52128f98c498b547b01b44f6ced0976018bbdb8bd2c294",
       "dist_live_match": false,
       "rejected": false
     },
@@ -4751,8 +4944,8 @@
       "body_sha256": "802478fe15bb15baa14732d637c15635ca90a1c71a766ce252deb3bb35ff5ce5",
       "deploy_body_sha256": "e0d3dbd8950ba6a92e7308754110e075b19cbb16d0612b82957eeb40faa6a2b2",
       "dist_path": "SourceA-landing/green-unified/dist/sourcea/loops/proof-export.html",
-      "dist_sha256": "5751bb9a9776153ab1fe393138e8af0db73593429839f5e8e07d278fc25a4eac",
-      "dist_deploy_sha256": "3957be4a64cd37cd817b110cf5fda91494053ddd478333893319be3313c31f18",
+      "dist_sha256": "3c2e0aca68bcd45813aef70960d0283fb573b262c9ffa34a0d13329f80644449",
+      "dist_deploy_sha256": "e8f1deddd634854bb19a4fe451b3e1f4823520063920d420ae49ec3d8376634c",
       "dist_live_match": false,
       "rejected": false
     },
@@ -4776,8 +4969,8 @@
       "body_sha256": "4d5fd75b079b6e9acc2694b6e789c518a1eab5cae62e4ea385816f32f7d1cb82",
       "deploy_body_sha256": "ecd6e609970f5803511764ff642751983c594dae4307b35444727c34215899eb",
       "dist_path": "SourceA-landing/green-unified/dist/sourcea/loops/research.html",
-      "dist_sha256": "b27bc3040ad420735370b84789aa3ee522c2d7238153bffd491530d3ec9b3af3",
-      "dist_deploy_sha256": "9ccd3c879d1b36dd7819200879ad365d06f178f663c7aaec40ec3aa8e559a39c",
+      "dist_sha256": "bffcff3842609aeb131d6d6be128dcb412847dad7be9dc1150e415b9e706670f",
+      "dist_deploy_sha256": "52734e2630358987a4acc91fa55b6434472268623d8c33f6f1617bf0d72ee39d",
       "dist_live_match": false,
       "rejected": false
     },
@@ -4801,8 +4994,8 @@
       "body_sha256": "f71cd145c76ac3a710e72337b6a7c91575e82195d32241e60e88f5af7cd18748",
       "deploy_body_sha256": "5289ec47a4a2b420f24f8935f9e9db597cb876482e5ce11336b3cc682b45caf4",
       "dist_path": "SourceA-landing/green-unified/dist/sourcea/loops/session-gate.html",
-      "dist_sha256": "9ca6a2f06c2d2a2fb3b7bb2c2f7cbb29f850757c4cf3563f5bf7a95242c6fdc9",
-      "dist_deploy_sha256": "62c95f5ecbf233e9005c91330fe2b3681a26941363de2b84d3ea66e939b082e4",
+      "dist_sha256": "bcad1abdfb1f699f90605fa09bfe7e4dc57a9d38dc92afc6c418afd283046e8e",
+      "dist_deploy_sha256": "b36aa6a03b2acfc8651594d89b9c1e360a0ea95deb5950d893bbd625e2467508",
       "dist_live_match": false,
       "rejected": false
     },
@@ -4851,8 +5044,8 @@
       "body_sha256": "fa25f6850516e987974952327fd743693ffe2039902f648ec522d4c32ff33687",
       "deploy_body_sha256": "29988e80f890bf5343ff7d2ddb9986e92d7a9ff6129e79b1cc8079c0bfa713b1",
       "dist_path": "SourceA-landing/green-unified/dist/sourcea/offer.html",
-      "dist_sha256": "5f9df540b7c7f5d1fea67b4208b14c6b9ddc4280b59be85cbcbc0be73792cf60",
-      "dist_deploy_sha256": "019a124d5aa526ebbf0fe98e1eb8acaf24205b7cd38a2e1c9b4dbc90a46fb549",
+      "dist_sha256": "890a93f440e86796f5077bdaba62c75711f64bf89c9a9cf1373414819a0ed4db",
+      "dist_deploy_sha256": "a30b4f0984725e1863055ca1e7044ad1469b37efba3d26e1e1b6f038c2ec82cf",
       "dist_live_match": false,
       "rejected": false
     },
@@ -4876,8 +5069,8 @@
       "body_sha256": "f2c45aba767db0617798b502d7d053bc94170f6c034da47e70d01808a5e67a45",
       "deploy_body_sha256": "2d99122b5a5d7630690b8f0c533a02a6a3a8dfc7a8eaf8137be214e215493960",
       "dist_path": "SourceA-landing/green-unified/dist/sourcea/operating-brain-install.html",
-      "dist_sha256": "0f61d73b18ac07ebb8b3901c65d6d38e5f73f46783ae688a39bdf627482a8361",
-      "dist_deploy_sha256": "d68fd0ffcceddff2c3e477ab1e61f077b799575c61728f2b3e2e295e56546415",
+      "dist_sha256": "cbcf81f63b85a080e805e6f3b02bf22f7191eccca1c1609a0033eaaf3a5a2645",
+      "dist_deploy_sha256": "4f4e6b90090e2acc98bcb99b0a74c43d5d91ef090b6ce7ad97cc4bd0dcdaebe5",
       "dist_live_match": false,
       "rejected": false
     },
@@ -4901,8 +5094,8 @@
       "body_sha256": "2ef190ad8b9dd28a6e1d3dcf99bf9aec5e3c38932aa30c304400030b6fafe9ab",
       "deploy_body_sha256": "e9e91257bd15f361b09d1c47ae54c8842bfe1859f3745f6483be5ae83125a209",
       "dist_path": "SourceA-landing/green-unified/dist/sourcea/platform.html",
-      "dist_sha256": "e96a4cd1e25177bd25dd79a76292671d3a8e7a2b81f9548ad0944d7faba4f47c",
-      "dist_deploy_sha256": "ada47610def74b696e91722c84b841dfff5471639d78ff957448fa362f9b7503",
+      "dist_sha256": "2b317b004af164421e2bb1110d0fbed7bb071329b105b3f418b630b6b63cda71",
+      "dist_deploy_sha256": "16d6857151757b845bd9423dd632e7a4f8fc94dae782604c58f0730f6fc2035f",
       "dist_live_match": false,
       "rejected": false
     },
@@ -4926,8 +5119,8 @@
       "body_sha256": "50f187fe02ba519e4611ae965f094168fc45edc2bcbbe973927fa2573f6df211",
       "deploy_body_sha256": "474abf29c2cdb7403ec2895773015bb13391cf0861401db8cb04a8e8c2325d1d",
       "dist_path": "SourceA-landing/green-unified/dist/sourcea/platform-portal.html",
-      "dist_sha256": "44373b77d4da2f1bfb98f866b49df9e576d3c1c5189a2ab7a646aa72b1131e2d",
-      "dist_deploy_sha256": "aab2656bbaf6fcf55f6e27f14e526d1cea829fa35ae2a400e3b9b4bdfcb18809",
+      "dist_sha256": "6c1a9f2edd740bbf53bff333f79d1f62840b199b64df21dd6f71fc1d50fc5c83",
+      "dist_deploy_sha256": "ab0ac705abdc0d33d9686e193a33ea5064e69446c5b5a86b80330a524d316ef8",
       "dist_live_match": false,
       "rejected": false
     },
@@ -4951,8 +5144,8 @@
       "body_sha256": "be778727e48a71943108f62f0d02242551f359adb35b20da7f604a7b0f55799e",
       "deploy_body_sha256": "52c2dd1adc8be86cf7177a7f780743061e864bf705f302bfff035c95383be058",
       "dist_path": "SourceA-landing/green-unified/dist/sourcea/platform/profile/index.html",
-      "dist_sha256": "8b8d17c8263bd71f86ad95ab749f2bcb6678b8aae9368a6d5a7fc4c02a400636",
-      "dist_deploy_sha256": "469d52965035e99ea8a5d8e59a82e5cfc688bbb74293aa48082e7e0fb5525cf1",
+      "dist_sha256": "ffa7595e0e0284cbf5edd8ab241f02a8ab5c05c17a760c2e380d58bf7f52b398",
+      "dist_deploy_sha256": "2bac93810dbf4b3994ae220a5f8326f579659e33d03882278ee12660686446c1",
       "dist_live_match": false,
       "rejected": false
     },
@@ -4976,8 +5169,8 @@
       "body_sha256": "1cc90ea48d24edc958c7182171ed14c458b56c799a49093d346b3e26014944af",
       "deploy_body_sha256": "83273880b8fbeb6c9a947791057c02ed6a8289422eb15b4c3ea173a20f39eae1",
       "dist_path": "SourceA-landing/green-unified/dist/sourcea/platform/sign-in/index.html",
-      "dist_sha256": "1f46d2c00e5f833ee555608395f087eae5a871002f8bce27d9a64bbfe88950ca",
-      "dist_deploy_sha256": "b49e5785bbdd55adc7f043587b79cf9465e2663f4449b811db2fc639c0d0cc31",
+      "dist_sha256": "653be40d161064ef67134a82630b1a38f3fab3748d54e9b0c93ecc33f027f49f",
+      "dist_deploy_sha256": "178d9c591febbb79d25a1aa565db46c926f04d3df971917e01170586a721ae43",
       "dist_live_match": false,
       "rejected": false
     },
@@ -5001,8 +5194,8 @@
       "body_sha256": "1751835632a62e21d1abfd1a410dd48fe439e01503b131d9ac533b4594d3c974",
       "deploy_body_sha256": "adb4bad79b6d0df001211b4b030db5ec5e9e5360168556acba4a42314c6e8c64",
       "dist_path": "SourceA-landing/green-unified/dist/sourcea/platform/sign-up/index.html",
-      "dist_sha256": "45e23c83fd6028231b4cb01b1c523f1c4aeaa344717b6058d565a02abcd3f416",
-      "dist_deploy_sha256": "9265b4c1744da678ee385a15b8ac424e384f6806ba6f39195fbb9abb740a0aca",
+      "dist_sha256": "b2f0e394569fe7f19db17daf53b6840c676e025c092b51efa7674f2e15450f8b",
+      "dist_deploy_sha256": "0122bae026b9b205b3a972d5b0767b1f36e0bc4fa967e5e04793e2b57fad9196",
       "dist_live_match": false,
       "rejected": false
     },
@@ -5026,8 +5219,8 @@
       "body_sha256": "78a06331b8c094efb4a9d0c31cd1823a3a80b6828cdfca4d17b200c7c69e76b7",
       "deploy_body_sha256": "233d4547cd055a0e98e7baef42c214de830db8a203fe7ca80fb5a3a855cc65c1",
       "dist_path": "SourceA-landing/green-unified/dist/sourcea/platform/workspace/index.html",
-      "dist_sha256": "2895d9ecfdeb9f2f95ffe34f61dfb87bec3758679b791be422b8f0bce1f0616d",
-      "dist_deploy_sha256": "0700561cc7974aa589eeb3e3182155de9ed80d58a3dd9f5f595d23220acdbe4a",
+      "dist_sha256": "0998a6709cf3f50997f2b3b4c203b67c4ae5753ab400b357f10b720b23951fb7",
+      "dist_deploy_sha256": "3342b9747f64299c671ffeb7ccb748febda0fb8091c82e23b21c4ae015d2ead7",
       "dist_live_match": false,
       "rejected": false
     },
@@ -5051,8 +5244,8 @@
       "body_sha256": "66d5812a7bdc90e9efb5a3528ca30c0157ddb094bef96796d5509c522b19ae5f",
       "deploy_body_sha256": "f53e1c15ea36ba8889f3b5c9ceb007a5aa570ef69037a0d40b7b80b69c088727",
       "dist_path": "SourceA-landing/green-unified/dist/sourcea/pricing.html",
-      "dist_sha256": "dad849d3cb51013f4e437c76e149a5bbcf664e4a74a48d50ced9c9ad7ee812ca",
-      "dist_deploy_sha256": "5ec43af6b90acab99f85181f3c83e329632e70ee2131abd31329849d1dfeadf3",
+      "dist_sha256": "0f10cb3ed80c342a835e28e468467dd7ad7b925b9f60214c51123af0734c72b5",
+      "dist_deploy_sha256": "853018555ebecffe7208328575601daed95715f29c0ba322b67bcb27d94e6bdd",
       "dist_live_match": false,
       "rejected": false
     },
@@ -5081,8 +5274,8 @@
       "body_sha256": "c1f3d6c3b6b6b7911f94ff58611e501d77d9b5e7aea19673119f1bbd579b2e44",
       "deploy_body_sha256": "b4575f5b174f0db4e160745dc8bccb8ccfef69fdd3d4e38513ebfe1efe482344",
       "dist_path": "SourceA-landing/green-unified/dist/sourcea/privacy.html",
-      "dist_sha256": "8a72a3cd2e002ca486cd8d75104796ee5457a9fa3a57ac4c40405f62cde12d4c",
-      "dist_deploy_sha256": "f208a5f4f2e8b7245a09364cb1f60387802b2ac1fbb1138304c1b131adf1884d",
+      "dist_sha256": "78175d3ea96b315e70b0196d353fea14e202ded5b20bdf5459185a96282b1df6",
+      "dist_deploy_sha256": "1e8e851f82450f3ee073a2e93513a1c6e03741323ef5ad25d1e8c14069990140",
       "dist_live_match": false,
       "spa_fallback": true,
       "rejected": true
@@ -5107,8 +5300,8 @@
       "body_sha256": "4b93ae53edf85e0d1b051760008e26bbf0c6fe45b477de88957f2cc632e315d2",
       "deploy_body_sha256": "b3599f1b9c0c3e7285b14bcb6cd175fb176cbbace77fbdb93c443e79371c100a",
       "dist_path": "SourceA-landing/green-unified/dist/sourcea/proof.html",
-      "dist_sha256": "863206d5d425d0908b51f5705d498d21d8f91d2d74e580efc3a3d82f66224b1e",
-      "dist_deploy_sha256": "c04864e15a3f20954f5a9e8cb511e9ba773e7405707c908e3905c852577a3dba",
+      "dist_sha256": "c8a96ff792f93437dce0be1753de45e1bbca74ea0cab72384215e352843a2c7e",
+      "dist_deploy_sha256": "7c7c5cb8a09d43e69d1c7c7d57f38618d1f342aac878143ed6aedd02eab9ea33",
       "dist_live_match": false,
       "rejected": false
     },
@@ -5132,8 +5325,8 @@
       "body_sha256": "c293ec46e9a12e686a750fc61e54717fbb345447d5a6de78f5f036e23dcbe44e",
       "deploy_body_sha256": "14b9037769e8b250ae3b9f1dc0379a2673cc53b5f46825bd4b1e2d20097b45ad",
       "dist_path": "SourceA-landing/green-unified/dist/sourcea/proof/live.html",
-      "dist_sha256": "735873f7ec79f727f64c34ba02e074dc865de2cdc0ea54a1da5af35fac5683e7",
-      "dist_deploy_sha256": "77ab9ed97f9629f52f322ca8713946ff86cefaac8de96fb251e2da3a1c751fe7",
+      "dist_sha256": "e3e504b541cc065e03235e79a7af49dd4dfbe46ce104c488f70df9f4265497a3",
+      "dist_deploy_sha256": "849b44b23b144f39f75555a1953ece3f5dd4654eeb2ea98a2ccbeb0d90e60d15",
       "dist_live_match": false,
       "rejected": false
     },
@@ -5232,8 +5425,8 @@
       "body_sha256": "b3a9b8b2ffe7c1139bdc41bf46afce00f293a9c0d58bbc649bbe6e7e14d572ea",
       "deploy_body_sha256": "1775b7e8d524b2733f53974b2fd8634987870ee133c4d2175d3d2cf78e67e2d2",
       "dist_path": "SourceA-landing/green-unified/dist/sourcea/scenario.html",
-      "dist_sha256": "6a5c37e5dc74af3bdf50b6b4e381c3baecd72a9b35bee50564d57f678fd9cf94",
-      "dist_deploy_sha256": "550cdb42c5fdee089837818e06012fe4e872befeb935f43ea51db1fd0bd7ff76",
+      "dist_sha256": "4cd090be2058c828590b52656eea0b24e014294cac7e924a83dc06ed71d03297",
+      "dist_deploy_sha256": "170b61c960a84f6f7fcdb62a4a4ffc2d7d7131917b8e1eed1fa2d3b51a2e90ee",
       "dist_live_match": false,
       "rejected": false
     },
@@ -5257,8 +5450,8 @@
       "body_sha256": "667e3abdb628553b78b240e2705dd4a8a5e6a1af8cc96d032f8cf84502e00dd8",
       "deploy_body_sha256": "f12fe5d042d3d94469d5e1fa565ba0811f5e67abcca39a6dd164174da8353d40",
       "dist_path": "SourceA-landing/green-unified/dist/sourcea/security.html",
-      "dist_sha256": "29d5c7a855b9bd498d52c5b63bea8f0e5bf0d002650dc73deee94ab5cd7528ac",
-      "dist_deploy_sha256": "c277bbaa990d790798691b57ee2f98d785fb83f61bdd49258c84b04786cb2e08",
+      "dist_sha256": "345c6906ac71fdcf679d77246d88d714ecc9dddd3bb2250e6759235744febe7f",
+      "dist_deploy_sha256": "cd9db7c04e6eda8f05a114b20cb91a6465dfbb5f5cfc3459cda0ff54e9d210b7",
       "dist_live_match": false,
       "rejected": false
     },
@@ -5282,8 +5475,8 @@
       "body_sha256": "5b4986430150adf0d585a95735cb0dc9c79046e3875ca57e6f5684620d07956e",
       "deploy_body_sha256": "a86284c47ccf37c45b0c85058ab7ee36d774bd67ced7ee8d2f87bb72d459dd17",
       "dist_path": "SourceA-landing/green-unified/dist/sourcea/sources.html",
-      "dist_sha256": "a524ae4a912c1450f0503dfc709541f3a66af7b13698a6a987532e4c7bc5e138",
-      "dist_deploy_sha256": "d6a1ed829c3e1d8ef0f6183b0322b99b65146961d09a2936308530c7fc377531",
+      "dist_sha256": "85c36657a72fde91f958bcdccd9b46d570acbd28d2eb1151f22b7a10fbf976af",
+      "dist_deploy_sha256": "2f8281b4efed8754cde9b72c4f280ef95ad99f5efb7524706c3cd1a31e7c7cc1",
       "dist_live_match": false,
       "rejected": false
     },
@@ -5332,8 +5525,8 @@
       "body_sha256": "b442f7e9779018c6e4966d3e8cbc03e1da2056745dfdd2be6fded0b52a685ee3",
       "deploy_body_sha256": "01e15bc795336781ce0803fd5b4c89d8150e2abd3366ce28b7f159b94d99a1a5",
       "dist_path": "SourceA-landing/green-unified/dist/sourcea/status.html",
-      "dist_sha256": "7c059d52ec367f45f7428b338c0b2c05a25891d3047f5d0666aab7965712363c",
-      "dist_deploy_sha256": "a504233ea681412712d6ac7631de5e2c32a17d2d212a1d93d3114808dbefc1f3",
+      "dist_sha256": "b6283290a0b5ba21b872bc9c642aa16f82aada97d221bb51370e47f3d79d19f2",
+      "dist_deploy_sha256": "39881f60ccf6d94f96c3483b906985721bf87f81344ce530ef3170b31c18b014",
       "dist_live_match": false,
       "rejected": false
     },
@@ -5357,8 +5550,8 @@
       "body_sha256": "23c2d45958c54699837119d0d6d8c76f80456a5cdfd89dc0f6d36247c7004a2c",
       "deploy_body_sha256": "c5b7cbd02895cc38c0ef7445c9def901259002075723d0432c3acefe012752b7",
       "dist_path": "SourceA-landing/green-unified/dist/sourcea/team.html",
-      "dist_sha256": "4c242bcc7e388d10b67476d9f2fac31e1bd89985c008779f4af092c5de08407a",
-      "dist_deploy_sha256": "8a8dd19b96bcff20a19b9a4a13dbe963dd04a6fb566fc7bdcf96cceed03bc6f8",
+      "dist_sha256": "650eff774e69d4d44448fe0c03e4cbfadfc48b62ed3acc3bda131591b54b89c9",
+      "dist_deploy_sha256": "eefa07d5d4efb93beca24f3fc8c17e6e88bc80e3b2a7e362ef28d24fd4399f50",
       "dist_live_match": false,
       "rejected": false
     },
@@ -5407,8 +5600,8 @@
       "body_sha256": "3d7b7bac3882d69197a552202d6f81733c8c240196eeab65e4bd52cae86ab563",
       "deploy_body_sha256": "41a47c2521347463ccc275c8b97e8e9b95a4d747452a07a82f5bfb69fcb57d02",
       "dist_path": "SourceA-landing/green-unified/dist/sourcea/unify/index.html",
-      "dist_sha256": "d85047fc3e21d4e7bf5a8d0ce8eb504798d7884317486c607cdb9dbcb10f0a85",
-      "dist_deploy_sha256": "88cff0aa130dc137fa38d7144386182ec6076f2bf10bf67d243639822d4f66a7",
+      "dist_sha256": "d5fd39262d40fd9a188f2a915bc13a2a54833512845a281cacade1c9041275bd",
+      "dist_deploy_sha256": "cbfbdbeffba59deaa0cde93ad0305f45ba6a3198b12510fde7d9cfe0ef413b87",
       "dist_live_match": false,
       "rejected": false
     },
@@ -5432,8 +5625,8 @@
       "body_sha256": "3d7b7bac3882d69197a552202d6f81733c8c240196eeab65e4bd52cae86ab563",
       "deploy_body_sha256": "41a47c2521347463ccc275c8b97e8e9b95a4d747452a07a82f5bfb69fcb57d02",
       "dist_path": "SourceA-landing/green-unified/dist/sourcea/unify-demo/index.html",
-      "dist_sha256": "d85047fc3e21d4e7bf5a8d0ce8eb504798d7884317486c607cdb9dbcb10f0a85",
-      "dist_deploy_sha256": "88cff0aa130dc137fa38d7144386182ec6076f2bf10bf67d243639822d4f66a7",
+      "dist_sha256": "d5fd39262d40fd9a188f2a915bc13a2a54833512845a281cacade1c9041275bd",
+      "dist_deploy_sha256": "cbfbdbeffba59deaa0cde93ad0305f45ba6a3198b12510fde7d9cfe0ef413b87",
       "dist_live_match": false,
       "rejected": false
     },
@@ -5457,8 +5650,8 @@
       "body_sha256": "5a6d7859fcd657ad4a894451fb5bdf3454f7429a53d402bc9ad46f24c10b7902",
       "deploy_body_sha256": "9d52ee719e3b6e8ace79305ce7786b9943a1239cb22c47c9aab17a5a777f7e6e",
       "dist_path": "SourceA-landing/green-unified/dist/sourcea/unify/terminal/index.html",
-      "dist_sha256": "801dce66bb0218811ffdf9bd0714732a1af77fbde0bfee6fe475f3475a938111",
-      "dist_deploy_sha256": "fa96db1e6705d4289353faab64adc7527020904c64cc922d77ca720719daa9cd",
+      "dist_sha256": "e2a3812d949af2c1d2aac5c7a489ddd7c9d49005f9b34a2aa4059fc2a1218276",
+      "dist_deploy_sha256": "d22eaa881cd328d4d4c75f3420193a23716d0db86a5b1d92216abe543e12bfc1",
       "dist_live_match": false,
       "rejected": false
     },
@@ -5507,8 +5700,8 @@
       "body_sha256": "23c2d45958c54699837119d0d6d8c76f80456a5cdfd89dc0f6d36247c7004a2c",
       "deploy_body_sha256": "c5b7cbd02895cc38c0ef7445c9def901259002075723d0432c3acefe012752b7",
       "dist_path": "SourceA-landing/green-unified/dist/team/index.html",
-      "dist_sha256": "420c28ae55039c2cc6085a4bb40fafe8f1a6f6966606fb484683d4bd7667289a",
-      "dist_deploy_sha256": "2f632476c85ca4ac2a63157ecbeefdb5c364ee3f44d057fe32b8015b3cfb2fd7",
+      "dist_sha256": "dc4dbd8873cfa6c7a3e4beefa580824c32a09502f72fa1ea3c0a4863cc64ca16",
+      "dist_deploy_sha256": "46cdd2e0ef80ce923cd69b1c3aed587335d337a7808d32080c585d21076791ce",
       "dist_live_match": false,
       "rejected": false
     },
@@ -5532,8 +5725,8 @@
       "body_sha256": "56548fb9a5a32f62263706c04edc4dbc116415714b57ca2ec41914892b8fe1de",
       "deploy_body_sha256": "6d515715d72c79da5338d23c745c6439dba9bea981cbc63b471a7e68f5f3eb36",
       "dist_path": "SourceA-landing/green-unified/dist/unify/index.html",
-      "dist_sha256": "14c0a49b0f052a666af57bfa6733ade9ff3953ff59e7a9cde83e57ef9dcb9d72",
-      "dist_deploy_sha256": "847a5567d134c6b110a474dee03a4067b1a85a15037bd577412da287162a74d2",
+      "dist_sha256": "6f4e547f7d57eff055fe174f07f61fa51a7721e96927126b74860b4d8235ca24",
+      "dist_deploy_sha256": "86a91d87aec39b4224a117f7980789f550905a763c6f02ade7a648d3373c6db4",
       "dist_live_match": false,
       "rejected": false
     },
@@ -5557,15 +5750,21 @@
       "body_sha256": "56548fb9a5a32f62263706c04edc4dbc116415714b57ca2ec41914892b8fe1de",
       "deploy_body_sha256": "6d515715d72c79da5338d23c745c6439dba9bea981cbc63b471a7e68f5f3eb36",
       "dist_path": "SourceA-landing/green-unified/dist/unify-demo/index.html",
-      "dist_sha256": "14c0a49b0f052a666af57bfa6733ade9ff3953ff59e7a9cde83e57ef9dcb9d72",
-      "dist_deploy_sha256": "847a5567d134c6b110a474dee03a4067b1a85a15037bd577412da287162a74d2",
+      "dist_sha256": "6f4e547f7d57eff055fe174f07f61fa51a7721e96927126b74860b4d8235ca24",
+      "dist_deploy_sha256": "86a91d87aec39b4224a117f7980789f550905a763c6f02ade7a648d3373c6db4",
       "dist_live_match": false,
       "rejected": false
     },
     {
       "url": "https://sourcea.app/unify/terminal",
-      "ok": true,
-      "findings": [],
+      "ok": false,
+      "findings": [
+        {
+          "id": "deploy_drift",
+          "severity": "FAIL",
+          "detail": "live deploy hash != dist (SourceA-landing/green-unified/dist/unify/terminal/index.html)"
+        }
+      ],
       "status": 200,
       "final_url": "https://sourcea.app/unify/terminal",
       "content_type": "text/html; charset=utf-8",
@@ -5576,9 +5775,9 @@
       "body_sha256": "2f1dc518a557b5f2b736f40f31a28811efcd813d5ebb81b345bcaeb7b6033d77",
       "deploy_body_sha256": "ef5b885bcd6d330a1299f370691237e072ac2faab0c5915711544a09e4e65c52",
       "dist_path": "SourceA-landing/green-unified/dist/unify/terminal/index.html",
-      "dist_sha256": "e4d21d83b3ce11301706f91aafb15c9a551289281a855ffa050ade00b47120a7",
-      "dist_deploy_sha256": "ef5b885bcd6d330a1299f370691237e072ac2faab0c5915711544a09e4e65c52",
-      "dist_live_match": true,
+      "dist_sha256": "e3f62033e5d04c2390723168d88be844ce2ffb7e27ca767d760126f5b536af59",
+      "dist_deploy_sha256": "478f429aa34f7d84c734e87c167aba6d44a95e2dc65b2ebdbc2798c722c12078",
+      "dist_live_match": false,
       "rejected": false
     }
   ]
