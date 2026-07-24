@@ -1,0 +1,82 @@
+{
+  "schema": "sourcea.executive_mesh.webpage_repair_receipt.v1",
+  "decision_id": "NF-EXECUTIVE-MESH-V1",
+  "generated_at": "2026-07-24T07:15:59.468Z",
+  "verdict": "PASS",
+  "terminal": "ACCEPTED",
+  "run_id": "run_evt_receipt_20260724",
+  "snapshot_committed": 2,
+  "pods": [
+    {
+      "role": "SG",
+      "conclusion": "RECOMMEND",
+      "packet_hash": "9dab5763ec22e6c1d53039bb760833be9d99938af6761f55eea250a875038673"
+    },
+    {
+      "role": "MEMORY_STEWARD",
+      "conclusion": "PASS",
+      "packet_hash": "1162addd2584b955ccbcc74746ac9e7409653483218f12949a6036bfb8dadbfb"
+    },
+    {
+      "role": "STRATEGIC_PLANNER",
+      "conclusion": "RECOMMEND",
+      "packet_hash": "ee94d6bac628dcc6243946c1f81793f3b520de9fe93cb2d67d11bbaf7ceb4825"
+    },
+    {
+      "role": "CRITIC",
+      "conclusion": "PASS",
+      "packet_hash": "41ff5048170c02f6b681b24121c7352f2a7642d4633d291fce9614afbb694a8a"
+    }
+  ],
+  "context_hash": "a55de812f9072c9b526cefab851a9df1c6bf3dd585162340380026519bd001eb",
+  "decision_hash": "eff90753ef25558688c0fa49114236eecdc8cd0b867f296f93276fe152f81372",
+  "work_packet": {
+    "action_id": "wp_run_evt_receipt_20260724",
+    "executor_class": "RUNWAY_GOAL_KERNEL",
+    "max_fanout": 0
+  },
+  "evidence": [
+    {
+      "evidence_id": "ev_wp_run_evt_receipt_20260724",
+      "kind": "independent_verify",
+      "valid": true,
+      "detail": "verified_by=independent_verifier.mesh_v1;goal=sim://goal_evt_receipt_20260724;predicates=build_passes,visual_diff_present,target_issue_absent,unrelated_pages_unchanged"
+    }
+  ],
+  "commitment_status": "CLOSED",
+  "digest": {
+    "run_id": "run_evt_receipt_20260724",
+    "terminal": "ACCEPTED",
+    "snapshot_version": 1,
+    "decision_id": "dec_run_evt_receipt_20260724",
+    "commitment_status": "CLOSED",
+    "role_packet_count": 4,
+    "context_hash": "a55de812f9072c9b526cefab851a9df1c6bf3dd585162340380026519bd001eb",
+    "work_packet_id": "wp_run_evt_receipt_20260724",
+    "work_packet": "wp_run_evt_receipt_20260724",
+    "evidence_id": "ev_wp_run_evt_receipt_20260724",
+    "goal_ref": "sim://goal_evt_receipt_20260724",
+    "committed_version": 2
+  },
+  "checklist": {
+    "idempotent_ingest": true,
+    "context_pack_versioned": true,
+    "planner_critic_packets": true,
+    "one_governor_decision": true,
+    "one_work_packet": true,
+    "runway_route": true,
+    "no_illegal_fanout": true,
+    "verify": true,
+    "commitment_close": true,
+    "no_active_forever": true
+  },
+  "live_governor": {
+    "url": "https://sourcea-executive-governor-v1.sina-kazemnezhad-ca.workers.dev",
+    "health": "ok",
+    "live_run_id": "run_evt_live_slice1",
+    "live_terminal": "ACCEPTED",
+    "idempotent_replay": true,
+    "version_id": "48b68287-28ee-4d66-a72e-a59ae70eeb70"
+  },
+  "npm_test": "4/4 PASS"
+}
