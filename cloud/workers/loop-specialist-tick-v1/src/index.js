@@ -219,9 +219,13 @@ async function runN8nPulse(env) {
     n8nDetail = String(exc).slice(0, 120);
   }
   try {
-    const res = await fetch(`${gatesUrl}/health`, { method: "GET" });
+    // Prefer service binding — same-account workers.dev fetch often 404s from Workers
+    const gatesReq = new Request("https://gates.internal/health", { method: "GET" });
+    const res = env.FOUNDER_GATES
+      ? await env.FOUNDER_GATES.fetch(gatesReq)
+      : await fetch(`${gatesUrl}/health`, { method: "GET" });
     gatesOk = res.status === 200;
-    gatesDetail = `http_${res.status}`;
+    gatesDetail = env.FOUNDER_GATES ? `binding_http_${res.status}` : `http_${res.status}`;
   } catch (exc) {
     gatesDetail = String(exc).slice(0, 120);
   }
