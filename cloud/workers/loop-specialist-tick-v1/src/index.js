@@ -12,6 +12,7 @@ const HANDLERS = {
   nerve_probe: (env) => runNerveProbeCycle(env),
   gateway_watchdog: (env) => runGatewayWatchdog(env),
   gateway_heartbeat: (env) => runGatewayHeartbeat(env),
+  n8n_pulse: (env) => runN8nPulse(env),
 };
 
 export default {
@@ -41,7 +42,7 @@ export default {
         crons: meta.crons,
         dispatch: meta,
         nerve_probe: true,
-        ops_motors: ["gmail-sweep", "signal-triage", "kaizen-nightly", "ops-heartbeat", "sg-gateway-watchdog", "sg-gateway-heartbeat"],
+        ops_motors: ["gmail-sweep", "signal-triage", "kaizen-nightly", "ops-heartbeat", "sg-gateway-watchdog", "sg-gateway-heartbeat", "n8n-pulse"],
         scheduled_loops: [
           "repo-health-daily",
           "security-sweep-weekly",
@@ -194,5 +195,45 @@ async function runSignalFactoryTick(env) {
     signal_factory_line: row.signal_factory_line,
     proxied_status: resp.status,
     cloud_target: target,
+  };
+}
+
+/** NF-SOURCEA-N8N-ORCHESTRATOR-V1 — cloud pulse for Railway n8n + founder gates */
+async function runN8nPulse(env) {
+  const n8nUrl = String(
+    env.SOURCEA_N8N_HEALTH_URL || "https://n8n-main-production-bfdc.up.railway.app/healthz",
+  );
+  const gatesUrl = String(
+    env.SOURCEA_GATES_URL || "https://sourcea-founder-gates-v1.sina-kazemnezhad-ca.workers.dev",
+  ).replace(/\/$/, "");
+  const started = Date.now();
+  let n8nOk = false;
+  let gatesOk = false;
+  let n8nDetail = "";
+  let gatesDetail = "";
+  try {
+    const res = await fetch(n8nUrl, { method: "GET" });
+    n8nOk = res.status === 200;
+    n8nDetail = `http_${res.status}`;
+  } catch (exc) {
+    n8nDetail = String(exc).slice(0, 120);
+  }
+  try {
+    const res = await fetch(`${gatesUrl}/health`, { method: "GET" });
+    gatesOk = res.status === 200;
+    gatesDetail = `http_${res.status}`;
+  } catch (exc) {
+    gatesDetail = String(exc).slice(0, 120);
+  }
+  return {
+    ok: n8nOk && gatesOk,
+    schema: "sourcea_n8n_pulse_v1",
+    loop_id: "sourcea_n8n_pulse_v1",
+    deadman: "sourcea-deadman-v1",
+    trigger_host: "cloud",
+    at: new Date().toISOString(),
+    ms: Date.now() - started,
+    n8n: { ok: n8nOk, detail: n8nDetail, url: n8nUrl },
+    gates: { ok: gatesOk, detail: gatesDetail, url: gatesUrl },
   };
 }

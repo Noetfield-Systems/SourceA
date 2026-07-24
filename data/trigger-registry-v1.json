@@ -547,15 +547,19 @@
     {
       "trigger_id": "SA-T-n8n-pulse-schedule",
       "system": "sourcea",
-      "kind": "schedule",
+      "kind": "piggyback",
       "schedule": "*/15 * * * *",
-      "target": "Railway n8n orchestrator + founder gates pulse (NF-SOURCEA-N8N-ORCHESTRATOR-V1)",
+      "target": "Railway n8n + founder gates pulse via loop-specialist (NF-SOURCEA-N8N-ORCHESTRATOR-V1)",
       "valid_in_verified_window": true,
       "owner_workflow": "sourcea-n8n-pulse-v1",
+      "parent_trigger_id": "SA-T-loop-specialist",
       "live_probe": {
-        "type": "gha_schedule",
-        "path": ".github/workflows/sourcea-n8n-pulse-v1.yml",
-        "schedule": "*/15 * * * *"
+        "type": "piggyback_hook",
+        "path": "cloud/workers/loop-specialist-tick-v1/src/index.js",
+        "expects": [
+          "runN8nPulse",
+          "n8n_pulse"
+        ]
       }
     },
     {
@@ -563,7 +567,7 @@
       "system": "sourcea",
       "kind": "manual",
       "schedule": null,
-      "target": "Manual n8n + gates pulse dispatch",
+      "target": "Manual n8n + gates pulse dispatch (GHA backup only — CF owns */15)",
       "valid_in_verified_window": true,
       "owner_workflow": "sourcea-n8n-pulse-v1",
       "live_probe": {
