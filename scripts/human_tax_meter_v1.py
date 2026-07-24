@@ -15,7 +15,19 @@ from lib.governed_work_packet_v1 import compute_htu, event_is_tax  # noqa: E402
 LEDGER = Path.home() / ".sina" / "human-tax-events-v1.jsonl"
 CAPACITY_LEDGER = Path.home() / ".sina" / "decision-capacity-events-v1.jsonl"
 LEARNING_DRAFT_DIR = ROOT / "receipts" / "learning"
+COVERAGE_PATH = ROOT / "data" / "decision_class_policy_coverage_v1.json"
 
+
+
+
+def coverage_for_class(decision_class: str) -> float:
+    if not COVERAGE_PATH.is_file():
+        return 0.35
+    try:
+        row = json.loads(COVERAGE_PATH.read_text(encoding="utf-8"))
+        return float(((row.get("classes") or {}).get(decision_class) or {}).get("coverage", 0.35))
+    except (OSError, json.JSONDecodeError, TypeError, ValueError):
+        return 0.35
 
 def _now() -> str:
     return datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
@@ -41,7 +53,7 @@ def record_human_tax_event(
     goal_changed: bool = False,
     new_information: bool = False,
     decision_class: str = "UNKNOWN",
-    existing_policy_coverage: float = 0.35,
+    existing_policy_coverage: float | None = None,
     prior_event_types: list[str] | None = None,
 ) -> dict:
     event = {
@@ -75,10 +87,15 @@ def record_human_tax_event(
 
     # Decision Capacity: when tax accumulates as repeated micro-choices, freeze into proposal
     history = list(prior_event_types or []) + [event_type]
+    coverage = (
+        float(existing_policy_coverage)
+        if existing_policy_coverage is not None
+        else coverage_for_class(decision_class)
+    )
     capacity = close_capacity_loop(
         decision_class=decision_class,
         event_types=history,
-        existing_policy_coverage=existing_policy_coverage,
+        existing_policy_coverage=coverage,
         task_id=task_id,
         human_tax_units=units,
         evidence_refs=[evidence_ref] if evidence_ref else None,
