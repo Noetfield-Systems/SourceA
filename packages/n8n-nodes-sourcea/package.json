@@ -1,0 +1,24 @@
+{
+  "name": "n8n-nodes-sourcea",
+  "version": "1.0.0",
+  "description": "SourceA custom n8n nodes — Context, Role, Governor (NF-SOURCEA-N8N-ORCHESTRATOR-V1)",
+  "license": "UNLICENSED",
+  "private": true,
+  "main": "index.js",
+  "n8n": {
+    "n8nNodesApiVersion": 1,
+    "nodes": [
+      "dist/nodes/SourceAContext/SourceAContext.node.js",
+      "dist/nodes/SourceARole/SourceARole.node.js",
+      "dist/nodes/SourceAGovernor/SourceAGovernor.node.js"
+    ],
+    "credentials": [
+      "dist/credentials/SourceAApi.credentials.js"
+    ]
+  },
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "test": "node --test tests/*.test.js"
+  },
+  "engines": { "node": ">=20" }
+}

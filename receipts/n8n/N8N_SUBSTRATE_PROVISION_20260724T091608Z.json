@@ -1,0 +1,20 @@
+{
+  "schema": "sourcea_n8n_substrate_provision_v1",
+  "decision_id": "NF-SOURCEA-N8N-ORCHESTRATOR-V1",
+  "at": "2026-07-24T09:16:08Z",
+  "project": "sourcea-n8n-orchestrator-v1",
+  "project_id": "57dae815-fd7b-4376-8dcf-65558ec18130",
+  "services": [
+    "n8n-main",
+    "n8n-worker",
+    "Postgres",
+    "Redis"
+  ],
+  "health_url": "https://n8n-main-production-bfdc.up.railway.app/healthz",
+  "health_probe": "200",
+  "loop_id": "sourcea_n8n_pulse_v1",
+  "deadman": "sourcea-deadman-v1",
+  "trigger_host": "cloud",
+  "compose": "infra/n8n-orchestrator-v1/docker-compose.yml",
+  "ok": true
+}

@@ -1,0 +1,17 @@
+{
+  "schema": "sourcea_n8n_pulse_v1",
+  "loop_id": "sourcea_n8n_pulse_v1",
+  "deadman": "sourcea-deadman-v1",
+  "trigger_host": "cloud",
+  "last_fired_at": "20260724T09:16:24Z",
+  "n8n": {
+    "ok": true,
+    "detail": "http_200"
+  },
+  "gates": {
+    "ok": true,
+    "detail": "http_200",
+    "url": "https://sourcea-founder-gates-v1.sina-kazemnezhad-ca.workers.dev"
+  },
+  "ok": true
+}

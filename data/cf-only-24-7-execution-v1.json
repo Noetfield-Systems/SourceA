@@ -41,7 +41,8 @@
       { "file": "kaizen-nightly-v1.yml", "triggers": ["workflow_dispatch"], "role": "manual backup — CF owns 0 3 * * *" },
       { "file": "ops-heartbeat-daily-v1.yml", "triggers": ["workflow_dispatch"], "role": "manual backup — CF owns 0 7 * * *" },
       { "file": "repo-health-daily-v1.yml", "triggers": ["workflow_dispatch"], "role": "manual backup — CF owns 0 8 * * *" },
-      { "file": "security-sweep-weekly-v1.yml", "triggers": ["workflow_dispatch"], "role": "manual backup — CF owns 0 9 * * 0" }
+      { "file": "security-sweep-weekly-v1.yml", "triggers": ["workflow_dispatch"], "role": "manual backup — CF owns 0 9 * * 0" },
+      { "file": "sourcea-n8n-pulse-v1.yml", "triggers": ["workflow_dispatch"], "role": "manual backup — CF loop-specialist owns */15 n8n+gates pulse" }
     ]
   },
   "deprecated_cf_workers_no_cron": [
