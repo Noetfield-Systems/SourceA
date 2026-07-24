@@ -20,7 +20,7 @@ n8n owns Executive Graph **lifecycle**. SourceA owns Goal/Decision/Memory/Eviden
 
 | Item | Value |
 |------|-------|
-| Trigger host | `cloud` |
+| Trigger host | `cloud` (CF loop-specialist `*/15` · GHA `workflow_dispatch` backup only) |
 | `loop_id` | `sourcea_n8n_pulse_v1` |
 | Deadman | `sourcea-deadman-v1` |
 | Receipts | `receipts/n8n/` |
