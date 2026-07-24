@@ -8,6 +8,7 @@ on:
     paths:
       - '.github/workflows/**'
       - 'scripts/**'
+      - 'n8n/workflows/**'
       - 'tests/sandbox_executor_adapter_v1/**'
       - 'data/**'
       - 'docs/commercial/ACG_*'
@@ -23,6 +24,7 @@ on:
     paths:
       - '.github/workflows/**'
       - 'scripts/**'
+      - 'n8n/workflows/**'
       - 'data/**'
       - 'brain-os/**'
       - 'cloud/**'
@@ -50,6 +52,35 @@ jobs:
 
       - name: Repo boundary policy
         run: python3 scripts/check_sourcea_repo_policy.py
+
+      - name: n8n workflow JSON parse + required keys
+        run: |
+          python3 - <<'PY'
+          import json, sys
+          from pathlib import Path
+          root = Path("n8n/workflows")
+          if not root.is_dir():
+              print("SKIP: no n8n/workflows")
+              raise SystemExit(0)
+          bad = []
+          for path in sorted(root.glob("*.json")):
+              try:
+                  row = json.loads(path.read_text(encoding="utf-8"))
+              except Exception as exc:
+                  bad.append(f"{path}: json {exc}")
+                  continue
+              if not isinstance(row, dict):
+                  bad.append(f"{path}: not an object")
+                  continue
+              for key in ("name", "nodes", "connections"):
+                  if key not in row:
+                      bad.append(f"{path}: missing {key}")
+          if bad:
+              print("FAIL n8n workflow gate:")
+              print("\n".join(bad))
+              raise SystemExit(1)
+          print(f"PASS n8n workflow gate files={len(list(root.glob('*.json')))}")
+          PY
 
       - name: Executor adapter focused tests
         run: |

@@ -1,0 +1,401 @@
+{
+  "name": "SourceA Decision Brief \u00b7 Cloud Health Wire v1",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "sa-db-manual",
+      "name": "Manual Trigger",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        200
+      ]
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "cronExpression",
+              "expression": "*/15 * * * *"
+            }
+          ]
+        }
+      },
+      "id": "sa-db-cron",
+      "name": "Every 15m",
+      "type": "n8n-nodes-base.cron",
+      "typeVersion": 1,
+      "position": [
+        0,
+        400
+      ]
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "sourcea-decision-brief-health",
+        "responseMode": "lastNode",
+        "options": {}
+      },
+      "id": "sa-db-webhook",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        0,
+        600
+      ],
+      "webhookId": "sourcea-decision-brief-health-v1"
+    },
+    {
+      "parameters": {
+        "url": "https://sourcea.app/decision-brief",
+        "options": {
+          "response": {
+            "response": {
+              "fullResponse": true,
+              "neverError": true,
+              "responseFormat": "text"
+            }
+          },
+          "timeout": 20000
+        }
+      },
+      "id": "sa-db-get-brief",
+      "name": "GET decision-brief",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        320,
+        200
+      ]
+    },
+    {
+      "parameters": {
+        "url": "https://sourcea.app/health",
+        "options": {
+          "response": {
+            "response": {
+              "fullResponse": true,
+              "neverError": true
+            }
+          },
+          "timeout": 15000
+        }
+      },
+      "id": "sa-db-get-edge",
+      "name": "GET sourcea.app health",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        320,
+        400
+      ]
+    },
+    {
+      "parameters": {
+        "url": "https://sourcea-fbe-runner-production.up.railway.app/health",
+        "options": {
+          "response": {
+            "response": {
+              "fullResponse": true,
+              "neverError": true
+            }
+          },
+          "timeout": 15000
+        }
+      },
+      "id": "sa-db-get-fbe",
+      "name": "GET FBE runner health",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        320,
+        600
+      ]
+    },
+    {
+      "parameters": {
+        "numberInputs": 3,
+        "mode": "combine",
+        "combineBy": "combineByPosition",
+        "options": {}
+      },
+      "id": "sa-db-merge",
+      "name": "Merge probes",
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3,
+      "position": [
+        520,
+        400
+      ]
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForAllItems",
+        "jsCode": "const items = $input.all();\nconst byName = {};\nfor (const it of items) {\n  const name = it.pairedItem && it.pairedItem.node\n    ? it.pairedItem.node\n    : (it.json && it.json.__nodeName) || 'unknown';\n  byName[name] = it.json;\n}\n\nfunction pick(nodeNames) {\n  for (const n of nodeNames) {\n    if (byName[n]) return byName[n];\n  }\n  // fallback: scan by URL in request\n  for (const it of items) {\n    const j = it.json || {};\n    return j;\n  }\n  return {};\n}\n\nconst briefRaw = $('GET decision-brief').first().json;\nconst edgeRaw = $('GET sourcea.app health').first().json;\nconst fbeRaw = $('GET FBE runner health').first().json;\n\nconst briefStatus = Number(briefRaw.statusCode || briefRaw.status || 0);\nconst briefBody = String(briefRaw.data || briefRaw.body || briefRaw || '');\nconst hasDecisionTitle =\n  /Vendor Decision Brief/i.test(briefBody) ||\n  /<title>[^<]*Decision Brief/i.test(briefBody) ||\n  /Choose a vendor with a brief you can defend/i.test(briefBody);\nconst looksLikeHome =\n  /Proof-backed MVPs and acquisition systems/i.test(briefBody) &&\n  !hasDecisionTitle;\n\nconst edgeBody = edgeRaw.body || edgeRaw.data || edgeRaw;\nconst edgeOk =\n  Number(edgeRaw.statusCode || edgeRaw.status || 0) === 200 &&\n  (edgeBody.ok === true || (typeof edgeBody === 'object' && edgeBody.ok));\n\nconst fbeBody = fbeRaw.body || fbeRaw.data || fbeRaw;\nconst fbeOk =\n  Number(fbeRaw.statusCode || fbeRaw.status || 0) === 200 &&\n  (fbeBody.ok === true || (typeof fbeBody === 'object' && fbeBody.ok));\n\nconst briefOk = briefStatus === 200 && hasDecisionTitle && !looksLikeHome;\nconst terminal = briefOk && edgeOk && fbeOk ? 'ACCEPTED_ARTIFACT' : 'BOUNDED_FAILURE';\nconst blockers = [];\nif (!briefOk) {\n  blockers.push(\n    looksLikeHome\n      ? 'decision_brief_serving_homepage'\n      : briefStatus !== 200\n        ? 'decision_brief_http_' + briefStatus\n        : 'decision_brief_missing_title'\n  );\n}\nif (!edgeOk) blockers.push('sourcea_app_health_fail');\nif (!fbeOk) blockers.push('fbe_runner_health_fail');\n\nreturn [\n  {\n    json: {\n      schema: 'sourcea-n8n-decision-brief-health-wire-v1',\n      at: new Date().toISOString(),\n      terminal,\n      ok: terminal === 'ACCEPTED_ARTIFACT',\n      checks: {\n        decision_brief: {\n          url: 'https://sourcea.app/decision-brief',\n          status: briefStatus,\n          has_decision_title: hasDecisionTitle,\n          looks_like_homepage: looksLikeHome,\n          ok: briefOk,\n        },\n        sourcea_app_health: {\n          url: 'https://sourcea.app/health',\n          ok: edgeOk,\n          body: typeof edgeBody === 'object' ? edgeBody : { raw: String(edgeBody).slice(0, 200) },\n        },\n        fbe_runner_health: {\n          url: 'https://sourcea-fbe-runner-production.up.railway.app/health',\n          ok: fbeOk,\n          body: typeof fbeBody === 'object' ? fbeBody : { raw: String(fbeBody).slice(0, 200) },\n        },\n      },\n      blockers,\n      for_founder: {\n        show_this:\n          terminal === 'ACCEPTED_ARTIFACT'\n            ? 'PASS \u2014 Decision Brief live + edge + FBE healthy'\n            : 'FAIL \u2014 ' + blockers.join(' \u00b7 ') + ' \u00b7 fix Cloudflare Pages publish for /decision-brief',\n      },\n      wired_to: {\n        n8n_cloud: 'https://noetfield.app.n8n.cloud',\n        product: 'https://sourcea.app/decision-brief',\n        law: 'contracts define goal \u00b7 machines control \u00b7 verifiers decide',\n      },\n    },\n  },\n];"
+      },
+      "id": "sa-db-grade",
+      "name": "Grade terminals",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        620,
+        400
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "boolean": [
+            {
+              "value1": "={{$json.ok}}",
+              "value2": true
+            }
+          ]
+        }
+      },
+      "id": "sa-db-if",
+      "name": "PASS?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        860,
+        400
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "pass-1",
+              "name": "verdict",
+              "value": "ACCEPTED_ARTIFACT",
+              "type": "string"
+            },
+            {
+              "id": "pass-2",
+              "name": "message",
+              "value": "={{$json.for_founder.show_this}}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "sa-db-pass",
+      "name": "PASS receipt",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1100,
+        280
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "fail-1",
+              "name": "verdict",
+              "value": "BOUNDED_FAILURE",
+              "type": "string"
+            },
+            {
+              "id": "fail-2",
+              "name": "message",
+              "value": "={{$json.for_founder.show_this}}",
+              "type": "string"
+            },
+            {
+              "id": "fail-3",
+              "name": "blockers",
+              "value": "={{$json.blockers}}",
+              "type": "array"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "sa-db-fail",
+      "name": "FAIL receipt",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1100,
+        520
+      ]
+    }
+  ],
+  "connections": {
+    "Manual Trigger": {
+      "main": [
+        [
+          {
+            "node": "GET decision-brief",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "GET sourcea.app health",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "GET FBE runner health",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Every 15m": {
+      "main": [
+        [
+          {
+            "node": "GET decision-brief",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "GET sourcea.app health",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "GET FBE runner health",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "GET decision-brief",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "GET sourcea.app health",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "GET FBE runner health",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "GET decision-brief": {
+      "main": [
+        [
+          {
+            "node": "Merge probes",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "GET sourcea.app health": {
+      "main": [
+        [
+          {
+            "node": "Merge probes",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "GET FBE runner health": {
+      "main": [
+        [
+          {
+            "node": "Merge probes",
+            "type": "main",
+            "index": 2
+          }
+        ]
+      ]
+    },
+    "Grade terminals": {
+      "main": [
+        [
+          {
+            "node": "PASS?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "PASS?": {
+      "main": [
+        [
+          {
+            "node": "PASS receipt",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "FAIL receipt",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge probes": {
+      "main": [
+        [
+          {
+            "node": "Grade terminals",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "meta": {
+    "schema": "sourcea-n8n-decision-brief-health-wire-v1",
+    "target_n8n": "https://noetfield.app.n8n.cloud",
+    "wires": [
+      "https://sourcea.app/decision-brief",
+      "https://sourcea.app/health",
+      "https://sourcea-fbe-runner-production.up.railway.app/health"
+    ],
+    "terminals": [
+      "ACCEPTED_ARTIFACT",
+      "BOUNDED_FAILURE"
+    ],
+    "note": "Cloud-only probes \u2014 no Mac localhost. Detects decision-brief serving homepage (known edge mismatch)."
+  },
+  "tags": [
+    {
+      "name": "SourceA"
+    },
+    {
+      "name": "Decision Brief"
+    },
+    {
+      "name": "Noetfield"
+    }
+  ]
+}
