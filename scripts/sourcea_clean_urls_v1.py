@@ -14,6 +14,7 @@ GREEN = ROOT / "SourceA-landing" / "green-unified"
 
 # Short public aliases → extensionless canonical paths under /sourcea/
 SHORT_ALIASES: tuple[tuple[str, str], ...] = (
+    # PR-51: touch scripts/ so required validate check runs (path filter)
     ("/start", "/sourcea/start"),
     ("/48h-mvp", "/sourcea/48h-mvp"),
     ("/kernel", "/sourcea/"),
