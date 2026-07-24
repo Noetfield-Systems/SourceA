@@ -6,8 +6,10 @@ account_id = "0d0b967b77e2e5535455d39ff3dae72c"
 workers_dev = true
 
 [vars]
-MESH_SIMULATE = "1"
-# RUNWAY_GOAL_BASE_URL = "https://noetfield-runway-live-staging.sina-kazemnezhad-ca.workers.dev"
+MESH_SIMULATE = "0"
+RUNWAY_GOAL_BASE_URL = "https://noetfield-runway-live-staging.sina-kazemnezhad-ca.workers.dev"
+RUNWAY_TENANT_ID = "tenant-runway-staging"
+# Secrets (wrangler secret): SUPABASE_URL · SUPABASE_SERVICE_ROLE_KEY
 
 [observability]
 enabled = true
@@ -21,4 +23,3 @@ tag = "v1"
 new_sqlite_classes = ["ExecutiveGovernorDO"]
 
 # Ops: loop_id=sourcea_executive_pulse_v1 · deadman=sourcea-deadman-v1 · receipts/executive/
-# Cron pulse can be added later; ingress is HTTP POST /v1/executive/runs

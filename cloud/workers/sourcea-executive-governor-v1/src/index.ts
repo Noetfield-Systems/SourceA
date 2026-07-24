@@ -1,7 +1,6 @@
 /**
- * sourcea-executive-governor-v1
- * Durable Object serializes Executive Mesh runs; wraps ECP v0 via mesh package.
- * Coordinator cache only — canonical SSOT is Supabase (see migration 015).
+ * sourcea-executive-governor-v1 — production E2E path
+ * Durable Object serializes runs; admits via live Runway Goal API; writes Supabase SSOT.
  */
 
 import { DurableObject } from "cloudflare:workers";
@@ -10,6 +9,9 @@ export interface Env {
   EXECUTIVE_GOVERNOR: DurableObjectNamespace;
   RUNWAY_GOAL_BASE_URL?: string;
   MESH_SIMULATE?: string;
+  RUNWAY_TENANT_ID?: string;
+  SUPABASE_URL?: string;
+  SUPABASE_SERVICE_ROLE_KEY?: string;
 }
 
 type RunRecord = {
@@ -34,6 +36,32 @@ const WEBPAGE_REPAIR_POLICY = {
   verify: ["build_passes", "visual_diff_present", "target_issue_absent", "unrelated_pages_unchanged"],
 };
 
+async function supabaseUpsert(
+  env: Env,
+  table: string,
+  row: Record<string, unknown>,
+  onConflict: string,
+): Promise<{ ok: boolean; detail: string }> {
+  if (!env.SUPABASE_URL || !env.SUPABASE_SERVICE_ROLE_KEY) {
+    return { ok: false, detail: "supabase_secrets_missing" };
+  }
+  const res = await fetch(
+    `${env.SUPABASE_URL.replace(/\/$/, "")}/rest/v1/${table}?on_conflict=${onConflict}`,
+    {
+      method: "POST",
+      headers: {
+        apikey: env.SUPABASE_SERVICE_ROLE_KEY,
+        Authorization: `Bearer ${env.SUPABASE_SERVICE_ROLE_KEY}`,
+        "content-type": "application/json",
+        Prefer: "resolution=merge-duplicates,return=minimal",
+      },
+      body: JSON.stringify(row),
+    },
+  );
+  const body = await res.text().catch(() => "");
+  return { ok: res.ok, detail: res.ok ? "ok" : `${res.status}:${body.slice(0, 200)}` };
+}
+
 export class ExecutiveGovernorDO extends DurableObject<Env> {
   private version = 1;
   private primed = false;
@@ -49,7 +77,14 @@ export class ExecutiveGovernorDO extends DurableObject<Env> {
     await this.ensureVersion();
     const url = new URL(request.url);
     if (request.method === "GET" && url.pathname === "/health") {
-      return Response.json({ ok: true, version: this.version, worker: "sourcea-executive-governor-v1" });
+      return Response.json({
+        ok: true,
+        version: this.version,
+        worker: "sourcea-executive-governor-v1",
+        mesh_simulate: this.env.MESH_SIMULATE !== "0",
+        runway_configured: Boolean(this.env.RUNWAY_GOAL_BASE_URL),
+        supabase_configured: Boolean(this.env.SUPABASE_URL && this.env.SUPABASE_SERVICE_ROLE_KEY),
+      });
     }
     if (request.method === "POST" && url.pathname === "/v1/executive/runs") {
       const body = (await request.json()) as Record<string, unknown>;
@@ -75,8 +110,11 @@ export class ExecutiveGovernorDO extends DurableObject<Env> {
 
     const offered = Number(raw.canonical_state_version ?? this.version);
     const eventId = String(raw.event_id ?? crypto.randomUUID());
-    const targetUrl = String((raw.payload as Record<string, unknown> | undefined)?.target_url ?? raw.target_url ?? "");
+    const targetUrl = String(
+      (raw.payload as Record<string, unknown> | undefined)?.target_url ?? raw.target_url ?? "",
+    );
     const runId = `run_${eventId}`;
+    const tenantId = this.env.RUNWAY_TENANT_ID ?? "tenant-runway-staging";
 
     if (offered < this.version) {
       const rejected: RunRecord = {
@@ -94,7 +132,9 @@ export class ExecutiveGovernorDO extends DurableObject<Env> {
       return rejected;
     }
 
-    const taskType = String((raw.payload as Record<string, unknown> | undefined)?.task_type ?? raw.event_type ?? "");
+    const taskType = String(
+      (raw.payload as Record<string, unknown> | undefined)?.task_type ?? raw.event_type ?? "",
+    );
     const isRepair =
       taskType === "webpage_repair" || String(raw.event_type) === "webpage.repair.requested";
 
@@ -114,52 +154,96 @@ export class ExecutiveGovernorDO extends DurableObject<Env> {
       return deferred;
     }
 
-    // L0 pods → Governor → WorkPacket (fanout 0) → simulate/admit Runway
     const contextHash = await hashText(JSON.stringify({ v: this.version, url: targetUrl }));
-    const decisionHash = await hashText(JSON.stringify({ runId, policy: WEBPAGE_REPAIR_POLICY.policy_version }));
+    const decisionHash = await hashText(
+      JSON.stringify({ runId, policy: WEBPAGE_REPAIR_POLICY.policy_version }),
+    );
 
-    const simulate = this.env.MESH_SIMULATE !== "0";
-    let admitted = simulate;
-    let goalRef = `sim://${runId}`;
-    if (!simulate && this.env.RUNWAY_GOAL_BASE_URL) {
-      try {
-        const res = await fetch(`${this.env.RUNWAY_GOAL_BASE_URL.replace(/\/$/, "")}/v1/goals`, {
-          method: "POST",
-          headers: { "content-type": "application/json" },
-          body: JSON.stringify({
-            goal_id: `goal_${eventId}`,
-            decision_class: "WEBPAGE_REPAIR",
-            policy_version: WEBPAGE_REPAIR_POLICY.policy_version,
-            target_url: targetUrl,
-            acceptance_predicates: WEBPAGE_REPAIR_POLICY.verify,
-            max_fanout: 0,
-            execution_idempotency_key: `exec_${runId}`,
-            work_packet_action_id: `wp_${runId}`,
-          }),
+    const simulate = this.env.MESH_SIMULATE === "1";
+    let admitted = false;
+    let goalRef = "";
+    let goalStatus = "";
+    let admitDetail = "";
+
+    if (simulate) {
+      admitted = true;
+      goalRef = `sim://${runId}`;
+      goalStatus = "SIMULATED";
+      admitDetail = "mesh_simulate";
+    } else {
+      const base = (this.env.RUNWAY_GOAL_BASE_URL ?? "").replace(/\/$/, "");
+      if (!base) {
+        return this.terminal(runId, idempotencyKey, "INCIDENT", {
+          reason: "RUNWAY_GOAL_BASE_URL_MISSING",
+          decision_hash: decisionHash,
         });
-        admitted = res.ok;
-        goalRef = admitted ? `runway://${runId}` : goalRef;
-      } catch {
-        admitted = false;
+      }
+      try {
+        const body = {
+          title: "Executive Mesh WEBPAGE_REPAIR",
+          objective: `Repair webpage ${targetUrl} under WEBPAGE_REPAIR policy ${WEBPAGE_REPAIR_POLICY.policy_version}; acceptance: ${WEBPAGE_REPAIR_POLICY.verify.join(", ")}`,
+          project_id: `mesh_${eventId}`.replace(/[^a-zA-Z0-9_]/g, "_").slice(0, 40),
+          force_repair_once: true,
+          approved_for_runtime: false,
+          sleep_seconds: 30,
+          priority: 50,
+        };
+        const res = await fetch(`${base}/v1/goals`, {
+          method: "POST",
+          headers: { "content-type": "application/json", "x-tenant-id": tenantId },
+          body: JSON.stringify(body),
+        });
+        const text = await res.text();
+        if (!res.ok) {
+          return this.terminal(runId, idempotencyKey, "INCIDENT", {
+            reason: "EXECUTOR_REJECT",
+            detail: `http_${res.status}:${text.slice(0, 200)}`,
+            decision_hash: decisionHash,
+          });
+        }
+        const json = JSON.parse(text) as Record<string, unknown>;
+        goalRef = String(json.goal_id ?? "");
+        admitted = Boolean(goalRef);
+
+        // Independent verify: GET goal (producer cannot sole-verify)
+        const verifyRes = await fetch(`${base}/v1/goals/${encodeURIComponent(goalRef)}`, {
+          headers: { "x-tenant-id": tenantId },
+        });
+        if (!verifyRes.ok) {
+          return this.terminal(runId, idempotencyKey, "INCIDENT", {
+            reason: "VERIFY_FAIL",
+            detail: `live_get_http_${verifyRes.status}`,
+            goal_ref: goalRef,
+          });
+        }
+        const snap = (await verifyRes.json()) as Record<string, unknown>;
+        goalStatus = String(snap.status ?? "");
+        const hasCriteria =
+          Array.isArray(snap.acceptance_criteria) && snap.acceptance_criteria.length > 0;
+        if (!hasCriteria || !goalStatus) {
+          return this.terminal(runId, idempotencyKey, "INCIDENT", {
+            reason: "VERIFY_FAIL",
+            detail: "missing_acceptance_criteria_or_status",
+            goal_ref: goalRef,
+          });
+        }
+        admitDetail = "runway_goal_api+live_get";
+      } catch (e) {
+        return this.terminal(runId, idempotencyKey, "INCIDENT", {
+          reason: "EXECUTOR_ERROR",
+          detail: String(e).slice(0, 200),
+        });
       }
     }
 
     if (!admitted) {
-      const incident: RunRecord = {
-        run_id: runId,
-        status: "INCIDENT",
-        terminal: "INCIDENT",
-        idempotency_key: idempotencyKey,
-        snapshot_version: this.version,
-        digest: { reason: "EXECUTOR_REJECT", decision_hash: decisionHash },
-        stale_rejected: false,
-      };
-      this.version += 1;
-      incident.snapshot_version = this.version;
-      await this.persist(incident);
-      return incident;
+      return this.terminal(runId, idempotencyKey, "INCIDENT", {
+        reason: "EXECUTOR_REJECT",
+        decision_hash: decisionHash,
+      });
     }
 
+    this.version += 1;
     const accepted: RunRecord = {
       run_id: runId,
       status: "ACCEPTED",
@@ -174,16 +258,71 @@ export class ExecutiveGovernorDO extends DurableObject<Env> {
         executor_class: "RUNWAY_GOAL_KERNEL",
         max_fanout: 0,
         goal_ref: goalRef,
+        goal_status: goalStatus,
         commitment_status: "CLOSED",
         pods: ["SG", "MEMORY_STEWARD", "STRATEGIC_PLANNER", "CRITIC"],
         ecp_wrap: "executive-control-plane-v0",
+        admit_detail: admitDetail,
+        runway_live: !simulate,
       },
       stale_rejected: false,
     };
-    this.version += 1;
-    accepted.snapshot_version = this.version;
     await this.persist(accepted);
+
+    const ssotRun = await supabaseUpsert(
+      this.env,
+      "executive_runs",
+      {
+        run_id: runId,
+        organization_id: "sourcea",
+        correlation_id: eventId,
+        causation_id: null,
+        idempotency_key: idempotencyKey,
+        snapshot_version: this.version,
+        status: "ACCEPTED",
+        event_type: "webpage.repair.requested",
+        decision_class: "WEBPAGE_REPAIR",
+        goal_id: goalRef,
+        terminal: "ACCEPTED",
+        digest_json: accepted.digest,
+        updated_at: new Date().toISOString(),
+      },
+      "run_id",
+    );
+    await supabaseUpsert(
+      this.env,
+      "canonical_state_versions",
+      {
+        organization_id: "sourcea",
+        state_version: this.version,
+        state_hash: `sha256:${decisionHash}`,
+        updated_at: new Date().toISOString(),
+      },
+      "organization_id",
+    );
+    if (accepted.digest) accepted.digest.supabase = ssotRun;
+    await this.ctx.storage.put(`run:${runId}`, accepted);
     return accepted;
+  }
+
+  private async terminal(
+    runId: string,
+    idempotencyKey: string,
+    terminal: "INCIDENT" | "BOUNDED_FAILURE" | "DEFERRED_BY_POLICY",
+    digest: Record<string, unknown>,
+  ): Promise<RunRecord> {
+    this.version += 1;
+    const row: RunRecord = {
+      run_id: runId,
+      status: terminal,
+      terminal,
+      idempotency_key: idempotencyKey,
+      snapshot_version: this.version,
+      digest,
+      stale_rejected: Boolean(digest.reason === "STALE_EVENT_VERSION"),
+    };
+    await this.persist(row);
+    return row;
   }
 
   private async persist(run: RunRecord): Promise<void> {
@@ -197,9 +336,14 @@ export default {
   async fetch(request: Request, env: Env): Promise<Response> {
     const url = new URL(request.url);
     if (url.pathname === "/health") {
-      return Response.json({ ok: true, service: "sourcea-executive-governor-v1" });
+      return Response.json({
+        ok: true,
+        service: "sourcea-executive-governor-v1",
+        mesh_simulate: env.MESH_SIMULATE === "1",
+        runway_configured: Boolean(env.RUNWAY_GOAL_BASE_URL),
+        supabase_configured: Boolean(env.SUPABASE_URL && env.SUPABASE_SERVICE_ROLE_KEY),
+      });
     }
-    // Single DO id per org — serializes runs
     const org = url.searchParams.get("org") ?? "sourcea";
     const id = env.EXECUTIVE_GOVERNOR.idFromName(`governor:${org}`);
     const stub = env.EXECUTIVE_GOVERNOR.get(id);

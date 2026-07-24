@@ -1,0 +1,47 @@
+{
+  "schema": "sourcea.executive_mesh.migration_apply_receipt.v1",
+  "decision_id": "NF-EXECUTIVE-MESH-V1",
+  "migration": "015_executive_mesh_v1.sql",
+  "applied_at": "2026-07-24T07:28:31Z",
+  "method": "psycopg2",
+  "project_ref": "ldfruywifqnfpwsfgmdl",
+  "probes": {
+    "executive_runs": {
+      "ok": true,
+      "status": 200
+    },
+    "role_runs": {
+      "ok": true,
+      "status": 200
+    },
+    "role_decision_packets": {
+      "ok": true,
+      "status": 200
+    },
+    "mesh_decisions": {
+      "ok": true,
+      "status": 200
+    },
+    "mesh_commitments": {
+      "ok": true,
+      "status": 200
+    },
+    "mesh_work_packets": {
+      "ok": true,
+      "status": 200
+    },
+    "mesh_evidence_receipts": {
+      "ok": true,
+      "status": 200
+    },
+    "mesh_outbox_events": {
+      "ok": true,
+      "status": 200
+    },
+    "canonical_state_versions": {
+      "ok": true,
+      "status": 200
+    }
+  },
+  "verdict": "PASS"
+}

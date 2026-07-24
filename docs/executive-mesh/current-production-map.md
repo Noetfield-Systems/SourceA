@@ -23,10 +23,10 @@
 
 ## Gaps closed by slice-1
 
-1. CF Durable Object Governor Worker wrapping ECP v0 — live: `https://sourcea-executive-governor-v1.sina-kazemnezhad-ca.workers.dev`
+1. CF Durable Object Governor Worker wrapping ECP v0 — live: `https://sourcea-executive-governor-v1.sina-kazemnezhad-ca.workers.dev` (`MESH_SIMULATE=0`)
 2. Four Role Pods (SG · Memory · Planner · Critic) at L0 — `packages/executive-mesh-v1`
-3. Supabase executive_* tables + optimistic concurrency — migration `015_executive_mesh_v1.sql`
-4. WorkPacket route `RUNWAY_GOAL_KERNEL` for webpage repair 
+3. Supabase executive_* tables applied (migration `015`) — apply receipt in `receipts/executive/`
+4. WorkPacket route `RUNWAY_GOAL_KERNEL` → live staging `/v1/goals` + independent GET verify + canonical SSOT write 
 
 ## Explicit non-migrate
 

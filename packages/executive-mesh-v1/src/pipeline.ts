@@ -6,8 +6,9 @@ import {
   runPlannerPod,
   runSgPod,
 } from "./pods.ts";
-import { createRunwayGoalKernelRouter, independentVerify, type RunwayRouter } from "./runway.ts";
+import { createRunwayGoalKernelRouter, independentVerifyLive, type RunwayRouter } from "./runway.ts";
 import type { CanonicalStore } from "./store.ts";
+import { commitExecutiveRunToSupabase, type SupabaseCanonicalConfig } from "./supabase.ts";
 import type { EventEnvelope, ExecutiveRun, Terminal } from "./types.ts";
 
 const TERMINALS: ReadonlySet<string> = new Set([
@@ -38,6 +39,10 @@ export interface MeshPipelineOptions {
   producerModelId?: string;
   /** When true, treat execution admit failure as INCIDENT */
   failClosed?: boolean;
+  /** Live Goal API base for independent GET verify */
+  runwayBaseUrl?: string;
+  /** When set, ACCEPTED/terminal runs are written to portfolio-spine */
+  supabase?: SupabaseCanonicalConfig;
 }
 
 export class ExecutiveMeshPipeline {
@@ -46,6 +51,8 @@ export class ExecutiveMeshPipeline {
   private runway: RunwayRouter;
   private producerModelId: string;
   private failClosed: boolean;
+  private runwayBaseUrl: string;
+  private supabase: SupabaseCanonicalConfig | null;
 
   constructor(opts: MeshPipelineOptions) {
     this.store = opts.store;
@@ -53,6 +60,8 @@ export class ExecutiveMeshPipeline {
     this.runway = opts.runwayRouter ?? createRunwayGoalKernelRouter({ simulate: true });
     this.producerModelId = opts.producerModelId ?? "planner.L0.deterministic";
     this.failClosed = opts.failClosed ?? true;
+    this.runwayBaseUrl = opts.runwayBaseUrl ?? process.env.RUNWAY_GOAL_BASE_URL ?? "";
+    this.supabase = opts.supabase ?? null;
   }
 
   /** Idempotent ingest + full vertical slice for webpage repair. */
@@ -200,7 +209,9 @@ export class ExecutiveMeshPipeline {
     }
 
     run.status = "VERIFYING";
-    const evidence = independentVerify(run.work_packet, admit, this.producerModelId);
+    const evidence = await independentVerifyLive(run.work_packet, admit, this.producerModelId, {
+      baseUrl: this.runwayBaseUrl,
+    });
     run.evidence.push({
       evidence_id: evidence.evidence_id,
       kind: "independent_verify",
@@ -220,6 +231,8 @@ export class ExecutiveMeshPipeline {
       work_packet: run.work_packet.action_id,
       evidence_id: evidence.evidence_id,
       goal_ref: admit.goal_ref,
+      goal_status: evidence.goal_status ?? null,
+      runway_live: Boolean(this.runwayBaseUrl) && !String(admit.goal_ref).startsWith("sim://"),
     });
   }
 
@@ -267,11 +280,11 @@ export class ExecutiveMeshPipeline {
     return commit.ok ? commit.run : run;
   }
 
-  private finalize(
+  private async finalize(
     run: ExecutiveRun,
     terminal: Terminal,
     digestExtra: Record<string, unknown>,
-  ): ExecutiveRun {
+  ): Promise<ExecutiveRun> {
     if (!isTerminal(terminal)) {
       throw new Error("ACTIVE_FOREVER_FORBIDDEN");
     }
@@ -302,7 +315,18 @@ export class ExecutiveMeshPipeline {
       run.digest = { ...run.digest, reason: "STALE_VERSION_ON_COMMIT", current: commit.current };
       return run;
     }
+    if (this.supabase) {
+      const ssot = await commitExecutiveRunToSupabase(this.supabase, commit.run);
+      if (commit.run.digest) commit.run.digest.supabase = ssot;
+      audit(commit.run, "SUPABASE_CANONICAL", ssot as unknown as Record<string, unknown>);
+    }
     return commit.run;
+  }
+
+  /** Awaitable canonical SSOT write for live E2E / Worker. */
+  async persistCanonical(run: ExecutiveRun): Promise<{ ok: boolean; detail: string }> {
+    if (!this.supabase) return { ok: false, detail: "supabase_not_configured" };
+    return commitExecutiveRunToSupabase(this.supabase, run);
   }
 }
 
