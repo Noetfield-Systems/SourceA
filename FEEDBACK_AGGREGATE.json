@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-23 00:02 UTC",
+  "generated_at": "2026-07-23 00:39 UTC",
   "generator": "SourceA/sync_feedback_aggregate_hub_built_at_v1.py",
   "reports_loaded": 5,
   "executions_loaded": 86,
@@ -215,8 +215,8 @@
       }
     },
     "execution_log_dir": "/Users/sinakazemnezhad/Desktop/SourceA/REPO_EXECUTION_LOGS",
-    "hub_built_at": "2026-06-23T00:02:38.464308+00:00",
-    "hub_synced_at": "2026-06-23 00:02 UTC"
+    "hub_built_at": "2026-07-23T00:38:02.467741+00:00",
+    "hub_synced_at": "2026-07-23 00:39 UTC"
   },
   "missing_reports": [
     "sina_prompt_os"
@@ -384,6 +384,6 @@
       "reporter": "cursor"
     }
   },
-  "hub_built_at": "2026-06-23T00:02:38.464308+00:00",
-  "hub_synced_at": "2026-06-23 00:02 UTC"
+  "hub_built_at": "2026-07-23T00:38:02.467741+00:00",
+  "hub_synced_at": "2026-07-23 00:39 UTC"
 }
