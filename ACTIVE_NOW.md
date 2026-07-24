@@ -19,7 +19,7 @@
 
 **Current Queue:** `~/.sina/healthy-queue-30-active.json` · factory-now queue `sa-9001`
 
-**Current sa_id:** `sa-9002` · `act` · pos `2/10`
+**Current sa_id:** `sa-9001` · `act` · pos `1/10`
 
 **Current Blocker:** SINGLE_SA — kill flag OFF · `factory-now · Valid YES 1000 · brain 1000 · dual_proof True · mode SINGLE_SA · queue sa-9001` · bounded resume token required · guards only · machine gate blocks drain without receipt
 
