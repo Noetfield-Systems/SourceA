@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SourceA Graph Studio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@xyflow/react@12.6.0/dist/style.css" />
+  <style>
+    :root {
+      --bg: #0f1419;
+      --panel: #171e26;
+      --line: #2a3542;
+      --text: #e8eef4;
+      --muted: #8b9aab;
+      --accent: #3d9b8f;
+      --warn: #c4a35a;
+      --fail: #c45c5c;
+      --pass: #5a9e6f;
+    }
+    * { box-sizing: border-box; }
+    html, body, #root { height: 100%; margin: 0; }
+    body {
+      font-family: "IBM Plex Sans", system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+    }
+    .shell {
+      display: grid;
+      grid-template-columns: 220px 1fr 300px;
+      grid-template-rows: 56px 1fr 48px;
+      height: 100%;
+    }
+    header {
+      grid-column: 1 / -1;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 0 1.25rem;
+      border-bottom: 1px solid var(--line);
+      background: linear-gradient(180deg, #141b22, #0f1419);
+    }
+    header .brand {
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      font-size: 1.05rem;
+    }
+    header .law {
+      color: var(--muted);
+      font-size: 0.78rem;
+      font-family: "IBM Plex Mono", monospace;
+    }
+    .palette, .inspector {
+      background: var(--panel);
+      border-right: 1px solid var(--line);
+      overflow: auto;
+      padding: 0.75rem;
+    }
+    .inspector { border-right: none; border-left: 1px solid var(--line); }
+    .palette h2, .inspector h2 {
+      margin: 0 0 0.75rem;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+    }
+    .palette button {
+      display: block;
+      width: 100%;
+      text-align: left;
+      margin-bottom: 0.4rem;
+      padding: 0.55rem 0.65rem;
+      border: 1px solid var(--line);
+      background: #121820;
+      color: var(--text);
+      border-radius: 4px;
+      cursor: grab;
+      font: inherit;
+      font-size: 0.85rem;
+    }
+    .palette button:hover { border-color: var(--accent); }
+    .canvas { position: relative; background:
+      radial-gradient(ellipse at 20% 0%, #1a2830 0%, transparent 50%),
+      var(--bg);
+    }
+    .toolbar {
+      grid-column: 1 / -1;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0 1rem;
+      border-top: 1px solid var(--line);
+      background: var(--panel);
+    }
+    .toolbar button {
+      border: 1px solid var(--line);
+      background: #121820;
+      color: var(--text);
+      padding: 0.35rem 0.8rem;
+      border-radius: 4px;
+      font: inherit;
+      font-size: 0.85rem;
+      cursor: pointer;
+    }
+    .toolbar button.primary {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #061210;
+      font-weight: 600;
+    }
+    .toolbar .status {
+      margin-left: auto;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.75rem;
+      color: var(--muted);
+      max-width: 55%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .inspector pre {
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.72rem;
+      white-space: pre-wrap;
+      word-break: break-word;
+      color: var(--muted);
+      margin: 0;
+    }
+    .inspector label {
+      display: block;
+      font-size: 0.75rem;
+      color: var(--muted);
+      margin: 0.5rem 0 0.25rem;
+    }
+    .inspector textarea, .inspector input {
+      width: 100%;
+      background: #121820;
+      border: 1px solid var(--line);
+      color: var(--text);
+      border-radius: 4px;
+      padding: 0.4rem;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.75rem;
+    }
+    .node-status {
+      margin-top: 1rem;
+      font-size: 0.8rem;
+    }
+    .node-status li { margin: 0.25rem 0; list-style: none; }
+    .PASSED { color: var(--pass); }
+    .FAILED { color: var(--fail); }
+    .RUNNING { color: var(--warn); }
+    .PENDING { color: var(--muted); }
+    .react-flow__node {
+      font-size: 0.78rem;
+      padding: 0.5rem 0.7rem;
+      border-radius: 4px;
+      border: 1px solid var(--line);
+      background: #1a222c;
+      color: var(--text);
+      min-width: 140px;
+    }
+    .react-flow__node.selected { border-color: var(--accent); }
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+  <script type="importmap">
+  {
+    "imports": {
+      "react": "https://esm.sh/react@18.3.1",
+      "react-dom": "https://esm.sh/react-dom@18.3.1",
+      "react-dom/client": "https://esm.sh/react-dom@18.3.1/client",
+      "react/jsx-runtime": "https://esm.sh/react@18.3.1/jsx-runtime",
+      "@xyflow/react": "https://esm.sh/@xyflow/react@12.6.0?deps=react@18.3.1,react-dom@18.3.1"
+    }
+  }
+  </script>
+  <script type="module" src="./app.js"></script>
+</body>
+</html>

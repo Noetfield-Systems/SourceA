@@ -1,0 +1,32 @@
+name = "sourcea-graph-studio-v1"
+main = "src/index.ts"
+compatibility_date = "2024-11-01"
+compatibility_flags = ["nodejs_compat"]
+account_id = "0d0b967b77e2e5535455d39ff3dae72c"
+workers_dev = true
+
+[vars]
+# Secrets: SUPABASE_URL · SUPABASE_SERVICE_ROLE_KEY
+
+[observability]
+enabled = true
+
+[assets]
+directory = "../../../apps/graph-studio-web"
+binding = "ASSETS"
+not_found_handling = "single-page-application"
+run_worker_first = ["/v1/*", "/health"]
+
+[[durable_objects.bindings]]
+name = "GRAPH_STUDIO"
+class_name = "GraphStudioCoordinatorDO"
+
+[[migrations]]
+tag = "v1"
+new_sqlite_classes = ["GraphStudioCoordinatorDO"]
+
+[[services]]
+binding = "EXECUTIVE_MESH"
+service = "sourcea-executive-governor-v1"
+
+# Ops: loop_id=sourcea_graph_studio_pulse_v1 · deadman=sourcea-deadman-v1 · receipts/graph-studio/

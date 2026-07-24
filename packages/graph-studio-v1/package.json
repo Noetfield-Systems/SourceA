@@ -1,0 +1,17 @@
+{
+  "name": "@sourcea/graph-studio-v1",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "SourceA Graph Studio v1 — Node Registry + Blueprint + Compiler + Run Graph over Executive Mesh",
+  "scripts": {
+    "test": "node --experimental-strip-types --test tests/*.test.ts"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "devDependencies": {
+    "typescript": "^5.8.2",
+    "@types/node": "^22.13.10"
+  }
+}
