@@ -1,0 +1,21 @@
+{
+  "file": "/Users/sinakazemnezhad/Desktop/Noetfield-Systems/worktrees/sourcea/_wt-executive-mesh-v1/docs/executive-mesh/current-production-map.md",
+  "agent_review": [
+    {
+      "type": "AGENT_REVIEW",
+      "line": 9,
+      "reason": "long sentence with multiple Title Case phrases \u2014 rewrite to plain English",
+      "hint": "Use short sentences. One idea per sentence. Prefer dictionary public phrasing."
+    }
+  ],
+  "dictionary_warnings": [
+    {
+      "type": "UNDEFINED_TERM",
+      "term": "Runway DO",
+      "line": 34,
+      "fix": null,
+      "reason": "no dictionary entry \u2014 add dictionary first, then mint terminology",
+      "auto_fixed": false
+    }
+  ]
+}
