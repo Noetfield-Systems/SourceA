@@ -70,6 +70,9 @@ export function runBrainCoreGateStaging({
   if (passClaimed && mappedStatus === "unknown") {
     reasons.push("pass_claimed_without_live_status");
   }
+  if (passClaimed && !hasEvidence) {
+    reasons.push("FALSE_DONE_WITHOUT_EVIDENCE");
+  }
   if (mappedStatus === "degraded") {
     reasons.push(`live_status_degraded:${statusKey}`);
   }

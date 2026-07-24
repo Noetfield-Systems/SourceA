@@ -25,6 +25,31 @@ BRAIN_INBOX = Path.home() / ".sina" / "brain-broker-inbox-v1.json"
 CHECKPOINT_PATH = Path.home() / ".sina" / "goal1-batch-checkpoint-v1.json"
 
 
+
+def _maybe_record_human_tax(task_id: str, message: str, prior_intent: str = "") -> dict | None:
+    """Classify founder repair labor vs judgment; meter only (NF-GOVERNED-WORK-PACKET-CONTROL-V1)."""
+    try:
+        from human_tax_meter_v1 import classify_owner_message, record_human_tax_event
+    except Exception:
+        return None
+    event_type = classify_owner_message(message, prior_goal_intent=prior_intent)
+    avoidable = event_type in {"GOAL_RESTATEMENT", "SCOPE_RESTATEMENT", "MANUAL_CORRECTION", "FALSE_DONE_REJECTION"}
+    if not avoidable and event_type == "OWNER_DECISION":
+        return record_human_tax_event(
+            task_id=task_id,
+            event_type="OWNER_DECISION",
+            avoidable=False,
+            active_human_seconds=0,
+            new_information=True,
+        )
+    return record_human_tax_event(
+        task_id=task_id,
+        event_type=event_type,
+        avoidable=avoidable,
+        active_human_seconds=60 if avoidable else 0,
+    )
+
+
 def _now() -> str:
     return datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
 
@@ -1409,9 +1434,13 @@ def main() -> int:
         brain_poll(as_yaml=not args.json)
         return 0
     if args.cmd == "brain-ack":
+        if args.note:
+            _maybe_record_human_tax("goal1_lane", args.note)
         brain_ack(note=args.note)
         return 0
     if args.cmd == "brain-checkpoint-ack":
+        if args.note:
+            _maybe_record_human_tax("goal1_lane", args.note)
         brain_checkpoint_ack(note=args.note)
         return 0
     if args.cmd == "watch":
