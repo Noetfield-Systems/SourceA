@@ -213,7 +213,45 @@ def validate_contract(contract: dict[str, Any]) -> dict[str, Any]:
         kv = str(contract.get("kernel_version") or "")
         if kv and not kv.startswith("fbe-v") and "+" not in kv:
             errors.append("kernel_version_malformed")
+    gc = contract.get("goal_contract")
+    if isinstance(gc, dict) and gc:
+        gc_errors = validate_goal_contract_envelope(gc)
+        errors.extend(gc_errors)
     return {"ok": not errors, "errors": errors, "contract": contract}
+
+
+def validate_goal_contract_envelope(goal_contract: dict[str, Any]) -> list[str]:
+    """NF-GOVERNED-WORK-PACKET-CONTROL-V1 — Goal Contract fields when present."""
+    spec = _read_json(CONTRACT_PATH)
+    required = (spec.get("goal_contract") or {}).get("required_when_present") or []
+    errors: list[str] = []
+    for key in required:
+        if key not in goal_contract or goal_contract.get(key) in (None, "", []):
+            errors.append(f"goal_contract_missing:{key}")
+    ah = str(goal_contract.get("authority_hash") or "")
+    if ah and (not ah.startswith("sha256:") or len(ah) < 71):
+        errors.append("goal_contract_authority_hash_malformed")
+    return errors
+
+
+def attach_goal_contract(
+    contract: dict[str, Any],
+    goal_contract: dict[str, Any] | None,
+) -> dict[str, Any]:
+    if not goal_contract:
+        return contract
+    out = dict(contract)
+    out["goal_contract"] = goal_contract
+    return out
+
+
+def map_cycle_to_work_packet_terminal(to_state: str, *, has_artifact: bool) -> str:
+    if to_state == "COMPLETE" and has_artifact:
+        return "ACCEPTED_ARTIFACT"
+    if to_state in {"BLOCKED_WITH_REASON", "IDLE_NO_WORK"}:
+        # Idle with no work is not ACTIVE_FOREVER; bounded no-op receipt.
+        return "BOUNDED_FAILURE" if to_state == "BLOCKED_WITH_REASON" else "BOUNDED_FAILURE"
+    return "BOUNDED_FAILURE"
 
 
 def policy_gate(

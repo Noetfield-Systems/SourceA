@@ -688,6 +688,11 @@ def _write_cycle_receipt(
         "decision_type": "autonomous_drain_gate",
         "verdict": verdict,
         "state": to_state,
+        "work_packet_terminal": (
+            "ACCEPTED_ARTIFACT"
+            if to_state == "COMPLETE" and shipped > 0
+            else "BOUNDED_FAILURE"
+        ),
         "transition": transition,
         "transition_log_tail": [
             {

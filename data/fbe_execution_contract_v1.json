@@ -5,7 +5,10 @@
   "kernel_version": "fbe-v1.0.0",
   "kernel_hash_source": "data/fbe_node_graph_v1.json",
   "default_execution_mode": "CLOUD_ONLY",
-  "allowed_execution_modes": ["CLOUD_ONLY", "LOCAL_ALLOWED"],
+  "allowed_execution_modes": [
+    "CLOUD_ONLY",
+    "LOCAL_ALLOWED"
+  ],
   "required_fields": [
     "job_id",
     "factory_id",
@@ -31,12 +34,27 @@
     "tier_achieved"
   ],
   "route_map": {
-    "/api/fbe/run-job/v1": {"run_mode": "full_job", "default_template": "web-product-factory-v1"},
-    "/api/fbe/run-bay/v1": {"run_mode": "refinery"},
-    "/api/fbe/run-exchange/v1": {"run_mode": "exchange", "default_template": "exchange-factory-v1"},
-    "/api/fbe/run-forge/v1": {"run_mode": "forge", "default_template": "forge-app-factory-v1"},
-    "/api/fbe/run-fleet/v1": {"run_mode": "fleet"},
-    "/api/fbe/spawn/v1": {"run_mode": "spawn"},
+    "/api/fbe/run-job/v1": {
+      "run_mode": "full_job",
+      "default_template": "web-product-factory-v1"
+    },
+    "/api/fbe/run-bay/v1": {
+      "run_mode": "refinery"
+    },
+    "/api/fbe/run-exchange/v1": {
+      "run_mode": "exchange",
+      "default_template": "exchange-factory-v1"
+    },
+    "/api/fbe/run-forge/v1": {
+      "run_mode": "forge",
+      "default_template": "forge-app-factory-v1"
+    },
+    "/api/fbe/run-fleet/v1": {
+      "run_mode": "fleet"
+    },
+    "/api/fbe/spawn/v1": {
+      "run_mode": "spawn"
+    },
     "/api/fbe/comprehension-loop/v1": {
       "run_mode": "comprehension",
       "default_template": "comprehension-loop-factory-v1"
@@ -45,5 +63,36 @@
       "run_mode": "loop_specialist",
       "default_template": "comprehension-loop-factory-v1"
     }
-  }
+  },
+  "goal_contract": {
+    "schema": "noetfield.goal_contract.v1",
+    "required_when_present": [
+      "goal_id",
+      "owner",
+      "goal_version",
+      "intent",
+      "acceptance_predicates",
+      "scope_allowlist",
+      "forbidden_effects",
+      "budgets",
+      "evidence_required",
+      "stop_policy",
+      "authority_hash"
+    ],
+    "mutation_path": "OWNER_GOAL_CHANGE_only",
+    "agents_may_mutate_goal_contract": false
+  },
+  "work_packet_terminals": [
+    "ACCEPTED_ARTIFACT",
+    "BOUNDED_FAILURE",
+    "RED_ZONE_DECISION_PACKET"
+  ],
+  "forbidden_terminals": [
+    "ACTIVE_FOREVER"
+  ],
+  "human_tax": {
+    "meter": true,
+    "schema": "noetfield.human_tax_event.v1"
+  },
+  "governed_work_packet_control": "NF-GOVERNED-WORK-PACKET-CONTROL-V1"
 }
