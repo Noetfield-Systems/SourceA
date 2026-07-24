@@ -1,0 +1,9 @@
+{
+  "name": "sourcea-executive-governor-v1",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "deploy": "npx --yes wrangler@4 deploy",
+    "dev": "npx --yes wrangler@4 dev"
+  }
+}

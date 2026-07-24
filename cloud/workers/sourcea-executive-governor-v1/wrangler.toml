@@ -1,0 +1,24 @@
+name = "sourcea-executive-governor-v1"
+main = "src/index.ts"
+compatibility_date = "2024-11-01"
+compatibility_flags = ["nodejs_compat"]
+account_id = "0d0b967b77e2e5535455d39ff3dae72c"
+workers_dev = true
+
+[vars]
+MESH_SIMULATE = "1"
+# RUNWAY_GOAL_BASE_URL = "https://noetfield-runway-live-staging.sina-kazemnezhad-ca.workers.dev"
+
+[observability]
+enabled = true
+
+[[durable_objects.bindings]]
+name = "EXECUTIVE_GOVERNOR"
+class_name = "ExecutiveGovernorDO"
+
+[[migrations]]
+tag = "v1"
+new_sqlite_classes = ["ExecutiveGovernorDO"]
+
+# Ops: loop_id=sourcea_executive_pulse_v1 · deadman=sourcea-deadman-v1 · receipts/executive/
+# Cron pulse can be added later; ingress is HTTP POST /v1/executive/runs
