@@ -1,0 +1,16 @@
+{
+  "name": "@sourcea/executive-control-plane-v0",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Deterministic SourceA Executive Control Plane v0 — Governor decides; Compiler emits WorkPacket; no LLM on decision path.",
+  "scripts": {
+    "test": "node --experimental-strip-types --test tests/acceptance.test.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "engines": { "node": ">=20" },
+  "devDependencies": {
+    "typescript": "^5.8.2",
+    "@types/node": "^22.13.10"
+  }
+}

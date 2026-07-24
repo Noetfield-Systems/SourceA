@@ -1,0 +1,13 @@
+{
+  "decision_class": "WEBPAGE_REPAIR",
+  "policy_version": "webpage_repair.v1.live.185ec3865a14",
+  "body": {
+    "when": { "task_type": "webpage_repair", "risk": "low_or_medium" },
+    "select": { "workflow": "deterministic_web_repair_v1", "executor": "cheapest_passing_executor" },
+    "limits": { "max_files": 5, "max_attempts": 2, "max_fanout": 0 },
+    "verify": ["build_passes", "visual_diff_present", "target_issue_absent", "unrelated_pages_unchanged"],
+    "escalate_when": ["positioning_change_detected", "protected_file_required", "two_distinct_plans_failed"]
+  },
+  "zone": "GREEN",
+  "reversible": true
+}
