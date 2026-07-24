@@ -1,0 +1,62 @@
+{
+  "file": "/Users/sinakazemnezhad/Desktop/Noetfield-Systems/worktrees/sourcea/_wt-executive-control-plane-v0/packages/executive-control-plane-v0/README.md",
+  "agent_review": [],
+  "dictionary_warnings": [
+    {
+      "type": "UNDEFINED_TERM",
+      "term": "Executive Office",
+      "line": 3,
+      "fix": null,
+      "reason": "no dictionary entry \u2014 add dictionary first, then mint terminology",
+      "auto_fixed": false
+    },
+    {
+      "type": "UNDEFINED_TERM",
+      "term": "Same State",
+      "line": 5,
+      "fix": null,
+      "reason": "no dictionary entry \u2014 add dictionary first, then mint terminology",
+      "auto_fixed": false
+    },
+    {
+      "type": "UNDEFINED_TERM",
+      "term": "Same Event",
+      "line": 5,
+      "fix": null,
+      "reason": "no dictionary entry \u2014 add dictionary first, then mint terminology",
+      "auto_fixed": false
+    },
+    {
+      "type": "UNDEFINED_TERM",
+      "term": "Same Policy Version",
+      "line": 5,
+      "fix": null,
+      "reason": "no dictionary entry \u2014 add dictionary first, then mint terminology",
+      "auto_fixed": false
+    },
+    {
+      "type": "UNDEFINED_TERM",
+      "term": "Same Decision",
+      "line": 5,
+      "fix": null,
+      "reason": "no dictionary entry \u2014 add dictionary first, then mint terminology",
+      "auto_fixed": false
+    },
+    {
+      "type": "UNDEFINED_TERM",
+      "term": "Cloudflare Durable Object",
+      "line": 7,
+      "fix": null,
+      "reason": "no dictionary entry \u2014 add dictionary first, then mint terminology",
+      "auto_fixed": false
+    },
+    {
+      "type": "UNDEFINED_TERM",
+      "term": "Founder Decision Packet",
+      "line": 38,
+      "fix": null,
+      "reason": "no dictionary entry \u2014 add dictionary first, then mint terminology",
+      "auto_fixed": false
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "decision_class": "WEBPAGE_CHANGE",
+  "policy_version": "webpage_change.v1.live.2f08672f3aaf",
+  "body": {
+    "when": { "task_type": "webpage_change", "risk": "low_or_medium" },
+    "select": { "workflow": "deterministic_web_change_v1", "executor": "cheapest_passing_executor" },
+    "limits": { "max_files": 5, "max_attempts": 2, "max_fanout": 0 },
+    "verify": ["build_passes", "target_issue_absent", "unrelated_pages_unchanged", "receipt_written"],
+    "escalate_when": ["positioning_change_detected", "protected_file_required", "two_distinct_plans_failed"]
+  },
+  "zone": "GREEN",
+  "reversible": true
+}

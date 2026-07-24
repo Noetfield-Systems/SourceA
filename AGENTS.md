@@ -31,3 +31,7 @@ of thousands a blind multi-agent understand pass costs. The full index is a loca
 cache (gitignored, ~20MB); if it is missing or stale, rebuild first with
 `python3 scripts/build_repo_graph_v1.py` (~5s, zero-token) rather than falling
 back to a blind read. Verify wiring: `bash scripts/verify_l0_repo_graph_memory_v1.sh`.
+
+## Executive Control Plane v0
+
+Deterministic kernel: `packages/executive-control-plane-v0` (SG lock `NF-EXECUTIVE-CONTROL-PLANE-V0`). No LLM on decision path. Test: `cd packages/executive-control-plane-v0 && npm test`.
