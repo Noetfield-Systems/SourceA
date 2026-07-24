@@ -1,0 +1,17 @@
+{
+  "schema": "sourcea_n8n_executive_parity_v1",
+  "decision_id": "NF-SOURCEA-N8N-ORCHESTRATOR-V1",
+  "at": "2026-07-24T09:16:08.194Z",
+  "workflow": "n8n/workflows/executive_webpage_repair_v1.json",
+  "correlation_id": "parity_20260724T091606Z_30327",
+  "role_ref": "role://sg_planner/parity_20260724T091606Z_30327",
+  "context_ref": "ctx://parity_20260724T091606Z_30327",
+  "governor": {
+    "run_id": "run_parity_20260724T091606Z_30327",
+    "terminal": "ACCEPTED",
+    "ok": true
+  },
+  "terminal": "ACCEPTED",
+  "ok": true,
+  "note": "Governor ACCEPTED — Executive Workflow path parity with Mesh webpage-repair"
+}

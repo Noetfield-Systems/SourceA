@@ -1,0 +1,97 @@
+version: "3.8"
+
+# Local / reference compose for SourceA n8n orchestrator.
+# Production: Railway services mirror these roles (separate ops Postgres from Supabase spine).
+
+services:
+  n8n-postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: n8n
+      POSTGRES_PASSWORD: ${N8N_PG_PASSWORD:?set N8N_PG_PASSWORD}
+      POSTGRES_DB: n8n
+    volumes:
+      - n8n_pg_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U n8n"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  n8n-redis:
+    image: redis:7-alpine
+    command: ["redis-server", "--appendonly", "yes"]
+    volumes:
+      - n8n_redis_data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 3s
+      retries: 5
+
+  n8n-main:
+    image: n8nio/n8n:1.82.0
+    depends_on:
+      n8n-postgres:
+        condition: service_healthy
+      n8n-redis:
+        condition: service_healthy
+    ports:
+      - "5678:5678"
+    environment:
+      N8N_HOST: ${N8N_HOST:-localhost}
+      N8N_PORT: 5678
+      N8N_PROTOCOL: ${N8N_PROTOCOL:-http}
+      WEBHOOK_URL: ${WEBHOOK_URL:-http://localhost:5678/}
+      GENERIC_TIMEZONE: UTC
+      EXECUTIONS_MODE: queue
+      QUEUE_BULL_REDIS_HOST: n8n-redis
+      QUEUE_BULL_REDIS_PORT: 6379
+      DB_TYPE: postgresdb
+      DB_POSTGRESDB_HOST: n8n-postgres
+      DB_POSTGRESDB_PORT: 5432
+      DB_POSTGRESDB_DATABASE: n8n
+      DB_POSTGRESDB_USER: n8n
+      DB_POSTGRESDB_PASSWORD: ${N8N_PG_PASSWORD}
+      N8N_ENCRYPTION_KEY: ${N8N_ENCRYPTION_KEY:?set N8N_ENCRYPTION_KEY}
+      N8N_BASIC_AUTH_ACTIVE: "true"
+      N8N_BASIC_AUTH_USER: ${N8N_BASIC_AUTH_USER:-sourcea}
+      N8N_BASIC_AUTH_PASSWORD: ${N8N_BASIC_AUTH_PASSWORD:?set N8N_BASIC_AUTH_PASSWORD}
+      N8N_CUSTOM_EXTENSIONS: /home/node/.n8n/custom
+      SOURCEA_GOVERNOR_URL: ${SOURCEA_GOVERNOR_URL:-https://sourcea-executive-governor-v1.sina-kazemnezhad-ca.workers.dev}
+      SOURCEA_GRAPH_STUDIO_URL: ${SOURCEA_GRAPH_STUDIO_URL:-https://sourcea-graph-studio-v1.sina-kazemnezhad-ca.workers.dev}
+      N8N_WEBHOOK_SECRET: ${N8N_WEBHOOK_SECRET:-}
+    volumes:
+      - n8n_data:/home/node/.n8n
+      - ../../packages/n8n-nodes-sourcea:/home/node/.n8n/custom:ro
+
+  n8n-worker:
+    image: n8nio/n8n:1.82.0
+    command: worker
+    depends_on:
+      - n8n-main
+      - n8n-redis
+      - n8n-postgres
+    environment:
+      EXECUTIONS_MODE: queue
+      QUEUE_BULL_REDIS_HOST: n8n-redis
+      QUEUE_BULL_REDIS_PORT: 6379
+      DB_TYPE: postgresdb
+      DB_POSTGRESDB_HOST: n8n-postgres
+      DB_POSTGRESDB_PORT: 5432
+      DB_POSTGRESDB_DATABASE: n8n
+      DB_POSTGRESDB_USER: n8n
+      DB_POSTGRESDB_PASSWORD: ${N8N_PG_PASSWORD}
+      N8N_ENCRYPTION_KEY: ${N8N_ENCRYPTION_KEY}
+      N8N_CUSTOM_EXTENSIONS: /home/node/.n8n/custom
+      SOURCEA_GOVERNOR_URL: ${SOURCEA_GOVERNOR_URL:-https://sourcea-executive-governor-v1.sina-kazemnezhad-ca.workers.dev}
+      SOURCEA_GRAPH_STUDIO_URL: ${SOURCEA_GRAPH_STUDIO_URL:-https://sourcea-graph-studio-v1.sina-kazemnezhad-ca.workers.dev}
+      N8N_WEBHOOK_SECRET: ${N8N_WEBHOOK_SECRET:-}
+    volumes:
+      - n8n_data:/home/node/.n8n
+      - ../../packages/n8n-nodes-sourcea:/home/node/.n8n/custom:ro
+
+volumes:
+  n8n_pg_data:
+  n8n_redis_data:
+  n8n_data:

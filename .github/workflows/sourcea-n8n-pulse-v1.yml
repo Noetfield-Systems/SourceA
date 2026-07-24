@@ -1,0 +1,40 @@
+name: sourcea-n8n-pulse-v1
+on:
+  schedule:
+    - cron: "*/15 * * * *"
+  workflow_dispatch:
+jobs:
+  pulse:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: n8n + gates pulse
+        env:
+          SOURCEA_N8N_HEALTH_URL: https://n8n-main-production-bfdc.up.railway.app/healthz
+          SOURCEA_GATES_URL: https://sourcea-founder-gates-v1.sina-kazemnezhad-ca.workers.dev
+        run: |
+          mkdir -p receipts/n8n
+          TS=$(date -u +%Y%m%dT%H%M%SZ)
+          NCODE=$(curl -sS -o /tmp/n8n.txt -w "%{http_code}" --max-time 20 "$SOURCEA_N8N_HEALTH_URL" || echo 000)
+          GCODE=$(curl -sS -o /tmp/gates.txt -w "%{http_code}" --max-time 20 "$SOURCEA_GATES_URL/health" || echo 000)
+          python3 - <<PY
+          import json
+          from pathlib import Path
+          from datetime import datetime, timezone
+          out = {
+            "schema": "sourcea_n8n_pulse_v1",
+            "loop_id": "sourcea_n8n_pulse_v1",
+            "deadman": "sourcea-deadman-v1",
+            "trigger_host": "cloud",
+            "last_fired_at": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
+            "n8n": {"ok": "$NCODE" == "200", "detail": "http_$NCODE"},
+            "gates": {"ok": "$GCODE" == "200", "detail": "http_$GCODE"},
+            "ok": True,
+          }
+          Path("receipts/n8n/N8N_PULSE_${TS}.json").write_text(json.dumps(out, indent=2) + "\n")
+          print(json.dumps(out, indent=2))
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: n8n-pulse-receipt
+          path: receipts/n8n/N8N_PULSE_*.json

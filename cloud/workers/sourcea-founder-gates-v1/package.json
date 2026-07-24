@@ -1,0 +1,9 @@
+{
+  "name": "sourcea-founder-gates-v1",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "deploy": "npx wrangler deploy",
+    "dev": "npx wrangler dev"
+  }
+}
