@@ -15,3 +15,7 @@ enabled = true
 # FBE_CLOUD_WORKER_URL = https://sourcea-fbe-runner-production.up.railway.app
 # FBE_INTERNAL_SECRET = <from Railway env>
 # LOOP_AUTO_DISPATCH = true
+
+[[services]]
+binding = "FOUNDER_GATES"
+service = "sourcea-founder-gates-v1"
