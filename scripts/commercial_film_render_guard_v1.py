@@ -583,7 +583,7 @@ def main() -> int:
     p_status.add_argument("--json", action="store_true")
 
     p_acquire = sub.add_parser("acquire")
-    p_acquire.add_argument("--lane", required=True, choices=["witnessbc", "sourcea", "avatar", "other"])
+    p_acquire.add_argument("--lane", required=True, choices=["witnessbc", "sourcea", "noetfield", "avatar", "other"])
     p_acquire.add_argument("--holder-pid", type=int, default=0)
     p_acquire.add_argument("--force", action="store_true")
     p_acquire.add_argument("--json", action="store_true")
