@@ -1,8 +1,9 @@
 # Commercial Film Factory — Routing SSOT (LOCKED v1)
 
 **Machine SSOT:** `data/commercial-film-routing-v1.json`  
-**Version:** 1.0.0 · **Date:** 2026-06-15  
-**Validator:** `bash scripts/validate-commercial-film-routing-v1.sh`
+**Version:** 1.1.0 · **Date:** 2026-07-25  
+**Validator:** `bash scripts/validate-commercial-film-routing-v1.sh`  
+**App investor proof lock:** `data/NOETFIELD_APP_INVESTOR_PROOF_FILM_LOCKED_v1.md`
 
 ---
 
@@ -48,7 +49,7 @@ Path A means: finish the film (frame, grade, SFX, dwell, logo wall) — **not** 
 | **witnessbc** | active | `witnessbc-commercial-film-beats-v1.json` · `witnessbc-commercial-social-30s-beats-v1.json` | `witnessbc-commercial-film.sh` |
 | **sourcea** | active | `commercial-short-film-beats-v1.json` | `sourcea-commercial-film.sh` |
 | **trustfield** | draft | `trustfield-commercial-film-beats-v1.json` | factory `--beats` |
-| **noetfield** | draft | `noetfield-commercial-film-beats-v1.json` · `noetfield-commercial-social-30s-beats-v1.json` | factory `--beats` |
+| **noetfield** | active | `noetfield-app-investor-proof-film-beats-v1.json` (**B_proof LOCKED**) · `noetfield-commercial-film-beats-v1.json` · `noetfield-commercial-social-30s-beats-v1.json` | `noetfield-app-investor-proof-film.sh` |
 | **fitness** | placeholder | `fitness-commercial-film-beats-v1.json` | tier C only |
 | **virlux** | placeholder | — | TBD |
 

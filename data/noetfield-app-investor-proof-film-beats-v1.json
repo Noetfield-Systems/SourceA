@@ -1,0 +1,185 @@
+{
+  "schema": "commercial-short-film-beats-v1",
+  "status": "locked",
+  "locked_at": "2026-07-25",
+  "locked_by": "ASF",
+  "locked_doc": "data/NOETFIELD_APP_INVESTOR_PROOF_FILM_LOCKED_v1.md",
+  "artifact_class": "D_proof_lab",
+  "routing_lane": "noetfield",
+  "routing_tier": "B_proof",
+  "routing_ref": "data/commercial-film-routing-v1.json#noetfield.tier_B_app_investor_proof",
+  "film_style": "linear_orientation_hero",
+  "quality_tier": "ultra",
+  "linear_recut": true,
+  "chapter_captions": true,
+  "captions_mode": "chapter_only",
+  "commercial_capture": true,
+  "human_smooth": true,
+  "proof_density": true,
+  "cinematic_finish": true,
+  "title": "Noetfield App — Governed AI Software Factory",
+  "runtime_target_seconds": 110,
+  "claim_lock": {
+    "lead": "Working client-zero governed AI software factory: authorized goal → structured execution → quality gate → revisioned artifact → inspectable receipt. Raising to industrialize full-stack delivery assurance.",
+    "forbid": [
+      "Replit parity",
+      "Lovable parity",
+      "Atoms parity",
+      "institutional seed readiness",
+      "market traction beyond client-zero"
+    ]
+  },
+  "polish": {
+    "vo_engine": "elevenlabs",
+    "vo_lane": "sourcea",
+    "target_bitrate_mbps": 18,
+    "master_lufs": -14,
+    "sfx": true,
+    "cinematic_finish": true
+  },
+  "hook": "Authorized goal in. Quality gate. Revision. Receipt. That is the factory — not a prettier prototype.",
+  "brand": {
+    "name": "Noetfield",
+    "domain": "app.noetfield.com",
+    "card_footer": "Noetfield · client-zero governed factory",
+    "hook_title": "Governed AI software factory",
+    "hook_subtitle": "Goal · Gate · Revision · Receipt",
+    "hook_label": "Investor proof film",
+    "hook_card_seconds": 3,
+    "hook_broll_urls": [
+      "https://app.noetfield.com/"
+    ],
+    "hook_broll_seconds": 8,
+    "cta_title": "Industrialize delivery assurance",
+    "cta_subtitle": "app.noetfield.com",
+    "cta_broll_urls": [
+      "https://app.noetfield.com/"
+    ]
+  },
+  "publish": {
+    "desktop": "Noetfield-App-Investor-Proof.mp4",
+    "receipt": "noetfield-app-investor-proof-film-receipt-v1.json",
+    "work_dir": "noetfield-app-investor-proof-film-work-v1",
+    "screen_studio_masters": [
+      "~/Desktop/Noetfield-App-Investor-Proof-Master.mov",
+      "~/Desktop/Noetfield-App-Investor-Proof-Master.mp4"
+    ]
+  },
+  "capture_law": {
+    "surface": "https://app.noetfield.com/",
+    "forbid_broll": [
+      "*.trycloudflare.com",
+      "expired sandbox tunnels"
+    ],
+    "preferred": "screen_studio_4k_master",
+    "playwright": "secondary_when_session_available",
+    "quality_bar": "data/video-quality-bar-v1.json",
+    "must_have": [
+      "crisp_ui_no_ken_burns_blur",
+      "pro_elevenlabs_vo",
+      "prompt_leak_free_landing_h1",
+      "visible_receipt_or_revision"
+    ]
+  },
+  "global_capture": {
+    "width": 2560,
+    "height": 1440,
+    "master_width": 3840,
+    "master_height": 2160,
+    "seconds_per_url": 12,
+    "zoom": 1.0
+  },
+  "beats": [
+    {
+      "id": "OPEN",
+      "label": "Open",
+      "title": "Client-zero factory",
+      "narration": "Working client-zero governed AI software factory. Authorized goal in. Structured execution out.",
+      "broll_urls": [
+        "https://app.noetfield.com/"
+      ],
+      "card_seconds": 2.5,
+      "broll_seconds": 10,
+      "seconds_per_url": 10
+    },
+    {
+      "id": "GOAL",
+      "label": "Goal",
+      "title": "Front Person",
+      "narration": "The cockpit stays the operating surface. Ask once. The team roles move while the work runs.",
+      "broll_urls": [
+        "https://app.noetfield.com/app/new/"
+      ],
+      "card_seconds": 0.8,
+      "broll_seconds": 14,
+      "seconds_per_url": 14
+    },
+    {
+      "id": "GATE",
+      "label": "Gate",
+      "title": "Quality check",
+      "narration": "Quality gate before Preview. The headline is finished product copy — never the raw prompt.",
+      "broll_urls": [
+        "https://app.noetfield.com/app/"
+      ],
+      "card_seconds": 0.8,
+      "broll_seconds": 16,
+      "seconds_per_url": 16
+    },
+    {
+      "id": "REVISION",
+      "label": "Revision",
+      "title": "Inspectable artifact",
+      "narration": "Revisioned artifact. Website Preview you can open, share, and inspect.",
+      "broll_urls": [
+        "https://app.noetfield.com/app/"
+      ],
+      "card_seconds": 0.8,
+      "broll_seconds": 12,
+      "seconds_per_url": 12
+    },
+    {
+      "id": "CLINIC",
+      "label": "Clinic Desk",
+      "title": "Full-stack path",
+      "narration": "Full-stack path on the same factory: Clinic Desk — auth, roles, appointments, audit.",
+      "broll_urls": [
+        "https://app.noetfield.com/app/new/"
+      ],
+      "card_seconds": 0.8,
+      "broll_seconds": 18,
+      "seconds_per_url": 18
+    },
+    {
+      "id": "RECEIPT",
+      "label": "Receipt",
+      "title": "Checks on disk",
+      "narration": "Inspectable receipt. Auth tables, appointments, audit events — checks pass on disk.",
+      "broll_urls": [
+        "https://app.noetfield.com/app/"
+      ],
+      "card_seconds": 0.8,
+      "broll_seconds": 14,
+      "seconds_per_url": 14
+    }
+  ],
+  "cta": {
+    "narration": "Noetfield. Raising to industrialize full-stack delivery assurance. Start at app.noetfield.com.",
+    "seconds": 8,
+    "broll_urls": [
+      "https://app.noetfield.com/"
+    ]
+  },
+  "honest_gaps": [
+    "Injected defect → automatic bounded repair → requalify is not automated in Clinic Desk; repair is a new compile.",
+    "Outbound email and SMS are in-app notification stubs only.",
+    "Do not claim Replit, Lovable, or Atoms parity."
+  ],
+  "factory": {
+    "orchestrator": "scripts/commercial_short_film_v1.py",
+    "vo_wire": "scripts/film_elevenlabs_wire_v1.py",
+    "entry": "noetfield-app-investor-proof-film.sh",
+    "quality_bar": "data/video-quality-bar-v1.json",
+    "investor_pack": "NOETFIELD-RUNWAY/sites/company-new/docs/investor-proof-pack.md"
+  }
+}
