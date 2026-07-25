@@ -70,7 +70,7 @@
     const budget = String(fd.get("budget") || "").trim();
     const email = String(fd.get("email") || "").trim().toLowerCase();
     const building_type = String(fd.get("building_type") || "").trim();
-    const  = String(fd.get("") || "").trim();
+    const competitor = String(fd.get("competitor") || "").trim();
     const errors = [];
     if (!building) errors.push("building_required");
     if (!deadline) errors.push("deadline_required");
@@ -81,7 +81,7 @@
       payload: {
         building: building,
         building_type: building_type || undefined,
-        :  || undefined,
+        competitor: competitor || undefined,
         deadline: deadline,
         budget: budget,
         email: email,

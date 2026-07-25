@@ -74,7 +74,7 @@ async function handlePost(request, env) {
     intake: {
       building,
       building_type: b.building_type || undefined,
-      : b. || undefined,
+      competitor: b.competitor || undefined,
       deadline,
       budget,
       email,
