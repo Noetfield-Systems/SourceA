@@ -17,6 +17,7 @@ on:
       - 'docs/commercial/NOETFIELD_AGENTIC_*'
       - 'brain-os/**'
       - 'cloud/**'
+      - 'infra/**'
       - 'repo-policy.json'
       - 'reports/locked-definitions-v1.json'
   push:
@@ -28,6 +29,7 @@ on:
       - 'data/**'
       - 'brain-os/**'
       - 'cloud/**'
+      - 'infra/**'
       - 'repo-policy.json'
       - 'reports/locked-definitions-v1.json'
 
