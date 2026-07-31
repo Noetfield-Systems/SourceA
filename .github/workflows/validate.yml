@@ -3,23 +3,17 @@ name: validate
 # Required status check on main — lightweight disk + policy gate (not validate-all-e2e marathon).
 on:
   workflow_dispatch:
+  # NO paths filter on pull_request, deliberately.
+  # `validate` is a REQUIRED status check. A required check that is path
+  # filtered simply never reports on a PR touching any other path, so the PR
+  # sits on "Expected - waiting for status to be reported" forever and can
+  # never merge. That trap already hit PR #54 (n8n-only), docs-only PRs, and
+  # site-only PRs, and each time it was patched by appending one more path.
+  # The job itself is repo-wide (repo policy, n8n JSON parse, adapter tests,
+  # workflow lint), not path specific, and finishes well inside its 8 minute
+  # budget, so always running it on PRs is both correct and cheap.
   pull_request:
     branches: [main]
-    paths:
-      - '.github/workflows/**'
-      - 'scripts/**'
-      - 'n8n/workflows/**'
-      - 'tests/sandbox_executor_adapter_v1/**'
-      - 'data/**'
-      - 'docs/commercial/ACG_*'
-      - 'docs/commercial/AGENTIC_*'
-      - 'docs/commercial/PREMIUM_*'
-      - 'docs/commercial/NOETFIELD_AGENTIC_*'
-      - 'brain-os/**'
-      - 'cloud/**'
-      - 'infra/**'
-      - 'repo-policy.json'
-      - 'reports/locked-definitions-v1.json'
   push:
     branches: [main]
     paths:
