@@ -40,6 +40,20 @@
 
 ## Upgrade history
 
+### UP-LANDING-002 — 2026-08-02 — visitor-ready homepage
+
+| Field | Value |
+|-------|-------|
+| Trigger | Founder: current webpage not ready for visitors/partners/clients |
+| General | UP-0..UP-7 |
+| App | LAND-1..LAND-4 |
+| Preserved | trust_strip · trust_receipts · live_console · trust_bar · brain · pulse · proof console |
+| Changed | Strip `#sa-buy-bar` / `$750` header spam; positioning v3.6; guided off on home; hero 2 CTAs (Forge + See proof) |
+| Achieved | Calm self-serve first viewport — no price chrome, no jargon escalation CTA |
+| Quality vs last | **better** |
+| Founder approval | **approved** (plan confirm) |
+| Proof | PR #68 · merge `4d736937` · Vercel `source-a.vercel.app` clean · Pages deploy run `30741124591` |
+
 ### UP-LANDING-000 — 2026-06-18 — baseline lock
 
 | Field | Value |
@@ -56,4 +70,4 @@
 
 ---
 
-*Next upgrade: append UP-LANDING-001 to JSON + this section.*
+*Next upgrade: append UP-LANDING-003 to JSON + this section.*

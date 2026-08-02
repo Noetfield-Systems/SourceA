@@ -6,7 +6,7 @@
   "root": "SourceA-landing/green-unified",
   "url": "http://127.0.0.1:5180/sourcea/",
   "ledger_md": "brain-os/law/enforcement/ui-upgrade-ledgers/SOURCEA_LANDING_UI_UPGRADE_LEDGER_LOCKED_v1.md",
-  "saved_at": "2026-07-06T06:35:00Z",
+  "saved_at": "2026-08-02T09:07:30Z",
   "baseline_version": "1.2.0",
   "frozen_inventory": [
     {
@@ -196,11 +196,11 @@
       "quality_vs_last": "better",
       "preserved": "buyer_toggle,mock_panel,trust_strip,chain_beats,hero_cta",
       "changed": "GTM hero; problem/reframe strip; proof-embed; Build/Rent/Own pricing; Proof Sandbox funnel; cal.com CTAs; buyer chips; home redirect; attach OG sweep",
-      "achieved": "Steps 1-10 — gate PASS 43 commercial pages; sandbox.html live; booking SSOT data/sourcea-landing-cta-v1.json",
+      "achieved": "Steps 1-10 \u2014 gate PASS 43 commercial pages; sandbox.html live; booking SSOT data/sourcea-landing-cta-v1.json",
       "founder_approval": "pending",
       "machine_proof": {
         "validate-landing-commercial-copy-v1.sh": "PASS",
-        "landing_commercial_copy_gate_v1.py --all-commercial": "PASS · 43 pages · 0 findings"
+        "landing_commercial_copy_gate_v1.py --all-commercial": "PASS \u00b7 43 pages \u00b7 0 findings"
       },
       "steps": [
         "UP-LANDING-001 hero one-liner",
@@ -220,14 +220,14 @@
     {
       "upgrade_id": "UP-LANDING-001",
       "saved_at": "2026-07-06T06:35:00Z",
-      "founder_trigger": "UP-SA-W2-10 ship gate — site-score-1000 W2",
+      "founder_trigger": "UP-SA-W2-10 ship gate \u2014 site-score-1000 W2",
       "general_checklist": "UP-0..UP-7",
       "app_checklist": "LAND-1..LAND-4",
       "status": "shipped",
       "quality_vs_last": "better",
       "preserved": "buyer_toggle,hero_cta,trust_strip,proof_chain,brain_chat,pulse",
-      "changed": "W2 10×10 slice-01 execution; pricing /start CTAs; pulse proxy; FOUNDER_PULSE_KEY rotation doc; positioning v3.3.0",
-      "achieved": "sourcea.app W2 gate — 100/100 REGISTRY w2_execution steps done",
+      "changed": "W2 10\u00d710 slice-01 execution; pricing /start CTAs; pulse proxy; FOUNDER_PULSE_KEY rotation doc; positioning v3.3.0",
+      "achieved": "sourcea.app W2 gate \u2014 100/100 REGISTRY w2_execution steps done",
       "founder_approval": "pending",
       "machine_proof": {
         "sourcea_site_score_w2_pulse_v1.py": "100/100",
@@ -247,6 +247,25 @@
       ],
       "baseline_before": "1.1.0",
       "baseline_after": "1.2.0"
+    },
+    {
+      "upgrade_id": "UP-LANDING-002",
+      "saved_at": "2026-08-02T09:07:30Z",
+      "founder_trigger": "Visitor-ready homepage \u2014 strip buy chrome / calm CTAs",
+      "general_checklist": "UP-0..UP-7",
+      "app_checklist": "LAND-1..LAND-4",
+      "status": "shipped",
+      "quality_vs_last": "better",
+      "preserved": "trust_strip,trust_receipts,live_console_js,trust_bar_js,brain_chat,pulse,proof_console",
+      "changed": "founder-home 2 CTAs; positioning v3.6; guided disabled on home; strip buy chrome; mechanical denylist",
+      "achieved": "Homepage visitor-ready path \u2014 no sticky $750 / no guided modal / Forge+proof CTAs",
+      "founder_approval": "approved",
+      "machine_proof": {
+        "pr": "68",
+        "merge_sha": "4d736937d212d47a22c996f24a84d3b8e284a7c4",
+        "vercel": "https://source-a.vercel.app",
+        "pages_run": "30741124591"
+      }
     }
   ]
 }
