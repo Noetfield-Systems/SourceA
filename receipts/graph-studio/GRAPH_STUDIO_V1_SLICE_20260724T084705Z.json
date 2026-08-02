@@ -1,0 +1,111 @@
+{
+  "schema": "GRAPH_STUDIO_V1_SLICE",
+  "decision_id": "NF-GRAPH-STUDIO-V1",
+  "at": "2026-07-24T08:47:05Z",
+  "worker": "https://sourcea-graph-studio-v1.sina-kazemnezhad-ca.workers.dev",
+  "studio_web": "https://sourcea-graph-studio-v1.sina-kazemnezhad-ca.workers.dev/",
+  "validate_ok": true,
+  "plan_hash": "76f9abe1f75134541cf36adad2397420784301616d50e86f063946e28ffa681b",
+  "publish_ok": true,
+  "layout_does_not_change_hash": true,
+  "supabase": {
+    "blueprint": {
+      "ok": true,
+      "detail": "ok"
+    },
+    "plan": {
+      "ok": true,
+      "detail": "ok"
+    }
+  },
+  "run_ok": true,
+  "run_id": "grun_gs_live_1784882823",
+  "mesh_run_id": "run_gs_live_1784882823",
+  "terminal": "ACCEPTED",
+  "status": "ACCEPTED",
+  "run_graph_nodes": [
+    {
+      "id": "n_event",
+      "node_kind": "EventIngest",
+      "status": "PASSED"
+    },
+    {
+      "id": "n_sg",
+      "node_kind": "RolePod_SG",
+      "status": "PASSED"
+    },
+    {
+      "id": "n_mem",
+      "node_kind": "RolePod_MemorySteward",
+      "status": "PASSED"
+    },
+    {
+      "id": "n_plan",
+      "node_kind": "RolePod_Planner",
+      "status": "PASSED"
+    },
+    {
+      "id": "n_critic",
+      "node_kind": "RolePod_Critic",
+      "status": "PASSED"
+    },
+    {
+      "id": "n_gov",
+      "node_kind": "Governor",
+      "status": "PASSED"
+    },
+    {
+      "id": "n_exec",
+      "node_kind": "Executor_RunwayGoalKernel",
+      "status": "PASSED"
+    },
+    {
+      "id": "n_verify",
+      "node_kind": "IndependentVerifier",
+      "status": "PASSED"
+    },
+    {
+      "id": "n_commit",
+      "node_kind": "CanonicalCommit",
+      "status": "PASSED"
+    },
+    {
+      "id": "n_digest",
+      "node_kind": "Digest",
+      "status": "PASSED"
+    }
+  ],
+  "mesh": {
+    "run_id": "run_gs_live_1784882823",
+    "status": "ACCEPTED",
+    "terminal": "ACCEPTED",
+    "idempotency_key": "gs_gs_live_1784882823",
+    "snapshot_version": 3,
+    "digest": {
+      "terminal": "ACCEPTED",
+      "context_hash": "8f89bfedb967a1e1422d2b32f854e92bcee09b9443e87e03f85291fe9c27eace",
+      "decision_hash": "faccf4d7c888d59214287e2d7f7471ca05583d47e7b650646584575c7a20464f",
+      "work_packet_id": "wp_run_gs_live_1784882823",
+      "executor_class": "RUNWAY_GOAL_KERNEL",
+      "max_fanout": 0,
+      "goal_ref": "goal_d7b6b1ef9df84988898493",
+      "goal_status": "READY",
+      "commitment_status": "CLOSED",
+      "pods": [
+        "SG",
+        "MEMORY_STEWARD",
+        "STRATEGIC_PLANNER",
+        "CRITIC"
+      ],
+      "ecp_wrap": "executive-control-plane-v0",
+      "admit_detail": "runway_goal_api+live_get",
+      "runway_live": true,
+      "supabase": {
+        "ok": true,
+        "detail": "ok"
+      }
+    },
+    "stale_rejected": false
+  },
+  "ok": true
+}

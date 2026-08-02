@@ -1,8 +1,8 @@
 {
   "schema": "loop-specialist-cron-dispatch-v1",
   "version": "1.0.0",
-  "saved_at": "2026-07-24T23:25:00Z",
-  "one_law": "All scheduled loops: CF Worker */15 cron \u2192 isCronDue dispatch \u2192 Railway FBE. GHA schedule forbidden \u2014 workflow_dispatch backup only.",
+  "saved_at": "2026-07-05T18:15:00Z",
+  "one_law": "All scheduled loops: CF Worker */15 cron → isCronDue dispatch → Railway FBE. GHA schedule forbidden — workflow_dispatch backup only.",
   "wrangler_trigger_cron": "*/15 * * * *",
   "execution_plane": "cloudflare_cron_loop_specialist",
   "railway_base_env": "FBE_CLOUD_WORKER_URL",
@@ -51,7 +51,7 @@
           "id": "n8n-pulse",
           "kind": "handler",
           "handler": "n8n_pulse",
-          "note": "NF-SOURCEA-N8N-ORCHESTRATOR-V1 \u2014 probe Railway n8n + founder gates"
+          "note": "NF-SOURCEA-N8N-ORCHESTRATOR-V1 — probe Railway n8n + founder gates; deadman sourcea-deadman-v1"
         }
       ]
     },

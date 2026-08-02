@@ -1,0 +1,22 @@
+{
+  "schema": "sourcea.executive_mesh.governor_live_e2e_receipt.v1",
+  "decision_id": "NF-EXECUTIVE-MESH-V1",
+  "generated_at": "2026-07-24T07:29:35Z",
+  "verdict": "PASS",
+  "worker": "https://sourcea-executive-governor-v1.sina-kazemnezhad-ca.workers.dev",
+  "version_id": "13ec92d4-84d4-4385-a638-ad9e107be219",
+  "mesh_simulate": false,
+  "run_id": "run_evt_gov_live_1784878154",
+  "goal_ref": "goal_29232bc5f854457fb6d32f",
+  "goal_status": "READY",
+  "runway_live": true,
+  "supabase_row": true,
+  "admit_detail": "runway_goal_api+live_get",
+  "checklist": {
+    "mesh_simulate_off": true,
+    "real_runway_admit": true,
+    "live_get_verify": true,
+    "supabase_canonical_write": true,
+    "terminal_accepted": true
+  }
+}

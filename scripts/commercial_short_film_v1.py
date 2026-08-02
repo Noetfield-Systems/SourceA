@@ -426,8 +426,8 @@ def _urls_proof_focus(urls: list[str]) -> bool:
 
 def _inject_commercial_capture(page, *, product: str = "sourcea") -> None:
     """Clean theme · hidden chrome · synthetic cursor for pro demo capture."""
-    theme_key = "sourcea-theme" if product == "sourcea" else "witness-ai-theme"
-    use_light = product == "witnessbc"
+    theme_key = "sourcea-theme" if product in ("sourcea", "noetfield", "trustfield") else "witness-ai-theme"
+    use_light = product in ("witnessbc", "noetfield")
     theme = "light" if use_light else "dark"
     witnessbc_hide = """
               .announcement, #mainNav, .site-header, .site-footer, .page-breadcrumb,
@@ -762,6 +762,11 @@ def _interact_page(
             w1_sequence=w1_sequence,
             capture_timing=capture_timing,
         )
+        return
+    if "app.noetfield.com" in url or product == "noetfield":
+        page.wait_for_timeout(900 if commercial_capture else 500)
+        _smooth_scroll(page, steps=8 if human_smooth else 5)
+        page.wait_for_timeout(700 if commercial_capture else 400)
         return
     if "proof.html" in url:
         _interact_proof_lab(
@@ -2740,6 +2745,11 @@ def generate_film(
 def main() -> int:
     ap = argparse.ArgumentParser(description="Generate commercial short film (full stack UI capture)")
     ap.add_argument("--beats", type=Path, default=BEATS_JSON)
+    ap.add_argument(
+        "--product",
+        default=None,
+        help="Lane product id (sourcea|witnessbc|noetfield|trustfield). Defaults from beats.routing_lane.",
+    )
     ap.add_argument("--skip-publish", action="store_true")
     ap.add_argument("--refresh-voice", action="store_true", help="Bypass ElevenLabs cache; re-fetch all narration")
     ap.add_argument("--json", action="store_true")
@@ -2749,8 +2759,17 @@ def main() -> int:
     from commercial_film_render_guard_v1 import assert_render_allowed  # noqa: WPS433
 
     assert_render_allowed(force=args.force)
+    product = args.product
+    if not product:
+        try:
+            product = str(
+                json.loads(Path(args.beats).read_text(encoding="utf-8")).get("routing_lane")
+                or "sourcea"
+            )
+        except Exception:
+            product = "sourcea"
     try:
-        receipt = generate_film(beats_path=args.beats, skip_publish=args.skip_publish, product="sourcea")
+        receipt = generate_film(beats_path=args.beats, skip_publish=args.skip_publish, product=product)
     except (RuntimeError, SystemExit) as exc:
         print(f"FAIL: {exc}", file=sys.stderr)
         return 1

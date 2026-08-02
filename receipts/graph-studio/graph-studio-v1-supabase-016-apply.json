@@ -1,0 +1,31 @@
+{
+  "schema": "graph_studio_v1_supabase_016_apply",
+  "applied_at": "2026-07-24T08:38:22Z",
+  "decision_id": "NF-GRAPH-STUDIO-V1",
+  "migration_file": "016_graph_studio_v1.sql",
+  "sql_tables_present": [
+    "graph_blueprints",
+    "graph_compiled_plans",
+    "graph_node_manifests",
+    "graph_runs"
+  ],
+  "rest_probes": {
+    "graph_blueprints": {
+      "ok": true,
+      "http_code": 200
+    },
+    "graph_compiled_plans": {
+      "ok": true,
+      "http_code": 200
+    },
+    "graph_node_manifests": {
+      "ok": true,
+      "http_code": 200
+    },
+    "graph_runs": {
+      "ok": true,
+      "http_code": 200
+    }
+  },
+  "ok": true
+}

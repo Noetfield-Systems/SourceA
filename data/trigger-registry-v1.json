@@ -1,6 +1,6 @@
 {
   "schema": "trigger-registry-v1",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "system": "sourcea",
   "slo": {
     "freshness_target_minutes": 15,
@@ -543,6 +543,40 @@
           "push"
         ]
       }
+    },
+    {
+      "trigger_id": "SA-T-n8n-pulse-schedule",
+      "system": "sourcea",
+      "kind": "piggyback",
+      "schedule": "*/15 * * * *",
+      "target": "Railway n8n + founder gates pulse via loop-specialist (NF-SOURCEA-N8N-ORCHESTRATOR-V1)",
+      "valid_in_verified_window": true,
+      "owner_workflow": "sourcea-n8n-pulse-v1",
+      "parent_trigger_id": "SA-T-loop-specialist",
+      "live_probe": {
+        "type": "piggyback_hook",
+        "path": "cloud/workers/loop-specialist-tick-v1/src/index.js",
+        "expects": [
+          "runN8nPulse",
+          "n8n_pulse"
+        ]
+      }
+    },
+    {
+      "trigger_id": "SA-T-n8n-pulse-dispatch",
+      "system": "sourcea",
+      "kind": "manual",
+      "schedule": null,
+      "target": "Manual n8n + gates pulse dispatch (GHA backup only — CF owns */15)",
+      "valid_in_verified_window": true,
+      "owner_workflow": "sourcea-n8n-pulse-v1",
+      "live_probe": {
+        "type": "gha_workflow",
+        "path": ".github/workflows/sourcea-n8n-pulse-v1.yml",
+        "expects": [
+          "workflow_dispatch"
+        ]
+      }
     }
   ],
   "slo_targets": {
@@ -613,6 +647,12 @@
         "max_lag_minutes": 450
       },
       "SA-T-layer2-drill-test": {
+        "max_lag_minutes": 1440
+      },
+      "SA-T-n8n-pulse-schedule": {
+        "max_lag_minutes": 30
+      },
+      "SA-T-n8n-pulse-dispatch": {
         "max_lag_minutes": 1440
       }
     }

@@ -11,6 +11,10 @@ crons = ["*/15 * * * *"]
 [observability]
 enabled = true
 
+[[services]]
+binding = "FOUNDER_GATES"
+service = "sourcea-founder-gates-v1"
+
 # Secrets (set in Cloudflare dashboard — never commit):
 # FBE_CLOUD_WORKER_URL = https://sourcea-fbe-runner-production.up.railway.app
 # FBE_INTERNAL_SECRET = <from Railway env>

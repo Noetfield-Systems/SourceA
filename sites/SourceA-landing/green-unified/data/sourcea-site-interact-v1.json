@@ -127,7 +127,7 @@
     { "label": "Run sourcea-boot", "message": "How do I evaluate SourceA with sourcea-boot in five minutes — clone, install, and read BOOT_REPORT.json?" },
     { "label": "I'm new here", "message": "I'm new to agentic AI — what's the simplest path to learn and build on SourceA?" },
     { "label": "See live receipt", "message": "Show me what a client receives as proof after a job completes — no call needed." },
-    { "label": "Ship 48h MVP", "message": "I need a 48-hour MVP — what's the intake path and what proof do I get?" }
+    { "label": "Governed automation build", "message": "I need a governed automation build. What is the intake path and what proof do I get?" }
   ],
   "techniques": {
     "cal_com": "Optional human walkthrough — fallback only",

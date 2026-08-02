@@ -1,0 +1,11 @@
+{
+  "name": "@sourcea/workflow-runtime-v1",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Replaceable WorkflowRuntime — first impl N8nWorkflowRuntime (NF-SOURCEA-N8N-ORCHESTRATOR-V1)",
+  "scripts": {
+    "test": "node --experimental-strip-types --test tests/*.test.ts"
+  },
+  "engines": { "node": ">=20" }
+}

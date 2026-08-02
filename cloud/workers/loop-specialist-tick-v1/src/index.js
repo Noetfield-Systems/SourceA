@@ -42,7 +42,7 @@ export default {
         crons: meta.crons,
         dispatch: meta,
         nerve_probe: true,
-        ops_motors: ["gmail-sweep", "signal-triage", "kaizen-nightly", "ops-heartbeat", "sg-gateway-watchdog", "sg-gateway-heartbeat"],
+        ops_motors: ["gmail-sweep", "signal-triage", "kaizen-nightly", "ops-heartbeat", "sg-gateway-watchdog", "sg-gateway-heartbeat", "n8n-pulse"],
         scheduled_loops: [
           "repo-health-daily",
           "security-sweep-weekly",
@@ -219,6 +219,7 @@ async function runN8nPulse(env) {
     n8nDetail = String(exc).slice(0, 120);
   }
   try {
+    // Prefer service binding — same-account workers.dev fetch often 404s from Workers
     const gatesReq = new Request("https://gates.internal/health", { method: "GET" });
     const res = env.FOUNDER_GATES
       ? await env.FOUNDER_GATES.fetch(gatesReq)

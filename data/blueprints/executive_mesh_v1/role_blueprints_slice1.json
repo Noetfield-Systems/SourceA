@@ -1,0 +1,45 @@
+{
+  "schema": "sourcea.executive_mesh.role_blueprint.v1",
+  "roles": [
+    {
+      "role_id": "SG",
+      "purpose": "Admit executive agenda under Decision Capacity",
+      "budget": { "max_tokens": 0, "max_ms": 50, "deliberation": "L0" },
+      "max_fanout": 0,
+      "required_artifact": "ExecutiveAgendaPacket",
+      "unbounded_recursion": false
+    },
+    {
+      "role_id": "MEMORY_STEWARD",
+      "purpose": "Seal versioned ContextPack for the run",
+      "budget": { "max_tokens": 0, "max_ms": 50, "deliberation": "L0" },
+      "max_fanout": 0,
+      "required_artifact": "ContextPack",
+      "unbounded_recursion": false
+    },
+    {
+      "role_id": "STRATEGIC_PLANNER",
+      "purpose": "Emit PlanGraphPacket under live policy limits",
+      "budget": { "max_tokens": 2000, "max_ms": 5000, "deliberation": "L0_or_L1" },
+      "max_fanout": 0,
+      "required_artifact": "PlanGraphPacket",
+      "unbounded_recursion": false
+    },
+    {
+      "role_id": "CRITIC",
+      "purpose": "Independent critique of Planner plan",
+      "budget": { "max_tokens": 2000, "max_ms": 5000, "deliberation": "L0_or_L1" },
+      "max_fanout": 0,
+      "required_artifact": "CritiquePacket",
+      "unbounded_recursion": false,
+      "independent_route_from": "STRATEGIC_PLANNER"
+    }
+  ],
+  "slice1_only": true,
+  "blueprints_only_deferred": [
+    "GOAL_PORTFOLIO",
+    "COUNCIL",
+    "MEMORY_CONSOLIDATOR",
+    "VERIFICATION_COUNCIL"
+  ]
+}

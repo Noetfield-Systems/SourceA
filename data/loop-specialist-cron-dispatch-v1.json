@@ -46,6 +46,12 @@
           "path": "/api/fbe/portfolio-spine/verify/v1",
           "body": {},
           "note": "real buyer-proof + recipe-queue verification each tick; writes honest GREEN/RED cycle_receipts (closes the 2026-07-12 spine no-writer gap)"
+        },
+        {
+          "id": "n8n-pulse",
+          "kind": "handler",
+          "handler": "n8n_pulse",
+          "note": "NF-SOURCEA-N8N-ORCHESTRATOR-V1 — probe Railway n8n + founder gates; deadman sourcea-deadman-v1"
         }
       ]
     },

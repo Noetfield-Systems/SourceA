@@ -1,0 +1,22 @@
+{
+  "schema": "sourcea_founder_gates_deploy_v1",
+  "decision_id": "NF-SOURCEA-N8N-ORCHESTRATOR-V1",
+  "at": "2026-07-24T09:17:10Z",
+  "url": "https://sourcea-founder-gates-v1.sina-kazemnezhad-ca.workers.dev",
+  "surfaces": [
+    "/gates",
+    "/v1/pulse",
+    "/v1/telegram/mint",
+    "/v1/telegram/callback"
+  ],
+  "amber_actions": [
+    "APPROVE",
+    "REJECT",
+    "DEFER",
+    "ASK"
+  ],
+  "red_actions": [
+    "DEFER"
+  ],
+  "ok": true
+}

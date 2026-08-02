@@ -29,7 +29,7 @@
   let modelCatalog = [];
 
   const COMPOSER_CHIPS = [
-    { label: "Ship 48h MVP", text: "I need a 48-hour MVP — what's the intake path and what proof do I get?" },
+    { label: "Governed automation build", text: "I need a governed automation build. What is the intake path and what proof do I get?" },
     { label: "Pricing", text: "What would you charge for governed agent ops for a 12-person agency?" },
     { label: "See live receipt", text: "Show me what a client receives as proof after a job completes." },
   ];

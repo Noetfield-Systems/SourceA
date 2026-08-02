@@ -1,0 +1,30 @@
+{
+  "file": "/Users/sinakazemnezhad/Desktop/Noetfield-Systems/worktrees/sourcea/_wt-executive-mesh-v1/cloud/workers/sourcea-executive-governor-v1/README.md",
+  "agent_review": [],
+  "dictionary_warnings": [
+    {
+      "type": "UNDEFINED_TERM",
+      "term": "Durable Object",
+      "line": 3,
+      "fix": null,
+      "reason": "no dictionary entry \u2014 add dictionary first, then mint terminology",
+      "auto_fixed": false
+    },
+    {
+      "type": "UNDEFINED_TERM",
+      "term": "Executive Mesh",
+      "line": 3,
+      "fix": null,
+      "reason": "no dictionary entry \u2014 add dictionary first, then mint terminology",
+      "auto_fixed": false
+    },
+    {
+      "type": "UNDEFINED_TERM",
+      "term": "Runway Goal Kernel",
+      "line": 8,
+      "fix": null,
+      "reason": "no dictionary entry \u2014 add dictionary first, then mint terminology",
+      "auto_fixed": false
+    }
+  ]
+}

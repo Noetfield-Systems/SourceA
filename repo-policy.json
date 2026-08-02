@@ -47,7 +47,13 @@
     ],
     "active_product_path_allowlist": [
       ".noetfield/agent_manifest.yml",
-      ".github/copilot-instructions.md"
+      ".github/copilot-instructions.md",
+      "noetfield-app-investor-proof-film.sh",
+      "scripts/film/noetfield-app-investor-proof-film.sh",
+      "data/noetfield-app-investor-proof-film-beats-v1.json",
+      "data/NOETFIELD_APP_INVESTOR_PROOF_FILM_LOCKED_v1.md",
+      "data/noetfield-commercial-film-beats-v1.json",
+      "data/noetfield-commercial-social-30s-beats-v1.json"
     ]
   },
   "working_tree": {
@@ -94,6 +100,7 @@
       "thunderfield_phases_and_toolpack_v1.yaml": "data/root-machine/thunderfield_phases_and_toolpack_v1.yaml",
       "thunderfield_premortem_antimortem_v1.yaml": "data/root-machine/thunderfield_premortem_antimortem_v1.yaml",
       "avatar-pipeline.sh": "scripts/film/avatar-pipeline.sh",
+      "noetfield-app-investor-proof-film.sh": "scripts/film/noetfield-app-investor-proof-film.sh",
       "remotion-artifact-factory.sh": "scripts/film/remotion-artifact-factory.sh",
       "runtime-wrapper-demo.sh": "scripts/film/runtime-wrapper-demo.sh",
       "runtime-wrapper-resume-demo.sh": "scripts/film/runtime-wrapper-resume-demo.sh",

@@ -1,0 +1,52 @@
+{
+  "schema": "sourcea.executive_mesh.webpage_repair_live_e2e_receipt.v1",
+  "decision_id": "NF-EXECUTIVE-MESH-V1",
+  "generated_at": "2026-07-24T07:28:33.759Z",
+  "verdict": "PASS",
+  "terminal": "ACCEPTED",
+  "run_id": "run_evt_live_e2e_1784878112031",
+  "goal_ref": "goal_4a7cf9a9bcc64d77b7d016",
+  "goal_status": "READY",
+  "runway_live": true,
+  "supabase": {
+    "ok": true,
+    "detail": "canonical_commit_ok"
+  },
+  "evidence": [
+    {
+      "evidence_id": "ev_live_wp_run_evt_live_e2e_1784878112031",
+      "kind": "independent_verify",
+      "valid": true,
+      "detail": "verified_by=independent_verifier.mesh_v1;goal=goal_4a7cf9a9bcc64d77b7d016;goal_status=READY;criteria=true"
+    }
+  ],
+  "commitment_status": "CLOSED",
+  "max_fanout": 0,
+  "digest": {
+    "run_id": "run_evt_live_e2e_1784878112031",
+    "terminal": "ACCEPTED",
+    "snapshot_version": 1,
+    "decision_id": "dec_run_evt_live_e2e_1784878112031",
+    "commitment_status": "CLOSED",
+    "role_packet_count": 4,
+    "context_hash": "37d8daddfdcfb3cbe467c1508b565c9c4d8837946a8515f990de63366a859a15",
+    "work_packet_id": "wp_run_evt_live_e2e_1784878112031",
+    "work_packet": "wp_run_evt_live_e2e_1784878112031",
+    "evidence_id": "ev_live_wp_run_evt_live_e2e_1784878112031",
+    "goal_ref": "goal_4a7cf9a9bcc64d77b7d016",
+    "goal_status": "READY",
+    "runway_live": true,
+    "committed_version": 2,
+    "supabase": {
+      "ok": true,
+      "detail": "canonical_commit_ok"
+    }
+  },
+  "checklist": {
+    "real_runway_admit": true,
+    "live_independent_verify": true,
+    "supabase_canonical": true,
+    "no_active_forever": true,
+    "commitment_closed": true
+  }
+}

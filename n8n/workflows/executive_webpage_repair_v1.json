@@ -1,0 +1,228 @@
+{
+  "name": "SourceA Executive Webpage Repair v1",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "sourcea-executive-webpage-repair",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "id": "evt_webhook",
+      "name": "SourceA Event",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [0, 0],
+      "webhookId": "sourcea-executive-webpage-repair"
+    },
+    {
+      "parameters": {
+        "roleId": "sg_planner",
+        "controlMode": "SINGLE",
+        "correlationId": "={{$json.correlation_id || $json.event_id || $json.body.correlation_id}}"
+      },
+      "id": "role_sg",
+      "name": "SourceA Role",
+      "type": "n8n-nodes-sourcea.sourceARole",
+      "typeVersion": 1,
+      "position": [240, 0]
+    },
+    {
+      "parameters": {
+        "targetUrl": "={{$json.target_url || $json.body.target_url || $json.payload.target_url}}",
+        "eventType": "webpage.repair.requested",
+        "correlationId": "={{$json.correlation_id || $json.body.correlation_id}}"
+      },
+      "id": "ctx",
+      "name": "SourceA Context",
+      "type": "n8n-nodes-sourcea.sourceAContext",
+      "typeVersion": 1,
+      "position": [480, 0]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "p1",
+              "name": "role_pod",
+              "value": "planner_pod",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "planner_pod",
+      "name": "Planner Pod",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [720, -80]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "c1",
+              "name": "role_pod",
+              "value": "critic_pod",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "critic_pod",
+      "name": "Critic Pod",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [720, 80]
+    },
+    {
+      "parameters": {
+        "targetUrl": "={{$json.summary.target_url || $json.target_url}}",
+        "idempotencyKey": "={{$json.idempotency_key || $json.content_hash}}",
+        "correlationId": "={{$json.summary && $json.envelope_ref}}"
+      },
+      "id": "gov",
+      "name": "SourceA Governor",
+      "type": "n8n-nodes-sourcea.sourceAGovernor",
+      "typeVersion": 1,
+      "position": [960, 0]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "={{$env.RUNWAY_HEAVY_EXECUTOR_URL || 'https://example.invalid'}}/v1/n8n/execute",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "x-n8n-webhook-secret",
+              "value": "={{$env.N8N_WEBHOOK_SECRET}}"
+            },
+            {
+              "name": "content-type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{JSON.stringify({ recipe_id: 'webpage-repair', goal: { ownedRoot: 'apps/webpage_repair', projectType: 'webpage_repair' }, correlation_id: $json.summary.run_id, mesh_run_id: $json.summary.run_id })}}",
+        "options": {
+          "response": {
+            "response": {
+              "neverError": true
+            }
+          }
+        }
+      },
+      "id": "rail_exec",
+      "name": "Railway Executor",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [1200, 0],
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "ok",
+              "leftValue": "={{$('SourceA Governor').item.json.summary.terminal}}",
+              "rightValue": "ACCEPTED",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "verify",
+      "name": "SourceA Verify",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [1440, 0]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{JSON.stringify({ schema: 'sourcea.executive_workflow_outcome.v1', terminal: 'ACCEPTED', mesh_run_id: $('SourceA Governor').item.json.summary.run_id, governor_ref: $('SourceA Governor').item.json.envelope_ref })}}",
+        "options": {}
+      },
+      "id": "commit",
+      "name": "SourceA Commit",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [1680, -80]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{JSON.stringify({ schema: 'sourcea.executive_workflow_outcome.v1', terminal: 'INCIDENT', mesh: $('SourceA Governor').item.json.summary })}}",
+        "options": {}
+      },
+      "id": "incident",
+      "name": "SourceA Incident",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [1680, 80]
+    }
+  ],
+  "connections": {
+    "SourceA Event": {
+      "main": [[{ "node": "SourceA Role", "type": "main", "index": 0 }]]
+    },
+    "SourceA Role": {
+      "main": [[{ "node": "SourceA Context", "type": "main", "index": 0 }]]
+    },
+    "SourceA Context": {
+      "main": [
+        [
+          { "node": "Planner Pod", "type": "main", "index": 0 },
+          { "node": "Critic Pod", "type": "main", "index": 0 }
+        ]
+      ]
+    },
+    "Planner Pod": {
+      "main": [[{ "node": "SourceA Governor", "type": "main", "index": 0 }]]
+    },
+    "Critic Pod": {
+      "main": [[{ "node": "SourceA Governor", "type": "main", "index": 0 }]]
+    },
+    "SourceA Governor": {
+      "main": [[{ "node": "Railway Executor", "type": "main", "index": 0 }]]
+    },
+    "Railway Executor": {
+      "main": [[{ "node": "SourceA Verify", "type": "main", "index": 0 }]]
+    },
+    "SourceA Verify": {
+      "main": [
+        [{ "node": "SourceA Commit", "type": "main", "index": 0 }],
+        [{ "node": "SourceA Incident", "type": "main", "index": 0 }]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "sourcea": {
+      "decision_id": "NF-SOURCEA-N8N-ORCHESTRATOR-V1",
+      "graph_id": "executive.webpage_repair.v1",
+      "parity_target": "mesh_webpage_repair_ACCEPTED"
+    }
+  }
+}

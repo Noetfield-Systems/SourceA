@@ -137,34 +137,6 @@ export class ExecutiveGovernorDO extends DurableObject<Env> {
     );
     const isRepair =
       taskType === "webpage_repair" || String(raw.event_type) === "webpage.repair.requested";
-    const isGateResolve =
-      taskType === "founder_gate_resolved" ||
-      String(raw.event_type) === "founder.gate.resolved";
-
-    // Founder Gates resolve — observe/accept only. Never Goal Contract or DecisionRecord.
-    if (isGateResolve) {
-      const payload = (raw.payload as Record<string, unknown> | undefined) || {};
-      this.version += 1;
-      const accepted: RunRecord = {
-        run_id: runId,
-        status: "ACCEPTED",
-        terminal: "ACCEPTED",
-        idempotency_key: idempotencyKey,
-        snapshot_version: this.version,
-        digest: {
-          reason: "FOUNDER_GATE_RESOLVED_OBSERVE",
-          gate_id: payload.gate_id ?? null,
-          action: payload.action ?? null,
-          lane: payload.lane ?? null,
-          source: payload.source ?? null,
-          writes_goal_contract: false,
-          writes_decision_record: false,
-        },
-        stale_rejected: false,
-      };
-      await this.persist(accepted);
-      return accepted;
-    }
 
     if (!isRepair) {
       const deferred: RunRecord = {

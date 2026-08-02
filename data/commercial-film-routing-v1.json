@@ -1,7 +1,7 @@
 {
   "schema": "commercial-film-routing-v1",
-  "version": "1.0.0",
-  "at": "2026-06-15",
+  "version": "1.1.0",
+  "at": "2026-07-25",
   "locked_doc": "data/COMMERCIAL_FILM_ROUTING_LOCKED_v1.md",
   "validator": "scripts/validate-commercial-film-routing-v1.sh",
   "founder_lock": {
@@ -19,6 +19,7 @@
     "sourcea_tier_B_proof": "data/commercial-short-film-beats-v1.json",
     "trustfield_tier_A_hero": "data/trustfield-commercial-film-beats-v1.json",
     "noetfield_tier_A_hero": "data/noetfield-commercial-film-beats-v1.json",
+    "noetfield_tier_B_app_investor_proof": "data/noetfield-app-investor-proof-film-beats-v1.json",
     "noetfield_tier_C_social": "data/noetfield-commercial-social-30s-beats-v1.json",
     "fitness_tier_C_social": "data/fitness-commercial-film-beats-v1.json"
   },
@@ -298,19 +299,32 @@
       }
     },
     "noetfield": {
-      "product": "Noetfield · Copilot governance (NF-001)",
-      "repo": "/Users/sinakazemnezhad/Desktop/Noetfield-All-Documents/Noetfield",
+      "product": "Noetfield · Company New app + Copilot governance",
+      "repo": "/Users/sinakazemnezhad/Desktop/Noetfield-Systems/NOETFIELD-RUNWAY",
       "vo_lane": "sourcea",
-      "capture_base": "TBD — Noetfield demo surface",
-      "strategy": "Copilot governance wedge · design partner · W3 NF-001",
-      "status": "draft",
+      "capture_base": "https://app.noetfield.com/",
+      "strategy": "Client-zero governed AI software factory · investor / cofounder proof · industrialize delivery assurance",
+      "status": "active",
+      "locked_doc": "data/NOETFIELD_APP_INVESTOR_PROOF_FILM_LOCKED_v1.md",
       "assets": {
         "tier_A_hero": {
           "status": "draft_saved",
           "beats_file": "data/noetfield-commercial-film-beats-v1.json",
           "buyer": "Copilot admin · CISO · IT governance",
           "cta": "operations@noetfield.com",
-          "avatar_policy": "real_founder_ok_tier_C"
+          "avatar_policy": "real_founder_ok_tier_C",
+          "note": "Legacy Copilot-governance hero draft — not the app investor proof lock"
+        },
+        "tier_B_app_investor_proof": {
+          "status": "locked",
+          "beats_file": "data/noetfield-app-investor-proof-film-beats-v1.json",
+          "locked_doc": "data/NOETFIELD_APP_INVESTOR_PROOF_FILM_LOCKED_v1.md",
+          "buyer": "Pre-seed investor · technical-commercial cofounder · design partner",
+          "cta": "app.noetfield.com",
+          "avatar_policy": "none",
+          "entry": "noetfield-app-investor-proof-film.sh",
+          "claim": "governed AI software factory — goal → gate → revision → receipt",
+          "forbid_claim": ["Replit parity", "Lovable parity", "Atoms parity"]
         },
         "tier_C_social": {
           "status": "draft_saved",
@@ -472,6 +486,7 @@
     "film_critic_circle": "cd ~/Desktop/SourceA && python3 scripts/commercial_film_critic_circle_v1.py --json",
     "trustfield_draft": "cd ~/Desktop/SourceA && python3 scripts/commercial_short_film_v1.py --beats data/trustfield-commercial-film-beats-v1.json --product trustfield --json",
     "noetfield_draft": "cd ~/Desktop/SourceA && python3 scripts/commercial_short_film_v1.py --beats data/noetfield-commercial-film-beats-v1.json --product noetfield --json",
+    "noetfield_app_investor_proof": "cd ~/Desktop/SourceA && bash noetfield-app-investor-proof-film.sh --json",
     "avatar_linkedin": "cd ~/Desktop/SourceA && bash avatar-pipeline.sh linkedin",
     "avatar_trustfield_social": "cd ~/Desktop/SourceA && bash avatar-pipeline.sh trustfield_social",
     "avatar_noetfield_social": "cd ~/Desktop/SourceA && bash avatar-pipeline.sh noetfield_social",
