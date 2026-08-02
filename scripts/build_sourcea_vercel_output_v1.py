@@ -115,7 +115,7 @@ def build(*, clean: bool = True) -> dict:
         auth_dest.mkdir(parents=True, exist_ok=True)
         for f in auth_src.glob("*.html"):
             shutil.copy2(f, auth_dest / f.name)
-    if (eval_src.is_file():
+    if eval_src.is_file():
         shutil.copy2(eval_src, DIST / "eval.html")
     for legal in ("privacy.html", "cookies.html"):
         legal_src = GREEN / legal
