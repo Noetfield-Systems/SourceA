@@ -1,7 +1,7 @@
 {
   "schema": "sourcea-site-interact-v1",
-  "version": "1.3.0",
-  "saved_at": "2026-07-01T23:45:00Z",
+  "version": "1.4.0",
+  "saved_at": "2026-08-02T09:00:00Z",
   "execution_first": true,
   "booking_url": "https://cal.com/sourcea/proof-demo",
   "booking_overlay_url": "https://cal.com/sourcea/proof-demo?overlayCalendar=true&embed=true",
@@ -10,6 +10,7 @@
   "playbook_label": "Tools",
   "playbook_intro": "Pick your lane — each path ends with proof you can verify alone.",
   "guided_once_per_session": true,
+  "guided_disabled_pages": ["founder-home"],
   "guided_title": "What brings you here?",
   "guided_subtitle": "One question · real destination · no calendar required",
   "segments": [

@@ -152,6 +152,9 @@
 
   function mountGuidedPrompt() {
     if (document.body?.dataset?.saPage === "forge-terminal-demo") return;
+    const page = document.body?.dataset?.saPage || "";
+    const disabled = config.guided_disabled_pages || [];
+    if (page && disabled.indexOf(page) !== -1) return;
     if (!config.guided_prompts?.length) return;
     try {
       if (config.guided_once_per_session && sessionStorage.getItem(GUIDED_KEY)) return;
