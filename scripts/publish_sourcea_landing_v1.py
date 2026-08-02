@@ -354,6 +354,14 @@ def stage_from_build_dist() -> Path:
     if STAGING.exists():
         shutil.rmtree(STAGING)
     shutil.copytree(dist, STAGING)
+    # Idempotent: never ship orphan #sa-buy-bar / $750 header spam / triple JSON-LD.
+    strip_proc = _run(
+        [sys.executable, str(ROOT / "scripts" / "strip_sourcea_landing_buy_chrome_v1.py"), "--root", str(STAGING), "--json"],
+        cwd=ROOT,
+        timeout=60,
+    )
+    if strip_proc.returncode != 0:
+        raise SystemExit(f"FAIL: strip buy chrome — {(strip_proc.stderr or strip_proc.stdout or '')[-400:]}")
     _write_pages_extras(STAGING)
     _copy_pages_functions(STAGING)
     _write_vercel_json(STAGING)

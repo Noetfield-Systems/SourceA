@@ -1,7 +1,7 @@
 {
   "schema": "sourcea-ui-mechanical-gate-v1",
-  "version": "1.2.0",
-  "saved_at": "2026-07-06T12:20:00Z",
+  "version": "1.3.0",
+  "saved_at": "2026-08-02T09:00:00Z",
   "one_law": "Machine grades not broken — positioning consistency, layout invariants, tokens, links, JSON integrity. Never grades desire.",
   "law_ref": "docs/SOURCEA_UI_STANDARD_RUBRIC_LOCKED_v1.md",
   "v2_additions_locked": "data/sourcea-ui-mechanical-gate-v2-additions-locked-v1.json",
@@ -108,6 +108,31 @@
       "suggestion": "Footer: AI execution platform — proof built in."
     },
     {
+      "id": "homepage_buy_bar",
+      "pattern": "sa-buy-bar",
+      "suggestion": "Remove sticky Ops Health buy bar from homepage — keep offer on /audit and pricing only."
+    },
+    {
+      "id": "header_750_audit_spam",
+      "pattern": "or buy the $750 audit",
+      "suggestion": "Remove header $750 audit inject — price never leads on homepage."
+    },
+    {
+      "id": "proof_led_escalation_jargon",
+      "pattern": "Need proof-led escalation?",
+      "suggestion": "Use Talk to a human as optional escalation — never jargon CTA."
+    },
+    {
+      "id": "book_a_call_header",
+      "pattern": ">Book a call<",
+      "suggestion": "Header CTA must be Try Forge Terminal — Book a call violates agentic-first."
+    },
+    {
+      "id": "governed_agentic_jargon_h1",
+      "pattern": "Governed agentic automation",
+      "suggestion": "Use plain visitor H1 from positioning v3.6 — Real AI builds and automations."
+    },
+    {
       "id": "unrendered_entity",
       "pattern": "{ENTITY}",
       "suggestion": "Replace {ENTITY} with Noetfield Systems Inc. — v2 additions locked."
@@ -121,11 +146,6 @@
       "id": "unrendered_js_template",
       "pattern": "${",
       "suggestion": "Unrendered JS template literal — v2 additions locked."
-    },
-    {
-      "id": "forge_primary_hero_stale",
-      "pattern": "data-sa-primary-cta href=\"/sourcea/forge/terminal\"",
-      "suggestion": "Primary hero CTA must be intake (/start) per sourcea-positioning-v1.json — UP-DR buyer path."
     }
   ],
   "regex_checks": [

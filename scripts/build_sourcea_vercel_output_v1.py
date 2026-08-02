@@ -115,7 +115,7 @@ def build(*, clean: bool = True) -> dict:
         auth_dest.mkdir(parents=True, exist_ok=True)
         for f in auth_src.glob("*.html"):
             shutil.copy2(f, auth_dest / f.name)
-    if eval_src.is_file():
+    if (eval_src.is_file():
         shutil.copy2(eval_src, DIST / "eval.html")
     for legal in ("privacy.html", "cookies.html"):
         legal_src = GREEN / legal
@@ -123,6 +123,10 @@ def build(*, clean: bool = True) -> dict:
             shutil.copy2(legal_src, DIST / legal)
 
     sys.path.insert(0, str(ROOT / "scripts"))
+    from strip_sourcea_landing_buy_chrome_v1 import strip_tree  # noqa: WPS433
+
+    strip_tree(DIST)
+
     from sourcea_clean_urls_v1 import write_redirects  # noqa: WPS433
 
     redirect_lines = write_redirects(DIST)
