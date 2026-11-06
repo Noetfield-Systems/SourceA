@@ -457,7 +457,8 @@ def swarm_quality_success(
     critic_verdicts: list[dict[str, Any]],
 ) -> bool:
     """Only a completed, harness-passing run with successful critics earns success."""
-    if str(state).upper() != ForgeState.DONE:
+    state_value = str(getattr(state, "value", state)).upper()
+    if state_value != ForgeState.DONE.value:
         return False
     if not isinstance(harness, dict) or harness.get("ok") is not True:
         return False
