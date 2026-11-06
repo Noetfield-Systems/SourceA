@@ -37,3 +37,5 @@ jobs:
             scripts/validate_founder_command_fail_closed_v1.py
       - name: Run fail-closed regression suite
         run: python scripts/validate_founder_command_fail_closed_v1.py
+
+# Trigger registry entry: SA-T-founder-command-fail-closed-regression

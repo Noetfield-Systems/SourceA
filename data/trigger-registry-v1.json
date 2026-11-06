@@ -577,6 +577,22 @@
           "workflow_dispatch"
         ]
       }
+    },
+    {
+      "trigger_id": "SA-T-founder-command-fail-closed-regression",
+      "system": "sourcea",
+      "kind": "event",
+      "schedule": null,
+      "target": "PR-only regression test for critic/verifier fail-closed behavior and independent learning eligibility",
+      "valid_in_verified_window": true,
+      "owner_workflow": "founder-command-fail-closed",
+      "live_probe": {
+        "type": "gha_workflow",
+        "path": ".github/workflows/founder-command-fail-closed.yml",
+        "expects": [
+          "pull_request"
+        ]
+      }
     }
   ],
   "slo_targets": {
