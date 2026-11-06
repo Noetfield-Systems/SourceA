@@ -449,6 +449,33 @@ def _parallel_critics(*, goal: str, board: dict[str, Any], count: int = 3) -> li
     return verdicts
 
 
+def swarm_quality_success(
+    *,
+    state: str,
+    harness: dict[str, Any],
+    critic_aggregate: dict[str, Any],
+    critic_verdicts: list[dict[str, Any]],
+) -> bool:
+    """Only a completed, harness-passing run with successful critics earns success."""
+    if str(state).upper() != ForgeState.DONE:
+        return False
+    if not isinstance(harness, dict) or harness.get("ok") is not True:
+        return False
+    if not isinstance(critic_aggregate, dict) or critic_aggregate.get("approved") is not True:
+        return False
+    if not critic_verdicts:
+        return False
+    if any(
+        verdict.get("provider_error")
+        or verdict.get("fallback")
+        or verdict.get("ok") is not True
+        or type(verdict.get("approved")) is not bool
+        for verdict in critic_verdicts
+    ):
+        return False
+    return True
+
+
 def run_swarm_loop(
     *,
     goal: str,
@@ -644,14 +671,12 @@ def run_swarm_loop(
     elif state != ForgeState.DONE:
         state = ForgeState.FAILED if not critic_aggregate.get("approved") else ForgeState.DONE
 
-    # A builder step is not a completed swarm. Reward/reputation requires the
-    # final state, a successful static verification harness, and a completed
-    # critic aggregate with no provider-failure fallback.
-    critic_checks_ok = bool(critic_aggregate.get("approved")) and not any(
-        verdict.get("provider_error") or verdict.get("fallback") or verdict.get("ok") is False
-        for verdict in board.get("critic_verdicts") or []
+    success = swarm_quality_success(
+        state=state,
+        harness=harness,
+        critic_aggregate=critic_aggregate,
+        critic_verdicts=board.get("critic_verdicts") or [],
     )
-    success = state == ForgeState.DONE and bool(harness.get("ok")) and critic_checks_ok
     if update_reputation:
         agent_ids = planner_agent_ids + [b.get("agent_id") for b in board.get("agent_bids") or [] if b.get("agent_id")]
         update_reputation(agent_ids=agent_ids[:8], success=success)
