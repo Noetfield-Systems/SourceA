@@ -151,7 +151,7 @@ class FailClosedRegressionTests(unittest.TestCase):
             "receipt_integrity": "PASS",
         }})
         self.assertFalse(gate["eligible"])
-        self.assertEqual(gate["reason"], "builder_verifier_identity_missing_or_not_independent")
+        self.assertEqual(gate["reason"], "builder_or_repairer_verifier_identity_missing_or_not_independent")
 
     def test_independent_receipt_allows_positive_learning(self):
         gate = quality_verification_gate({"quality_verification": {
