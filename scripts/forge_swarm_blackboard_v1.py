@@ -65,22 +65,70 @@ def merge_plans(plans: list[dict[str, Any]], *, max_tasks: int = 8) -> list[str]
 
 
 def aggregate_critic_verdicts(verdicts: list[dict[str, Any]]) -> dict[str, Any]:
-    """Majority vote + mean score from parallel critics."""
+    """Aggregate completed critics; missing or failed critics fail closed."""
     if not verdicts:
-        return {"approved": True, "score": 1.0, "method": "empty"}
-    approved_votes = sum(1 for v in verdicts if v.get("approved"))
-    scores = [float(v.get("score") or (1.0 if v.get("approved") else 0.0)) for v in verdicts]
-    mean_score = sum(scores) / max(len(scores), 1)
-    approved = approved_votes >= max(1, len(verdicts) // 2 + len(verdicts) % 2)
+        return {
+            "approved": False,
+            "score": 0.0,
+            "votes": 0,
+            "approved_votes": 0,
+            "issues": ["no_critic_verdicts"],
+            "blocked_reason": "NO_CRITIC_VERDICTS",
+        }
+
     issues: list[str] = []
-    for v in verdicts:
-        issues.extend(v.get("issues") or [])
+    for verdict in verdicts:
+        issues.extend(verdict.get("issues") or [])
+
+    failed = [
+        verdict for verdict in verdicts
+        if verdict.get("provider_error")
+        or verdict.get("fallback")
+        or verdict.get("ok") is False
+        or type(verdict.get("approved")) is not bool
+    ]
+    if failed:
+        return {
+            "approved": False,
+            "score": 0.0,
+            "votes": len(verdicts),
+            "approved_votes": sum(1 for v in verdicts if v.get("approved") is True),
+            "issues": (issues + ["critic_verification_incomplete"])[:12],
+            "blocked_reason": "CRITIC_PROVIDER_OR_RESPONSE_FAILURE",
+            "failed_critic_count": len(failed),
+        }
+
+    approved_votes = sum(1 for verdict in verdicts if verdict.get("approved") is True)
+    try:
+        scores = [float(verdict.get("score")) for verdict in verdicts]
+    except (TypeError, ValueError):
+        return {
+            "approved": False,
+            "score": 0.0,
+            "votes": len(verdicts),
+            "approved_votes": approved_votes,
+            "issues": (issues + ["invalid_critic_score"])[:12],
+            "blocked_reason": "INVALID_CRITIC_SCORE",
+        }
+    if any(score < 0.0 or score > 1.0 for score in scores):
+        return {
+            "approved": False,
+            "score": 0.0,
+            "votes": len(verdicts),
+            "approved_votes": approved_votes,
+            "issues": (issues + ["critic_score_out_of_range"])[:12],
+            "blocked_reason": "INVALID_CRITIC_SCORE",
+        }
+
+    mean_score = sum(scores) / len(scores)
+    approved = approved_votes >= max(1, len(verdicts) // 2 + len(verdicts) % 2)
     return {
         "approved": approved,
         "score": round(mean_score, 3),
         "votes": len(verdicts),
         "approved_votes": approved_votes,
         "issues": issues[:12],
+        "method": "majority_after_all_critic_calls_succeeded",
     }
 
 
