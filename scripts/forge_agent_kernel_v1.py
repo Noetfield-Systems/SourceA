@@ -462,13 +462,21 @@ def run_agent_dev_loop(
             else {"required": False, "pass": True, "status": "NOT_REQUIRED", "note": "read_only_or_non_mutating_action"}
         )
         if verification_required:
-            v = _llm_json(
-                system=VERIFIER_SYSTEM,
-                user=f"Goal: {goal}\nAction: {json.dumps(action)}\nResult: {json.dumps(result)[:6000]}",
-                model=check_model,
-                source="forge-agent-kernel-verifier",
-            )
-            verify_row = normalize_verifier_response(v)
+            if not result.get("ok"):
+                verify_row = {
+                    "required": True,
+                    "pass": False,
+                    "status": "FAIL",
+                    "note": "action_execution_failed",
+                }
+            else:
+                v = _llm_json(
+                    system=VERIFIER_SYSTEM,
+                    user=f"Goal: {goal}\nAction: {json.dumps(action)}\nResult: {json.dumps(result)[:6000]}",
+                    model=check_model,
+                    source="forge-agent-kernel-verifier",
+                )
+                verify_row = normalize_verifier_response(v)
 
         step_rec = {
             "step": step,
