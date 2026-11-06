@@ -366,7 +366,11 @@ def autonomous_execute(
         }
 
     out: dict[str, Any] = {
+        # Backward-compatible execution flag; quality verification is explicit
+        # so consumers cannot mistake completed execution for independent PASS.
         "ok": exec_ok,
+        "execution_ok": exec_ok,
+        "quality_verified": quality_gate.get("eligible") is True,
         "schema": SCHEMA,
         "version": COMPILER_VERSION,
         "runtime_id": runtime_id,
