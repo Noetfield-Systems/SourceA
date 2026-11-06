@@ -376,7 +376,7 @@ def autonomous_execute(
         "deployment": deployment,
         "learning": learning,
         "learning_decision": learning_decision,
-        "founder_summary": _founder_summary(compiled, execution, exec_ok and quality_gate.get("eligible") is True, deployment),
+        "founder_summary": _founder_summary(compiled, execution, exec_ok, deployment, quality_gate),
         "at": _now(),
     }
 
@@ -399,12 +399,18 @@ def autonomous_execute(
 def _founder_summary(
     compiled: dict[str, Any],
     execution: dict[str, Any],
-    ok: bool,
+    execution_ok: bool,
     deployment: dict[str, Any] | None,
+    quality_gate: dict[str, Any] | None = None,
 ) -> str:
     stack = compiled.get("stackLevel", "?")
     intent = compiled.get("intent", "build")
-    status = "done" if ok else "blocked"
+    if not execution_ok:
+        status = "blocked"
+    elif isinstance(quality_gate, dict) and quality_gate.get("eligible") is True:
+        status = "independently_verified"
+    else:
+        status = "submitted_unverified"
     base = f"Autonomous {intent} · {stack} · {status}"
     if deployment:
         return f"{base} · deploy {deployment.get('status', 'queued')}"
