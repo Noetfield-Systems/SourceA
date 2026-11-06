@@ -121,6 +121,8 @@ def verify_quality_attestation(
     keys = registry.get("keys")
     if not isinstance(keys, list) or not keys:
         return {"ok": False, "reason": "no_trusted_verifier_keys_registered"}
+    if registry.get("status") != "ACTIVE":
+        return {"ok": False, "reason": "verifier_trust_registry_not_active"}
 
     key_id = attestation.get("key_id")
     matches = [key for key in keys if isinstance(key, dict) and key.get("key_id") == key_id]
