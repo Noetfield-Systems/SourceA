@@ -148,6 +148,7 @@ def quality_verification_gate(execution: dict[str, Any]) -> dict[str, Any]:
 
     builder = str(verification.get("builder_identity") or "")
     verifier = str(verification.get("verifier_identity") or "")
+    repairer = str(verification.get("repairer_identity") or "")
     evidence_refs = verification.get("evidence_refs")
     receipt_ref = verification.get("receipt_ref")
     integrity = str(verification.get("receipt_integrity") or "").upper()
@@ -155,8 +156,8 @@ def quality_verification_gate(execution: dict[str, Any]) -> dict[str, Any]:
 
     if verdict != "PASS":
         reason = "independent_verdict_not_pass"
-    elif not builder or not verifier or builder == verifier:
-        reason = "builder_verifier_identity_missing_or_not_independent"
+    elif not builder or not verifier or builder == verifier or (repairer and verifier == repairer):
+        reason = "builder_or_repairer_verifier_identity_missing_or_not_independent"
     elif not isinstance(evidence_refs, list) or not evidence_refs:
         reason = "independent_evidence_refs_missing"
     elif not receipt_ref:
