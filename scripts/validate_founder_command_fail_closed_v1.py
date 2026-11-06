@@ -13,7 +13,7 @@ if str(SCRIPTS) not in sys.path:
 
 from forge_swarm_blackboard_v1 import aggregate_critic_verdicts
 from forge_agent_kernel_v1 import normalize_verifier_response
-from forge_agent_kernel_v3_swarm import ForgeState, swarm_quality_success
+from forge_agent_kernel_v3_swarm import ForgeState, critics_reputation_eligible, swarm_quality_success
 from forge_prompt_os_compiler_v3 import quality_verification_gate, decide_learning_update
 
 
@@ -87,6 +87,38 @@ class FailClosedRegressionTests(unittest.TestCase):
             critic_aggregate={"approved": True},
             critic_verdicts=[],
         ))
+
+    def test_single_critic_verdict_is_recorded_for_swarm_gate(self):
+        good = [{"ok": True, "approved": True, "provider_error": False}]
+        self.assertTrue(critics_reputation_eligible(good))
+        self.assertTrue(swarm_quality_success(
+            state=ForgeState.DONE,
+            harness={"ok": True},
+            critic_aggregate={"approved": True},
+            critic_verdicts=good,
+        ))
+
+    def test_provider_failure_does_not_change_reputation(self):
+        failed = [{"ok": False, "approved": False, "provider_error": True}]
+        self.assertFalse(critics_reputation_eligible(failed))
+        self.assertFalse(critics_reputation_eligible([]))
+
+    def test_valid_rejection_is_complete_evidence_for_negative_reputation(self):
+        rejected = [{"ok": True, "approved": False, "provider_error": False}]
+        self.assertTrue(critics_reputation_eligible(rejected))
+
+    def test_repairer_cannot_act_as_independent_verifier(self):
+        gate = quality_verification_gate({"quality_verification": {
+            "verdict": "PASS",
+            "builder_identity": "builder-001",
+            "repairer_identity": "repair-001",
+            "verifier_identity": "repair-001",
+            "evidence_refs": ["receipt://evidence"],
+            "receipt_ref": "receipt://quality",
+            "receipt_integrity": "PASS",
+        }})
+        self.assertFalse(gate["eligible"])
+        self.assertEqual(gate["reason"], "builder_or_repairer_verifier_identity_missing_or_not_independent")
 
     def test_swarm_provider_failure_cannot_earn_success(self):
         verdicts = [
