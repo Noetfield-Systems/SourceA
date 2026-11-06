@@ -358,13 +358,53 @@ def _critic_swarm(*, goal: str, board: dict[str, Any], critic_id: int = 0) -> di
     }
     user = f"Goal: {goal}\nCritic #{critic_id}\nBlackboard: {json.dumps(snap)[:5000]}"
     row = _llm_json(system=SWARM_CRITIC, user=user, model=model, source=f"forge-swarm-critic-{critic_id}")
-    if not row.get("ok"):
-        return {"approved": True, "score": 0.7, "issues": [], "fallback": True}
-    parsed = row["parsed"]
+    if not isinstance(row, dict) or not row.get("ok"):
+        return {
+            "ok": False,
+            "approved": False,
+            "score": 0.0,
+            "issues": ["critic_provider_unavailable"],
+            "provider_error": True,
+            "critic_id": critic_id,
+            "model": model,
+        }
+
+    parsed = row.get("parsed")
+    if not isinstance(parsed, dict) or type(parsed.get("approved")) is not bool:
+        return {
+            "ok": False,
+            "approved": False,
+            "score": 0.0,
+            "issues": ["critic_response_missing_boolean_approval"],
+            "invalid_response": True,
+            "critic_id": critic_id,
+            "model": model,
+        }
+
+    try:
+        score = float(parsed.get("score", 1.0 if parsed["approved"] else 0.0))
+    except (TypeError, ValueError):
+        score = -1.0
+    if score < 0.0 or score > 1.0:
+        return {
+            "ok": False,
+            "approved": False,
+            "score": 0.0,
+            "issues": ["critic_response_score_invalid"],
+            "invalid_response": True,
+            "critic_id": critic_id,
+            "model": model,
+        }
+
+    issues = parsed.get("issues") or []
+    if not isinstance(issues, list):
+        issues = ["critic_response_issues_invalid"]
     return {
-        "approved": bool(parsed.get("approved", True)),
-        "score": float(parsed.get("score") or (1.0 if parsed.get("approved") else 0.3)),
-        "issues": parsed.get("issues") or [],
+        "ok": True,
+        "approved": parsed["approved"],
+        "score": score,
+        "issues": [str(issue) for issue in issues[:12]],
+        "provider_error": False,
         "critic_id": critic_id,
         "model": model,
     }
@@ -398,8 +438,56 @@ def _parallel_critics(*, goal: str, board: dict[str, Any], count: int = 3) -> li
             try:
                 verdicts.append(fut.result())
             except Exception as exc:
-                verdicts.append({"approved": False, "score": 0.0, "issues": [str(exc)[:80]]})
+                verdicts.append({
+                    "ok": False,
+                    "approved": False,
+                    "score": 0.0,
+                    "issues": [str(exc)[:80]],
+                    "provider_error": True,
+                    "critic_exception": True,
+                })
     return verdicts
+
+
+def critics_reputation_eligible(critic_verdicts: list[dict[str, Any]]) -> bool:
+    """Do not reward or penalize agents when critic evidence is unavailable."""
+    if not critic_verdicts:
+        return False
+    return all(
+        verdict.get("ok") is True
+        and not verdict.get("provider_error")
+        and not verdict.get("fallback")
+        and type(verdict.get("approved")) is bool
+        for verdict in critic_verdicts
+    )
+
+
+def swarm_quality_success(
+    *,
+    state: str,
+    harness: dict[str, Any],
+    critic_aggregate: dict[str, Any],
+    critic_verdicts: list[dict[str, Any]],
+) -> bool:
+    """Only a completed, harness-passing run with successful critics earns success."""
+    state_value = str(getattr(state, "value", state)).upper()
+    if state_value != ForgeState.DONE.value:
+        return False
+    if not isinstance(harness, dict) or harness.get("ok") is not True:
+        return False
+    if not isinstance(critic_aggregate, dict) or critic_aggregate.get("approved") is not True:
+        return False
+    if not critic_verdicts:
+        return False
+    if any(
+        verdict.get("provider_error")
+        or verdict.get("fallback")
+        or verdict.get("ok") is not True
+        or type(verdict.get("approved")) is not bool
+        for verdict in critic_verdicts
+    ):
+        return False
+    return True
 
 
 def run_swarm_loop(
@@ -575,7 +663,9 @@ def run_swarm_loop(
             board["critic_verdicts"] = verdicts
             critic_aggregate = aggregate_critic_verdicts(verdicts)
         else:
-            critic_aggregate = aggregate_critic_verdicts([_critic_swarm(goal=goal, board=board)])
+            single_critic = _critic_swarm(goal=goal, board=board)
+            board["critic_verdicts"] = [single_critic]
+            critic_aggregate = aggregate_critic_verdicts(board["critic_verdicts"])
 
         replan_rounds.append({"round": rnd, "tasks": len(tasks), "critic": critic_aggregate, "runs": len(round_runs)})
         board["logs"].append(f"round_{rnd}_critic_approved={critic_aggregate.get('approved')}")
@@ -597,11 +687,19 @@ def run_swarm_loop(
     elif state != ForgeState.DONE:
         state = ForgeState.FAILED if not critic_aggregate.get("approved") else ForgeState.DONE
 
-    success = state == ForgeState.DONE or any(tr.get("builder", {}).get("ok") for tr in task_runs)
-    if update_reputation:
+    success = swarm_quality_success(
+        state=state,
+        harness=harness,
+        critic_aggregate=critic_aggregate,
+        critic_verdicts=board.get("critic_verdicts") or [],
+    )
+    reputation_updated = False
+    critic_evidence_complete = critics_reputation_eligible(board.get("critic_verdicts") or [])
+    if update_reputation and critic_evidence_complete:
         agent_ids = planner_agent_ids + [b.get("agent_id") for b in board.get("agent_bids") or [] if b.get("agent_id")]
         update_reputation(agent_ids=agent_ids[:8], success=success)
         evolve_agents(success=success)
+        reputation_updated = True
         if success and not dry_run:
             try:
                 from forge_economy_v1 import reward_agent  # noqa: WPS433
@@ -629,6 +727,8 @@ def run_swarm_loop(
         "optimizer_notes": optimizer_notes,
         "replan_rounds": replan_rounds,
         "critic_aggregate": critic_aggregate,
+        "critic_evidence_complete": critic_evidence_complete,
+        "reputation_updated": reputation_updated,
         "verify_harness": harness,
         "at": _now(),
     }

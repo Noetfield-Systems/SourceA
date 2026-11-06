@@ -136,6 +136,55 @@ def _execution_ok(result: dict[str, Any]) -> bool:
     return bool(result.get("ok"))
 
 
+def quality_verification_gate(
+    execution: dict[str, Any],
+    *,
+    expected_run_id: str,
+    trust_registry: dict[str, Any] | None = None,
+) -> dict[str, Any]:
+    """Require a pinned Ed25519 verifier attestation for positive learning."""
+    from forge_quality_attestation_v1 import verify_quality_attestation  # noqa: WPS433
+
+    attestation = execution.get("quality_verification_attestation")
+    result = verify_quality_attestation(
+        attestation,
+        expected_run_id=expected_run_id,
+        trust_registry=trust_registry,
+    )
+    if not result.get("ok"):
+        return {
+            "eligible": False,
+            "status": "UNVERIFIED",
+            "reason": result.get("reason") or "trusted_verifier_attestation_required",
+        }
+
+    evidence_refs = [item["ref"] for item in result["evidence"]]
+    return {
+        "eligible": True,
+        "status": "INDEPENDENT_PASS",
+        "reason": None,
+        "builder_identity": result["builder_identity"],
+        "repairer_identity": result["repairer_identity"],
+        "verifier_identity": result["verifier_identity"],
+        "evidence_refs": evidence_refs,
+        "evidence_sha256": {item["ref"]: item["sha256"] for item in result["evidence"]},
+        "receipt_ref": result["receipt_id"],
+        "attestation_key_id": result["key_id"],
+        "run_id": result["run_id"],
+    }
+
+def decide_learning_update(
+    *, execution_ok: bool, execution_state: str, quality_gate: dict[str, Any]
+) -> str:
+    """Return failure, success, or skip; never learn success from DONE alone."""
+    state = str(execution_state or "").upper()
+    if not execution_ok or state in ("FAILED", "ERROR", "BLOCKED"):
+        return "RECORD_FAILURE"
+    if quality_gate.get("eligible") is True and quality_gate.get("status") == "INDEPENDENT_PASS":
+        return "RECORD_SUCCESS"
+    return "SKIP_UNVERIFIED"
+
+
 def _dispatch_execution(
     *,
     route: dict[str, Any],
@@ -277,15 +326,51 @@ def autonomous_execute(
     if not state and execution.get("swarm_id"):
         state = "DONE" if exec_ok else "FAILED"
 
-    learning = record_execution_outcome(
-        compiled=compiled,
+    expected_quality_run_id = str(
+        execution.get("run_id") or execution.get("swarm_id") or runtime_id
+    )
+    quality_gate = quality_verification_gate(
+        execution,
+        expected_run_id=expected_quality_run_id,
+    )
+    learning_decision = decide_learning_update(
         execution_ok=exec_ok,
         execution_state=state,
-        run_id=runtime_id,
+        quality_gate=quality_gate,
     )
+    if learning_decision == "RECORD_FAILURE":
+        learning = record_execution_outcome(
+            compiled=compiled,
+            execution_ok=False,
+            execution_state=state or "FAILED",
+            quality_verdict="FAIL",
+            run_id=runtime_id,
+        )
+    elif learning_decision == "RECORD_SUCCESS":
+        learning = record_execution_outcome(
+            compiled=compiled,
+            execution_ok=True,
+            execution_state=state or "DONE",
+            quality_verdict="PASS",
+            run_id=runtime_id,
+        )
+    else:
+        # Keep the execution receipt, but do not reward or penalize adaptive
+        # routing until a separate verifier supplies a valid evidence receipt.
+        learning = {
+            "ok": True,
+            "recorded": False,
+            "eligible": False,
+            "status": "SKIPPED_UNVERIFIED",
+            "reason": quality_gate.get("reason") or "independent_quality_receipt_required",
+        }
 
     out: dict[str, Any] = {
+        # Backward-compatible execution flag; quality verification is explicit
+        # so consumers cannot mistake completed execution for independent PASS.
         "ok": exec_ok,
+        "execution_ok": exec_ok,
+        "quality_verified": quality_gate.get("eligible") is True,
         "schema": SCHEMA,
         "version": COMPILER_VERSION,
         "runtime_id": runtime_id,
@@ -294,9 +379,11 @@ def autonomous_execute(
         "compiled": compiled,
         "route": route,
         "execution": execution,
+        "quality_verification": quality_gate,
         "deployment": deployment,
         "learning": learning,
-        "founder_summary": _founder_summary(compiled, execution, exec_ok, deployment),
+        "learning_decision": learning_decision,
+        "founder_summary": _founder_summary(compiled, execution, exec_ok, deployment, quality_gate),
         "at": _now(),
     }
 
@@ -319,12 +406,18 @@ def autonomous_execute(
 def _founder_summary(
     compiled: dict[str, Any],
     execution: dict[str, Any],
-    ok: bool,
+    execution_ok: bool,
     deployment: dict[str, Any] | None,
+    quality_gate: dict[str, Any] | None = None,
 ) -> str:
     stack = compiled.get("stackLevel", "?")
     intent = compiled.get("intent", "build")
-    status = "done" if ok else "blocked"
+    if not execution_ok:
+        status = "blocked"
+    elif isinstance(quality_gate, dict) and quality_gate.get("eligible") is True:
+        status = "independently_verified"
+    else:
+        status = "submitted_unverified"
     base = f"Autonomous {intent} · {stack} · {status}"
     if deployment:
         return f"{base} · deploy {deployment.get('status', 'queued')}"

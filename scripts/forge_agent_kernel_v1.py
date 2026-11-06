@@ -336,6 +336,32 @@ def build_repair_goal(
     )
 
 
+def normalize_verifier_response(row: dict[str, Any] | None) -> dict[str, Any]:
+    """Normalize verifier output. Provider or payload failures are never PASS."""
+    if not isinstance(row, dict) or not row.get("ok"):
+        return {
+            "required": True,
+            "pass": False,
+            "status": "UNVERIFIED",
+            "note": "verifier_call_failed",
+        }
+    parsed = row.get("parsed")
+    if not isinstance(parsed, dict) or type(parsed.get("pass")) is not bool:
+        return {
+            "required": True,
+            "pass": False,
+            "status": "UNVERIFIED",
+            "note": "verifier_response_invalid",
+        }
+    passed = parsed["pass"] is True
+    return {
+        "required": True,
+        "pass": passed,
+        "status": "PASS" if passed else "FAIL",
+        "note": str(parsed.get("note") or ("verified" if passed else "verification_failed")),
+    }
+
+
 def run_verify_harness_static(*, workspace_path: str = "") -> dict[str, Any]:
     """Light static contract checks — no HTTP, Mac-safe ≤2s."""
     root = Path(__file__).resolve().parents[1]
@@ -429,16 +455,28 @@ def run_agent_dev_loop(
         action = parsed.get("action") or {}
         result = tools.execute(action, dry_run=dry_run, patch_only=patch_only)
 
-        verify_row: dict[str, Any] = {"pass": True, "note": "skipped"}
-        if action.get("tool") in ("write_file", "patch_file", "run_shell"):
-            v = _llm_json(
-                system=VERIFIER_SYSTEM,
-                user=f"Goal: {goal}\nAction: {json.dumps(action)}\nResult: {json.dumps(result)[:6000]}",
-                model=check_model,
-                source="forge-agent-kernel-verifier",
-            )
-            if v.get("ok"):
-                verify_row = v["parsed"]
+        verification_required = action.get("tool") in ("write_file", "patch_file", "run_shell")
+        verify_row: dict[str, Any] = (
+            {"required": True, "pass": False, "status": "UNVERIFIED", "note": "verification_not_run"}
+            if verification_required
+            else {"required": False, "pass": True, "status": "NOT_REQUIRED", "note": "read_only_or_non_mutating_action"}
+        )
+        if verification_required:
+            if not result.get("ok"):
+                verify_row = {
+                    "required": True,
+                    "pass": False,
+                    "status": "FAIL",
+                    "note": "action_execution_failed",
+                }
+            else:
+                v = _llm_json(
+                    system=VERIFIER_SYSTEM,
+                    user=f"Goal: {goal}\nAction: {json.dumps(action)}\nResult: {json.dumps(result)[:6000]}",
+                    model=check_model,
+                    source="forge-agent-kernel-verifier",
+                )
+                verify_row = normalize_verifier_response(v)
 
         step_rec = {
             "step": step,
@@ -446,6 +484,7 @@ def run_agent_dev_loop(
             "action": action,
             "result": result,
             "verify": verify_row,
+            "verification_required": verification_required,
             "planner_model": step_planner,
             "verifier_model": check_model,
             "planner_role": "reason" if reason_escalated and step_planner != planner_model else "build",
@@ -463,8 +502,18 @@ def run_agent_dev_loop(
         fail_streak = 0
 
     done = bool(steps and steps[-1].get("done"))
+    required_verifications = [step for step in steps if step.get("verification_required")]
+    verification_passed = all(
+        step.get("verify", {}).get("required") is True
+        and step.get("verify", {}).get("pass") is True
+        and step.get("verify", {}).get("status") == "PASS"
+        for step in required_verifications
+    )
+    run_passed = done and verification_passed
     out = {
-        "ok": done or any(s.get("result", {}).get("ok") for s in steps if s.get("action")),
+        # Partial builder success is not task completion. Mutating actions must
+        # have a successful verifier result, and the planner must close the task.
+        "ok": run_passed,
         "schema": "forge-agent-kernel-run-v1",
         "run_id": run_id,
         "goal": goal,
@@ -472,6 +521,15 @@ def run_agent_dev_loop(
         "planner_model": planner_model,
         "verifier_model": check_model,
         "done": done,
+        "verification": {
+            "required_steps": len(required_verifications),
+            "passed": sum(
+                1 for step in required_verifications
+                if step.get("verify", {}).get("pass") is True
+                and step.get("verify", {}).get("status") == "PASS"
+            ),
+            "status": "PASS" if run_passed else ("UNVERIFIED" if done else "INCOMPLETE"),
+        },
         "patch_only": patch_only,
         "steps": steps,
         "at": _now(),

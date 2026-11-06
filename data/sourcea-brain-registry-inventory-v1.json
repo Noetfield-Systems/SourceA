@@ -1,7 +1,7 @@
 {
   "schema": "sourcea-brain-registry-inventory-v1",
   "version": "1.0.0",
-  "saved_at": "2026-07-02T08:52:31Z",
+  "saved_at": "2026-11-06T08:00:00Z",
   "promotion_lane": "receipt_gated_v1",
   "assets": [
     {
@@ -241,6 +241,20 @@
       "dependents": [
         "sourcea-automation-catalog-v1",
         "sourcea-automation-surface-health"
+      ]
+    },
+    {
+      "asset_id": "forge-verifier-trust-registry-v1",
+      "asset_type": "registry",
+      "current_location": "data/forge-verifier-trust-registry-v1.json",
+      "status": "unprovisioned",
+      "owning_layer": "CRITIC",
+      "mutation_class": "GATED",
+      "last_modified": "2026-11-06",
+      "dependents": [
+        "scripts/forge_quality_attestation_v1.py",
+        "scripts/forge_prompt_os_compiler_v3.py",
+        "scripts/validate_founder_command_fail_closed_v1.py"
       ]
     }
   ],

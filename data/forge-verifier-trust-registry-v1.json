@@ -1,0 +1,15 @@
+{
+  "schema": "sourcea-forge-verifier-trust-registry-v1",
+  "version": "1.0.0",
+  "status": "UNPROVISIONED",
+  "mutation_class": "GATED",
+  "owner": "existing_governance_decision_gate",
+  "law": "Only explicitly registered active Ed25519 public keys may attest quality-verification outcomes. Private keys must remain in the verifier's protected runtime secret store and must never be committed.",
+  "keys": [],
+  "notes": [
+    "No verifier keys are provisioned in this initial registry.",
+    "Positive adaptive learning remains blocked until a verifier key is registered through the existing GATED governance path.",
+    "The executor cannot authorize itself by supplying receipt_integrity, signature_valid, or other self-reported booleans.",
+    "Each key is bound to one agent_id and the quality_verification purpose."
+  ]
+}
