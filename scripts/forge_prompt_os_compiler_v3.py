@@ -136,46 +136,42 @@ def _execution_ok(result: dict[str, Any]) -> bool:
     return bool(result.get("ok"))
 
 
-def quality_verification_gate(execution: dict[str, Any]) -> dict[str, Any]:
-    """Permit positive adaptive learning only with an independent proof receipt."""
-    verification = execution.get("quality_verification")
-    if not isinstance(verification, dict):
+def quality_verification_gate(
+    execution: dict[str, Any],
+    *,
+    expected_run_id: str,
+    trust_registry: dict[str, Any] | None = None,
+) -> dict[str, Any]:
+    """Require a pinned Ed25519 verifier attestation for positive learning."""
+    from forge_quality_attestation_v1 import verify_quality_attestation  # noqa: WPS433
+
+    attestation = execution.get("quality_verification_attestation")
+    result = verify_quality_attestation(
+        attestation,
+        expected_run_id=expected_run_id,
+        trust_registry=trust_registry,
+    )
+    if not result.get("ok"):
         return {
             "eligible": False,
             "status": "UNVERIFIED",
-            "reason": "independent_quality_receipt_missing",
+            "reason": result.get("reason") or "trusted_verifier_attestation_required",
         }
 
-    builder = str(verification.get("builder_identity") or "")
-    verifier = str(verification.get("verifier_identity") or "")
-    repairer = str(verification.get("repairer_identity") or "")
-    evidence_refs = verification.get("evidence_refs")
-    receipt_ref = verification.get("receipt_ref")
-    integrity = str(verification.get("receipt_integrity") or "").upper()
-    verdict = str(verification.get("verdict") or "").upper()
-
-    if verdict != "PASS":
-        reason = "independent_verdict_not_pass"
-    elif not builder or not verifier or builder == verifier or (repairer and verifier == repairer):
-        reason = "builder_or_repairer_verifier_identity_missing_or_not_independent"
-    elif not isinstance(evidence_refs, list) or not evidence_refs:
-        reason = "independent_evidence_refs_missing"
-    elif not receipt_ref:
-        reason = "independent_quality_receipt_missing"
-    elif integrity != "PASS":
-        reason = "quality_receipt_integrity_not_pass"
-    else:
-        return {
-            "eligible": True,
-            "status": "INDEPENDENT_PASS",
-            "reason": None,
-            "builder_identity": builder,
-            "verifier_identity": verifier,
-            "evidence_refs": evidence_refs,
-            "receipt_ref": receipt_ref,
-        }
-    return {"eligible": False, "status": "UNVERIFIED", "reason": reason}
-
+    evidence_refs = [item["ref"] for item in result["evidence"]]
+    return {
+        "eligible": True,
+        "status": "INDEPENDENT_PASS",
+        "reason": None,
+        "builder_identity": result["builder_identity"],
+        "repairer_identity": result["repairer_identity"],
+        "verifier_identity": result["verifier_identity"],
+        "evidence_refs": evidence_refs,
+        "evidence_sha256": {item["ref"]: item["sha256"] for item in result["evidence"]},
+        "receipt_ref": result["receipt_id"],
+        "attestation_key_id": result["key_id"],
+        "run_id": result["run_id"],
+    }
 
 def decide_learning_update(
     *, execution_ok: bool, execution_state: str, quality_gate: dict[str, Any]
@@ -330,7 +326,13 @@ def autonomous_execute(
     if not state and execution.get("swarm_id"):
         state = "DONE" if exec_ok else "FAILED"
 
-    quality_gate = quality_verification_gate(execution)
+    expected_quality_run_id = str(
+        execution.get("run_id") or execution.get("swarm_id") or runtime_id
+    )
+    quality_gate = quality_verification_gate(
+        execution,
+        expected_run_id=expected_quality_run_id,
+    )
     learning_decision = decide_learning_update(
         execution_ok=exec_ok,
         execution_state=state,
