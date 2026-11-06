@@ -11,6 +11,7 @@ on:
       - "scripts/forge_prompt_os_compiler_v3.py"
       - "scripts/forge_quality_attestation_v1.py"
       - "data/forge-verifier-trust-registry-v1.json"
+      - "data/sourcea-brain-registry-inventory-v1.json"
       - "scripts/validate_founder_command_fail_closed_v1.py"
       - ".github/workflows/founder-command-fail-closed.yml"
 
