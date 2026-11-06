@@ -80,7 +80,7 @@ def signed_attestation(
     registry = {
         "schema": "sourcea-forge-verifier-trust-registry-v1",
         "version": "1.0.0",
-        "status": "TEST_FIXTURE_ONLY",
+        "status": "ACTIVE",
         "keys": [
             {
                 "key_id": "test-key-critic-003",
