@@ -9,7 +9,7 @@ on:
       - "scripts/forge_agent_kernel_v3_swarm.py"
       - "scripts/forge_prompt_os_compiler_v2.py"
       - "scripts/forge_prompt_os_compiler_v3.py"
-      - "scripts/validate_forge_fail_closed_v1.py"
+      - "scripts/validate_founder_command_fail_closed_v1.py"
       - ".github/workflows/founder-command-fail-closed.yml"
 
 permissions:
@@ -34,6 +34,6 @@ jobs:
             scripts/forge_agent_kernel_v3_swarm.py \
             scripts/forge_prompt_os_compiler_v2.py \
             scripts/forge_prompt_os_compiler_v3.py \
-            scripts/validate_forge_fail_closed_v1.py
+            scripts/validate_founder_command_fail_closed_v1.py
       - name: Run fail-closed regression suite
-        run: python scripts/validate_forge_fail_closed_v1.py
+        run: python scripts/validate_founder_command_fail_closed_v1.py
