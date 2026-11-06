@@ -136,6 +136,58 @@ def _execution_ok(result: dict[str, Any]) -> bool:
     return bool(result.get("ok"))
 
 
+def quality_verification_gate(execution: dict[str, Any]) -> dict[str, Any]:
+    """Permit positive adaptive learning only with an independent proof receipt."""
+    verification = execution.get("quality_verification")
+    if not isinstance(verification, dict):
+        return {
+            "eligible": False,
+            "status": "UNVERIFIED",
+            "reason": "independent_quality_receipt_missing",
+        }
+
+    builder = str(verification.get("builder_identity") or "")
+    verifier = str(verification.get("verifier_identity") or "")
+    evidence_refs = verification.get("evidence_refs")
+    receipt_ref = verification.get("receipt_ref")
+    integrity = str(verification.get("receipt_integrity") or "").upper()
+    verdict = str(verification.get("verdict") or "").upper()
+
+    if verdict != "PASS":
+        reason = "independent_verdict_not_pass"
+    elif not builder or not verifier or builder == verifier:
+        reason = "builder_verifier_identity_missing_or_not_independent"
+    elif not isinstance(evidence_refs, list) or not evidence_refs:
+        reason = "independent_evidence_refs_missing"
+    elif not receipt_ref:
+        reason = "independent_quality_receipt_missing"
+    elif integrity != "PASS":
+        reason = "quality_receipt_integrity_not_pass"
+    else:
+        return {
+            "eligible": True,
+            "status": "INDEPENDENT_PASS",
+            "reason": None,
+            "builder_identity": builder,
+            "verifier_identity": verifier,
+            "evidence_refs": evidence_refs,
+            "receipt_ref": receipt_ref,
+        }
+    return {"eligible": False, "status": "UNVERIFIED", "reason": reason}
+
+
+def decide_learning_update(
+    *, execution_ok: bool, execution_state: str, quality_gate: dict[str, Any]
+) -> str:
+    """Return failure, success, or skip; never learn success from DONE alone."""
+    state = str(execution_state or "").upper()
+    if not execution_ok or state in ("FAILED", "ERROR", "BLOCKED"):
+        return "RECORD_FAILURE"
+    if quality_gate.get("eligible") is True and quality_gate.get("status") == "INDEPENDENT_PASS":
+        return "RECORD_SUCCESS"
+    return "SKIP_UNVERIFIED"
+
+
 def _dispatch_execution(
     *,
     route: dict[str, Any],
@@ -277,12 +329,38 @@ def autonomous_execute(
     if not state and execution.get("swarm_id"):
         state = "DONE" if exec_ok else "FAILED"
 
-    learning = record_execution_outcome(
-        compiled=compiled,
+    quality_gate = quality_verification_gate(execution)
+    learning_decision = decide_learning_update(
         execution_ok=exec_ok,
         execution_state=state,
-        run_id=runtime_id,
+        quality_gate=quality_gate,
     )
+    if learning_decision == "RECORD_FAILURE":
+        learning = record_execution_outcome(
+            compiled=compiled,
+            execution_ok=False,
+            execution_state=state or "FAILED",
+            quality_verdict="FAIL",
+            run_id=runtime_id,
+        )
+    elif learning_decision == "RECORD_SUCCESS":
+        learning = record_execution_outcome(
+            compiled=compiled,
+            execution_ok=True,
+            execution_state=state or "DONE",
+            quality_verdict="PASS",
+            run_id=runtime_id,
+        )
+    else:
+        # Keep the execution receipt, but do not reward or penalize adaptive
+        # routing until a separate verifier supplies a valid evidence receipt.
+        learning = {
+            "ok": True,
+            "recorded": False,
+            "eligible": False,
+            "status": "SKIPPED_UNVERIFIED",
+            "reason": quality_gate.get("reason") or "independent_quality_receipt_required",
+        }
 
     out: dict[str, Any] = {
         "ok": exec_ok,
@@ -294,9 +372,11 @@ def autonomous_execute(
         "compiled": compiled,
         "route": route,
         "execution": execution,
+        "quality_verification": quality_gate,
         "deployment": deployment,
         "learning": learning,
-        "founder_summary": _founder_summary(compiled, execution, exec_ok, deployment),
+        "learning_decision": learning_decision,
+        "founder_summary": _founder_summary(compiled, execution, exec_ok and quality_gate.get("eligible") is True, deployment),
         "at": _now(),
     }
 
