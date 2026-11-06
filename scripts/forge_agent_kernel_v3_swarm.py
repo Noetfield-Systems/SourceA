@@ -449,6 +449,19 @@ def _parallel_critics(*, goal: str, board: dict[str, Any], count: int = 3) -> li
     return verdicts
 
 
+def critics_reputation_eligible(critic_verdicts: list[dict[str, Any]]) -> bool:
+    """Do not reward or penalize agents when critic evidence is unavailable."""
+    if not critic_verdicts:
+        return False
+    return all(
+        verdict.get("ok") is True
+        and not verdict.get("provider_error")
+        and not verdict.get("fallback")
+        and type(verdict.get("approved")) is bool
+        for verdict in critic_verdicts
+    )
+
+
 def swarm_quality_success(
     *,
     state: str,
@@ -650,7 +663,9 @@ def run_swarm_loop(
             board["critic_verdicts"] = verdicts
             critic_aggregate = aggregate_critic_verdicts(verdicts)
         else:
-            critic_aggregate = aggregate_critic_verdicts([_critic_swarm(goal=goal, board=board)])
+            single_critic = _critic_swarm(goal=goal, board=board)
+            board["critic_verdicts"] = [single_critic]
+            critic_aggregate = aggregate_critic_verdicts(board["critic_verdicts"])
 
         replan_rounds.append({"round": rnd, "tasks": len(tasks), "critic": critic_aggregate, "runs": len(round_runs)})
         board["logs"].append(f"round_{rnd}_critic_approved={critic_aggregate.get('approved')}")
@@ -678,10 +693,13 @@ def run_swarm_loop(
         critic_aggregate=critic_aggregate,
         critic_verdicts=board.get("critic_verdicts") or [],
     )
-    if update_reputation:
+    reputation_updated = False
+    critic_evidence_complete = critics_reputation_eligible(board.get("critic_verdicts") or [])
+    if update_reputation and critic_evidence_complete:
         agent_ids = planner_agent_ids + [b.get("agent_id") for b in board.get("agent_bids") or [] if b.get("agent_id")]
         update_reputation(agent_ids=agent_ids[:8], success=success)
         evolve_agents(success=success)
+        reputation_updated = True
         if success and not dry_run:
             try:
                 from forge_economy_v1 import reward_agent  # noqa: WPS433
@@ -709,6 +727,8 @@ def run_swarm_loop(
         "optimizer_notes": optimizer_notes,
         "replan_rounds": replan_rounds,
         "critic_aggregate": critic_aggregate,
+        "critic_evidence_complete": critic_evidence_complete,
+        "reputation_updated": reputation_updated,
         "verify_harness": harness,
         "at": _now(),
     }
