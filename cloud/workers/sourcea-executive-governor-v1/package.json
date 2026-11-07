@@ -4,6 +4,7 @@
   "type": "module",
   "scripts": {
     "deploy": "npx --yes wrangler@4 deploy",
-    "dev": "npx --yes wrangler@4 dev"
+    "dev": "npx --yes wrangler@4 dev",
+    "test": "node --experimental-strip-types --test tests/*.test.ts"
   }
 }
