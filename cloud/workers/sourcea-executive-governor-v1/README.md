@@ -4,8 +4,10 @@ Cloudflare Worker + Durable Object for governed Executive Mesh ingress and follo
 
 ## Runtime boundaries
 
-- Executive Mesh makes deterministic policy and routing decisions.
-- The Governor creates one Runway Goal only for the registered WEBPAGE_REPAIR decision class.
+- The Executive Mesh package owns deterministic Role Pod deliberation, Governor decision records and canonical commitments.
+- This Worker is the authenticated Runway follow-through adapter for the WEBPAGE_REPAIR slice; it does not invoke the Role Pods itself.
+- The adapter accepts only exact HTTPS hosts listed in EXECUTIVE_ALLOWED_HOSTS; missing allowlist configuration blocks the request.
+- The adapter creates one Runway Goal only for the registered WEBPAGE_REPAIR decision class.
 - Runway's existing Goal Pursuit Workflow is the only executor; it owns retries, staging approval waits, execution and Goal state.
 - ExecutiveFollowupWorkflow is a separate durable observer. It polls the canonical Runway Goal, verifies terminal evidence and closes the Executive commitment only after an independently verified artifact.
 - This Worker does not approve staging, merge, deploy production, send external communications, move money, change DNS or modify governance.
@@ -26,7 +28,7 @@ Provision only through Cloudflare Worker secrets (never in Wrangler vars, source
 - EXECUTIVE_INTERNAL_TOKEN — private token used by the Durable Workflow to call its Governor's internal reconcile route.
 - SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY — canonical evidence sink access.
 
-The n8n custom node SourceA Governor requires the SourceA API credential. Store the base URL and ingress token in n8n's encrypted credential store, not in workflow JSON.
+The non-secret EXECUTIVE_ALLOWED_HOSTS variable must be a comma-separated exact-host allowlist (the current slice is sourcea.app,www.sourcea.app). The n8n custom node SourceA Governor requires the SourceA API credential. Store the base URL and ingress token in n8n's encrypted credential store, not in workflow JSON.
 
 ## Completion contract
 
