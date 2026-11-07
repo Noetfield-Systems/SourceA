@@ -120,7 +120,7 @@ export class ExecutiveGovernorDO extends DurableObject<Env> {
       const eventId = String(body.event_id ?? "").trim();
       const idempotencyKey = String(body.idempotency_key ?? "").trim();
       if (
-        !/^[A-Za-z0-9._:-]{1,128}$/.test(eventId) ||
+        !/^[A-Za-z0-9._:-]{1,64}$/.test(eventId) ||
         !/^[A-Za-z0-9._:-]{1,160}$/.test(idempotencyKey)
       ) {
         return Response.json({ error: "event_id_and_idempotency_key_required" }, { status: 400 });
@@ -379,7 +379,7 @@ export class ExecutiveGovernorDO extends DurableObject<Env> {
         });
       }
 
-      const followupId = "executive-followup-" + runId;
+      const followupId = ("ef-" + runId).replace(/[^A-Za-z0-9_-]/g, "_").slice(0, 100);
       const followup = await this.env.EXECUTIVE_FOLLOWUP.create({
         id: followupId,
         params: { run_id: runId, organization_id: "sourcea" },
