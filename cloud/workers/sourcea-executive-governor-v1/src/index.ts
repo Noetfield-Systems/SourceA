@@ -4,6 +4,8 @@
  */
 
 import { DurableObject } from "cloudflare:workers";
+import { classifyGoalOutcome } from "./goal-outcome.ts";
+export { ExecutiveFollowupWorkflow } from "./followup-workflow.ts";
 
 export interface Env {
   EXECUTIVE_GOVERNOR: DurableObjectNamespace;
@@ -12,6 +14,10 @@ export interface Env {
   RUNWAY_TENANT_ID?: string;
   SUPABASE_URL?: string;
   SUPABASE_SERVICE_ROLE_KEY?: string;
+  EXECUTIVE_INTERNAL_TOKEN?: string;
+  EXECUTIVE_FOLLOWUP?: {
+    create: (input: { id: string; params: { run_id: string; organization_id: string } }) => Promise<{ id: string }>;
+  };
 }
 
 type RunRecord = {
@@ -22,6 +28,16 @@ type RunRecord = {
   snapshot_version: number;
   digest: Record<string, unknown> | null;
   stale_rejected: boolean;
+  organization_id?: string;
+  correlation_id?: string;
+  event_type?: string;
+  decision_class?: string;
+  goal_ref?: string;
+  tenant_id?: string;
+  goal_status?: string;
+  commitment_status?: "OPEN" | "CLOSED";
+  followup_workflow_id?: string | null;
+  last_checked_at?: string | null;
 };
 
 async function hashText(s: string): Promise<string> {
@@ -89,7 +105,18 @@ export class ExecutiveGovernorDO extends DurableObject<Env> {
     if (request.method === "POST" && url.pathname === "/v1/executive/runs") {
       const body = (await request.json()) as Record<string, unknown>;
       const result = await this.ingest(body);
-      return Response.json(result, { status: result.terminal === "ACCEPTED" ? 200 : 422 });
+      return Response.json(result, { status: result.terminal ? 200 : 202 });
+    }
+    if (request.method === "POST" && url.pathname.startsWith("/internal/executive/runs/") && url.pathname.endsWith("/reconcile")) {
+      const token = this.env.EXECUTIVE_INTERNAL_TOKEN;
+      if (!token || request.headers.get("authorization") !== "Bearer " + token) {
+        return Response.json({ error: "forbidden" }, { status: 403 });
+      }
+      const match = url.pathname.match(/^\\/internal\\/executive\\/runs\\/([^/]+)\\/reconcile$/);
+      if (!match || !match[1]) return Response.json({ error: "not_found" }, { status: 404 });
+      const flags = (await request.json().catch(() => ({}))) as { force_timeout?: boolean; force_incident?: boolean };
+      const result = await this.reconcile(decodeURIComponent(match[1]), flags);
+      return Response.json(result);
     }
     if (request.method === "GET" && url.pathname.startsWith("/v1/executive/runs/")) {
       const id = url.pathname.split("/").pop()!;
@@ -159,150 +186,413 @@ export class ExecutiveGovernorDO extends DurableObject<Env> {
       JSON.stringify({ runId, policy: WEBPAGE_REPAIR_POLICY.policy_version }),
     );
 
-    const simulate = this.env.MESH_SIMULATE === "1";
-    let admitted = false;
-    let goalRef = "";
-    let goalStatus = "";
-    let admitDetail = "";
-
-    if (simulate) {
-      admitted = true;
-      goalRef = `sim://${runId}`;
-      goalStatus = "SIMULATED";
-      admitDetail = "mesh_simulate";
-    } else {
-      const base = (this.env.RUNWAY_GOAL_BASE_URL ?? "").replace(/\/$/, "");
-      if (!base) {
-        return this.terminal(runId, idempotencyKey, "INCIDENT", {
-          reason: "RUNWAY_GOAL_BASE_URL_MISSING",
-          decision_hash: decisionHash,
-        });
-      }
-      try {
-        const body = {
-          title: "Executive Mesh WEBPAGE_REPAIR",
-          objective: `Repair webpage ${targetUrl} under WEBPAGE_REPAIR policy ${WEBPAGE_REPAIR_POLICY.policy_version}; acceptance: ${WEBPAGE_REPAIR_POLICY.verify.join(", ")}`,
-          project_id: `mesh_${eventId}`.replace(/[^a-zA-Z0-9_]/g, "_").slice(0, 40),
-          force_repair_once: true,
-          approved_for_runtime: false,
-          sleep_seconds: 30,
-          priority: 50,
-        };
-        const res = await fetch(`${base}/v1/goals`, {
-          method: "POST",
-          headers: { "content-type": "application/json", "x-tenant-id": tenantId },
-          body: JSON.stringify(body),
-        });
-        const text = await res.text();
-        if (!res.ok) {
-          return this.terminal(runId, idempotencyKey, "INCIDENT", {
-            reason: "EXECUTOR_REJECT",
-            detail: `http_${res.status}:${text.slice(0, 200)}`,
-            decision_hash: decisionHash,
-          });
-        }
-        const json = JSON.parse(text) as Record<string, unknown>;
-        goalRef = String(json.goal_id ?? "");
-        admitted = Boolean(goalRef);
-
-        // Independent verify: GET goal (producer cannot sole-verify)
-        const verifyRes = await fetch(`${base}/v1/goals/${encodeURIComponent(goalRef)}`, {
-          headers: { "x-tenant-id": tenantId },
-        });
-        if (!verifyRes.ok) {
-          return this.terminal(runId, idempotencyKey, "INCIDENT", {
-            reason: "VERIFY_FAIL",
-            detail: `live_get_http_${verifyRes.status}`,
-            goal_ref: goalRef,
-          });
-        }
-        const snap = (await verifyRes.json()) as Record<string, unknown>;
-        goalStatus = String(snap.status ?? "");
-        const hasCriteria =
-          Array.isArray(snap.acceptance_criteria) && snap.acceptance_criteria.length > 0;
-        if (!hasCriteria || !goalStatus) {
-          return this.terminal(runId, idempotencyKey, "INCIDENT", {
-            reason: "VERIFY_FAIL",
-            detail: "missing_acceptance_criteria_or_status",
-            goal_ref: goalRef,
-          });
-        }
-        admitDetail = "runway_goal_api+live_get";
-      } catch (e) {
-        return this.terminal(runId, idempotencyKey, "INCIDENT", {
-          reason: "EXECUTOR_ERROR",
-          detail: String(e).slice(0, 200),
-        });
-      }
-    }
-
-    if (!admitted) {
-      return this.terminal(runId, idempotencyKey, "INCIDENT", {
-        reason: "EXECUTOR_REJECT",
+    if (this.env.MESH_SIMULATE !== "0") {
+      return this.terminal(runId, idempotencyKey, "DEFERRED_BY_POLICY", {
+        reason: "SIMULATION_CANNOT_PROVE_COMPLETION",
         decision_hash: decisionHash,
       });
     }
 
-    this.version += 1;
-    const accepted: RunRecord = {
-      run_id: runId,
-      status: "ACCEPTED",
-      terminal: "ACCEPTED",
-      idempotency_key: idempotencyKey,
-      snapshot_version: this.version,
-      digest: {
-        terminal: "ACCEPTED",
-        context_hash: contextHash,
+    const base = (this.env.RUNWAY_GOAL_BASE_URL ?? "").replace(/\/$/, "");
+    if (!base) {
+      return this.terminal(runId, idempotencyKey, "INCIDENT", {
+        reason: "RUNWAY_GOAL_BASE_URL_MISSING",
         decision_hash: decisionHash,
-        work_packet_id: `wp_${runId}`,
-        executor_class: "RUNWAY_GOAL_KERNEL",
-        max_fanout: 0,
-        goal_ref: goalRef,
-        goal_status: goalStatus,
-        commitment_status: "CLOSED",
-        pods: ["SG", "MEMORY_STEWARD", "STRATEGIC_PLANNER", "CRITIC"],
-        ecp_wrap: "executive-control-plane-v0",
-        admit_detail: admitDetail,
-        runway_live: !simulate,
-      },
-      stale_rejected: false,
-    };
-    await this.persist(accepted);
+      });
+    }
+    if (!this.env.EXECUTIVE_FOLLOWUP || !this.env.EXECUTIVE_INTERNAL_TOKEN) {
+      return this.terminal(runId, idempotencyKey, "INCIDENT", {
+        reason: "DURABLE_FOLLOWUP_NOT_CONFIGURED",
+        detail: "EXECUTIVE_FOLLOWUP binding and EXECUTIVE_INTERNAL_TOKEN are required",
+        decision_hash: decisionHash,
+      });
+    }
 
-    const ssotRun = await supabaseUpsert(
+    let goalRef = "";
+    let goalStatus = "UNKNOWN";
+    try {
+      const body = {
+        title: "Executive Mesh WEBPAGE_REPAIR",
+        objective:
+          "Repair webpage " + targetUrl + " under WEBPAGE_REPAIR policy " +
+          WEBPAGE_REPAIR_POLICY.policy_version + "; acceptance: " + WEBPAGE_REPAIR_POLICY.verify.join(", "),
+        project_id: ("mesh_" + eventId).replace(/[^a-zA-Z0-9_]/g, "_").slice(0, 40),
+        force_repair_once: true,
+        approved_for_runtime: false,
+        sleep_seconds: 30,
+        priority: 50,
+      };
+      const createRes = await fetch(base + "/v1/goals", {
+        method: "POST",
+        headers: { "content-type": "application/json", "x-tenant-id": tenantId },
+        body: JSON.stringify(body),
+      });
+      const createText = await createRes.text();
+      if (!createRes.ok) {
+        return this.terminal(runId, idempotencyKey, "INCIDENT", {
+          reason: "EXECUTOR_REJECT",
+          detail: "http_" + createRes.status + ":" + createText.slice(0, 200),
+          decision_hash: decisionHash,
+        });
+      }
+      const created = JSON.parse(createText) as Record<string, unknown>;
+      goalRef = String(created.goal_id ?? "");
+      if (!goalRef) {
+        return this.terminal(runId, idempotencyKey, "INCIDENT", {
+          reason: "GOAL_ID_MISSING",
+          decision_hash: decisionHash,
+        });
+      }
+
+      const verifyRes = await fetch(base + "/v1/goals/" + encodeURIComponent(goalRef), {
+        headers: { "x-tenant-id": tenantId },
+      });
+      if (!verifyRes.ok) {
+        return this.terminal(runId, idempotencyKey, "INCIDENT", {
+          reason: "GOAL_ADMISSION_VERIFY_FAILED",
+          detail: "live_get_http_" + verifyRes.status,
+          goal_ref: goalRef,
+        });
+      }
+      const initialSnapshot = (await verifyRes.json()) as Record<string, unknown>;
+      goalStatus = String(initialSnapshot.status ?? "UNKNOWN");
+      if (initialSnapshot.goal_id !== goalRef || !Array.isArray(initialSnapshot.acceptance_criteria)) {
+        return this.terminal(runId, idempotencyKey, "INCIDENT", {
+          reason: "GOAL_ADMISSION_CONTRACT_INVALID",
+          goal_ref: goalRef,
+        });
+      }
+
+      // Persist the open commitment before starting either workflow. The
+      // completion monitor starts first; the Runway Goal workflow is the sole
+      // executor and keeps its own staging approval gate.
+      this.version += 1;
+      const pending: RunRecord = {
+        run_id: runId,
+        status: "AWAITING_EXECUTION",
+        terminal: null,
+        idempotency_key: idempotencyKey,
+        snapshot_version: this.version,
+        organization_id: "sourcea",
+        correlation_id: eventId,
+        event_type: "webpage.repair.requested",
+        decision_class: "WEBPAGE_REPAIR",
+        goal_ref: goalRef,
+        tenant_id: tenantId,
+        goal_status: goalStatus,
+        commitment_status: "OPEN",
+        followup_workflow_id: null,
+        last_checked_at: new Date().toISOString(),
+        digest: {
+          terminal: null,
+          context_hash: contextHash,
+          decision_hash: decisionHash,
+          work_packet_id: "wp_" + runId,
+          executor_class: "RUNWAY_GOAL_KERNEL",
+          max_fanout: 0,
+          goal_ref: goalRef,
+          goal_status: goalStatus,
+          commitment_status: "OPEN",
+          pods: ["SG", "MEMORY_STEWARD", "STRATEGIC_PLANNER", "CRITIC"],
+          ecp_wrap: "executive-control-plane-v0",
+          admit_detail: "runway_goal_api+live_get",
+          runway_live: true,
+          followup_status: "MONITOR_STARTING",
+        },
+        stale_rejected: false,
+      };
+      await this.persist(pending);
+
+      const pendingSsot = await supabaseUpsert(
+        this.env,
+        "executive_runs",
+        {
+          run_id: runId,
+          organization_id: "sourcea",
+          correlation_id: eventId,
+          causation_id: null,
+          idempotency_key: idempotencyKey,
+          snapshot_version: this.version,
+          status: "AWAITING_EXECUTION",
+          event_type: "webpage.repair.requested",
+          decision_class: "WEBPAGE_REPAIR",
+          goal_id: goalRef,
+          terminal: null,
+          digest_json: pending.digest,
+          updated_at: new Date().toISOString(),
+        },
+        "run_id",
+      );
+      const versionSsot = await supabaseUpsert(
+        this.env,
+        "canonical_state_versions",
+        {
+          organization_id: "sourcea",
+          state_version: this.version,
+          state_hash: "sha256:" + decisionHash,
+          updated_at: new Date().toISOString(),
+        },
+        "organization_id",
+      );
+      if (!pendingSsot.ok || !versionSsot.ok) {
+        return this.closeRun(pending, "INCIDENT", "INCIDENT", {
+          reason: "INITIAL_CANONICAL_SINK_FAILED",
+          executive_runs: pendingSsot,
+          canonical_state_versions: versionSsot,
+        });
+      }
+
+      const followupId = "executive-followup-" + runId;
+      const followup = await this.env.EXECUTIVE_FOLLOWUP.create({
+        id: followupId,
+        params: { run_id: runId, organization_id: "sourcea" },
+      });
+      pending.followup_workflow_id = followup.id;
+      pending.digest = {
+        ...pending.digest,
+        followup_workflow_id: followup.id,
+        followup_status: "MONITORING",
+      };
+      await this.ctx.storage.put("run:" + runId, pending);
+
+      const startRes = await fetch(base + "/v1/goals/" + encodeURIComponent(goalRef) + "/start", {
+        method: "POST",
+        headers: { "content-type": "application/json", "x-tenant-id": tenantId },
+      });
+      const startText = await startRes.text();
+      if (!startRes.ok) {
+        try {
+          await fetch(base + "/v1/goals/" + encodeURIComponent(goalRef) + "/kill", {
+            method: "POST",
+            headers: { "x-tenant-id": tenantId },
+          });
+        } catch {
+          // The Executive run remains an explicit incident if the Goal cannot be stopped.
+        }
+        return this.closeRun(pending, "INCIDENT", "INCIDENT", {
+          reason: "RUNWAY_GOAL_START_FAILED",
+          detail: "http_" + startRes.status + ":" + startText.slice(0, 200),
+        });
+      }
+      let started: Record<string, unknown> = {};
+      try {
+        started = JSON.parse(startText) as Record<string, unknown>;
+      } catch {
+        // HTTP success is enough to persist the workflow reference by subsequent GET.
+      }
+      pending.goal_status = String(started.status ?? goalStatus);
+      pending.digest = {
+        ...pending.digest,
+        goal_status: pending.goal_status,
+        runway_workflow_instance_id: started.workflow_instance_id ?? null,
+        followup_status: "MONITORING",
+      };
+      await this.ctx.storage.put("run:" + runId, pending);
+      return pending;
+    } catch (error) {
+      if (goalRef) {
+        try {
+          await fetch(base + "/v1/goals/" + encodeURIComponent(goalRef) + "/kill", {
+            method: "POST",
+            headers: { "x-tenant-id": tenantId },
+          });
+        } catch {
+          // Preserve the initiating exception; the incident record remains authoritative.
+        }
+      }
+      return this.terminal(runId, idempotencyKey, "INCIDENT", {
+        reason: "EXECUTOR_OR_FOLLOWUP_START_FAILED",
+        detail: String(error).slice(0, 240),
+        goal_ref: goalRef || null,
+        decision_hash: decisionHash,
+      });
+    }
+  }
+
+  private async reconcile(
+    runId: string,
+    flags: { force_timeout?: boolean; force_incident?: boolean },
+  ): Promise<RunRecord> {
+    const row = await this.ctx.storage.get<RunRecord>("run:" + runId);
+    if (!row) throw new Error("EXECUTIVE_RUN_NOT_FOUND");
+    if (row.terminal) return row;
+    if (row.status !== "AWAITING_EXECUTION" || !row.goal_ref || !row.tenant_id) return row;
+
+    if (flags.force_timeout) {
+      return this.closeRun(row, "BOUNDED_FAILURE", "BOUNDED_FAILURE", {
+        reason: "FOLLOWUP_WINDOW_EXHAUSTED",
+        goal_ref: row.goal_ref,
+        goal_status: row.goal_status ?? "UNKNOWN",
+      });
+    }
+    if (flags.force_incident) {
+      return this.closeRun(row, "INCIDENT", "INCIDENT", {
+        reason: "FOLLOWUP_RECONCILIATION_UNAVAILABLE",
+        goal_ref: row.goal_ref,
+      });
+    }
+
+    const base = (this.env.RUNWAY_GOAL_BASE_URL ?? "").replace(/\/$/, "");
+    try {
+      const response = await fetch(base + "/v1/goals/" + encodeURIComponent(row.goal_ref), {
+        headers: { "x-tenant-id": row.tenant_id },
+      });
+      if (!response.ok) throw new Error("goal_get_http_" + response.status);
+      const snapshot = await response.json();
+      const outcome = classifyGoalOutcome(snapshot, row.goal_ref);
+      row.goal_status = outcome.goal_status;
+      row.last_checked_at = new Date().toISOString();
+      row.digest = {
+        ...row.digest,
+        goal_status: outcome.goal_status,
+        followup_last_checked_at: row.last_checked_at,
+        followup_error: false,
+        followup_outcome: outcome.kind,
+        followup_detail: outcome.kind === "PENDING" ? outcome.detail : ("reason" in outcome ? outcome.reason : null),
+      };
+
+      if (outcome.kind === "PENDING") {
+        await this.ctx.storage.put("run:" + runId, row);
+        return row;
+      }
+
+      if (outcome.kind === "ACCEPTED_ARTIFACT") {
+        const receiptVerify = await fetch(
+          base + "/v1/goals/" + encodeURIComponent(row.goal_ref) + "/verify",
+          { method: "POST", headers: { "x-tenant-id": row.tenant_id } },
+        );
+        if (!receiptVerify.ok) {
+          return this.closeRun(row, "INCIDENT", "INCIDENT", {
+            reason: "RUNWAY_RECEIPT_VERIFY_HTTP_FAILED",
+            detail: "http_" + receiptVerify.status,
+            receipt_id: outcome.receipt_id,
+          });
+        }
+        const verification = (await receiptVerify.json()) as Record<string, unknown>;
+        if (verification.passed !== true || verification.receipt_id !== outcome.receipt_id) {
+          return this.closeRun(row, "INCIDENT", "INCIDENT", {
+            reason: "RUNWAY_RECEIPT_VERIFY_FAILED",
+            receipt_id: outcome.receipt_id,
+            verification,
+          });
+        }
+        return this.closeRun(row, "ACCEPTED", "ACCEPTED_ARTIFACT", {
+          reason: "RUNWAY_GOAL_ACCEPTED_ARTIFACT",
+          goal_ref: row.goal_ref,
+          goal_status: outcome.goal_status,
+          receipt_id: outcome.receipt_id,
+          receipt_hash: outcome.receipt_hash,
+          passed_criteria: outcome.passed_criteria,
+          independent_verification: verification,
+        });
+      }
+
+      if (outcome.kind === "FOUNDER_DECISION_REQUIRED") {
+        return this.closeRun(row, "FOUNDER_DECISION_REQUIRED", "RED_ZONE_DECISION_PACKET", {
+          reason: outcome.reason,
+          goal_ref: row.goal_ref,
+          goal_status: outcome.goal_status,
+        });
+      }
+
+      return this.closeRun(row, outcome.kind === "BOUNDED_FAILURE" ? "BOUNDED_FAILURE" : "INCIDENT",
+        outcome.kind === "BOUNDED_FAILURE" ? "BOUNDED_FAILURE" : "INCIDENT", {
+          reason: outcome.reason,
+          goal_ref: row.goal_ref,
+          goal_status: outcome.goal_status,
+        });
+    } catch (error) {
+      row.last_checked_at = new Date().toISOString();
+      row.digest = {
+        ...row.digest,
+        followup_last_checked_at: row.last_checked_at,
+        followup_error: true,
+        followup_error_detail: String(error).slice(0, 240),
+      };
+      await this.ctx.storage.put("run:" + runId, row);
+      return row;
+    }
+  }
+
+  private async closeRun(
+    original: RunRecord,
+    status: string,
+    terminal: string,
+    digestExtra: Record<string, unknown>,
+  ): Promise<RunRecord> {
+    this.version += 1;
+    const closed: RunRecord = {
+      ...original,
+      status,
+      terminal,
+      snapshot_version: this.version,
+      commitment_status: "CLOSED",
+      last_checked_at: new Date().toISOString(),
+      digest: {
+        ...original.digest,
+        ...digestExtra,
+        terminal,
+        commitment_status: "CLOSED",
+        closed_at: new Date().toISOString(),
+      },
+    };
+
+    const ssot = await supabaseUpsert(
       this.env,
       "executive_runs",
       {
-        run_id: runId,
-        organization_id: "sourcea",
-        correlation_id: eventId,
+        run_id: closed.run_id,
+        organization_id: closed.organization_id ?? "sourcea",
+        correlation_id: closed.correlation_id ?? closed.run_id,
         causation_id: null,
-        idempotency_key: idempotencyKey,
+        idempotency_key: closed.idempotency_key,
         snapshot_version: this.version,
-        status: "ACCEPTED",
-        event_type: "webpage.repair.requested",
-        decision_class: "WEBPAGE_REPAIR",
-        goal_id: goalRef,
-        terminal: "ACCEPTED",
-        digest_json: accepted.digest,
+        status: closed.status,
+        event_type: closed.event_type ?? "webpage.repair.requested",
+        decision_class: closed.decision_class ?? "WEBPAGE_REPAIR",
+        goal_id: closed.goal_ref ?? null,
+        terminal: closed.terminal,
+        digest_json: closed.digest,
         updated_at: new Date().toISOString(),
       },
       "run_id",
     );
-    await supabaseUpsert(
+    if (!ssot.ok) {
+      closed.status = "INCIDENT";
+      closed.terminal = "INCIDENT";
+      closed.digest = {
+        ...closed.digest,
+        attempted_terminal: terminal,
+        reason: "EXECUTIVE_CANONICAL_SINK_FAILED",
+        executive_runs: ssot,
+      };
+    } else if (closed.digest) {
+      closed.digest.supabase = ssot;
+    }
+
+    const versionSink = await supabaseUpsert(
       this.env,
       "canonical_state_versions",
       {
-        organization_id: "sourcea",
+        organization_id: closed.organization_id ?? "sourcea",
         state_version: this.version,
-        state_hash: `sha256:${decisionHash}`,
+        state_hash: "sha256:" + await hashText(JSON.stringify(closed.digest)),
         updated_at: new Date().toISOString(),
       },
       "organization_id",
     );
-    if (accepted.digest) accepted.digest.supabase = ssotRun;
-    await this.ctx.storage.put(`run:${runId}`, accepted);
-    return accepted;
+    if (!versionSink.ok) {
+      closed.status = "INCIDENT";
+      closed.terminal = "INCIDENT";
+      closed.digest = {
+        ...closed.digest,
+        attempted_terminal: terminal,
+        reason: "CANONICAL_VERSION_SINK_FAILED",
+        canonical_state_versions: versionSink,
+      };
+    }
+    await this.persist(closed);
+    return closed;
   }
 
   private async terminal(
@@ -320,6 +610,8 @@ export class ExecutiveGovernorDO extends DurableObject<Env> {
       snapshot_version: this.version,
       digest,
       stale_rejected: Boolean(digest.reason === "STALE_EVENT_VERSION"),
+      commitment_status: "CLOSED",
+      last_checked_at: new Date().toISOString(),
     };
     await this.persist(row);
     return row;
@@ -342,6 +634,7 @@ export default {
         mesh_simulate: env.MESH_SIMULATE === "1",
         runway_configured: Boolean(env.RUNWAY_GOAL_BASE_URL),
         supabase_configured: Boolean(env.SUPABASE_URL && env.SUPABASE_SERVICE_ROLE_KEY),
+        followup_configured: Boolean(env.EXECUTIVE_FOLLOWUP && env.EXECUTIVE_INTERNAL_TOKEN),
       });
     }
     const org = url.searchParams.get("org") ?? "sourcea";
