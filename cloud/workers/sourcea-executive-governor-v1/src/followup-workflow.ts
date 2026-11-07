@@ -63,7 +63,7 @@ export class ExecutiveFollowupWorkflow extends WorkflowEntrypoint<FollowupEnv, E
     }
 
     let consecutiveErrors = 0;
-    for (let poll = 0; poll < 160; poll += 1) {
+    for (let poll = 0; poll < 47; poll += 1) {
       const attempt = await step.do("reconcile-" + poll, async () => {
         try {
           const row = await reconcile(this.env, input);
@@ -85,10 +85,10 @@ export class ExecutiveFollowupWorkflow extends WorkflowEntrypoint<FollowupEnv, E
         if (attempt.row.terminal) return attempt.row;
       }
 
-      await step.sleep("wait-" + poll, "3 minutes");
+      await step.sleep("wait-" + poll, "10 minutes");
     }
 
-    return step.do("bounded-followup-timeout", () =>
+    return step.do("bounded-followup-deadline", () =>
       reconcile(this.env, input, { force_timeout: true }),
     );
   }
