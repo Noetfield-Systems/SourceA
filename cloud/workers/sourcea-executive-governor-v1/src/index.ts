@@ -646,11 +646,59 @@ export class ExecutiveGovernorDO extends DurableObject<Env> {
       terminal,
       idempotency_key: idempotencyKey,
       snapshot_version: this.version,
-      digest,
+      organization_id: "sourcea",
+      correlation_id: runId.replace(/^run_/, ""),
+      event_type: "webpage.repair.requested",
+      decision_class: "WEBPAGE_REPAIR",
+      goal_ref: typeof digest.goal_ref === "string" ? digest.goal_ref : undefined,
+      digest: { ...digest, terminal, commitment_status: "CLOSED" },
       stale_rejected: Boolean(digest.reason === "STALE_EVENT_VERSION"),
       commitment_status: "CLOSED",
       last_checked_at: new Date().toISOString(),
     };
+
+    const runSink = await supabaseUpsert(
+      this.env,
+      "executive_runs",
+      {
+        run_id: row.run_id,
+        organization_id: "sourcea",
+        correlation_id: row.correlation_id,
+        causation_id: null,
+        idempotency_key: row.idempotency_key,
+        snapshot_version: this.version,
+        status: row.status,
+        event_type: row.event_type,
+        decision_class: row.decision_class,
+        goal_id: row.goal_ref ?? null,
+        terminal: row.terminal,
+        digest_json: row.digest,
+        updated_at: new Date().toISOString(),
+      },
+      "run_id",
+    );
+    const versionSink = await supabaseUpsert(
+      this.env,
+      "canonical_state_versions",
+      {
+        organization_id: "sourcea",
+        state_version: this.version,
+        state_hash: "sha256:" + await hashText(JSON.stringify(row.digest)),
+        updated_at: new Date().toISOString(),
+      },
+      "organization_id",
+    );
+    if (!runSink.ok || !versionSink.ok) {
+      row.status = "INCIDENT";
+      row.terminal = "INCIDENT";
+      row.digest = {
+        ...row.digest,
+        attempted_terminal: terminal,
+        reason: "TERMINAL_CANONICAL_SINK_FAILED",
+        executive_runs: runSink,
+        canonical_state_versions: versionSink,
+      };
+    }
     await this.persist(row);
     return row;
   }
