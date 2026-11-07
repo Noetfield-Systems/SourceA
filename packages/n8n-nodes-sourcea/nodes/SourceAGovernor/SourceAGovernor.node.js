@@ -12,6 +12,12 @@ class SourceAGovernor {
     defaults: { name: "SourceA Governor" },
     inputs: ["main"],
     outputs: ["main"],
+    credentials: [
+      {
+        name: "sourceAApi",
+        required: true,
+      },
+    ],
     properties: [
       {
         displayName: "Target URL",
