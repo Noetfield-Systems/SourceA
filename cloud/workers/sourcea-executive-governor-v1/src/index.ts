@@ -200,14 +200,14 @@ export class ExecutiveGovernorDO extends DurableObject<Env> {
     }
     const canonicalTargetUrl = targetPolicy.url;
     const contextHash = await hashText(JSON.stringify({ v: this.version, url: canonicalTargetUrl }));
-    const decisionHash = await hashText(
+    const policyBindingHash = await hashText(
       JSON.stringify({ runId, policy: WEBPAGE_REPAIR_POLICY.policy_version }),
     );
 
     if (this.env.MESH_SIMULATE !== "0") {
       return this.terminal(runId, idempotencyKey, "DEFERRED_BY_POLICY", {
         reason: "SIMULATION_CANNOT_PROVE_COMPLETION",
-        decision_hash: decisionHash,
+        policy_binding_hash: policyBindingHash,
       });
     }
 
@@ -215,14 +215,14 @@ export class ExecutiveGovernorDO extends DurableObject<Env> {
     if (!base) {
       return this.terminal(runId, idempotencyKey, "INCIDENT", {
         reason: "RUNWAY_GOAL_BASE_URL_MISSING",
-        decision_hash: decisionHash,
+        policy_binding_hash: policyBindingHash,
       });
     }
     if (!this.env.EXECUTIVE_FOLLOWUP || !this.env.EXECUTIVE_INTERNAL_TOKEN) {
       return this.terminal(runId, idempotencyKey, "INCIDENT", {
         reason: "DURABLE_FOLLOWUP_NOT_CONFIGURED",
         detail: "EXECUTIVE_FOLLOWUP binding and EXECUTIVE_INTERNAL_TOKEN are required",
-        decision_hash: decisionHash,
+        policy_binding_hash: policyBindingHash,
       });
     }
 
@@ -250,7 +250,7 @@ export class ExecutiveGovernorDO extends DurableObject<Env> {
         return this.terminal(runId, idempotencyKey, "INCIDENT", {
           reason: "EXECUTOR_REJECT",
           detail: "http_" + createRes.status + ":" + createText.slice(0, 200),
-          decision_hash: decisionHash,
+          policy_binding_hash: policyBindingHash,
         });
       }
       const created = JSON.parse(createText) as Record<string, unknown>;
@@ -258,7 +258,7 @@ export class ExecutiveGovernorDO extends DurableObject<Env> {
       if (!goalRef) {
         return this.terminal(runId, idempotencyKey, "INCIDENT", {
           reason: "GOAL_ID_MISSING",
-          decision_hash: decisionHash,
+          policy_binding_hash: policyBindingHash,
         });
       }
 
@@ -304,8 +304,8 @@ export class ExecutiveGovernorDO extends DurableObject<Env> {
         digest: {
           terminal: null,
           context_hash: contextHash,
-          decision_hash: decisionHash,
-          work_packet_id: "wp_" + runId,
+          policy_binding_hash: policyBindingHash,
+          runway_goal_ref: goalRef,
           executor_class: "RUNWAY_GOAL_KERNEL",
           max_fanout: 0,
           goal_ref: goalRef,
@@ -313,7 +313,7 @@ export class ExecutiveGovernorDO extends DurableObject<Env> {
           commitment_status: "OPEN",
           governance_mode: "registered_WEBPAGE_REPAIR_policy",
           role_pods_executed: false,
-          adapter_scope: "Runway Goal follow-through only; Mesh deliberation remains in the package pipeline",
+          adapter_scope: "authenticated Runway Goal follow-through adapter; does not execute Mesh role pods",
           admit_detail: "runway_goal_api+live_get",
           runway_live: true,
           followup_status: "MONITOR_STARTING",
@@ -348,7 +348,7 @@ export class ExecutiveGovernorDO extends DurableObject<Env> {
         {
           organization_id: "sourcea",
           state_version: this.version,
-          state_hash: "sha256:" + decisionHash,
+          state_hash: "sha256:" + policyBindingHash,
           updated_at: new Date().toISOString(),
         },
         "organization_id",
@@ -423,7 +423,7 @@ export class ExecutiveGovernorDO extends DurableObject<Env> {
         reason: "EXECUTOR_OR_FOLLOWUP_START_FAILED",
         detail: String(error).slice(0, 240),
         goal_ref: goalRef || null,
-        decision_hash: decisionHash,
+        policy_binding_hash: policyBindingHash,
       });
     }
   }
