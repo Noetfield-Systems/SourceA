@@ -9,6 +9,7 @@ workers_dev = true
 MESH_SIMULATE = "0"
 RUNWAY_GOAL_BASE_URL = "https://noetfield-runway-live-staging.sina-kazemnezhad-ca.workers.dev"
 RUNWAY_TENANT_ID = "tenant-runway-staging"
+EXECUTIVE_ALLOWED_HOSTS = "sourcea.app,www.sourcea.app"
 # Secrets (wrangler secret): SUPABASE_URL · SUPABASE_SERVICE_ROLE_KEY
 
 [observability]
@@ -29,4 +30,4 @@ binding = "EXECUTIVE_FOLLOWUP"
 name = "sourcea-executive-followup-v1"
 class_name = "ExecutiveFollowupWorkflow"
 
-# Secret required before deploy: EXECUTIVE_INTERNAL_TOKEN
+# Secrets required before deploy: EXECUTIVE_INGRESS_TOKEN, EXECUTIVE_INTERNAL_TOKEN, SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY
