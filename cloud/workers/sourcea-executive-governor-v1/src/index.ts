@@ -14,6 +14,7 @@ export interface Env {
   RUNWAY_TENANT_ID?: string;
   SUPABASE_URL?: string;
   SUPABASE_SERVICE_ROLE_KEY?: string;
+  EXECUTIVE_INGRESS_TOKEN?: string;
   EXECUTIVE_INTERNAL_TOKEN?: string;
   EXECUTIVE_FOLLOWUP?: {
     create: (input: { id: string; params: { run_id: string; organization_id: string } }) => Promise<{ id: string }>;
@@ -103,6 +104,13 @@ export class ExecutiveGovernorDO extends DurableObject<Env> {
       });
     }
     if (request.method === "POST" && url.pathname === "/v1/executive/runs") {
+      const ingressToken = this.env.EXECUTIVE_INGRESS_TOKEN;
+      if (!ingressToken) {
+        return Response.json({ error: "ingress_not_configured" }, { status: 503 });
+      }
+      if (request.headers.get("authorization") !== "Bearer " + ingressToken) {
+        return Response.json({ error: "unauthorized" }, { status: 401 });
+      }
       const body = (await request.json()) as Record<string, unknown>;
       const result = await this.ingest(body);
       return Response.json(result, { status: result.terminal ? 200 : 202 });
@@ -654,6 +662,7 @@ export default {
         mesh_simulate: env.MESH_SIMULATE === "1",
         runway_configured: Boolean(env.RUNWAY_GOAL_BASE_URL),
         supabase_configured: Boolean(env.SUPABASE_URL && env.SUPABASE_SERVICE_ROLE_KEY),
+        ingress_configured: Boolean(env.EXECUTIVE_INGRESS_TOKEN),
         followup_configured: Boolean(env.EXECUTIVE_FOLLOWUP && env.EXECUTIVE_INTERNAL_TOKEN),
       });
     }
