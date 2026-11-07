@@ -5,6 +5,7 @@ on:
     branches: [main]
     paths:
       - "cloud/workers/sourcea-executive-governor-v1/**"
+      - "packages/executive-mesh-v1/**"
       - "packages/n8n-nodes-sourcea/**"
       - ".github/workflows/executive-followup-v1.yml"
 
