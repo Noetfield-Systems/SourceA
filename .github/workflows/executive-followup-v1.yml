@@ -1,0 +1,37 @@
+name: Executive Follow-through v1 Regression
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - "cloud/workers/sourcea-executive-governor-v1/**"
+      - "packages/n8n-nodes-sourcea/**"
+      - ".github/workflows/executive-followup-v1.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  executive-followthrough:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22.13.1
+      - name: Test fail-closed Goal outcome classifier
+        working-directory: cloud/workers/sourcea-executive-governor-v1
+        run: npm test
+      - name: Test authenticated n8n Governor adapter
+        run: node --test packages/n8n-nodes-sourcea/tests/*.test.js
+      - name: Check n8n JavaScript syntax
+        run: |
+          node --check packages/n8n-nodes-sourcea/src/shared.cjs
+          node --check packages/n8n-nodes-sourcea/nodes/SourceAGovernor/SourceAGovernor.node.js
+          node --check packages/n8n-nodes-sourcea/credentials/SourceAApi.credentials.js
+      - name: Build Worker without deploying
+        working-directory: cloud/workers/sourcea-executive-governor-v1
+        run: npx --yes wrangler@4 deploy --dry-run --outdir .wrangler-dry-run
