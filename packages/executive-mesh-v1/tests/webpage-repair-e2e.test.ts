@@ -5,7 +5,6 @@ import {
   createRunwayGoalKernelRouter,
   ExecutiveMeshPipeline,
   MemoryCanonicalStore,
-  RUN_TERMINALS,
 } from "../src/index.ts";
 
 test("simulated webpage repair stays pending until an accepted artifact is verified", async () => {
@@ -26,7 +25,6 @@ test("simulated webpage repair stays pending until an accepted artifact is verif
   assert.equal(run.status, "AWAITING_EXECUTION");
   assert.equal(run.commitment_status, "OPEN");
   assert.equal(run.digest!.terminal, null);
-  assert.ok(!RUN_TERMINALS.includes(run.status as never));
   assert.notEqual(run.status, "ACTIVE_FOREVER");
 
   // ContextPack versioned
@@ -49,14 +47,15 @@ test("simulated webpage repair stays pending until an accepted artifact is verif
   assert.equal(run.work_packet!.executor_class, "RUNWAY_GOAL_KERNEL");
   assert.equal(run.work_packet!.budget.max_fanout, 0);
 
-  // Verify + commitment close
+  // A simulated Goal admission is not evidence of execution or completion.
   assert.equal(run.evidence.length, 1);
-  assert.equal(run.evidence[0]!.valid, true);
-  assert.equal(run.commitment_status, "CLOSED");
+  assert.equal(run.evidence[0]!.valid, false);
+  assert.equal(run.commitment_status, "OPEN");
 
-  // Digest present
+  // Digest records an explicit pending state rather than a false terminal.
   assert.ok(run.digest);
-  assert.equal(run.digest!.terminal, "ACCEPTED");
+  assert.equal(run.digest!.terminal, null);
+  assert.equal(run.digest!.commitment_status, "OPEN");
   assert.ok(run.digest!.committed_version);
 
   // Idempotent ingest / replay no duplicate
