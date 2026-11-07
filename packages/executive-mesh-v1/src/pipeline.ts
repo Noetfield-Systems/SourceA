@@ -233,7 +233,7 @@ export class ExecutiveMeshPipeline {
       });
     }
     if (evidence.outcome?.kind === "FOUNDER_DECISION_REQUIRED") {
-      run.commitment_status = "CLOSED";
+      run.commitment_status = "OPEN";
       return this.finalize(run, "FOUNDER_DECISION_REQUIRED", {
         goal_ref: admit.goal_ref,
         goal_status: evidence.outcome.goal_status,
@@ -312,7 +312,7 @@ export class ExecutiveMeshPipeline {
       });
     }
     if (evidence.outcome?.kind === "FOUNDER_DECISION_REQUIRED") {
-      run.commitment_status = "CLOSED";
+      run.commitment_status = "OPEN";
       return this.finalize(run, "FOUNDER_DECISION_REQUIRED", {
         goal_ref: goalRef,
         reason: evidence.outcome.reason,
@@ -498,6 +498,23 @@ export class ExecutiveMeshPipeline {
       const ssot = await commitExecutiveRunToSupabase(this.supabase, commit.run);
       if (commit.run.digest) commit.run.digest.supabase = ssot;
       audit(commit.run, "SUPABASE_CANONICAL", ssot as unknown as Record<string, unknown>);
+      if (!ssot.ok) {
+        commit.run.status = "INCIDENT";
+        commit.run.terminal = "INCIDENT";
+        commit.run.commitment_status = "CLOSED";
+        commit.run.digest = {
+          ...commit.run.digest,
+          attempted_terminal: terminal,
+          reason: "TERMINAL_CANONICAL_SINK_FAILED",
+          sink_detail: ssot.detail,
+        };
+        try {
+          const incidentSink = await commitExecutiveRunToSupabase(this.supabase, commit.run);
+          audit(commit.run, "SUPABASE_INCIDENT_RETRY", incidentSink as unknown as Record<string, unknown>);
+        } catch (error) {
+          audit(commit.run, "SUPABASE_INCIDENT_RETRY_FAILED", { error: String(error).slice(0, 300) });
+        }
+      }
     }
     return commit.run;
   }
