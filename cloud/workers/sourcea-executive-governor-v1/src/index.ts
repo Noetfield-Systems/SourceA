@@ -112,7 +112,7 @@ export class ExecutiveGovernorDO extends DurableObject<Env> {
       if (!token || request.headers.get("authorization") !== "Bearer " + token) {
         return Response.json({ error: "forbidden" }, { status: 403 });
       }
-      const match = url.pathname.match(/^\\/internal\\/executive\\/runs\\/([^/]+)\\/reconcile$/);
+      const match = url.pathname.match(new RegExp("^/internal/executive/runs/([^/]+)/reconcile$"));
       if (!match || !match[1]) return Response.json({ error: "not_found" }, { status: 404 });
       const flags = (await request.json().catch(() => ({}))) as { force_timeout?: boolean; force_incident?: boolean };
       const result = await this.reconcile(decodeURIComponent(match[1]), flags);
@@ -590,6 +590,26 @@ export class ExecutiveGovernorDO extends DurableObject<Env> {
         reason: "CANONICAL_VERSION_SINK_FAILED",
         canonical_state_versions: versionSink,
       };
+      await supabaseUpsert(
+        this.env,
+        "executive_runs",
+        {
+          run_id: closed.run_id,
+          organization_id: closed.organization_id ?? "sourcea",
+          correlation_id: closed.correlation_id ?? closed.run_id,
+          causation_id: null,
+          idempotency_key: closed.idempotency_key,
+          snapshot_version: this.version,
+          status: "INCIDENT",
+          event_type: closed.event_type ?? "webpage.repair.requested",
+          decision_class: closed.decision_class ?? "WEBPAGE_REPAIR",
+          goal_id: closed.goal_ref ?? null,
+          terminal: "INCIDENT",
+          digest_json: closed.digest,
+          updated_at: new Date().toISOString(),
+        },
+        "run_id",
+      );
     }
     await this.persist(closed);
     return closed;
