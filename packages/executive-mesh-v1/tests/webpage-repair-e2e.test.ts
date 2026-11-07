@@ -8,7 +8,7 @@ import {
   RUN_TERMINALS,
 } from "../src/index.ts";
 
-test("webpage repair vertical slice — advisor checklist slice-1", async () => {
+test("simulated webpage repair stays pending until an accepted artifact is verified", async () => {
   const store = new MemoryCanonicalStore();
   const pipeline = new ExecutiveMeshPipeline({
     store,
@@ -22,8 +22,11 @@ test("webpage repair vertical slice — advisor checklist slice-1", async () => 
   });
 
   const run = await pipeline.ingest(evt);
-  assert.equal(run.terminal, "ACCEPTED");
-  assert.ok(RUN_TERMINALS.includes(run.terminal!));
+  assert.equal(run.terminal, null);
+  assert.equal(run.status, "AWAITING_EXECUTION");
+  assert.equal(run.commitment_status, "OPEN");
+  assert.equal(run.digest!.terminal, null);
+  assert.ok(!RUN_TERMINALS.includes(run.status as never));
   assert.notEqual(run.status, "ACTIVE_FOREVER");
 
   // ContextPack versioned
@@ -60,6 +63,82 @@ test("webpage repair vertical slice — advisor checklist slice-1", async () => 
   const again = await pipeline.ingest(evt);
   assert.equal(again.run_id, run.run_id);
   assert.equal(store.listRuns().filter((r) => r.idempotency_key === evt.idempotency_key).length, 1);
+});
+
+test("live Goal admission starts Runway and only terminal receipt verification closes the commitment", async () => {
+  let goalStatus = "RUNNING";
+  let startCalled = false;
+  const requiredIds = [
+    "prompt_fidelity",
+    "artifact_available",
+    "required_sections",
+    "links_valid",
+    "receipt_verified",
+    "staging_deployed",
+  ];
+  const goalSnapshot = () => ({
+    goal_id: "goal_live_123",
+    status: goalStatus,
+    work_packet_terminal: goalStatus === "PASSED" ? "ACCEPTED_ARTIFACT" : null,
+    receipt_id: goalStatus === "PASSED" ? "receipt_live_123" : null,
+    receipt_hash: goalStatus === "PASSED" ? "b".repeat(64) : null,
+    acceptance_criteria: requiredIds.map((id) => ({ id, required: true })),
+    acceptance_results: requiredIds.map((id) => ({
+      id,
+      status: goalStatus === "PASSED" ? "PASS" : "WAITING",
+    })),
+  });
+  const fetchImpl: typeof fetch = async (input, init) => {
+    const url = String(input);
+    const method = init?.method ?? "GET";
+    if (url.endsWith("/v1/goals") && method === "POST") {
+      return new Response(JSON.stringify({ goal_id: "goal_live_123" }), { status: 201 });
+    }
+    if (url.endsWith("/v1/goals/goal_live_123/start") && method === "POST") {
+      startCalled = true;
+      return new Response(JSON.stringify({ status: "RUNNING", workflow_instance_id: "wf_live_123" }), { status: 202 });
+    }
+    if (url.endsWith("/v1/goals/goal_live_123/verify") && method === "POST") {
+      return new Response(JSON.stringify({ passed: true, receipt_id: "receipt_live_123" }), { status: 200 });
+    }
+    if (url.endsWith("/v1/goals/goal_live_123") && method === "GET") {
+      return new Response(JSON.stringify(goalSnapshot()), { status: 200 });
+    }
+    return new Response(JSON.stringify({ error: "unexpected_request", url, method }), { status: 404 });
+  };
+
+  const store = new MemoryCanonicalStore();
+  const router = createRunwayGoalKernelRouter({
+    baseUrl: "https://runway.example.test",
+    simulate: false,
+    fetchImpl,
+  });
+  const pipeline = new ExecutiveMeshPipeline({
+    store,
+    runwayRouter: router,
+    runwayBaseUrl: "https://runway.example.test",
+    runwayFetch: fetchImpl,
+  });
+
+  const run = await pipeline.ingest(buildWebpageRepairEvent({
+    event_id: "evt_followup_live",
+    target_url: "https://sourcea.app/example",
+    idempotency_key: "followup-live-1",
+    canonical_state_version: 1,
+  }));
+  assert.equal(startCalled, true);
+  assert.equal(run.status, "AWAITING_EXECUTION");
+  assert.equal(run.terminal, null);
+  assert.equal(run.commitment_status, "OPEN");
+  assert.equal(run.digest!.goal_status, "RUNNING");
+
+  goalStatus = "PASSED";
+  const reconciled = await pipeline.reconcile(run.run_id);
+  assert.equal(reconciled.status, "ACCEPTED");
+  assert.equal(reconciled.terminal, "ACCEPTED");
+  assert.equal(reconciled.commitment_status, "CLOSED");
+  assert.ok(reconciled.digest!.receipt_id === "receipt_live_123");
+  assert.equal(reconciled.evidence.at(-1)!.valid, true);
 });
 
 test("stale packet / stale event rejected", async () => {
