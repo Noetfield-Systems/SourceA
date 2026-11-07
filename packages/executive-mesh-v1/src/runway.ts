@@ -1,3 +1,4 @@
+import { classifyGoalOutcome, type GoalOutcome } from "./goal-outcome.ts";
 import type { WorkPacketMesh } from "./types.ts";
 
 export interface RunwayGoalAdmitResult {
@@ -9,6 +10,17 @@ export interface RunwayGoalAdmitResult {
 }
 
 export type RunwayRouter = (wp: WorkPacketMesh) => Promise<RunwayGoalAdmitResult>;
+
+export interface RunwayVerificationResult {
+  valid: boolean;
+  pending?: boolean;
+  evidence_id: string;
+  detail: string;
+  goal_status?: string;
+  outcome?: GoalOutcome;
+  receipt_id?: string;
+  receipt_hash?: string;
+}
 
 /** Document-only stubs for non-slice-1 executors. */
 export function documentStubRouter(wp: WorkPacketMesh): Promise<RunwayGoalAdmitResult> {
@@ -47,8 +59,9 @@ export function toRunwayGoalBody(wp: WorkPacketMesh): Record<string, unknown> {
 }
 
 /**
- * Route RUNWAY_GOAL_KERNEL WorkPackets to staging Goal API.
- * When RUNWAY_GOAL_BASE_URL is unset, uses local admit simulator (unit tests).
+ * Route one WorkPacket to Runway, then start Runway's existing durable Goal
+ * Pursuit Workflow. Admission is not completion. The returned Goal is tracked
+ * until PASSED + ACCEPTED_ARTIFACT + all required predicates + receipt verify.
  */
 export function createRunwayGoalKernelRouter(opts?: {
   baseUrl?: string;
@@ -62,9 +75,7 @@ export function createRunwayGoalKernelRouter(opts?: {
   const tenantId = opts?.tenantId ?? process.env.RUNWAY_TENANT_ID ?? "tenant-runway-staging";
 
   return async (wp: WorkPacketMesh): Promise<RunwayGoalAdmitResult> => {
-    if (wp.executor_class !== "RUNWAY_GOAL_KERNEL") {
-      return documentStubRouter(wp);
-    }
+    if (wp.executor_class !== "RUNWAY_GOAL_KERNEL") return documentStubRouter(wp);
     if (wp.budget.max_fanout !== 0) {
       return {
         admitted: false,
@@ -73,24 +84,21 @@ export function createRunwayGoalKernelRouter(opts?: {
         detail: "ILLEGAL_FANOUT",
       };
     }
-
     const body = toRunwayGoalBody(wp);
-
     if (simulate) {
       return {
         admitted: true,
         goal_ref: `sim://${wp.goal_id}`,
         status: "ADMITTED",
-        detail: "local_admit_simulator",
+        detail: "local_admit_simulator_only_not_execution",
       };
     }
 
-    const res = await fetchImpl(`${baseUrl.replace(/\/$/, "")}/v1/goals`, {
+    const base = baseUrl.replace(/\/$/, "");
+    const headers = { "content-type": "application/json", "x-tenant-id": tenantId };
+    const res = await fetchImpl(`${base}/v1/goals`, {
       method: "POST",
-      headers: {
-        "content-type": "application/json",
-        "x-tenant-id": tenantId,
-      },
+      headers,
       body: JSON.stringify(body),
     });
     if (!res.ok) {
@@ -103,24 +111,55 @@ export function createRunwayGoalKernelRouter(opts?: {
       };
     }
     const json = (await res.json()) as Record<string, unknown>;
-    const goalId = String(json.goal_id ?? json.id ?? wp.goal_id);
+    const goalId = String(json.goal_id ?? json.id ?? "");
+    if (!goalId) {
+      return {
+        admitted: false,
+        goal_ref: wp.goal_id,
+        status: "REJECTED",
+        detail: "GOAL_ID_MISSING",
+      };
+    }
+
+    const started = await fetchImpl(`${base}/v1/goals/${encodeURIComponent(goalId)}/start`, {
+      method: "POST",
+      headers,
+    });
+    if (!started.ok) {
+      const detail = await started.text().catch(() => "");
+      try {
+        await fetchImpl(`${base}/v1/goals/${encodeURIComponent(goalId)}/kill`, {
+          method: "POST",
+          headers: { "x-tenant-id": tenantId },
+        });
+      } catch {
+        // Preserve original start failure. A failed cleanup is not acceptance.
+      }
+      return {
+        admitted: false,
+        goal_ref: goalId,
+        status: "REJECTED",
+        detail: `GOAL_START_FAILED:${started.status}:${detail.slice(0, 160)}`,
+      };
+    }
+    const startSnapshot = await started.json().catch(() => ({})) as Record<string, unknown>;
     return {
       admitted: true,
       goal_ref: goalId,
       status: "ADMITTED",
-      detail: "runway_goal_api",
-      snapshot: json,
+      detail: "runway_goal_api+goal_pursuit_started",
+      snapshot: startSnapshot,
     };
   };
 }
 
-/** Independent live verify: GET goal snapshot; producer cannot sole-verify. */
+/** Independent live verification. Goal presence/READY/HTTP 200 is never PASS. */
 export async function independentVerifyLive(
   wp: WorkPacketMesh,
   admit: RunwayGoalAdmitResult,
   producerModelId: string,
   opts?: { baseUrl?: string; fetchImpl?: typeof fetch; tenantId?: string },
-): Promise<{ valid: boolean; evidence_id: string; detail: string; goal_status?: string }> {
+): Promise<RunwayVerificationResult> {
   const verifierId = "independent_verifier.mesh_v1";
   if (verifierId === producerModelId) {
     return { valid: false, evidence_id: "ev_reject", detail: "PRODUCER_SOLE_VERIFY_FORBIDDEN" };
@@ -134,13 +173,20 @@ export async function independentVerifyLive(
 
   const baseUrl = opts?.baseUrl ?? process.env.RUNWAY_GOAL_BASE_URL ?? "";
   if (!baseUrl || admit.goal_ref.startsWith("sim://")) {
-    return independentVerify(wp, admit, producerModelId);
+    return {
+      valid: false,
+      pending: true,
+      evidence_id: `ev_pending_${wp.action_id}`,
+      goal_status: "SIMULATED",
+      detail: "SIMULATION_CANNOT_PROVE_EXECUTION",
+    };
   }
 
   const fetchImpl = opts?.fetchImpl ?? fetch;
-  const tenantId = opts?.tenantId ?? "tenant-runway-staging";
+  const tenantId = opts?.tenantId ?? process.env.RUNWAY_TENANT_ID ?? "tenant-runway-staging";
+  const headers = { "x-tenant-id": tenantId };
   const res = await fetchImpl(`${baseUrl.replace(/\/$/, "")}/v1/goals/${encodeURIComponent(admit.goal_ref)}`, {
-    headers: { "x-tenant-id": tenantId },
+    headers,
   });
   if (!res.ok) {
     return {
@@ -149,18 +195,57 @@ export async function independentVerifyLive(
       detail: `live_get_http_${res.status}`,
     };
   }
-  const snap = (await res.json()) as Record<string, unknown>;
-  const goalStatus = String(snap.status ?? "");
-  const hasCriteria = Array.isArray(snap.acceptance_criteria) && snap.acceptance_criteria.length > 0;
-  const valid = Boolean(snap.goal_id) && hasCriteria && goalStatus.length > 0;
+  const snap = await res.json();
+  const outcome = classifyGoalOutcome(snap, admit.goal_ref);
+  if (outcome.kind === "PENDING") {
+    return {
+      valid: false,
+      pending: true,
+      evidence_id: `ev_pending_${wp.action_id}`,
+      goal_status: outcome.goal_status,
+      detail: outcome.detail,
+      outcome,
+    };
+  }
+  if (outcome.kind !== "ACCEPTED_ARTIFACT") {
+    return {
+      valid: false,
+      evidence_id: `ev_terminal_fail_${wp.action_id}`,
+      goal_status: outcome.goal_status,
+      detail: "reason" in outcome ? outcome.reason : outcome.kind,
+      outcome,
+    };
+  }
+
+  const receiptVerify = await fetchImpl(
+    `${baseUrl.replace(/\/$/, "")}/v1/goals/${encodeURIComponent(admit.goal_ref)}/verify`,
+    { method: "POST", headers },
+  );
+  if (!receiptVerify.ok) {
+    return {
+      valid: false,
+      evidence_id: `ev_receipt_fail_${wp.action_id}`,
+      goal_status: outcome.goal_status,
+      detail: `receipt_verify_http_${receiptVerify.status}`,
+      outcome,
+    };
+  }
+  const verified = (await receiptVerify.json()) as Record<string, unknown>;
+  const valid = verified.passed === true && verified.receipt_id === outcome.receipt_id;
   return {
     valid,
-    evidence_id: `ev_live_${wp.action_id}`,
-    detail: `verified_by=${verifierId};goal=${admit.goal_ref};goal_status=${goalStatus};criteria=${hasCriteria}`,
-    goal_status: goalStatus,
+    evidence_id: valid ? `ev_live_${wp.action_id}` : `ev_receipt_fail_${wp.action_id}`,
+    goal_status: outcome.goal_status,
+    receipt_id: outcome.receipt_id,
+    receipt_hash: outcome.receipt_hash,
+    detail: valid
+      ? `verified_by=${verifierId};goal=${admit.goal_ref};receipt=${outcome.receipt_id}`
+      : "RUNWAY_RECEIPT_VERIFY_FAILED",
+    outcome,
   };
 }
 
+/** Legacy offline verifier retained for diagnostics only. */
 export function independentVerify(
   wp: WorkPacketMesh,
   admit: RunwayGoalAdmitResult,
@@ -177,8 +262,8 @@ export function independentVerify(
     return { valid: false, evidence_id: `ev_fanout_${wp.action_id}`, detail: "ILLEGAL_FANOUT" };
   }
   return {
-    valid: true,
-    evidence_id: `ev_${wp.action_id}`,
-    detail: `verified_by=${verifierId};goal=${admit.goal_ref};predicates=${wp.acceptance_predicates.join(",")}`,
+    valid: false,
+    evidence_id: `ev_pending_${wp.action_id}`,
+    detail: "GOAL_ADMISSION_IS_NOT_COMPLETION",
   };
 }
