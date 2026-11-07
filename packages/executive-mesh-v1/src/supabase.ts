@@ -14,26 +14,32 @@ async function rest(
   init: RequestInit,
 ): Promise<{ ok: boolean; status: number; body: string }> {
   const fetchImpl = cfg.fetchImpl ?? fetch;
-  const res = await fetchImpl(`${cfg.url.replace(/\/$/, "")}/rest/v1/${path}`, {
-    ...init,
-    headers: {
-      apikey: cfg.serviceRoleKey,
-      Authorization: `Bearer ${cfg.serviceRoleKey}`,
-      "content-type": "application/json",
-      Prefer: "return=minimal",
-      ...(init.headers ?? {}),
-    },
-  });
-  const body = await res.text().catch(() => "");
-  return { ok: res.ok, status: res.status, body: body.slice(0, 400) };
+  try {
+    const res = await fetchImpl(`${cfg.url.replace(/\/$/, "")}/rest/v1/${path}`, {
+      ...init,
+      headers: {
+        apikey: cfg.serviceRoleKey,
+        Authorization: `Bearer ${cfg.serviceRoleKey}`,
+        "content-type": "application/json",
+        Prefer: "return=minimal",
+        ...(init.headers ?? {}),
+      },
+    });
+    const body = await res.text().catch(() => "");
+    return { ok: res.ok, status: res.status, body: body.slice(0, 400) };
+  } catch (error) {
+    return { ok: false, status: 0, body: String(error).slice(0, 400) };
+  }
 }
 
 export async function commitExecutiveRunToSupabase(
   cfg: SupabaseCanonicalConfig,
   run: ExecutiveRun,
 ): Promise<{ ok: boolean; detail: string }> {
+  const errors: string[] = [];
+  const organizationId = run.event.organization_id || "sourcea";
   const versionRow = {
-    organization_id: run.event.organization_id || "sourcea",
+    organization_id: organizationId,
     state_version: run.snapshot_version,
     state_hash: `sha256:${run.decision_hash ?? run.run_id}`,
     updated_at: new Date().toISOString(),
@@ -48,12 +54,12 @@ export async function commitExecutiveRunToSupabase(
     },
   );
   if (!upsertVersion.ok) {
-    return { ok: false, detail: `canonical_state_versions:${upsertVersion.status}:${upsertVersion.body}` };
+    errors.push(`canonical_state_versions:${upsertVersion.status}:${upsertVersion.body}`);
   }
 
   const runRow = {
     run_id: run.run_id,
-    organization_id: run.event.organization_id || "sourcea",
+    organization_id: organizationId,
     correlation_id: run.correlation_id,
     causation_id: run.event.causation_id,
     idempotency_key: run.idempotency_key,
@@ -72,27 +78,35 @@ export async function commitExecutiveRunToSupabase(
     body: JSON.stringify(runRow),
   });
   if (!upsertRun.ok) {
-    return { ok: false, detail: `executive_runs:${upsertRun.status}:${upsertRun.body}` };
+    errors.push(`executive_runs:${upsertRun.status}:${upsertRun.body}`);
   }
 
+  const governorGreen = run.audit.some(
+    (entry) => entry.kind === "GOVERNOR" && entry.detail.verdict === "GREEN",
+  );
   if (run.decision_id && run.decision_hash) {
-    await rest(cfg, "mesh_decisions?on_conflict=decision_id", {
+    const result = await rest(cfg, "mesh_decisions?on_conflict=decision_id", {
       method: "POST",
       headers: { Prefer: "resolution=merge-duplicates,return=minimal" },
       body: JSON.stringify({
         decision_id: run.decision_id,
         executive_run_id: run.run_id,
-        zone: run.terminal === "ACCEPTED" ? "GREEN" : "RED",
-        status: run.terminal === "ACCEPTED" ? "COMMITTED" : "REJECTED",
+        zone: governorGreen ? "GREEN" : "RED",
+        status: run.terminal === "ACCEPTED"
+          ? "COMMITTED"
+          : run.terminal === null && governorGreen
+            ? "COMMITTED_PENDING_EXECUTION"
+            : "REJECTED",
         policy_version: "webpage_repair.v1.live.185ec3865a14",
         decision_hash: run.decision_hash,
         body_json: { digest: run.digest },
       }),
     });
+    if (!result.ok) errors.push(`mesh_decisions:${result.status}:${result.body}`);
   }
 
   if (run.work_packet) {
-    await rest(cfg, "mesh_work_packets?on_conflict=action_id", {
+    const result = await rest(cfg, "mesh_work_packets?on_conflict=action_id", {
       method: "POST",
       headers: { Prefer: "resolution=merge-duplicates,return=minimal" },
       body: JSON.stringify({
@@ -100,14 +114,15 @@ export async function commitExecutiveRunToSupabase(
         executive_run_id: run.run_id,
         decision_id: run.decision_id,
         executor_class: run.work_packet.executor_class,
-        status: run.terminal,
+        status: run.terminal ?? run.status,
         body_json: run.work_packet,
       }),
     });
+    if (!result.ok) errors.push(`mesh_work_packets:${result.status}:${result.body}`);
   }
 
   for (const ev of run.evidence) {
-    await rest(cfg, "mesh_evidence_receipts?on_conflict=evidence_id", {
+    const result = await rest(cfg, "mesh_evidence_receipts?on_conflict=evidence_id", {
       method: "POST",
       headers: { Prefer: "resolution=merge-duplicates,return=minimal" },
       body: JSON.stringify({
@@ -119,10 +134,11 @@ export async function commitExecutiveRunToSupabase(
         detail: ev.detail,
       }),
     });
+    if (!result.ok) errors.push(`mesh_evidence_receipts:${result.status}:${result.body}`);
   }
 
   if (run.commitment_id) {
-    await rest(cfg, "mesh_commitments?on_conflict=commitment_id", {
+    const result = await rest(cfg, "mesh_commitments?on_conflict=commitment_id", {
       method: "POST",
       headers: { Prefer: "resolution=merge-duplicates,return=minimal" },
       body: JSON.stringify({
@@ -134,7 +150,10 @@ export async function commitExecutiveRunToSupabase(
         updated_at: new Date().toISOString(),
       }),
     });
+    if (!result.ok) errors.push(`mesh_commitments:${result.status}:${result.body}`);
   }
 
-  return { ok: true, detail: "canonical_commit_ok" };
+  return errors.length
+    ? { ok: false, detail: errors.join(" | ").slice(0, 1800) }
+    : { ok: true, detail: "canonical_commit_ok" };
 }

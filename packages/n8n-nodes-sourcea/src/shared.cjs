@@ -74,9 +74,15 @@ async function callGovernor(input, fetchImpl = fetch, env = process.env) {
       ...(input.payload && typeof input.payload === "object" ? input.payload : {}),
     },
   };
+  const ingressToken = String(env.SOURCEA_GOVERNOR_TOKEN || "").trim();
+  if (!ingressToken) throw new Error("SOURCEA_GOVERNOR_TOKEN_MISSING");
   const res = await fetchImpl(`${base}/v1/executive/runs`, {
     method: "POST",
-    headers: { "content-type": "application/json", accept: "application/json" },
+    headers: {
+      "content-type": "application/json",
+      accept: "application/json",
+      authorization: `Bearer ${ingressToken}`,
+    },
     body: JSON.stringify(body),
   });
   const text = await res.text();

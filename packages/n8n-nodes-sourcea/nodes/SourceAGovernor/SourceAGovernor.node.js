@@ -12,6 +12,12 @@ class SourceAGovernor {
     defaults: { name: "SourceA Governor" },
     inputs: ["main"],
     outputs: ["main"],
+    credentials: [
+      {
+        name: "sourceAApi",
+        required: true,
+      },
+    ],
     properties: [
       {
         displayName: "Target URL",
@@ -43,6 +49,12 @@ class SourceAGovernor {
         this.getNodeParameter("targetUrl", i) ||
         items[i].json.target_url ||
         (items[i].json.summary && items[i].json.summary.target_url);
+      const credentials = await this.getCredentials("sourceAApi");
+      const governorEnv = {
+        ...process.env,
+        SOURCEA_GOVERNOR_URL: credentials.governorUrl || process.env.SOURCEA_GOVERNOR_URL,
+        SOURCEA_GOVERNOR_TOKEN: credentials.apiToken,
+      };
       const envelope = await callGovernor({
         target_url: targetUrl,
         idempotency_key: this.getNodeParameter("idempotencyKey", i) || undefined,
@@ -51,7 +63,7 @@ class SourceAGovernor {
           items[i].json.correlation_id ||
           undefined,
         payload: items[i].json,
-      });
+      }, fetch, governorEnv);
       out.push({ json: envelope });
     }
     return [out];

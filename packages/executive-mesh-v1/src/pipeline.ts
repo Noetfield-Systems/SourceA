@@ -41,6 +41,8 @@ export interface MeshPipelineOptions {
   failClosed?: boolean;
   /** Live Goal API base for independent GET verify */
   runwayBaseUrl?: string;
+  /** Injectable fetch for deterministic Goal admission/verification tests. */
+  runwayFetch?: typeof fetch;
   /** When set, ACCEPTED/terminal runs are written to portfolio-spine */
   supabase?: SupabaseCanonicalConfig;
 }
@@ -52,6 +54,7 @@ export class ExecutiveMeshPipeline {
   private producerModelId: string;
   private failClosed: boolean;
   private runwayBaseUrl: string;
+  private runwayFetch: typeof fetch;
   private supabase: SupabaseCanonicalConfig | null;
 
   constructor(opts: MeshPipelineOptions) {
@@ -61,6 +64,7 @@ export class ExecutiveMeshPipeline {
     this.producerModelId = opts.producerModelId ?? "planner.L0.deterministic";
     this.failClosed = opts.failClosed ?? true;
     this.runwayBaseUrl = opts.runwayBaseUrl ?? process.env.RUNWAY_GOAL_BASE_URL ?? "";
+    this.runwayFetch = opts.runwayFetch ?? fetch;
     this.supabase = opts.supabase ?? null;
   }
 
@@ -211,6 +215,7 @@ export class ExecutiveMeshPipeline {
     run.status = "VERIFYING";
     const evidence = await independentVerifyLive(run.work_packet, admit, this.producerModelId, {
       baseUrl: this.runwayBaseUrl,
+      fetchImpl: this.runwayFetch,
     });
     run.evidence.push({
       evidence_id: evidence.evidence_id,
@@ -220,20 +225,194 @@ export class ExecutiveMeshPipeline {
     });
     audit(run, "VERIFY", evidence as unknown as Record<string, unknown>);
 
+    if (evidence.pending) {
+      return this.commitPending(run, {
+        goal_ref: admit.goal_ref,
+        goal_status: evidence.goal_status ?? "UNKNOWN",
+        followup_detail: evidence.detail,
+      });
+    }
+    if (evidence.outcome?.kind === "FOUNDER_DECISION_REQUIRED") {
+      run.commitment_status = "OPEN";
+      return this.finalize(run, "FOUNDER_DECISION_REQUIRED", {
+        goal_ref: admit.goal_ref,
+        goal_status: evidence.outcome.goal_status,
+        reason: evidence.outcome.reason,
+      });
+    }
+    if (evidence.outcome?.kind === "BOUNDED_FAILURE") {
+      run.commitment_status = "CLOSED";
+      return this.finalize(run, "BOUNDED_FAILURE", {
+        goal_ref: admit.goal_ref,
+        goal_status: evidence.outcome.goal_status,
+        reason: evidence.outcome.reason,
+      });
+    }
     if (!evidence.valid) {
+      run.commitment_status = "CLOSED";
       return this.finalize(run, "INCIDENT", { reason: "VERIFY_FAIL", detail: evidence.detail });
     }
 
-    // Commitment closes only after EvidenceReceipt
+    // Commitment closes only after PASSED + ACCEPTED_ARTIFACT + required checks + receipt verify.
     run.commitment_status = "CLOSED";
     return this.finalize(run, "ACCEPTED", {
       decision_id: run.decision_id,
       work_packet: run.work_packet.action_id,
       evidence_id: evidence.evidence_id,
+      receipt_id: evidence.receipt_id ?? null,
+      receipt_hash: evidence.receipt_hash ?? null,
       goal_ref: admit.goal_ref,
       goal_status: evidence.goal_status ?? null,
       runway_live: Boolean(this.runwayBaseUrl) && !String(admit.goal_ref).startsWith("sim://"),
     });
+  }
+
+  /**
+   * Reconcile a durable pending Goal. Package consumers must call this from a
+   * durable scheduler/Workflow; the Cloudflare Worker ships that Workflow.
+   */
+  async reconcile(runId: string): Promise<ExecutiveRun> {
+    const run = this.store.listRuns().find((item) => item.run_id === runId);
+    if (!run) throw new Error(`EXECUTIVE_RUN_NOT_FOUND:${runId}`);
+    if (run.terminal) return run;
+    if (run.status !== "AWAITING_EXECUTION" || !run.work_packet) {
+      return run;
+    }
+    const goalRef = String(run.digest?.goal_ref ?? "");
+    if (!goalRef) {
+      run.commitment_status = "CLOSED";
+      return this.finalize(run, "INCIDENT", { reason: "PENDING_GOAL_REFERENCE_MISSING" });
+    }
+
+    const admit = {
+      admitted: true,
+      goal_ref: goalRef,
+      status: "ADMITTED" as const,
+      detail: "reconcile_existing_goal",
+    };
+    const evidence = await independentVerifyLive(run.work_packet, admit, this.producerModelId, {
+      baseUrl: this.runwayBaseUrl,
+      fetchImpl: this.runwayFetch,
+    });
+    if (!run.evidence.some((item) => item.evidence_id === evidence.evidence_id)) {
+      run.evidence.push({
+        evidence_id: evidence.evidence_id,
+        kind: "independent_verify",
+        valid: evidence.valid,
+        detail: evidence.detail,
+      });
+    }
+    audit(run, "FOLLOWUP_VERIFY", evidence as unknown as Record<string, unknown>);
+
+    if (evidence.pending) {
+      return this.commitPending(run, {
+        goal_ref: goalRef,
+        goal_status: evidence.goal_status ?? "UNKNOWN",
+        followup_detail: evidence.detail,
+      });
+    }
+    if (evidence.outcome?.kind === "FOUNDER_DECISION_REQUIRED") {
+      run.commitment_status = "OPEN";
+      return this.finalize(run, "FOUNDER_DECISION_REQUIRED", {
+        goal_ref: goalRef,
+        reason: evidence.outcome.reason,
+      });
+    }
+    if (evidence.outcome?.kind === "BOUNDED_FAILURE") {
+      run.commitment_status = "CLOSED";
+      return this.finalize(run, "BOUNDED_FAILURE", {
+        goal_ref: goalRef,
+        reason: evidence.outcome.reason,
+      });
+    }
+    if (!evidence.valid) {
+      run.commitment_status = "CLOSED";
+      return this.finalize(run, "INCIDENT", {
+        goal_ref: goalRef,
+        reason: evidence.outcome && "reason" in evidence.outcome
+          ? evidence.outcome.reason
+          : evidence.detail,
+      });
+    }
+    run.commitment_status = "CLOSED";
+    return this.finalize(run, "ACCEPTED", {
+      goal_ref: goalRef,
+      goal_status: evidence.goal_status ?? null,
+      evidence_id: evidence.evidence_id,
+      receipt_id: evidence.receipt_id ?? null,
+      receipt_hash: evidence.receipt_hash ?? null,
+    });
+  }
+
+  private async commitPending(
+    run: ExecutiveRun,
+    detail: Record<string, unknown>,
+  ): Promise<ExecutiveRun> {
+    run.status = "AWAITING_EXECUTION";
+    run.terminal = null;
+    run.commitment_status = "OPEN";
+    run.digest = {
+      run_id: run.run_id,
+      terminal: null,
+      snapshot_version: run.snapshot_version,
+      decision_id: run.decision_id,
+      commitment_status: "OPEN",
+      role_packet_count: run.role_packets.length,
+      context_hash: run.context_pack?.context_hash ?? null,
+      work_packet_id: run.work_packet?.action_id ?? null,
+      ...detail,
+    };
+    audit(run, "AWAITING_EXECUTION", detail);
+    const expected = this.store.getVersion(this.org);
+    const commit = this.store.commit(this.org, expected, (nextVersion) => {
+      run.snapshot_version = nextVersion;
+      if (run.digest) run.digest.committed_version = nextVersion;
+      return run;
+    });
+    if (!commit.ok) {
+      run.status = "INCIDENT";
+      run.terminal = "INCIDENT";
+      run.commitment_status = "CLOSED";
+      run.digest = {
+        ...run.digest,
+        reason: "STALE_VERSION_ON_PENDING_COMMIT",
+        current: commit.current,
+      };
+      return run;
+    }
+    if (this.supabase) {
+      try {
+        const ssot = await commitExecutiveRunToSupabase(this.supabase, commit.run);
+        if (commit.run.digest) commit.run.digest.supabase = ssot;
+        audit(commit.run, "SUPABASE_PENDING_CANONICAL", ssot as unknown as Record<string, unknown>);
+        if (!ssot.ok) {
+          commit.run.status = "INCIDENT";
+          commit.run.terminal = "INCIDENT";
+          commit.run.commitment_status = "CLOSED";
+          commit.run.digest = {
+            ...commit.run.digest,
+            reason: "PENDING_CANONICAL_SINK_FAILED",
+            sink_detail: ssot.detail,
+          };
+          await commitExecutiveRunToSupabase(this.supabase, commit.run);
+        }
+      } catch (error) {
+        commit.run.status = "INCIDENT";
+        commit.run.terminal = "INCIDENT";
+        commit.run.commitment_status = "CLOSED";
+        commit.run.digest = {
+          ...commit.run.digest,
+          reason: "PENDING_CANONICAL_SINK_EXCEPTION",
+          sink_detail: String(error).slice(0, 300),
+        };
+        try {
+          await commitExecutiveRunToSupabase(this.supabase, commit.run);
+        } catch {
+          // Local state remains an incident; no success is claimed.
+        }
+      }
+    }
+    return commit.run;
   }
 
   /** Explicit stale packet rejection helper for tests / DO. */
@@ -319,6 +498,23 @@ export class ExecutiveMeshPipeline {
       const ssot = await commitExecutiveRunToSupabase(this.supabase, commit.run);
       if (commit.run.digest) commit.run.digest.supabase = ssot;
       audit(commit.run, "SUPABASE_CANONICAL", ssot as unknown as Record<string, unknown>);
+      if (!ssot.ok) {
+        commit.run.status = "INCIDENT";
+        commit.run.terminal = "INCIDENT";
+        commit.run.commitment_status = "CLOSED";
+        commit.run.digest = {
+          ...commit.run.digest,
+          attempted_terminal: terminal,
+          reason: "TERMINAL_CANONICAL_SINK_FAILED",
+          sink_detail: ssot.detail,
+        };
+        try {
+          const incidentSink = await commitExecutiveRunToSupabase(this.supabase, commit.run);
+          audit(commit.run, "SUPABASE_INCIDENT_RETRY", incidentSink as unknown as Record<string, unknown>);
+        } catch (error) {
+          audit(commit.run, "SUPABASE_INCIDENT_RETRY_FAILED", { error: String(error).slice(0, 300) });
+        }
+      }
     }
     return commit.run;
   }
