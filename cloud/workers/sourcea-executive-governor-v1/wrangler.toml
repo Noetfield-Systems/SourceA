@@ -23,3 +23,10 @@ tag = "v1"
 new_sqlite_classes = ["ExecutiveGovernorDO"]
 
 # Ops: loop_id=sourcea_executive_pulse_v1 · deadman=sourcea-deadman-v1 · receipts/executive/
+
+[[workflows]]
+binding = "EXECUTIVE_FOLLOWUP"
+name = "sourcea-executive-followup-v1"
+class_name = "ExecutiveFollowupWorkflow"
+
+# Secret required before deploy: EXECUTIVE_INTERNAL_TOKEN
