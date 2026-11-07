@@ -113,7 +113,18 @@ export class ExecutiveGovernorDO extends DurableObject<Env> {
       if (request.headers.get("authorization") !== "Bearer " + ingressToken) {
         return Response.json({ error: "unauthorized" }, { status: 401 });
       }
-      const body = (await request.json()) as Record<string, unknown>;
+      const body = await request.json().catch(() => null) as Record<string, unknown> | null;
+      if (!body || typeof body !== "object" || Array.isArray(body)) {
+        return Response.json({ error: "invalid_json_object" }, { status: 400 });
+      }
+      const eventId = String(body.event_id ?? "").trim();
+      const idempotencyKey = String(body.idempotency_key ?? "").trim();
+      if (
+        !/^[A-Za-z0-9._:-]{1,128}$/.test(eventId) ||
+        !/^[A-Za-z0-9._:-]{1,160}$/.test(idempotencyKey)
+      ) {
+        return Response.json({ error: "event_id_and_idempotency_key_required" }, { status: 400 });
+      }
       const result = await this.ingest(body);
       return Response.json(result, { status: result.terminal ? 200 : 202 });
     }
@@ -726,7 +737,11 @@ export default {
       });
     }
     const org = url.searchParams.get("org") ?? "sourcea";
-    const id = env.EXECUTIVE_GOVERNOR.idFromName(`governor:${org}`);
+    // This slice is commissioned for SourceA only. No tenant/venture aliases.
+    if (org !== "sourcea") {
+      return Response.json({ error: "organization_not_enabled" }, { status: 403 });
+    }
+    const id = env.EXECUTIVE_GOVERNOR.idFromName("governor:sourcea");
     const stub = env.EXECUTIVE_GOVERNOR.get(id);
     return stub.fetch(request);
   },
