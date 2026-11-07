@@ -140,6 +140,13 @@ export class ExecutiveGovernorDO extends DurableObject<Env> {
       return Response.json(result);
     }
     if (request.method === "GET" && url.pathname.startsWith("/v1/executive/runs/")) {
+      const ingressToken = this.env.EXECUTIVE_INGRESS_TOKEN;
+      if (!ingressToken) {
+        return Response.json({ error: "ingress_not_configured" }, { status: 503 });
+      }
+      if (request.headers.get("authorization") !== "Bearer " + ingressToken) {
+        return Response.json({ error: "unauthorized" }, { status: 401 });
+      }
       const id = url.pathname.split("/").pop()!;
       const row = await this.ctx.storage.get<RunRecord>(`run:${id}`);
       if (!row) return Response.json({ error: "not_found" }, { status: 404 });
