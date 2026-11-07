@@ -5,6 +5,7 @@
 
 import { DurableObject } from "cloudflare:workers";
 import { classifyGoalOutcome } from "./goal-outcome.ts";
+import { validateExecutiveTargetUrl } from "./target-policy.ts";
 export { ExecutiveFollowupWorkflow } from "./followup-workflow.ts";
 
 export interface Env {
@@ -15,6 +16,7 @@ export interface Env {
   SUPABASE_URL?: string;
   SUPABASE_SERVICE_ROLE_KEY?: string;
   EXECUTIVE_INGRESS_TOKEN?: string;
+  EXECUTIVE_ALLOWED_HOSTS?: string;
   EXECUTIVE_INTERNAL_TOKEN?: string;
   EXECUTIVE_FOLLOWUP?: {
     create: (input: { id: string; params: { run_id: string; organization_id: string } }) => Promise<{ id: string }>;
@@ -189,7 +191,15 @@ export class ExecutiveGovernorDO extends DurableObject<Env> {
       return deferred;
     }
 
-    const contextHash = await hashText(JSON.stringify({ v: this.version, url: targetUrl }));
+    const targetPolicy = validateExecutiveTargetUrl(targetUrl, this.env.EXECUTIVE_ALLOWED_HOSTS);
+    if (!targetPolicy.ok) {
+      return this.terminal(runId, idempotencyKey, "DEFERRED_BY_POLICY", {
+        reason: targetPolicy.reason,
+        target_url_host: null,
+      });
+    }
+    const canonicalTargetUrl = targetPolicy.url;
+    const contextHash = await hashText(JSON.stringify({ v: this.version, url: canonicalTargetUrl }));
     const decisionHash = await hashText(
       JSON.stringify({ runId, policy: WEBPAGE_REPAIR_POLICY.policy_version }),
     );
@@ -222,7 +232,7 @@ export class ExecutiveGovernorDO extends DurableObject<Env> {
       const body = {
         title: "Executive Mesh WEBPAGE_REPAIR",
         objective:
-          "Repair webpage " + targetUrl + " under WEBPAGE_REPAIR policy " +
+          "Repair webpage " + canonicalTargetUrl + " under WEBPAGE_REPAIR policy " +
           WEBPAGE_REPAIR_POLICY.policy_version + "; acceptance: " + WEBPAGE_REPAIR_POLICY.verify.join(", "),
         project_id: ("mesh_" + eventId).replace(/[^a-zA-Z0-9_]/g, "_").slice(0, 40),
         force_repair_once: true,
