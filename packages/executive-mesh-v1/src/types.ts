@@ -21,6 +21,7 @@ export type RunStatus =
   | "ACTION_COMPILED"
   | "EXECUTING"
   | "VERIFYING"
+  | "AWAITING_EXECUTION"
   | "ACCEPTED"
   | "INCIDENT"
   | "DEFERRED_BY_POLICY"
