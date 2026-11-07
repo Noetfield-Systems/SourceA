@@ -1,6 +1,6 @@
 /**
- * sourcea-executive-governor-v1 — production E2E path
- * Durable Object serializes runs; admits via live Runway Goal API; writes Supabase SSOT.
+ * sourcea-executive-governor-v1 — authenticated staging ingress + durable follow-through.
+ * Runway Goal Pursuit owns execution; this Worker only tracks and verifies its outcome.
  */
 
 import { DurableObject } from "cloudflare:workers";
@@ -311,8 +311,9 @@ export class ExecutiveGovernorDO extends DurableObject<Env> {
           goal_ref: goalRef,
           goal_status: goalStatus,
           commitment_status: "OPEN",
-          pods: ["SG", "MEMORY_STEWARD", "STRATEGIC_PLANNER", "CRITIC"],
-          ecp_wrap: "executive-control-plane-v0",
+          governance_mode: "registered_WEBPAGE_REPAIR_policy",
+          role_pods_executed: false,
+          adapter_scope: "Runway Goal follow-through only; Mesh deliberation remains in the package pipeline",
           admit_detail: "runway_goal_api+live_get",
           runway_live: true,
           followup_status: "MONITOR_STARTING",
@@ -544,13 +545,13 @@ export class ExecutiveGovernorDO extends DurableObject<Env> {
       status,
       terminal,
       snapshot_version: this.version,
-      commitment_status: "CLOSED",
+      commitment_status: status === "FOUNDER_DECISION_REQUIRED" ? "OPEN" : "CLOSED",
       last_checked_at: new Date().toISOString(),
       digest: {
         ...original.digest,
         ...digestExtra,
         terminal,
-        commitment_status: "CLOSED",
+        commitment_status: status === "FOUNDER_DECISION_REQUIRED" ? "OPEN" : "CLOSED",
         closed_at: new Date().toISOString(),
       },
     };
