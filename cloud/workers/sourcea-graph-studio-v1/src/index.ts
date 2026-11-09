@@ -24,6 +24,7 @@ export interface Env {
   SOURCEA_GRAPH_TO_GOVERNOR_KEY?: string;
   SOURCEA_N8N_CALLER_KEY?: string;
   SOURCEA_FOUNDER_CALLER_KEY?: string;
+  SOURCEA_GRAPH_ALLOWED_ORIGIN?: string;
 }
 
 type RunRecord = {
@@ -62,11 +63,16 @@ async function supabaseUpsert(
   return { ok: res.ok, detail: res.ok ? "ok" : `${res.status}:${body.slice(0, 200)}` };
 }
 
-function cors(res: Response): Response {
+function cors(res: Response, request: Request, env: Env): Response {
   const headers = new Headers(res.headers);
-  headers.set("access-control-allow-origin", "*");
-  headers.set("access-control-allow-methods", "GET,POST,OPTIONS");
-  headers.set("access-control-allow-headers", "content-type");
+  const origin = request.headers.get("Origin") ?? "";
+  const expected = env.SOURCEA_GRAPH_ALLOWED_ORIGIN ?? "";
+  if (expected.startsWith("https://") && origin === expected) {
+    headers.set("access-control-allow-origin", expected);
+    headers.set("vary", "Origin");
+    headers.set("access-control-allow-methods", "GET,POST,OPTIONS");
+    headers.set("access-control-allow-headers", "content-type,x-sourcea-claims,x-sourcea-signature");
+  }
   return new Response(res.body, { status: res.status, headers });
 }
 
@@ -318,7 +324,7 @@ export class GraphStudioCoordinatorDO extends DurableObject<Env> {
 export default {
   async fetch(request: Request, env: Env): Promise<Response> {
     if (request.method === "OPTIONS") {
-      return cors(new Response(null, { status: 204 }));
+      return cors(new Response(null, { status: 204 }), request, env);
     }
     const url = new URL(request.url);
     const apiPath =
@@ -330,7 +336,7 @@ export default {
     if (url.pathname !== "/health") {
       const verified = await authorizeScopedIngress(request, env, "graph");
       if (!verified.ok) {
-        return cors(Response.json({ error: verified.reason }, { status: verified.status }));
+        return cors(Response.json({ error: verified.reason }, { status: verified.status }), request, env);
       }
       // A signed browser-side API call is intentionally unsupported:
       // callers must use a trusted service-side signer, never expose keys to JS.
@@ -338,6 +344,6 @@ export default {
     const id = env.GRAPH_STUDIO.idFromName("graph-studio-v1");
     const stub = env.GRAPH_STUDIO.get(id);
     const res = await stub.fetch(request);
-    return cors(res);
+    return cors(res, request, env);
   },
 };
