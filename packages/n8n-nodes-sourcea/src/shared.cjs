@@ -1,6 +1,6 @@
 "use strict";
 
-const { createHash, randomUUID } = require("crypto");
+const { createHash, createHmac, randomUUID } = require("crypto");
 
 function governorBase(env = process.env) {
   return String(
@@ -74,10 +74,29 @@ async function callGovernor(input, fetchImpl = fetch, env = process.env) {
       ...(input.payload && typeof input.payload === "object" ? input.payload : {}),
     },
   };
-  const res = await fetchImpl(`${base}/v1/executive/runs`, {
+  const key = String(env.SOURCEA_N8N_CALLER_KEY || "");
+  if (key.length < 48) {
+    throw new Error("SOURCEA_N8N_CALLER_KEY is required; unsigned Governor requests are forbidden");
+  }
+  const bodyText = JSON.stringify(body);
+  const issuedAt = Date.now();
+  const claims = {
+    schema: "sourcea.signed-workload.v1",
+    aud: "governor", caller: "n8n", org: "sourcea",
+    scope: "governor.run.create", method: "POST", path: "/v1/executive/runs",
+    body_sha256: sha256Hex(bodyText),
+    issued_at_ms: issuedAt, expires_at_ms: issuedAt + 60000,
+    nonce: randomUUID().replace(/-/g, ""),
+  };
+  const encoded = Buffer.from(JSON.stringify(claims)).toString("base64url");
+  const signature = createHmac("sha256", key).update(encoded).digest("base64url");
+  const res = await fetchImpl(base + "/v1/executive/runs", {
     method: "POST",
-    headers: { "content-type": "application/json", accept: "application/json" },
-    body: JSON.stringify(body),
+    headers: {
+      "content-type": "application/json", accept: "application/json",
+      "X-SourceA-Claims": encoded, "X-SourceA-Signature": signature,
+    },
+    body: bodyText,
   });
   const text = await res.text();
   let json = {};
