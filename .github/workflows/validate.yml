@@ -98,6 +98,11 @@ jobs:
           console.log('SourceA security ingress source contract passed');
           NODE
 
+      - name: Bundle Governor and Graph Studio Cloudflare Workers without deployment
+        run: |
+          (cd cloud/workers/sourcea-executive-governor-v1 && npx --yes wrangler@4 deploy --dry-run --outdir /tmp/sourcea-governor-dry)
+          (cd cloud/workers/sourcea-graph-studio-v1 && npx --yes wrangler@4 deploy --dry-run --outdir /tmp/sourcea-graph-dry)
+
       - name: Executor adapter focused tests
         run: |
           python3 -m pip install --disable-pip-version-check pytest
