@@ -13,16 +13,28 @@ import {
 } from "@xyflow/react";
 
 const h = React.createElement;
-const API = window.GRAPH_STUDIO_API || "";
+// Same-origin Cloudflare Access cookie only. No service identity or API URL
+// can be configured from browser JS. Publish/run require Governor permits.
+const API = "/api/studio";
 
-function api(path, opts) {
-  return fetch(`${API}${path}`, {
-    headers: { "content-type": "application/json", ...(opts?.headers || {}) },
+function api(path, opts = {}) {
+  if (!/^\/v1\/[a-zA-Z0-9/_-]+$/.test(path)) {
+    return Promise.resolve({ ok: false, status: 400, body: { error: "invalid_route" } });
+  }
+  return fetch(API + path.slice(3), {
     ...opts,
+    credentials: "same-origin",
+    cache: "no-store",
+    redirect: "error",
+    headers: {
+      "content-type": "application/json",
+      "X-SourceA-Studio-Request": "1",
+      ...(opts.headers || {}),
+    },
   }).then(async (r) => {
-    const j = await r.json().catch(() => ({}));
+    const j = await r.json().catch(() => ({ error: "browser_session_unavailable" }));
     return { ok: r.ok, status: r.status, body: j };
-  });
+  }).catch(() => ({ ok: false, status: 0, body: { error: "browser_session_unavailable" } }));
 }
 
 function StudioNode({ data, selected }) {
@@ -188,51 +200,9 @@ function App() {
     }
   };
 
-  const publish = async () => {
-    const graph = graphFromFlow(nodes, edges, meta);
-    const layout = layoutFromFlow(nodes, meta);
-    const r = await api("/v1/blueprints/publish", {
-      method: "POST",
-      body: JSON.stringify({ graph, layout }),
-    });
-    if (r.body.ok) {
-      setPlanHash(r.body.plan_hash);
-      setStatus(`Published · plan_hash=${r.body.plan_hash}`);
-    } else {
-      setStatus(`Publish FAIL · ${JSON.stringify(r.body.errors || r.body.error)}`);
-    }
-  };
-
-  const run = async () => {
-    if (!planHash) {
-      setStatus("Publish first to pin plan_hash");
-      return;
-    }
-    setStatus("Running pinned plan…");
-    const r = await api("/v1/runs", {
-      method: "POST",
-      body: JSON.stringify({
-        plan_hash: planHash,
-        event: {
-          event_id: `gs_${Date.now()}`,
-          payload: {
-            target_url: "https://sourcea.app/operating-brain-install",
-            task_type: "webpage_repair",
-          },
-        },
-      }),
-    });
-    setRunGraph(r.body.run_graph || null);
-    if (r.body.run_graph?.nodes) {
-      const byId = Object.fromEntries(r.body.run_graph.nodes.map((n) => [n.id, n.status]));
-      setNodes((ns) =>
-        ns.map((n) => ({ ...n, data: { ...n.data, runStatus: byId[n.id] || n.data.runStatus } })),
-      );
-    }
-    setStatus(
-      `Run ${r.body.run_id || "?"} · terminal=${r.body.terminal || "?"} · mesh=${r.body.mesh_run_id || "none"}`,
-    );
-  };
+  // A valid Access session can inspect/validate a plan, but cannot approve
+  // a publish or Runway side effect. The Governor/permit path is still HOLD.
+  const gatedPublishing = "Publish and Run require an independently issued Governor action permit.";
 
   const selectedManifest = useMemo(
     () => registry.find((m) => m.node_kind === selected?.data?.kind),
@@ -342,8 +312,14 @@ function App() {
       { className: "toolbar" },
       h("button", { type: "button", onClick: loadGolden }, "Load golden"),
       h("button", { type: "button", onClick: validate }, "Validate"),
-      h("button", { type: "button", className: "primary", onClick: publish }, "Publish"),
-      h("button", { type: "button", className: "primary", onClick: run }, "Run"),
+      h("button", {
+        type: "button", className: "primary", disabled: true,
+        title: gatedPublishing, "aria-label": "Publish disabled: Governor permit required",
+      }, "Publish · permit required"),
+      h("button", {
+        type: "button", className: "primary", disabled: true,
+        title: gatedPublishing, "aria-label": "Run disabled: Governor permit required",
+      }, "Run · permit required"),
       h("div", { className: "status" }, status),
     ),
   );
