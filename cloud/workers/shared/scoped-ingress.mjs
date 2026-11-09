@@ -200,6 +200,15 @@ export async function authorizeScopedIngress(request, env, audience, now = Date.
         }
       }
     }
+    if (audience === "governor" && scope === "governor.run.create") {
+      // SourceA currently has exactly ONE qualified Governor vertical slice.
+      // A scoped workload signature must not turn this endpoint into general
+      // Founder / Company execution, irrespective of how the caller labels it.
+      if (payload.event_type !== "webpage.repair.requested" ||
+          nested.task_type !== "webpage_repair") {
+        return error(403, "governor_event_class_not_commissioned");
+      }
+    }
   }
   return { ok: true, claims };
 }
@@ -236,4 +245,19 @@ export async function signServiceRequest(method, url, body, { audience, caller, 
     "X-SourceA-Claims": encoded,
     "X-SourceA-Signature": toB64url(signature),
   };
+}
+/** Consume a verified POST nonce under the canonical Durable Object's storage
+ * transaction. Pure helper to allow deterministic replay tests without a
+ * second database. This is ingress anti-replay, not a NAC action permit.
+ */
+export async function consumeVerifiedPostNonce(storage, nonce, now = Date.now()) {
+  if (typeof nonce !== "string" || !/^[A-Za-z0-9_-]{16,96}$/.test(nonce)) {
+    return false;
+  }
+  const key = "ingress_nonce:" + nonce;
+  return storage.transaction(async txn => {
+    if (await txn.get(key)) return false;
+    await txn.put(key, now);
+    return true;
+  });
 }
