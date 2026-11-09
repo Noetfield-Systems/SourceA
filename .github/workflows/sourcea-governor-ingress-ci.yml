@@ -1,0 +1,49 @@
+name: SourceA scoped Governor ingress security
+on:
+  pull_request:
+    paths:
+      - 'cloud/workers/shared/scoped-ingress.mjs'
+      - 'cloud/workers/sourcea-executive-governor-v1/src/index.ts'
+      - 'cloud/workers/sourcea-graph-studio-v1/src/index.ts'
+      - 'packages/n8n-nodes-sourcea/src/shared.cjs'
+      - 'packages/n8n-nodes-sourcea/tests/shared.test.js'
+      - 'scripts/security/sourcea-scoped-ingress.test.mjs'
+      - '.github/workflows/sourcea-governor-ingress-ci.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'cloud/workers/shared/scoped-ingress.mjs'
+      - 'cloud/workers/sourcea-executive-governor-v1/src/index.ts'
+      - 'cloud/workers/sourcea-graph-studio-v1/src/index.ts'
+      - 'packages/n8n-nodes-sourcea/src/shared.cjs'
+      - 'packages/n8n-nodes-sourcea/tests/shared.test.js'
+      - 'scripts/security/sourcea-scoped-ingress.test.mjs'
+      - '.github/workflows/sourcea-governor-ingress-ci.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  security-contract:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Test cryptographic service-auth contract and n8n caller
+        run: node --test scripts/security/sourcea-scoped-ingress.test.mjs packages/n8n-nodes-sourcea/tests/shared.test.js
+      - name: Reject unsigned legacy paths and uncontrolled CORS
+        run: |
+          node --input-type=module <<'NODE'
+          import { readFileSync } from 'node:fs';
+          const governor=readFileSync('cloud/workers/sourcea-executive-governor-v1/src/index.ts','utf8');
+          const graph=readFileSync('cloud/workers/sourcea-graph-studio-v1/src/index.ts','utf8');
+          const n8n=readFileSync('packages/n8n-nodes-sourcea/src/shared.cjs','utf8');
+          if (!governor.includes('authorizeScopedIngress(request, env, "governor")')) throw Error('governor policy missing');
+          if (!graph.includes('authorizeScopedIngress(request, env, "graph")')) throw Error('graph policy missing');
+          if (!graph.includes('signServiceRequest("POST"')) throw Error('graph caller unsigned');
+          if (!n8n.includes('"X-SourceA-Signature"')) throw Error('n8n caller unsigned');
+          if (graph.includes('headers.set("access-control-allow-origin", "*")')) throw Error('wildcard CORS');
+          console.log('SourceA ingress policy source contract OK');
+          NODE
