@@ -9,6 +9,11 @@ workers_dev = true
 SOURCEA_GRAPH_ALLOWED_ORGS = "sourcea"
 SOURCEA_N8N_ALLOWED_ORGS = "sourcea"
 SOURCEA_FOUNDER_ALLOWED_ORGS = "sourcea"
+# Browser Access environment must be set via Cloudflare config before commissioning:
+# SOURCEA_ACCESS_TEAM_DOMAIN = "<team>.cloudflareaccess.com"
+# SOURCEA_GRAPH_ACCESS_AUD = "<Cloudflare Access application AUD>"
+# SOURCEA_GRAPH_ACCESS_ALLOWED_EMAILS = "<approved operator email(s)>"
+# No default browser identities or public publish/run. Never store HMAC in JS.
 # Secrets: SUPABASE_URL · SUPABASE_SERVICE_ROLE_KEY
 
 [observability]
@@ -18,7 +23,7 @@ enabled = true
 directory = "../../../apps/graph-studio-web"
 binding = "ASSETS"
 not_found_handling = "single-page-application"
-run_worker_first = ["/v1/*", "/health"]
+run_worker_first = ["/api/studio/*", "/v1/*", "/health"]
 
 [[durable_objects.bindings]]
 name = "GRAPH_STUDIO"
