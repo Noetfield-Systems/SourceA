@@ -84,7 +84,7 @@ jobs:
 
       - name: Governor scoped identity and n8n caller negative tests
         run: |
-          node --test scripts/security/sourcea-scoped-ingress.test.mjs packages/n8n-nodes-sourcea/tests/shared.test.js
+          node --test scripts/security/sourcea-scoped-ingress.test.mjs scripts/security/sourcea-graph-browser-session.test.mjs packages/n8n-nodes-sourcea/tests/shared.test.js
 
       - name: Ensure Graph Studio has no wildcard credential CORS
         run: |
