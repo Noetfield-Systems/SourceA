@@ -43,6 +43,24 @@ Use separate staged hostnames to check auth from outside Cloudflare: unsigned PO
 - No reuse of a model provider key as an action permit.
 - No claim that mere signature authentication resolves SourceA Issue #74. It is one required layer; permit binding and independent verification remain.
 
+## Graph Studio browser migration (2026-11-09 candidate; NOT YET DEPLOYED)
+
+Graph Studio now has an **in-Worker** same-origin `/api/studio/*` session BFF, not a parallel service, using a cryptographically verified Cloudflare Access JWT. The browser never receives `SOURCEA_GRAPH_TO_GOVERNOR_KEY`, the Governor service identity or a general action permit.
+
+Before enabling the candidate Worker in isolated **staging**, inspect the actual Cloudflare account and create/configure a protected Access application for the correct Graph Studio hostname:
+
+- `SOURCEA_ACCESS_TEAM_DOMAIN`: the **exact** `<team>.cloudflareaccess.com` issuer hostname.
+- `SOURCEA_GRAPH_ACCESS_AUD`: that Access application's audience tag (not a wildcard).
+- `SOURCEA_GRAPH_ACCESS_ALLOWED_EMAILS`: explicit comma-separated **lowercase** approved operator addresses, 1–25 entries; no defaults.
+
+These are configuration values, **not** secrets to place in front-end JS. Real Access JWTs must be verified with the team's `/cdn-cgi/access/certs` keys (RS256, pinned issuer/audience, expiry, account allowlist). The Worker fails with HTTP 503 when configuration or certificate verification is unavailable; unsigned requests return 401. Browser POST `/api/studio/blueprints/validate` requires same-origin `Origin`, JSON and `X-SourceA-Studio-Request: 1`; query selector and cross-site requests are denied.
+
+Currently commissioned browser actions are **GET registry**, **GET golden blueprint**, **GET existing graph run**, and **POST validate blueprint**. UI buttons **Publish/Run are disabled** because neither a valid Access session nor a valid HMAC is an action authorization. The existing **service-to-service** `/v1/*` interface remains separately HMAC protected. Do not open browser publish/run until there is a real Governor DecisionRecord, scoped permit, WorkPacket, budget and independently verified executor.
+
+After safely provisioning a separate staging hostname with a staging Access application, verify unsigned read 401, forged/tampered/expired JWT deny, tenant/query deny, CSRF deny, publish/run 403, Access-approved read/validate success and **no requests with client-visible HMAC**. Before touching existing public Workers, audit custom-domain and workers.dev bypass paths and confirm rollback. The previous UI's direct `/v1/*` calls are now removed in the candidate branch.
+
+Do not close SourceA #74 until all original acceptance requirements (including production Worker ingress policy, WAF/Access review, negative replay, valid service and Governor permit tests) have externally acquired receipts.
+
 ## Validation
 Run with Node 22:
 - node --test scripts/security/sourcea-scoped-ingress.test.mjs packages/n8n-nodes-sourcea/tests/shared.test.js
