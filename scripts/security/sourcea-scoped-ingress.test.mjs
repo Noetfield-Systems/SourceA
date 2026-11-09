@@ -14,6 +14,10 @@ const N8N_SECRET = "n".repeat(64);
 const env = {
   SOURCEA_GRAPH_CALLER_KEY: GRAPH_SECRET,
   SOURCEA_N8N_CALLER_KEY: N8N_SECRET,
+  SOURCEA_FOUNDER_CALLER_KEY: "f".repeat(64),
+  SOURCEA_GRAPH_ALLOWED_ORGS: "sourcea",
+  SOURCEA_N8N_ALLOWED_ORGS: "sourcea",
+  SOURCEA_FOUNDER_ALLOWED_ORGS: "sourcea",
 };
 const url = "https://executive-mesh/v1/executive/runs?org=sourcea";
 const body = JSON.stringify({
@@ -66,8 +70,7 @@ test("expired and future-issued identities are rejected independently of valid s
 test("unknown caller, missing server secret, and unsupported action are denied",async()=>{
   const valid=await signed();
   assert.equal((await authorizeScopedIngress(valid,{},"governor")).status,503);
-  const unknown=await signed("POST",body,url,"random-caller",GRAPH_SECRET);
-  assert.equal((await authorizeScopedIngress(unknown,env,"governor")).status,403);
+  await assert.rejects(()=>signed("POST",body,url,"random-caller",GRAPH_SECRET),/caller_scope_denied/);
   assert.equal((await authorizeScopedIngress(new Request("https://executive-mesh/v1/admin",{method:"POST"}),env,"governor")).status,404);
 });
 
@@ -94,4 +97,67 @@ test("n8n migrated caller signs the exact request using its distinct workload ke
   assert.equal(observed,true);
   assert.equal(result.summary.terminal,"ACCEPTED");
   await assert.rejects(()=>callGovernor({event_id:"no_token"},async()=>{throw Error("must not fetch")},{}),/SOURCEA_N8N_CALLER_KEY/);
+});
+
+test("a valid HMAC cannot expand a caller's tenant or bypass absent org configuration", async () => {
+  const crossTenantUrl = "https://executive-mesh/v1/executive/runs?org=othercompany";
+  const otherTenant = await signed("POST", body, crossTenantUrl, "graph-studio", GRAPH_SECRET);
+  // The signer can sign arbitrary org strings, but the workload policy refuses
+  // to grant an uncommissioned tenant from the same HMAC key.
+  const denied = await authorizeScopedIngress(otherTenant, env, "governor");
+  assert.equal(denied.status, 403);
+  assert.equal(denied.reason, "caller_tenant_denied");
+
+  const valid = await signed();
+  const noTenantScope = { ...env };
+  delete noTenantScope.SOURCEA_GRAPH_ALLOWED_ORGS;
+  assert.equal((await authorizeScopedIngress(valid, noTenantScope, "governor")).status, 503);
+  assert.equal((await authorizeScopedIngress(valid, {
+    ...env, SOURCEA_GRAPH_ALLOWED_ORGS: "sourcea,othercompany",
+  }, "governor")).reason, "caller_tenant_scope_invalid");
+
+  await assert.rejects(
+    () => signServiceRequest("POST", crossTenantUrl, body, {
+      audience: "governor", caller: "graph-studio", org: "sourcea", secret: GRAPH_SECRET,
+    }), /query_tenant_mismatch/,
+  );
+});
+
+test("signed body org and nested organization ID cannot select another tenant", async () => {
+  const wrongTop = await signed("POST", JSON.stringify({
+    event_id: "evt_test_cross_tenant", org: "othercompany",
+  }));
+  assert.equal((await authorizeScopedIngress(wrongTop, env, "governor")).reason,
+    "signed_body_tenant_mismatch");
+  const wrongNested = await signed("POST", JSON.stringify({
+    event_id: "evt_nested_cross_tenant",
+    payload: { organization_id: "othercompany" },
+  }));
+  assert.equal((await authorizeScopedIngress(wrongNested, env, "governor")).reason,
+    "signed_body_tenant_mismatch");
+  const correct = await signed("POST", JSON.stringify({
+    event_id: "evt_consistent", organization_id: "sourcea",
+  }));
+  assert.equal((await authorizeScopedIngress(correct, env, "governor")).ok, true);
+});
+
+test("a valid caller HMAC does not authorize Graph Studio mutation", async () => {
+  await assert.rejects(() => signServiceRequest(
+    "POST", "https://graph-studio/v1/blueprints/publish?org=sourcea", JSON.stringify({}),
+    { audience: "graph", caller: "founder-os", secret: "f".repeat(64) },
+  ), /caller_scope_denied/);
+  await assert.rejects(() => signServiceRequest(
+    "POST", "https://graph-studio/v1/runs?org=sourcea", JSON.stringify({}),
+    { audience: "graph", caller: "n8n", secret: N8N_SECRET },
+  ), /caller_scope_denied/);
+  const signedRead = await signServiceRequest(
+    "GET", "https://graph-studio/v1/registry?org=sourcea", "",
+    { audience: "graph", caller: "founder-os", secret: "f".repeat(64) },
+  );
+  const read = await authorizeScopedIngress(
+    new Request("https://graph-studio/v1/registry?org=sourcea", { headers: signedRead }),
+    env, "graph",
+  );
+  assert.equal(read.ok, true);
+  assert.equal(read.claims.scope, "graph.registry.read");
 });
