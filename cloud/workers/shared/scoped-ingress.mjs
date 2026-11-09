@@ -96,6 +96,11 @@ function claimFieldsAreExact(claims) {
 export async function authorizeScopedIngress(request, env, audience, now = Date.now()) {
   const url = new URL(request.url);
   const scope = scopeFor(audience, request.method, url.pathname);
+  // Duplicate/unspecified query keys cannot alter a signed tenant identity.
+  const queryKeys = [...url.searchParams.keys()];
+  if (queryKeys.some(key => key !== "org") || queryKeys.filter(key => key === "org").length > 1) {
+    return error(403, "query_identity_ambiguous");
+  }
   if (!scope) return error(404, "scope_not_supported");
   const rawClaims = request.headers.get("X-SourceA-Claims");
   const rawSignature = request.headers.get("X-SourceA-Signature");
