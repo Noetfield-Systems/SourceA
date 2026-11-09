@@ -25,15 +25,17 @@ test("Role returns role envelope", async () => {
 });
 
 test("Governor calls Mesh and returns refs", async () => {
-  const fetchImpl = async () =>
-    new Response(
-      JSON.stringify({
-        run_id: "run_test",
-        terminal: "ACCEPTED",
-        status: "ACCEPTED",
-      }),
-      { status: 200 },
-    );
+  const fetchImpl = async (_url, opts) => {
+    assert.match(opts.headers["X-SourceA-Claims"], /^[a-zA-Z0-9_-]+$/);
+    assert.match(opts.headers["X-SourceA-Signature"], /^[a-zA-Z0-9_-]+$/);
+    const claims = JSON.parse(Buffer.from(opts.headers["X-SourceA-Claims"], "base64url").toString());
+    assert.equal(claims.scope, "governor.run.create");
+    assert.equal(claims.caller, "n8n");
+    assert.equal(claims.body_sha256, require("node:crypto").createHash("sha256").update(opts.body).digest("hex"));
+    return new Response(JSON.stringify({
+      run_id: "run_test", terminal: "ACCEPTED", status: "ACCEPTED",
+    }), { status: 200 });
+  };
   const env = await callGovernor(
     {
       target_url: "https://example.com",
@@ -41,6 +43,7 @@ test("Governor calls Mesh and returns refs", async () => {
       idempotency_key: "idem_test",
     },
     fetchImpl,
+    {SOURCEA_N8N_CALLER_KEY:"n".repeat(64)},
   );
   assert.equal(env.summary.terminal, "ACCEPTED");
   assert.equal(env.summary.run_id, "run_test");
