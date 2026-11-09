@@ -6,6 +6,9 @@
 import { DurableObject } from "cloudflare:workers";
 import { authorizeScopedIngress, signServiceRequest } from "../../shared/scoped-ingress.mjs";
 import {
+  authorizeGraphBrowserSession, mapGraphBrowserRoute, browserRequestAllowed,
+} from "./browser-session.mjs";
+import {
   SLICE1_MANIFESTS,
   WEBPAGE_REPAIR_L0_BLUEPRINT,
   compileBlueprint,
@@ -25,6 +28,9 @@ export interface Env {
   SOURCEA_N8N_CALLER_KEY?: string;
   SOURCEA_FOUNDER_CALLER_KEY?: string;
   SOURCEA_GRAPH_ALLOWED_ORIGIN?: string;
+  SOURCEA_ACCESS_TEAM_DOMAIN?: string;
+  SOURCEA_GRAPH_ACCESS_AUD?: string;
+  SOURCEA_GRAPH_ACCESS_ALLOWED_EMAILS?: string;
 }
 
 type RunRecord = {
@@ -327,6 +333,43 @@ export default {
       return cors(new Response(null, { status: 204 }), request, env);
     }
     const url = new URL(request.url);
+    // Server-side browser BFF lives on this EXISTING Graph Worker. The browser
+    // sends only its Cloudflare Access session cookie, never a workload HMAC.
+    // The BFF authorizes JWT issuer/audience/signature/email and CSRF before
+    // dispatching bounded READ/VALIDATE calls to the same existing DO.
+    if (url.pathname.startsWith("/api/studio/")) {
+      const deny = (status: number, reason: string) =>
+        new Response(JSON.stringify({ error: reason }), {
+          status, headers: { "content-type": "application/json", "cache-control": "no-store" },
+        });
+      const route = url.pathname === "/api/studio/session" && request.method === "GET"
+        ? { ok: true, mapped: null } : mapGraphBrowserRoute(request);
+      if (!route.ok) return deny(route.status, route.reason);
+      const identity = await authorizeGraphBrowserSession(request, env);
+      if (!identity.ok) return deny(identity.status, identity.reason);
+      if (url.pathname === "/api/studio/session") {
+        return new Response(JSON.stringify({
+          ok: true, session: "cloudflare_access_verified",
+          policy: "GRAPH_READ_AND_VALIDATE_ONLY", can_publish: false, can_run: false,
+        }), { headers: { "content-type": "application/json", "cache-control": "no-store" } });
+      }
+      const scope = await browserRequestAllowed(request, route);
+      if (!scope.ok) return deny(scope.status, scope.reason);
+      const id = env.GRAPH_STUDIO.idFromName("graph-studio-v1");
+      const stub = env.GRAPH_STUDIO.get(id);
+      // Construct a fresh internal request: do not forward browser cookies,
+      // Authorization, user-provided service signatures or verifier headers.
+      const input = request.method === "POST" ? await request.clone().arrayBuffer() : undefined;
+      const internal = new Request("https://graph-internal" + scope.mapped, {
+        method: request.method,
+        ...(input ? { body: input, headers: { "content-type": "application/json" } } : {}),
+      });
+      const response = await stub.fetch(internal);
+      const headers = new Headers(response.headers);
+      headers.set("cache-control", "private, no-store");
+      headers.set("x-content-type-options", "nosniff");
+      return new Response(response.body, { status: response.status, headers });
+    }
     const apiPath =
       url.pathname === "/health" ||
       url.pathname.startsWith("/v1/");
