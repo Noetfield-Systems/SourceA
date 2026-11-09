@@ -6,6 +6,9 @@ account_id = "0d0b967b77e2e5535455d39ff3dae72c"
 workers_dev = true
 
 [vars]
+SOURCEA_GRAPH_ALLOWED_ORGS = "sourcea"
+SOURCEA_N8N_ALLOWED_ORGS = "sourcea"
+SOURCEA_FOUNDER_ALLOWED_ORGS = "sourcea"
 # Secrets: SUPABASE_URL · SUPABASE_SERVICE_ROLE_KEY
 
 [observability]
