@@ -4,6 +4,7 @@ import { createRequire } from "node:module";
 import {
   authorizeScopedIngress,
   signServiceRequest,
+  consumeVerifiedPostNonce,
 } from "../../cloud/workers/shared/scoped-ingress.mjs";
 
 const require = createRequire(import.meta.url);
@@ -160,4 +161,41 @@ test("a valid caller HMAC does not authorize Graph Studio mutation", async () =>
   );
   assert.equal(read.ok, true);
   assert.equal(read.claims.scope, "graph.registry.read");
+});
+
+test("a correctly signed uncommissioned event cannot become a Governor action", async () => {
+  const unsupported = await signed("POST", JSON.stringify({
+    event_id: "evt_future_unapproved",
+    event_type: "founder.github.write.requested",
+    payload: { task_type: "github_write", repo: "some/repo" },
+  }));
+  assert.equal((await authorizeScopedIngress(unsupported, env, "governor")).reason,
+    "governor_event_class_not_commissioned");
+  const disguised = await signed("POST", JSON.stringify({
+    event_id: "evt_wrong_task_type",
+    event_type: "webpage.repair.requested",
+    payload: { task_type: "github_write" },
+  }));
+  assert.equal((await authorizeScopedIngress(disguised, env, "governor")).reason,
+    "governor_event_class_not_commissioned");
+  const missingTask = await signed("POST", JSON.stringify({
+    event_id: "evt_no_task", event_type: "webpage.repair.requested",
+  }));
+  assert.equal((await authorizeScopedIngress(missingTask, env, "governor")).status, 403);
+});
+
+test("nonce consumption is atomic API-bound and idempotent after restart", async () => {
+  const entries = new Map();
+  const storage = {
+    transaction: async callback => callback({
+      get: async key => entries.get(key),
+      put: async (key, value) => entries.set(key, value),
+    }),
+  };
+  const nonce = "abc123def456ghi789";
+  assert.equal(await consumeVerifiedPostNonce(storage, nonce), true);
+  assert.equal(await consumeVerifiedPostNonce(storage, nonce), false);
+  assert.equal(await consumeVerifiedPostNonce(storage, "another_valid_nonce123"), true);
+  assert.equal(await consumeVerifiedPostNonce(storage, "../escape"), false);
+  assert.equal(entries.size, 2);
 });
