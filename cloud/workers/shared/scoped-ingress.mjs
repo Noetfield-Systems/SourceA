@@ -14,6 +14,31 @@ const SIGNING_KEYS = Object.freeze({
   "n8n": "SOURCEA_N8N_CALLER_KEY",
   "founder-os": "SOURCEA_FOUNDER_CALLER_KEY",
 });
+// Authentication alone is insufficient: each *caller* needs a separate,
+// narrow authorization to an exact audience and action.
+const CALLER_PERMISSIONS = Object.freeze({
+  "graph-studio": Object.freeze({
+    governor: Object.freeze(["governor.run.create", "governor.run.read"]),
+    graph: Object.freeze([]),
+  }),
+  "n8n": Object.freeze({
+    governor: Object.freeze(["governor.run.create", "governor.run.read"]),
+    graph: Object.freeze([]),
+  }),
+  "founder-os": Object.freeze({
+    governor: Object.freeze(["governor.run.create", "governor.run.read"]),
+    graph: Object.freeze(["graph.registry.read", "graph.blueprint.read"]),
+  }),
+});
+// Org allowlists are required configuration, never inferred from a valid HMAC.
+// SourceA's present Governor routes to a fixed Runway tenant and therefore only
+// "sourcea" may be provisioned until a real per-tenant binding is commissioned.
+const ORG_CONFIG = Object.freeze({
+  "graph-studio": "SOURCEA_GRAPH_ALLOWED_ORGS",
+  "n8n": "SOURCEA_N8N_ALLOWED_ORGS",
+  "founder-os": "SOURCEA_FOUNDER_ALLOWED_ORGS",
+});
+
 const ALLOWED = Object.freeze({
   governor: Object.freeze({
     "POST /v1/executive/runs": "governor.run.create",
@@ -129,13 +154,18 @@ export async function authorizeScopedIngress(request, env, audience, now = Date.
   }
   const keyVar = keyName(claims.caller);
   if (!keyVar) return error(403, "caller_untrusted");
-  if (audience === "governor" && claims.caller === "graph-studio" &&
-      !["governor.run.create", "governor.run.read"].includes(scope)) {
-    return error(403, "caller_scope_denied");
+  const permitted = CALLER_PERMISSIONS[claims.caller]?.[audience] ?? [];
+  if (!permitted.includes(scope)) return error(403, "caller_scope_denied");
+  const configuredOrgs = env[ORG_CONFIG[claims.caller]];
+  if (typeof configuredOrgs !== "string" || !configuredOrgs.trim()) {
+    return error(503, "caller_tenant_scope_unconfigured");
   }
-  if (audience === "graph" && claims.caller === "graph-studio") {
-    return error(403, "graph_self_call_denied");
+  const orgs = configuredOrgs.split(",").map(v => v.trim());
+  if (orgs.some(v => !/^[a-z0-9][a-z0-9_-]{1,62}$/.test(v)) ||
+      orgs.length !== new Set(orgs).size || orgs.some(v => v !== "sourcea")) {
+    return error(503, "caller_tenant_scope_invalid");
   }
+  if (!orgs.includes(claims.org)) return error(403, "caller_tenant_denied");
   const key = env[keyVar];
   if (typeof key !== "string" || key.length < 48) return error(503, "service_identity_unconfigured");
   try {
@@ -147,6 +177,30 @@ export async function authorizeScopedIngress(request, env, audience, now = Date.
   } catch {
     return error(403, "signature_or_body_invalid");
   }
+  // All tenant selectors within the signed JSON payload MUST agree with the
+  // claims; accepting body.org != signed query org would cross tenant boundaries.
+  if (request.method === "POST") {
+    let payload;
+    try {
+      payload = await request.clone().json();
+    } catch {
+      return error(400, "signed_json_required");
+    }
+    if (!payload || typeof payload !== "object" || Array.isArray(payload)) {
+      return error(400, "signed_json_object_required");
+    }
+    const nested = payload.payload && typeof payload.payload === "object" &&
+        !Array.isArray(payload.payload) ? payload.payload : {};
+    const objects = [payload, nested];
+    for (const item of objects) {
+      for (const field of ["org", "organization_id"]) {
+        if (Object.prototype.hasOwnProperty.call(item, field) &&
+            item[field] !== claims.org) {
+          return error(403, "signed_body_tenant_mismatch");
+        }
+      }
+    }
+  }
   return { ok: true, claims };
 }
 
@@ -156,6 +210,14 @@ export async function signServiceRequest(method, url, body, { audience, caller, 
   const parsed = new URL(url);
   const scope = scopeFor(audience, method, parsed.pathname);
   if (!scope) throw new Error("scope_not_supported");
+  if (!(CALLER_PERMISSIONS[caller]?.[audience] ?? []).includes(scope)) {
+    throw new Error("caller_scope_denied");
+  }
+  if (parsed.searchParams.getAll("org").length > 1 ||
+      [...parsed.searchParams.keys()].some(key => key !== "org") ||
+      (parsed.searchParams.get("org") || "sourcea") !== org) {
+    throw new Error("query_tenant_mismatch");
+  }
   const now = Date.now();
   const bodyBytes = ENCODER.encode(body || "");
   if (bodyBytes.byteLength > MAX_BODY_BYTES) throw new Error("body_too_large");
