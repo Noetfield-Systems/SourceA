@@ -78,6 +78,31 @@ jobs:
           print(f"PASS n8n workflow gate files={len(list(root.glob('*.json')))}")
           PY
 
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Governor scoped identity and n8n caller negative tests
+        run: |
+          node --test scripts/security/sourcea-scoped-ingress.test.mjs packages/n8n-nodes-sourcea/tests/shared.test.js
+
+      - name: Ensure Graph Studio has no wildcard credential CORS
+        run: |
+          node --input-type=module <<'NODE'
+          import { readFileSync } from 'node:fs';
+          const governor = readFileSync('cloud/workers/sourcea-executive-governor-v1/src/index.ts','utf8');
+          const graph = readFileSync('cloud/workers/sourcea-graph-studio-v1/src/index.ts','utf8');
+          if (!governor.includes('authorizeScopedIngress(request, env, "governor")')) throw Error('unsigned Governor API');
+          if (!graph.includes('authorizeScopedIngress(request, env, "graph")')) throw Error('unsigned Graph API');
+          if (graph.includes('headers.set("access-control-allow-origin", "*")')) throw Error('wildcard CORS');
+          console.log('SourceA security ingress source contract passed');
+          NODE
+
+      - name: Bundle Governor and Graph Studio Cloudflare Workers without deployment
+        run: |
+          (cd cloud/workers/sourcea-executive-governor-v1 && npx --yes wrangler@4 deploy --dry-run --outdir /tmp/sourcea-governor-dry)
+          (cd cloud/workers/sourcea-graph-studio-v1 && npx --yes wrangler@4 deploy --dry-run --outdir /tmp/sourcea-graph-dry)
+
       - name: Executor adapter focused tests
         run: |
           python3 -m pip install --disable-pip-version-check pytest

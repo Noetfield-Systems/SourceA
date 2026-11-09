@@ -4,6 +4,7 @@
  */
 
 import { DurableObject } from "cloudflare:workers";
+import { authorizeScopedIngress, consumeVerifiedPostNonce } from "../../shared/scoped-ingress.mjs";
 
 export interface Env {
   EXECUTIVE_GOVERNOR: DurableObjectNamespace;
@@ -12,6 +13,9 @@ export interface Env {
   RUNWAY_TENANT_ID?: string;
   SUPABASE_URL?: string;
   SUPABASE_SERVICE_ROLE_KEY?: string;
+  SOURCEA_GRAPH_CALLER_KEY?: string;
+  SOURCEA_N8N_CALLER_KEY?: string;
+  SOURCEA_FOUNDER_CALLER_KEY?: string;
 }
 
 type RunRecord = {
@@ -87,6 +91,19 @@ export class ExecutiveGovernorDO extends DurableObject<Env> {
       });
     }
     if (request.method === "POST" && url.pathname === "/v1/executive/runs") {
+      // The outer Worker verified a signed, expiring, body-bound caller token.
+      // The DO consumes its nonce atomically to reject signed request replay.
+      const nonce = request.headers.get("X-SourceA-Verified-Nonce") ?? "";
+      if (!/^[A-Za-z0-9_-]{16,96}$/.test(nonce)) {
+        return Response.json({ error: "verified_nonce_required" }, { status: 401 });
+      }
+      if (!await consumeVerifiedPostNonce(this.ctx.storage, nonce)) {
+        return Response.json({ error: "request_replay_denied" }, { status: 409 });
+      }
+      // Bounded cleanup. A small rolling nonce ledger is NOT a job-status SSOT.
+      const prior = await this.ctx.storage.list<number>({ prefix: "ingress_nonce:", limit: 200 });
+      const expired = [...prior].filter(([, at]) => at < Date.now() - 120_000);
+      if (expired.length) await this.ctx.storage.delete(expired.map(([key]) => key));
       const body = (await request.json()) as Record<string, unknown>;
       const result = await this.ingest(body);
       return Response.json(result, { status: result.terminal === "ACCEPTED" ? 200 : 422 });
@@ -344,9 +361,16 @@ export default {
         supabase_configured: Boolean(env.SUPABASE_URL && env.SUPABASE_SERVICE_ROLE_KEY),
       });
     }
+    const verified = await authorizeScopedIngress(request, env, "governor");
+    if (!verified.ok) {
+      return Response.json({ error: verified.reason }, { status: verified.status });
+    }
+    const headers = new Headers(request.headers);
+    headers.set("X-SourceA-Verified-Nonce", verified.claims.nonce);
+    const verifiedRequest = new Request(request, { headers });
     const org = url.searchParams.get("org") ?? "sourcea";
     const id = env.EXECUTIVE_GOVERNOR.idFromName(`governor:${org}`);
     const stub = env.EXECUTIVE_GOVERNOR.get(id);
-    return stub.fetch(request);
+    return stub.fetch(verifiedRequest);
   },
 };

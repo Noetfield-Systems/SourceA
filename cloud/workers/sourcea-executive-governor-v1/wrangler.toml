@@ -6,6 +6,10 @@ account_id = "0d0b967b77e2e5535455d39ff3dae72c"
 workers_dev = true
 
 [vars]
+# Single-tenant scoped service identities; authorize more organizations only alongside a per-tenant Runway mapping.
+SOURCEA_GRAPH_ALLOWED_ORGS = "sourcea"
+SOURCEA_N8N_ALLOWED_ORGS = "sourcea"
+SOURCEA_FOUNDER_ALLOWED_ORGS = "sourcea"
 MESH_SIMULATE = "0"
 RUNWAY_GOAL_BASE_URL = "https://noetfield-runway-live-staging.sina-kazemnezhad-ca.workers.dev"
 RUNWAY_TENANT_ID = "tenant-runway-staging"
