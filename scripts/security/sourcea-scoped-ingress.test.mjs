@@ -102,7 +102,13 @@ test("n8n migrated caller signs the exact request using its distinct workload ke
 
 test("a valid HMAC cannot expand a caller's tenant or bypass absent org configuration", async () => {
   const crossTenantUrl = "https://executive-mesh/v1/executive/runs?org=othercompany";
-  const otherTenant = await signed("POST", body, crossTenantUrl, "graph-studio", GRAPH_SECRET);
+  const otherHeaders = await signServiceRequest("POST", crossTenantUrl, body, {
+    audience: "governor", caller: "graph-studio", org: "othercompany",
+    secret: GRAPH_SECRET,
+  });
+  const otherTenant = new Request(crossTenantUrl, {
+    method: "POST", headers: otherHeaders, body,
+  });
   // The signer can sign arbitrary org strings, but the workload policy refuses
   // to grant an uncommissioned tenant from the same HMAC key.
   const denied = await authorizeScopedIngress(otherTenant, env, "governor");
@@ -138,6 +144,8 @@ test("signed body org and nested organization ID cannot select another tenant", 
     "signed_body_tenant_mismatch");
   const correct = await signed("POST", JSON.stringify({
     event_id: "evt_consistent", organization_id: "sourcea",
+    event_type: "webpage.repair.requested",
+    payload: { task_type: "webpage_repair", target_url: "https://example.com/" },
   }));
   assert.equal((await authorizeScopedIngress(correct, env, "governor")).ok, true);
 });
