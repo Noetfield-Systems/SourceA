@@ -4,6 +4,7 @@
  */
 
 import { DurableObject } from "cloudflare:workers";
+import { authorizeScopedIngress, signServiceRequest } from "../../shared/scoped-ingress.mjs";
 import {
   SLICE1_MANIFESTS,
   WEBPAGE_REPAIR_L0_BLUEPRINT,
@@ -20,6 +21,9 @@ export interface Env {
   ASSETS: Fetcher;
   SUPABASE_URL?: string;
   SUPABASE_SERVICE_ROLE_KEY?: string;
+  SOURCEA_GRAPH_TO_GOVERNOR_KEY?: string;
+  SOURCEA_N8N_CALLER_KEY?: string;
+  SOURCEA_FOUNDER_CALLER_KEY?: string;
 }
 
 type RunRecord = {
@@ -226,12 +230,22 @@ export class GraphStudioCoordinatorDO extends DurableObject<Env> {
         },
       };
 
+      // Explicit workload identity across the service binding; never depend
+      // on a public workers.dev endpoint or implied binding authentication.
+      if (!this.env.SOURCEA_GRAPH_TO_GOVERNOR_KEY || this.env.SOURCEA_GRAPH_TO_GOVERNOR_KEY.length < 48) {
+        return Response.json({ error: "governor_service_identity_not_configured" }, { status: 503 });
+      }
+      const meshUrl = "https://executive-mesh/v1/executive/runs";
+      const meshBodyText = JSON.stringify(meshBody);
+      const signedHeaders = await signServiceRequest("POST", meshUrl, meshBodyText, {
+        audience: "governor", caller: "graph-studio", org: "sourcea",
+        secret: this.env.SOURCEA_GRAPH_TO_GOVERNOR_KEY,
+      });
       const meshRes = await this.env.EXECUTIVE_MESH.fetch(
-        "https://executive-mesh/v1/executive/runs",
-        {
+        meshUrl, {
           method: "POST",
-          headers: { "content-type": "application/json" },
-          body: JSON.stringify(meshBody),
+          headers: { "content-type": "application/json", ...signedHeaders },
+          body: meshBodyText,
         },
       );
       const meshText = await meshRes.text();
@@ -312,6 +326,14 @@ export default {
       url.pathname.startsWith("/v1/");
     if (!apiPath) {
       return env.ASSETS.fetch(request);
+    }
+    if (url.pathname !== "/health") {
+      const verified = await authorizeScopedIngress(request, env, "graph");
+      if (!verified.ok) {
+        return cors(Response.json({ error: verified.reason }, { status: verified.status }));
+      }
+      // A signed browser-side API call is intentionally unsupported:
+      // callers must use a trusted service-side signer, never expose keys to JS.
     }
     const id = env.GRAPH_STUDIO.idFromName("graph-studio-v1");
     const stub = env.GRAPH_STUDIO.get(id);
