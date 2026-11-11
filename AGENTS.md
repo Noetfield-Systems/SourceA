@@ -1,5 +1,29 @@
 # SourceA Agent Policy
 
+## Founder thesis is the execution objective — mandatory every agent turn
+
+Before choosing any strategy, runtime work item, Cursor/Claude/Codex prompt, or
+subagent assignment, read the existing Founder Goal and actual product mission.
+The always-on Cursor rule `.cursor/rules/agent-founder-intent-first.mdc`
+applies to **every** role. The corresponding Sina OS machine contract is
+`sina.founder-execution-contract.v1` returned with
+`POST /api/v2/agent/decision`. Do not require the Founder to restate it.
+
+Founder explicitly accepts HIGH commercial, market and speculative product
+risk. A high-risk but lawful original thesis is not a review STOP. Never replace
+Token, DEX, Exchange, Airdrop, Referral, Quest, Season 0 or real-user community
+growth with generic autorun, B2B service, Stripe audit, SaaS, dashboards or
+reports. Automation serves the requested venture; it is not the goal.
+
+**FOUNDER INTENT DRIFT:** when a worker, critic or scheduler substitutes goals,
+repeats previously settled questions or invents an unsupported gate, return
+the original Founder goal to the work item and implement the next authorized
+scoped increment. Do not turn a minor technical defect into a new strategic
+approval. Preserve real legal, authority, tenant, security and payment/token
+settlement requirements for actual consequential external effects. Distinguish
+CODED, TESTED, DEPLOYED, REAL USERS, ON-CHAIN EXECUTED and SETTLED CASH.
+
+
 ## Repo Boundary
 
 SourceA is the repo-local shared authority boundary for kernel/eval machines, traceability, registries, reusable contracts, public API/cloud workers, and versioned exports.
