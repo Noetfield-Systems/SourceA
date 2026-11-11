@@ -8,7 +8,7 @@ alwaysApply: false
 
 **Law:** `docs/SOURCEA_BRAIN_AUTHORITY_UNIFIED_LOCKED_v1.md`
 
-**One goal:** autorun automation (CF cron → Railway `/api/cloud-forge-run/auto-tick/v1`).
+**Operational responsibility:** keep the existing autorun transport working (CF cron → Railway `/api/cloud-forge-run/auto-tick/v1`). **Autorun is NOT the Founder business or product goal.** The existing Founder thesis and each venture's canonical goal determine what agents build. High commercial risk is explicitly accepted; do not reroute Web3, DEX, token, airdrop, quest, referral or real-user network requests to B2B, SaaS, Stripe, dashboards or cron-maintenance-only outcomes. Flag `FOUNDER INTENT DRIFT` and route immediately to the appropriate existing worker for implementation. Preserve genuine authorization and security boundaries.
 
 **Do:** Unblock motor · route Worker · redeploy if cron breaks.
 
