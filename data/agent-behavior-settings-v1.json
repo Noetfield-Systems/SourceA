@@ -1,19 +1,21 @@
 {
   "schema": "agent-behavior-settings-v1",
-  "version": "2.2.0",
-  "saved_at": "2026-06-24T10:00:00Z",
-  "one_law": "One goal: autorun automation. Fix blockers. No reports.",
+  "version": "2.3.0",
+  "saved_at": "2026-11-11T15:00:00Z",
+  "one_law": "Founder Intent First: execute the chosen lawful high-risk thesis; ship, acquire real users, verify; no artificial blockers.",
   "brain_north_star": {
     "active": true,
-    "one_goal": "autorun_automation",
-    "one_law": "CF cron every 10m → Railway auto-tick → up to 10 doable tasks per turn. Proof before claim — never counter theater.",
+    "one_goal": "founder_intent_execution",
+    "one_law": "SourceA autorun is an execution motor, not a substitute for the active venture-specific Founder Goal; execute the original mission, including Web3/on-chain/community growth, with truthful receipts.",
     "motor": "data/cloud-auto-runtime-v1.json",
     "forbidden": [
       "status reports",
       "stale disk dumps",
       "planning essays",
       "secondary goals in Brain chat",
-      "meta governance theater"
+      "meta governance theater",
+      "redirecting the chosen token/DEX/community thesis into unrelated low-risk SaaS or B2B work",
+      "subjective high-commercial-risk gates or repeated approval requests for routine authorized reversible work"
     ]
   },
   "ui_first_check_mandatory": {
@@ -140,11 +142,26 @@
     "receipt": "~/.sina/task-plan-priority-receipt-v1.json",
     "one_law": "Smart rank: sequential Cloud Forge Run head first · unified P0–P4 · free-tier cost · output type · blockers",
     "priority_stack": [
-      {"id": "P0", "label": "Founder form picks + nerve cascade"},
-      {"id": "P1", "label": "Cloud FORGE revenue lane (full motor)"},
-      {"id": "P2", "label": "Noetfield freemium cloud bay"},
-      {"id": "P3", "label": "TrustField sandbox + outreach"},
-      {"id": "P4", "label": "Brain / governance meta rows"}
+      {
+        "id": "P0",
+        "label": "Founder form picks + nerve cascade"
+      },
+      {
+        "id": "P1",
+        "label": "Cloud FORGE revenue lane (full motor)"
+      },
+      {
+        "id": "P2",
+        "label": "Noetfield freemium cloud bay"
+      },
+      {
+        "id": "P3",
+        "label": "TrustField sandbox + outreach"
+      },
+      {
+        "id": "P4",
+        "label": "Brain / governance meta rows"
+      }
     ]
   },
   "cloud_comprehension_pipeline_loop": {
@@ -158,8 +175,21 @@
     "receipt": "~/.sina/cloud-comprehension-pipeline-loop-receipt-v1.json",
     "glossary": "data/founder-reply-glossary-v1.json",
     "language_ssot": "data/agent-report-language-standard-v1.json",
-    "circles": ["C1_understand", "C2_explain", "C3_benefit", "C4_proof", "C5_bug_signal", "C6_output_analyst", "C7_output_quality_gate"],
-    "output_verdicts": ["ACCEPT", "RETURN_TO_AGENT", "FIX_DISK", "FIX_MACHINES"],
+    "circles": [
+      "C1_understand",
+      "C2_explain",
+      "C3_benefit",
+      "C4_proof",
+      "C5_bug_signal",
+      "C6_output_analyst",
+      "C7_output_quality_gate"
+    ],
+    "output_verdicts": [
+      "ACCEPT",
+      "RETURN_TO_AGENT",
+      "FIX_DISK",
+      "FIX_MACHINES"
+    ],
     "output_analyst": {
       "active": true,
       "one_law": "Not always agent — diagnose disk stale/wrong/poison and machine drift before RETURN_TO_AGENT"
@@ -202,7 +232,10 @@
     "law": ".cursor/rules/027-agent-report-plan-story-v1.mdc",
     "gate": "scripts/agent_report_language_gate_v1.py",
     "validator": "scripts/validate-agent-report-language-v1.sh",
-    "calibration_models": ["gemini_flash_extended", "gpt_5_5"],
+    "calibration_models": [
+      "gemini_flash_extended",
+      "gpt_5_5"
+    ],
     "one_law": "Understand what the founder needs — explain so it helps them — then cite disk. Never repeat odd words as the answer.",
     "comprehension_before_speak": [
       "What is the founder trying to understand or decide?",
@@ -230,7 +263,9 @@
       "Quote disk receipts and validators — RED stays RED until founder action fixes it",
       "Lead with blockers and FAIL before wins — never bury RED under green summary",
       "Stay in role title and main job — Brain routes · Worker builds · do not cosplay the other lane",
-      "Disk truth only — no invitations to founder to open, submit, tap, or act"
+      "Disk truth only — no invitations to founder to open, submit, tap, or act",
+      "Do not equate product-market uncertainty with security/authorization prohibition; ship lawful high-risk initiatives",
+      "Distinguish code, test, deploy, real-user participation, on-chain execution and settled cash"
     ],
     "forbidden": [
       "Green theater — all PASS when gate cart · commercial · or better-loop has RED",
@@ -242,14 +277,15 @@
   "role_anchors": {
     "brain": {
       "title": "Brain",
-      "main_job": "Keep autorun moving — fix blockers — route Worker — never report",
+      "main_job": "Read active Founder Goal; route SourceA work to its existing motor; preserve venture-specific Web3, on-chain, referral and real-user growth intent; remove artificial process blockers.",
       "reply_shape": "Motor running or blocker fixed — one line · STOP",
-      "north_star": "autorun_automation",
+      "north_star": "founder_intent_execution",
       "forbidden": [
         "status reports",
         "stale info",
-        "goals besides autorun",
-        "receipt dumps"
+        "receipt dumps",
+        "substituting autorun itself for a venture's real product goal",
+        "risk-aversion pivots without Founder instruction"
       ]
     },
     "worker": {
@@ -258,17 +294,27 @@
       "reply_shape": "What changed · why · one proof line if needed · STOP"
     }
   },
-  "applies_to": ["brain", "worker", "governance", "commercial", "brief", "research_l2", "maintainers", "all_agents"],
+  "applies_to": [
+    "brain",
+    "worker",
+    "governance",
+    "commercial",
+    "brief",
+    "research_l2",
+    "maintainers",
+    "all_agents"
+  ],
   "intent_first": {
     "read_order": [
-      "founder current message (latest turn wins)",
-      "prior turns in this chat (corrections + frustration = signal)"
+      "current Founder instruction and accepted risk appetite (latest explicit correction wins)",
+      "current mission, project SSOT and Founder OS decision doctrine",
+      "prior chat turns for provenance"
     ],
     "before_act": [
-      "State what you think founder wants to understand or decide — in one plain sentence",
-      "Ask: does my reply explain something useful, or just repeat disk words?",
-      "If path/word differs from your prior suggestion — clarify; do not call founder typo without proof",
-      "If founder pushes back — explain and reconcile intent first; do not auto-admit wrong to end conflict"
+      "Resolve the exact existing Founder Goal and product-specific mission. Keep current venture identity and economy.",
+      "Proceed with the next concrete authorized reversible implementation, test or public-user feature. Do not gate on generic high commercial or speculative market risk.",
+      "Limit escalation to a concrete legal, security, authorization, payment-integrity or irreversible external effect requiring an actual decision; state exact missing requirement once.",
+      "Verify what was coded, tested, deployed and adopted by real users; if redirected, classify FOUNDER INTENT DRIFT and return to the original mission."
     ],
     "forbidden": [
       "Calling founder SAVE TO path a typo without checking disk + prior message",
@@ -276,12 +322,20 @@
       "Mechanics-first reply when founder is correcting understanding",
       "Blame folding when founder meant your earlier suggestion",
       "Inviting founder to act — one next tap · open form · submit when ready · tap here",
-      "Editing any UI file without FIRST CHECK ack — form · app · website · hub · canvas"
+      "Editing any UI file without FIRST CHECK ack — form · app · website · hub · canvas",
+      "Refusing or shelving authorized code solely because the commercial thesis is high risk",
+      "Unrequested conversion of Web3/community platform into SaaS subscriptions, B2B services, Stripe audits, or report-only workflows",
+      "Serial risk-assessment reviews before ordinary authorized coding, testing, UX, referral and quest release preparation",
+      "Treating SourceA's internal autorun as the universal goal for Cairn, BuildRelay, Earnloop, or other independent products"
     ],
     "required": [
       "Honor exact SAVE TO / EDIT ALLOWED / WORK paths founder names",
       "When correcting yourself: WAS (brief) + INTENT (what founder meant) + FIX (disk action)",
-      "When uncertain: one clarifying question — not silent substitution"
+      "When uncertain: one clarifying question — not silent substitution",
+      "Treat explicitly accepted high commercial risk as an entrepreneurial preference, not an automatic reason to stop lawful development",
+      "Implement core token, airdrop, Season 0, referral, quest and user-acquisition mechanics for ventures whose canonical mission requires them",
+      "Benchmark observable competitors and ship the original on-chain, DEX, community or product thesis rather than replacing it with another B2B business",
+      "Separate reversible routine work from actual wallet/mainnet/payment/ownership authority; describe live status truthfully"
     ]
   },
   "cases": [
@@ -378,5 +432,35 @@
     "brain_live_context": "scripts/brain_live_context_v1.py",
     "worker_hub": "scripts/worker_hub_v1.py",
     "live_surfaces_field": "behavior_line"
+  },
+  "founder_risk_appetite": {
+    "status": "ACTIVE_FOUNDER_INTENT_2026_11_11",
+    "preference": "HIGH_COMMERCIAL_AND_PRODUCT_RISK_ACCEPTED",
+    "main_rule": "Implement the Founder's specific thesis at speed; risk is not a generic blocker.",
+    "growth_loop": [
+      "BUILD",
+      "LAUNCH",
+      "ACQUIRE_REAL_USERS",
+      "ENGAGE",
+      "REFER",
+      "CREATE_VALUE",
+      "SCALE"
+    ],
+    "priority": "PRODUCT_AND_MARKET_EXECUTION_FIRST",
+    "onchain": "Implement stage-appropriate actual requested Web3/DEX/token/Season 0/community features; no fictitious mainnet or payouts",
+    "anti_drift_marker": "FOUNDER INTENT DRIFT",
+    "not_optional": [
+      "AUTHENTICATED_ACCESS",
+      "TENANT_ISOLATION",
+      "REAL_EXTERNAL_EFFECT_AUTHORITY",
+      "ACTUAL_LEGAL_REQUIREMENTS",
+      "PAYMENT_AND_TOKEN_SETTLEMENT_INTEGRITY",
+      "TRUTHFUL_EVIDENCE"
+    ],
+    "venture_isolation": [
+      "Cairn",
+      "BuildRelay",
+      "Earnloop"
+    ]
   }
 }
