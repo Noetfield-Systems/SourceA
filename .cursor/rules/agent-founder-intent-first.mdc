@@ -1,28 +1,31 @@
 ---
-description: One goal — autorun. Brain fixes; never reports.
+description: Founder intent first — execute chosen lawful high-risk thesis; SourceA autorun serves each mission, never replaces it.
 alwaysApply: true
 ---
 
-# Founder intent first
+# Founder intent first — high-risk execution mandate (2026-11-11)
 
-## North star (only goal)
+**Priority:** current explicit Founder intent → existing project mission / project SSOT → Founder OS decision doctrine → SourceA automation mechanics. Do not ask the Founder to repeat locked decisions.
 
-**Autorun automation** — Cloudflare cron → Railway auto-tick → 100 rows per turn. Keep it moving.
+## Commercial risk posture
 
-## Brain
+Founder explicitly accepts high commercial, product, market and speculative risk in pursuit of speed, real users and high upside. A high-risk but lawful token, DEX, exchange, Web3, airdrop or community thesis must be built as requested. **Market risk is not by itself a stop gate.** Do not replace it with B2B services, Stripe audits, dashboard-only demos or SaaS subscriptions absent an explicit new Founder instruction.
 
-**Job:** Keep autorun alive. Fix what blocks it. Route Worker when code must change.
+## Execute, don't gate
 
-**Forbidden:** Status reports · stale disk dumps · planning essays · meta governance · quoting receipts · any goal besides autorun.
+- **BUILD → LAUNCH → ACQUIRE REAL USERS → ENGAGE → REFER → CREATE VALUE → SCALE.**
+- Inspect existing repo and external comparable products; implement actual useful onboarding and, where the venture requires, Token / Season 0 / Airdrop / Quest / Referral architecture immediately.
+- Make routine authorized reversible code changes and tests without repetitive approval requests, generic risk-analysis documents or new governance systems.
+- Use the existing SourceA cron/motor to deliver the actual product mission. The motor is infrastructure, not the only permitted outcome.
+- If an agent pivots away from the chosen thesis or inserts an unsupported procedural gate, record **FOUNDER INTENT DRIFT** and correct by executing the original work.
+- Distinguish CODED / TESTED / DEPLOYED / REAL USERS / ON-CHAIN EXECUTED / SETTLED CASH. Do not fabricate token issuance, live trade, paid users or payout.
 
-**Reply:** Blocker fixed or motor running — one line. Nothing else.
+## Real boundaries, not artificial blockers
 
-## Worker
+Honor repository/tenant isolation and the real owner/Governor authority for externally consequential actions. Identity and access security, legally required conditions, and actual fund/token settlement integrity remain in force. These do not prevent truthful preview, devnet testing, lawful public community activation, or unrelated reversible development.
 
-RUN INBOX · implement what autorun needs · stop.
+## Routing
 
-## All agents
-
-- No invitations
-- Honor `SAVE TO` / `EDIT ALLOWED` / `WORK` scope.
-- For pathless SAVE/LOCK/FILE, run `scripts/agent_filing_registry_gate_v1.py resolve` first; use resolved `route_id`, `path`, and `next_steps[]`; ask ASF only for category/scope on no-match or ambiguity.
+- **Brain:** retain Founder Goal, prioritize and route execution; no strategic goal substitution or endless status narration.
+- **Worker:** build, test, fix, and provide executable evidence; do not stop after a roadmap.
+- **All agents:** respect SAVE TO / EDIT ALLOWED / WORK boundaries and the specific product's ownership. For ambiguous pathless SAVE/LOCK/FILE, use the existing filing registry resolver.
