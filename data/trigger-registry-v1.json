@@ -577,6 +577,23 @@
           "workflow_dispatch"
         ]
       }
+    },
+    {
+      "trigger_id": "SA-T-l0-graph-refresh",
+      "system": "sourcea",
+      "kind": "event",
+      "schedule": null,
+      "target": "Refresh SourceA L0 repo graph from current main using canonical builder",
+      "valid_in_verified_window": true,
+      "owner_workflow": "l0-graph-refresh",
+      "live_probe": {
+        "type": "gha_workflow",
+        "path": ".github/workflows/l0-graph-refresh.yml",
+        "expects": [
+          "push",
+          "workflow_dispatch"
+        ]
+      }
     }
   ],
   "slo_targets": {
@@ -655,6 +672,9 @@
       "SA-T-n8n-pulse-dispatch": {
         "max_lag_minutes": 1440
       }
+    },
+    "SA-T-l0-graph-refresh": {
+      "max_lag_minutes": 1440
     }
   }
 }
