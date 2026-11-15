@@ -1,0 +1,50 @@
+name: SourceA L0 repo graph current-index refresh
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/l0-graph-refresh.yml"
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: sourcea-l0-graph-refresh
+  cancel-in-progress: false
+jobs:
+  rebuild-index:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+      - name: Regenerate ignored full graph index and tracked compact report from current repo
+        run: |
+          set -euo pipefail
+          python3 scripts/build_repo_graph_v1.py
+          python3 scripts/query_repo_graph_v1.py packages
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          from datetime import datetime,timezone
+          p=Path("graph-out/graph_index_v1.json")
+          d=json.loads(p.read_text())
+          assert d["schema"]=="l0_repo_graph_index_v1"
+          assert d["stats"]["total_files"]>1000
+          assert d["stats"]["subsystem_count"]>30
+          assert "Generated (last indexed)" in Path("graph-out/GRAPH_REPORT.md").read_text()
+          assert (datetime.now(timezone.utc)-datetime.fromisoformat(d["generated_at"].replace("Z","+00:00"))).total_seconds()<600
+          print("SOURCEA_L0_FRESH_GRAPH_PASS files",d["stats"]["total_files"],"edges",d["stats"]["total_edges"])
+          PY
+      - name: Commit only generated compact report when current index differs
+        run: |
+          set -euo pipefail
+          git config user.name "SourceA Graph Index Automation"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add graph-out/GRAPH_REPORT.md
+          if git diff --cached --quiet; then
+            echo "GRAPH_REPORT_UNCHANGED"
+            exit 0
+          fi
+          git commit -m "chore(sourcea): refresh L0 repo graph report from current main"
+          git push origin HEAD:main
