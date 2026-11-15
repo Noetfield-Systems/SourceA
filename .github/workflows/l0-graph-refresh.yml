@@ -46,5 +46,8 @@ jobs:
             echo "GRAPH_REPORT_UNCHANGED"
             exit 0
           fi
+          BRANCH="chore/sourcea-l0-generated-${GITHUB_RUN_ID}"
+          git switch -c "$BRANCH"
           git commit -m "chore(sourcea): refresh L0 repo graph report from current main"
-          git push origin HEAD:main
+          git push origin "HEAD:refs/heads/$BRANCH"
+          echo "SOURCEA_L0_REPORT_BRANCH=$BRANCH"
