@@ -230,3 +230,39 @@ h3{letter-spacing:-.035em}
 
 @media(max-width:680px){.nav-join{display:none}.nav-actions{margin-left:auto}.site-header-inner{gap:10px}}
 @media(max-width:370px){.top-bar a{display:none}}
+
+
+/* Witness cultural commons — original brand palette, independent narrative UI. */
+.story-editorial{position:relative;overflow:hidden}
+.story-editorial::before{content:'“';position:absolute;right:19px;top:47px;color:var(--original-primary);opacity:.09;font:700 102px/1 Georgia,serif;pointer-events:none}
+.story-editorial h3{position:relative}
+.story-editorial p{position:relative}
+.story-editorial .card-cta{border:0;background:transparent;padding:0;cursor:pointer;text-align:left;font:600 12px var(--display)}
+.witness-world-hero{background:radial-gradient(ellipse at 84% 9%,rgba(14,116,144,.09),transparent 50%),linear-gradient(130deg,var(--void),var(--original-wash))}
+.witness-prologue{background:var(--original-surface)}
+.witness-prologue em{font-family:Georgia,serif;color:var(--original-primary)}
+.witness-character{display:flex;flex-direction:column;min-width:0}
+.character-symbol{display:grid;place-items:center;border:1px solid var(--original-line);background:var(--original-wash);color:var(--original-primary);font:600 25px/1 Georgia,serif;letter-spacing:-.04em;width:67px;height:76px;border-radius:5px;margin-top:16px}
+.witness-character h3{margin-top:15px}
+.character-quote{font:italic 500 14px/1.7 Georgia,serif;color:var(--text)!important;margin:15px 0 9px}
+.witness-character .role-tag{margin-top:auto;align-self:start;color:var(--original-primary);background:var(--original-chip);border:1px solid var(--original-line);padding:7px 10px;border-radius:7px;letter-spacing:.05em}
+.witness-world-choice{display:grid;grid-template-columns:1fr 1fr;gap:23px;align-items:start}
+.witness-world-choice>div{border:1px solid var(--original-line);background:var(--original-surface);border-radius:12px;padding:30px;min-width:0}
+.witness-world-choice h3{font-size:24px;margin:14px 0 15px}
+.witness-world-choice p{color:var(--soft)}
+.witness-choice-buttons{display:grid;gap:10px;margin-top:23px}
+.witness-choice-buttons button{width:100%;display:flex;justify-content:space-between;align-items:center;gap:12px;background:var(--original-wash);border:1px solid var(--original-line);color:var(--text);border-radius:9px;padding:14px 15px;text-align:left;font:600 12px/1.4 var(--display);cursor:pointer}
+.witness-choice-buttons button span{font-size:9px;letter-spacing:.1em;color:var(--muted)}
+.witness-choice-buttons button:hover,.witness-choice-buttons button[aria-pressed="true"]{border-color:var(--original-primary);background:var(--original-chip)}
+.witness-choice-buttons button[aria-pressed="true"] span{color:var(--original-primary)}
+.witness-choice-result{background:#111c2b!important;border-color:#27384a!important}
+.witness-choice-result h3{color:#eaf3fc}
+.witness-choice-result p{color:#b7c9d8}
+.witness-choice-result .card-label{color:#7dd3fc}
+.witness-choice-result .smallcopy{border-top:1px solid #2d4055;margin-top:20px;padding-top:15px;color:#8bafc7}
+.witness-choice-result .btn-outline{background:transparent;border-color:#3c566d;color:#edf7ff;margin-top:20px}
+.witness-choice-result .btn-outline:hover{border-color:#7dd3fc;color:#7dd3fc}
+.witness-choice-result .card-cta{color:#7dd3fc}
+.witness-choice-result button:disabled{opacity:.5;cursor:default}
+@media(max-width:800px){.witness-world-choice{grid-template-columns:1fr}.witness-world-choice>div{padding:25px}}
+@media(max-width:390px){.witness-world-choice>div{padding:19px}.witness-choice-buttons button{font-size:11px}.witness-character{padding:22px}}
