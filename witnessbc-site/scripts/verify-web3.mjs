@@ -44,4 +44,12 @@ const script=fs.readFileSync(path.join(out,'assets','app.js'),'utf8');
 assert.doesNotMatch(script,/Stripe|Noetfield|mailto:|fetch\s*\(/i);
 assert.match(script,/witnessbc\.com\/genesis/);
 assert.match(script,/farcaster|telegram/i);
+for(const rel of ['data/stripe-links-v1.json','scripts/inject_stripe_links_v1.py','scripts/sync_witnessbc_stripe_payment_links_v1.py','pricing.html','toolkits.html','content/pricing.html','content/toolkits.html']){
+ assert.ok(!fs.existsSync(path.join(root,rel)),'Revoked checkout or B2B page must not exist in current source: '+rel);
+}
+const recipe=fs.readFileSync(path.join(root,'scripts/run-recipe.sh'),'utf8');
+assert.match(recipe,/build-web3\.mjs/,'Canonical run recipe must build the new Web3 portal');
+assert.doesNotMatch(recipe,/inject_stripe|deploy_witnessbc_v1\.sh --skip-recipe/,'No legacy Stripe staging allowed');
+const activation=fs.readFileSync(path.join(root,'scripts/activate_witnessbc_full_v1.sh'),'utf8');
+assert.match(activation,/revoked by the Founder/,'Old activation command must stay tombstoned');
 console.log('PASS Witness Web3-only release: 10 pages, 4 assets, no legacy checkout, institutional content or false user/economic claims.');
