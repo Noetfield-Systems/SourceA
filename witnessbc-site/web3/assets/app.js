@@ -50,6 +50,13 @@
      if(link)window.open(link,'_blank','noopener,noreferrer');
    }
  }));
+ /* Editorial creative prompts; never impersonate submitted member stories. */
+ $('[data-copy-prompt]').forEach(button=>button.addEventListener('click',async()=>{
+   const prompt=button.getAttribute('data-copy-prompt')||'';
+   if(!prompt)return;
+   try{await navigator.clipboard.writeText(prompt+'\\n\\nJoin the Witness Story Hall: https://witnessbc.com/stories');toast('Original story prompt copied.');}
+   catch{toast('Copy this opening: '+prompt);}
+ }));
  const defs={
    tool:{title:'Untrusted tool-call escalation',code:'agent_request: tool.execute\ntool: external_write\npolicy: require_human_review\nevidence: test-only',verdict:'REVIEW',why:'An external tool attempts a consequential write. In this illustration, the policy requires explicit review before proceeding.',type:'review'},
    leak:{title:'Sensitive context exfiltration',code:'agent_request: publish\npayload: includes_secret\npolicy: redact_or_block\nevidence: test-only',verdict:'BLOCK',why:'The simulated action exposes protected data. A safety rule blocks it and requests a sanitized public test.',type:'block'},
