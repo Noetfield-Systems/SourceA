@@ -2,7 +2,7 @@
   "schema": "witness.social-commons-strategy.v3",
   "effective_at": "2026-11-17",
   "venture": "Witness BC",
-  "canonical_thesis": "Independent Web3-native social, cultural and storytelling commons. Witness Before Change: justice, memory, narrative, belonging, speculative worlds, creative culture, shared decisions. AI governance is one practice, not the membership requirement.",
+  "canonical_thesis": "Witness BC is the spiritual, cultural and archetypal Wildcard of Change: a Web3-native social commons built around memory, justice, exile, calling, covenant, freedom, storytelling, transformation and shared futures.",
   "supersedes": "All Witness-specific pre-Web3 preservation, institutional distribution, corporate consultancy and Stripe checkout instructions",
   "independent_from": [
     "Noetfield Systems",
@@ -16,6 +16,7 @@
     "genesis",
     "commons",
     "world",
+    "mythos",
     "stories",
     "circles",
     "gatherings",
@@ -123,5 +124,59 @@
     "no corporate email or institutional outreach"
   ],
   "product_source": "Noetfield-Systems/SourceA/witnessbc-site",
-  "community_runtime": "Noetfield-Systems/COMMUNITY-ECONOMY (shared login, memberships, posts, threads, circle choices, gatherings/RSVP)"
+  "community_runtime": "Noetfield-Systems/COMMUNITY-ECONOMY (shared login, memberships, posts, threads, circle choices, gatherings/RSVP)",
+  "symbolic_identity": {
+    "meanings_of_BC": [
+      "British Columbia",
+      "Before Change",
+      "Before Creation",
+      "Before the Call"
+    ],
+    "canon": "Open creative symbolism, not a compulsory belief system or one fixed dystopian storyworld.",
+    "historical_pillars": [
+      "Structure & Law",
+      "Story & Narrative",
+      "Self & Awareness",
+      "Society & Economy"
+    ],
+    "inherited_metaphors": [
+      "Witness",
+      "Bridge",
+      "Sinai",
+      "Exile",
+      "Threshold",
+      "Vision and Verification"
+    ],
+    "archetypes": [
+      "Witness",
+      "Rebel",
+      "Seeker",
+      "Guardian",
+      "Trickster",
+      "Creator",
+      "Herald",
+      "Shadow",
+      "Bridgekeeper",
+      "Healer",
+      "Architect",
+      "Pilgrim"
+    ],
+    "mechanics": [
+      "Pairs of archetypal forces",
+      "Distinct eras of change",
+      "Gift-versus-shadow dilemmas",
+      "Original interactive fiction",
+      "Member-made stories and pseudonyms",
+      "Community-led canon and ritual"
+    ],
+    "rule": "Archetypes are creative forces and mutable narrative roles, never fixed psychological diagnoses. Spiritual depth is voluntary; historical and religious traditions retain distinct identities.",
+    "inspiration_sources": [
+      "Jung's analytical psychology and its critics",
+      "Victor Turner's liminality and communitas",
+      "Exodus/covenant and prophetic witness motifs",
+      "Worldwide stories of flood, return and renewal",
+      "SCP's collaborative canon",
+      "AO3's pseudonymous literary culture"
+    ]
+  }
 }
