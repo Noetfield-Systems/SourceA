@@ -30,7 +30,7 @@ for must in [
     "https://community-economy-production.up.railway.app/",
     "#/pilot/witness-ai-builders",
     "wallet required",
-    "submission",
+    "submit",
     "review",
     "toolkits.html",
     "pricing.html",
