@@ -89,6 +89,60 @@
      catch{toast('Share this path: https://witnessbc.com/world?path='+selected)}
    });
  }
+
+ /* The mythic Wildcard is a creative engine, never a diagnosis or oracle. */
+ const mythVoices={
+   witness:{name:'Witness',voice:'carries evidence of what others were told to forget',shadow:'can watch a tragedy without intervening'},
+   rebel:{name:'Rebel',voice:'refuses the law that has lost its conscience',shadow:'may tear down the only shelter people have'},
+   seeker:{name:'Seeker',voice:'follows an impossible question beyond the mapped roads',shadow:'might never return to those who wait'},
+   guardian:{name:'Guardian',voice:'protects the vulnerable and keeps a fragile promise',shadow:'may mistake safety for permission to control'},
+   trickster:{name:'Trickster',voice:'laughs at a certainty nobody was allowed to question',shadow:'might burn trust to win a clever argument'},
+   creator:{name:'Creator',voice:'imagines a door where there was only a wall',shadow:'might love a beautiful idea more than the people it changes'},
+   herald:{name:'Herald',voice:'announces a turning point before anyone is ready',shadow:'may mistake volume for truth'},
+   shadow:{name:'Shadow',voice:'reveals the denied half of an admired story',shadow:'can become captive to resentment'},
+   bridgekeeper:{name:'Bridgekeeper',voice:'offers passage between enemies who share no language',shadow:'may erase injustice in the name of peace'},
+   healer:{name:'Healer',voice:'tends the wound a changing world would rather hide',shadow:'might demand loyalty from those they help'},
+   architect:{name:'Architect',voice:'draws the structure of an order not yet born',shadow:'might create a perfect system without room for error'},
+   pilgrim:{name:'Pilgrim',voice:'crosses a wilderness guided by an unfinished promise',shadow:'might follow a call without questioning its source'}
+ };
+ const mythA=$('#witnessFirstForce'),mythB=$('#witnessSecondForce'),mythEpoch=$('#witnessEpoch');
+ const mythMake=$('#witnessMakeMyth'),mythCopy=$('#witnessCopyMyth');
+ const mythTitle=$('#witnessMythTitle'),mythStory=$('#witnessMythStory'),mythQuestion=$('#witnessMythQuestion');
+ const ageDetails={
+   exile:['the roads beyond the last border','Who belongs to a home that no longer exists?'],
+   flood:['the night when the old records sank','What deserves to be carried across catastrophe?'],
+   covenant:['the meeting at the mountain without a throne','What responsibility comes with freedom?'],
+   fall:['the instant a city’s trusted system stopped working','What should remain after authority collapses?'],
+   revelation:['the hour when a hidden truth reached everyone','Who has the right to interpret what is revealed?'],
+   renewal:['the first day of a community without old titles','How can a new order avoid repeating the old one?']
+ };
+ let currentMyth='';
+ if(mythA&&mythB&&mythEpoch&&mythMake&&mythCopy&&mythTitle&&mythStory&&mythQuestion){
+   function renderMyth(a,b,age){
+     if(!mythVoices[a]||!mythVoices[b]||!ageDetails[age])return;
+     const first=mythVoices[a],second=mythVoices[b],period=ageDetails[age];
+     const same=a===b;
+     const title=same?'The Double Face of the '+first.name:'Between the '+first.name+' and the '+second.name;
+     const fragment=same
+       ?'At '+period[0]+', the '+first.name+' met an image of their own future. The first '+first.voice+'; the second '+first.shadow+'. Neither could cross the threshold until they admitted what both had concealed.'
+       :'At '+period[0]+', the '+first.name+' '+first.voice+'. The '+second.name+' stood at the crossing and warned that the same power '+second.shadow+'. Neither was entirely right. The people waiting beyond the gate would have to live with their choice.';
+     mythTitle.textContent=title;
+     mythStory.textContent=fragment;
+     mythQuestion.textContent=period[1]+' What is the smallest act of courage that could change this outcome?';
+     currentMyth='WITNESS / WILDCARD OF CHANGE / '+age.toUpperCase()+'\n'+title+'\n\n'+fragment+'\n\n'+mythQuestion.textContent+'\n\nWrite a different ending: https://witnessbc.com/mythos';
+     mythCopy.disabled=false;
+     try{localStorage.setItem('witness-myth-state',JSON.stringify({a,b,age}))}catch{}
+   }
+   mythMake.addEventListener('click',()=>renderMyth(mythA.value,mythB.value,mythEpoch.value));
+   mythCopy.addEventListener('click',async()=>{if(!currentMyth)return;try{await navigator.clipboard.writeText(currentMyth);toast('Your mythic story seed copied.');}catch{toast('Clipboard unavailable. Select your story text to share.');}});
+   try{
+     const saved=JSON.parse(localStorage.getItem('witness-myth-state')||'null');
+     if(saved&&mythVoices[saved.a]&&mythVoices[saved.b]&&ageDetails[saved.age]){
+       mythA.value=saved.a;mythB.value=saved.b;mythEpoch.value=saved.age;
+       renderMyth(saved.a,saved.b,saved.age);
+     }
+   }catch{}
+ }
  const defs={
    tool:{title:'Untrusted tool-call escalation',code:'agent_request: tool.execute\ntool: external_write\npolicy: require_human_review\nevidence: test-only',verdict:'REVIEW',why:'An external tool attempts a consequential write. In this illustration, the policy requires explicit review before proceeding.',type:'review'},
    leak:{title:'Sensitive context exfiltration',code:'agent_request: publish\npayload: includes_secret\npolicy: redact_or_block\nevidence: test-only',verdict:'BLOCK',why:'The simulated action exposes protected data. A safety rule blocks it and requests a sanitized public test.',type:'block'},
