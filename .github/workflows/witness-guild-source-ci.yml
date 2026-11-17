@@ -33,7 +33,10 @@ jobs:
           test ! -f witnessbc-site/dist/deploy/pricing.html
           test ! -f witnessbc-site/dist/deploy/toolkits.html
           test ! -f witnessbc-site/dist/deploy/proof.html
-          ! grep -RniE 'buy[.]stripe[.]com|noetfield[.]com|mailto:|institutional alignment' witnessbc-site/dist/deploy --include='*.html'
+          if grep -RniE 'buy[.]stripe[.]com|noetfield[.]com|mailto:|institutional alignment' witnessbc-site/dist/deploy --include='*.html'; then
+            echo "::error::Forbidden legacy content in Witness Web3 release"
+            exit 1
+          fi
           test "$(find witnessbc-site/dist/deploy -name '*.html' | wc -l)" -eq 10
       - name: Install Chromium browser runtime
         run: |
