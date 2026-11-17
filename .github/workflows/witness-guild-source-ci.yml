@@ -42,7 +42,7 @@ jobs:
           npx playwright install --with-deps chromium
       - name: Verify desktop and mobile Web3 journeys
         run: |
-          python3 -m http.server 8091 --bind 127.0.0.1 --directory witnessbc-site/dist/deploy >/tmp/witness-web3-http.log 2>&1 &
+          node witnessbc-site/scripts/serve-web3.mjs >/tmp/witness-web3-http.log 2>&1 &
           node witnessbc-site/scripts/verify-web3-browser.mjs
       - name: Archive only the vetted Web3 artifact
         if: success()
