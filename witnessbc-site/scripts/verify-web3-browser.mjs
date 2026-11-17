@@ -41,13 +41,13 @@ try{
    await menu.click();
    assert.equal(await menu.getAttribute('aria-expanded'),'true');
    assert.ok(await page.locator('#mobileNav a[href="/world"]').isVisible());
-   await page.locator('#mobileNav a[href="/guild"]').click();
+   await page.locator('#mobileNav a[href="/world"]').click();
    await page.waitForURL('**/world');
    assert.match(await page.locator('h1').innerText(),/old world.*stopped remembering/is);
   }else{
    assert.ok(await page.locator('.desktop-nav a[href="/world"]').isVisible());
   }
-  const all=['genesis','commons','world','stories','circles','gatherings','fandom','collectibles','quests','arena','reputation','governance','economy','builders','manifesto','guild'];
+  const all=['genesis','commons','mythos','world','stories','circles','gatherings','fandom','collectibles','quests','arena','reputation','governance','economy','builders','manifesto','guild'];
   for(const name of all){
    const response=await page.goto(route(name),{waitUntil:'domcontentloaded'});
    assert.equal(response.status(),200,name+' HTTP '+width);
@@ -60,6 +60,20 @@ try{
   for(const xp of ['80 XP','150 XP','100 XP'])assert.ok((await page.locator('body').innerText()).includes(xp));
   await page.goto(route('genesis'),{waitUntil:'domcontentloaded'});
   assert.ok(await page.locator('a[href*="#/pilot/witness-ai-builders"]').count(),'Community Economy real pilot link');
+  await page.goto(route('mythos'),{waitUntil:'domcontentloaded'});
+  assert.equal(await page.locator('.witness-archetype-grid .card').count(),12,'Twelve mythic forces, not a fixed personality diagnosis');
+  await page.locator('#witnessFirstForce').selectOption('guardian');
+  await page.locator('#witnessSecondForce').selectOption('trickster');
+  await page.locator('#witnessEpoch').selectOption('covenant');
+  await page.locator('#witnessMakeMyth').click();
+  assert.equal(await page.locator('#witnessMythTitle').innerText(),'Between the Guardian and the Trickster');
+  assert.match(await page.locator('#witnessMythStory').innerText(),/meeting at the mountain/i);
+  assert.equal(await page.locator('#witnessCopyMyth').isEnabled(),true);
+  await page.reload({waitUntil:'domcontentloaded'});
+  assert.equal(await page.locator('#witnessFirstForce').inputValue(),'guardian','Mythic paradox saved locally');
+  await page.locator('#witnessSecondForce').selectOption('guardian');
+  await page.locator('#witnessMakeMyth').click();
+  assert.equal(await page.locator('#witnessMythTitle').innerText(),'The Double Face of the Guardian');
   await page.goto(route('world'),{waitUntil:'domcontentloaded'});
   assert.ok(await page.locator('.witness-character').count()===6,'Six original fictional Witness personalities');
   await page.locator('[data-world-choice="resist"]').click();
@@ -82,6 +96,6 @@ try{
   assert.ok((await page.locator('body').innerText()).includes('LOCAL SIMULATION ONLY'));
   assert.deepEqual(errors,[],width+'px JS errors');
   await page.close();
-  console.log('PASS WITNESS WEB3 '+width+'px: 17 routes, original Witness theme, interactive fiction, creative prompts, real Genesis links, 3 quests, policy interactions, navigation, no overflow/errors');
+  console.log('PASS WITNESS WEB3 '+width+'px: 18 routes, mythic paradox engine, original Witness theme, interactive fiction, creative prompts, real Genesis links, 3 quests, policy interactions, navigation, no overflow/errors');
  }
 }finally{await browser.close();}
