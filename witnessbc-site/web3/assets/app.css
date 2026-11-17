@@ -1,5 +1,5 @@
 
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
 :root{color-scheme:dark;--void:#080c14;--void-2:#0c1420;--panel:#111b27;--panel-hover:#182635;--line:rgba(219,239,233,.12);--line-heavy:rgba(219,239,233,.23);--text:#eef5f0;--soft:#a5b9b4;--muted:#79918e;--mint:#b8ffca;--mint-bright:#77fbb2;--gold:#dfba7b;--coral:#ecaa8b;--blue:#9ec6e0;--max:1232px;--display:'Space Grotesk','Arial',sans-serif;--body:'DM Sans','Arial',sans-serif}
 *{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:110px}body{margin:0;min-width:280px;color:var(--text);font:15px/1.65 var(--body);background:var(--void);-webkit-font-smoothing:antialiased}body::before{content:'';z-index:-2;position:fixed;inset:0;background:radial-gradient(ellipse 1000px 680px at 72% -15%,rgba(63,148,107,.11),transparent 75%),radial-gradient(ellipse 780px 660px at -15% 85%,rgba(53,84,134,.1),transparent 75%);pointer-events:none}body::after{content:'';z-index:-1;position:fixed;inset:0;background-image:linear-gradient(rgba(230,255,240,.018) 1px,transparent 1px),linear-gradient(90deg,rgba(230,255,240,.018) 1px,transparent 1px);background-size:76px 76px;mask-image:linear-gradient(to bottom,black,transparent 80%);pointer-events:none}
 a{color:inherit;text-decoration:none}button,input,textarea{font:inherit}button{cursor:pointer}a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{outline:2px solid var(--mint);outline-offset:4px}::selection{background:#b8ffca;color:#08130e}.wrap{width:min(var(--max),calc(100% - 72px));margin-inline:auto}.skip-link{position:fixed;z-index:999;top:-100px;left:18px;padding:12px 18px;background:var(--mint);color:var(--void)}.skip-link:focus{top:12px}
@@ -26,7 +26,7 @@ a{color:inherit;text-decoration:none}button,input,textarea{font:inherit}button{c
  * evidence-oriented control-plane panels. Not BuildRelay's green/orbit style.
  * Web3 changes product journeys, not the brand's existing visual identity.
  * ========================================================================== */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+
 :root{
  color-scheme:light;
  --void:#fff;--void-2:#f6f7fb;--panel:#fff;--panel-hover:#f8fafc;
