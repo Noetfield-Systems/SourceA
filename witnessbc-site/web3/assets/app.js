@@ -37,7 +37,7 @@
  let toastTimer;
  function toast(msg){if(!toastRoot)return;clearTimeout(toastTimer);toastRoot.textContent='';const e=document.createElement('div');e.className='toast';e.textContent=msg;toastRoot.append(e);toastTimer=setTimeout(()=>e.remove(),3300);}
  const inviteUrl='https://witnessbc.com/genesis';
- const shareText='Witness Genesis: build AI governance rules, complete Web3 community quests and earn human-reviewed reputation. Join Season Zero.';
+ const shareText='Witness BC: a community for stories, justice, creativity and change. Enter the Commons and help shape the next chapter.';
  $$('#shareLink,[data-share]').forEach(button=>button.addEventListener('click',async()=>{
    const action=button.getAttribute('data-share')||'copy';
    if(action==='copy'){
@@ -57,6 +57,38 @@
    try{await navigator.clipboard.writeText(prompt+'\\n\\nJoin the Witness Story Hall: https://witnessbc.com/stories');toast('Original story prompt copied.');}
    catch{toast('Copy this opening: '+prompt);}
  }));
+
+ const worldChoices={
+   remember:{title:'The Archive Leaves the Court',story:'Mira Ash takes the uncensored record into the Underarchive. By morning, every family in the city can hear the names of the disappeared. A thousand memories return—but the warning network marks the archivist as a traitor. The first Witness begins with truth.',cost:'Cost: The city now knows who carries the evidence. The question is who will keep them safe.'},
+   resist:{title:'The Night the Grid Went Silent',story:'Nox Vale carries the override across the Outlands and cuts the machines that revise public memory. For seven minutes, the citizens see the skyline without the filters. Then the hospitals lose their automated power. Freedom has arrived with an uncomfortable debt.',cost:'Cost: Resisting a system means deciding which lives must never become collateral.'},
+   rebuild:{title:'An Assembly Without a Throne',story:'Riven Grey and Orin Glass unfold the blueprint for a public assembly. At dawn, the first people arrive not to obey, but to argue about the rules. It is noisy, imperfect and slow. It is the first decision the city has made together in years.',cost:'Cost: Sharing power means accepting disagreement, mistakes and the need to repair them.'}
+ };
+ const worldTitle=$('#witnessWorldBranchTitle'),worldStory=$('#witnessWorldBranchStory'),worldCost=$('#witnessWorldBranchCost'),worldShare=$('#witnessShareBranch');
+ if(worldTitle&&worldStory&&worldCost&&worldShare){
+   let selected='';
+   function selectStory(path){
+     const data=worldChoices[path];
+     if(!data)return;
+     selected=path;
+     worldTitle.textContent=data.title;
+     worldStory.textContent=data.story;
+     worldCost.textContent=data.cost;
+     $('[data-world-choice]').forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.worldChoice===path)));
+     worldShare.disabled=false;
+     try{localStorage.setItem('witness-world-path',path)}catch{}
+   }
+   $('[data-world-choice]').forEach(button=>button.addEventListener('click',()=>selectStory(button.dataset.worldChoice)));
+   let saved='';
+   try{saved=localStorage.getItem('witness-world-path')||''}catch{}
+   if(worldChoices[saved])selectStory(saved);
+   worldShare.addEventListener('click',async()=>{
+     if(!selected)return;
+     const story=worldChoices[selected];
+     const message='WITNESS BEFORE CHANGE / MY STORY BRANCH: '+selected.toUpperCase()+'\n'+story.title+'\n'+story.story+'\n\nContinue the world: https://witnessbc.com/world';
+     try{await navigator.clipboard.writeText(message);toast('Your story branch copied.')}
+     catch{toast('Share this path: https://witnessbc.com/world?path='+selected)}
+   });
+ }
  const defs={
    tool:{title:'Untrusted tool-call escalation',code:'agent_request: tool.execute\ntool: external_write\npolicy: require_human_review\nevidence: test-only',verdict:'REVIEW',why:'An external tool attempts a consequential write. In this illustration, the policy requires explicit review before proceeding.',type:'review'},
    leak:{title:'Sensitive context exfiltration',code:'agent_request: publish\npayload: includes_secret\npolicy: redact_or_block\nevidence: test-only',verdict:'BLOCK',why:'The simulated action exposes protected data. A safety rule blocks it and requests a sanitized public test.',type:'block'},
