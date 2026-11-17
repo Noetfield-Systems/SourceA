@@ -51,7 +51,7 @@
    }
  }));
  /* Editorial creative prompts; never impersonate submitted member stories. */
- $('[data-copy-prompt]').forEach(button=>button.addEventListener('click',async()=>{
+ $$('[data-copy-prompt]').forEach(button=>button.addEventListener('click',async()=>{
    const prompt=button.getAttribute('data-copy-prompt')||'';
    if(!prompt)return;
    try{await navigator.clipboard.writeText(prompt+'\\n\\nJoin the Witness Story Hall: https://witnessbc.com/stories');toast('Original story prompt copied.');}
