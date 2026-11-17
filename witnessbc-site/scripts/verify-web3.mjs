@@ -44,7 +44,7 @@ const script=fs.readFileSync(path.join(out,'assets','app.js'),'utf8');
 assert.doesNotMatch(script,/Stripe|Noetfield|mailto:|fetch\s*\(/i);
 assert.match(script,/witnessbc\.com\/genesis/);
 assert.match(script,/farcaster|telegram/i);
-for(const rel of ['data/stripe-links-v1.json','scripts/inject_stripe_links_v1.py','scripts/sync_witnessbc_stripe_payment_links_v1.py','pricing.html','toolkits.html','content/pricing.html','content/toolkits.html']){
+for(const rel of ['index.html','proof.html','sources.html','contact.html','compare.html','lifecycle.html','platform.html','policy.html','learn.html','faq.html','content/index.html','content/proof.html','content/guild.html','data/stripe-links-v1.json','scripts/inject_stripe_links_v1.py','scripts/sync_witnessbc_stripe_payment_links_v1.py','pricing.html','toolkits.html','content/pricing.html','content/toolkits.html']){
  assert.ok(!fs.existsSync(path.join(root,rel)),'Revoked checkout or B2B page must not exist in current source: '+rel);
 }
 const recipe=fs.readFileSync(path.join(root,'scripts/run-recipe.sh'),'utf8');
