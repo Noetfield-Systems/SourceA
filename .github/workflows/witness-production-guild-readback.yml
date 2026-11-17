@@ -33,7 +33,10 @@ jobs:
           grep -q 'WEB3 BUILDER SOCIETY' /tmp/witness-web3-home
           grep -q 'Enter Genesis' /tmp/witness-web3-home
           grep -q '150 XP' /tmp/witness-web3-quests
-          ! grep -Eqi 'buy[.]stripe[.]com|noetfield[.]com|mailto:|CISO|institutional alignment' /tmp/witness-web3-home
+          if grep -Eqi 'buy[.]stripe[.]com|noetfield[.]com|mailto:|CISO|institutional alignment' /tmp/witness-web3-home; then
+            echo "::error::Legacy content detected on public Witness domain"
+            exit 1
+          fi
           echo 'PASS Witness live Web3 identity, Genesis and quests; no legacy commercial strategy'
       - name: Install Playwright Chromium
         run: |
