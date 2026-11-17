@@ -266,3 +266,27 @@ h3{letter-spacing:-.035em}
 .witness-choice-result button:disabled{opacity:.5;cursor:default}
 @media(max-width:800px){.witness-world-choice{grid-template-columns:1fr}.witness-world-choice>div{padding:25px}}
 @media(max-width:390px){.witness-world-choice>div{padding:19px}.witness-choice-buttons button{font-size:11px}.witness-character{padding:22px}}
+
+
+/* The Wildcard of Change: Witness's original slate/white visual system. */
+.witness-myth-hero{background:radial-gradient(ellipse at 87% 4%,rgba(14,116,144,.09),transparent 47%),linear-gradient(135deg,var(--void),var(--original-wash))}
+.witness-archetype-grid .card{position:relative;overflow:hidden}
+.witness-archetype-grid .card::before{content:'↗';position:absolute;top:18px;right:19px;color:var(--original-primary);opacity:.21;font:400 20px/1 Georgia,serif}
+.witness-archetype-grid h3{margin-top:18px}
+.witness-myth-machine{display:grid;grid-template-columns:minmax(0,.84fr) minmax(0,1.16fr);gap:20px}
+.witness-myth-input,.witness-myth-result{border:1px solid var(--original-line);border-radius:12px;padding:27px;min-width:0}
+.witness-myth-input{display:flex;flex-direction:column;background:var(--original-surface);gap:9px}
+.witness-myth-input label{font:650 11px var(--display);letter-spacing:.03em;color:var(--soft);margin-top:9px}
+.witness-myth-input select{border:1px solid var(--original-line);border-radius:8px;min-height:43px;max-width:100%;padding:10px 11px;color:var(--text);background:var(--original-wash);font:500 13px var(--display)}
+.witness-myth-input .btn{margin:17px 0 4px;justify-content:center}
+.witness-myth-result{background:#0f172a;border-color:#25384b;color:#f1f5f9;display:flex;flex-direction:column;gap:13px;min-height:360px}
+.witness-myth-result .card-label{color:#7dd3fc}
+.witness-myth-result h3{color:#f8fafc;font:700 clamp(22px,2.5vw,32px)/1.3 var(--display);margin:12px 0 2px}
+.witness-myth-result p{color:#bdcbdc;line-height:1.77;font-size:14px}
+.witness-myth-result .witness-myth-question{color:#e0cba0;font:italic 500 15px/1.75 Georgia,serif}
+.witness-myth-result .btn-outline{align-self:flex-start;background:transparent;color:#dceafa;border-color:#3b526b;margin-top:auto}
+.witness-myth-result .btn-outline:hover{color:#7dd3fc;border-color:#7dd3fc}
+.witness-myth-result .btn-outline:disabled{opacity:.5;cursor:default}
+.witness-myth-result .card-cta{color:#7dd3fc}
+@media(max-width:810px){.witness-myth-machine{grid-template-columns:1fr}.witness-myth-result{min-height:290px}}
+@media(max-width:390px){.witness-myth-input,.witness-myth-result{padding:20px}}
