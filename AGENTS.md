@@ -1,3 +1,6 @@
+## Founder standing rule — crypto-native market benchmarks (2026-11-17)
+For material product/UX, strategy, growth, community, token/capital and launch work, apply the cross-portfolio [Crypto-Native Market Reality Law](https://github.com/Noetfield-Systems/sina-governance-SSOT/blob/main/ssot/CRYPTO_NATIVE_MARKET_REALITY_LAW_v1.md) alongside this venture's own locked identity. Inspect recent, live, primary-source crypto-native direct/adjacent peers and implement transferable market-proven user journeys in THIS original project; do not clone assets, dilute this venture into generic SaaS or mistake self-reported funding, points, wallets or signups for validated adoption and revenue. Benchmark research is built into the same WorkPacket, never a new founder approval gate, reason to pause coding, or a shared customer/token ledger. Preserve real authority and independent proof.
+
 # SourceA Agent Policy
 
 ## WITNESS BC — ORIGINAL VISUAL IDENTITY IS INDEPENDENT OF PRODUCT STRATEGY (2026-11-17)
