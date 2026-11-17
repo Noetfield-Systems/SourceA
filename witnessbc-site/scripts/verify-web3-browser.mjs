@@ -2,7 +2,7 @@ import {chromium} from 'playwright';
 import assert from 'node:assert/strict';
 const base=process.env.WITNESS_WEB3_BASE||'http://127.0.0.1:8091';
 const live=Boolean(process.env.WITNESS_WEB3_BASE);
-const route=(s)=>base+(live?(s==='index'?'/':'/'+s):'/'+s+'.html');
+const route=(s)=>base+(s==='index'?'/':'/'+s);
 const browser=await chromium.launch({headless:true});
 try{
  for(const width of [320,390,1440]){
