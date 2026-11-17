@@ -14,6 +14,24 @@ try{
   assert.match(await page.locator('h1').innerText(),/Build the rules/i);
   assert.equal(await page.locator('a[href="/genesis"]').count()>0,true);
   assert.equal(await page.locator('a[href="/quests"]').count()>0,true);
+  assert.ok(await page.locator('.brand-hex').count(),'Original Witness geometric symbol is restored');
+  assert.ok(await page.locator('.witness-workbench').count(),'Original policy control-panel composition is restored');
+  assert.equal(await page.locator('.core-orb').count(),0,'Borrowed glowing green orb cannot remain');
+  const brandLight=await page.evaluate(()=>({
+    theme:document.documentElement.dataset.theme,
+    background:getComputedStyle(document.body).backgroundColor,
+    family:getComputedStyle(document.body).fontFamily,
+    primary:getComputedStyle(document.querySelector('.nav-join')).backgroundColor
+  }));
+  assert.equal(brandLight.theme,'light','Witness must default to its original light theme');
+  assert.equal(brandLight.background,'rgb(255, 255, 255)','Original Witness white site background');
+  assert.match(brandLight.family,/Inter/i,'Original Witness typography');
+  assert.equal(brandLight.primary,'rgb(14, 116, 144)','Slate-blue Witness primary CTA (not BuildRelay green)');
+  await page.locator('#themeToggle').click();
+  assert.equal(await page.locator('html').getAttribute('data-theme'),'dark','Original light/dark switch works');
+  assert.equal(await page.evaluate(()=>getComputedStyle(document.body).backgroundColor),'rgb(6, 10, 15)','Dark theme matches original slate-black design');
+  await page.locator('#themeToggle').click();
+  assert.equal(await page.locator('html').getAttribute('data-theme'),'light','Restored light mode');
   let overflow=await page.evaluate(()=>document.documentElement.scrollWidth-innerWidth);
   if(overflow>2){const offenders=await page.evaluate(()=>Array.from(document.querySelectorAll('body *')).map(el=>({el,right:el.getBoundingClientRect().right,left:el.getBoundingClientRect().left})).filter(x=>x.right>innerWidth+2||x.left< -2).slice(0,10).map(x=>({tag:x.el.tagName,className:typeof x.el.className==='string'?x.el.className.slice(0,80):'',left:Math.round(x.left),right:Math.round(x.right)})));console.error(JSON.stringify({width,overflow,offenders}));}
   assert.ok(overflow<=2,'Home horizontal overflow '+overflow+' at '+width);
