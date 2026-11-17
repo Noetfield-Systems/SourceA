@@ -1,3 +1,9 @@
+## Mandatory Discovery Studio semantic dictionary — 2026-11-17
+When interpreting Founder objectives, competitive research, OS agents, investment strategy, launch planning or "patterns", use the single typed [Discovery Studio ontology](https://github.com/Noetfield-Systems/sina-governance-SSOT/blob/main/data/DISCOVERY_STUDIO_ONTOLOGY_v1.json) and the existing SourceA Founder ↔ Machine terminology dictionary. SOURCE is evidence; BENCHMARK is a comparison subject; MECHANISM is a tactic; CASE is a dated action→outcome observation; PATTERN is a conditional transferable ordered method with actual results and alternative explanations. Never count 20 competitor URLs, 20 mechanisms or a vendor's funding claims as 20 independently validated patterns. Existing SourceA law routing/permissions remain sovereign for execution, and this rule adds no second runtime or approval gate.
+
+## Founder standing rule — crypto-native market benchmarks (2026-11-17)
+For material product/UX, strategy, growth, community, token/capital and launch work, apply the cross-portfolio [Crypto-Native Market Reality Law](https://github.com/Noetfield-Systems/sina-governance-SSOT/blob/main/ssot/CRYPTO_NATIVE_MARKET_REALITY_LAW_v1.md) alongside this venture's own locked identity. Inspect recent, live, primary-source crypto-native direct/adjacent peers and implement transferable market-proven user journeys in THIS original project; do not clone assets, dilute this venture into generic SaaS or mistake self-reported funding, points, wallets or signups for validated adoption and revenue. Benchmark research is built into the same WorkPacket, never a new founder approval gate, reason to pause coding, or a shared customer/token ledger. Preserve real authority and independent proof.
+
 # SourceA Agent Policy
 
 ## WITNESS BC — ORIGINAL VISUAL IDENTITY IS INDEPENDENT OF PRODUCT STRATEGY (2026-11-17)
