@@ -1,14 +1,14 @@
 import { chromium } from 'playwright';
 import assert from 'node:assert/strict';
 
-const base = 'http://127.0.0.1:8091';
+const base = process.env.WITNESS_GUILD_BROWSER_BASE || 'http://127.0.0.1:8091';
 const browser = await chromium.launch({ headless: true });
 try {
   for (const width of [320, 390, 1440]) {
     const page = await browser.newPage({ viewport: { width, height: 850 }, reducedMotion: 'reduce' });
     const errors = [];
     page.on('pageerror', err => errors.push(err.message));
-    const response = await page.goto(base + '/guild.html', { waitUntil: 'networkidle' });
+    const response = await page.goto(base + (process.env.WITNESS_GUILD_BROWSER_BASE ? '/guild' : '/guild.html'), { waitUntil: 'networkidle' });
     assert.equal(response.status(), 200, 'Guild returns HTTP 200 at ' + width);
     assert.match(await page.locator('h1').innerText(), /Build AI governance/i);
     assert.equal(await page.locator('.guild-quest').count(), 3);
