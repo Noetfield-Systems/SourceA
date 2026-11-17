@@ -2,10 +2,72 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "framework": null,
   "installCommand": "",
-  "buildCommand": "bash scripts/run-recipe.sh",
+  "buildCommand": "node scripts/build-web3.mjs",
   "outputDirectory": "dist/deploy",
   "cleanUrls": true,
   "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/proof",
+      "destination": "/arena",
+      "permanent": true
+    },
+    {
+      "source": "/pricing",
+      "destination": "/economy",
+      "permanent": true
+    },
+    {
+      "source": "/toolkits",
+      "destination": "/quests",
+      "permanent": true
+    },
+    {
+      "source": "/contact",
+      "destination": "/guild",
+      "permanent": true
+    },
+    {
+      "source": "/observe",
+      "destination": "/manifesto",
+      "permanent": true
+    },
+    {
+      "source": "/platform",
+      "destination": "/manifesto",
+      "permanent": true
+    },
+    {
+      "source": "/policy",
+      "destination": "/governance",
+      "permanent": true
+    },
+    {
+      "source": "/lifecycle",
+      "destination": "/genesis",
+      "permanent": true
+    },
+    {
+      "source": "/compare",
+      "destination": "/manifesto",
+      "permanent": true
+    },
+    {
+      "source": "/sources",
+      "destination": "/manifesto",
+      "permanent": true
+    },
+    {
+      "source": "/learn",
+      "destination": "/quests",
+      "permanent": true
+    },
+    {
+      "source": "/faq",
+      "destination": "/manifesto",
+      "permanent": true
+    }
+  ],
   "headers": [
     {
       "source": "/(.*)",
@@ -21,6 +83,10 @@
         {
           "key": "Referrer-Policy",
           "value": "strict-origin-when-cross-origin"
+        },
+        {
+          "key": "Content-Security-Policy",
+          "value": "default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'none'"
         }
       ]
     }
