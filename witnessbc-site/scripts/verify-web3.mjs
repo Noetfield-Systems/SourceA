@@ -8,9 +8,9 @@ const contract=JSON.parse(fs.readFileSync(path.join(root,'config','VENTURE_IDENT
 const pages=contract.allowlisted_pages;
 assert.equal(contract.venture,'Witness BC');
 assert.match(contract.canonical_thesis,/Web3-native/i);
-assert.equal(pages.length,10);
+assert.equal(pages.length,17);
 const htmlFiles=fs.readdirSync(out).filter(x=>x.endsWith('.html')).sort();
-assert.deepEqual(htmlFiles,pages.map(p=>p+'.html').sort(),'Deploy artifact contains EXACTLY ten Web3 pages');
+assert.deepEqual(htmlFiles,pages.map(p=>p+'.html').sort(),'Deploy artifact contains EXACTLY seventeen Witness social and Web3 pages');
 const forbidden=[/stripe/i,/noetfield/i,/mailto:/i,/institutional alignment/i,/CISO/i,/corporate consulting/i,/book a demo/i,/shadow cohort/i,/buy\.stripe\.com/i,/government outreach/i,/paid toolkit/i];
 for(const name of htmlFiles){
  const html=fs.readFileSync(path.join(out,name),'utf8');
@@ -29,6 +29,14 @@ for(const name of htmlFiles){
 for(const old of ['proof.html','pricing.html','toolkits.html','contact.html','sources.html','platform.html','learn.html','faq.html','guild.css']){
  assert.ok(!fs.existsSync(path.join(out,old)),'Retired corporate page not public: '+old);
 }
+const commons=fs.readFileSync(path.join(out,'commons.html'),'utf8');
+assert.match(commons,/A place to belong/i,'Witness social-first Commons is present');
+const world=fs.readFileSync(path.join(out,'world.html'),'utf8');
+for(const character of ['Mira Ash','Nox Vale','Sable of the North','Orin Glass','Iona of the Rain','Riven Grey'])
+ assert.ok(world.includes(character),'Distinct character in the fictional world: '+character);
+for(const page of ['stories','circles','gatherings','fandom','collectibles'])
+ assert.match(fs.readFileSync(path.join(out,page+'.html'),'utf8'),/<h1>/,'Cultural destination is public: '+page);
+assert.match(world,/data-world-choice="resist"/,'Interactive dystopian chapter needs working branch controls');
 const quest=fs.readFileSync(path.join(out,'quests.html'),'utf8');
 for(const xp of [80,100,150])assert.ok(quest.includes(xp+' XP'),'Published blueprint XP '+xp);
 const genesis=fs.readFileSync(path.join(out,'genesis.html'),'utf8');
@@ -52,4 +60,4 @@ assert.match(recipe,/build-web3\.mjs/,'Canonical run recipe must build the new W
 assert.doesNotMatch(recipe,/inject_stripe|deploy_witnessbc_v1\.sh --skip-recipe/,'No legacy Stripe staging allowed');
 const activation=fs.readFileSync(path.join(root,'scripts/activate_witnessbc_full_v1.sh'),'utf8');
 assert.match(activation,/revoked by the Founder/,'Old activation command must stay tombstoned');
-console.log('PASS Witness Web3-only release: 10 pages, 4 assets, no legacy checkout, institutional content or false user/economic claims.');
+console.log('PASS Witness social Commons release: 17 pages, six pseudonymous narrative characters, playable story branches, 4 vetted assets, no legacy checkout.');
