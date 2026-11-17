@@ -43,6 +43,6 @@ const forbidden=[/buy\.stripe\.com/i,/stripe\.com/i,/noetfield\.com/i,/book[^<]{
 for(const file of fs.readdirSync(out).filter(x=>x.endsWith('.html'))){
  const src=fs.readFileSync(path.join(out,file),'utf8');
  for(const pattern of forbidden)if(pattern.test(src))throw Error('Forbidden legacy acquisition in '+file+': '+pattern);
- if(!src.includes('WEB3 BUILDER SOCIETY'))throw Error('Not a Web3 document: '+file);
+ if(!src.includes('WITNESS BC · WEB3 COMMUNITY'))throw Error('Not a Web3 document: '+file);
 }
 console.log('PASS witness-web3-genesis built '+Object.keys(pages).length+' pages / zero legacy corporate or Stripe outputs. Published only allowlisted Web3 sources.');
