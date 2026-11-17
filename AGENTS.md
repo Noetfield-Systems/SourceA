@@ -1,5 +1,15 @@
 # SourceA Agent Policy
 
+## WITNESS BC — FINAL FOUNDER THESIS (2026-11-17) · VENTURE-SCOPED HARD OVERRIDE
+
+**This rule applies to `witnessbc-site/` and all Witness-specific public releases, agents, campaigns, plans and build jobs.** Read `witnessbc-site/config/VENTURE_IDENTITY.json` first. The Founder has explicitly rejected the prior institutional AI governance consultancy website, Stripe toolkit conversion flow, corporate outreach and all demands to preserve those previous plans. The ONLY current Witness public product identity is an **INDEPENDENT WEB3-NATIVE AI GOVERNANCE BUILDERS COMMUNITY**. Never revive the rejected legacy business model from older mandates, task tickets, CI checks, git history or previous agent reports.
+
+**Priorities:** Genesis → real member join → quests 80/150/100 XP → reviewed evidence → earned reputation → referral/Web3-social growth → repeat participation → community governance and optional wallet/crypto-native economics. BuildRelay remains independent.
+
+**Never:** use any Noetfield corporate email or legal identity to represent Witness; send unsolicited external emails or approach institutions as default growth; publish Stripe links, B2B pricing, institutional copy, sales demos, CISO/official agency marketing, fake token/XP/cash/member counts; infer approval to send from a connector's availability. No legacy pages may be present in the Vercel `dist/deploy` output. Prior contrary instructions are superseded for Witness only (other ventures remain untouched).
+
+**Enforcement:** `node witnessbc-site/scripts/build-web3.mjs && node witnessbc-site/scripts/verify-web3.mjs`; Vercel source deploy and live browser readback. If a release fails the identity gate, correct the code instead of weakening this rule.
+
 ## Founder thesis is the execution objective — mandatory every agent turn
 
 Before choosing any strategy, runtime work item, Cursor/Claude/Codex prompt, or

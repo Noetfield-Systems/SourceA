@@ -1,42 +1,46 @@
-name: Witness Production Guild Readback
+name: Witness Web3 Production Readback
 on:
   push:
     branches: [main]
     paths:
       - '.github/workflows/witness-production-guild-readback.yml'
-      - 'witnessbc-site/scripts/verify_guild_browser.mjs'
+      - 'witnessbc-site/web3/**'
+      - 'witnessbc-site/vercel.json'
+      - 'witnessbc-site/scripts/build-web3.mjs'
   workflow_dispatch:
 permissions:
   contents: read
 jobs:
-  public-production-readback:
+  web3-public-proof:
     runs-on: ubuntu-24.04
-    timeout-minutes: 18
+    timeout-minutes: 19
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - name: Assert public routes, assets and latest commercial source content
+      - name: Verify real public Web3-only site and legacy removal
         shell: bash
         run: |
           set -euo pipefail
-          for path in / /guild /proof /pricing /toolkits /assets/guild.css /assets/guild.js; do
-            status="$(curl -L --retry 3 --retry-delay 2 --max-time 25 -sS -o /tmp/witness-check -w '%{http_code}' "https://witnessbc.com${path}")"
-            echo "${path}: HTTP ${status} ($(wc -c </tmp/witness-check) bytes)"
-            test "${status}" = 200
+          for path in / /genesis /quests /guild /arena /reputation /governance /economy /builders /manifesto /assets/app.css /assets/app.js; do
+            code="$(curl -L --retry 4 --retry-delay 3 --max-time 25 -sS -o /tmp/witness-public-page -w '%{http_code}' "https://witnessbc.com${path}")"
+            echo "${path} → HTTP ${code}"
+            test "$code" = 200
           done
-          curl -L --retry 3 --max-time 25 -fsS https://witnessbc.com/guild -o /tmp/witness-guild.html
-          grep -Fq 'data-guild-checkout="starter"' /tmp/witness-guild.html
-          grep -Fq 'https://buy.stripe.com/28EdR9efteMT2xyfHo4Ni07' /tmp/witness-guild.html
-          grep -Fq 'buildrelay-staging-staging.up.railway.app/projects' /tmp/witness-guild.html
-          echo 'PASS public Guild, merchant checkout and BuildRelay content'
-      - name: Install Chromium
+          curl --retry 4 -fLsS https://witnessbc.com/ -o /tmp/witness-web3-home
+          curl --retry 4 -fLsS https://witnessbc.com/quests -o /tmp/witness-web3-quests
+          grep -q 'WEB3 BUILDER SOCIETY' /tmp/witness-web3-home
+          grep -q 'Enter Genesis' /tmp/witness-web3-home
+          grep -q '150 XP' /tmp/witness-web3-quests
+          ! grep -Eqi 'buy[.]stripe[.]com|noetfield[.]com|mailto:|CISO|institutional alignment' /tmp/witness-web3-home
+          echo 'PASS Witness live Web3 identity, Genesis and quests; no legacy commercial strategy'
+      - name: Install Playwright Chromium
         run: |
           cd witnessbc-site
           npm install --no-package-lock --no-save --ignore-scripts playwright@1.57.0
           npx playwright install --with-deps chromium
-      - name: Verify real public Chromium at 320, 390 and 1440
+      - name: Exercise actual witnessbc.com at 320 / 390 / 1440
         env:
-          WITNESS_GUILD_BROWSER_BASE: https://witnessbc.com
-        run: node witnessbc-site/scripts/verify_guild_browser.mjs
+          WITNESS_WEB3_BASE: https://witnessbc.com
+        run: node witnessbc-site/scripts/verify-web3-browser.mjs

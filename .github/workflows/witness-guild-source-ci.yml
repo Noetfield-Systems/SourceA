@@ -1,4 +1,4 @@
-name: Witness Guild Source CI
+name: Witness Web3 Genesis CI
 on:
   pull_request:
     paths:
@@ -12,41 +12,42 @@ on:
 permissions:
   contents: read
 jobs:
-  witness-source-check:
+  genesis-verification:
     runs-on: ubuntu-24.04
-    timeout-minutes: 18
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
-        with:
-          python-version: '3.12'
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - name: Assemble canonical Witness pages and deployment artifact
-        run: bash witnessbc-site/scripts/run-recipe.sh
-      - name: Verify Guild JavaScript syntax
-        run: node --check witnessbc-site/assets/guild.js
-      - name: Verify Guild integration checks
-        run: python3 witnessbc-site/scripts/verify_guild.py
-      - name: Install browser test runtime
+      - name: Validate exact Web3 site generator and browser code
+        run: |
+          node --check witnessbc-site/scripts/build-web3.mjs
+          node --check witnessbc-site/web3/assets/app.js
+          node --check witnessbc-site/scripts/verify-web3.mjs
+          node --check witnessbc-site/scripts/verify-web3-browser.mjs
+      - name: Build the strict Web3-only publication allowlist
+        run: cd witnessbc-site && node scripts/build-web3.mjs && node scripts/verify-web3.mjs
+      - name: Ensure corporate checkout and old pages are not published
+        run: |
+          test ! -f witnessbc-site/dist/deploy/pricing.html
+          test ! -f witnessbc-site/dist/deploy/toolkits.html
+          test ! -f witnessbc-site/dist/deploy/proof.html
+          ! grep -RniE 'buy[.]stripe[.]com|noetfield[.]com|mailto:|institutional alignment' witnessbc-site/dist/deploy --include='*.html'
+          test "$(find witnessbc-site/dist/deploy -name '*.html' | wc -l)" -eq 10
+      - name: Install Chromium browser runtime
         run: |
           cd witnessbc-site
           npm install --no-package-lock --no-save --ignore-scripts playwright@1.57.0
           npx playwright install --with-deps chromium
-      - name: Exercise real Chromium responsive and commercial routes
+      - name: Verify desktop and mobile Web3 journeys
         run: |
-          python3 -m http.server 8091 --bind 127.0.0.1 --directory witnessbc-site/dist/deploy >/tmp/witness-http.log 2>&1 &
-          node witnessbc-site/scripts/verify_guild_browser.mjs
-      - name: Archive build proof, not deploy status
-        if: always()
+          node witnessbc-site/scripts/serve-web3.mjs >/tmp/witness-web3-http.log 2>&1 &
+          node witnessbc-site/scripts/verify-web3-browser.mjs
+      - name: Archive only the vetted Web3 artifact
+        if: success()
         uses: actions/upload-artifact@v4
         with:
-          name: witness-guild-source-artifact
-          path: |
-            witnessbc-site/dist/deploy/guild.html
-            witnessbc-site/dist/deploy/assets/guild.css
-            witnessbc-site/dist/deploy/assets/guild.js
-            witnessbc-site/dist/deploy/index.html
-            witnessbc-site/dist/deploy/proof.html
-          retention-days: 10
+          name: witness-web3-genesis-static-output
+          path: witnessbc-site/dist/deploy/
+          retention-days: 14
