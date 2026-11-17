@@ -1,7 +1,13 @@
 {
-  "name": "witnessbc-site",
+  "name": "witness-web3-genesis",
   "private": true,
+  "type": "module",
   "scripts": {
-    "build": "echo 'static — no build'"
+    "build": "node scripts/build-web3.mjs && node scripts/verify-web3.mjs",
+    "test": "node scripts/build-web3.mjs && node scripts/verify-web3.mjs",
+    "dev": "node scripts/build-web3.mjs && node scripts/serve-web3.mjs"
+  },
+  "engines": {
+    "node": ">=22"
   }
 }

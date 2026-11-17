@@ -17,7 +17,7 @@
 **Community truth:** Founder activation pending. The CE pilot is a blueprint until an authorized real founder publishes. No fake members, votes, earned XP, token or treasury funding.
 
 ## Source
-`web3/pages/*.html` are the public product pages; `web3/assets` holds custom UI, interactions and identity. `config/VENTURE_IDENTITY.json` is the machine-readable anti-drift law. `scripts/build-web3.mjs` stages **only** those files into `dist/deploy`. Prior institutional page sources remain in Git history/working tree solely as legacy archive and are **excluded** from public output.
+`web3/pages/*.html` are the public product pages; `web3/assets` holds custom UI, interactions and identity. `config/VENTURE_IDENTITY.json` is the machine-readable anti-drift law. `scripts/build-web3.mjs` stages **only** those files into `dist/deploy`. Pre-Web3 institutional pages, checkout sources and activation scripts have been removed or tombstoned in the current branch; their prior content is available in Git history only and is **excluded** from public output.
 
 ## Build
 ```bash
