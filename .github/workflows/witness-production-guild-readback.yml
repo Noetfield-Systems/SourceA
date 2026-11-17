@@ -23,7 +23,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          for path in / /genesis /commons /world /stories /circles /gatherings /fandom /collectibles /quests /guild /arena /reputation /governance /economy /builders /manifesto /assets/app.css /assets/app.js; do
+          for path in / /genesis /commons /mythos /world /stories /circles /gatherings /fandom /collectibles /quests /guild /arena /reputation /governance /economy /builders /manifesto /assets/app.css /assets/app.js; do
             code="$(curl -L --retry 4 --retry-delay 3 --max-time 25 -sS -o /tmp/witness-public-page -w '%{http_code}' "https://witnessbc.com${path}")"
             echo "${path} → HTTP ${code}"
             test "$code" = 200
