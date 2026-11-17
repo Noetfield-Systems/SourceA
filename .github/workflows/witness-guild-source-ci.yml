@@ -37,7 +37,7 @@ jobs:
             echo "::error::Forbidden legacy content in Witness Web3 release"
             exit 1
           fi
-          test "$(find witnessbc-site/dist/deploy -name '*.html' | wc -l)" -eq 10
+          test "$(find witnessbc-site/dist/deploy -name '*.html' | wc -l)" -eq 17
       - name: Install Chromium browser runtime
         run: |
           cd witnessbc-site
