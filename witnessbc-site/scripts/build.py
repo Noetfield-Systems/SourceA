@@ -18,7 +18,7 @@ SINA = Path.home() / ".sina"
 ARCHIVE = ROOT.parent / "archive" / "attachments" / "commercial"
 
 FORBIDDEN_LINE = re.compile(
-    r"sourcea|||notenic|witness bc|witnessai|witness\.ai|noetfield",
+    r"sourcea|notenic|witness bc|witnessai|witness\.ai|noetfield",
     re.I,
 )
 ALLOW_LINE = re.compile(
