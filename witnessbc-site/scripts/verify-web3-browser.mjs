@@ -11,7 +11,7 @@ try{
   page.on('pageerror',e=>errors.push(e.message));
   const resp=await page.goto(route('index'),{waitUntil:'networkidle'});
   assert.equal(resp.status(),200,'Home HTTP 200 '+width);
-  assert.match(await page.locator('h1').innerText(),/Build the rules/i);
+  assert.match(await page.locator('h1').innerText(),/Witness the world/i);
   assert.equal(await page.locator('a[href="/genesis"]').count()>0,true);
   assert.equal(await page.locator('a[href="/quests"]').count()>0,true);
   assert.ok(await page.locator('.brand-hex').count(),'Original Witness geometric symbol is restored');
@@ -40,14 +40,14 @@ try{
    assert.ok(await menu.isVisible());
    await menu.click();
    assert.equal(await menu.getAttribute('aria-expanded'),'true');
-   assert.ok(await page.locator('#mobileNav a[href="/guild"]').isVisible());
+   assert.ok(await page.locator('#mobileNav a[href="/world"]').isVisible());
    await page.locator('#mobileNav a[href="/guild"]').click();
-   await page.waitForURL('**/guild');
-   assert.match(await page.locator('h1').innerText(),/people.*ship the proof/is);
+   await page.waitForURL('**/world');
+   assert.match(await page.locator('h1').innerText(),/old world.*stopped remembering/is);
   }else{
-   assert.ok(await page.locator('.desktop-nav a[href="/guild"]').isVisible());
+   assert.ok(await page.locator('.desktop-nav a[href="/world"]').isVisible());
   }
-  const all=['genesis','quests','arena','reputation','governance','economy','builders','manifesto','guild'];
+  const all=['genesis','commons','world','stories','circles','gatherings','fandom','collectibles','quests','arena','reputation','governance','economy','builders','manifesto','guild'];
   for(const name of all){
    const response=await page.goto(route(name),{waitUntil:'domcontentloaded'});
    assert.equal(response.status(),200,name+' HTTP '+width);
@@ -60,6 +60,20 @@ try{
   for(const xp of ['80 XP','150 XP','100 XP'])assert.ok((await page.locator('body').innerText()).includes(xp));
   await page.goto(route('genesis'),{waitUntil:'domcontentloaded'});
   assert.ok(await page.locator('a[href*="#/pilot/witness-ai-builders"]').count(),'Community Economy real pilot link');
+  await page.goto(route('world'),{waitUntil:'domcontentloaded'});
+  assert.ok(await page.locator('.witness-character').count()===6,'Six original fictional Witness personalities');
+  await page.locator('[data-world-choice="resist"]').click();
+  assert.equal(await page.locator('#witnessWorldBranchTitle').innerText(),'The Night the Grid Went Silent');
+  assert.equal(await page.locator('[data-world-choice="resist"]').getAttribute('aria-pressed'),'true');
+  assert.equal(await page.locator('#witnessShareBranch').isEnabled(),true,'Story branch can be shared');
+  await page.reload({waitUntil:'domcontentloaded'});
+  assert.equal(await page.locator('[data-world-choice="resist"]').getAttribute('aria-pressed'),'true','Fiction choice persists across reload');
+  await page.goto(route('stories'),{waitUntil:'domcontentloaded'});
+  assert.ok(await page.locator('[data-copy-prompt]').count()>=3,'Original serial fiction offers creative next-step prompts');
+  await page.locator('[data-copy-prompt]').first().click();
+  await page.goto(route('commons'),{waitUntil:'domcontentloaded'});
+  assert.match(await page.locator('h1').innerText(),/place to belong/i);
+  assert.ok(await page.locator('a[href="/stories"]').count()>0);
   await page.goto(route('arena'),{waitUntil:'domcontentloaded'});
   await page.locator('[data-scenario="leak"]').click();
   assert.equal(await page.locator('#scenarioVerdict').innerText(),'BLOCK');
@@ -68,6 +82,6 @@ try{
   assert.ok((await page.locator('body').innerText()).includes('LOCAL SIMULATION ONLY'));
   assert.deepEqual(errors,[],width+'px JS errors');
   await page.close();
-  console.log('PASS WITNESS WEB3 '+width+'px: 10 routes, real Genesis links, 3 quests, 2 policy interactions, navigation, no overflow/errors');
+  console.log('PASS WITNESS WEB3 '+width+'px: 17 routes, original Witness theme, interactive fiction, creative prompts, real Genesis links, 3 quests, policy interactions, navigation, no overflow/errors');
  }
 }finally{await browser.close();}
