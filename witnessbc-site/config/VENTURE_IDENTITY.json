@@ -1,0 +1,62 @@
+{
+  "schema": "witness.venture-strategy-guard.v2",
+  "effective_at": "2026-11-17",
+  "venture": "Witness BC",
+  "canonical_thesis": "Independent Web3-native AI governance builder economy. Community first, crypto native, evidence reviewed, referrals, quests, retention, governance.",
+  "supersedes": "All Witness-specific pre-Web3 preservation, institutional distribution, corporate consultancy and Stripe checkout instructions",
+  "independent_from": [
+    "Noetfield Systems",
+    "777 Foundation",
+    "BuildRelay",
+    "ARQANT",
+    "Cairn"
+  ],
+  "allowlisted_pages": [
+    "index",
+    "genesis",
+    "quests",
+    "guild",
+    "arena",
+    "reputation",
+    "governance",
+    "economy",
+    "builders",
+    "manifesto"
+  ],
+  "p0": [
+    "authentic Genesis",
+    "real founding members",
+    "quests and review",
+    "earned XP",
+    "meaningful referrals",
+    "Web3 ecosystem discovery",
+    "repeat engagement",
+    "optional wallet and governance"
+  ],
+  "distribution": [
+    "Web3 builders",
+    "Farcaster",
+    "Telegram",
+    "Discord",
+    "GitHub",
+    "Web3-specific X",
+    "member referral"
+  ],
+  "outbound_mail": "disabled by default. A connected mailbox is not authority to speak for Witness.",
+  "forbidden_legacy_public": [
+    "B2B consultancy",
+    "government and institution targeting",
+    "Noetfield corporate sender",
+    "Stripe checkout links",
+    "Shadow Cohort",
+    "institutional marketing",
+    "fake token deployment",
+    "fake activity"
+  ],
+  "revenue_and_economy": "Community native economics, optional funded missions and verified crypto payments when actually supported and authorized; no fabricated cash or token.",
+  "live_status_rule": "Pilot blueprint is not an officially founder-published community; member and XP records require real authenticated users.",
+  "production_rule": "Deploy only allowlisted Web3 pages; reject any institutional services, corporate checkout, or outbound mail links.",
+  "rights": "No implied venture equity, company IP rights, or profit share.",
+  "owner_signature_authority": "Must be Witness-specific and explicitly authorized for any outbound communication. Never reuse another venture's account solely because it is connected.",
+  "future_agents": "Never reinstate the legacy model without a new explicit founder directive."
+}
