@@ -47,7 +47,7 @@ fi
 echo "=== deploy_witnessbc_v1: stage dist/deploy ==="
 rm -rf "$DEPLOY_DIR"
 mkdir -p "$DEPLOY_DIR/assets" "$DEPLOY_DIR/data"
-PAGE_FILES=(index.html platform.html lifecycle.html proof.html compare.html policy.html pricing.html contact.html faq.html sources.html learn.html toolkits.html dark.html)
+PAGE_FILES=(index.html platform.html lifecycle.html proof.html compare.html policy.html pricing.html contact.html faq.html sources.html learn.html toolkits.html guild.html dark.html)
 for pf in "${PAGE_FILES[@]}"; do
   cp "$ROOT/$pf" "$DEPLOY_DIR/$pf"
 done
@@ -150,7 +150,7 @@ Path("$manifest").write_text(json.dumps({
     "schema": "witnessbc-deploy-v10",
     "version": "v10.0",
     "files": files,
-    "pages": 13,
+    "pages": 14,
     "routes": ["_redirects", "_routes.json"],
 }, indent=2) + "\n")
 PY

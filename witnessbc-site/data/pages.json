@@ -7,7 +7,11 @@
       "description": "Runtime governance infrastructure — AI policy enforced at dispatch, before irreversible agent actions. Signed receipts on every gate. witnessbc.com",
       "canonical": "https://witnessbc.com",
       "body_class": "page-home layout-wide-v11 layout-ultra-v12",
-      "scripts": ["control-plane", "trust-signals", "site"]
+      "scripts": [
+        "control-plane",
+        "trust-signals",
+        "site"
+      ]
     },
     {
       "file": "platform.html",
@@ -18,7 +22,9 @@
       "body_class": "page-platform layout-ultra-v12",
       "nav_active": "platform",
       "breadcrumb": "Platform",
-      "scripts": ["site"]
+      "scripts": [
+        "site"
+      ]
     },
     {
       "file": "lifecycle.html",
@@ -29,7 +35,9 @@
       "body_class": "page-lifecycle layout-ultra-v12",
       "nav_active": "lifecycle",
       "breadcrumb": "Governance loop",
-      "scripts": ["site"]
+      "scripts": [
+        "site"
+      ]
     },
     {
       "file": "proof.html",
@@ -40,7 +48,10 @@
       "body_class": "page-proof layout-ultra-v12",
       "nav_active": "proof",
       "breadcrumb": "Proof",
-      "scripts": ["proof-demo", "site"]
+      "scripts": [
+        "proof-demo",
+        "site"
+      ]
     },
     {
       "file": "compare.html",
@@ -51,7 +62,9 @@
       "body_class": "page-compare layout-ultra-v12",
       "nav_active": "compare",
       "breadcrumb": "Compare",
-      "scripts": ["site"]
+      "scripts": [
+        "site"
+      ]
     },
     {
       "file": "policy.html",
@@ -62,7 +75,9 @@
       "body_class": "page-policy layout-ultra-v12",
       "nav_active": "policy",
       "breadcrumb": "AI policy",
-      "scripts": ["site"]
+      "scripts": [
+        "site"
+      ]
     },
     {
       "file": "pricing.html",
@@ -73,7 +88,9 @@
       "body_class": "page-pricing layout-ultra-v12",
       "nav_active": "pricing",
       "breadcrumb": "Pricing",
-      "scripts": ["site"]
+      "scripts": [
+        "site"
+      ]
     },
     {
       "file": "contact.html",
@@ -83,7 +100,9 @@
       "canonical": "https://witnessbc.com/contact",
       "body_class": "page-contact layout-ultra-v12",
       "breadcrumb": "Contact",
-      "scripts": ["site"]
+      "scripts": [
+        "site"
+      ]
     },
     {
       "file": "faq.html",
@@ -94,7 +113,9 @@
       "body_class": "page-faq layout-ultra-v12",
       "nav_active": "faq",
       "breadcrumb": "FAQ",
-      "scripts": ["site"]
+      "scripts": [
+        "site"
+      ]
     },
     {
       "file": "sources.html",
@@ -105,7 +126,9 @@
       "body_class": "page-sources layout-ultra-v12",
       "nav_active": "sources",
       "breadcrumb": "Sources",
-      "scripts": ["site"]
+      "scripts": [
+        "site"
+      ]
     },
     {
       "file": "learn.html",
@@ -116,7 +139,10 @@
       "body_class": "page-learn layout-ultra-v12",
       "nav_active": "learn",
       "breadcrumb": "Learn",
-      "scripts": ["learn-hub", "site"]
+      "scripts": [
+        "learn-hub",
+        "site"
+      ]
     },
     {
       "file": "toolkits.html",
@@ -127,7 +153,24 @@
       "body_class": "page-toolkits layout-ultra-v12",
       "nav_active": "toolkits",
       "breadcrumb": "Toolkits",
-      "scripts": ["toolkits", "site"]
+      "scripts": [
+        "toolkits",
+        "site"
+      ]
+    },
+    {
+      "file": "guild.html",
+      "content": "guild.html",
+      "title": "Builders Guild | Witness AI — Verified AI Governance Work",
+      "description": "Join the Witness AI Builders Guild: test Proof Lab scenarios, publish AI policy improvements and earn reviewed reputation in Season Zero.",
+      "canonical": "https://witnessbc.com/guild",
+      "body_class": "page-guild layout-ultra-v12",
+      "nav_active": "guild",
+      "breadcrumb": "Builders Guild",
+      "scripts": [
+        "guild",
+        "site"
+      ]
     }
   ]
 }

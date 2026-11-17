@@ -1,0 +1,52 @@
+name: Witness Guild Source CI
+on:
+  pull_request:
+    paths:
+      - 'witnessbc-site/**'
+      - '.github/workflows/witness-guild-source-ci.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'witnessbc-site/**'
+      - '.github/workflows/witness-guild-source-ci.yml'
+permissions:
+  contents: read
+jobs:
+  witness-source-check:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Assemble canonical Witness pages and deployment artifact
+        run: bash witnessbc-site/scripts/run-recipe.sh
+      - name: Verify Guild JavaScript syntax
+        run: node --check witnessbc-site/assets/guild.js
+      - name: Verify Guild integration checks
+        run: python3 witnessbc-site/scripts/verify_guild.py
+      - name: Install browser test runtime
+        run: |
+          cd witnessbc-site
+          npm install --no-package-lock --no-save --ignore-scripts playwright@1.57.0
+          npx playwright install --with-deps chromium
+      - name: Exercise real Chromium responsive and commercial routes
+        run: |
+          python3 -m http.server 8091 --bind 127.0.0.1 --directory witnessbc-site/dist/deploy >/tmp/witness-http.log 2>&1 &
+          node witnessbc-site/scripts/verify_guild_browser.mjs
+      - name: Archive build proof, not deploy status
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: witness-guild-source-artifact
+          path: |
+            witnessbc-site/dist/deploy/guild.html
+            witnessbc-site/dist/deploy/assets/guild.css
+            witnessbc-site/dist/deploy/assets/guild.js
+            witnessbc-site/dist/deploy/index.html
+            witnessbc-site/dist/deploy/proof.html
+          retention-days: 10

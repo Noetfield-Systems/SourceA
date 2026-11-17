@@ -95,6 +95,10 @@ echo "=== step 4: stage deploy artifact ==="
 bash "$ROOT/scripts/deploy_witnessbc_v1.sh" --skip-recipe
 echo ""
 
+echo "=== step 4b: verify Guild ==="
+python3 "$ROOT/scripts/verify_guild.py"
+echo ""
+
 echo "=== step 5: receipt ==="
 build_json_file="$(mktemp)"
 python3 "$ROOT/scripts/build.py" --json >"$build_json_file"

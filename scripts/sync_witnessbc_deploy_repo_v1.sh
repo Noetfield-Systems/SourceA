@@ -4,7 +4,7 @@ set -euo pipefail
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 DEPLOY="$ROOT/witnessbc-site/dist/deploy"
 REPO="${WITNESSBC_DEPLOY_REPO:-$ROOT/.tmp/deploy-witnessbc-agentic-governance}"
-REMOTE="${WITNESSBC_DEPLOY_REMOTE:-https://github.com/kazemnezhadsina144-dot/deploy-witnessbc-agentic-governance.git}"
+REMOTE="${WITNESSBC_DEPLOY_REMOTE:-https://github.com/Noetfield-Systems/deploy-witnessbc-agentic-governance.git}"
 
 bash "$ROOT/witnessbc-site/scripts/deploy_witnessbc_v1.sh" --skip-recipe
 
@@ -41,7 +41,7 @@ cat > "$REPO/vercel.json" << 'EOF'
 EOF
 
 cd "$REPO"
-if git diff --quiet && git diff --cached --quiet; then
+if [[ -z "$(git status --porcelain)" ]]; then
   echo "OK: deploy-witnessbc-agentic-governance already in sync"
   exit 0
 fi
