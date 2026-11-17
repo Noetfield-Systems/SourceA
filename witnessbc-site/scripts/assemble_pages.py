@@ -148,6 +148,8 @@ def _scripts_block(names: list[str]) -> str:
         lines.append('  <script src="assets/toolkits-sandbox.js"></script>')
     if "observe-feed" in names:
         lines.append('  <script src="assets/observe-feed.js"></script>')
+    if "guild" in names:
+        lines.append('  <script src="assets/guild.js"></script>')
     if "site" in names:
         lines.append('  <script src="assets/site.js"></script>')
     return "\n".join(lines) + "\n</body>\n</html>\n"
