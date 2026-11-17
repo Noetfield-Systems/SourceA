@@ -58,5 +58,34 @@
   "production_rule": "Deploy only allowlisted Web3 pages; reject any institutional services, corporate checkout, or outbound mail links.",
   "rights": "No implied venture equity, company IP rights, or profit share.",
   "owner_signature_authority": "Must be Witness-specific and explicitly authorized for any outbound communication. Never reuse another venture's account solely because it is connected.",
-  "future_agents": "Never reinstate the legacy model without a new explicit founder directive."
+  "future_agents": "Never reinstate the legacy model without a new explicit founder directive.",
+  "visual_identity": {
+    "baseline": "Witness AI before 2026-11-17 Web3 UI replacement; original Witness light/dark system.",
+    "brand_not_shared_with_other_ventures": true,
+    "defaults": {
+      "theme": "light",
+      "font": "Inter",
+      "surface": "#ffffff",
+      "ink": "#0f172a",
+      "muted": "#64748b",
+      "primary": "#0e7490",
+      "dark_surface": "#060a0f"
+    },
+    "identity": [
+      "original Witness hexagonal cube mark",
+      "compact corporate-grade navigation",
+      "policy decision workbench as hero visual",
+      "precise light/dark controls",
+      "navy/slate surfaces and restrained cyan-blue accent"
+    ],
+    "prohibited": [
+      "BuildRelay green theme transplant",
+      "mint-green full-width banner",
+      "glowing green W orb",
+      "invented universal cross-venture template",
+      "removing original brand without explicit founder permission"
+    ],
+    "rule": "Web3 changes strategy, content, users, economy and flows; it does NOT authorize changing original Witness UI, core brand or color without an explicit separate Founder request.",
+    "acceptance": "Playwright tests original light Inter theme, slate-blue primary, hex mark, workbench, light-dark switch, and 320/390/1440 widths."
+  }
 }
