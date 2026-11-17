@@ -33,7 +33,7 @@ const quest=fs.readFileSync(path.join(out,'quests.html'),'utf8');
 for(const xp of [80,100,150])assert.ok(quest.includes(xp+' XP'),'Published blueprint XP '+xp);
 const genesis=fs.readFileSync(path.join(out,'genesis.html'),'utf8');
 assert.ok(genesis.includes('#/pilot/witness-ai-builders'),'Actual CE pilot handoff is required');
-assert.ok(genesis.includes('OWNER ACTIVATION'),'No fake live owner claim');
+assert.match(genesis,/ACTIVATION (PENDING|REQUIRED)/i,'Genesis must disclose that official owner activation is pending');
 const reputation=fs.readFileSync(path.join(out,'reputation.html'),'utf8');
 assert.ok(reputation.includes('#/profile'),'Authenticated real member desk required');
 const arena=fs.readFileSync(path.join(out,'arena.html'),'utf8');
