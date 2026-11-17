@@ -24,7 +24,7 @@ try{
    assert.equal(await menu.getAttribute('aria-expanded'),'true');
    assert.ok(await page.locator('#mobileNav a[href="/guild"]').isVisible());
    await page.locator('#mobileNav a[href="/guild"]').click();
-   await page.waitForURL('**/guild'+(live?'':'.html'));
+   await page.waitForURL('**/guild');
    assert.match(await page.locator('h1').innerText(),/people.*ship the proof/is);
   }else{
    assert.ok(await page.locator('.desktop-nav a[href="/guild"]').isVisible());
