@@ -1,0 +1,42 @@
+name: Witness Production Guild Readback
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/witness-production-guild-readback.yml'
+      - 'witnessbc-site/scripts/verify_guild_browser.mjs'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  public-production-readback:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Assert public routes, assets and latest commercial source content
+        shell: bash
+        run: |
+          set -euo pipefail
+          for path in / /guild /proof /pricing /toolkits /assets/guild.css /assets/guild.js; do
+            status="$(curl -L --retry 3 --retry-delay 2 --max-time 25 -sS -o /tmp/witness-check -w '%{http_code}' "https://witnessbc.com${path}")"
+            echo "${path}: HTTP ${status} ($(wc -c </tmp/witness-check) bytes)"
+            test "${status}" = 200
+          done
+          curl -L --retry 3 --max-time 25 -fsS https://witnessbc.com/guild -o /tmp/witness-guild.html
+          grep -Fq 'data-guild-checkout="starter"' /tmp/witness-guild.html
+          grep -Fq 'https://buy.stripe.com/28EdR9efteMT2xyfHo4Ni07' /tmp/witness-guild.html
+          grep -Fq 'buildrelay-staging-staging.up.railway.app/projects' /tmp/witness-guild.html
+          echo 'PASS public Guild, merchant checkout and BuildRelay content'
+      - name: Install Chromium
+        run: |
+          cd witnessbc-site
+          npm install --no-package-lock --no-save --ignore-scripts playwright@1.57.0
+          npx playwright install --with-deps chromium
+      - name: Verify real public Chromium at 320, 390 and 1440
+        env:
+          WITNESS_GUILD_BROWSER_BASE: https://witnessbc.com
+        run: node witnessbc-site/scripts/verify_guild_browser.mjs
