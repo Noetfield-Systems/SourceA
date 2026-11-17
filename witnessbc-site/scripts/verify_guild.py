@@ -45,6 +45,12 @@ assert "buy.stripe.com" in pricing or "stripe" in pricing.lower(), "Published pa
 assert "@media(max-width:390px)" in css and "@media(max-width:700px)" in css
 assert "utm_source=witnessbc" in guild
 assert "utm_campaign" in js
+assert 'data-guild-checkout="starter"' in guild
+assert 'https://buy.stripe.com/28EdR9efteMT2xyfHo4Ni07' in guild, 'Must use the existing WitnessBC merchant-owned Starter link'
+assert 'C$39' in guild and 'provider-confirmed receipt' in guild
+assert 'https://buildrelay-staging-staging.up.railway.app/projects' in guild
+assert 'No promised bounty' in guild
+
 assert (root / "dist/deploy/guild.html").is_file(), "Guild not copied to deployment artifact"
 assert (root / "dist/deploy/assets/guild.css").is_file()
 assert (root / "dist/deploy/assets/guild.js").is_file()
