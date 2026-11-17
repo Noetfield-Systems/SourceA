@@ -1,59 +1,35 @@
-name: Witness Guild Canonical Mirror Sync
+name: Witness Web3 Canonical Artifact
 on:
   push:
     branches: [main]
     paths:
       - 'witnessbc-site/**'
+      - '.github/workflows/witness-guild-sync-deploy.yml'
   workflow_dispatch:
 permissions:
   contents: read
 jobs:
-  sync-generated-mirror:
+  build-artifact:
     runs-on: ubuntu-24.04
-    timeout-minutes: 20
+    timeout-minutes: 12
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-node@v4
         with:
-          python-version: '3.12'
-      - name: Assemble and verify canonical site
-        run: bash witnessbc-site/scripts/run-recipe.sh
-      - name: Record canonical build output
+          node-version: '22'
+      - name: Generate only canonical Web3 pages
+        run: |
+          cd witnessbc-site
+          node scripts/build-web3.mjs
+          node scripts/verify-web3.mjs
+      - name: Publish immutable release artifact
         uses: actions/upload-artifact@v4
         with:
-          name: witness-canonical-deploy-build
+          name: witness-web3-genesis-production-source
           path: witnessbc-site/dist/deploy/
-          retention-days: 14
-      - name: Sync generated files to Witness deployment mirror
-        env:
-          WITNESSBC_DEPLOY_TOKEN: ${{ secrets.WITNESSBC_DEPLOY_TOKEN }}
+          retention-days: 21
+      - name: Declare source of truth
         run: |
-          if [[ -z "${WITNESSBC_DEPLOY_TOKEN:-}" ]]; then
-            echo "::warning::Mirror sync not executed: repository secret WITNESSBC_DEPLOY_TOKEN is unavailable. Build artifact is available; production not asserted."
-            exit 0
-          fi
-          git config --global user.name "witness-deploy-bot"
-          git config --global user.email "witness-deploy-bot@users.noreply.github.com"
-          cat >"$RUNNER_TEMP/witness-askpass" <<'EOF'
-          #!/usr/bin/env bash
-          case "$1" in
-            *Username*) printf 'x-access-token\n' ;;
-            *Password*) printf '%s\n' "$WITNESSBC_DEPLOY_TOKEN" ;;
-          esac
-          EOF
-          chmod 700 "$RUNNER_TEMP/witness-askpass"
-          export GIT_ASKPASS="$RUNNER_TEMP/witness-askpass"
-          export GIT_TERMINAL_PROMPT=0
-          export WITNESSBC_DEPLOY_REPO="$RUNNER_TEMP/witness-mirror"
-          export WITNESSBC_DEPLOY_REMOTE="https://github.com/Noetfield-Systems/deploy-witnessbc-agentic-governance.git"
-          bash scripts/sync_witnessbc_deploy_repo_v1.sh
-      - name: Check public Guild without claiming premature deployment
-        if: ${{ always() }}
-        run: |
-          status=$(curl -L -sS -o "$RUNNER_TEMP/witness-live.html" -w '%{http_code}' --max-time 18 'https://witnessbc.com/guild' || true)
-          echo "Public Witness Guild response: ${status:-unavailable}"
-          if [[ "$status" == 200 ]] && grep -q 'Build AI governance' "$RUNNER_TEMP/witness-live.html"; then
-            echo "Live content match observed. Commit and owner activation must still be verified."
-          else
-            echo "::warning::Public Guild not verified live; source build alone is not release success."
-          fi
+          echo "SourceA is the only authoritative Witness source."
+          echo "Vercel builds the existing project directly from SourceA; no retired deploy token or old mirror push."
+          echo "This job alone does not claim a production release."
