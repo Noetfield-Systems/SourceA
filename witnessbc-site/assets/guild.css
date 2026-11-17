@@ -84,3 +84,13 @@ html[data-theme="dark"] .guild-ribbon{background:#102c2b;color:#9ed9ca;border-co
 @media(max-width:700px){.guild-hero{padding:65px 0}.guild-hero-grid,.guild-membership,.guild-bottom{grid-template-columns:1fr;gap:34px}.guild-section{padding:58px 0}.guild-section-top{display:block}.guild-section-top>p{margin-top:18px}.guild-quest-grid{grid-template-columns:1fr}.guild-quest{padding:24px}.guild-commercial{flex-direction:column;align-items:stretch;padding:28px}.guild-conversion{grid-template-columns:1fr 1fr}.guild-home-bridge,.guild-proof-bridge{flex-direction:column;align-items:stretch}.guild-home-bridge .btn{text-align:center}.guild-ribbon{font-size:10px}}
 @media(max-width:390px){.guild-hero h1{font-size:39px}.guild-intro{font-size:16px}.guild-hero-panel{padding:19px}.guild-actions .btn{width:100%;justify-content:center}.guild-conversion{grid-template-columns:1fr}.guild-ribbon-separator{margin:0 4px}.guild-quest-head{font-size:9px}.guild-section h2{font-size:29px}}
 @media(prefers-reduced-motion:reduce){.guild-quest:hover{transform:none;transition:none}}
+/* Small-screen header: reserve enough space for brand, theme and menu. */
+@media(max-width:700px){
+ .page-guild.layout-ultra-v12 .header-inner{gap:10px;padding-left:16px;padding-right:16px}
+ .page-guild .header-cta>.btn-primary,.page-guild .header-cta>.btn-ghost{display:none}
+ .page-guild .header-cta{min-width:0;margin-left:auto}
+ .page-guild .menu-toggle{margin-left:0;flex-shrink:0}
+ .page-guild.layout-ultra-v12 .logo{font-size:1.17rem;white-space:nowrap}
+ .page-guild .guild-hero-grid,.page-guild .guild-membership,.page-guild .guild-bottom{min-width:0}
+ .page-guild .guild-hero-copy,.page-guild .guild-hero-panel{min-width:0}
+}
