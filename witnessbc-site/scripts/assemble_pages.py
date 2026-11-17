@@ -19,7 +19,7 @@ COHORT_DATA = ROOT / "data" / "cohort.json"
 STRIPE_DATA = ROOT / "data" / "stripe-links-v1.json"
 STRIPE_RECEIPT = Path.home() / ".sina" / "witnessbc-stripe-inject-receipt-v1.json"
 
-NAV_KEYS = ("platform", "lifecycle", "proof", "pricing", "policy", "compare", "faq", "sources", "learn", "toolkits", "observe")
+NAV_KEYS = ("platform", "lifecycle", "proof", "pricing", "guild", "policy", "compare", "faq", "sources", "learn", "toolkits", "observe")
 
 
 def _cta_tokens() -> dict[str, str]:
