@@ -1,5 +1,8 @@
 # SourceA Agent Policy
 
+## WITNESS BC — ORIGINAL VISUAL IDENTITY IS INDEPENDENT OF PRODUCT STRATEGY (2026-11-17)
+Web3 Genesis is the **product and audience** direction, **not** an instruction to redesign or recolor the Witness UI. The original Witness site (prior to PR #86) used white/slate light mode, navy dark mode, Inter typography, a hexagonal mark and an evidence/control-plane panel. These are the Witness-specific design reference. **Never replace it with BuildRelay-style neon mint/green themes, orbital hero badges, a universal startup template or another venture's brand.** Maintain working Web3 quests, Genesis and community journeys while restoring and preserving Witness's own layout/visual DNA. Machine rules: `witnessbc-site/config/VENTURE_IDENTITY.json`; Playwright brand regression checks at 320/390/1440. Any significant brand redesign requires separate, explicit Founder instruction.
+
 ## WITNESS BC — FINAL FOUNDER THESIS (2026-11-17) · VENTURE-SCOPED HARD OVERRIDE
 
 **This rule applies to `witnessbc-site/` and all Witness-specific public releases, agents, campaigns, plans and build jobs.** Read `witnessbc-site/config/VENTURE_IDENTITY.json` first. The Founder has explicitly rejected the prior institutional AI governance consultancy website, Stripe toolkit conversion flow, corporate outreach and all demands to preserve those previous plans. The ONLY current Witness public product identity is an **INDEPENDENT WEB3-NATIVE AI GOVERNANCE BUILDERS COMMUNITY**. Never revive the rejected legacy business model from older mandates, task tickets, CI checks, git history or previous agent reports.
