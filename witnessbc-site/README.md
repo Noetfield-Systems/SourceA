@@ -24,7 +24,7 @@
 cd witnessbc-site
 node scripts/build-web3.mjs
 node scripts/verify-web3.mjs
-python3 -m http.server 8091 --directory dist/deploy
+node scripts/serve-web3.mjs
 ```
 
 Vercel `vercel.json` uses `node scripts/build-web3.mjs`, clean URLs, and redirects retired corporate pages to appropriate community pages. No generated mirror or retired deployment token is required for direct canonical SourceA deployments.
