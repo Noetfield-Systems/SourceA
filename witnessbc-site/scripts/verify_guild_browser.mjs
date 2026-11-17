@@ -31,6 +31,15 @@ try {
     assert.equal(destination.hostname, 'community-economy-production.up.railway.app');
     assert.match(destination.hash, /pilot\/witness-ai-builders/);
     assert.equal(destination.searchParams.get('utm_source'), 'witnessbc');
+    const checkout = page.locator('[data-guild-checkout="starter"]');
+    assert.ok(await checkout.isVisible(), 'direct existing-merchant checkout is visible at ' + width);
+    const checkoutUrl = new URL(await checkout.getAttribute('href'));
+    assert.equal(checkoutUrl.hostname,'buy.stripe.com');
+    assert.equal(checkoutUrl.pathname,'/28EdR9efteMT2xyfHo4Ni07');
+    assert.match(checkoutUrl.searchParams.get('client_reference_id')||'',/^wbc_guild_[a-f0-9]{24}$/);
+    assert.equal(checkoutUrl.searchParams.get('utm_source'),'witnessbc');
+    assert.ok(await page.locator('a[href*="buildrelay-staging-staging.up.railway.app/projects"]').count(), 'BuildRelay deep link exists');
+
 
     if (width <= 390) {
       const menu = page.locator('#menuToggle');
