@@ -1,6 +1,26 @@
 /* Witness public UX: no mail client, checkout, cookies, simulated memberships or wallets. */
 (function(){
  'use strict';
+ const themeToggle=document.getElementById('themeToggle');
+ const root=document.documentElement;
+ const setTheme=(theme)=>{
+   const dark=theme==='dark';
+   root.setAttribute('data-theme',dark?'dark':'light');
+   if(themeToggle){
+     themeToggle.setAttribute('aria-label',dark?'Switch to light theme':'Switch to dark theme');
+     themeToggle.setAttribute('aria-pressed',String(dark));
+     const icon=themeToggle.querySelector('.theme-icon');
+     if(icon)icon.textContent=dark?'☼':'☾';
+   }
+ };
+ let storedTheme='light';
+ try { if(localStorage.getItem('witness-theme')==='dark')storedTheme='dark'; } catch {}
+ setTheme(storedTheme);
+ if(themeToggle)themeToggle.addEventListener('click',()=>{
+   const next=root.getAttribute('data-theme')==='light'?'dark':'light';
+   setTheme(next);
+   try { localStorage.setItem('witness-theme',next); } catch {}
+ });
  const $=selector=>document.querySelector(selector);
  const $$=selector=>Array.from(document.querySelectorAll(selector));
  const toggle=$('#menuToggle'),mobile=$('#mobileNav');
