@@ -29,6 +29,15 @@ jobs:
         run: node --check witnessbc-site/assets/guild.js
       - name: Verify Guild integration checks
         run: python3 witnessbc-site/scripts/verify_guild.py
+      - name: Install browser test runtime
+        run: |
+          cd witnessbc-site
+          npm install --no-package-lock --no-save --ignore-scripts playwright@1.57.0
+          npx playwright install --with-deps chromium
+      - name: Exercise real Chromium responsive and commercial routes
+        run: |
+          python3 -m http.server 8091 --bind 127.0.0.1 --directory witnessbc-site/dist/deploy >/tmp/witness-http.log 2>&1 &
+          node witnessbc-site/scripts/verify_guild_browser.mjs
       - name: Archive build proof, not deploy status
         if: always()
         uses: actions/upload-artifact@v4
