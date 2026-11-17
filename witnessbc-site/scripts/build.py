@@ -103,7 +103,9 @@ def _inline_bundle(page: Path) -> str:
             js_parts.append(path.read_text(encoding="utf-8"))
         html = re.sub(rf'\s*<script src="assets/{re.escape(name)}\.js"></script>\s*', "", html)
 
-    css_bundle = tokens + "\n" + styles + "\n" + motion
+    guild = (ASSETS / "guild.css").read_text(encoding="utf-8")
+    html = html.replace('  <link rel="stylesheet" href="assets/guild.css" />\n', "")
+    css_bundle = tokens + "\n" + styles + "\n" + motion + "\n" + guild
     js_bundle = "\n".join(js_parts)
 
     html = html.replace("</head>", f"<style>{css_bundle}</style>\n</head>", 1)
