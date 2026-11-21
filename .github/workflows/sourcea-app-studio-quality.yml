@@ -50,10 +50,10 @@ jobs:
           assert "build_sourcea_vercel_output_v1.py" in cfg["buildCommand"]
           assert cfg["outputDirectory"]=="SourceA-landing/green-unified/dist"
           assert cfg["cleanUrls"] is True
-          routes={r["source"]:r["destination"] for r in cfg["rewrites"]}
-          assert routes["/apps"]=="/sourcea/app-studio.html"
-          assert routes["/forge/terminal"]=="/sourcea/forge/terminal.html"
-          assert all(r["source"]!="/" for r in cfg["rewrites"])
+          routes={r["source"]:r["destination"] for r in cfg["redirects"]}
+          assert routes["/apps"]=="/sourcea/app-studio"
+          assert routes["/forge/terminal"]=="/sourcea/forge/terminal"
+          assert all(r["source"]!="/" for r in cfg["redirects"])
           print("PASS: build generates current dist and preserves app/forge routes")
           PY
       - name: Build full production static pages with auth domain gate enforced
