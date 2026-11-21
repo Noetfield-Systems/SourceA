@@ -37,6 +37,33 @@ def sync() -> dict:
     env = _parse_env(SECRETS)
     url = (env.get("SUPABASE_URL") or "").rstrip("/")
     anon = env.get("SUPABASE_ANON_KEY") or env.get("SUPABASE_PUBLISHABLE_KEY") or ""
+    from_public_committed_config = False
+
+    # Static site CI and Cloudflare Pages do not carry workstation-only
+    # ~/.sourcea-secrets. Preserve the already committed, publicly publishable
+    # anon-client config rather than silently overwriting it with disabled auth.
+    # This is NOT a fallback to service-role/private credentials.
+    if (not url or not anon) and OUT.is_file():
+        try:
+            existing = json.loads(OUT.read_text(encoding="utf-8"))
+        except (OSError, json.JSONDecodeError):
+            existing = {}
+        existing_url = str(existing.get("supabase_url") or "").rstrip("/")
+        existing_anon = str(existing.get("supabase_anon_key") or "")
+        if (
+            existing.get("schema") == "sourcea-platform-auth-config-v1"
+            and existing.get("venture") == "sourcea"
+            and existing.get("configured") is True
+            and existing_url.startswith("https://")
+            and existing_url.endswith(".supabase.co")
+            and existing_anon
+            and "service_role" not in existing
+            and "service_role" not in existing_anon
+        ):
+            # Mixed partial secrets should not replace one side of the pair.
+            if not url and not anon:
+                url, anon = existing_url, existing_anon
+                from_public_committed_config = True
     row = {
         "schema": "sourcea-platform-auth-config-v1",
         "at": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
@@ -68,7 +95,7 @@ def sync() -> dict:
     }
     OUT.parent.mkdir(parents=True, exist_ok=True)
     OUT.write_text(json.dumps(row, indent=2) + "\n", encoding="utf-8")
-    return {"ok": True, "path": str(OUT), "configured": row["configured"]}
+    return {"ok": True, "path": str(OUT), "configured": row["configured"], "source": "committed_public_anon_config" if from_public_committed_config else "local_workspace_env"}
 
 
 def main() -> int:
