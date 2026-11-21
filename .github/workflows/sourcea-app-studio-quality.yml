@@ -7,6 +7,7 @@ on:
       - 'sites/SourceA-landing/green-unified/**'
       - 'scripts/sourcea_clean_urls_v1.py'
       - 'scripts/validate_sourcea_app_studio_v1.py'
+      - 'scripts/sourcea_app_studio_browser_qa.cjs'
       - '.github/workflows/sourcea-app-studio-quality.yml'
   push:
     branches: [main]
@@ -14,6 +15,7 @@ on:
       - 'sites/SourceA-landing/green-unified/**'
       - 'scripts/sourcea_clean_urls_v1.py'
       - 'scripts/validate_sourcea_app_studio_v1.py'
+      - 'scripts/sourcea_app_studio_browser_qa.cjs'
       - '.github/workflows/sourcea-app-studio-quality.yml'
   workflow_dispatch:
 
@@ -57,3 +59,25 @@ jobs:
           grep -q '^/apps  /sourcea/app-studio  302$' SourceA-landing/green-unified/dist/_redirects
           grep -q 'The next generation of apps' SourceA-landing/green-unified/dist/index.html
           echo "PASS: generated homepage, public app studio and route alias"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install isolated Playwright Chromium
+        run: |
+          npm install --prefix /tmp/sourcea-playwright --no-package-lock --no-audit --no-fund playwright@1.56.1
+          /tmp/sourcea-playwright/node_modules/.bin/playwright install --with-deps chromium
+      - name: Browser QA, real responsive screenshots
+        run: |
+          python3 -m http.server 8765 --directory SourceA-landing/green-unified/dist >/tmp/sourcea-http.log 2>&1 &
+          sleep 2
+          SOURCEA_QA_URL=http://127.0.0.1:8765 \
+          SOURCEA_QA_SCREENSHOTS=/tmp/sourcea-app-studio-screenshots \
+          NODE_PATH=/tmp/sourcea-playwright/node_modules \
+          node scripts/sourcea_app_studio_browser_qa.cjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: sourcea-app-studio-responsive-qa
+          path: /tmp/sourcea-app-studio-screenshots/*.png
+          if-no-files-found: ignore
+          retention-days: 14
