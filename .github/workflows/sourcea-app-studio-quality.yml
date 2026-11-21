@@ -10,6 +10,7 @@ on:
       - 'scripts/sourcea_app_studio_browser_qa.cjs'
       - 'scripts/sync_sourcea_platform_auth_public_v1.py'
       - 'scripts/test_sourcea_public_auth_sync_v1.py'
+      - 'vercel.json'
       - '.github/workflows/sourcea-app-studio-quality.yml'
   push:
     branches: [main]
@@ -20,6 +21,7 @@ on:
       - 'scripts/sourcea_app_studio_browser_qa.cjs'
       - 'scripts/sync_sourcea_platform_auth_public_v1.py'
       - 'scripts/test_sourcea_public_auth_sync_v1.py'
+      - 'vercel.json'
       - '.github/workflows/sourcea-app-studio-quality.yml'
   workflow_dispatch:
 
@@ -39,6 +41,21 @@ jobs:
         run: python3 scripts/validate_sourcea_app_studio_v1.py
       - name: Verify publishable auth configuration fallback without secrets
         run: python3 scripts/test_sourcea_public_auth_sync_v1.py
+      - name: Verify Vercel builds fresh content and keeps app routes
+        run: |
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          cfg=json.loads(Path("vercel.json").read_text())
+          assert "build_sourcea_vercel_output_v1.py" in cfg["buildCommand"]
+          assert cfg["outputDirectory"]=="SourceA-landing/green-unified/dist"
+          assert cfg["cleanUrls"] is True
+          routes={r["source"]:r["destination"] for r in cfg["rewrites"]}
+          assert routes["/apps"]=="/sourcea/app-studio.html"
+          assert routes["/forge/terminal"]=="/sourcea/forge/terminal.html"
+          assert all(r["source"]!="/" for r in cfg["rewrites"])
+          print("PASS: build generates current dist and preserves app/forge routes")
+          PY
       - name: Build full production static pages with auth domain gate enforced
         run: python3 scripts/build_sourcea_vercel_output_v1.py --json
       - name: Verify generated route, teaser and source-of-truth
