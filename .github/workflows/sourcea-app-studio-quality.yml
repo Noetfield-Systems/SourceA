@@ -1,0 +1,45 @@
+name: SourceA App Studio Quality
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'sites/SourceA-landing/green-unified/**'
+      - 'scripts/sourcea_clean_urls_v1.py'
+      - 'scripts/validate_sourcea_app_studio_v1.py'
+      - '.github/workflows/sourcea-app-studio-quality.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'sites/SourceA-landing/green-unified/**'
+      - 'scripts/sourcea_clean_urls_v1.py'
+      - 'scripts/validate_sourcea_app_studio_v1.py'
+      - '.github/workflows/sourcea-app-studio-quality.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  quality:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Check source-level app studio contract, accessibility and independent ventures
+        run: python3 scripts/validate_sourcea_app_studio_v1.py
+      - name: Build production static pages with existing SourceA compiler
+        run: python3 scripts/build_sourcea_vercel_output_v1.py --json
+      - name: Verify generated route, teaser and source-of-truth
+        run: |
+          set -euo pipefail
+          test -s SourceA-landing/green-unified/dist/sourcea/app-studio.html
+          test -s SourceA-landing/green-unified/dist/sourcea/app-studio.css
+          test -s SourceA-landing/green-unified/dist/sourcea/app-studio-teaser.css
+          grep -q 'id="next-generation-apps"' SourceA-landing/green-unified/dist/index.html
+          grep -q '^/apps  /sourcea/app-studio  302$' SourceA-landing/green-unified/dist/_redirects
+          grep -q 'The next generation of apps' SourceA-landing/green-unified/dist/index.html
+          echo "PASS: generated homepage, public app studio and route alias"
