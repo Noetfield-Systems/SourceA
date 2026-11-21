@@ -18,7 +18,7 @@ const sizes=[{name:'phone320',width:320,height:750},{name:'phone390',width:390,h
     for(const size of sizes){
       const page=await browser.newPage({viewport:{width:size.width,height:size.height},deviceScaleFactor:1,reducedMotion:'reduce'});
       const errors=[];
-      page.on('pageerror',e=>errors.push(e.message));
+      page.on('pageerror',e=>errors.push({message:e.message,stack:e.stack}));
       const response=await page.goto(base+'/sourcea/app-studio.html',{waitUntil:'domcontentloaded',timeout:30000});
       await page.locator('#studio-title').waitFor();
       await page.evaluate(()=>document.fonts.ready);
