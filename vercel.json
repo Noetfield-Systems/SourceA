@@ -6,28 +6,6 @@
   "outputDirectory": "SourceA-landing/green-unified/dist",
   "cleanUrls": true,
   "trailingSlash": false,
-  "rewrites": [
-    {
-      "source": "/apps",
-      "destination": "/sourcea/app-studio.html"
-    },
-    {
-      "source": "/studio",
-      "destination": "/sourcea/app-studio.html"
-    },
-    {
-      "source": "/forge",
-      "destination": "/sourcea/forge/index.html"
-    },
-    {
-      "source": "/forge/terminal",
-      "destination": "/sourcea/forge/terminal.html"
-    },
-    {
-      "source": "/sourcea/app-studio",
-      "destination": "/sourcea/app-studio.html"
-    }
-  ],
   "headers": [
     {
       "source": "/(.*)",
@@ -63,6 +41,38 @@
           "value": "public, max-age=60"
         }
       ]
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/apps",
+      "destination": "/sourcea/app-studio",
+      "permanent": false
+    },
+    {
+      "source": "/studio",
+      "destination": "/sourcea/app-studio",
+      "permanent": false
+    },
+    {
+      "source": "/start",
+      "destination": "/sourcea/start",
+      "permanent": false
+    },
+    {
+      "source": "/forge",
+      "destination": "/sourcea/forge",
+      "permanent": false
+    },
+    {
+      "source": "/forge/terminal",
+      "destination": "/sourcea/forge/terminal",
+      "permanent": false
+    },
+    {
+      "source": "/learn",
+      "destination": "/sourcea/learn",
+      "permanent": false
     }
   ]
 }
