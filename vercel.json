@@ -2,9 +2,77 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "framework": null,
   "installCommand": "",
-  "buildCommand": "",
+  "buildCommand": "python3 scripts/build_sourcea_vercel_output_v1.py --json",
   "outputDirectory": "SourceA-landing/green-unified/dist",
-  "rewrites": [
-    { "source": "/", "destination": "/sourcea/" }
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "SAMEORIGIN"
+        }
+      ]
+    },
+    {
+      "source": "/auth/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "private, no-store, max-age=0"
+        }
+      ]
+    },
+    {
+      "source": "/sourcea/data/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=60"
+        }
+      ]
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/apps",
+      "destination": "/sourcea/app-studio",
+      "permanent": false
+    },
+    {
+      "source": "/studio",
+      "destination": "/sourcea/app-studio",
+      "permanent": false
+    },
+    {
+      "source": "/start",
+      "destination": "/sourcea/start",
+      "permanent": false
+    },
+    {
+      "source": "/forge",
+      "destination": "/sourcea/forge",
+      "permanent": false
+    },
+    {
+      "source": "/forge/terminal",
+      "destination": "/sourcea/forge/terminal",
+      "permanent": false
+    },
+    {
+      "source": "/learn",
+      "destination": "/sourcea/learn",
+      "permanent": false
+    }
   ]
 }
