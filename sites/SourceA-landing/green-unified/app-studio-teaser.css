@@ -1,0 +1,24 @@
+/* SourceA v4 — app & venture studio teaser. Additive to original proof platform. */
+.sa-app-studio-teaser{background:#17251c;color:#f3f5ef;padding:clamp(64px,7vw,112px) 0}
+.sa-app-studio-teaser .sa-studio-teaser-head{display:flex;align-items:flex-end;justify-content:space-between;gap:28px;margin-bottom:35px}
+.sa-app-studio-teaser .ar-kicker{color:#b7e4a2;font-size:.76rem;letter-spacing:.12em;text-transform:uppercase}
+.sa-app-studio-teaser h2{font-size:clamp(2rem,4.5vw,4.1rem);line-height:1.08;letter-spacing:-.05em;margin:13px 0 18px;color:#f5f6ef;max-width:760px}
+.sa-app-studio-teaser h2 .ar-hero-accent{color:#c2e6aa}
+.sa-app-studio-teaser .sa-studio-teaser-head p:not(.ar-kicker){max-width:730px;color:#b0c2b1;font-size:1rem;line-height:1.7;margin:0}
+.sa-studio-teaser-link{white-space:nowrap;display:inline-flex;gap:18px;align-items:center;padding:15px 18px;border:1px solid rgba(195,229,175,.46);border-radius:8px;color:#c2e6aa;text-decoration:none;font-weight:700;font-size:.84rem}
+.sa-studio-teaser-link:hover{background:rgba(195,229,175,.11)}
+.sa-studio-teaser-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px}
+.sa-studio-teaser-card{min-width:0;min-height:285px;border:1px solid rgba(218,232,208,.18);padding:26px;display:flex;flex-direction:column;border-radius:12px;text-decoration:none;transition:transform .2s,border-color .2s}
+.sa-studio-teaser-card:hover{transform:translateY(-4px);border-color:rgba(218,232,208,.54)}
+.sa-studio-mirra{background:linear-gradient(145deg,#b6c6aa,#849d86);color:#1e3528}
+.sa-studio-atelier{background:linear-gradient(145deg,#4e4540,#262124);color:#f6e9dc}
+.sa-studio-forge{background:radial-gradient(circle at 85% 30%,#456548,#203329 65%);color:#e9f6e2}
+.sa-teaser-type,.sa-studio-teaser-card small{font:700 .66rem/1.5 "Inter",sans-serif;letter-spacing:.12em}
+.sa-studio-teaser-card strong{font-size:clamp(2rem,3.4vw,3.2rem);line-height:1;letter-spacing:-.06em;margin-top:48px;display:flex;justify-content:space-between;gap:15px}
+.sa-studio-teaser-card strong span{font-size:1.2rem;letter-spacing:0}
+.sa-studio-teaser-card>span:not(.sa-teaser-type){font-size:.97rem;line-height:1.55;margin-top:15px;max-width:330px}
+.sa-studio-teaser-card small{margin-top:auto;padding-top:28px;opacity:.78}
+.sa-teaser-disclaimer{font-size:.75rem!important;color:#849b87!important;margin:20px 0 0!important;line-height:1.6!important}
+@media(max-width:950px){.sa-studio-teaser-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.sa-studio-teaser-head{flex-direction:column;align-items:flex-start!important}}
+@media(max-width:610px){.sa-studio-teaser-grid{grid-template-columns:1fr}.sa-studio-teaser-card{min-height:240px}.sa-studio-teaser-card strong{margin-top:32px}.sa-app-studio-teaser{padding-block:65px}.sa-studio-teaser-link{white-space:normal}.sa-app-studio-teaser h2{font-size:clamp(2rem,9vw,2.75rem)}}
+@media(prefers-reduced-motion:reduce){.sa-studio-teaser-card{transition:none!important}}
