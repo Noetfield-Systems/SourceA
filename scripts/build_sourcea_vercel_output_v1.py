@@ -189,6 +189,10 @@ def build(*, clean: bool = True) -> dict:
 
     pulse_injected = 0
     for html_path in sourcea_dir.rglob("*.html"):
+        # App Studio is a self-contained, privacy-first marketing page with its
+        # own accessible navigation. It must not inherit enterprise runtime JS.
+        if html_path.name == "app-studio.html":
+            continue
         text = html_path.read_text(encoding="utf-8")
         new_text = inject_shell(text)
         if new_text != text:
