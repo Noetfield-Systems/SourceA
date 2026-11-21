@@ -26,6 +26,8 @@ SHORT_ALIASES: tuple[tuple[str, str], ...] = (
     ("/pricing", "/sourcea/pricing"),
     ("/team", "/sourcea/team"),
     ("/growth", "/sourcea/growth"),
+    ("/apps", "/sourcea/app-studio"),
+    ("/studio", "/sourcea/app-studio"),
     ("/compare", "/sourcea/compare"),
     ("/security", "/sourcea/security"),
     ("/forge", "/sourcea/forge/"),

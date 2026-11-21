@@ -1,6 +1,6 @@
 {
   "schema": "trigger-registry-v1",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "system": "sourcea",
   "slo": {
     "freshness_target_minutes": 15,
@@ -589,6 +589,75 @@
       "live_probe": {
         "type": "gha_workflow",
         "path": ".github/workflows/l0-graph-refresh.yml",
+        "expects": [
+          "push",
+          "workflow_dispatch"
+        ]
+      }
+    },
+    {
+      "trigger_id": "SA-T-app-studio-quality",
+      "system": "sourcea",
+      "kind": "event",
+      "schedule": null,
+      "target": "SourceA app studio independent-venture quality and static build QA",
+      "valid_in_verified_window": true,
+      "owner_workflow": "sourcea-app-studio-quality",
+      "live_probe": {
+        "type": "gha_workflow",
+        "path": ".github/workflows/sourcea-app-studio-quality.yml",
+        "expects": [
+          "pull_request",
+          "push",
+          "workflow_dispatch"
+        ]
+      }
+    },
+    {
+      "trigger_id": "SA-T-witness-guild-source-ci",
+      "system": "sourcea",
+      "kind": "event",
+      "schedule": null,
+      "target": "Existing Witness Guild source CI (separate organization/venture workstream)",
+      "valid_in_verified_window": true,
+      "owner_workflow": "witness-guild-source-ci",
+      "live_probe": {
+        "type": "gha_workflow",
+        "path": ".github/workflows/witness-guild-source-ci.yml",
+        "expects": [
+          "pull_request",
+          "push"
+        ]
+      }
+    },
+    {
+      "trigger_id": "SA-T-witness-guild-sync-deploy",
+      "system": "sourcea",
+      "kind": "event",
+      "schedule": null,
+      "target": "Existing Witness Guild synchronization deployment",
+      "valid_in_verified_window": true,
+      "owner_workflow": "witness-guild-sync-deploy",
+      "live_probe": {
+        "type": "gha_workflow",
+        "path": ".github/workflows/witness-guild-sync-deploy.yml",
+        "expects": [
+          "push",
+          "workflow_dispatch"
+        ]
+      }
+    },
+    {
+      "trigger_id": "SA-T-witness-production-guild-readback",
+      "system": "sourcea",
+      "kind": "event",
+      "schedule": null,
+      "target": "Existing Witness Guild production readback",
+      "valid_in_verified_window": true,
+      "owner_workflow": "witness-production-guild-readback",
+      "live_probe": {
+        "type": "gha_workflow",
+        "path": ".github/workflows/witness-production-guild-readback.yml",
         "expects": [
           "push",
           "workflow_dispatch"
