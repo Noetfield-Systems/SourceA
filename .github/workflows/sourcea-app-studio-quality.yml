@@ -8,6 +8,8 @@ on:
       - 'scripts/sourcea_clean_urls_v1.py'
       - 'scripts/validate_sourcea_app_studio_v1.py'
       - 'scripts/sourcea_app_studio_browser_qa.cjs'
+      - 'scripts/sync_sourcea_platform_auth_public_v1.py'
+      - 'scripts/test_sourcea_public_auth_sync_v1.py'
       - '.github/workflows/sourcea-app-studio-quality.yml'
   push:
     branches: [main]
@@ -16,6 +18,8 @@ on:
       - 'scripts/sourcea_clean_urls_v1.py'
       - 'scripts/validate_sourcea_app_studio_v1.py'
       - 'scripts/sourcea_app_studio_browser_qa.cjs'
+      - 'scripts/sync_sourcea_platform_auth_public_v1.py'
+      - 'scripts/test_sourcea_public_auth_sync_v1.py'
       - '.github/workflows/sourcea-app-studio-quality.yml'
   workflow_dispatch:
 
@@ -33,22 +37,10 @@ jobs:
           python-version: '3.12'
       - name: Check source-level app studio contract, accessibility and independent ventures
         run: python3 scripts/validate_sourcea_app_studio_v1.py
-      - name: Assemble static pages and report existing auth-domain configuration separately
-        run: |
-          set +e
-          python3 scripts/build_sourcea_vercel_output_v1.py --json > /tmp/sourcea-studio-build.log 2>&1
-          result=$?
-          set -e
-          if [ "$result" -ne 0 ]; then
-            if grep -q 'auth_config_configured' /tmp/sourcea-studio-build.log && grep -q 'configured is false' /tmp/sourcea-studio-build.log; then
-              echo "::warning::SourceA's pre-existing auth-domain configuration is not enabled in CI. This is an existing full-build gate, not a studio page error."
-            else
-              cat /tmp/sourcea-studio-build.log
-              exit "$result"
-            fi
-          else
-            cat /tmp/sourcea-studio-build.log
-          fi
+      - name: Verify publishable auth configuration fallback without secrets
+        run: python3 scripts/test_sourcea_public_auth_sync_v1.py
+      - name: Build full production static pages with auth domain gate enforced
+        run: python3 scripts/build_sourcea_vercel_output_v1.py --json
       - name: Verify generated route, teaser and source-of-truth
         run: |
           set -euo pipefail
