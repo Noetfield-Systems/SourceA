@@ -6,7 +6,7 @@ const BRAIN_CHAT_PATH = "/api/brain/chat/v1";
 const BRAIN_WORKER_URL =
   "https://sourcea-brain-chat-v1.sina-kazemnezhad-ca.workers.dev/api/brain/chat/v1";
 const EMAIL_RE = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
-const END_SCREEN = "We'll respond in 2 hours with a plan.";
+const END_SCREEN = "Your request was accepted. We will follow up by email.";
 const NOTIFY_TO = "hello@sourcea.app";
 const NOTIFY_FROM = "SourceA Intake <onboarding@resend.dev>";
 
