@@ -1,0 +1,29 @@
+name: SourceA Intake Truth Contract
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'cloud/pages-functions/_middleware.js'
+      - 'cloud/workers/sourcea-mvp-intake-v1/src/index.js'
+      - 'scripts/test_sourcea_intake_delivery_v1.mjs'
+      - '.github/workflows/sourcea-intake-truth-quality.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'cloud/pages-functions/_middleware.js'
+      - 'cloud/workers/sourcea-mvp-intake-v1/src/index.js'
+      - 'scripts/test_sourcea_intake_delivery_v1.mjs'
+      - '.github/workflows/sourcea-intake-truth-quality.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 3
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node scripts/test_sourcea_intake_delivery_v1.mjs
