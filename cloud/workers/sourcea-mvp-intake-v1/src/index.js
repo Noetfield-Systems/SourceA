@@ -23,10 +23,12 @@ async function persistIntake(env, intakeId, record) {
   if (!env.INTAKE_KV) {
     return { ok: false, skipped: true, reason: "INTAKE_KV_missing" };
   }
-  await env.INTAKE_KV.put(`intake:${intakeId}`, JSON.stringify(record), {
-    expirationTtl: 60 * 60 * 24 * 365,
-  });
-  return { ok: true, storage: "kv" };
+  try {
+    await env.INTAKE_KV.put(`intake:${intakeId}`, JSON.stringify(record), {
+      expirationTtl: 60 * 60 * 24 * 365,
+    });
+    return { ok: true, storage: "kv" };
+  } catch (_) { return { ok: false, error: "storage_write_failed" }; }
 }
 
 async function readIntake(env, intakeId) {
@@ -83,6 +85,7 @@ async function handlePost(request, env) {
   const storage = await persistIntake(env, intakeId, record);
   let notify = { ok: false, skipped: true, reason: "RESEND_API_KEY_missing" };
   if (env.RESEND_API_KEY) {
+    try {
     const resp = await fetch("https://api.resend.com/emails", {
       method: "POST",
       headers: {
@@ -100,6 +103,10 @@ async function handlePost(request, env) {
     notify = resp.ok
       ? { ok: true, resend_id: (await resp.json()).id }
       : { ok: false, error: "resend_failed", status: resp.status };
+    } catch (_) { notify = { ok: false, error: "resend_unavailable" }; }
+  }
+  if (!storage.ok && !notify.ok) {
+    return json(request,{schema:"sourcea-mvp-intake-receipt-v1",ok:false,error:"intake_not_accepted",storage,notify},503);
   }
   return json(request, {
     schema: "sourcea-mvp-intake-receipt-v1",
