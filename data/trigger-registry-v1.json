@@ -663,6 +663,24 @@
           "workflow_dispatch"
         ]
       }
+    },
+    {
+      "trigger_id": "SA-T-intake-truth-quality",
+      "system": "sourcea",
+      "kind": "event",
+      "schedule": null,
+      "target": "SourceA intake acceptance truth QA — mock only, no sends",
+      "valid_in_verified_window": true,
+      "owner_workflow": "sourcea-intake-truth-quality",
+      "live_probe": {
+        "type": "gha_workflow",
+        "path": ".github/workflows/sourcea-intake-truth-quality.yml",
+        "expects": [
+          "pull_request",
+          "push",
+          "workflow_dispatch"
+        ]
+      }
     }
   ],
   "slo_targets": {
