@@ -23,14 +23,15 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          for path in / /genesis /quests /guild /arena /reputation /governance /economy /builders /manifesto /assets/app.css /assets/app.js; do
+          for path in / /genesis /commons /mythos /world /stories /circles /gatherings /fandom /collectibles /quests /guild /arena /reputation /governance /economy /builders /manifesto /assets/app.css /assets/app.js; do
             code="$(curl -L --retry 4 --retry-delay 3 --max-time 25 -sS -o /tmp/witness-public-page -w '%{http_code}' "https://witnessbc.com${path}")"
             echo "${path} → HTTP ${code}"
             test "$code" = 200
           done
           curl --retry 4 -fLsS https://witnessbc.com/ -o /tmp/witness-web3-home
           curl --retry 4 -fLsS https://witnessbc.com/quests -o /tmp/witness-web3-quests
-          grep -q 'WEB3 BUILDER SOCIETY' /tmp/witness-web3-home
+          grep -q 'WITNESS BC · WEB3 COMMUNITY' /tmp/witness-web3-home
+          grep -q 'Witness the world' /tmp/witness-web3-home
           grep -q 'Enter Genesis' /tmp/witness-web3-home
           grep -q '150 XP' /tmp/witness-web3-quests
           if grep -Eqi 'buy[.]stripe[.]com|noetfield[.]com|mailto:|CISO|institutional alignment' /tmp/witness-web3-home; then

@@ -1,8 +1,8 @@
 {
-  "schema": "witness.venture-strategy-guard.v2",
+  "schema": "witness.social-commons-strategy.v3",
   "effective_at": "2026-11-17",
   "venture": "Witness BC",
-  "canonical_thesis": "Independent Web3-native AI governance builder economy. Community first, crypto native, evidence reviewed, referrals, quests, retention, governance.",
+  "canonical_thesis": "Witness BC is the spiritual, cultural and archetypal Wildcard of Change: a Web3-native social commons built around memory, justice, exile, calling, covenant, freedom, storytelling, transformation and shared futures.",
   "supersedes": "All Witness-specific pre-Web3 preservation, institutional distribution, corporate consultancy and Stripe checkout instructions",
   "independent_from": [
     "Noetfield Systems",
@@ -14,6 +14,14 @@
   "allowlisted_pages": [
     "index",
     "genesis",
+    "commons",
+    "world",
+    "mythos",
+    "stories",
+    "circles",
+    "gatherings",
+    "fandom",
+    "collectibles",
     "quests",
     "guild",
     "arena",
@@ -24,14 +32,14 @@
     "manifesto"
   ],
   "p0": [
-    "authentic Genesis",
-    "real founding members",
-    "quests and review",
-    "earned XP",
-    "meaningful referrals",
-    "Web3 ecosystem discovery",
-    "repeat engagement",
-    "optional wallet and governance"
+    "A welcoming independent social identity and living fictional world",
+    "Stories and reply threads under member-chosen pseudonyms",
+    "Topic-based Circles, real gatherings and member RSVPs",
+    "Founding culture rituals, collaborative fanworks and editorial canon",
+    "Community Economy authenticated member identity and invitations",
+    "Optional wallet and economic primitives, never membership gate",
+    "Member-led governance, respectful disagreement and right-to-reply",
+    "D7 return through meaningful cultural rituals not mechanical streak pressure"
   ],
   "distribution": [
     "Web3 builders",
@@ -85,7 +93,90 @@
       "invented universal cross-venture template",
       "removing original brand without explicit founder permission"
     ],
-    "rule": "Web3 changes strategy, content, users, economy and flows; it does NOT authorize changing original Witness UI, core brand or color without an explicit separate Founder request.",
+    "rule": "Expand Witness's own original light/Inter/slate/navy design with editorial, literary and cultural spaces; never graft BuildRelay or another venture's visual system.",
     "acceptance": "Playwright tests original light Inter theme, slate-blue primary, hex mark, workbench, light-dark switch, and 320/390/1440 widths."
+  },
+  "icp_priority": [
+    "Cultural storytellers, writers, artists and worldbuilders",
+    "Young adults drawn to justice and societal change as cultural themes",
+    "Fans of speculative fiction, dystopian settings, roleplay and participatory lore",
+    "Web3-native cultural community organizers and digital artists",
+    "Community hosts, moderators, facilitators and thoughtful discussants",
+    "AI ethics, governance and open-source builders as a specialist circle"
+  ],
+  "benchmark_patterns": [
+    "FWB cultural community and rituals",
+    "AO3 pseudonyms, fandom tags and archive identity",
+    "World Anvil creative lore and storyworld canon",
+    "SCP collaborative fictional world, feedback and author roles",
+    "Discourse topic forums, replies and earned trust",
+    "Discord interest-based onboarding and member-selected channels",
+    "Nouns open creative remix and community proposals",
+    "Metalabel collective cultural publishing",
+    "Zora digital creator culture as optional future experiment",
+    "Cabin community events and shared places"
+  ],
+  "social_identity_principles": [
+    "fictional characters and real member pseudonyms are expected",
+    "world fiction and profile names are first-class creative content",
+    "social contributions are independent of technical XP quests",
+    "authentic membership/transaction numbers use verified database records",
+    "no corporate email or institutional outreach"
+  ],
+  "product_source": "Noetfield-Systems/SourceA/witnessbc-site",
+  "community_runtime": "Noetfield-Systems/COMMUNITY-ECONOMY (shared login, memberships, posts, threads, circle choices, gatherings/RSVP)",
+  "symbolic_identity": {
+    "meanings_of_BC": [
+      "British Columbia",
+      "Before Change",
+      "Before Creation",
+      "Before the Call"
+    ],
+    "canon": "Open creative symbolism, not a compulsory belief system or one fixed dystopian storyworld.",
+    "historical_pillars": [
+      "Structure & Law",
+      "Story & Narrative",
+      "Self & Awareness",
+      "Society & Economy"
+    ],
+    "inherited_metaphors": [
+      "Witness",
+      "Bridge",
+      "Sinai",
+      "Exile",
+      "Threshold",
+      "Vision and Verification"
+    ],
+    "archetypes": [
+      "Witness",
+      "Rebel",
+      "Seeker",
+      "Guardian",
+      "Trickster",
+      "Creator",
+      "Herald",
+      "Shadow",
+      "Bridgekeeper",
+      "Healer",
+      "Architect",
+      "Pilgrim"
+    ],
+    "mechanics": [
+      "Pairs of archetypal forces",
+      "Distinct eras of change",
+      "Gift-versus-shadow dilemmas",
+      "Original interactive fiction",
+      "Member-made stories and pseudonyms",
+      "Community-led canon and ritual"
+    ],
+    "rule": "Archetypes are creative forces and mutable narrative roles, never fixed psychological diagnoses. Spiritual depth is voluntary; historical and religious traditions retain distinct identities.",
+    "inspiration_sources": [
+      "Jung's analytical psychology and its critics",
+      "Victor Turner's liminality and communitas",
+      "Exodus/covenant and prophetic witness motifs",
+      "Worldwide stories of flood, return and renewal",
+      "SCP's collaborative canon",
+      "AO3's pseudonymous literary culture"
+    ]
   }
 }
