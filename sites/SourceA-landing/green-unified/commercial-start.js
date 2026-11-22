@@ -59,7 +59,7 @@
     if (hero) hero.classList.add("sa-start-hidden");
     if (done) done.classList.remove("sa-start-hidden");
     const el = $("#sa-start-done-msg");
-    if (el) el.textContent = msg || "We'll respond in 2 hours with a plan.";
+    if (el) el.textContent = msg || "We will follow up by email.";
     window.scrollTo({ top: 0, behavior: "smooth" });
   }
 
@@ -127,7 +127,7 @@
       if (!r.ok || !data.ok) {
         showError(
           (data.errors || []).join(", ") ||
-            "Submit failed — email " + (config.contact_email || CONTACT) + " and we'll still respond in 2 hours."
+            "Submit failed — email " + (config.contact_email || CONTACT) + " or try again when the service is available."
         );
         if (btn) {
           btn.disabled = false;
@@ -137,7 +137,7 @@
       }
       showDone(
         data.intake_id
-          ? "Reference " + data.intake_id + ". " + (data.end_screen || config.end_screen || "We'll respond in 2 hours with a scoped plan.")
+          ? "Reference " + data.intake_id + ". " + (data.end_screen || config.end_screen || "We will follow up by email.")
           : data.end_screen || config.end_screen
       );
       const refEl = document.getElementById("sa-start-ref-id");
@@ -146,7 +146,7 @@
         refEl.hidden = false;
       }
     } catch (err) {
-      showError("Network error — email " + (config.contact_email || CONTACT) + " and we'll still respond in 2 hours.");
+      showError("Network error — email " + (config.contact_email || CONTACT) + " or try again when the service is available.");
       if (btn) {
         btn.disabled = false;
         btn.textContent = "Submit →";
