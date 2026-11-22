@@ -19,6 +19,7 @@ const sizes=[{name:'phone320',width:320,height:750},{name:'phone390',width:390,h
       const page=await browser.newPage({viewport:{width:size.width,height:size.height},deviceScaleFactor:1,reducedMotion:'reduce'});
       const errors=[];
       page.on('pageerror',e=>errors.push({message:e.message,stack:e.stack}));
+      await page.addInitScript(()=>{window.__studioShareAttempts=[];Object.defineProperty(navigator,'share',{configurable:true,value:async payload=>{window.__studioShareAttempts.push(payload);}});});
       const response=await page.goto(base+'/sourcea/app-studio.html',{waitUntil:'domcontentloaded',timeout:30000});
       await page.locator('#studio-title').waitFor();
       await page.evaluate(()=>document.fonts.ready);
@@ -38,6 +39,10 @@ const sizes=[{name:'phone320',width:320,height:750},{name:'phone390',width:390,h
       if(dimensions.css==='rgba(0, 0, 0, 0)')throw Error(size.name+': stylesheet did not load');
       if(cardCount!==3)throw Error(size.name+': expected exactly 3 live product cards, got '+cardCount);
       if(!ownership.includes('independently branded'))throw Error(size.name+': independent ownership notice missing');
+      await page.locator('[data-studio-share="mirra"]').click();
+      const sharePayload=await page.evaluate(()=>window.__studioShareAttempts[0]);
+      if(!sharePayload||sharePayload.url!=='https://mirra-psychology.vercel.app/')throw Error(size.name+': live MIRRA share payload was not dispatched');
+      if(!(await page.locator('#studio-share-status').innerText()).includes('Shared'))throw Error(size.name+': share status was not announced');
       if(errors.length)throw Error(size.name+': JS errors: '+JSON.stringify(errors));
       if(size.width<=768){
         const toggle=page.locator('.nav-toggle');
