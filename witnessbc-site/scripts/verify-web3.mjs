@@ -23,7 +23,7 @@ for(const name of htmlFiles){
  for(const pattern of forbidden)assert.doesNotMatch(html,pattern,'Forbidden legacy copy on '+name);
  for(const href of html.matchAll(/href="(\/[a-z][a-z/.-]*)"/g)){
   const dest=href[1].slice(1);
-  if(dest==='')continue;
+  if(dest==='' || dest.startsWith('assets/') || dest.includes('.'))continue;
   assert.ok(fs.existsSync(path.join(out,dest+'.html')),'Unresolved internal route '+href[1]+' on '+name);
  }
 }
