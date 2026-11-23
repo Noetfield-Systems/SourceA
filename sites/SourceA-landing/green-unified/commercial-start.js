@@ -31,7 +31,8 @@
     }
     if (config.contact_email) {
       document.querySelectorAll('a[href^="mailto:hello@"]').forEach(function (a) {
-        a.href = "mailto:" + config.contact_email;
+        const href = new URL(a.href);
+        a.href = "mailto:" + config.contact_email + href.search;
         if (a.textContent.indexOf("hello@") >= 0) a.textContent = config.contact_email;
       });
     }
@@ -60,7 +61,7 @@
     if (done) done.classList.remove("sa-start-hidden");
     const el = $("#sa-start-done-msg");
     if (el) el.textContent = msg || "We will follow up by email.";
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    done?.querySelector("h2")?.focus();
   }
 
   function readForm(form) {
@@ -124,32 +125,24 @@
         body: JSON.stringify(row.payload),
       });
       const data = await r.json();
-      if (!r.ok || !data.ok) {
-        showError(
-          (data.errors || []).join(", ") ||
-            "Submit failed — email " + (config.contact_email || CONTACT) + " or try again when the service is available."
-        );
-        if (btn) {
-          btn.disabled = false;
-          btn.textContent = "Submit →";
-        }
+      const delivered = data.storage?.ok === true || data.notify?.ok === true;
+      if (!r.ok || data.ok !== true || !data.intake_id || !delivered) {
+        showError("Your brief could not be confirmed. Try again or use Email your brief.");
         return;
       }
-      showDone(
-        data.intake_id
-          ? "Reference " + data.intake_id + ". " + (data.end_screen || config.end_screen || "We will follow up by email.")
-          : data.end_screen || config.end_screen
-      );
-      const refEl = document.getElementById("sa-start-ref-id");
-      if (refEl && data.intake_id) {
+      showDone(data.end_screen || config.end_screen);
+      const refEl = $("#sa-start-ref-id");
+      if (refEl) {
         refEl.textContent = "Confirmation reference: " + data.intake_id;
         refEl.hidden = false;
       }
-    } catch (err) {
-      showError("Network error — email " + (config.contact_email || CONTACT) + " or try again when the service is available.");
+      window.SourceAPulse?.track("studio_build_brief_received");
+    } catch {
+      showError("Your brief could not be confirmed. Try again or use Email your brief.");
+    } finally {
       if (btn) {
         btn.disabled = false;
-        btn.textContent = "Submit →";
+        btn.textContent = "Submit project →";
       }
     }
   }
