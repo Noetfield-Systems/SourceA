@@ -10,7 +10,7 @@ http.createServer((req,res)=>{
   const url=new URL(req.url||'/', 'http://127.0.0.1');
   let relative=decodeURIComponent(url.pathname);
   if(relative==='/'||relative==='')relative='/index.html';
-  else if(/^\/[a-z-]+$/.test(relative))relative+='.html';
+  else if(/^\/[a-z-]+(?:\/[a-z-]+)*$/.test(relative))relative+='.html';
   if(relative.includes('..')||!/^\/[a-zA-Z0-9._/-]+$/.test(relative)){res.writeHead(400);return res.end('Invalid path');}
   const dest=path.resolve(root,'.'+relative);
   if(!dest.startsWith(root+path.sep)){res.writeHead(403);return res.end('Forbidden');}

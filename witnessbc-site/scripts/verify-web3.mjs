@@ -7,10 +7,11 @@ const out=path.join(root,'dist','deploy');
 const contract=JSON.parse(fs.readFileSync(path.join(root,'config','VENTURE_IDENTITY.json'),'utf8'));
 const pages=contract.allowlisted_pages;
 assert.equal(contract.venture,'Witness BC');
-assert.match(contract.canonical_thesis,/Web3-native/i);
-assert.equal(pages.length,10);
-const htmlFiles=fs.readdirSync(out).filter(x=>x.endsWith('.html')).sort();
-assert.deepEqual(htmlFiles,pages.map(p=>p+'.html').sort(),'Deploy artifact contains EXACTLY ten Web3 pages');
+assert.match(contract.canonical_thesis,/dignity first/i);
+assert.equal(pages.length,16);
+for(const route of ['dignity','dignity/report','dignity/cases','dignity/cases/richmond-delivery','dignity/press','dignity/standards'])assert.ok(pages.includes(route),'dignity route '+route);
+const htmlFiles=pages.map(page=>page+'.html').sort();
+assert.deepEqual(htmlFiles,pages.map(p=>p+'.html').sort(),'Deploy artifact contains Exactly 16 allowlisted pages');
 const forbidden=[/stripe/i,/noetfield/i,/mailto:/i,/institutional alignment/i,/CISO/i,/corporate consulting/i,/book a demo/i,/shadow cohort/i,/buy\.stripe\.com/i,/government outreach/i,/paid toolkit/i];
 for(const name of htmlFiles){
  const html=fs.readFileSync(path.join(out,name),'utf8');
@@ -20,9 +21,9 @@ for(const name of htmlFiles){
  assert.match(html,/assets\/app.css/);
  assert.match(html,/assets\/app.js/);
  for(const pattern of forbidden)assert.doesNotMatch(html,pattern,'Forbidden legacy copy on '+name);
- for(const href of html.matchAll(/href="(\/[a-z][a-z-]*)"/g)){
+ for(const href of html.matchAll(/href="(\/[a-z][a-z/.-]*)"/g)){
   const dest=href[1].slice(1);
-  if(dest==='')continue;
+  if(dest==='' || dest.startsWith('assets/') || dest.includes('.'))continue;
   assert.ok(fs.existsSync(path.join(out,dest+'.html')),'Unresolved internal route '+href[1]+' on '+name);
  }
 }
@@ -41,7 +42,8 @@ assert.ok(arena.includes('LOCAL SIMULATION ONLY'),'Demo must not claim a live ex
 const assets=fs.readdirSync(path.join(out,'assets')).sort();
 assert.deepEqual(assets,['app.css','app.js','mark.svg','og.svg'],'No legacy assets can ship');
 const script=fs.readFileSync(path.join(out,'assets','app.js'),'utf8');
-assert.doesNotMatch(script,/Stripe|Noetfield|mailto:|fetch\s*\(/i);
+assert.doesNotMatch(script,/Stripe|Noetfield|fetch\s*\(/i);
+assert.match(script,/mailto:hello@witnessbc\.com/,'Only Witness contact mailbox is used for local report composition');
 assert.match(script,/witnessbc\.com\/genesis/);
 assert.match(script,/farcaster|telegram/i);
 for(const rel of ['data/cta.json','data/cohort.json','assets/guild.css','assets/guild.js','index.html','proof.html','sources.html','contact.html','compare.html','lifecycle.html','platform.html','policy.html','learn.html','faq.html','content/index.html','content/proof.html','content/guild.html','data/stripe-links-v1.json','scripts/inject_stripe_links_v1.py','scripts/sync_witnessbc_stripe_payment_links_v1.py','pricing.html','toolkits.html','content/pricing.html','content/toolkits.html']){
@@ -52,4 +54,11 @@ assert.match(recipe,/build-web3\.mjs/,'Canonical run recipe must build the new W
 assert.doesNotMatch(recipe,/inject_stripe|deploy_witnessbc_v1\.sh --skip-recipe/,'No legacy Stripe staging allowed');
 const activation=fs.readFileSync(path.join(root,'scripts/activate_witnessbc_full_v1.sh'),'utf8');
 assert.match(activation,/revoked by the Founder/,'Old activation command must stay tombstoned');
-console.log('PASS Witness Web3-only release: 10 pages, 4 assets, no legacy checkout, institutional content or false user/economic claims.');
+for(const route of ['dignity','dignity/report','dignity/cases','dignity/cases/richmond-delivery','dignity/press','dignity/standards']){
+ const html=fs.readFileSync(path.join(out,route+'.html'),'utf8');
+ assert.match(html,/application\/ld\+json/,'structured metadata present');
+ assert.match(html,/Dignity|dignity/i);
+}
+assert.match(fs.readFileSync(path.join(out,'dignity/report.html'),'utf8'),/id="dignityReportForm"/);
+assert.match(fs.readFileSync(path.join(out,'dignity/cases/richmond-delivery.html'),'utf8'),/not independently verified/i);
+console.log('PASS Witness Web3 + Dignity Desk: 16 pages, 4 assets, no legacy checkout, institutional content or false user/economic claims.');
