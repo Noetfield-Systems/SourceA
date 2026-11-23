@@ -246,3 +246,9 @@ h3{letter-spacing:-.035em}
 .dignity-panel:has(a:hover){border-color:rgba(159,194,220,.5)}
 @media(max-width:850px){.dignity-layout{grid-template-columns:1fr}.dignity-panel{padding:22px}}
 @media(prefers-reduced-motion:no-preference){.dignity-grid .card{transition:transform .22s,border-color .22s}.dignity-grid .card:hover{transform:translateY(-5px);border-color:rgba(159,194,220,.42)}}
+
+.dignity-narrow{max-width:600px}.dignity-feedback{min-height:25px;color:var(--soft)!important;line-height:1.6}.dignity-feedback.is-error{color:#d9776b!important}.dignity-feedback.is-success{color:#178266!important}
+.dignity-receipt{margin:16px 0;padding:25px;border:1px solid rgba(30,149,123,.4);background:var(--panel);border-radius:12px}.dignity-receipt p{line-height:1.8;color:var(--soft)}.dignity-receipt code{font-size:13px;overflow-wrap:anywhere;color:var(--text)}
+.dignity-honeypot{position:absolute!important;left:-99999px!important;height:1px!important;width:1px!important;overflow:hidden!important}
+.dignity-operator-list{display:grid;gap:11px;margin:25px 0}.dignity-operator-entry{padding:18px;text-align:left;background:var(--panel);color:var(--text);border:1px solid var(--line-heavy);border-radius:10px;cursor:pointer}
+.dignity-operator-entry small{display:block;color:var(--soft);margin-top:6px}.dignity-operator-entry:hover{border-color:var(--mint)}.dignity-private-content{white-space:pre-wrap;overflow-wrap:anywhere}

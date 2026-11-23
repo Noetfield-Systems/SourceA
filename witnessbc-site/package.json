@@ -4,10 +4,13 @@
   "type": "module",
   "scripts": {
     "build": "node scripts/build-web3.mjs && node scripts/verify-web3.mjs",
-    "test": "node scripts/build-web3.mjs && node scripts/verify-web3.mjs",
+    "test": "node scripts/build-web3.mjs && node scripts/verify-web3.mjs && node --test tests/dignity-domain.test.mjs",
     "dev": "node scripts/build-web3.mjs && node scripts/serve-web3.mjs"
   },
   "engines": {
     "node": ">=22"
+  },
+  "dependencies": {
+    "@vercel/blob": "2.9.0"
   }
 }

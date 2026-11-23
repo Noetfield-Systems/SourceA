@@ -78,45 +78,6 @@
    catch{toast('Clipboard unavailable; select the scenario text manually.');}
  });
 
- // All form content remains on the user's device until their email app sends it.
- const dignityForm=$('#dignityReportForm');
- if(dignityForm){
-  const draft=$('#dignityDraft');
-  const value=name=>String(dignityForm.elements.namedItem(name)?.value||'').trim();
-  function compose(){
-   return 'Witness BC — Dignity Concern\n'
-     +'Category: '+value('category')+'\n'
-     +'Location: '+value('place')+'\n'
-     +'Date / period: '+value('when')+'\n'
-     +'First-hand account:\n'+value('account')+'\n'
-     +'Evidence: '+value('evidence')+'\n'
-     +'Reply email: '+value('reply')+'\n'
-     +'Please acknowledge this concern. This account is not a verified public finding.';
-  }
-  dignityForm.addEventListener('submit',event=>{
-   event.preventDefault();
-   if(!dignityForm.reportValidity())return;
-   const note=compose();
-   if(draft){draft.hidden=false;draft.value=note;}
-   const url='mailto:hello@witnessbc.com?subject='+encodeURIComponent('Witness BC community dignity concern — '+value('place'))+'&body='+encodeURIComponent(note);
-   window.location.href=url;
-   toast('Your mail app was opened. Send there; the website has not submitted anything.');
-  });
-  const copy=$('#copyDignityDraft');
-  if(copy)copy.addEventListener('click',async()=>{
-   if(!dignityForm.reportValidity())return;
-   const note=compose();
-   if(draft){draft.hidden=false;draft.value=note;}
-   try{await navigator.clipboard.writeText(note);toast('Report copied; not submitted.');}
-   catch{if(draft){draft.focus();draft.select();}toast('Select and copy the prepared report.');}
-  });
- }
- $$('.dignity-share').forEach(button=>button.addEventListener('click',async()=>{
-  const url=button.dataset.url;
-  if(!url)return;
-  try{await navigator.clipboard.writeText(url);toast('Public case link copied.');}
-  catch{toast('Share this URL: '+url);}
- }));
  const externalLinks=$$('a[target="_blank"]');
  externalLinks.forEach(link=>{link.rel='noopener noreferrer';});
 })();

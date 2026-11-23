@@ -43,3 +43,7 @@ New `scripts/verify-web3.mjs` and CI enforce the Web3 page allowlist, the lack o
 ## Founder directive · November 23, 2026 — Dignity and Community Protection
 
 Dignity is the central public-interest mission. Six additional allowlisted pages under `/dignity` provide report preparation, a public case register, one clearly unverified Richmond report, press resources, and evidence/privacy standards. The intake form is a **local email composer** only; no storage or automatic submission, no claim of live case management. The independent Web3 builder programme remains optional. See `docs/WITNESSBC_DIGNITY_DESK_V1.md`.
+
+## Persistent private case intake — Dignity v2
+
+Report: `/dignity/report` → `POST /api/dignity/report` → private Vercel Blob read-back confirmation → receipt ID + access code. `/dignity/track` provides reporter-only status. `/dignity/operations` provides a key-protected operator desk. `/dignity/atlas` provides source-linked BC reporting routes. No unverified report is automatically a public case. See `docs/DIGNITY_INTAKE_V2.md`.
