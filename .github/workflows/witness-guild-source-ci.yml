@@ -1,4 +1,4 @@
-name: Witness Web3 Genesis CI
+name: Witness Community + Dignity CI
 on:
   pull_request:
     paths:
@@ -26,7 +26,7 @@ jobs:
           node --check witnessbc-site/web3/assets/app.js
           node --check witnessbc-site/scripts/verify-web3.mjs
           node --check witnessbc-site/scripts/verify-web3-browser.mjs
-      - name: Build the strict Web3-only publication allowlist
+      - name: Build the community and dignity publication allowlist
         run: cd witnessbc-site && node scripts/build-web3.mjs && node scripts/verify-web3.mjs
       - name: Ensure corporate checkout and old pages are not published
         run: |
@@ -37,13 +37,13 @@ jobs:
             echo "::error::Forbidden legacy content in Witness Web3 release"
             exit 1
           fi
-          test "$(find witnessbc-site/dist/deploy -name '*.html' | wc -l)" -eq 10
+          test "$(find witnessbc-site/dist/deploy -name '*.html' | wc -l)" -eq 16
       - name: Install Chromium browser runtime
         run: |
           cd witnessbc-site
           npm install --no-package-lock --no-save --ignore-scripts playwright@1.57.0
           npx playwright install --with-deps chromium
-      - name: Verify desktop and mobile Web3 journeys
+      - name: Verify desktop and mobile Witness journeys
         run: |
           node witnessbc-site/scripts/serve-web3.mjs >/tmp/witness-web3-http.log 2>&1 &
           node witnessbc-site/scripts/verify-web3-browser.mjs
