@@ -47,3 +47,6 @@ Dignity is the central public-interest mission. Six additional allowlisted pages
 ## Persistent private case intake — Dignity v2
 
 Report: `/dignity/report` → `POST /api/dignity/report` → private Vercel Blob read-back confirmation → receipt ID + access code. `/dignity/track` provides reporter-only status. `/dignity/operations` provides a key-protected operator desk. `/dignity/atlas` provides source-linked BC reporting routes. No unverified report is automatically a public case. See `docs/DIGNITY_INTAKE_V2.md`.
+
+### Real storage verification
+`GET /api/dignity/health` tests the private store connection. The Vercel build runs `scripts/smoke-dignity.mjs`, which submits a synthetic, unpublishable report through the actual handler, reads the private receipt with the tracking handler, and deletes the synthetic record. No synthetic report is a public case. Without storage credentials, local CI marks the smoke as skipped, not verified.
