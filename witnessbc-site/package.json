@@ -3,7 +3,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "node scripts/build-web3.mjs && node scripts/verify-web3.mjs",
+    "build": "node scripts/build-web3.mjs && node scripts/verify-web3.mjs && node scripts/smoke-dignity.mjs",
     "test": "node scripts/build-web3.mjs && node scripts/verify-web3.mjs && node --test tests/dignity-domain.test.mjs",
     "dev": "node scripts/build-web3.mjs && node scripts/serve-web3.mjs"
   },
