@@ -233,14 +233,14 @@ h3{letter-spacing:-.035em}
 
 /* Witness BC dignity & public accountability */
 .dignity-content{max-width:1180px}.dignity-content .grid-3{margin:45px 0}
-.dignity-panel{border:1px solid rgba(159,194,220,.28);border-radius:15px;padding:32px;background:linear-gradient(135deg,rgba(48,83,115,.25),rgba(11,23,36,.82));margin:28px 0;box-shadow:0 22px 65px rgba(0,0,0,.12)}
+.dignity-panel{border:1px solid rgba(159,194,220,.28);border-radius:15px;padding:32px;background:linear-gradient(135deg,var(--panel),var(--void-2));margin:28px 0;box-shadow:0 22px 65px rgba(0,0,0,.12)}
 .dignity-panel p,.dignity-content>p,.dignity-story p,.dignity-story li{color:var(--soft);font-size:15px;line-height:1.9;margin:14px 0}
 .dignity-panel h2,.dignity-story h2{margin:16px 0;font-size:clamp(25px,3vw,41px)}
 .dignity-story{max-width:830px}.dignity-story ul{padding-left:26px}.dignity-story a,.dignity-panel a{color:var(--blue);text-decoration:underline;text-underline-offset:4px}
 .dignity-status{display:inline-block!important;border:1px solid rgba(223,186,123,.45);border-radius:5px;padding:8px 12px;color:var(--gold)!important;font-size:11px!important;font-weight:750;letter-spacing:.08em}
 .dignity-layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(260px,320px);gap:35px;align-items:start}
 .dignity-form{display:grid;gap:18px}.dignity-form label{display:grid;gap:8px;color:var(--text);font-weight:650;font-size:13px}
-.dignity-form input,.dignity-form select,.dignity-form textarea{border-radius:9px;width:100%;background:rgba(8,18,29,.8);border:1px solid var(--line-heavy);padding:14px;color:var(--text);font:15px var(--body)}
+.dignity-form input,.dignity-form select,.dignity-form textarea{border-radius:9px;width:100%;background:var(--panel);border:1px solid var(--line-heavy);padding:14px;color:var(--text);font:15px var(--body)}
 .dignity-form textarea{min-height:150px}.dignity-form .dignity-check{display:flex;gap:12px;align-items:flex-start;color:var(--soft);font-weight:450;line-height:1.65}
 .dignity-form .dignity-check input{width:auto;flex:none;margin-top:5px}.dignity-note{color:var(--soft);font-size:13px;line-height:1.7}
 .dignity-panel:has(a:hover){border-color:rgba(159,194,220,.5)}
