@@ -30,7 +30,11 @@
     "dignity/standards",
     "dignity/track",
     "dignity/operations",
-    "dignity/atlas"
+    "dignity/atlas",
+    "dignity/research",
+    "dignity/research/income-assistance-access",
+    "dignity/research/temporary-assignments",
+    "dignity/research/systemic-barriers"
   ],
   "p0": [
     "Community dignity and public concerns",
@@ -102,5 +106,6 @@
   },
   "founder_directive_2026_11_23": "Dignity and vulnerable people are the core of Witness BC. Create public case tracking and journalist-friendly routes, while distinguishing reported accounts from verified findings. Persistent private intake, receipt tracking, operator lifecycle and referenced issue atlas take precedence over mailto-only intake.",
   "legal_and_editorial_status": "Independent initiative. Not a government human rights tribunal, legal practice, or officially accredited media regulator.",
-  "intake": "Private server-side Blob storage, authenticated operator and reporter receipt lookup; never autopublish unverified submissions."
+  "intake": "Private server-side Blob storage, authenticated operator and reporter receipt lookup; never autopublish unverified submissions.",
+  "public_research_policy": "Three sourced system briefs are third-party official research, not accepted Witness complaint reports or verified Witness outcomes."
 }
