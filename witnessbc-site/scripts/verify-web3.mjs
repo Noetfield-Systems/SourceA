@@ -8,10 +8,10 @@ const contract=JSON.parse(fs.readFileSync(path.join(root,'config','VENTURE_IDENT
 const pages=contract.allowlisted_pages;
 assert.equal(contract.venture,'Witness BC');
 assert.match(contract.canonical_thesis,/dignity first/i);
-assert.equal(pages.length,19);
+assert.equal(pages.length,23);
 for(const route of ['dignity','dignity/report','dignity/cases','dignity/cases/richmond-delivery','dignity/press','dignity/standards','dignity/track','dignity/operations','dignity/atlas'])assert.ok(pages.includes(route),'dignity route '+route);
 const htmlFiles=pages.map(page=>page+'.html').sort();
-assert.deepEqual(htmlFiles,pages.map(p=>p+'.html').sort(),'Deploy artifact contains Exactly 19 allowlisted pages');
+assert.deepEqual(htmlFiles,pages.map(p=>p+'.html').sort(),'Deploy artifact contains Exactly 23 allowlisted pages');
 const forbidden=[/stripe/i,/noetfield/i,/mailto:/i,/institutional alignment/i,/CISO/i,/corporate consulting/i,/book a demo/i,/shadow cohort/i,/buy\.stripe\.com/i,/government outreach/i,/paid toolkit/i];
 for(const name of htmlFiles){
  const html=fs.readFileSync(path.join(out,name),'utf8');
@@ -63,7 +63,7 @@ for(const route of ['dignity','dignity/report','dignity/cases','dignity/cases/ri
 }
 assert.match(fs.readFileSync(path.join(out,'dignity/report.html'),'utf8'),/id="dignityReportForm"/);
 assert.match(fs.readFileSync(path.join(out,'dignity/cases/richmond-delivery.html'),'utf8'),/not independently verified/i);
-console.log('PASS Witness Web3 + Dignity Desk: 19 pages, 5 assets, no legacy checkout, institutional content or false user/economic claims.');
+console.log('PASS Witness Web3 + Dignity Desk: 23 pages, 5 assets, no legacy checkout, institutional content or false user/economic claims.');
 
 for(const page of ['dignity/track','dignity/operations'])assert.match(fs.readFileSync(path.join(out,page+'.html'),'utf8'),/noindex,nofollow/);
 const sitemap=fs.readFileSync(path.join(out,'sitemap.xml'),'utf8');
