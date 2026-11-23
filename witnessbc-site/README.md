@@ -39,3 +39,7 @@ Vercel `vercel.json` uses `node scripts/build-web3.mjs`, clean URLs, and redirec
 
 ## Validation
 New `scripts/verify-web3.mjs` and CI enforce the Web3 page allowlist, the lack of Stripe/Noetfield corporate public leakage, three real blueprint quest values, working Genesis navigation, multi-viewport browser readback and source/deployment integrity. Live Vercel status alone is not proof of public content.
+
+## Founder directive · November 23, 2026 — Dignity and Community Protection
+
+Dignity is the central public-interest mission. Six additional allowlisted pages under `/dignity` provide report preparation, a public case register, one clearly unverified Richmond report, press resources, and evidence/privacy standards. The intake form is a **local email composer** only; no storage or automatic submission, no claim of live case management. The independent Web3 builder programme remains optional. See `docs/WITNESSBC_DIGNITY_DESK_V1.md`.
