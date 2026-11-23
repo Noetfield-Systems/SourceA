@@ -111,12 +111,12 @@
    catch{if(draft){draft.focus();draft.select();}toast('Select and copy the prepared report.');}
   });
  }
- $('.dignity-share').forEach(button=>button.addEventListener('click',async()=>{
+ $$('.dignity-share').forEach(button=>button.addEventListener('click',async()=>{
   const url=button.dataset.url;
   if(!url)return;
   try{await navigator.clipboard.writeText(url);toast('Public case link copied.');}
   catch{toast('Share this URL: '+url);}
  }));
- const externalLinks=$('a[target="_blank"]');
+ const externalLinks=$$('a[target="_blank"]');
  externalLinks.forEach(link=>{link.rel='noopener noreferrer';});
 })();
