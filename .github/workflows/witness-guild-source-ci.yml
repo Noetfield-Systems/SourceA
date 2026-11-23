@@ -26,6 +26,10 @@ jobs:
           node --check witnessbc-site/web3/assets/app.js
           node --check witnessbc-site/scripts/verify-web3.mjs
           node --check witnessbc-site/scripts/verify-web3-browser.mjs
+          node --check witnessbc-site/web3/assets/dignity.js
+          node --check witnessbc-site/api/dignity/report.js
+          node --check witnessbc-site/api/dignity/status.js
+          node --check witnessbc-site/api/dignity/admin.js
       - name: Build the community and dignity publication allowlist
         run: cd witnessbc-site && node scripts/build-web3.mjs && node scripts/verify-web3.mjs
       - name: Ensure corporate checkout and old pages are not published
@@ -37,7 +41,9 @@ jobs:
             echo "::error::Forbidden legacy content in Witness Web3 release"
             exit 1
           fi
-          test "$(find witnessbc-site/dist/deploy -name '*.html' | wc -l)" -eq 16
+          test "$(find witnessbc-site/dist/deploy -name '*.html' | wc -l)" -eq 23
+      - name: Test schema, receipt and anti-abuse validation
+        run: cd witnessbc-site && node --test tests/dignity-domain.test.mjs
       - name: Install Chromium browser runtime
         run: |
           cd witnessbc-site
@@ -51,6 +57,6 @@ jobs:
         if: success()
         uses: actions/upload-artifact@v4
         with:
-          name: witness-web3-genesis-static-output
+          name: witnessbc-dignity-public-artifacts
           path: witnessbc-site/dist/deploy/
           retention-days: 14

@@ -47,7 +47,7 @@ try{
   }else{
    assert.ok(await page.locator('.desktop-nav a[href="/guild"]').isVisible());
   }
-  const all=['genesis','quests','arena','reputation','governance','economy','builders','manifesto','guild','dignity','dignity/report','dignity/cases','dignity/cases/richmond-delivery','dignity/press','dignity/standards'];
+  const all=['genesis','quests','arena','reputation','governance','economy','builders','manifesto','guild','dignity','dignity/report','dignity/cases','dignity/cases/richmond-delivery','dignity/press','dignity/standards','dignity/atlas','dignity/track','dignity/operations','dignity/research','dignity/research/income-assistance-access','dignity/research/temporary-assignments','dignity/research/systemic-barriers'];
   for(const name of all){
    const response=await page.goto(route(name),{waitUntil:'domcontentloaded'});
    assert.equal(response.status(),200,name+' HTTP '+width);
@@ -66,8 +66,20 @@ try{
   await page.locator('[data-scenario="read"]').click();
   assert.equal(await page.locator('#scenarioVerdict').innerText(),'ALLOW');
   assert.ok((await page.locator('body').innerText()).includes('LOCAL SIMULATION ONLY'));
+  // The simulated API tests only frontend state; no real record or company action is created.
+  await page.goto(route('dignity/report'),{waitUntil:'domcontentloaded'});
+  await page.route('**/api/dignity/report',async route=>route.fulfill({status:201,contentType:'application/json',body:JSON.stringify({saved:true,id:'WBC-20261123-aaaaaaaaaaaaaaaaaaaa',accessCode:'fixture-not-real',status:'received'})}));
+  await page.locator('select[name="category"]').selectOption('Delivery / gig work');
+  await page.locator('input[name="place"]').fill('Richmond, BC');
+  await page.locator('input[name="when"]').fill('November 2026');
+  await page.locator('textarea[name="account"]').fill('I experienced repeated disrespect at a restaurant pickup over several visits.');
+  await page.locator('input[name="consent"]').check();
+  await page.locator('#dignitySubmit').click();
+  await page.locator('#dignityReceipt').waitFor({state:'visible',timeout:7000});
+  assert.ok(await page.locator('#dignityReceipt').isVisible(),'Receipt shown only for simulated successful storage response');
+  await page.unroute('**/api/dignity/report');
   assert.deepEqual(errors,[],width+'px JS errors');
   await page.close();
-  console.log('PASS WITNESS WEB3 '+width+'px: 16 routes, real Genesis links, 3 quests, 2 policy interactions, navigation, no overflow/errors');
+  console.log('PASS WITNESS WEB3 '+width+'px: 23 routes, real Genesis links, 3 quests, 2 policy interactions, navigation, no overflow/errors');
  }
 }finally{await browser.close();}

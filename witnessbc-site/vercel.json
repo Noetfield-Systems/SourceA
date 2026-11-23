@@ -1,8 +1,8 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "framework": null,
-  "installCommand": "",
-  "buildCommand": "node scripts/build-web3.mjs",
+  "installCommand": "npm install --no-package-lock --ignore-scripts",
+  "buildCommand": "node scripts/build-web3.mjs && node scripts/verify-web3.mjs && node scripts/smoke-dignity.mjs",
   "outputDirectory": "dist/deploy",
   "cleanUrls": true,
   "trailingSlash": false,

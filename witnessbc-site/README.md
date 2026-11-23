@@ -43,3 +43,10 @@ New `scripts/verify-web3.mjs` and CI enforce the Web3 page allowlist, the lack o
 ## Founder directive · November 23, 2026 — Dignity and Community Protection
 
 Dignity is the central public-interest mission. Six additional allowlisted pages under `/dignity` provide report preparation, a public case register, one clearly unverified Richmond report, press resources, and evidence/privacy standards. The intake form is a **local email composer** only; no storage or automatic submission, no claim of live case management. The independent Web3 builder programme remains optional. See `docs/WITNESSBC_DIGNITY_DESK_V1.md`.
+
+## Persistent private case intake — Dignity v2
+
+Report: `/dignity/report` → `POST /api/dignity/report` → private Vercel Blob read-back confirmation → receipt ID + access code. `/dignity/track` provides reporter-only status. `/dignity/operations` provides a key-protected operator desk. `/dignity/atlas` provides source-linked BC reporting routes. No unverified report is automatically a public case. See `docs/DIGNITY_INTAKE_V2.md`.
+
+### Real storage verification
+`GET /api/dignity/health` tests the private store connection. The Vercel build runs `scripts/smoke-dignity.mjs`, which submits a synthetic, unpublishable report through the actual handler, reads the private receipt with the tracking handler, and deletes the synthetic record. No synthetic report is a public case. Without storage credentials, local CI marks the smoke as skipped, not verified.
