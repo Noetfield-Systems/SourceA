@@ -11,7 +11,7 @@ try{
   page.on('pageerror',e=>errors.push(e.message));
   const resp=await page.goto(route('index'),{waitUntil:'networkidle'});
   assert.equal(resp.status(),200,'Home HTTP 200 '+width);
-  assert.match(await page.locator('h1').innerText(),/Build the rules/i);
+  assert.match(await page.locator('h1').innerText(),/Stand for dignity/i);
   assert.equal(await page.locator('a[href="/genesis"]').count()>0,true);
   assert.equal(await page.locator('a[href="/quests"]').count()>0,true);
   assert.ok(await page.locator('.brand-hex').count(),'Original Witness geometric symbol is restored');
@@ -47,7 +47,7 @@ try{
   }else{
    assert.ok(await page.locator('.desktop-nav a[href="/guild"]').isVisible());
   }
-  const all=['genesis','quests','arena','reputation','governance','economy','builders','manifesto','guild'];
+  const all=['genesis','quests','arena','reputation','governance','economy','builders','manifesto','guild','dignity','dignity/report','dignity/cases','dignity/cases/richmond-delivery','dignity/press','dignity/standards'];
   for(const name of all){
    const response=await page.goto(route(name),{waitUntil:'domcontentloaded'});
    assert.equal(response.status(),200,name+' HTTP '+width);
@@ -68,6 +68,6 @@ try{
   assert.ok((await page.locator('body').innerText()).includes('LOCAL SIMULATION ONLY'));
   assert.deepEqual(errors,[],width+'px JS errors');
   await page.close();
-  console.log('PASS WITNESS WEB3 '+width+'px: 10 routes, real Genesis links, 3 quests, 2 policy interactions, navigation, no overflow/errors');
+  console.log('PASS WITNESS WEB3 '+width+'px: 16 routes, real Genesis links, 3 quests, 2 policy interactions, navigation, no overflow/errors');
  }
 }finally{await browser.close();}
