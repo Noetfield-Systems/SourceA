@@ -1,46 +1,41 @@
-# sourcea.app — Cloudflare Pages only (no Vercel)
+# SourceA production at sourcea.app
 
-**Saved:** 2026-06-23T07:48:00Z
+[SourceA](https://sourcea.app/) is published by the existing Cloudflare Pages project `sourcea-com`. The `sourcea-app-proxy-v1` Worker routes requests for `sourcea.app` to Pages and the existing API upstreams. The Pages project name is an internal identifier. Verify every release on the public domain.
 
-## Two products, one domain
+| Public route | Purpose |
+| --- | --- |
+| `/` | SourceA Studio homepage, built from `founder-home.html` |
+| `/apps` | App Studio |
+| `/sourcea/forge/terminal` | Forge Terminal |
+| `/start` | Build brief intake |
+| `/kernel/` | SourceA kernel |
+| `www.sourcea.app` | Redirect to `sourcea.app` |
 
-| URL | Product | Buyer |
-|-----|---------|-------|
-| **sourcea.app/** | MVP Builder — *48 hours* | Non-technical founders |
-| **sourcea.app/kernel/** | Source-A kernel — governance infra | Technical / partners |
+## Production credential
 
-Vercel is **not required**. Grey-cloud DNS was only for Vercel’s IP (`76.76.21.21`).
+In the Cloudflare account that contains `sourcea-com`, open **Manage Account → Account API Tokens** and create a custom token named `sourcea-app-pages-production`. Set **Account → Cloudflare Pages → Edit** and restrict account resources to the account that contains the project. Copy the Account ID from the Cloudflare dashboard for that same account.
 
-## DNS (Cloudflare → Pages)
+Save both values under **Settings → Environments → production → Environment secrets** in `Noetfield-Systems/SourceA`:
 
-**Replace** A records to `76.76.21.21` with:
+| GitHub Actions secret | Value |
+| --- | --- |
+| `CLOUDFLARE_API_TOKEN` | The token value shown by Cloudflare when created |
+| `CLOUDFLARE_ACCOUNT_ID` | The Cloudflare account ID for the Pages project |
 
-| Type | Name | Target | Proxy |
-|------|------|--------|-------|
-| **CNAME** | `@` | `sourcea-com.pages.dev` | Proxied OK |
-| **CNAME** | `www` | `sourcea-com.pages.dev` | Proxied OK |
+The workflow reads the exact names from the GitHub Actions secrets context. A secret in another repository, an unshared organization secret, or a Railway variable is not available to this workflow. If there is already a working token, use it in the same production secret. Keep any recovery copy in the owner's password manager under `SourceA / Cloudflare Pages / production`. Record only the token label, scope, destination and rotation date in documentation. Never place values in repo files, chat or logs.
 
-Pages project: **sourcea-com** · add custom domains `sourcea.app` + `www.sourcea.app` in dashboard.
-
-## Publish (Mac)
+From an authenticated GitHub CLI, these commands prompt for the values without putting them in command arguments:
 
 ```bash
-python3 scripts/publish_sourcea_landing_v1.py --backend cloudflare --project sourcea-com --custom-domain --skip-recipe
-cd cloud/workers/sourcea-app-proxy-v1 && wrangler deploy
-python3 scripts/sourcea_pages_activate_domains_v1.py --json
+gh secret set CLOUDFLARE_API_TOKEN --repo Noetfield-Systems/SourceA --env production
+gh secret set CLOUDFLARE_ACCOUNT_ID --repo Noetfield-Systems/SourceA --env production
+gh secret list --repo Noetfield-Systems/SourceA --env production
 ```
 
-**Live path today:** zone Worker `sourcea-app-proxy-v1` routes `sourcea.app/*` → `sourcea-com.pages.dev` (TLS on zone). Pages custom-domain rows may stay `pending` until apex/www CNAME → `sourcea-com.pages.dev` (needs API token with Zone DNS Edit, or dashboard confirm).
+## Publish and verify
 
-## Routing (in repo — not dashboard-only)
+Run [deploy-sourcea-buyer-surfaces-v1](https://github.com/Noetfield-Systems/SourceA/actions/workflows/deploy-sourcea-buyer-surfaces-v1.yml) on `main` or retry the latest production attempt after saving the secrets. The workflow stages the current build and uploads it to `sourcea-com`. Keep the existing DNS and Worker routes in place for routine Pages releases.
 
-| Path | File | Notes |
-|------|------|-------|
-| `/` | `start.html` copied to `dist/index.html` | 48h MVP homepage (200, no redirect) |
-| `/sourcea/start.html` | `start.html` | Same MVP subpage |
-| `/kernel/` | `index.html` | Governance kernel |
-| `_redirects` | staging root | Short paths only (`/start`, `/kernel`, …) |
+Verify the new homepage content at `https://sourcea.app/`, the actual App Studio content at `/apps`, Forge Terminal, and the intake page. A status of HTTP 200 can be the old homepage returned as a fallback, so compare the content and stylesheet type as well. If the workflow fails at the token step, inspect repository, organization and production-environment secret names and access before replacing credentials.
 
-## Later (optional)
-
-`forge.sourcea.app` → same MVP form if you want a separate commercial subdomain before `forgefactory.com`.
+Official references: [Cloudflare Pages CI setup](https://developers.cloudflare.com/pages/how-to/use-direct-upload-with-continuous-integration/) and [GitHub Actions secrets](https://docs.github.com/en/actions/how-tos/write-workflows/choose-what-workflows-do/use-secrets).
