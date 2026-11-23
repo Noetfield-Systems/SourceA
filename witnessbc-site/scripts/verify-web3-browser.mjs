@@ -75,6 +75,7 @@ try{
   await page.locator('textarea[name="account"]').fill('I experienced repeated disrespect at a restaurant pickup over several visits.');
   await page.locator('input[name="consent"]').check();
   await page.locator('#dignitySubmit').click();
+  await page.locator('#dignityReceipt').waitFor({state:'visible',timeout:7000});
   assert.ok(await page.locator('#dignityReceipt').isVisible(),'Receipt shown only for simulated successful storage response');
   await page.unroute('**/api/dignity/report');
   assert.deepEqual(errors,[],width+'px JS errors');
