@@ -7,7 +7,7 @@ const out=path.join(root,'dist','deploy');
 const contract=JSON.parse(fs.readFileSync(path.join(root,'config','VENTURE_IDENTITY.json'),'utf8'));
 const pages=contract.allowlisted_pages;
 assert.equal(contract.venture,'Witness BC');
-assert.match(contract.canonical_thesis,/Web3-native/i);
+assert.match(contract.canonical_thesis,/dignity first/i);
 assert.equal(pages.length,16);
 for(const route of ['dignity','dignity/report','dignity/cases','dignity/cases/richmond-delivery','dignity/press','dignity/standards'])assert.ok(pages.includes(route),'dignity route '+route);
 const htmlFiles=pages.map(page=>page+'.html').sort();
