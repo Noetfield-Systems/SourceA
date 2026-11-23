@@ -14,6 +14,10 @@ For material product/UX, strategy, growth, community, token/capital and launch w
 
 # SourceA Agent Policy
 
+## Production publication
+
+For release work on `sourcea.app`, use [the production release runbook](docs/SOURCEA_APP_CLOUDFLARE_PAGES_ONLY_LOCKED_v1.md). It records the existing Cloudflare Pages project, GitHub Actions production secret names and public verification steps. Credential values belong in GitHub Actions secrets and the owner's password manager.
+
 ## WITNESS BC — ORIGINAL VISUAL IDENTITY IS INDEPENDENT OF PRODUCT STRATEGY (2026-11-17)
 Web3 Genesis is the **product and audience** direction, **not** an instruction to redesign or recolor the Witness UI. The original Witness site (prior to PR #86) used white/slate light mode, navy dark mode, Inter typography, a hexagonal mark and an evidence/control-plane panel. These are the Witness-specific design reference. **Never replace it with BuildRelay-style neon mint/green themes, orbital hero badges, a universal startup template or another venture's brand.** Maintain working Web3 quests, Genesis and community journeys while restoring and preserving Witness's own layout/visual DNA. Machine rules: `witnessbc-site/config/VENTURE_IDENTITY.json`; Playwright brand regression checks at 320/390/1440. Any significant brand redesign requires separate, explicit Founder instruction.
 
