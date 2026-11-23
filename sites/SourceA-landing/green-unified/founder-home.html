@@ -1,479 +1,142 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <title>SourceA — Next-Generation AI Apps, Ventures &amp; Execution</title>
-  <meta name="description" content="SourceA is an AI-native app and venture studio building intelligent consumer experiences, social products and verifiable execution systems. Explore live apps and build with us." />
-  <meta name="theme-color" content="#044441" />
-  <meta property="og:title" content="SourceA — The Source of What’s Next" />
-  <meta property="og:description" content="Intelligent apps, ventures and growth systems. Build remarkable products. Engineer their growth. Prove what works." />
-  <meta property="og:image" content="https://sourcea.app/assets/og-image.png" />
-  <meta property="og:image:width" content="1200" />
-  <meta property="og:image:height" content="630" />
-  <meta property="og:type" content="website" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:image" content="https://sourcea.app/assets/og-image.png" />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" />
-  <link rel="stylesheet" href="/assets/agentrun.css" />
-  <link rel="stylesheet" href="/sourcea/sourcea.css" />
-  <link rel="stylesheet" href="/sourcea/sourcea-home.css" />
-  <link rel="stylesheet" href="/sourcea/app-studio-teaser.css" />
-  <link rel="stylesheet" href="/sourcea/sourcea-cookie-consent-v1.css" />
-  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
-  <link rel="preconnect" href="https://sourcea-brain-chat-v1.sina-kazemnezhad-ca.workers.dev" crossorigin />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#111720">
+  <title>SourceA — AI App &amp; Venture Studio</title>
+  <meta name="description" content="Try independent consumer apps, explore SourceA’s Forge execution tools, or bring a product, distribution or venture opportunity to the studio.">
+  <link rel="canonical" href="https://sourcea.app/">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://sourcea.app/">
+  <meta property="og:title" content="SourceA — AI App &amp; Venture Studio">
+  <meta property="og:description" content="Explore working consumer apps and the tools we use to build and verify software.">
+  <meta property="og:image" content="https://sourcea.app/sourcea/assets/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Instrument+Sans:wght@500;600;700&display=swap">
+  <link rel="stylesheet" href="/sourcea/app-studio-teaser.css">
+  <link rel="stylesheet" href="/sourcea/sourcea-cookie-consent-v1.css">
+  <script src="/sourcea/sourcea-positioning-wire-v1.js" defer></script>
 </head>
-<body class="ar-body sa-v2 sa-agentic sa-root-home sa-has-orchestrator" data-sa-page="founder-home">
-
-<div class="ar-scroll-progress" aria-hidden="true"><div class="ar-scroll-progress-bar"></div></div>
-<a class="skip-link" href="#main-content">Skip to content</a>
-<div class="ar-nav-backdrop" aria-hidden="true"></div>
-
-<header class="ar-header sa-header">
-  <div class="ar-container ar-header-shell">
-    <div class="ar-header-inner">
-      <a class="ar-logo" href="/" aria-label="SourceA home">
-        <span class="ar-logo-text">Source<span class="ar-logo-run sa-logo-run">A</span></span>
-      </a>
-      <nav class="ar-nav" id="ar-nav" aria-label="Primary">
-        <a href="/" data-sa-nav data-sa-nav-home>Home</a>
-        <a href="/apps" data-sa-nav>App Studio</a>
-        <a href="/eval" data-sa-nav>Eval</a>
-        <a href="/sourcea/platform" data-sa-nav>Platform</a>
-        <a href="/sourcea/proof" data-sa-nav>Proof</a>
-        <a href="/sourcea/offer" data-sa-nav>Offer</a>
-        <a href="/sourcea/pricing" data-sa-nav>Pricing</a>
-        <a href="/sourcea/kernel/" data-sa-nav>Kernel</a>
-        <a class="ar-btn ar-btn-ghost ar-btn-sm ar-nav-signin-mobile" href="/auth/sign-in">Sign in</a>
-        <a class="ar-btn ar-btn-primary ar-btn-sm ar-nav-cta-mobile sa-btn-glow" data-sa-proof-cta href="/sourcea/forge/terminal">Try Forge Terminal</a>
-      </nav>
-      <button type="button" class="ar-nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="ar-nav">
-        <span class="ar-nav-toggle-bar"></span>
-        <span class="ar-nav-toggle-bar"></span>
-        <span class="ar-nav-toggle-bar"></span>
-      </button>
-      <div class="ar-header-actions">
-        <a class="ar-btn ar-btn-ghost ar-btn-sm ar-header-signin" href="/auth/sign-in">Sign in</a>
-        <a class="ar-btn ar-btn-primary ar-btn-sm sa-btn-glow ar-header-cta" data-sa-proof-cta href="/sourcea/forge/terminal">Try Forge Terminal</a>
-      </div>
-    </div>
+<body class="studio-home" data-sa-page="founder-home">
+<a class="home-skip" href="#main-content">Skip to content</a>
+<header class="home-header">
+  <div class="home-shell home-nav">
+    <a class="home-brand" href="/" aria-label="SourceA home"><span class="home-mark" aria-hidden="true">A</span>SourceA</a>
+    <nav aria-label="Primary navigation">
+      <a href="#next-generation-apps">Apps</a>
+      <a href="#forge">Forge</a>
+      <a href="#work-with-us">Work with us</a>
+    </nav>
+    <a class="home-signin" href="/auth/sign-in">Sign in</a>
   </div>
 </header>
-
 <main id="main-content">
-  <section class="ar-hero ar-hero-ref sa-root-hero sa-hero-stable ar-visible" id="top">
-    <div class="sa-hero-scene sa-hero-scene-lite" aria-hidden="true">
-      <div class="sa-grid-perspective"></div>
-    </div>
-    <div class="ar-container sa-hero-content">
-      <div class="sa-hero-grid sa-hero-grid-stable">
-        <div class="ar-hero-ref-copy">
-          <p class="sa-root-global-pill"><span class="sa-globe-dot" aria-hidden="true"></span> Building what comes next · globally</p>
-          <p class="sa-category-tag" data-sa-positioning="category">AI-native app &amp; venture studio · verified execution</p>
-          <h1>
-            <span data-sa-positioning="h1-line1">The next generation of apps,</span>
-            <span class="ar-hero-accent" data-sa-positioning="h1-accent">built for what’s next.</span>
-          </h1>
-          <p class="ar-hero-lead" data-sa-positioning="lead">We build intelligent consumer experiences, community products and the systems that help them grow. Explore what is already live — or bring your own idea.</p>
-          <div class="ar-hero-actions sa-hero-cta-row">
-            <a class="ar-btn ar-btn-primary sa-btn-glow" data-sa-primary-cta href="/apps">Explore App Studio<span class="ar-btn-arrow">→</span></a>
-            <a class="ar-btn ar-btn-ghost" data-sa-secondary-cta href="/sourcea/forge/terminal">Try Forge<span class="ar-btn-arrow ar-btn-arrow-dark">→</span></a>
-          </div>
-          <aside class="sa-taxonomy-box" data-sa-taxonomy>
-            <p><strong>SourceA</strong> is the studio and execution platform. Forge powers the build. Ideas become products, products earn users, and real work leaves receipts.</p>
-          </aside>
+  <section class="home-hero" id="top">
+    <div class="home-shell home-hero-grid">
+      <div>
+        <p class="home-label">AI APP &amp; VENTURE STUDIO</p>
+        <h1>The next generation of apps <em>starts here.</em></h1>
+        <p class="home-lead">We build intelligent consumer products, test what earns a return visit, and partner with people who can take good ideas further.</p>
+        <div class="home-actions">
+          <a class="home-button" href="#next-generation-apps" data-sa-event="home_explore_apps">Explore the apps <span aria-hidden="true">↓</span></a>
+          <a class="home-button home-button-outline" href="#work-with-us" data-sa-event="home_collaborate">Work with SourceA <span aria-hidden="true">↗</span></a>
         </div>
-        <div class="ar-hero-ref-visual ar-visible">
-          <div class="sa-fleet sa-fleet-panel sa-intelligence-console sa-biz-command sa-hero-console-stable" id="sa-biz-command">
-            <div class="sa-console-chrome" role="button" tabindex="0" data-sa-track="hero-console-chrome" aria-label="Open live proof">
-              <span class="sa-dot red"></span><span class="sa-dot yellow"></span><span class="sa-dot green"></span>
-              <span class="sa-console-url">Live workspace</span>
-              <span class="sa-console-sync" aria-hidden="true"><span class="sa-console-sync-dot"></span>Synced</span>
-              <span class="sa-live-pill"><span class="sa-live-dot"></span> Live proof</span>
-            </div>
-            <div class="sa-biz-tabs" role="tablist" aria-label="Command views">
-              <button type="button" class="sa-biz-tab sa-biz-tab-aeg is-active" data-biz-tab="aeg" role="tab" aria-selected="true">Live proof</button>
-              <button type="button" class="sa-biz-tab" data-biz-tab="overview" role="tab" aria-selected="false">Overview</button>
-              <button type="button" class="sa-biz-tab" data-biz-tab="pipeline" role="tab" aria-selected="false">Pipeline</button>
-              <button type="button" class="sa-biz-tab" data-biz-tab="ops" role="tab" aria-selected="false">Ops</button>
-            </div>
-            <p class="sa-metric-note">Global runtime · cloud + desktop · your deployment</p>
-            <div class="sa-agent-log" aria-live="polite">
-              <span class="sa-agent-log-icon" aria-hidden="true"></span>
-              <span class="sa-agent-log-label">Status</span>
-              <span class="sa-agent-log-text" id="sa-factory-log">Checking latest job…</span>
-            </div>
-            <div class="sa-biz-central" aria-hidden="true">
-              <div class="sa-biz-central-core"><span class="sa-biz-central-glyph">◆</span><strong>Verified</strong><span>Complete</span></div>
-            </div>
-            <div class="sa-fleet-scan" aria-hidden="true"></div>
-          </div>
+      </div>
+      <div class="home-feature" aria-label="Featured app preview">
+        <div class="home-feature-content">
+          <p class="home-label">FEATURED APP</p>
+          <p class="home-feature-name">mirra<span aria-hidden="true">✳</span></p>
+          <p>Personality, relationships and self-reflection.</p>
+          <a href="https://mirra-psychology.vercel.app/" data-sa-event="home_featured_mirra">Try the public preview <span aria-hidden="true">↗</span></a>
         </div>
       </div>
     </div>
   </section>
 
-  <div class="ar-container sa-hero-below-fold">
-      <div class="sa-hero-powered-by ar-visible">
-        <div class="sa-hero-powered-inner">
-          <p class="sa-powered-by-label">Powered by</p>
-          <ul class="sa-powered-by-logos" data-trust-built-on-hero>
-            <li>Temporal</li><li>Anthropic Claude</li><li>OpenAI</li><li>LangGraph</li><li>Cursor</li><li>Cloudflare</li>
-          </ul>
-          <p class="sa-receipt-ticker">
-            <span class="sa-receipt-ticker-dot" aria-hidden="true"></span>
-            <strong data-trust-receipts-lifetime>—</strong>
-            <span data-trust-receipts-lifetime-label>jobs verified for clients</span>
-          </p>
+  <section class="home-shell home-section" id="next-generation-apps" aria-labelledby="home-apps-title">
+    <div class="home-section-heading">
+      <div><p class="home-label">APP STUDIO</p><h2 id="home-apps-title">Find an app worth trying.</h2></div>
+      <a class="home-link" href="/apps">Visit App Studio <span aria-hidden="true">↗</span></a>
+    </div>
+    <div class="home-grid">
+      <article class="home-card" id="mirra">
+        <p class="home-label">PSYCHOLOGY · PUBLIC PREVIEW</p>
+        <h3>MIRRA</h3>
+        <p>Explore personality and bring a reflection prompt into a conversation with someone close to you.</p>
+        <a class="home-link" href="https://mirra-psychology.vercel.app/" data-sa-event="home_mirra_open">Open MIRRA <span aria-hidden="true">↗</span></a>
+      </article>
+      <article class="home-card" id="atelier">
+        <p class="home-label">RELATIONSHIPS · ADULTS ONLY</p>
+        <h3>Atelier</h3>
+        <p>Explore an early product about identity, attraction and more intentional relationships.</p>
+        <a class="home-link" href="https://atelier-connection.vercel.app/" data-sa-event="home_atelier_open">Open Atelier preview <span aria-hidden="true">↗</span></a>
+      </article>
+    </div>
+    <p class="home-caption">MIRRA and Atelier are featured ventures, each with an independent identity and ownership.</p>
+  </section>
+
+  <section class="home-forge" id="forge" aria-labelledby="home-forge-title">
+    <div class="home-shell home-forge-grid">
+      <div>
+        <p class="home-label">SOURCEA FORGE</p>
+        <h2 id="home-forge-title">Build it. Inspect the result.</h2>
+        <p class="home-lead">Forge is SourceA’s workspace for agent-assisted software work. Open the terminal or inspect a verification sample to see what the output looks like.</p>
+        <div class="home-actions">
+          <a class="home-button" href="/sourcea/forge/terminal" data-sa-event="home_forge_open">Open Forge Terminal <span aria-hidden="true">↗</span></a>
+          <a class="home-link" href="/sourcea/proof/live" data-sa-event="home_proof_open">Inspect live proof <span aria-hidden="true">↗</span></a>
         </div>
       </div>
-
-      <section class="sa-buyer1-trust ar-reveal" aria-label="Live trust">
-        <div class="sa-trust-bar" data-sa-trust-bar>
-          <article class="sa-trust-stat">
-            <span class="sa-trust-stat-label">Jobs completed</span>
-            <strong class="sa-trust-stat-value" data-trust-receipts-lifetime>—</strong>
-            <span class="sa-trust-stat-hint">Verified · export anytime</span>
-          </article>
-          <article class="sa-trust-stat">
-            <span class="sa-trust-stat-label">Quality check</span>
-            <strong class="sa-trust-stat-value sa-trust-gov" data-trust-governance>PASS</strong>
-            <span class="sa-trust-stat-hint">Checked before delivery</span>
-          </article>
-          <article class="sa-trust-stat">
-            <span class="sa-trust-stat-label">Open source</span>
-            <strong class="sa-trust-stat-value"><span data-trust-github-stars>—</span> ★</strong>
-            <span class="sa-trust-stat-hint"><a href="https://pypi.org/project/sourcea-boot/" target="_blank" rel="noopener">PyPI eval</a> · <a href="/eval">For developers</a></span>
-          </article>
-          <article class="sa-trust-stat">
-            <span class="sa-trust-stat-label">Live demo</span>
-            <strong class="sa-trust-stat-value sa-trust-link"><a href="/sourcea/proof/live">Watch now</a></strong>
-            <span class="sa-trust-stat-hint"><a data-trust-sample-link href="/sourcea/attach/proof-bundle-sample" target="_blank" rel="noopener">Sample PDF</a></span>
-          </article>
-        </div>
-      </section>
-
-      <section class="ar-section ar-reveal" id="phase0-proof" aria-label="Live demo">
-        <div class="ar-container">
-          <p class="ar-kicker">See it in action</p>
-          <h2>Real output, <span class="ar-hero-accent">not marketing claims.</span></h2>
-          <p class="ar-lead">A sample verified job — scored, logged, and shareable. Verify it yourself in under five minutes.</p>
-          <div class="sa-trust-bar sa-trust-bar-page sa-public-demo" id="sa-phase0-proof-bar">
-            <article class="sa-trust-stat">
-              <span class="sa-trust-stat-label">Sample job</span>
-              <strong class="sa-trust-stat-value sa-public-stat" data-phase0-pack-id>—</strong>
-              <span class="sa-trust-stat-hint">Verified sample</span>
-            </article>
-            <article class="sa-trust-stat">
-              <span class="sa-trust-stat-label">Result</span>
-              <strong class="sa-trust-stat-value sa-trust-gov sa-public-stat" data-phase0-verdict>—</strong>
-              <span class="sa-trust-stat-hint">Quality score <span data-phase0-score>—</span>/100</span>
-            </article>
-            <article class="sa-trust-stat">
-              <span class="sa-trust-stat-label">Project type</span>
-              <strong class="sa-trust-stat-value sa-public-stat" data-phase0-blueprint>—</strong>
-              <span class="sa-trust-stat-hint"><span data-phase0-status data-phase0-queue>Verify on the page</span></span>
-            </article>
-          </div>
-          <div class="ar-hero-actions" style="margin-top:1.25rem">
-            <a class="ar-btn ar-btn-primary sa-btn-glow" data-sa-proof-cta href="/sourcea/proof/live">See live receipt<span class="ar-btn-arrow">→</span></a>
-            <a class="ar-btn ar-btn-ghost" href="/sourcea/proof">How verification works</a>
-            <a class="ar-btn ar-btn-ghost" href="/start">48h MVP intake</a>
-          </div>
-        </div>
-      </section>
-
-      <a class="sa-scroll-cue" href="#who-are-you"><span class="sa-scroll-cue-dot"></span> Pick your lane</a>
-  </div>
-
-    <section class="sa-app-studio-teaser ar-section" id="next-generation-apps" aria-labelledby="sa-nextgen-title"><div class="ar-container">
-    <div class="sa-studio-teaser-head"><div><p class="ar-kicker">The source of what's next</p>
-      <h2 id="sa-nextgen-title">From the first spark to <span class="ar-hero-accent">the next breakout app.</span></h2>
-      <p>SourceA combines consumer product thinking, AI-native execution and distribution design. Ship something valuable, help people discover it and learn from what they actually do.</p></div>
-      <a class="sa-studio-teaser-link" href="/apps">Explore the App Studio <span aria-hidden="true">↗</span></a></div>
-    <div class="sa-studio-teaser-grid">
-      <a class="sa-studio-teaser-card sa-studio-mirra" href="https://mirra-psychology.vercel.app/" target="_blank" rel="noopener noreferrer"><span class="sa-teaser-type">01 / PSYCHOLOGY &amp; SELF-DISCOVERY</span><strong>MIRRA <span aria-hidden="true">↗</span></strong><span>Personality, reflection and meaningful connection.</span><small>INDEPENDENT FOUNDER PROJECT · PUBLIC PREVIEW</small></a>
-      <a class="sa-studio-teaser-card sa-studio-atelier" href="https://atelier-connection.vercel.app/" target="_blank" rel="noopener noreferrer"><span class="sa-teaser-type">02 / IDENTITY &amp; CONNECTION</span><strong>Atelier <span aria-hidden="true">↗</span></strong><span>Attraction, identity and intentional relationships.</span><small>INDEPENDENT FOUNDER PROJECT · ADULTS ONLY</small></a>
-      <a class="sa-studio-teaser-card sa-studio-forge" href="/sourcea/forge/terminal"><span class="sa-teaser-type">03 / EXECUTION ENGINE</span><strong>Forge <span aria-hidden="true">↗</span></strong><span>Scope an idea, execute work and inspect the output.</span><small>SOURCEA PLATFORM · TRY IN BROWSER</small></a>
-    </div><p class="sa-teaser-disclaimer">Showcased founder ventures retain their independent identity and ownership. Live previews are early products, not claims of funding, adoption or revenue.</p></div></section>
-
-  <section class="ar-section ar-section-muted ar-reveal" id="who-are-you" aria-label="What brings you here">
-    <div class="ar-container ar-section-head ar-section-head-center">
-      <p class="ar-kicker">What brings you here?</p>
-      <h2>One entry, <span class="ar-hero-accent">five real doors.</span></h2>
-      <p class="ar-section-copy">Commercial routing — not a calendar. Each path is self-serve proof, intake, or learn-by-doing today.</p>
-      <nav class="sa-segment-grid" aria-label="Audience segments">
-        <a class="sa-segment-card" href="/apps" data-sa-track="segment_startup">Building an app or new startup<em>Explore live apps · scope your idea</em></a>
-        <a class="sa-segment-card" href="/sourcea/proof/live" data-sa-track="segment_vc_proof">VC-grade production proof<em>Live factory receipt · audit-ready</em></a>
-        <a class="sa-segment-card" href="/learn" data-sa-track="segment_beginner">I'm new — show me how to start<em>Quiz → receipt → Forge · self-serve</em></a>
-        <a class="sa-segment-card" href="/sourcea/case-studies/" data-sa-track="segment_agency">Agency / client work<em>Case studies · client proof paths</em></a>
-        <a class="sa-segment-card" href="/forge/terminal" data-sa-track="segment_cursor">I use Cursor daily<em>Forge Terminal · lives in your stack</em></a>
-      </nav>
-    </div>
-  </section>
-
-  <section class="ar-section ar-reveal" id="problem">
-    <div class="ar-container ar-section-head ar-section-head-center" style="max-width:42rem;margin:0 auto">
-      <p class="ar-kicker">The problem</p>
-      <h2>Most AI asks you to <span class="ar-hero-accent">trust</span> it.</h2>
-      <p class="ar-section-copy">Most AI tools say "done" and move on. Work drifts. Clients ask questions you can't answer. You can't sell — or pass a review — on work you can't show. SourceA checks every job before you deliver it, and gives you a clear record to share.</p>
-    </div>
-  </section>
-
-  <section class="ar-section ar-section-muted ar-reveal" id="reframe">
-    <div class="ar-container">
-      <div class="ar-section-head ar-section-head-center">
-        <p class="ar-kicker">What SourceA is</p>
-        <h2>Verified delivery — <span class="ar-hero-accent">not just another chatbot.</span></h2>
-        <p class="ar-section-copy">AI suggests a plan. Your rules decide what's allowed. Work runs step by step. We check the result. Every job leaves a record — what was done, what was checked, and what you can show a client.</p>
-      </div>
-      <div class="sa-root-lanes">
-        <article class="sa-root-lane">
-          <p class="sa-root-lane-num">Founder</p>
-          <h3>Run an agentic startup</h3>
-          <p>Platform subscription · unified workspace · verified work on every project.</p>
-          <a href="/auth/sign-in">Sign in →</a>
-        </article>
-        <article class="sa-root-lane">
-          <p class="sa-root-lane-num">Builder</p>
-          <h3>Developer tools</h3>
-          <p>Turn requirements into scoped, reviewable work — with checks before anything ships.</p>
-          <a href="/sourcea/forge/">Prompt Forge →</a>
-        </article>
-        <article class="sa-root-lane">
-          <p class="sa-root-lane-num">Operator</p>
-          <h3>Use the full platform</h3>
-          <p>Chat Unify · email · cloud automation — one sign-in.</p>
-          <a href="/platform">Platform →</a>
-        </article>
-        <article class="sa-root-lane">
-          <p class="sa-root-lane-num">Evaluator</p>
-          <h3>See how it works</h3>
-          <p>Walkthroughs · comparisons · what to expect when you verify proof yourself.</p>
-          <a href="/sourcea/scenario">See examples →</a>
-        </article>
+      <div class="home-forge-detail" id="phase0-proof">
+        <h3 id="sa-phase0-proof-bar">Sample job receipt</h3>
+        <dl>
+          <div><dt>Scope</dt><dd>The requested outcome and constraints.</dd></div>
+          <div><dt>Output</dt><dd>The work produced for inspection.</dd></div>
+          <div><dt>Receipt</dt><dd>The checks used to assess the result.</dd></div>
+        </dl>
+        <a class="home-link" id="proof" href="/sourcea/proof">View a sample receipt <span aria-hidden="true">↗</span></a>
       </div>
     </div>
   </section>
 
-  <section class="ar-section ar-reveal" id="contract-skus">
-    <div class="ar-container">
-      <div class="ar-section-head ar-section-head-center">
-        <p class="ar-kicker">Enterprise contracts</p>
-        <h2>Three contract SKUs — <span class="ar-hero-accent">pick your lane.</span></h2>
-        <p class="ar-section-copy">Domain-scoped offers for operators, Canada regulated teams, and UK institutional buyers. Contract email on each page · technical proof at <a href="/eval">/eval</a>.</p>
-      </div>
-      <div class="ar-pricing-grid ar-stagger">
-        <article class="ar-price-card sa-card-lift">
-          <span class="ar-price-badge">Brain</span>
-          <h3>Operating Brain Install</h3>
-          <p>Definitions, policy gates, receipts, and routing — install the operating brain for AI-native execution.</p>
-          <a class="ar-btn ar-btn-ghost ar-btn-sm" href="/operating-brain-install">View offer →</a>
-        </article>
-        <article class="ar-price-card sa-card-lift">
-          <span class="ar-price-badge">Canada</span>
-          <h3>AI Value Governance</h3>
-          <p>Spend map, cost-to-value taxonomy, and board-ready governance sprint for regulated Canadian teams.</p>
-          <a class="ar-btn ar-btn-ghost ar-btn-sm" href="/ai-value-governance">View offer →</a>
-        </article>
-        <article class="ar-price-card sa-card-lift">
-          <span class="ar-price-badge">UK</span>
-          <h3>Enterprise AI Control Plane</h3>
-          <p>Six-layer telemetry, policy gate, and evidence chain for UK institutional control-plane buyers.</p>
-          <a class="ar-btn ar-btn-ghost ar-btn-sm" href="/enterprise-ai-control-plane">View offer →</a>
-        </article>
-      </div>
-      <p class="sa-decision-tree" style="max-width:44rem;margin:1.75rem auto 0;text-align:center;padding:1rem 1.25rem;border:1px dashed rgba(4,68,65,0.25);border-radius:12px;font-size:0.9rem;color:var(--ar-text-muted);line-height:1.65"><strong style="color:var(--ar-text)">Which offer?</strong> Operator → <a href="/operating-brain-install">Operating Brain</a> · Canada regulated → <a href="/ai-value-governance">AI Value Governance</a> · UK institutional → <a href="/enterprise-ai-control-plane">Enterprise Control Plane</a> · Enterprise OS → <a href="/enterprise-ai-control-plane">Governance OS</a></p>
+  <section class="home-shell home-section" id="work-with-us" aria-labelledby="home-partners-title">
+    <div class="home-section-heading">
+      <div><p class="home-label">WORK WITH SOURCEA</p><h2 id="home-partners-title">Bring an opportunity.</h2></div>
+      <a class="home-link" href="mailto:hello@sourcea.app">hello@sourcea.app</a>
     </div>
-  </section>
-
-  <section class="ar-section ar-reveal" id="proof">
-    <div class="ar-container">
-      <div class="ar-section-head ar-section-head-center">
-        <p class="ar-kicker">Proof</p>
-        <h2>Don't take our word for it. <span class="ar-hero-accent">That's the point.</span></h2>
-        <p class="ar-section-copy">Verified output on the page — not slides. One live receipt beats a hundred promises.</p>
-      </div>
-      <div class="ar-hero-actions" style="justify-content:center;margin-bottom:2rem">
-        <a class="ar-btn ar-btn-primary sa-btn-glow" href="/sourcea/forge/terminal">Try Forge Terminal</a>
-        <a class="ar-btn ar-btn-ghost" href="/sourcea/proof/live">See live receipt</a>
-        <a class="ar-btn ar-btn-ghost" href="/sourcea/scenario#proof-quiz">Proof quiz</a>
-      </div>
-      <p class="sa-metric-note" style="text-align:center">Every job on SourceA is designed to look like this — verifiable, every time.</p>
-    </div>
-  </section>
-
-  <section class="ar-section ar-section-muted ar-reveal" id="offers">
-    <div class="ar-container">
-      <div class="ar-section-head ar-section-head-center">
-        <p class="ar-kicker">What you can get</p>
-        <h2>Build · rent · own — <span class="ar-hero-accent">your lane.</span></h2>
-      </div>
-      <div class="ar-pricing-grid ar-stagger">
-        <article class="ar-price-card sa-card-lift">
-          <span class="ar-price-badge">Build</span>
-          <h3>Custom machine</h3>
-          <p class="ar-price">Fixed scope</p>
-          <ul>
-            <li>Your workflow · your rules · your output</li>
-            <li>Checked workflows · auditable every run</li>
-            <li>48-hour MVP path for fast ships</li>
-          </ul>
-          <a class="ar-btn ar-btn-ghost ar-btn-sm" href="/start">Request a build →</a>
-        </article>
-        <article class="ar-price-card is-featured sa-card-lift">
-          <span class="ar-price-badge">Rent</span>
-          <h3>Platform · SaaS</h3>
-          <p class="ar-price">From $2K<small>/mo</small></p>
-          <ul>
-            <li>Chat Unify · Forge · Cloud Workers</li>
-            <li>Team seats · machine dispatch</li>
-            <li>Every run verified · logged</li>
-          </ul>
-          <a class="ar-btn ar-btn-primary ar-btn-sm sa-btn-glow" href="/auth/sign-in">Sign in →</a>
-        </article>
-        <article class="ar-price-card sa-card-lift">
-          <span class="ar-price-badge">Own</span>
-          <h3>Licensed machine</h3>
-          <p class="ar-price">Custom</p>
-          <ul>
-            <li>Configured in your stack</li>
-            <li>Same checks and records</li>
-            <li>Enterprise · procurement ready</li>
-          </ul>
-          <a class="ar-btn ar-btn-ghost ar-btn-sm" href="mailto:hello@sourcea.app?subject=License%20inquiry">Talk to us →</a>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section class="ar-section ar-reveal" id="sandbox">
-    <div class="ar-container ar-section-head ar-section-head-center">
-      <p class="ar-kicker">Try it free</p>
-      <h2>Bring one real job. <span class="ar-hero-accent">Get verified output. Free.</span></h2>
-      <p class="ar-section-copy" style="max-width:36rem;margin:0 auto 1.5rem">Send us one task — we run it through our checks and send back output you can share with a client. No setup required.</p>
-      <div class="ar-hero-actions" style="justify-content:center">
-        <a class="ar-btn ar-btn-primary sa-btn-glow" href="/sourcea/factories/try-factory-demo">Start free trial →</a>
-        <a class="ar-btn ar-btn-ghost" href="/downloads/chat-unify-mac-v1.dmg" download="chat-unify-mac-v1.dmg">Download Chat Unify</a>
-      </div>
-    </div>
-  </section>
-
-  <section class="ar-section ar-section-muted ar-reveal" id="products">
-    <div class="ar-container">
-      <div class="ar-section-head ar-section-head-center">
-        <p class="ar-kicker">Products · sign in at <a href="/auth/sign-in">/auth/sign-in</a></p>
-        <h2>Build → verify → deliver → <span class="ar-hero-accent">grow.</span></h2>
-      </div>
-      <div class="sa-growth-flywheel ar-stagger">
-        <article class="sa-growth-stage sa-card-lift is-active">
-          <span class="sa-growth-stage-num">⚒</span>
-          <h3>Prompt Forge</h3>
-          <p>Requirements → scoped work your team can review.</p>
-          <a class="sa-flywheel-stage-link" href="/sourcea/forge/">Forge →</a>
-        </article>
-        <span class="sa-growth-arrow" aria-hidden="true">→</span>
-        <article class="sa-growth-stage sa-card-lift">
-          <span class="sa-growth-stage-num">◆</span>
-          <h3>Chat Unify</h3>
-          <p>One place to chat, check, and audit AI sessions.</p>
-          <a class="sa-flywheel-stage-link" href="/downloads/chat-unify-mac-v1.dmg">Download →</a>
-        </article>
-        <span class="sa-growth-arrow" aria-hidden="true">→</span>
-        <article class="sa-growth-stage sa-card-lift">
-          <span class="sa-growth-stage-num">✉</span>
-          <h3>Portfolio Mail</h3>
-          <p>Client outreach · tracked sends.</p>
-          <a class="sa-flywheel-stage-link" href="/platform">Platform →</a>
-        </article>
-        <span class="sa-growth-arrow" aria-hidden="true">→</span>
-        <article class="sa-growth-stage sa-card-lift">
-          <span class="sa-growth-stage-num">☁</span>
-          <h3>Cloud Workers</h3>
-          <p>Cloud automation · runs in the background.</p>
-          <a class="sa-flywheel-stage-link" href="/platform">Sign in →</a>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section class="sa-root-cta-band ar-reveal">
-    <div class="ar-container">
-      <h2>Stop guessing. Start showing clients real work.</h2>
-      <p>Try free — or sign in and use the full platform today.</p>
-      <div class="ar-hero-actions">
-        <a class="ar-btn ar-btn-primary sa-btn-glow" href="/sourcea/factories/try-factory-demo">Try it free →</a>
-        <a class="ar-btn ar-btn-ghost" href="/auth/sign-in">Sign in to Platform</a>
-      </div>
-      <p class="sa-root-global-line" style="margin-top:1.5rem;color:rgba(255,255,255,0.7)">Privacy-first · audit-ready · built for global teams</p>
+    <div class="home-grid home-grid-partners">
+      <article class="home-card" id="founders">
+        <h3>Founders</h3>
+        <p>Share the problem, the people it affects and the smallest useful version you want to build.</p>
+        <a class="home-link" href="/sourcea/start#sa-start-form" data-sa-event="home_founder_brief">Submit a build brief <span aria-hidden="true">↗</span></a>
+      </article>
+      <article class="home-card" id="operators">
+        <h3>Product &amp; growth operators</h3>
+        <p>Bring a distribution channel, a community or a product experiment we can run together.</p>
+        <a class="home-link" href="mailto:hello@sourcea.app?subject=SourceA%20operator%20partnership" data-sa-event="home_operator_contact">Discuss a partnership <span aria-hidden="true">↗</span></a>
+      </article>
+      <article class="home-card" id="investors">
+        <h3>Investors</h3>
+        <p>Explore the studio thesis, working previews and individual venture opportunities.</p>
+        <a class="home-link" href="mailto:hello@sourcea.app?subject=SourceA%20investor%20introduction" data-sa-event="home_investor_contact">Request an introduction <span aria-hidden="true">↗</span></a>
+      </article>
+      <article class="home-card" id="testers">
+        <h3>Early testers</h3>
+        <p>Try an app and tell us what made you want to share it or where you stopped.</p>
+        <a class="home-link" href="mailto:hello@sourcea.app?subject=SourceA%20early%20product%20feedback" data-sa-event="home_tester_contact">Send product feedback <span aria-hidden="true">↗</span></a>
+      </article>
     </div>
   </section>
 </main>
-
-
-
-<p class="sa-metric-note" style="margin-top:1.25rem;text-align:center">For developers: <a href="/sourcea/kernel/">Technical overview →</a></p>
-
-<footer class="ar-site-footer sa-footer-rich">
-  <div class="ar-container sa-footer-grid">
-    <div class="sa-footer-brand">
-      <strong class="sa-footer-logo">Source<span>A</span></strong>
-      <p>AI-native apps and ventures — powered by verified execution.</p>
-    </div>
-    <nav class="sa-footer-col">
-      <h4>Start</h4>
-      <a href="/learn">Learn &amp; build</a>
-      <a href="/eval">Technical overview</a>
-      <a href="/sourcea/factories/try-factory-demo">Try it free</a>
-      <a href="/auth/sign-in">Platform sign-in</a>
-      <a href="/downloads/">Download app</a>
-      <a href="/start">48h MVP</a>
-    </nav>
-    <nav class="sa-footer-col">
-      <h4>Proof</h4>
-      <a href="/sourcea/proof/live">Live demo</a>
-      <a href="/sourcea/scenario">Scenario</a>
-      <a href="/sourcea/compare">Compare</a>
-      <a href="/sourcea/">Full proof site</a>
-    </nav>
-    <nav class="sa-footer-col">
-      <h4>Build</h4>
-      <a href="/apps">App Studio</a>
-      <a href="/sourcea/forge/">Prompt Forge</a>
-      <a href="/sourcea/pricing">Pricing</a>
-      <a href="/sourcea/48h-mvp">48h MVP hub</a>
-    </nav>
-    <nav class="sa-footer-col" aria-label="Enterprise contracts">
-      <h4>Enterprise</h4>
-      <a href="/operating-brain-install">Operating Brain Install</a>
-      <a href="/ai-value-governance">AI Value Governance</a>
-      <a href="/enterprise-ai-control-plane">Enterprise Control Plane</a>
-    </nav>
-  </div>
-  <div class="ar-container sa-footer-bottom">
-    <p data-sa-relation-map style="font-size:0.85rem;margin-bottom:0.75rem;text-align:center">SourceA: build/execution · Noetfield: governance intelligence · TrustField: execution orchestration · Gateway: routing/intake</p>
-    <p>© 2026 <span data-sa-legal-entity>Noetfield Systems Inc.</span> · SourceA is a product of <span data-sa-legal-entity>Noetfield Systems Inc.</span> · <a href="/eval">sourcea-boot</a></p>
-    <p><a href="/privacy">Privacy</a> · <a href="/cookies">Cookies</a> · <a href="#" data-sa-manage-cookies>Cookie preferences</a> · <a href="/sourcea/security">Security</a></p>
-    <p>Global platform · verified delivery</p>
+<footer class="home-footer" id="products">
+  <div class="home-shell">
+    <a class="home-brand" href="/" aria-label="SourceA home"><span class="home-mark" aria-hidden="true">A</span>SourceA</a>
+    <nav aria-label="Footer"><a href="/apps">App Studio</a><a href="/sourcea/platform">Platform</a><a href="/eval">sourcea-boot eval</a><a href="/sourcea/security">Security</a><a href="/privacy">Privacy</a></nav>
+    <p>SourceA is a product of Noetfield Systems Inc.</p>
   </div>
 </footer>
-
-<script src="/assets/agentrun.js" defer></script>
-<script src="/sourcea/sourcea-public-display-v1.js" defer></script>
-<script src="/sourcea/sourcea-positioning-wire-v1.js" defer></script>
-<script src="/sourcea/sourcea-site-fallback-v1.js" defer></script>
-<script src="/sourcea/sourcea-cookie-consent-v1.js" defer></script>
-<script src="/sourcea/sourcea-site-ux-v1.js" defer></script>
-<script src="/sourcea/sourcea-site-pulse-v1.js" defer></script>
-<script src="/sourcea/sourcea-live-console.js" defer></script>
-<script src="/sourcea/sourcea-hero-console-v1.js" defer></script>
-<script src="/sourcea/sourcea-forge-hero-embed-v1.js" defer></script>
-<script src="/sourcea/sourcea-trust-bar.js" defer></script>
-<script src="/sourcea/sourcea-motion.js" defer></script>
-<script src="/sourcea/sourcea-boot-wire.js" defer></script>
-<script src="/sourcea/sourcea-cta-gate.js" defer></script>
-<script src="/sourcea/sourcea-site-interact-v1.js" defer></script>
-<script src="/sourcea/sourcea-chatbot.js" defer></script>
-<script src="/sourcea/sourcea-landing-cta.js" defer></script>
 </body>
 </html>

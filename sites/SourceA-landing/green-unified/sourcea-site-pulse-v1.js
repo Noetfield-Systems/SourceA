@@ -34,10 +34,13 @@
   }
 
   function pageMeta() {
+    const launchPage = document.body.classList.contains("studio-home");
+    const path = launchPage ? window.location.pathname : window.location.pathname + window.location.search;
+    const url = launchPage ? window.location.origin + path : window.location.href;
     return {
       page: document.body.dataset.saPage || document.title || "",
-      path: window.location.pathname + window.location.search,
-      url: window.location.href,
+      path,
+      url,
       session_id: sessionId(),
     };
   }
@@ -106,8 +109,12 @@
     document.addEventListener(
       "click",
       function (e) {
-        const el = e.target.closest("[data-sa-track]");
+        const el = e.target.closest("[data-sa-event], [data-sa-track]");
         if (!el) return;
+        if (el.dataset.saEvent) {
+          track(el.dataset.saEvent);
+          return;
+        }
         track("click", {
           label: el.getAttribute("data-sa-track") || el.textContent?.trim().slice(0, 80),
           href: el.getAttribute("href") || undefined,
@@ -253,6 +260,23 @@
     });
   }
 
+  let launchVisitTracked = false;
+  function trackLaunchVisit() {
+    if (launchVisitTracked || !document.body.classList.contains("studio-home")) return;
+    launchVisitTracked = true;
+    const query = new URLSearchParams(window.location.search);
+    const source = query.get("utm_source");
+    const medium = query.get("utm_medium");
+    const campaign = query.get("utm_campaign");
+    if (source === "app_studio" && medium === "share" && ["mirra", "atelier"].includes(campaign)) {
+      track("studio_invite_" + campaign + "_visit");
+    }
+    if (source === "specialist_crm" && medium === "outreach" &&
+        ["founders", "operators", "investors", "testers"].includes(campaign)) {
+      track("studio_outreach_" + campaign + "_visit");
+    }
+  }
+
   async function init() {
     if (window.SourceACookieConsent && window.SourceACookieConsent.whenReady) {
       await window.SourceACookieConsent.whenReady();
@@ -260,12 +284,14 @@
     await loadConfig();
     if (!window.SourceACookieConsent || window.SourceACookieConsent.has("analytics")) {
       track("pageview");
+      trackLaunchVisit();
       bindTrackClicks();
     }
     mountFeedbackFab();
     window.addEventListener("sourcea:consent-changed", function () {
       if (window.SourceACookieConsent.has("analytics")) {
         track("pageview");
+        trackLaunchVisit();
         bindTrackClicks();
       }
       if (window.SourceACookieConsent.has("functional")) {

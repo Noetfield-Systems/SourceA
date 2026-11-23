@@ -157,8 +157,8 @@
 
   <section class="sa-start-form-wrap" id="sa-start-form">
     <div class="sa-start-card">
-      <p class="sa-start-step-label">5 questions · ~2 minutes · confirmation after delivery</p>
-      <form id="sa-mvp-intake-form" class="sa-mvp-intake-form" novalidate>
+      <p class="sa-start-step-label">Build brief · about 2 minutes</p>
+      <form id="sa-mvp-intake-form" class="sa-mvp-intake-form" method="post" action="/api/commercial/mvp-intake/v1">
         <fieldset class="sa-start-fieldset">
           <legend class="sa-start-legend">1. What are you building?</legend>
           <div class="sa-start-options" role="group" aria-label="Project type">
@@ -176,6 +176,7 @@
         <fieldset class="sa-start-fieldset">
           <legend class="sa-start-legend">2. Live URL or example?</legend>
           <div class="ar-field">
+            <label for="sa-url">URL or product name (optional)</label>
             <input type="text" id="sa-url" name="url" placeholder="URL or product name (optional)" autocomplete="off" />
           </div>
         </fieldset>
@@ -199,6 +200,7 @@
         <fieldset class="sa-start-fieldset">
           <legend class="sa-start-legend">5. Your email</legend>
           <div class="ar-field">
+            <label for="sa-email">Email address</label>
             <input type="email" id="sa-email" name="email" required autocomplete="email" placeholder="you@company.com" />
           </div>
         </fieldset>
@@ -206,6 +208,7 @@
         <p class="sa-start-privacy" data-sa-privacy-note style="font-size:0.85rem;color:var(--ar-text-muted);margin:0 0 1rem;line-height:1.5">We use your details only to scope and respond to your request. No resale. No third-party sharing outside delivery tools.</p>
         <div class="sa-start-actions">
           <button type="submit" class="ar-btn ar-btn-primary sa-btn-glow" id="sa-start-submit">Submit project →</button>
+          <a class="ar-btn ar-btn-ghost ar-btn-sm" href="mailto:hello@sourcea.app?subject=SourceA%20build%20brief">Email your brief</a>
           <a class="ar-btn ar-btn-ghost ar-btn-sm" data-sa-book-fallback href="https://cal.com/sourcea/proof-demo">Prefer a walkthrough?</a>
         </div>
       </form>
@@ -215,7 +218,7 @@
   <section class="sa-start-form-wrap sa-start-hidden" id="sa-start-done" aria-live="polite">
     <div class="sa-start-card sa-start-done">
       <div class="sa-start-done-icon" aria-hidden="true">✓</div>
-      <h2>You're in.</h2>
+      <h2 tabindex="-1">Build brief received</h2>
       <p id="sa-start-done-msg">We will follow up by email once your request has been accepted. Urgent? <a href="mailto:hello@sourcea.app?subject=48h%20MVP%20-%20intake%20submitted">Email hello@sourcea.app</a>.</p>
       <p id="sa-start-ref-id" class="sa-metric-note" style="margin-top:0.75rem" hidden></p>
     </div>
@@ -226,7 +229,6 @@
   <div class="ar-container">
     <p style="text-align:center;font-size:0.85rem;color:var(--ar-text-muted);">
       © 2026 Noetfield Systems Inc. · SourceA is a product of Noetfield Systems Inc.
-      · <a href="mailto:contact@sourcea.app">contact@sourcea.app</a>
       · <a href="mailto:hello@sourcea.app?subject=48h%20MVP">hello@sourcea.app</a>
       · <a href="/sourcea/proof">Proof chain</a>
       · <a href="/eval">sourcea-boot eval</a>
@@ -235,7 +237,7 @@
 </footer>
 
 <noscript>
-  <p style="text-align:center;padding:1rem;">Email your brief to <a href="mailto:contact@sourcea.app">contact@sourcea.app</a> — or use the form above.</p>
+  <p style="text-align:center;padding:1rem;">With JavaScript disabled, email your brief to <a href="mailto:hello@sourcea.app">hello@sourcea.app</a>.</p>
 </noscript>
 
 <script src="/sourcea/sourcea-public-display-v1.js" defer></script>
