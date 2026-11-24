@@ -54,3 +54,7 @@ Report: `/dignity/report` → `POST /api/dignity/report` → private Vercel Blob
 ## Witness Stream v3 — systemic dignity and accountability
 
 The public `/dignity/stream` is an editorially curated, evidence-labelled collection of the Richmond first-hand community account (unverified) and three published, externally sourced official research briefs. `/dignity/process` explains the seven-stage workflow; `/dignity/operations` uses the private case event ledger for owner, priority, next-action date, evidence level and routing. No private complaint automatically appears in the public stream. See `docs/WITNESS_SYSTEMIC_STREAM_V3.md`.
+
+## Specialized systemic stream routing (v3.1)
+
+The seven-stage public systemic stream and protected case workboard now include explainable initial priority recommendations, conditional BC routes for eight categories, optional private safety/retaliation concern flags and an interactive routing explorer on `/dignity/process`. Operators can append factual next action, channel and outcome information. The public stream stays editorially curated and never automatically exposes private submissions. See `docs/DIGNITY_STREAM_V3_1.md`.
