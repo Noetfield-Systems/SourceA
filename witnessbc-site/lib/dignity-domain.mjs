@@ -22,7 +22,7 @@ export function normalize(input){
  if(evidence && !/^https:\/\//i.test(evidence))throw new Error('Evidence link must begin with https://');
  if(!['Once','Repeated','Unknown'].includes(frequency))throw new Error('Choose how often the issue occurred');
  if(input.consent!==true)throw new Error('Acknowledgement is required');
- return {category,role,place,when,account,evidence,reply,organization,desiredOutcome,frequency,sourceType:trim(input.sourceType,25)==='other'?'Second-hand account':'First-hand account',publicConsent:input.publicConsent===true};
+ return {category,role,place,when,account,evidence,reply,organization,desiredOutcome,frequency,sourceType:trim(input.sourceType,25)==='other'?'Second-hand account':'First-hand account',publicConsent:input.publicConsent===true,retaliationConcern:input.retaliationConcern===true,safetyConcern:input.safetyConcern===true};
 }
 export function newReceipt(){
  const id='WBC-'+new Date().toISOString().slice(0,10).replaceAll('-','')+'-'+randomBytes(10).toString('hex');
