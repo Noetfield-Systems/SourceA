@@ -1,5 +1,5 @@
 {
-  "schema": "witness.venture-strategy-guard.v4",
+  "schema": "witness.venture-strategy-guard.v5",
   "effective_at": "2026-11-23",
   "venture": "Witness BC",
   "canonical_thesis": "Independent Witness BC initiative: dignity first; community accountability and evidence-led support for vulnerable people and workers. Web3 builder activity is a separate optional lane.",
@@ -34,7 +34,9 @@
     "dignity/research",
     "dignity/research/income-assistance-access",
     "dignity/research/temporary-assignments",
-    "dignity/research/systemic-barriers"
+    "dignity/research/systemic-barriers",
+    "dignity/stream",
+    "dignity/process"
   ],
   "p0": [
     "Community dignity and public concerns",
@@ -104,8 +106,16 @@
     "rule": "Web3 changes strategy, content, users, economy and flows; it does NOT authorize changing original Witness UI, core brand or color without an explicit separate Founder request.",
     "acceptance": "Playwright tests original light Inter theme, slate-blue primary, hex mark, workbench, light-dark switch, and 320/390/1440 widths."
   },
-  "founder_directive_2026_11_23": "Dignity and vulnerable people are the core of Witness BC. Create public case tracking and journalist-friendly routes, while distinguishing reported accounts from verified findings. Persistent private intake, receipt tracking, operator lifecycle and referenced issue atlas take precedence over mailto-only intake.",
+  "founder_directive_2026_11_23": "Dignity and vulnerable people are the core of Witness BC. Create public case tracking and journalist-friendly routes, while distinguishing reported accounts from verified findings. Persistent private intake, receipt tracking, operator lifecycle and referenced issue atlas take precedence over mailto-only intake. Implement single systemic action stream: intake, safety, evidence, routing, documented response, corrective action and transparent editorial publication.",
   "legal_and_editorial_status": "Independent initiative. Not a government human rights tribunal, legal practice, or officially accredited media regulator.",
   "intake": "Private server-side Blob storage, authenticated operator and reporter receipt lookup; never autopublish unverified submissions.",
-  "public_research_policy": "Three sourced system briefs are third-party official research, not accepted Witness complaint reports or verified Witness outcomes."
+  "public_research_policy": "Three sourced system briefs are third-party official research, not accepted Witness complaint reports or verified Witness outcomes.",
+  "systemic_stream": {
+    "public": "/dignity/stream",
+    "method": "/dignity/process",
+    "internal": "/dignity/operations",
+    "rules": "docs/WITNESS_SYSTEMIC_STREAM_V3.md",
+    "private_by_default": true,
+    "no_auto_publication": true
+  }
 }

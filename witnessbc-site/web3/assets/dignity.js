@@ -47,20 +47,29 @@ if(tracking)tracking.addEventListener('submit',async e=>{
   txt('#dignityTrackFeedback','Receipt verified. Only permitted status details are shown.','success');
  }catch(err){$('#dignityStatusResult').hidden=true;txt('#dignityTrackFeedback',err.message,'error');}
 });
-let operatorKey=null,cursor=null;
+let operatorKey=null,cursor=null,loadedRows=[],currentWorkFilter='all';
 const operatorLogin=$('#dignityOperatorLogin');
 const operatorHeaders=()=>({'Authorization':'Bearer '+operatorKey});
 async function operatorGET(query=''){const r=await fetch('/api/dignity/admin'+query,{headers:operatorHeaders(),cache:'no-store'});const x=await r.json();if(!r.ok)throw Error(x.error||'Operator access failed');return x;}
-async function refreshOperator(query=''){
- const r=await operatorGET(query);cursor=r.nextCursor;const box=$('#dignityOperatorList');box.textContent='';
- for(const item of r.reports||[]){
-  const b=document.createElement('button');b.type='button';b.className='dignity-operator-entry';
-  b.textContent=item.id+' · '+item.status+' · '+item.category;
-  const small=document.createElement('small');small.textContent=item.place+' · '+item.createdAt+' · '+(item.organization||'No organization named');b.append(small);b.addEventListener('click',()=>detail(item.id));box.append(b);
+function renderOperatorBoard(){
+ const rows=loadedRows;
+ const due=rows.filter(item=>['due_today','overdue'].includes(item.due)).length;
+ const unassigned=rows.filter(item=>!item.owner||item.owner==='Unassigned').length;
+ const high=rows.filter(item=>['high','urgent'].includes(item.priority)).length;
+ for(const [selector,v] of [['#wstreamLoaded',rows.length],['#wstreamDue',due],['#wstreamUnassigned',unassigned],['#wstreamHigh',high]]){const el=$(selector);if(el)el.textContent=String(v);}
+ const shown=rows.filter(item=>currentWorkFilter==='all'||(currentWorkFilter==='due'&&['due_today','overdue'].includes(item.due))||(currentWorkFilter==='unassigned'&&(!item.owner||item.owner==='Unassigned'))||(currentWorkFilter==='priority'&&['high','urgent'].includes(item.priority)));
+ const box=$('#dignityOperatorList');box.textContent='';
+ for(const item of shown){
+  const b=document.createElement('button');b.type='button';b.className='dignity-operator-entry';b.textContent=item.id+' · '+item.status.replaceAll('_',' ')+' · '+item.category;
+  const small=document.createElement('small');small.textContent=[item.place,item.organization||'Organization not identified',item.priority+' priority',item.owner||'Unassigned',item.nextActionAt?('Next: '+item.nextActionAt):'Next action not scheduled',item.due==='overdue'?'OVERDUE':''].filter(Boolean).join(' · ');
+  b.append(small);b.addEventListener('click',()=>detail(item.id));box.append(b);
  }
- if(!r.reports?.length){const p=document.createElement('p');p.textContent='No reports on this page.';box.append(p);}
+ if(!shown.length){const p=document.createElement('p');p.className='dignity-note';p.textContent='No matching cases on the currently loaded page.';box.append(p);}
  $('#dignityNext').hidden=!cursor;
+ $$('.wstream-work-filters [data-work-filter]').forEach(b=>{const active=b.dataset.workFilter===currentWorkFilter;b.classList.toggle('active',active);b.setAttribute('aria-pressed',String(active));});
 }
+async function refreshOperator(query=''){const r=await operatorGET(query);cursor=r.nextCursor;loadedRows=r.reports||[];renderOperatorBoard();}
+$$('.wstream-work-filters [data-work-filter]').forEach(b=>b.addEventListener('click',()=>{currentWorkFilter=b.dataset.workFilter;renderOperatorBoard();}));
 async function detail(id){
  const r=await operatorGET('?id='+encodeURIComponent(id));const node=$('#dignityOperatorDetail');node.hidden=false;node.textContent='';
  const h=document.createElement('h2');h.textContent=id;node.append(h);
@@ -71,6 +80,8 @@ async function detail(id){
  const h2=document.createElement('h3');h2.textContent='Append-only event history';node.append(h2);
  for(const ev of r.events||[]){const p=document.createElement('p');p.textContent=ev.at+' · '+ev.status+' · '+ev.internalNote;node.append(p);}
  const form=$('#dignityOperatorUpdate');form.hidden=false;form.elements.namedItem('id').value=id;
+ const w=r.workstream||{};for(const name of ['priority','owner','nextActionAt','route','proofLevel']){const control=form.elements.namedItem(name);if(control&&w[name]!==undefined&&w[name]!==null)control.value=w[name];}
+ const hint=document.createElement('p');hint.className='dignity-note';hint.textContent='Suggested initial routing (not a verified formal referral): '+(w.suggestedChannel||'Manual review')+' · '+(w.suggestedWhy||'Confirm jurisdiction');node.append(hint);
 }
 if(operatorLogin)operatorLogin.addEventListener('submit',async e=>{
  e.preventDefault();operatorKey=val(operatorLogin,'key');txt('#dignityOperatorFeedback','Opening private review desk…');
@@ -83,8 +94,20 @@ $('#dignityLogout')?.addEventListener('click',()=>{operatorKey=null;$('#dignityO
 const update=$('#dignityOperatorUpdate');
 if(update)update.addEventListener('submit',async e=>{
  e.preventDefault();if(!update.reportValidity())return;txt('#dignityOperatorUpdateFeedback','Saving event…');
- try{const r=await post('/api/dignity/admin',{id:val(update,'id'),status:val(update,'status'),internalNote:val(update,'internalNote'),publicNote:val(update,'publicNote'),evidenceUrl:val(update,'evidenceUrl')},operatorHeaders());txt('#dignityOperatorUpdateFeedback','Event saved: '+r.status+' at '+r.at,'success');await detail(r.id);}
+ try{const r=await post('/api/dignity/admin',{id:val(update,'id'),status:val(update,'status'),internalNote:val(update,'internalNote'),publicNote:val(update,'publicNote'),evidenceUrl:val(update,'evidenceUrl'),owner:val(update,'owner'),priority:val(update,'priority'),nextActionAt:val(update,'nextActionAt'),route:val(update,'route'),proofLevel:val(update,'proofLevel')},operatorHeaders());txt('#dignityOperatorUpdateFeedback','Event saved: '+r.status+' at '+r.at,'success');await refreshOperator();await detail(r.id);}
  catch(err){txt('#dignityOperatorUpdateFeedback',err.message,'error');}
 });
+
+// The public stream only filters curated editorial records; no private case data is requested.
+const stream=$('#wstreamList');
+if(stream){
+ const entries=$$('#wstreamList [data-stream-kind]'),empty=$('#wstreamEmpty'),count=$('#wstreamCount');
+ $$('.wstream-filters [data-stream-filter]').forEach(button=>button.addEventListener('click',()=>{
+  const type=button.dataset.streamFilter;let visible=0;
+  entries.forEach(entry=>{const show=type==='all'||entry.dataset.streamKind===type;entry.hidden=!show;if(show)visible++;});
+  empty.hidden=visible!==0;count.textContent='Showing '+visible+' editorial record'+(visible===1?'':'s');
+  $$('.wstream-filters [data-stream-filter]').forEach(b=>{const active=b===button;b.classList.toggle('active',active);b.setAttribute('aria-pressed',String(active));});
+ }));
+}
 $$('.dignity-share').forEach(button=>button.addEventListener('click',async()=>{const url=button.dataset.url;if(!url)return;const done=await copy(url);button.textContent=done?'Public link copied':'Copy link: '+url;}));
 })();
