@@ -16,7 +16,7 @@ const forbidden=[/stripe/i,/noetfield/i,/mailto:/i,/institutional alignment/i,/C
 for(const name of htmlFiles){
  const html=fs.readFileSync(path.join(out,name),'utf8');
  assert.ok(html.startsWith('<!doctype html>'),'HTML5 document '+name);
- assert.match(html,/WITNESS BC · WEB3 COMMUNITY/);
+ assert.match(html,/WITNESS BC · DIGNITY FIRST/);
  assert.match(html,/href="\/genesis"/);
  assert.match(html,/assets\/app.css/);
  assert.match(html,/assets\/app.js/);
