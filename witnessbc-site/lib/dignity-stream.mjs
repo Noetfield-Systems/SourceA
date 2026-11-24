@@ -89,7 +89,7 @@ export function assessPriority(report){
  if(report?.frequency==='Repeated'){points+=2;reasons.push('Reporter describes recurrence');}
  if(report?.retaliationConcern===true){points+=2;reasons.push('Reporter indicates possible retaliation risk');}
  if(report?.safetyConcern===true){points+=3;reasons.push('Reporter indicated an urgent safety concern');}
- if(report?.category==='Accessibility'){points+=1;reasons.push('Potential access barrier requiring specific review');}
+ if(report?.category==='Accessibility'){points+=2;reasons.push('Potential access barrier requiring specific review');}
  const level=points>=3?'P1':points>=2?'P2':'P3';
  const targetHours=level==='P1'?24:level==='P2'?48:96;
  return {level,targetHours,reasons:reasons.length?reasons:['Standard community report — no urgent signals declared'],basis:'Operational triage only, not an evidence or legal finding'};
