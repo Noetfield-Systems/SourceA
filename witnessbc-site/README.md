@@ -50,3 +50,7 @@ Report: `/dignity/report` → `POST /api/dignity/report` → private Vercel Blob
 
 ### Real storage verification
 `GET /api/dignity/health` tests the private store connection. The Vercel build runs `scripts/smoke-dignity.mjs`, which submits a synthetic, unpublishable report through the actual handler, reads the private receipt with the tracking handler, and deletes the synthetic record. No synthetic report is a public case. Without storage credentials, local CI marks the smoke as skipped, not verified.
+
+## Dignity Stream v3 — November 23, 2026
+
+See `/dignity/stream` and `docs/DIGNITY_STREAM_V3.md`. Caseflow priority, BC-specific suggested routes, accountable case ownership, next action, internal follow-up due date, append-only event history and operator workload queue are connected to the existing private Blob system. No external complaint is automatically sent or asserted complete.
