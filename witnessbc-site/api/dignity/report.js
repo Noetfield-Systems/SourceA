@@ -1,4 +1,5 @@
 import {normalize,newReceipt,digest} from '../../lib/dignity-domain.mjs';
+import {prioritySuggestion} from '../../lib/dignity-triage.mjs';
 import {saveReport,readReport,rateCheck,recordRate,storeReady} from '../../lib/dignity-storage.mjs';
 const reply=(res,status,payload)=>{res.setHeader('Cache-Control','no-store');res.setHeader('X-Content-Type-Options','nosniff');return res.status(status).json(payload)};
 export default async function handler(req,res){
@@ -14,7 +15,7 @@ export default async function handler(req,res){
  try{limiter=await rateCheck(ip);}catch(e){return reply(res,503,{error:'Reporting storage cannot be reached. Nothing was saved.'});}
  if(!limiter.allowed)return reply(res,429,{error:'Too many reports from this connection today. Try again tomorrow.'});
  const {id,code}=newReceipt();
- const saved={id,createdAt:new Date().toISOString(),status:'received',receiptHash:digest(code),...report,private:true,source:'community',version:1};
+ const saved={id,createdAt:new Date().toISOString(),status:'received',receiptHash:digest(code),...report,private:true,source:'community',version:3,triageAtReceipt:prioritySuggestion(report)};
  try{
   await saveReport(saved);
   const check=await readReport(id);

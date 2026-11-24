@@ -1,3 +1,4 @@
+import {firstReview} from './dignity-triage.mjs';
 // Witness BC / Systemic Stream v3 — manual, evidence-led case management.
 // This module never determines wrongdoing, discrimination, or legal liability.
 export const PRIORITIES=['standard','high','urgent'];
@@ -31,10 +32,13 @@ export function validDate(s){
 export function routeFor(category){return ROUTES[category]||ROUTES.Other;}
 export function nextActions(report,events=[]){
  const current=events.at(-1)||{};
+ const initial=firstReview(report);
  const status=current.status||report.status||'received';
  const route=routeFor(report.category);
- return {status,owner:current.owner||'Unassigned',priority:PRIORITIES.includes(current.priority)?current.priority:'standard',
-  nextActionAt:current.nextActionAt||null,route:current.route||route.lane,proofLevel:current.proofLevel||'reported',
+ return {status,owner:current.owner||'Unassigned',priority:PRIORITIES.includes(current.priority)?current.priority:initial.priority,
+  nextActionAt:current.nextActionAt||initial.reviewBy,route:current.route||route.lane,proofLevel:current.proofLevel||'reported',
+  nextAction:current.nextAction||'Identify accountable policy, facts and case owner',channel:current.channel||null,outcomeType:current.outcomeType||null,
+  priorityReason:current.priority?'Operator-selected priority':initial.reasons.join('; '),
   lastActionAt:current.at||report.createdAt,sourceType:report.sourceType,category:report.category,
   suggestedChannel:route.primary,suggestedUrl:route.ref,suggestedWhy:route.why,
   evidenceCount:events.filter(e=>e.evidenceUrl).length,actionsRecorded:events.length};
@@ -50,6 +54,12 @@ export function validateEventWorkflow(data,previous='received'){
  const owner=String(data.owner||'').trim();
  const nextActionAt=String(data.nextActionAt||'').trim();
  const route=String(data.route||'').trim();
+ const nextAction=String(data.nextAction||'').trim();
+ const channel=String(data.channel||'').trim();
+ const outcomeType=String(data.outcomeType||'').trim();
+ const allowedOutcomes=['Policy clarified','Staff training','Procedure changed','Accessibility improved','Written response','Referred externally','Unresolved','Withdrawn','Other'];
+ if(nextAction.length>600||channel.length>80)throw new Error('Next action or channel label too long');
+ if(outcomeType&&!allowedOutcomes.includes(outcomeType))throw new Error('Unsupported outcome type');
  if(!PRIORITIES.includes(priority))throw new Error('Unknown priority');
  if(!PROOF_LEVELS.includes(proofLevel))throw new Error('Unknown evidence classification');
  if(owner.length>100||route.length>130)throw new Error('Owner or routing note is too long');
@@ -59,7 +69,7 @@ export function validateEventWorkflow(data,previous='received'){
  // Repeated status events are legitimate evidence or follow-up updates. Operators cannot silently alter old events.
  const terminal=previous==='closed'&&data.status!=='corrected'&&data.status!=='closed';
  if(terminal)throw new Error('A closed case must be reopened by an explicit correction, not silently changed');
- return {priority,proofLevel,owner:owner||'Unassigned',nextActionAt:nextActionAt||null,route:route||null};
+ return {priority,proofLevel,owner:owner||'Unassigned',nextActionAt:nextActionAt||null,route:route||null,nextAction:nextAction||null,channel:channel||null,outcomeType:outcomeType||null};
 }
 export function publicEligible({permission=false,redacted=false,editorApproval=false,sourceCheck=false,rightOfReply=false}={}){
  return Boolean(permission&&redacted&&editorApproval&&sourceCheck&&rightOfReply);

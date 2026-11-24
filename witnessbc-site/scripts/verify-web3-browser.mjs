@@ -87,6 +87,12 @@ try{
   await page.locator('#dignityReceipt').waitFor({state:'visible',timeout:7000});
   assert.ok(await page.locator('#dignityReceipt').isVisible(),'Receipt shown only for simulated successful storage response');
   await page.unroute('**/api/dignity/report');
+  await page.route('**/api/dignity/routes',async target=>target.fulfill({status:200,contentType:'application/json',body:JSON.stringify({routes:{'Retail / customer service':{system:'Merchant policy test',first:'Escalate to the merchant',referrals:[{name:'Consumer Protection BC',url:'https://www.consumerprotectionbc.ca/complaint-assistant/',when:'Only for regulated matters',note:'Not routine rudeness'}]}}})}));
+  await page.goto(route('dignity/process'),{waitUntil:'domcontentloaded'});
+  await page.locator('#dignityRouteCategory').selectOption('Retail / customer service');
+  await page.locator('#dignityRouteSystem').getByText('Merchant policy test').waitFor({state:'visible'});
+  assert.ok(await page.locator('#dignityRouteList a').count(),'Jurisdiction link rendered without transmitting a report');
+  await page.unroute('**/api/dignity/routes');
   assert.deepEqual(errors,[],width+'px JS errors');
   await page.close();
   console.log('PASS WITNESS WEB3 '+width+'px: 25 routes, real Genesis links, 3 quests, 2 policy interactions, navigation, no overflow/errors');

@@ -17,7 +17,9 @@ if(report){
   evidence:val(report,'evidence'),reply:val(report,'reply'),organization:val(report,'organization'),
   frequency:val(report,'frequency'),desiredOutcome:val(report,'desiredOutcome'),
   consent:Boolean(report.elements.namedItem('consent')?.checked),publicConsent:Boolean(report.elements.namedItem('publicConsent')?.checked),
-  website:val(report,'website')
+  website:val(report,'website'),
+  retaliationConcern:Boolean(report.elements.namedItem('retaliationConcern')?.checked),
+  safetyConcern:Boolean(report.elements.namedItem('safetyConcern')?.checked)
  });
  const textDraft=()=>{const d=compose();return 'Witness BC report\n'+Object.entries(d).filter(([k])=>!['website','consent','publicConsent'].includes(k)).map(([k,v])=>k+': '+v).join('\n');};
  report.addEventListener('submit',async e=>{
@@ -80,7 +82,7 @@ async function detail(id){
  const h2=document.createElement('h3');h2.textContent='Append-only event history';node.append(h2);
  for(const ev of r.events||[]){const p=document.createElement('p');p.textContent=ev.at+' · '+ev.status+' · '+ev.internalNote;node.append(p);}
  const form=$('#dignityOperatorUpdate');form.hidden=false;form.elements.namedItem('id').value=id;
- const w=r.workstream||{};for(const name of ['priority','owner','nextActionAt','route','proofLevel']){const control=form.elements.namedItem(name);if(control&&w[name]!==undefined&&w[name]!==null)control.value=w[name];}
+ const w=r.workstream||{};for(const name of ['priority','owner','nextActionAt','route','proofLevel','nextAction','channel','outcomeType']){const control=form.elements.namedItem(name);if(control&&w[name]!==undefined&&w[name]!==null)control.value=w[name];}
  const hint=document.createElement('p');hint.className='dignity-note';hint.textContent='Suggested initial routing (not a verified formal referral): '+(w.suggestedChannel||'Manual review')+' · '+(w.suggestedWhy||'Confirm jurisdiction');node.append(hint);
 }
 if(operatorLogin)operatorLogin.addEventListener('submit',async e=>{
@@ -94,7 +96,7 @@ $('#dignityLogout')?.addEventListener('click',()=>{operatorKey=null;$('#dignityO
 const update=$('#dignityOperatorUpdate');
 if(update)update.addEventListener('submit',async e=>{
  e.preventDefault();if(!update.reportValidity())return;txt('#dignityOperatorUpdateFeedback','Saving event…');
- try{const r=await post('/api/dignity/admin',{id:val(update,'id'),status:val(update,'status'),internalNote:val(update,'internalNote'),publicNote:val(update,'publicNote'),evidenceUrl:val(update,'evidenceUrl'),owner:val(update,'owner'),priority:val(update,'priority'),nextActionAt:val(update,'nextActionAt'),route:val(update,'route'),proofLevel:val(update,'proofLevel')},operatorHeaders());txt('#dignityOperatorUpdateFeedback','Event saved: '+r.status+' at '+r.at,'success');await refreshOperator();await detail(r.id);}
+ try{const r=await post('/api/dignity/admin',{id:val(update,'id'),status:val(update,'status'),internalNote:val(update,'internalNote'),publicNote:val(update,'publicNote'),evidenceUrl:val(update,'evidenceUrl'),owner:val(update,'owner'),priority:val(update,'priority'),nextActionAt:val(update,'nextActionAt'),route:val(update,'route'),proofLevel:val(update,'proofLevel'),nextAction:val(update,'nextAction'),channel:val(update,'channel'),outcomeType:val(update,'outcomeType')},operatorHeaders());txt('#dignityOperatorUpdateFeedback','Event saved: '+r.status+' at '+r.at,'success');await refreshOperator();await detail(r.id);}
  catch(err){txt('#dignityOperatorUpdateFeedback',err.message,'error');}
 });
 
@@ -108,6 +110,27 @@ if(stream){
   empty.hidden=visible!==0;count.textContent='Showing '+visible+' editorial record'+(visible===1?'':'s');
   $$('.wstream-filters [data-stream-filter]').forEach(b=>{const active=b===button;b.classList.toggle('active',active);b.setAttribute('aria-pressed',String(active));});
  }));
+}
+
+// The sector guide is a public, read-only explainer; it never transmits a report.
+const routeChooser=$('#dignityRouteCategory');
+if(routeChooser){
+ const render=rule=>{
+  $('#dignityRouteSystem').textContent=rule?.system||'System-level review required';
+  $('#dignityRouteFirst').textContent=rule?.first||'Clarify the responsible operator and policy.';
+  const box=$('#dignityRouteList');box.replaceChildren();
+  for(const item of rule?.referrals||[]){
+   const row=document.createElement('article');row.className='dignity-route-referral';
+   const h=document.createElement(item.url?'a':'strong');h.textContent=item.name+(item.url?' ↗':'');
+   if(item.url){h.href=item.url;h.target='_blank';h.rel='noopener noreferrer';}
+   const p=document.createElement('p');p.textContent=item.when+'. '+item.note;
+   row.append(h,p);box.append(row);
+  }
+ };
+ fetch('/api/dignity/routes',{cache:'force-cache'}).then(async r=>{
+  if(!r.ok)throw Error('Routing temporarily unavailable');return r.json();
+ }).then(data=>{const draw=()=>render(data.routes?.[routeChooser.value]);routeChooser.addEventListener('change',draw);draw();})
+ .catch(()=>{const p=document.createElement('p');p.textContent='Routing information is temporarily unavailable; private report submissions remain independent of this guide.';$('#dignityRouteList').replaceChildren(p);});
 }
 $$('.dignity-share').forEach(button=>button.addEventListener('click',async()=>{const url=button.dataset.url;if(!url)return;const done=await copy(url);button.textContent=done?'Public link copied':'Copy link: '+url;}));
 })();

@@ -301,3 +301,16 @@ h3{letter-spacing:-.035em}
 @media(max-width:900px){.wstream-promo{grid-template-columns:1fr}.wstream-figures{gap:10px}.wstream-workboard{grid-template-columns:repeat(2,minmax(0,1fr))}.wstream-section-head{align-items:start;flex-direction:column}.wstream-process{grid-template-columns:1fr}}
 @media(max-width:600px){.wstream-figures{grid-template-columns:1fr 1fr;row-gap:20px;margin-top:35px}.wstream-figures>div:last-child{grid-column:1/-1}.wstream-entry{grid-template-columns:1fr;gap:13px}.wstream-rail{justify-content:start;gap:10px}.wstream-hero{padding:60px 0 50px}.wstream-workboard{gap:12px}}
 @media(prefers-reduced-motion:no-preference){.wstream-entry{transition:background .2s ease}.wstream-entry:hover{background:rgba(14,116,144,.025)}}
+
+/* Witness BC / jurisdiction route explorer, preserving the original Witness palette */
+.dignity-routing-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:28px;margin:32px 0}
+.dignity-routing-results{border:1px solid var(--line-heavy);border-radius:14px;background:var(--panel);padding:27px}
+.dignity-routing-results h3{font-size:23px;margin:13px 0}.dignity-routing-results p{color:var(--soft);line-height:1.8;font-size:14px}
+.dignity-routing-label{font-weight:750;font-size:14px;display:block;margin-bottom:12px}
+.dignity-routing-select{background:var(--panel);color:var(--text);border:1px solid var(--line-heavy);border-radius:8px;width:100%;padding:14px;font-size:16px;min-height:50px;margin-bottom:13px}
+.dignity-route-referral{padding:15px 0;border-top:1px solid var(--line)}
+.dignity-route-referral strong,.dignity-route-referral a{font-size:15px;font-weight:750}
+.dignity-route-referral a{color:var(--mint);text-decoration:underline;text-underline-offset:3px}
+.dignity-triage-flags{display:grid;gap:12px;border:1px solid var(--line-heavy);padding:17px;border-radius:10px}
+.dignity-triage-flags legend{font-weight:750;padding:0 7px}
+@media(max-width:770px){.dignity-routing-grid{grid-template-columns:1fr}.dignity-routing-results{padding:20px}}

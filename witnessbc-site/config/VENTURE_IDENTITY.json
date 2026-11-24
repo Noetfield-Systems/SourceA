@@ -60,7 +60,7 @@
     "Web3-specific X",
     "member referral"
   ],
-  "outbound_mail": "Only Witness-owned sender with explicit authorization; public inbound report draft to hello@witnessbc.com. Do not use another venture identity.",
+  "outbound_mail": "Only verified Witness-owned sender and actual dated evidence for organizational outreach. Real inbound reports use Witness-owned private submission API; do not represent draft messages as sent.",
   "forbidden_legacy_public": [
     "B2B consultancy",
     "government and institution targeting",
@@ -117,5 +117,6 @@
     "rules": "docs/WITNESS_SYSTEMIC_STREAM_V3.md",
     "private_by_default": true,
     "no_auto_publication": true
-  }
+  },
+  "dignity_systemic_routing_v3_1": "Conditional BC sector routing, 1/2/3 business-day internal first-review recommendations, private safety/retaliation signals and casework next-action outcomes. No automatic complaints or public finding."
 }

@@ -17,7 +17,7 @@ export default async function handler(req,res){
   }catch(e){console.error('dignity-admin-read-error',e?.name);return response(res,503,{error:'Cannot read case records'});}
  }
  if(req.method==='POST'){
-  const {id,status,internalNote,publicNote,evidenceUrl,owner,priority,nextActionAt,route,proofLevel}=req.body||{};
+  const {id,status,internalNote,publicNote,evidenceUrl,owner,priority,nextActionAt,route,proofLevel,nextAction,channel,outcomeType}=req.body||{};
   if(!validId(id)||!STATES.includes(status))return response(res,400,{error:'Invalid case or status'});
   if(typeof internalNote!=='string'||internalNote.trim().length<5||internalNote.length>2000)return response(res,400,{error:'Record a factual internal reason (5–2000 characters)'});
   if(evidenceUrl && (typeof evidenceUrl!=='string'||!/^https:\/\//i.test(evidenceUrl)||evidenceUrl.length>600))return response(res,400,{error:'Evidence URL must be HTTPS'});
@@ -28,7 +28,7 @@ export default async function handler(req,res){
    const prior=await readEvents(id);
    const last=nextActions(report,prior);
    let work;
-   try{work=validateEventWorkflow({status,evidenceUrl,owner:owner||last.owner,priority:priority||last.priority,nextActionAt:nextActionAt===undefined?last.nextActionAt:nextActionAt,route:route||last.route,proofLevel:proofLevel||last.proofLevel},last.status);}
+   try{work=validateEventWorkflow({status,evidenceUrl,owner:owner||last.owner,priority:priority||last.priority,nextActionAt:nextActionAt===undefined?last.nextActionAt:nextActionAt,route:route||last.route,proofLevel:proofLevel||last.proofLevel,nextAction:nextAction===undefined?last.nextAction:nextAction,channel:channel===undefined?last.channel:channel,outcomeType:outcomeType===undefined?last.outcomeType:outcomeType},last.status);}
    catch(e){return response(res,400,{error:e.message});}
    const event={id,status,at:new Date().toISOString(),internalNote:internalNote.trim(),publicNote:String(publicNote||'').trim(),evidenceUrl:String(evidenceUrl||'').trim(),...work,by:'Witness BC operator'};
    await saveEvent(id,event);
