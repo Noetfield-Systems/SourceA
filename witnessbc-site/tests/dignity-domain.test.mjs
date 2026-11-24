@@ -6,3 +6,5 @@ test('consent and valid category mandatory',()=>{assert.throws(()=>normalize({..
 test('invalid email and URL refused',()=>{assert.throws(()=>normalize({...good,reply:'not-an-email'}),/email/);assert.throws(()=>normalize({...good,evidence:'http://example.com'}),/https/);});
 test('spam honeypot is rejected',()=>assert.throws(()=>normalize({...good,website:'spam'}),/rejected/));
 test('receipt is unique, unguessable and checks with constant comparison',()=>{const a=newReceipt(),b=newReceipt();assert.ok(validId(a.id));assert.notEqual(a.id,b.id);assert.notEqual(a.code,b.code);assert.equal(constantEquals(digest(a.code),digest(a.code)),true);assert.equal(constantEquals(digest(a.code),digest(b.code)),false);});
+
+test('priority flags are optional booleans in private intake',()=>{const a=normalize({...good,retaliationConcern:true,safetyConcern:false});assert.equal(a.retaliationConcern,true);assert.equal(a.safetyConcern,false);});
