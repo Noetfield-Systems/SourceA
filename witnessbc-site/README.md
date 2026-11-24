@@ -50,3 +50,7 @@ Report: `/dignity/report` → `POST /api/dignity/report` → private Vercel Blob
 
 ### Real storage verification
 `GET /api/dignity/health` tests the private store connection. The Vercel build runs `scripts/smoke-dignity.mjs`, which submits a synthetic, unpublishable report through the actual handler, reads the private receipt with the tracking handler, and deletes the synthetic record. No synthetic report is a public case. Without storage credentials, local CI marks the smoke as skipped, not verified.
+
+## Witness Stream v3 — systemic dignity and accountability
+
+The public `/dignity/stream` is an editorially curated, evidence-labelled collection of the Richmond first-hand community account (unverified) and three published, externally sourced official research briefs. `/dignity/process` explains the seven-stage workflow; `/dignity/operations` uses the private case event ledger for owner, priority, next-action date, evidence level and routing. No private complaint automatically appears in the public stream. See `docs/WITNESS_SYSTEMIC_STREAM_V3.md`.
