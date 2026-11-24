@@ -1,5 +1,5 @@
 {
-  "schema": "witness.venture-strategy-guard.v4",
+  "schema": "witness.venture-strategy-guard.v5",
   "effective_at": "2026-11-23",
   "venture": "Witness BC",
   "canonical_thesis": "Independent Witness BC initiative: dignity first; community accountability and evidence-led support for vulnerable people and workers. Web3 builder activity is a separate optional lane.",
@@ -34,7 +34,8 @@
     "dignity/research",
     "dignity/research/income-assistance-access",
     "dignity/research/temporary-assignments",
-    "dignity/research/systemic-barriers"
+    "dignity/research/systemic-barriers",
+    "dignity/stream"
   ],
   "p0": [
     "Community dignity and public concerns",
@@ -58,7 +59,7 @@
     "Web3-specific X",
     "member referral"
   ],
-  "outbound_mail": "Only Witness-owned sender with explicit authorization; public inbound report draft to hello@witnessbc.com. Do not use another venture identity.",
+  "outbound_mail": "Only Witness-owned sender and actual sent receipts for outbound letters; private community intake is the dedicated Witness BC API, not mailto-only.",
   "forbidden_legacy_public": [
     "B2B consultancy",
     "government and institution targeting",
@@ -71,7 +72,7 @@
   ],
   "revenue_and_economy": "Community native economics, optional funded missions and verified crypto payments when actually supported and authorized; no fabricated cash or token.",
   "live_status_rule": "Pilot blueprint is not an officially founder-published community; member and XP records require real authenticated users.",
-  "production_rule": "Publish 10 Web3 builder pages and 6 dignity/community pages; never revive retired institutional consultancy or checkout.",
+  "production_rule": "Publish 24 allowlisted pages, 5 static assets and separate private Dignity Stream API endpoints, excluding legacy institutional consultancy and checkout.",
   "rights": "No implied venture equity, company IP rights, or profit share.",
   "owner_signature_authority": "Must be Witness-specific and explicitly authorized for any outbound communication. Never reuse another venture's account solely because it is connected.",
   "future_agents": "Latest Founder directive 2026-11-23 supersedes older Web3-only website scope. Witness BC dignity and community protection are primary.",
@@ -107,5 +108,6 @@
   "founder_directive_2026_11_23": "Dignity and vulnerable people are the core of Witness BC. Create public case tracking and journalist-friendly routes, while distinguishing reported accounts from verified findings. Persistent private intake, receipt tracking, operator lifecycle and referenced issue atlas take precedence over mailto-only intake.",
   "legal_and_editorial_status": "Independent initiative. Not a government human rights tribunal, legal practice, or officially accredited media regulator.",
   "intake": "Private server-side Blob storage, authenticated operator and reporter receipt lookup; never autopublish unverified submissions.",
-  "public_research_policy": "Three sourced system briefs are third-party official research, not accepted Witness complaint reports or verified Witness outcomes."
+  "public_research_policy": "Three sourced system briefs are third-party official research, not accepted Witness complaint reports or verified Witness outcomes.",
+  "dignity_stream": "Nine-stage evidence-labelled community concern workflow: private record, priority and routing, owner and next action, internal target date, actual organization correspondence, verified outcome. No accusation against identified employees or unverified systemic legal finding."
 }
